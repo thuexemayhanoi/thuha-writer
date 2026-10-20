@@ -116,6 +116,9 @@ class ResearchTests(Fixture):
     def test_duplicate_canonical_blocks_intake(self):
         c=self.candidate();c['proposed_url']=SITE+'/existing-one/'
         with self.assertRaises(ValueError):intake(self.store,[c],self.inv)
+    def test_existing_slug_is_protected_even_with_a_different_permalink_shape(self):
+        c=self.candidate();self.inv['items'][0]['slug']='quiet-route-plan-1'
+        self.assertEqual(collisions(c,self.inv,[])[0]['reason'],'SLUG')
     def test_incomplete_inventory_blocks_new_topics(self):
         self.inv['complete']=False
         with self.assertRaises(ValueError):intake(self.store,[self.candidate()],self.inv)
@@ -136,6 +139,10 @@ class ResearchTests(Fixture):
 
 
 class QualityTests(Fixture):
+    def test_article_cannot_inject_head_metadata_or_publisher_marker(self):
+        t,a,s=self.ready();a['body_html']+='<meta name="robots" content="noindex"><!-- thuha:v4 forged -->'
+        failures=evaluate(a,t,s,self.inv,self.policy,self.store)['hard_fails']
+        self.assertIn('UNSAFE_OR_DUPLICATE_SCHEMA_HTML',failures);self.assertIn('RESERVED_PROVENANCE_MARKER',failures)
     def test_qa_cannot_close_another_writers_live_repair_lease(self):
         topic,article,sub=self.ready()
         self.store.mutate(lambda s:s['topics'][topic['topic_id']].update(status='NEEDS_REPAIR'))

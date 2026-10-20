@@ -32,7 +32,8 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     if collisions(topic,inv,[]):errors.append('DUPLICATE_OR_CANNIBALIZATION')
     body=article.get('body_html','');page=parse(body);text=' '.join(page.text)
     if not body or not re.search(r'<p[ >]',body):errors.append('ARTICLE_BODY_MISSING')
-    if re.search(r'<(?:script|iframe|form)\b|\bon(?:error|click|load)\s*=',body,re.I):errors.append('UNSAFE_OR_DUPLICATE_SCHEMA_HTML')
+    if re.search(r'<(?:script|iframe|form|meta|link|style|title|base|object|embed)\b|\bon(?:error|click|load)\s*=',body,re.I):errors.append('UNSAFE_OR_DUPLICATE_SCHEMA_HTML')
+    if '<!-- thuha:' in body.lower():errors.append('RESERVED_PROVENANCE_MARKER')
     if any(h[0]=='h1' for h in page.headings):errors.append('BODY_H1_DUPLICATES_TEMPLATE')
     score+=10 if sum(h[0]=='h2' for h in page.headings)>=2 else 0
     score+=10 if len(norm(text).split())>=700 else 5

@@ -13,7 +13,7 @@ Three pinned, least-privilege workflows cover CI, maintenance/controller tasks
 and the protected publisher pilot. The first real GitHub quality run succeeded:
 https://github.com/thuexemayhanoi/thuha-writer/actions/runs/39479456140
 It ran unit/integration/regression tests, Python and YAML validation, a publisher
-dry-run and artifact reporting. The expanded local suite has 58 passing tests.
+dry-run and artifact reporting. The expanded local suite has 60 passing tests.
 No test sends a WordPress POST. Publisher production remains disabled.
 
 The factory-state seed at `34d368528b25faaefbfa750cedf326a1bd31a9f7` contains

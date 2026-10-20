@@ -21,12 +21,13 @@ def collisions(topic,inv,queue):
     hits=[]
     for old in inv['items']+list(queue):
         sameurl=any(urlkey(x)==urlkey(topic['proposed_url']) for x in [old.get('url'),old.get('canonical'),old.get('proposed_url')] if x)
+        same_slug=bool(old.get('slug') and old['slug']==topic['proposed_url'].removeprefix(SITE+'/').rstrip('/'))
         exact_intent=bool(old.get('search_intent') not in (None,'UNREVIEWED') and norm(old['search_intent'])==norm(topic['search_intent']))
         a=set(norm(topic['proposed_title']).split());b=set(norm(old.get('title',old.get('proposed_title',''))).split())
         similar=len(a&b)/max(1,len(a|b))>=.72
-        if sameurl or exact_intent or similar:
+        if sameurl or same_slug or exact_intent or similar:
             hits.append({'id':old.get('id',old.get('topic_id')),'url':old.get('url',old.get('proposed_url')),
-                         'reason':'URL' if sameurl else 'INTENT' if exact_intent else 'TITLE_REVIEW'})
+                         'reason':'URL' if sameurl else 'SLUG' if same_slug else 'INTENT' if exact_intent else 'TITLE_REVIEW'})
     return hits
 
 
