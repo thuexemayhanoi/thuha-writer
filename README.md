@@ -1,7 +1,7 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**Phase 1: audit-only foundation. No publication or remote WordPress writes are enabled.**
+**V4 implementation in progress. WordPress production publishing remains OFF.**
 
 Repository: `thuexemayhanoi/thuha-writer`  
 Language: English (en-US)  
@@ -35,5 +35,11 @@ Create an original WordPress editorial factory, informed by architectural study 
 7. **Controlled scale** — progressively expand toward 2,000 independently verified posts.
 
 Read `docs/PHASE-01-AUDIT.md` and `docs/EXECUTION-ROADMAP.md` before implementing automation.
+
+Current implementation: [V4 architecture and boundaries](docs/V4-IMPLEMENTATION.md).
+Run `PYTHONPATH=src python3 -m unittest discover -s tests -v` and
+`PYTHONPATH=src python3 -m thuha.cli --help`. The complete technical inventory
+and protected URLs are under `reports/live-audit/`. There is no paid AI API
+dependency and no automatic AI prose generation inside GitHub Actions.
 
 **Counting rule:** Historical reports mentioning 107 published posts are not a fresh count. Reconcile directly with WordPress and only attribute articles to an agent when explicit provenance and readback evidence exist.

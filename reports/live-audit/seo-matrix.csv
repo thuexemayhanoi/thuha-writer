@@ -1,0 +1,484 @@
+priority,post_id,url,issue,evidence,action
+P2,150,https://rentbikehanoi.com/cheap-motorbike-rental-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,156,https://rentbikehanoi.com/hanoi-motorbike-for-sale/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,156,https://rentbikehanoi.com/hanoi-motorbike-for-sale/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,211,https://rentbikehanoi.com/motorbike-rental-prices-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,218,https://rentbikehanoi.com/motorbike-rental-hanoi-how-to-choose-the-right-bike/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,227,https://rentbikehanoi.com/motorbike-rental-hanoi-delivery-and-pickup-guide-complete-service-overview-2025/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,233,https://rentbikehanoi.com/motorbike-rental-hanoi-tips-for-safe-riding-complete-safety/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,239,https://rentbikehanoi.com/motorbike-renting-in-hanoi-requirements/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,246,https://rentbikehanoi.com/motorbike-hire-hanoi-common-maintenance-and-repairs/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,252,https://rentbikehanoi.com/motorbike-hire-hanoi-how-to-extend-your-rental-period/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,256,https://rentbikehanoi.com/motorbike-hire-hanoi-complete-guide-to-common-maintenance-and-repairs/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,261,https://rentbikehanoi.com/motorbike-renting-hanoi-safety-tips-for-hanoi-traffic/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,265,https://rentbikehanoi.com/motorbike-rental-hanoi-recommended-motorcycle-accessories/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,269,https://rentbikehanoi.com/motorbike-rental-hanoi-best-day-trips-around-the-city/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,274,https://rentbikehanoi.com/motorbike-rental-hanoi-your-complete-guide-to-50cc-bikes-without-license-requirements/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,278,https://rentbikehanoi.com/motorbike-renting-hanoi-your-ultimate-guide-to-50cc-options-for-beginners/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,283,https://rentbikehanoi.com/guide-to-renting-50cc-motorbikes-in-hanoi-without-a-license/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,289,https://rentbikehanoi.com/hanoi-scooter-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,289,https://rentbikehanoi.com/hanoi-scooter-rental/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,296,https://rentbikehanoi.com/scooter-rental-hanoi-how-to-check-the-bike/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,300,https://rentbikehanoi.com/scooter-rental-hanoi-tips-to-choose/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,304,https://rentbikehanoi.com/scooter-rental-hanoi-key-notes-to-avoid-risks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,311,https://rentbikehanoi.com/hoan-kiem-lake-ngoc-son-temple/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,311,https://rentbikehanoi.com/hoan-kiem-lake-ngoc-son-temple/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog/travel-guide; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,321,https://rentbikehanoi.com/hanoi-old-quarter/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,326,https://rentbikehanoi.com/temple-of-literature/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,333,https://rentbikehanoi.com/hoa-lo-prison/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,338,https://rentbikehanoi.com/st-josephs-cathedral-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,344,https://rentbikehanoi.com/west-lake-tay-ho-temple/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,344,https://rentbikehanoi.com/west-lake-tay-ho-temple/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,350,https://rentbikehanoi.com/train-street-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,350,https://rentbikehanoi.com/train-street-hanoi/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog/travel-guide; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,359,https://rentbikehanoi.com/motorbike-riding-tips-for-first-time-riders/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,363,https://rentbikehanoi.com/hanoi-motorbike-riding-essential-safety-tips/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,372,https://rentbikehanoi.com/can-an-international-motorcycle-license-be-used-in-vietnam/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,372,https://rentbikehanoi.com/can-an-international-motorcycle-license-be-used-in-vietnam/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog/tips-resources; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,380,https://rentbikehanoi.com/do-you-need-a-motorcycle-license-to-ride-in-vietnam/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,388,https://rentbikehanoi.com/vietnam-sim-card/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,388,https://rentbikehanoi.com/vietnam-sim-card/,INTERNAL_TARGET_NOT_IN_INVENTORY,"https://rentbikehanoi.com/blog/tips-resources; may be category, media, or other resource, not proven broken",REVIEW_ONLY
+P2,395,https://rentbikehanoi.com/vietnam-sim-card-complete-guide-to-viettel-vs-vinaphone-vs-mobifone/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,403,https://rentbikehanoi.com/vietnam-sim-card-buy-at-airport-or-city-shops/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,412,https://rentbikehanoi.com/vietnam-sim-card-best-4g-5g-data-packages-for-travel/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,419,https://rentbikehanoi.com/vietnam-sim-card-save-money-on-internet-while-visiting/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,425,https://rentbikehanoi.com/vietnam-esim/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,442,https://rentbikehanoi.com/motorbike-rental-vietnam/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,452,https://rentbikehanoi.com/motorbike-rental-vietnam-5-cities-to-explore-by-bike/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,461,https://rentbikehanoi.com/motorbike-rental-vietnam-do-you-need-a-license/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,468,https://rentbikehanoi.com/motorbike-rental-vietnam-vs-other-transport-options-your-ultimate-transportation-guide/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,478,https://rentbikehanoi.com/vietnam-motorcycle-rental-rates/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,495,https://rentbikehanoi.com/hanoi-electric-scooter-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,500,https://rentbikehanoi.com/how-to-rent-an-electric-scooter-in-hanoi-step-by-step-guide/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,505,https://rentbikehanoi.com/hanoi-electric-scooter-rental-common-questions-answered/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,510,https://rentbikehanoi.com/electric-bike-vs-electric-scooter-rental-hanoi-compare-prices/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,515,https://rentbikehanoi.com/electric-bike-rental-hanoi-affordable-convenient/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,519,https://rentbikehanoi.com/hanoi-electric-bike-rental-requirements-conditions-for-renters/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,525,https://rentbikehanoi.com/vietnam-off-road-motorcycle-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,532,https://rentbikehanoi.com/renting-dirt-bikes-in-vietnam/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,537,https://rentbikehanoi.com/dirt-bike-in-hanoi-rental-prices/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,541,https://rentbikehanoi.com/hanoi-dirt-bike-rental-how-to-choose-the-right-bike-for-you/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,545,https://rentbikehanoi.com/adventure-on-a-sport-bike-in-vietnam/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,550,https://rentbikehanoi.com/vietnam-sport-motorcycle-rentals-for-thrill-seekers/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,557,https://rentbikehanoi.com/experience-vietnam-on-a-sport-motorcycle-what-you-need-to-know/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,563,https://rentbikehanoi.com/hanoi-city-sport-bike-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,568,https://rentbikehanoi.com/where-to-rent-a-high-performance-sport-motorcycle-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,576,https://rentbikehanoi.com/hanoi-motorbike-rentals-a-guide-for-city-adventures/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,580,https://rentbikehanoi.com/choosing-the-right-motorbike-for-touring-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,584,https://rentbikehanoi.com/exploring-hanoi-on-a-motorbike-travel-tips-and-experience/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,588,https://rentbikehanoi.com/hanoi-bicycle-rentals/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,596,https://rentbikehanoi.com/bicycle-rental-tips-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,607,https://rentbikehanoi.com/cycling-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,612,https://rentbikehanoi.com/10-reasons-to-rent-a-motorbike-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1892,https://rentbikehanoi.com/a-motorbike-rental-booking-message-for-hanoi-copy-and-send-template/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1892,https://rentbikehanoi.com/a-motorbike-rental-booking-message-for-hanoi-copy-and-send-template/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1895,https://rentbikehanoi.com/hanoi-motorbike-rental-deposits-how-to-record-payment-and-return/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1897,https://rentbikehanoi.com/rental-bike-damage-photos-a-hanoi-handover-shot-list/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1899,https://rentbikehanoi.com/returning-a-rental-motorbike-in-hanoi-a-receipt-and-handover-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1901,https://rentbikehanoi.com/how-to-compare-two-hanoi-motorbike-rental-quotes-line-by-line/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1901,https://rentbikehanoi.com/how-to-compare-two-hanoi-motorbike-rental-quotes-line-by-line/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1903,https://rentbikehanoi.com/hanoi-motorbike-rental-for-a-late-flight-plan-pickup-and-return/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1903,https://rentbikehanoi.com/hanoi-motorbike-rental-for-a-late-flight-plan-pickup-and-return/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1915,https://rentbikehanoi.com/renting-a-motorbike-after-an-overnight-train-to-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1915,https://rentbikehanoi.com/renting-a-motorbike-after-an-overnight-train-to-hanoi/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1917,https://rentbikehanoi.com/hotel-delivery-or-shop-pickup-in-hanoi-compare-handover-quality/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1919,https://rentbikehanoi.com/one-way-motorbike-rental-from-hanoi-questions-to-ask-before-booking/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1921,https://rentbikehanoi.com/monthly-motorbike-rental-in-hanoi-a-maintenance-visit-calendar/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1921,https://rentbikehanoi.com/monthly-motorbike-rental-in-hanoi-a-maintenance-visit-calendar/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1923,https://rentbikehanoi.com/what-to-record-when-swapping-a-rental-motorbike-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1925,https://rentbikehanoi.com/rental-motorbike-keys-in-hanoi-spare-keys-loss-and-safe-storage/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1927,https://rentbikehanoi.com/can-you-leave-a-rental-motorbike-parked-while-travelling-overnight/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1929,https://rentbikehanoi.com/how-to-read-a-motorbike-rental-contract-before-paying-a-deposit/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1931,https://rentbikehanoi.com/passport-security-during-a-hanoi-motorbike-rental-questions-and-safer-records/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1933,https://rentbikehanoi.com/booking-a-hanoi-rental-bike-during-tet-what-to-confirm-early/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1933,https://rentbikehanoi.com/booking-a-hanoi-rental-bike-during-tet-what-to-confirm-early/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1935,https://rentbikehanoi.com/group-motorbike-rentals-in-hanoi-a-shared-booking-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1935,https://rentbikehanoi.com/group-motorbike-rentals-in-hanoi-a-shared-booking-checklist/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1937,https://rentbikehanoi.com/long-bien-motorbike-pickup-finding-alley-5-on-nguyen-van-cu/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1939,https://rentbikehanoi.com/how-to-verify-a-hanoi-scooter-automatic-rental-pickup-address/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1941,https://rentbikehanoi.com/hanoi-motorbike-50cc-rental-cancellations-what-to-ask-before-you-pay/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1941,https://rentbikehanoi.com/hanoi-motorbike-50cc-rental-cancellations-what-to-ask-before-you-pay/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1943,https://rentbikehanoi.com/automatic-vs-semi-automatic-in-stop-start-hanoi-traffic-a-control-comparison/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1943,https://rentbikehanoi.com/automatic-vs-semi-automatic-in-stop-start-hanoi-traffic-a-control-comparison/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1945,https://rentbikehanoi.com/scooter-fit-before-renting-a-stationary-test-for-short-and-tall-riders/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1947,https://rentbikehanoi.com/reading-a-rental-bike-fuel-gauge-plan-range-without-guessing/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1949,https://rentbikehanoi.com/under-seat-scooter-storage-what-fits-and-what-must-stay-out/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1951,https://rentbikehanoi.com/securing-a-backpack-on-a-hanoi-rental-bike-load-and-visibility-checks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1954,https://rentbikehanoi.com/two-people-on-one-hanoi-rental-bike-load-limits-and-pre-ride-decisions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1956,https://rentbikehanoi.com/refuelling-a-rental-motorbike-in-hanoi-a-photo-guide-to-the-pump/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1958,https://rentbikehanoi.com/how-to-track-fuel-use-on-a-monthly-hanoi-motorbike-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1960,https://rentbikehanoi.com/motorbike-tyre-pressure-for-rental-riders-read-the-manufacturer-label/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1962,https://rentbikehanoi.com/helmet-fit-at-motorbike-pickup-a-strap-and-size-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1965,https://rentbikehanoi.com/phone-mounts-on-rental-scooters-compatibility-and-distraction-checks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1967,https://rentbikehanoi.com/charging-your-phone-on-a-rental-motorbike-ports-and-cable-checks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1969,https://rentbikehanoi.com/using-a-scooter-centre-stand-a-stationary-photo-walkthrough/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1971,https://rentbikehanoi.com/scooter-brake-levers-hand-reach-checks-before-pickup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1973,https://rentbikehanoi.com/reading-a-rental-motorbike-dashboard-warning-lights-to-report/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1975,https://rentbikehanoi.com/plan-rental-bike-maintenance-around-a-hanoi-work-schedule/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1975,https://rentbikehanoi.com/plan-rental-bike-maintenance-around-a-hanoi-work-schedule/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1977,https://rentbikehanoi.com/electric-or-petrol-for-a-hanoi-commute-a-charging-access-worksheet/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1979,https://rentbikehanoi.com/hanoi-motorbike-parking-tickets-payment-and-collection-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,1979,https://rentbikehanoi.com/hanoi-motorbike-parking-tickets-payment-and-collection-checklist/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,1981,https://rentbikehanoi.com/overnight-motorbike-parking-in-hanoi-questions-for-your-hotel/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1983,https://rentbikehanoi.com/rental-bike-locking-in-hanoi-a-practical-parking-routine/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1985,https://rentbikehanoi.com/what-to-do-if-a-motorbike-parking-ticket-is-lost-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1987,https://rentbikehanoi.com/hanoi-rainy-season-riding-a-go-or-postpone-decision-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1989,https://rentbikehanoi.com/a-rental-scooter-caught-in-floodwater-stop-record-and-contact-the-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1991,https://rentbikehanoi.com/hanoi-motorbike-routes-in-google-maps-check-expressways-before-riding/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1993,https://rentbikehanoi.com/download-offline-hanoi-maps-before-a-motorbike-day-trip/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1995,https://rentbikehanoi.com/when-google-maps-sends-you-to-a-closed-road-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,1995,https://rentbikehanoi.com/when-google-maps-sends-you-to-a-closed-road-in-hanoi/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,1997,https://rentbikehanoi.com/hanoi-weekend-pedestrian-streets-plan-your-motorbike-parking-boundary/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,1997,https://rentbikehanoi.com/hanoi-weekend-pedestrian-streets-plan-your-motorbike-parking-boundary/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,1999,https://rentbikehanoi.com/choosing-a-motorbike-departure-time-in-hanoi-a-rush-hour-worksheet/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,1999,https://rentbikehanoi.com/choosing-a-motorbike-departure-time-in-hanoi-a-rush-hour-worksheet/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,2001,https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,2001,https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,2001,https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2003,https://rentbikehanoi.com/rental-motorbike-puncture-in-hanoi-where-to-stop-and-what-to-record/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2006,https://rentbikehanoi.com/rental-scooter-will-not-start-information-to-send-the-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2008,https://rentbikehanoi.com/hanoi-motorbike-breakdown-after-2100-prepare-a-safe-waiting-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,2008,https://rentbikehanoi.com/hanoi-motorbike-breakdown-after-2100-prepare-a-safe-waiting-plan/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,2010,https://rentbikehanoi.com/after-a-rental-bike-collision-in-hanoi-a-documentation-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2010,https://rentbikehanoi.com/after-a-rental-bike-collision-in-hanoi-a-documentation-checklist/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2015,https://rentbikehanoi.com/travel-insurance-and-rental-motorbikes-in-vietnam-questions-for-your-insurer/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2019,https://rentbikehanoi.com/fatigue-on-a-hanoi-motorbike-day-trip-rest-stops-and-a-return-cutoff/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2021,https://rentbikehanoi.com/hanoi-air-quality-and-motorbike-plans-read-official-advisories/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2021,https://rentbikehanoi.com/hanoi-air-quality-and-motorbike-plans-read-official-advisories/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2023,https://rentbikehanoi.com/riding-in-hanoi-during-tet-traffic-changes-and-a-backup-travel-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,2023,https://rentbikehanoi.com/riding-in-hanoi-during-tet-traffic-changes-and-a-backup-travel-plan/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,2023,https://rentbikehanoi.com/riding-in-hanoi-during-tet-traffic-changes-and-a-backup-travel-plan/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2047,https://rentbikehanoi.com/a-half-day-long-bien-ride-a-route-with-walking-stops/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2047,https://rentbikehanoi.com/a-half-day-long-bien-ride-a-route-with-walking-stops/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2049,https://rentbikehanoi.com/bat-trang-from-long-bien-by-motorbike-route-parking-and-return-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2051,https://rentbikehanoi.com/co-loa-citadel-from-hanoi-by-motorbike-a-practical-visit-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2053,https://rentbikehanoi.com/duong-lam-from-hanoi-by-motorbike-village-access-and-a-day-trip-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2055,https://rentbikehanoi.com/ba-vi-national-park-by-motorbike-gates-climb-and-turnaround-decisions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2057,https://rentbikehanoi.com/tam-dao-from-hanoi-by-motorbike-mountain-road-planning-for-experienced-riders/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2060,https://rentbikehanoi.com/soc-son-from-hanoi-by-motorbike-a-day-plan-with-a-weather-backup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2062,https://rentbikehanoi.com/dong-mo-from-hanoi-by-motorbike-a-lakeside-day-trip-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2064,https://rentbikehanoi.com/thay-pagoda-from-hanoi-by-motorbike-arrival-parking-and-temple-etiquette/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2066,https://rentbikehanoi.com/tay-phuong-pagoda-from-hanoi-by-motorbike-steps-parking-and-return-timing/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2068,https://rentbikehanoi.com/quang-phu-cau-incense-village-by-motorbike-visiting-and-photography-checks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2070,https://rentbikehanoi.com/van-phuc-silk-village-by-motorbike-a-half-day-shopping-route/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2072,https://rentbikehanoi.com/hoa-binh-from-hanoi-by-motorbike-a-two-day-route-planning-guide/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2072,https://rentbikehanoi.com/hoa-binh-from-hanoi-by-motorbike-a-two-day-route-planning-guide/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,2074,https://rentbikehanoi.com/ninh-binh-from-hanoi-self-ride-or-bus-and-local-rental/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,2074,https://rentbikehanoi.com/ninh-binh-from-hanoi-self-ride-or-bus-and-local-rental/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2074,https://rentbikehanoi.com/ninh-binh-from-hanoi-self-ride-or-bus-and-local-rental/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2076,https://rentbikehanoi.com/hanoi-to-hai-phong-by-motorbike-a-non-expressway-route-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2078,https://rentbikehanoi.com/hanoi-to-ha-long-motorbike-vs-coach-for-a-short-visit/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2080,https://rentbikehanoi.com/hanoi-to-sapa-train-bus-or-a-multi-day-motorbike-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2080,https://rentbikehanoi.com/hanoi-to-sapa-train-bus-or-a-multi-day-motorbike-plan/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2083,https://rentbikehanoi.com/ha-giang-from-hanoi-travel-first-or-begin-the-ride-in-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2085,https://rentbikehanoi.com/a-rainy-day-trip-from-hanoi-choose-an-indoor-destination-and-safe-transport/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2087,https://rentbikehanoi.com/vietnam-museum-of-ethnology-by-motorbike-arrival-and-a-half-day-plan/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2087,https://rentbikehanoi.com/vietnam-museum-of-ethnology-by-motorbike-arrival-and-a-half-day-plan/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2089,https://rentbikehanoi.com/imperial-citadel-of-thang-long-by-motorbike-parking-and-walking-route/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2091,https://rentbikehanoi.com/tran-quoc-pagoda-and-truc-bach-a-motorbike-and-walking-morning/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2094,https://rentbikehanoi.com/vietnam-fine-arts-museum-by-motorbike-combine-it-with-the-temple-of-literature/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2097,https://rentbikehanoi.com/imperial-citadel-of-thang-long-by-motorbike-parking-and-walking-route-2/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2099,https://rentbikehanoi.com/tran-quoc-pagoda-and-truc-bach-a-motorbike-and-walking-morning-2/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,2099,https://rentbikehanoi.com/tran-quoc-pagoda-and-truc-bach-a-motorbike-and-walking-morning-2/,NO_BODY_INTERNAL_LINKS,No same-origin anchor found in REST article body,REVIEW_ONLY
+P2,2102,https://rentbikehanoi.com/vietnam-fine-arts-museum-by-motorbike-combine-it-with-the-temple-of-literature-2/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2104,https://rentbikehanoi.com/vietnam-military-history-museum-from-hanoi-by-motorbike-the-current-address-how-to-reach-it-and-what-has-changed/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2107,https://rentbikehanoi.com/hanoi-botanical-garden-by-motorbike-parking-and-a-slow-morning-walk/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2109,https://rentbikehanoi.com/hanoi-opera-house-and-french-quarter-park-for-a-walking-loop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2111,https://rentbikehanoi.com/dong-xuan-market-by-motorbike-shopping-parking-and-carrying-purchases/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2113,https://rentbikehanoi.com/quang-ba-flower-market-by-motorbike-early-hour-planning-and-parking/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2115,https://rentbikehanoi.com/hanoi-book-street-by-motorbike-parking-and-nearby-stops/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2117,https://rentbikehanoi.com/b52-victory-museum-by-motorbike-a-small-hanoi-history-route/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2119,https://rentbikehanoi.com/gia-lam-to-central-hanoi-compare-legal-river-crossings-for-motorbikes/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2121,https://rentbikehanoi.com/hanoi-coffee-stops-by-motorbike-a-route-built-around-legal-parking/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2123,https://rentbikehanoi.com/a-vegetarian-lunch-route-in-hanoi-parking-before-choosing-the-stop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2123,https://rentbikehanoi.com/a-vegetarian-lunch-route-in-hanoi-parking-before-choosing-the-stop/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2129,https://rentbikehanoi.com/a-hanoi-architecture-photo-route-stop-park-and-walk-between-shots/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2132,https://rentbikehanoi.com/shopping-for-riding-gear-in-hanoi-check-fit-before-buying/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2134,https://rentbikehanoi.com/a-hanoi-motorbike-day-budget-fuel-parking-and-food-worksheet/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2136,https://rentbikehanoi.com/three-days-in-hanoi-with-a-rental-motorbike-plan-distinct-routes/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,2136,https://rentbikehanoi.com/three-days-in-hanoi-with-a-rental-motorbike-plan-distinct-routes/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,2138,https://rentbikehanoi.com/a-hanoi-motorbike-trip-log-record-routes-fuel-and-useful-stops/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3252,https://rentbikehanoi.com/vietnamese-womens-museum-reading-clothing-work-personal-stories/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3252,https://rentbikehanoi.com/vietnamese-womens-museum-reading-clothing-work-personal-stories/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3253,https://rentbikehanoi.com/dong-son-bronze-drums-ngoc-lu-hoang-ha-hanoi/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3253,https://rentbikehanoi.com/dong-son-bronze-drums-ngoc-lu-hoang-ha-hanoi/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3253,https://rentbikehanoi.com/dong-son-bronze-drums-ngoc-lu-hoang-ha-hanoi/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3254,https://rentbikehanoi.com/vietnam-literature-museum-hanoi-manuscripts-writing-reading-route/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3254,https://rentbikehanoi.com/vietnam-literature-museum-hanoi-manuscripts-writing-reading-route/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3258,https://rentbikehanoi.com/find-the-exact-manual-for-your-rental-scooter-model-code-year-and-market/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3258,https://rentbikehanoi.com/find-the-exact-manual-for-your-rental-scooter-model-code-year-and-market/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3259,https://rentbikehanoi.com/phu-vinh-rattan-village-observe-weaving-before-buying-a-basket/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3259,https://rentbikehanoi.com/phu-vinh-rattan-village-observe-weaving-before-buying-a-basket/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3259,https://rentbikehanoi.com/phu-vinh-rattan-village-observe-weaving-before-buying-a-basket/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3260,https://rentbikehanoi.com/send-a-useful-motorbike-breakdown-location-pin-when-gps-is-inaccurate/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3260,https://rentbikehanoi.com/send-a-useful-motorbike-breakdown-location-pin-when-gps-is-inaccurate/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3261,https://rentbikehanoi.com/vietnam-national-museum-of-history-choose-archaeology-or-modern-history-first/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3261,https://rentbikehanoi.com/vietnam-national-museum-of-history-choose-archaeology-or-modern-history-first/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3262,https://rentbikehanoi.com/vietnamese-water-puppets-follow-the-story-without-speaking-vietnamese/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3262,https://rentbikehanoi.com/vietnamese-water-puppets-follow-the-story-without-speaking-vietnamese/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3263,https://rentbikehanoi.com/motorbike-mirror-blind-spots-set-a-stationary-reference-before-departure/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3263,https://rentbikehanoi.com/motorbike-mirror-blind-spots-set-a-stationary-reference-before-departure/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3264,https://rentbikehanoi.com/scooter-brake-lights-check-both-lever-switches-while-parked/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3264,https://rentbikehanoi.com/scooter-brake-lights-check-both-lever-switches-while-parked/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3265,https://rentbikehanoi.com/helmet-visor-scratches-visibility-checks-before-accepting-a-rental-helmet/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3265,https://rentbikehanoi.com/helmet-visor-scratches-visibility-checks-before-accepting-a-rental-helmet/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3266,https://rentbikehanoi.com/motorbike-tyre-age-codes-what-the-date-can-and-cannot-tell-a-renter/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3266,https://rentbikehanoi.com/motorbike-tyre-age-codes-what-the-date-can-and-cannot-tell-a-renter/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3266,https://rentbikehanoi.com/motorbike-tyre-age-codes-what-the-date-can-and-cannot-tell-a-renter/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3267,https://rentbikehanoi.com/open-face-and-full-face-helmets-with-glasses-check-the-complete-fit/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3267,https://rentbikehanoi.com/open-face-and-full-face-helmets-with-glasses-check-the-complete-fit/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3268,https://rentbikehanoi.com/thunderstorm-alerts-versus-daily-rain-forecasts-in-hanoi-read-the-issue-time/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3268,https://rentbikehanoi.com/thunderstorm-alerts-versus-daily-rain-forecasts-in-hanoi-read-the-issue-time/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3268,https://rentbikehanoi.com/thunderstorm-alerts-versus-daily-rain-forecasts-in-hanoi-read-the-issue-time/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3269,https://rentbikehanoi.com/clear-or-tinted-helmet-visor-in-hanoi-match-visibility-to-daylight/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3269,https://rentbikehanoi.com/clear-or-tinted-helmet-visor-in-hanoi-match-visibility-to-daylight/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3270,https://rentbikehanoi.com/motorbike-trip-meter-versus-odometer-record-the-right-number/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3270,https://rentbikehanoi.com/motorbike-trip-meter-versus-odometer-record-the-right-number/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3271,https://rentbikehanoi.com/motorbike-rental-payment-in-hanoi-confirm-the-payee-before-a-bank-transfer/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3271,https://rentbikehanoi.com/motorbike-rental-payment-in-hanoi-confirm-the-payee-before-a-bank-transfer/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3272,https://rentbikehanoi.com/motorbike-smells-of-petrol-while-parked-stop-move-away-and-seek-help/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3272,https://rentbikehanoi.com/motorbike-smells-of-petrol-while-parked-stop-move-away-and-seek-help/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3273,https://rentbikehanoi.com/scooter-fuel-cap-and-seat-release-learn-the-correct-sequence-at-handover/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3273,https://rentbikehanoi.com/scooter-fuel-cap-and-seat-release-learn-the-correct-sequence-at-handover/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3274,https://rentbikehanoi.com/what-if-the-reserved-rental-bike-is-a-different-model-at-pickup/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3274,https://rentbikehanoi.com/what-if-the-reserved-rental-bike-is-a-different-model-at-pickup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3275,https://rentbikehanoi.com/a-scooters-12-volt-battery-and-an-electric-bikes-traction-battery-different-jobs/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3275,https://rentbikehanoi.com/a-scooters-12-volt-battery-and-an-electric-bikes-traction-battery-different-jobs/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3276,https://rentbikehanoi.com/motorbike-indicator-cancel-switches-practise-with-the-bike-parked/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3276,https://rentbikehanoi.com/motorbike-indicator-cancel-switches-practise-with-the-bike-parked/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3277,https://rentbikehanoi.com/tubeless-tyre-valves-recognise-damage-without-removing-the-cap-assembly/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3277,https://rentbikehanoi.com/tubeless-tyre-valves-recognise-damage-without-removing-the-cap-assembly/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3277,https://rentbikehanoi.com/tubeless-tyre-valves-recognise-damage-without-removing-the-cap-assembly/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3278,https://rentbikehanoi.com/scooter-throttle-free-play-read-the-manual-and-report-sticking/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3278,https://rentbikehanoi.com/scooter-throttle-free-play-read-the-manual-and-report-sticking/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3278,https://rentbikehanoi.com/scooter-throttle-free-play-read-the-manual-and-report-sticking/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3279,https://rentbikehanoi.com/lost-personal-belongings-in-a-returned-rental-scooter-a-recovery-checklist/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3279,https://rentbikehanoi.com/lost-personal-belongings-in-a-returned-rental-scooter-a-recovery-checklist/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3279,https://rentbikehanoi.com/lost-personal-belongings-in-a-returned-rental-scooter-a-recovery-checklist/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3280,https://rentbikehanoi.com/can-a-friend-return-your-hanoi-rental-motorbike-arrange-an-authorised-handover/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3280,https://rentbikehanoi.com/can-a-friend-return-your-hanoi-rental-motorbike-arrange-an-authorised-handover/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3280,https://rentbikehanoi.com/can-a-friend-return-your-hanoi-rental-motorbike-arrange-an-authorised-handover/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3281,https://rentbikehanoi.com/a-scooters-floorboard-is-not-unlimited-storage-check-feet-and-control-clearance/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3281,https://rentbikehanoi.com/a-scooters-floorboard-is-not-unlimited-storage-check-feet-and-control-clearance/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3282,https://rentbikehanoi.com/drying-a-wet-helmet-liner-follow-its-care-label-and-avoid-heat-damage/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3282,https://rentbikehanoi.com/drying-a-wet-helmet-liner-follow-its-care-label-and-avoid-heat-damage/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3282,https://rentbikehanoi.com/drying-a-wet-helmet-liner-follow-its-care-label-and-avoid-heat-damage/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3283,https://rentbikehanoi.com/motorbike-exhaust-heat-shields-check-clearance-before-carrying-a-bag/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3283,https://rentbikehanoi.com/motorbike-exhaust-heat-shields-check-clearance-before-carrying-a-bag/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3284,https://rentbikehanoi.com/fold-out-passenger-footrests-check-movement-and-latch-before-a-two-up-trip/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3284,https://rentbikehanoi.com/fold-out-passenger-footrests-check-movement-and-latch-before-a-two-up-trip/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3284,https://rentbikehanoi.com/fold-out-passenger-footrests-check-movement-and-latch-before-a-two-up-trip/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3285,https://rentbikehanoi.com/motorbike-accessory-electrical-ratings-why-a-socket-does-not-mean-unlimited-power/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3285,https://rentbikehanoi.com/motorbike-accessory-electrical-ratings-why-a-socket-does-not-mean-unlimited-power/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3286,https://rentbikehanoi.com/rain-suit-or-poncho-for-hanoi-riding-check-moving-part-clearance/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3286,https://rentbikehanoi.com/rain-suit-or-poncho-for-hanoi-riding-check-moving-part-clearance/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3287,https://rentbikehanoi.com/1968-convention-idp-hanoi-motorbike-rental-check-motorcycle-category/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3287,https://rentbikehanoi.com/1968-convention-idp-hanoi-motorbike-rental-check-motorcycle-category/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3287,https://rentbikehanoi.com/1968-convention-idp-hanoi-motorbike-rental-check-motorcycle-category/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3288,https://rentbikehanoi.com/foreign-licence-exchange-hanoi-long-term-motorbike-rental-documents/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3288,https://rentbikehanoi.com/foreign-licence-exchange-hanoi-long-term-motorbike-rental-documents/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3288,https://rentbikehanoi.com/foreign-licence-exchange-hanoi-long-term-motorbike-rental-documents/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3289,https://rentbikehanoi.com/rental-motorbike-registration-in-vietnam-match-the-bike-to-its-papers/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3289,https://rentbikehanoi.com/rental-motorbike-registration-in-vietnam-match-the-bike-to-its-papers/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3298,https://rentbikehanoi.com/a-digital-rental-agreement-you-cannot-read-request-an-understandable-copy/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3298,https://rentbikehanoi.com/a-digital-rental-agreement-you-cannot-read-request-an-understandable-copy/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3298,https://rentbikehanoi.com/a-digital-rental-agreement-you-cannot-read-request-an-understandable-copy/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3299,https://rentbikehanoi.com/electric-scooter-charger-has-been-dropped-ask-for-inspection-before-plugging-in/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3299,https://rentbikehanoi.com/electric-scooter-charger-has-been-dropped-ask-for-inspection-before-plugging-in/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3300,https://rentbikehanoi.com/motorbike-rental-through-a-hotel-identify-the-contracting-shop-and-support-contact/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3300,https://rentbikehanoi.com/motorbike-rental-through-a-hotel-identify-the-contracting-shop-and-support-contact/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3303,https://rentbikehanoi.com/a-rental-motorbike-service-appointment-agree-who-pays-before-work-begins/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3303,https://rentbikehanoi.com/a-rental-motorbike-service-appointment-agree-who-pays-before-work-begins/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3304,https://rentbikehanoi.com/rental-motorbike-mileage-limits-read-the-odometer-clause-before-a-long-trip/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3304,https://rentbikehanoi.com/rental-motorbike-mileage-limits-read-the-odometer-clause-before-a-long-trip/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3305,https://rentbikehanoi.com/sharing-a-hanoi-rental-bike-between-licensed-riders-contract-questions/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3305,https://rentbikehanoi.com/sharing-a-hanoi-rental-bike-between-licensed-riders-contract-questions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3306,https://rentbikehanoi.com/changing-hotels-during-a-monthly-hanoi-rental-update-contact-and-parking-records/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3306,https://rentbikehanoi.com/changing-hotels-during-a-monthly-hanoi-rental-update-contact-and-parking-records/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3306,https://rentbikehanoi.com/changing-hotels-during-a-monthly-hanoi-rental-update-contact-and-parking-records/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3307,https://rentbikehanoi.com/motorbike-glove-fit-for-small-switches-try-the-controls-before-riding/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3307,https://rentbikehanoi.com/motorbike-glove-fit-for-small-switches-try-the-controls-before-riding/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3307,https://rentbikehanoi.com/motorbike-glove-fit-for-small-switches-try-the-controls-before-riding/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3308,https://rentbikehanoi.com/a-rental-scooters-horn-stops-working-report-it-before-continuing/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3308,https://rentbikehanoi.com/a-rental-scooters-horn-stops-working-report-it-before-continuing/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3308,https://rentbikehanoi.com/a-rental-scooters-horn-stops-working-report-it-before-continuing/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3309,https://rentbikehanoi.com/a-rental-scooters-tool-kit-identify-what-is-present-and-what-requires-the-shop/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3309,https://rentbikehanoi.com/a-rental-scooters-tool-kit-identify-what-is-present-and-what-requires-the-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3309,https://rentbikehanoi.com/a-rental-scooters-tool-kit-identify-what-is-present-and-what-requires-the-shop/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3310,https://rentbikehanoi.com/rental-motorbike-falls-over-while-parked-document-damage-before-moving-on/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3310,https://rentbikehanoi.com/rental-motorbike-falls-over-while-parked-document-damage-before-moving-on/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3311,https://rentbikehanoi.com/a-rental-motorbike-recalled-by-its-manufacturer-questions-for-the-shop/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3311,https://rentbikehanoi.com/a-rental-motorbike-recalled-by-its-manufacturer-questions-for-the-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3311,https://rentbikehanoi.com/a-rental-motorbike-recalled-by-its-manufacturer-questions-for-the-shop/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3313,https://rentbikehanoi.com/broken-motorbike-mirror-in-hanoi-stop-and-arrange-an-approved-repair/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3313,https://rentbikehanoi.com/broken-motorbike-mirror-in-hanoi-stop-and-arrange-an-approved-repair/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3314,https://rentbikehanoi.com/scooter-centre-stand-and-side-stand-contact-patches-inspect-the-parking-surface/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3314,https://rentbikehanoi.com/scooter-centre-stand-and-side-stand-contact-patches-inspect-the-parking-surface/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3314,https://rentbikehanoi.com/scooter-centre-stand-and-side-stand-contact-patches-inspect-the-parking-surface/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3315,https://rentbikehanoi.com/motorbike-headlight-condensation-or-water-inside-photograph-and-report-the-difference/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3315,https://rentbikehanoi.com/motorbike-headlight-condensation-or-water-inside-photograph-and-report-the-difference/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3315,https://rentbikehanoi.com/motorbike-headlight-condensation-or-water-inside-photograph-and-report-the-difference/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3324,https://rentbikehanoi.com/a-company-paid-motorbike-rental-in-hanoi-invoice-and-reimbursement-questions/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3324,https://rentbikehanoi.com/a-company-paid-motorbike-rental-in-hanoi-invoice-and-reimbursement-questions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3324,https://rentbikehanoi.com/a-company-paid-motorbike-rental-in-hanoi-invoice-and-reimbursement-questions/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3325,https://rentbikehanoi.com/a-hanoi-hotel-closes-its-gate-early-plan-access-to-your-parked-motorbike/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3325,https://rentbikehanoi.com/a-hanoi-hotel-closes-its-gate-early-plan-access-to-your-parked-motorbike/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3325,https://rentbikehanoi.com/a-hanoi-hotel-closes-its-gate-early-plan-access-to-your-parked-motorbike/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3326,https://rentbikehanoi.com/carrying-a-laptop-on-a-hanoi-scooter-padding-and-water-protection/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3326,https://rentbikehanoi.com/carrying-a-laptop-on-a-hanoi-scooter-padding-and-water-protection/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3327,https://rentbikehanoi.com/communicating-a-hearing-or-speech-access-need-at-motorbike-pickup/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3327,https://rentbikehanoi.com/communicating-a-hearing-or-speech-access-need-at-motorbike-pickup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3327,https://rentbikehanoi.com/communicating-a-hearing-or-speech-access-need-at-motorbike-pickup/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3328,https://rentbikehanoi.com/a-reusable-water-bottle-on-a-scooter-secure-storage-away-from-controls/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3328,https://rentbikehanoi.com/a-reusable-water-bottle-on-a-scooter-secure-storage-away-from-controls/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3329,https://rentbikehanoi.com/scooter-seat-will-not-latch-keep-belongings-out-and-contact-the-shop/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3329,https://rentbikehanoi.com/scooter-seat-will-not-latch-keep-belongings-out-and-contact-the-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3330,https://rentbikehanoi.com/riding-footwear-in-wet-hanoi-weather-grip-coverage-and-drying/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3330,https://rentbikehanoi.com/riding-footwear-in-wet-hanoi-weather-grip-coverage-and-drying/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3330,https://rentbikehanoi.com/riding-footwear-in-wet-hanoi-weather-grip-coverage-and-drying/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3331,https://rentbikehanoi.com/wet-motorbike-gloves-and-reduced-grip-stop-and-reassess-before-riding/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3331,https://rentbikehanoi.com/wet-motorbike-gloves-and-reduced-grip-stop-and-reassess-before-riding/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3331,https://rentbikehanoi.com/wet-motorbike-gloves-and-reduced-grip-stop-and-reassess-before-riding/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3332,https://rentbikehanoi.com/a-scooter-makes-a-new-metallic-noise-capture-useful-evidence-while-stopped/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3332,https://rentbikehanoi.com/a-scooter-makes-a-new-metallic-noise-capture-useful-evidence-while-stopped/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3333,https://rentbikehanoi.com/motorbike-parking-with-vehicle-handover-record-who-has-the-keys/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3333,https://rentbikehanoi.com/motorbike-parking-with-vehicle-handover-record-who-has-the-keys/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3333,https://rentbikehanoi.com/motorbike-parking-with-vehicle-handover-record-who-has-the-keys/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3334,https://rentbikehanoi.com/water-puppet-theatre-in-hanoi-what-to-confirm-before-buying-a-ticket/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3334,https://rentbikehanoi.com/water-puppet-theatre-in-hanoi-what-to-confirm-before-buying-a-ticket/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3335,https://rentbikehanoi.com/vietnamese-silk-paintings-what-to-look-for-in-a-hanoi-gallery/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3335,https://rentbikehanoi.com/vietnamese-silk-paintings-what-to-look-for-in-a-hanoi-gallery/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3336,https://rentbikehanoi.com/vietnamese-lacquer-art-in-hanoi-understand-layers-materials-and-conservation/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3336,https://rentbikehanoi.com/vietnamese-lacquer-art-in-hanoi-understand-layers-materials-and-conservation/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3336,https://rentbikehanoi.com/vietnamese-lacquer-art-in-hanoi-understand-layers-materials-and-conservation/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3337,https://rentbikehanoi.com/dong-ho-prints-in-hanoi-collections-read-a-woodblock-image/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3337,https://rentbikehanoi.com/dong-ho-prints-in-hanoi-collections-read-a-woodblock-image/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3337,https://rentbikehanoi.com/dong-ho-prints-in-hanoi-collections-read-a-woodblock-image/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3338,https://rentbikehanoi.com/vietnamese-calligraphy-in-hanoi-scripts-meaning-and-questions-before-buying/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3338,https://rentbikehanoi.com/vietnamese-calligraphy-in-hanoi-scripts-meaning-and-questions-before-buying/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3338,https://rentbikehanoi.com/vietnamese-calligraphy-in-hanoi-scripts-meaning-and-questions-before-buying/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3339,https://rentbikehanoi.com/hanoi-museum-build-a-visit-around-the-citys-everyday-objects/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3339,https://rentbikehanoi.com/hanoi-museum-build-a-visit-around-the-citys-everyday-objects/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3340,https://rentbikehanoi.com/helmet-intercoms-on-rental-helmets-mounting-and-consent-questions/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3340,https://rentbikehanoi.com/helmet-intercoms-on-rental-helmets-mounting-and-consent-questions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3340,https://rentbikehanoi.com/helmet-intercoms-on-rental-helmets-mounting-and-consent-questions/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3341,https://rentbikehanoi.com/vietnam-geological-museum-in-hanoi-read-rocks-as-a-landscape-story/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3341,https://rentbikehanoi.com/vietnam-geological-museum-in-hanoi-read-rocks-as-a-landscape-story/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3341,https://rentbikehanoi.com/vietnam-geological-museum-in-hanoi-read-rocks-as-a-landscape-story/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3342,https://rentbikehanoi.com/packing-a-camera-on-a-rental-scooter-vibration-rain-and-quick-access/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3342,https://rentbikehanoi.com/packing-a-camera-on-a-rental-scooter-vibration-rain-and-quick-access/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3343,https://rentbikehanoi.com/vietnam-literature-museum-versus-hanoi-book-street-reading-or-book-shopping/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3343,https://rentbikehanoi.com/vietnam-literature-museum-versus-hanoi-book-street-reading-or-book-shopping/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3344,https://rentbikehanoi.com/bach-ma-temple-the-white-horse-tradition-in-hanois-old-quarter/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3344,https://rentbikehanoi.com/bach-ma-temple-the-white-horse-tradition-in-hanois-old-quarter/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3345,https://rentbikehanoi.com/read-a-scooters-storage-warning-labels-before-carrying-food-or-electronics/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3345,https://rentbikehanoi.com/read-a-scooters-storage-warning-labels-before-carrying-food-or-electronics/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3346,https://rentbikehanoi.com/loose-scooter-body-panel-information-to-send-the-rental-shop/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3346,https://rentbikehanoi.com/loose-scooter-body-panel-information-to-send-the-rental-shop/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3346,https://rentbikehanoi.com/loose-scooter-body-panel-information-to-send-the-rental-shop/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3347,https://rentbikehanoi.com/scooter-seat-covers-in-rain-avoid-loose-material-near-the-latch/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3347,https://rentbikehanoi.com/scooter-seat-covers-in-rain-avoid-loose-material-near-the-latch/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3347,https://rentbikehanoi.com/scooter-seat-covers-in-rain-avoid-loose-material-near-the-latch/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3348,https://rentbikehanoi.com/hanois-street-names-decode-hang-pho-and-local-trade-references/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3348,https://rentbikehanoi.com/hanois-street-names-decode-hang-pho-and-local-trade-references/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3348,https://rentbikehanoi.com/hanois-street-names-decode-hang-pho-and-local-trade-references/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3349,https://rentbikehanoi.com/a-hanoi-tube-house-read-its-layout-before-calling-it-colonial/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3349,https://rentbikehanoi.com/a-hanoi-tube-house-read-its-layout-before-calling-it-colonial/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3349,https://rentbikehanoi.com/a-hanoi-tube-house-read-its-layout-before-calling-it-colonial/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3350,https://rentbikehanoi.com/electric-scooter-charger-connector-is-wet-do-not-test-it-to-see-if-it-works/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3350,https://rentbikehanoi.com/electric-scooter-charger-connector-is-wet-do-not-test-it-to-see-if-it-works/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3350,https://rentbikehanoi.com/electric-scooter-charger-connector-is-wet-do-not-test-it-to-see-if-it-works/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3351,https://rentbikehanoi.com/national-library-of-vietnam-in-hanoi-visitor-access-versus-a-reading-card/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3351,https://rentbikehanoi.com/national-library-of-vietnam-in-hanoi-visitor-access-versus-a-reading-card/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3351,https://rentbikehanoi.com/national-library-of-vietnam-in-hanoi-visitor-access-versus-a-reading-card/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3352,https://rentbikehanoi.com/vietnamese-filter-coffee-in-hanoi-phin-timing-and-serving-styles/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3352,https://rentbikehanoi.com/vietnamese-filter-coffee-in-hanoi-phin-timing-and-serving-styles/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3353,https://rentbikehanoi.com/tam-dao-bear-sanctuary-check-the-operators-public-visit-dates-first/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3353,https://rentbikehanoi.com/tam-dao-bear-sanctuary-check-the-operators-public-visit-dates-first/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3353,https://rentbikehanoi.com/tam-dao-bear-sanctuary-check-the-operators-public-visit-dates-first/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3354,https://rentbikehanoi.com/dan-bau-how-a-one-string-instrument-creates-different-pitches/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3354,https://rentbikehanoi.com/dan-bau-how-a-one-string-instrument-creates-different-pitches/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3354,https://rentbikehanoi.com/dan-bau-how-a-one-string-instrument-creates-different-pitches/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3355,https://rentbikehanoi.com/bun-oc-in-hanoi-snails-broth-and-what-to-ask-before-ordering/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3355,https://rentbikehanoi.com/bun-oc-in-hanoi-snails-broth-and-what-to-ask-before-ordering/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3356,https://rentbikehanoi.com/banh-goi-in-hanoi-a-guide-to-the-filled-fried-snack/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3356,https://rentbikehanoi.com/banh-goi-in-hanoi-a-guide-to-the-filled-fried-snack/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3357,https://rentbikehanoi.com/mien-luon-in-hanoi-soup-dry-noodles-and-ordering-choices/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3357,https://rentbikehanoi.com/mien-luon-in-hanoi-soup-dry-noodles-and-ordering-choices/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3358,https://rentbikehanoi.com/bun-rieu-in-hanoi-tomato-crab-and-regional-variation/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3358,https://rentbikehanoi.com/bun-rieu-in-hanoi-tomato-crab-and-regional-variation/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3359,https://rentbikehanoi.com/motorbike-rental-for-delivery-work-in-hanoi-check-commercial-use-permission/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3359,https://rentbikehanoi.com/motorbike-rental-for-delivery-work-in-hanoi-check-commercial-use-permission/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3360,https://rentbikehanoi.com/xoi-xeo-in-hanoi-sticky-rice-mung-bean-and-topping-choices/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3360,https://rentbikehanoi.com/xoi-xeo-in-hanoi-sticky-rice-mung-bean-and-topping-choices/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3361,https://rentbikehanoi.com/a-scooter-battery-warning-appears-mid-ride-record-the-exact-display/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3361,https://rentbikehanoi.com/a-scooter-battery-warning-appears-mid-ride-record-the-exact-display/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3361,https://rentbikehanoi.com/a-scooter-battery-warning-appears-mid-ride-record-the-exact-display/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3362,https://rentbikehanoi.com/bun-thang-in-hanoi-read-the-bowl-before-choosing-condiments/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3362,https://rentbikehanoi.com/bun-thang-in-hanoi-read-the-bowl-before-choosing-condiments/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3362,https://rentbikehanoi.com/bun-thang-in-hanoi-read-the-bowl-before-choosing-condiments/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3363,https://rentbikehanoi.com/chuong-village-conical-hats-what-to-ask-a-maker-before-a-visit/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3363,https://rentbikehanoi.com/chuong-village-conical-hats-what-to-ask-a-maker-before-a-visit/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3363,https://rentbikehanoi.com/chuong-village-conical-hats-what-to-ask-a-maker-before-a-visit/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3364,https://rentbikehanoi.com/voi-phuc-temple-why-kneeling-elephants-mark-the-entrance/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3364,https://rentbikehanoi.com/voi-phuc-temple-why-kneeling-elephants-mark-the-entrance/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3364,https://rentbikehanoi.com/voi-phuc-temple-why-kneeling-elephants-mark-the-entrance/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3365,https://rentbikehanoi.com/bun-ca-in-hanoi-read-the-fish-noodle-and-broth-options/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3365,https://rentbikehanoi.com/bun-ca-in-hanoi-read-the-fish-noodle-and-broth-options/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3365,https://rentbikehanoi.com/bun-ca-in-hanoi-read-the-fish-noodle-and-broth-options/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3366,https://rentbikehanoi.com/banh-duc-nong-in-hanoi-what-is-in-the-topping-and-sauce/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3366,https://rentbikehanoi.com/banh-duc-nong-in-hanoi-what-is-in-the-topping-and-sauce/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3367,https://rentbikehanoi.com/pho-chien-phong-in-hanoi-a-different-use-of-rice-noodles/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3367,https://rentbikehanoi.com/pho-chien-phong-in-hanoi-a-different-use-of-rice-noodles/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3369,https://rentbikehanoi.com/banh-tom-ho-tay-shrimp-cakes-and-the-meaning-of-the-name/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3369,https://rentbikehanoi.com/banh-tom-ho-tay-shrimp-cakes-and-the-meaning-of-the-name/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3370,https://rentbikehanoi.com/hanoi-egg-coffee-ask-about-preparation-before-choosing-a-cup/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3370,https://rentbikehanoi.com/hanoi-egg-coffee-ask-about-preparation-before-choosing-a-cup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3371,https://rentbikehanoi.com/pho-tron-in-hanoi-how-the-dry-bowl-differs-from-pho-soup/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3371,https://rentbikehanoi.com/pho-tron-in-hanoi-how-the-dry-bowl-differs-from-pho-soup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3371,https://rentbikehanoi.com/pho-tron-in-hanoi-how-the-dry-bowl-differs-from-pho-soup/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3372,https://rentbikehanoi.com/mien-xao-cua-in-hanoi-distinguish-crab-glass-noodles-from-soup/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3372,https://rentbikehanoi.com/mien-xao-cua-in-hanoi-distinguish-crab-glass-noodles-from-soup/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3372,https://rentbikehanoi.com/mien-xao-cua-in-hanoi-distinguish-crab-glass-noodles-from-soup/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3373,https://rentbikehanoi.com/hanoi-tea-menus-distinguish-tra-da-tra-nong-and-scented-tea/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3373,https://rentbikehanoi.com/hanoi-tea-menus-distinguish-tra-da-tra-nong-and-scented-tea/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3374,https://rentbikehanoi.com/banh-ran-man-and-banh-ran-ngot-two-different-hanoi-snacks/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3374,https://rentbikehanoi.com/banh-ran-man-and-banh-ran-ngot-two-different-hanoi-snacks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3375,https://rentbikehanoi.com/nuoc-sau-in-hanoi-sour-dracontomelon-drinks-and-seasonal-preserves/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3375,https://rentbikehanoi.com/nuoc-sau-in-hanoi-sour-dracontomelon-drinks-and-seasonal-preserves/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3376,https://rentbikehanoi.com/che-sen-and-che-do-den-read-a-hanoi-dessert-menu/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3376,https://rentbikehanoi.com/che-sen-and-che-do-den-read-a-hanoi-dessert-menu/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3377,https://rentbikehanoi.com/tao-pho-in-hanoi-soft-tofu-dessert-and-common-additions/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3377,https://rentbikehanoi.com/tao-pho-in-hanoi-soft-tofu-dessert-and-common-additions/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3377,https://rentbikehanoi.com/tao-pho-in-hanoi-soft-tofu-dessert-and-common-additions/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3378,https://rentbikehanoi.com/com-and-banh-com-distinguish-fresh-green-rice-from-its-sweet-cake/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3378,https://rentbikehanoi.com/com-and-banh-com-distinguish-fresh-green-rice-from-its-sweet-cake/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P1,3379,https://rentbikehanoi.com/banh-che-lam-a-northern-sweet-and-what-its-ingredient-list-tells-you/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3379,https://rentbikehanoi.com/banh-che-lam-a-northern-sweet-and-what-its-ingredient-list-tells-you/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3379,https://rentbikehanoi.com/banh-che-lam-a-northern-sweet-and-what-its-ingredient-list-tells-you/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3380,https://rentbikehanoi.com/o-mai-in-hanoi-read-the-fruit-sugar-and-salt-on-the-label/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3380,https://rentbikehanoi.com/o-mai-in-hanoi-read-the-fruit-sugar-and-salt-on-the-label/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3380,https://rentbikehanoi.com/o-mai-in-hanoi-read-the-fruit-sugar-and-salt-on-the-label/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3381,https://rentbikehanoi.com/fish-sauce-versus-shrimp-paste-on-a-hanoi-menu-ask-about-both/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3381,https://rentbikehanoi.com/fish-sauce-versus-shrimp-paste-on-a-hanoi-menu-ask-about-both/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3381,https://rentbikehanoi.com/fish-sauce-versus-shrimp-paste-on-a-hanoi-menu-ask-about-both/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3382,https://rentbikehanoi.com/carrying-a-rental-motorbike-on-a-ferry-in-northern-vietnam-permission-and-operator-checks/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3382,https://rentbikehanoi.com/carrying-a-rental-motorbike-on-a-ferry-in-northern-vietnam-permission-and-operator-checks/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3382,https://rentbikehanoi.com/carrying-a-rental-motorbike-on-a-ferry-in-northern-vietnam-permission-and-operator-checks/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3383,https://rentbikehanoi.com/renting-a-motorbike-for-a-film-or-photo-shoot-in-hanoi-permissions-to-confirm/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3383,https://rentbikehanoi.com/renting-a-motorbike-for-a-film-or-photo-shoot-in-hanoi-permissions-to-confirm/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3383,https://rentbikehanoi.com/renting-a-motorbike-for-a-film-or-photo-shoot-in-hanoi-permissions-to-confirm/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3384,https://rentbikehanoi.com/replacing-a-rental-motorbike-accessory-obtain-approval-before-you-buy/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3384,https://rentbikehanoi.com/replacing-a-rental-motorbike-accessory-obtain-approval-before-you-buy/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3384,https://rentbikehanoi.com/replacing-a-rental-motorbike-accessory-obtain-approval-before-you-buy/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P1,3385,https://rentbikehanoi.com/taking-a-rental-motorbike-across-a-vietnam-border-why-permission-alone-is-not-enough/,MISSING_FEATURED_IMAGE,featured_media=0,REVIEW_ONLY
+P2,3385,https://rentbikehanoi.com/taking-a-rental-motorbike-across-a-vietnam-border-why-permission-alone-is-not-enough/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,3385,https://rentbikehanoi.com/taking-a-rental-motorbike-across-a-vietnam-border-why-permission-alone-is-not-enough/,NO_INBOUND_BODY_LINKS,Potential orphan in captured body-link graph; menus/footer not included,REVIEW_ONLY
+P2,48,https://rentbikehanoi.com/about-us/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,59,https://rentbikehanoi.com/contact-us/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,59,https://rentbikehanoi.com/contact-us/,SHORT_BODY_REVIEW,60 words; length alone is not a quality verdict,REVIEW_ONLY
+P2,59,https://rentbikehanoi.com/contact-us/,HEADING_STRUCTURE_REVIEW,Fewer than two body H2 headings,REVIEW_ONLY
+P2,67,https://rentbikehanoi.com/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,173,https://rentbikehanoi.com/privacy-police/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,178,https://rentbikehanoi.com/terms-of-use/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY
+P2,182,https://rentbikehanoi.com/faq/,FOCUS_KEYWORD_UNKNOWN,field is not exposed; authenticated read required,REVIEW_ONLY

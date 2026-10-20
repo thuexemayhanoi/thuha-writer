@@ -1,0 +1,701 @@
+{
+  "reference_commit": "6e757c4b14305c8faa082d40abd1182db39a1ad1",
+  "scripts": [
+    {
+      "path": "scripts/audit.py",
+      "classes": [],
+      "entry_points": [
+        "read_excel",
+        "run"
+      ],
+      "docstring": "Read every audit sheet and refresh WordPress without any writes."
+    },
+    {
+      "path": "scripts/check_health.py",
+      "classes": [],
+      "entry_points": [
+        "run"
+      ],
+      "docstring": "Read-only drift/SEO adapter checks; never exposes credential values."
+    },
+    {
+      "path": "scripts/common.py",
+      "classes": [
+        "Text",
+        "Redirect",
+        "WPRejected",
+        "WP"
+      ],
+      "entry_points": [
+        "now",
+        "digest",
+        "load",
+        "save",
+        "topics",
+        "write_topics",
+        "visible",
+        "norm",
+        "slugify",
+        "git",
+        "lock",
+        "title_of",
+        "inventory"
+      ],
+      "docstring": "Shared, create-only factory primitives. No model APIs."
+    },
+    {
+      "path": "scripts/control_requests.py",
+      "classes": [],
+      "entry_points": [
+        "changed_request_paths",
+        "run"
+      ],
+      "docstring": "GitHub-only AI can push a JSON request; Actions claims with no WP secrets."
+    },
+    {
+      "path": "scripts/gate_triage.py",
+      "classes": [],
+      "entry_points": [
+        "classify",
+        "triage",
+        "annotate",
+        "state_entry"
+      ],
+      "docstring": "Decide what a QA verdict means for the queue: publish, retry by machine, return to the writer, or hold for a real risk.\n\nPure functions, no network and no WordPress. QA thresholds are untouched: this only classifies the reasons\n`qa.evaluate` already produced, so one held article is described precisely and never blocks another.\n\nClasses\n  REAL_RISK      duplicate URL/intent, wrong category, unverifiable source, wrong legal/price/business fact, fabricated\n                 experience, or anything this module does not recognise (fail closed). Never auto-healed.\n  WRITER_REPAIR  an authoring defect only the writer session can fix (SEO score, length, structure, meta, links, editorial\n                 evidence). Counted per changed draft version; after the content-repair limit it needs review.\n  INFRA_PENDING  a transient failure (source or link fetch timed out, 5xx, 429). Re-checked by the machine; after\n                 `max_attempts` consecutive evaluations of the same draft it becomes REAL_RISK (source stays unverifiable).\n  NONE           PASS."
+    },
+    {
+      "path": "scripts/git_state.py",
+      "classes": [
+        "RemoteState",
+        "FactoryStateCAS"
+      ],
+      "entry_points": [
+        "_validate_state_paths"
+      ],
+      "docstring": "Git compare-and-swap commits, preserving unrelated writer changes."
+    },
+    {
+      "path": "scripts/hanoi_ward_progress.py",
+      "classes": [],
+      "entry_points": [
+        "reconcile",
+        "run"
+      ],
+      "docstring": "Reconcile the Hanoi 51-ward editorial checkpoint with FACTORY + G7 receipts.\n\nRead-only unless --persist-state is passed by the trusted main Publisher.\nNever invent topic IDs, QA scores, post IDs or publication evidence.\nNever update legacy WordPress content or modify submission/writer leases."
+    },
+    {
+      "path": "scripts/intake.py",
+      "classes": [],
+      "entry_points": [
+        "run"
+      ],
+      "docstring": "Admit GitHub-only writer pushes using live lease and exact file hash."
+    },
+    {
+      "path": "scripts/intent_guard.py",
+      "classes": [
+        "Profile",
+        "IntentIndex"
+      ],
+      "entry_points": [
+        "settings",
+        "_plain",
+        "_words",
+        "_kept",
+        "profile",
+        "_profiles",
+        "_utc",
+        "inventory_entry",
+        "topic_entry",
+        "_resolved",
+        "_published_after_research",
+        "assess_topic"
+      ],
+      "docstring": "Deterministic search-intent collision guard for Topic QA.\n\nA candidate topic is compared with EVERY WordPress item on the site (posts, pages,\nproducts) and with EVERY topic that is still inside the factory (PLANNED, claimed,\nauthored, published, awaiting research). There is no network access, no model and\nno randomness: Research QA on a research branch and the trusted intake on main\nalways reach the same verdict for the same inputs.\n\nThe guard is a lexical proxy for \"would Google see two URLs competing for the same\nquestion\". Tokens are IDF-weighted, so a shared rare entity (a model name, a place,\na regulation number) counts for far more than shared filler such as \"xe m\u00e1y H\u00e0 N\u1ed9i\".\nEvery title / SEO title / keyword is compared on its own, so a long subtitle on an\nexisting page cannot hide that its headline already answers the candidate's question.\nIt is intentionally conservative:\n\n* FAIL    near-identical wording once filler words are removed (or the same wording\n          plus the same question type). This can never be waived: re-scope or\n          retitle the topic.\n* REVIEW  substantial overlap. The researcher resolves it only by recording a\n          written justification in ``research.resolved_intent_collisions``. A\n          post the factory itself published AFTER the research snapshot cannot\n          have been read: its REVIEW is not held against the topic (a FAIL still is).\n* PASS    no meaningful overlap with any known URL or topic.\n\nMachine similarity is a screen, not proof of a distinct reader question: the\nexisting full-content review evidence in ``topic_factory.gate`` still applies."
+    },
+    {
+      "path": "scripts/internal-linking.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": null
+    },
+    {
+      "path": "scripts/internal_linking.py",
+      "classes": [],
+      "entry_points": [
+        "catids",
+        "build"
+      ],
+      "docstring": null
+    },
+    {
+      "path": "scripts/pipeline_board.py",
+      "classes": [],
+      "entry_points": [
+        "_live_leases",
+        "classify",
+        "build",
+        "ready_backlog",
+        "markdown",
+        "run"
+      ],
+      "docstring": "One status board for every article in flight: WRITING -> QA -> READY -> PUBLISHING -> VERIFIED (+ REPAIR / HELD).\n\nRead-only. Derived from the lease registry, the drafts on main, the stored QA records, the writer receipts and the\npublication ledger; it never changes any of them and never talks to WordPress.\n\nStates (each topic is in exactly one):\n  WRITING     inside a live writer lease, no draft committed yet\n  QA          draft committed but no hash-valid QA record for this draft version yet (waiting for the next sweep)\n  READY       QA PASS, writer receipt matches the draft hash, not yet in the ledger: the Publisher backlog\n  REPAIR      QA FAIL/REVIEW the writer (or a machine re-check) can fix: WRITER_REPAIR / INFRA_PENDING\n  HELD        QA FAIL/REVIEW classified REAL_RISK, or PASS without a valid receipt (quarantined draft)\n  PUBLISHING  write-ahead intent recorded (POST_INTENT, VERIFY_PENDING, NEEDS_RECONCILE)\n  VERIFIED    WordPress read-back verified (public post or fallback draft)"
+    },
+    {
+      "path": "scripts/post_publish_qa.py",
+      "classes": [
+        "SEOPage"
+      ],
+      "entry_points": [
+        "check_page",
+        "choose",
+        "detect_unexpected_public_drafts",
+        "run"
+      ],
+      "docstring": "Read-only public-page SEO verification for posts owned by this factory.\n\nInspired by /global's deployed-page QA; WordPress-specific and never updates posts.\nRun without WordPress credentials. Only verifies VERIFIED *published* campaign rows."
+    },
+    {
+      "path": "scripts/production_security.py",
+      "classes": [],
+      "entry_points": [
+        "privileged_codeowners_present",
+        "ruleset_applies_to_main",
+        "ruleset_protects_privileged_code",
+        "github_json",
+        "check_security",
+        "main"
+      ],
+      "docstring": "Fail-closed inspection of real GitHub ruleset state before using WP secrets.\n\nThis is defense-in-depth, NOT a substitute for GitHub-enforced CODEOWNER\nreviews and restricted production-environment secrets. No policy flags are\nchanged and no WordPress writes occur in this preflight."
+    },
+    {
+      "path": "scripts/protected_main_readiness.py",
+      "classes": [],
+      "entry_points": [
+        "inspect",
+        "main"
+      ],
+      "docstring": "Read-only evidence of direct-to-main state writes incompatible with strict PR protection.\n\nNever edits GitHub, production-policy, WordPress, or secrets. The workflow\nmust NOT mark security_controls_verified while these routes still push main."
+    },
+    {
+      "path": "scripts/publisher.py",
+      "classes": [
+        "RunStop",
+        "Publisher"
+      ],
+      "entry_points": [
+        "production_allowed",
+        "draft_staging_allowed",
+        "delivery_route",
+        "duplicate",
+        "confirmed_post_drift",
+        "inventory_digest",
+        "post_html",
+        "verify",
+        "attempt_create",
+        "seo_adapter_check",
+        "delivery_batch_limit",
+        "pacing",
+        "pilot_settings",
+        "pilot_reserved",
+        "daily_created_count",
+        "run",
+        "main"
+      ],
+      "docstring": "The ONLY WordPress writer. Create-only, remote write-ahead ledger."
+    },
+    {
+      "path": "scripts/publisher_chain.py",
+      "classes": [],
+      "entry_points": [
+        "settings",
+        "decision",
+        "dispatch",
+        "main"
+      ],
+      "docstring": "Decide whether the Publisher should dispatch itself again to keep draining the READY backlog.\n\nCalled as the last step of the Publisher job. It never touches WordPress and never fails the job: when it decides\n\"continue\" it asks GitHub (gh workflow run with the job's own token) for one more Publisher run; the workflow's\nconcurrency group serializes that run behind the current one, so there is still exactly one WordPress writer.\n\nContinue only when all of these hold (owner policy `publisher_chain`, config/production-policy.json):\n  - the chain is enabled and the stop switches are off\n  - this run actually posted something (attempted > 0): a run that posted nothing (held, blocked, daily cap, WP\n    refused) must not loop on the same obstacle; the five-minute QA sweep and the :17/:47 cron remain the retry path\n  - QA-PASS, receipt-valid articles still wait (ready_backlog > 0)\n  - the chain depth is below `max_depth` (bounded, never an infinite loop)\n  - `pause_seconds` have been waited, so the host gets a breather between batches of up to 10 posts"
+    },
+    {
+      "path": "scripts/qa.py",
+      "classes": [],
+      "entry_points": [
+        "read_article",
+        "counted_text",
+        "word_count",
+        "shingles",
+        "jaccard",
+        "fingerprint",
+        "draft_fingerprint",
+        "mdlinks",
+        "outbound_link_errors",
+        "seo_onpage_score",
+        "allowed_source",
+        "_reviewed_source_snapshot",
+        "is_transient",
+        "failure_label",
+        "reset_source_host_cache",
+        "decode_source_body",
+        "read_source",
+        "source_excerpt_matches",
+        "source_references_advisory",
+        "verify_sources",
+        "evidence_recheck",
+        "business_errors",
+        "evaluate",
+        "evaluate_safely",
+        "main"
+      ],
+      "docstring": "Six independent hard gates. Scores never override FAIL/REVIEW."
+    },
+    {
+      "path": "scripts/qa_gate.py",
+      "classes": [],
+      "entry_points": [
+        "validate_complete",
+        "main"
+      ],
+      "docstring": "Per-article QA checkpoint: admit PASS while other articles require repair.\n\nWriter hashes are independently admitted by Publisher intake on the state branch;\na writer may need a fresh QA run after a revision receipt is persisted. Never\nweaken the submission-hash gate to resolve that normal asynchronous race.\n\nThe only green outcome is a COMPLETE fresh per-article report. Missing files,\nstale source hashes, unsupported status, interrupted evaluation, or missing\nrepair queue FAIL the workflow. No WordPress credentials or article rewrites."
+    },
+    {
+      "path": "scripts/qa_incremental.py",
+      "classes": [],
+      "entry_points": [
+        "rules_digest",
+        "topic_digest",
+        "incremental_key",
+        "_age_hours",
+        "decide",
+        "plan",
+        "enabled"
+      ],
+      "docstring": "Incremental QA plan: evaluate only drafts that are new or really changed; keep every still-valid stored record.\n\nThe QA sweep used to re-evaluate every draft on every run, including the hundreds already VERIFIED public on\nWordPress. That is O(drafts x (drafts + inventory)) and exceeds the Actions time limit long before 2,000 articles.\n\nA stored record in data/qa/<ID>.json is reused, never re-evaluated, when\n  FROZEN  the ledger says the article is VERIFIED on WordPress with exactly this source hash. A published article is\n          immutable (no update endpoint exists); re-scoring it changes nothing. The record is kept whatever its age.\n  CACHED  the draft bytes, the QA rules and the topic row are the same as when the record was produced (the record\n          carries that `incremental_key`), the record is younger than `incremental_max_age_hours`, and it is not a\n          transient (INFRA_PENDING) hold that the self-healing gates want to re-check.\nEverything else is FRESH: evaluated again by qa.py. The sweep never lowers a threshold: a reused record is the very\nrecord the same code produced earlier, hash-checked by qa_gate.validate_complete exactly like a fresh one. The\nPublisher still re-evaluates each unpublished article live (sources, links, current inventory) before any POST, so a\ncached offline PASS is never the last word before WordPress."
+    },
+    {
+      "path": "scripts/reconcile.py",
+      "classes": [],
+      "entry_points": [
+        "run"
+      ],
+      "docstring": "Read-only WordPress reconciliation. Never retries a missing POST."
+    },
+    {
+      "path": "scripts/refill.py",
+      "classes": [],
+      "entry_points": [
+        "claimable_count",
+        "run"
+      ],
+      "docstring": "Import researched candidate batches when queue is low. No AI in Actions."
+    },
+    {
+      "path": "scripts/refill_controller.py",
+      "classes": [],
+      "entry_points": [
+        "parse_time",
+        "accepted_since",
+        "active_keys",
+        "coverage_by_key",
+        "_category_ids",
+        "allocation_by_key",
+        "spread",
+        "quotas_for",
+        "next_batch_slots",
+        "assess",
+        "build_inputs",
+        "run",
+        "main"
+      ],
+      "docstring": "Self-replenishing topic loop: when ready PLANNED stock runs low, open a research order.\n\nThe controller DECIDES and RECORDS. It runs no AI model, makes no network call and never\ntouches WordPress. The research itself is done by external AI sessions through Research V2,\nwhose QA (independent sources, full-corpus search-intent guard) is the only road into PLANNED.\n\n    ready PLANNED stock < trigger_below_ready  ->  open order RF-n asking for\n    round_target_min..round_target_max NEW topics that pass Research QA\n    accepted >= round_target_min               ->  order FULFILLED, the next round opens\n                                                    whenever stock is low again (no round limit)\n\nOnly data/state/refill-orders.json (order ledger) and reports/refill-request.json (the work order\nresearchers read) are written, by the trusted main workflow, through the same compare-and-swap\ncommit every other factory bot uses. Both files carry no timestamps of their own, so an idle\nhour produces no commit."
+    },
+    {
+      "path": "scripts/refill_policy.py",
+      "classes": [],
+      "entry_points": [
+        "policy",
+        "stock_policy"
+      ],
+      "docstring": "Single source of truth for the self-replenishing topic loop (config/refill-policy.json).\n\nThe numbers live in one file so the stock ladder, the watchdog, the dashboard, the discovery\nscheduler and the refill controller can never disagree about \"when is the PLANNED stock low\"."
+    },
+    {
+      "path": "scripts/reports.py",
+      "classes": [],
+      "entry_points": [
+        "table_file",
+        "run"
+      ],
+      "docstring": null
+    },
+    {
+      "path": "scripts/research_intake.py",
+      "classes": [],
+      "entry_points": [
+        "git_checked",
+        "blob_at",
+        "verify_remote",
+        "stage_remote_batches",
+        "ingest",
+        "research_heads",
+        "sweep",
+        "main"
+      ],
+      "docstring": "Trusted-main intake of QA-verified research/ branch batches.\n\nTriggered only after a successful read-only Research QA *push*, not after a PR.\nUntrusted research data is parsed as JSON and validated using TRUSTED main\nPython code. Candidate intake never touches WordPress or Production settings."
+    },
+    {
+      "path": "scripts/research_v2.py",
+      "classes": [],
+      "entry_points": [
+        "session_name",
+        "checkpoint_path",
+        "batch_pattern",
+        "git_read",
+        "safe_batch_path",
+        "parse_batch",
+        "validate_sources",
+        "validate_candidates",
+        "read_checkpoint",
+        "verify_files",
+        "verify_branch",
+        "checkpoint",
+        "push",
+        "resume",
+        "research_hints",
+        "refill_plan",
+        "peer_rows",
+        "intent_check",
+        "main"
+      ],
+      "docstring": "Crash-safe, source-evidence-gated research batches for external AI sessions.\n\nNo LLM/API calls and no WordPress writes. This CLI operates on research/*\nbranches and emits verifiable 10-topic candidate batches. A trusted main\nworkflow independently imports green batches into the canonical Topic Factory."
+    },
+    {
+      "path": "scripts/save_audit.py",
+      "classes": [],
+      "entry_points": [
+        "run"
+      ],
+      "docstring": "CAS-persist only authenticated audit artifacts; never rebase Writer content.\n\nCalled AFTER scripts/audit.py --authenticated. A concurrent Owner/Writer update\nto any of these paths causes a conflict instead of overwriting it.\nNo WordPress access or secret is needed to persist already-read audit files."
+    },
+    {
+      "path": "scripts/save_reports.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": "CAS-persist generated reports; never blind rebase state."
+    },
+    {
+      "path": "scripts/seo_adapter_acceptance.py",
+      "classes": [],
+      "entry_points": [
+        "check",
+        "main"
+      ],
+      "docstring": "Test REAL GitHub Actions WordPress credentials against a safe existing draft.\n\nNever creates/publishes a campaign article. The dedicated isolated factory\nacceptance draft is used only after verifying its slug + status."
+    },
+    {
+      "path": "scripts/slug_policy.py",
+      "classes": [],
+      "entry_points": [
+        "suggested_slug",
+        "proposed_slug_errors"
+      ],
+      "docstring": "Protect public WordPress permalinks from spreadsheet-source metadata.\n\nOnly article subject matter (an approved title) may determine a NEW slug.\nNever rewrite an existing permalink/canonical or \"repair\" a slug at publish time."
+    },
+    {
+      "path": "scripts/source_probe.py",
+      "classes": [],
+      "entry_points": [
+        "probe",
+        "parse",
+        "main"
+      ],
+      "docstring": "Read-only probe: can the GitHub runner read a cited source like the Publisher's live QA?\n\nFetches each URL with the same user agent, redirect rule, timeout and visible-text\nextraction as qa.verify_sources(live=True). It never writes to WordPress or the repo.\nInput: PROBE_URLS, one `url|needle` per line (needle optional, normalised like QA)."
+    },
+    {
+      "path": "scripts/taxonomy-sync.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": null
+    },
+    {
+      "path": "scripts/taxonomy_sync.py",
+      "classes": [],
+      "entry_points": [
+        "by_key",
+        "path_for",
+        "resolve",
+        "materialize"
+      ],
+      "docstring": "Verified full parent-path mapping; just-in-time creation is opt-in."
+    },
+    {
+      "path": "scripts/title_plan_1482.py",
+      "classes": [],
+      "entry_points": [
+        "norm",
+        "overlap",
+        "existing_titles",
+        "make_title",
+        "candidate_rows",
+        "stable_rows",
+        "save_json",
+        "workbook_export",
+        "outputs",
+        "reconcile",
+        "main"
+      ],
+      "docstring": "Deterministic 1482-title editorial queue: no WordPress writes or fabricated QA.\n\nSources of truth:\n- baseline-518.json: an authenticated snapshot of 518 live WP titles.\n- data/topics.jsonl: all existing planned/published factory titles.\n- data/state/publication-ledger.json: G7 receipts for status reconciliation.\n\nRun --build to create 3 CSV/Excel workbooks, --sync to apply genuine G7\npublication receipts. This program never invents evidence or claims QA PASS."
+    },
+    {
+      "path": "scripts/title_plan_next.py",
+      "classes": [],
+      "entry_points": [
+        "main"
+      ],
+      "docstring": "Read-only next-title selector; never claims writer lease or publishes."
+    },
+    {
+      "path": "scripts/title_plan_xlsx_export.py",
+      "classes": [],
+      "entry_points": [
+        "el",
+        "col_letter",
+        "worksheet_xml",
+        "plain_xml",
+        "styles_xml",
+        "workbook_xml",
+        "workbook_rels",
+        "content_types",
+        "zip_build",
+        "main"
+      ],
+      "docstring": "Generate standard Office Open XML .xlsx files from approved CSV planning rows.\n\nProduces only static reviewable spreadsheet views. plan.json + status.json are\nauthoritative. Does not invoke WordPress, claim writer slots or bypass QA."
+    },
+    {
+      "path": "scripts/topic-factory.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": null
+    },
+    {
+      "path": "scripts/topic_discovery.py",
+      "classes": [],
+      "entry_points": [
+        "cleaned",
+        "rss_public_headlines",
+        "identity_key",
+        "is_overlap",
+        "research_questions",
+        "proposal",
+        "consumed_ids",
+        "discover",
+        "collect_signals",
+        "run"
+      ],
+      "docstring": "Automatic topic DISCOVERY, not automatic AI research or publishing.\n\nCollects public RSS signals and maps verified local topical gaps to unique\nresearch briefs. No AI token/API key; no fake \"facts_checked\", no PLANNED\npromotion. External AI sessions must finish source review and Topic QA."
+    },
+    {
+      "path": "scripts/topic_factory.py",
+      "classes": [],
+      "entry_points": [
+        "validate_discovery_origin",
+        "valid_research_sources",
+        "similarity",
+        "exempt_factory_posts",
+        "_utc",
+        "stamp_factory_posts",
+        "with_snapshot",
+        "drop_own_post",
+        "gate",
+        "apply_intent_guard",
+        "research_qa_verdicts",
+        "run",
+        "regate",
+        "main"
+      ],
+      "docstring": "Canonical Topic QA and refill. Candidates never auto become PLANNED."
+    },
+    {
+      "path": "scripts/topic_stock.py",
+      "classes": [],
+      "entry_points": [
+        "_live_lease_ids",
+        "stage_of",
+        "build_stock"
+      ],
+      "docstring": "One canonical count of the topic stock; every topic row is counted in exactly one stage.\n\nIDEA          discovery lead (NTD- proposal) nobody has researched into a topic row yet\nRESEARCH      topic row waiting for researched evidence; a writer cannot use it\nREJECTED      topic row that failed Topic QA\nPLANNED       researched, Topic QA PASS, unclaimed, not on hold: the ready stock writers draw from\nPLANNED_HOLD  Topic QA PASS but parked by the coordinator (field `hold`, e.g. sources unreadable from the runner)\nCLAIMED       inside a live writer lease, no draft yet\nAUTHORED      draft exists, QA is not PASS yet\nQA_PASS       draft passed QA and waits for, or is inside, the Publisher (an unverified POST intent counts here)\nPUBLISHED     WordPress read-back VERIFIED as public\nWP_DRAFT      WordPress read-back VERIFIED as a draft (fallback category)\n\nThe lifetime PLANNED total is history, not backlog: only PLANNED counts toward the 100-topic reserve.\nRead-only. It never invents topics and never runs a model."
+    },
+    {
+      "path": "scripts/validate.py",
+      "classes": [],
+      "entry_points": [
+        "run"
+      ],
+      "docstring": "Repository-wide invariants; no network or mutations."
+    },
+    {
+      "path": "scripts/watchdog.py",
+      "classes": [],
+      "entry_points": [
+        "parse_time",
+        "elapsed_minutes",
+        "refill_summary",
+        "assess",
+        "main"
+      ],
+      "docstring": "Read-only factory liveness watchdog inspired by /blog, adapted for WordPress.\n\nThis file NEVER imports a WordPress client, claims a writer slot, or mutates git state.\nReports semantic progress separately from an Actions green checkmark."
+    },
+    {
+      "path": "scripts/writer-repair.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": null
+    },
+    {
+      "path": "scripts/writer-session.py",
+      "classes": [],
+      "entry_points": [],
+      "docstring": null
+    },
+    {
+      "path": "scripts/writer_branch_intake.py",
+      "classes": [],
+      "entry_points": [
+        "check_changed_paths",
+        "git_read",
+        "verify_source",
+        "blob_at",
+        "prepare",
+        "ingest",
+        "refresh_trusted_main",
+        "main"
+      ],
+      "docstring": "Trusted-main, no-WordPress intake for article-only writer/* branches.\n\nThis script never executes files from the writer branch and never accepts\nworkflow/config/registry modifications. Read-only mode validates without writes;\napply mode can run ONLY from the trusted main workflow after green branch QA."
+    },
+    {
+      "path": "scripts/writer_repair.py",
+      "classes": [],
+      "entry_points": [
+        "paths",
+        "enforce_owner",
+        "remote_repair",
+        "qa_defects",
+        "advance",
+        "persist",
+        "main"
+      ],
+      "docstring": "Claude-side QA repair journal. No AI API, WordPress calls, or privileged main writes.\n\nUsage:\n  python scripts/writer-repair.py save --session s-name --id NT-000101 --note \"fixed ...\"\n  python scripts/writer-repair.py resume --session s-name --id NT-000101\n\nEach Topic ID has an isolated non-publishing repair/<session>/<id> Git ref.\nOnly a *live* owner may save/restore. SHA-256 and non-fast-forward push\nprotect cross-machine sessions; the normal writer-session push gate is the\nonly route from an actual PASS to main and then the Publisher."
+    },
+    {
+      "path": "scripts/writer_session.py",
+      "classes": [],
+      "entry_points": [
+        "live_leases",
+        "writer_finished",
+        "claim",
+        "owner",
+        "remote_snapshot",
+        "main"
+      ],
+      "docstring": "Provider-neutral W1..W9 with CAS, immutable submission receipts."
+    }
+  ],
+  "workflows": {
+    ".github/workflows/factory-audit.yml": {
+      "sha256": "1f5a95552c8cdb4295d2db05fd22b1431ee273c9ee2ea53cac64043fd8c0955b",
+      "lines": 32,
+      "name": "name: Factory authenticated inventory (read-only WordPress)"
+    },
+    ".github/workflows/factory-watchdog.yml": {
+      "sha256": "3cf347eb3c8e42d98371641824bcbc378c6c9f5619917d9929171427353e4b19",
+      "lines": 43,
+      "name": "name: WordPress Factory liveness (read-only)"
+    },
+    ".github/workflows/protected-main-readiness.yml": {
+      "sha256": "4e92d256a6062f21190b8f96afd865f0fef74644909783d716127f9a6c797464",
+      "lines": 48,
+      "name": "name: Protected main migration readiness (read-only)"
+    },
+    ".github/workflows/seo-51-ward-queue-qa.yml": {
+      "sha256": "a132dd2bbf1ccddcf47faf1847a7c835400bee8ed6a4c3b1cfb63a2ea834e918",
+      "lines": 115,
+      "name": "name: SEO 51 Ward Queue Structural QA (read-only)"
+    },
+    ".github/workflows/source-reachability.yml": {
+      "sha256": "7c1b500d667bdc9666a5d5daef94d9bdf3c7054366b6510cd717c53ab4f9b427",
+      "lines": 31,
+      "name": "name: Source reachability from GitHub runner (read-only)"
+    },
+    ".github/workflows/title-plan-1482-build.yml": {
+      "sha256": "8035180a5dd2ab5679726878274c461c433ea2f0201d1b3586a6677248939e81",
+      "lines": 65,
+      "name": "name: Build 1482 SEO title Excel files (safe editorial data)"
+    },
+    ".github/workflows/title-plan-1482-sync.yml": {
+      "sha256": "a04df1bacf9ec5bcb3746e0c75b247fdd567fc27a0b5aa6e2021aac2038b3b08",
+      "lines": 51,
+      "name": "name: Reconcile 1482 Excel title statuses from Publisher G7"
+    },
+    ".github/workflows/topic-discovery.yml": {
+      "sha256": "9f2ac6c937f1c1c7ecd15c3300ed63d1ecd210040e8638455edadd5739118931",
+      "lines": 58,
+      "name": "name: Universal Topic Discovery"
+    },
+    ".github/workflows/topic-refill-controller.yml": {
+      "sha256": "e92c7bbe997d8dc49452f0ba8f709a0951b6e4ca29d8c6b7b9a6e0a2b01d62dc",
+      "lines": 50,
+      "name": "name: Self-replenishing topic controller"
+    },
+    ".github/workflows/topic-refill.yml": {
+      "sha256": "4ec197686f9862bea898cf6aea2c8976dcf43657725a07561201ff0c662f2e85",
+      "lines": 29,
+      "name": "name: Topic QA and researched refill"
+    },
+    ".github/workflows/topic-research-intake.yml": {
+      "sha256": "12f9309158660b699c55460eb0f0d8d23fcfa74ca87fc92819e65c4ce9b8115a",
+      "lines": 65,
+      "name": "name: Trusted Research Intake and Topic Refill"
+    },
+    ".github/workflows/topic-research-qa.yml": {
+      "sha256": "6ec980cf81510630aaadf434d66c5e95da49b0cafa1e3a875de0edd6a5c70b9b",
+      "lines": 45,
+      "name": "name: External Topic Research QA (read-only)"
+    },
+    ".github/workflows/wordpress-post-publish-qa.yml": {
+      "sha256": "3b5ee9be4fb4504046be976750809d63e9b96f2863104726a606ced357c46f6a",
+      "lines": 42,
+      "name": "name: WordPress post-publish public QA (read-only)"
+    },
+    ".github/workflows/wordpress-publisher.yml": {
+      "sha256": "4d82e764bf93889498bbfa7ca193d6163435cb644d8f69f06ed46c5d5ef70a11",
+      "lines": 162,
+      "name": "name: Universal WordPress Publisher"
+    },
+    ".github/workflows/wp-environment-credential-check.yml": {
+      "sha256": "eff2bd9dd251cb3677b835bc6368b946db721560551ca3e9acde5520316622d9",
+      "lines": 54,
+      "name": "name: WordPress Environment Secrets READ-ONLY verification"
+    },
+    ".github/workflows/wp-seo-adapter-acceptance.yml": {
+      "sha256": "25c08f9bf930b318721ada186cbad1dbc96cae4c36e254ecf3941a9df15583f8",
+      "lines": 41,
+      "name": "name: GitHub WordPress Yoast SEO adapter acceptance"
+    },
+    ".github/workflows/writer-branch-intake.yml": {
+      "sha256": "7e4b04098e76e763f2e70201c005f8218f0fd6702515f2abdd424296fa99b4cb",
+      "lines": 48,
+      "name": "name: Trusted Writer Branch Intake (no WordPress credentials)"
+    },
+    ".github/workflows/writer-branch-qa.yml": {
+      "sha256": "5cf71d546e099d81594fcd3d653a6ab6d3e1e6141990b05ab6d936aeadbaeadc",
+      "lines": 27,
+      "name": "name: External Writer Branch QA (read-only)"
+    },
+    ".github/workflows/writer-control.yml": {
+      "sha256": "6267e1a57255c9fd7caa9d6eb4791bfc43e065c6837679243297fa1b55a58dcd",
+      "lines": 28,
+      "name": "name: Universal AI writer claim requests"
+    },
+    ".github/workflows/writer-qa.yml": {
+      "sha256": "3650f7a55638e1f21fd6bc49e0c347294b4ee2975955493e3be07b43012f914e",
+      "lines": 81,
+      "name": "name: Universal writer QA (no WordPress credentials)"
+    }
+  }
+}

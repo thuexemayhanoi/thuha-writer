@@ -1,0 +1,62 @@
+{
+  "agent_attribution": {},
+  "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
+  "blockers": [
+    "Separate owner go-live approval outstanding",
+    "Other publisher coordination not verified",
+    "No external AI session lease; Actions do not generate prose"
+  ],
+  "factory_remaining_to_2000": 2000,
+  "factory_verified_receipts": 0,
+  "generated_at": "2026-10-20T18:55:46.456512+00:00",
+  "inventory_age_seconds": 582,
+  "inventory_complete": true,
+  "production_enabled": false,
+  "published_articles": [],
+  "publisher_uncertain": [],
+  "qa": {},
+  "remaining_to_2000_site_verified": 1727,
+  "research_requests": [],
+  "site_live_verified_posts": 273,
+  "slots": {
+    "W1": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W2": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W3": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W4": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W5": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W6": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W7": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W8": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W9": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    }
+  },
+  "states": {},
+  "wordpress_pages": 6,
+  "wordpress_published": 273
+}

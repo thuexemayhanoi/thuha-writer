@@ -1,0 +1,18 @@
+{
+  "name": "Thuê xe máy Nguyễn Hà",
+  "address": "Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm)",
+  "phone": "+84 334 699 969",
+  "local_phone": "0334 699 969",
+  "hours": "09:00–21:00 daily",
+  "reference_prices_vnd": {
+    "manual": {"day": [150000, 200000], "week": [700000, 800000], "month": [1000000, 1200000]},
+    "automatic": {"day": [150000, 200000], "week": [600000, 1000000], "month": [1200000, 2000000]},
+    "electric": {"day": null, "week": [600000, 800000], "month": [1500000, 1800000]},
+    "50cc": {"day": [200000, 200000], "week": [1000000, 1000000], "month": [2000000, 2000000]},
+    "Vision": {"day": [200000, 200000], "week": [1000000, 1000000], "month": [2000000, 2000000]},
+    "Air Blade": {"day": [200000, 200000], "week": [900000, 900000], "month": [1500000, 1500000]}
+  },
+  "price_disclaimer": "Reference prices only. Confirm the bike and rate before booking.",
+  "unconfirmed_policies": ["delivery", "deposit procedure", "deposit refunds", "extension charges"],
+  "rules": ["Never promise no deposit by default", "Never invent an electric daily rate", "Do not infer business policies from another repository"]
+}

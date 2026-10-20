@@ -1,32 +1,53 @@
 {
-  "schema_version": 1,
-  "project": "thuha-writer",
-  "site": {
-    "url": "https://rentbikehanoi.com",
-    "language": "en-US",
-    "read_only_audit": true
+  "audit": {
+    "full_inventory_pending": false,
+    "inventory_path": "reports/live-audit/inventory.json",
+    "no_production_changes": true,
+    "sample_size": 30,
+    "semantic_factual_review": "PENDING",
+    "status": "FULL_TECHNICAL_INVENTORY_COMPLETE"
+  },
+  "business": {
+    "address": "Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm)",
+    "hours": "09:00–21:00 daily",
+    "name": "Thuê xe máy Nguyễn Hà",
+    "phone": "+84 334 699 969",
+    "pricing": "Only owner-approved reference prices; confirm before booking"
   },
   "goal": {
-    "verified_published_posts": 2000,
     "baseline_source": "live-wordpress-reconciliation",
-    "historical_counts_are_authoritative": false
+    "historical_counts_are_authoritative": false,
+    "verified_published_posts": 2000
   },
-  "reference": {
-    "repo": "thuexemayhanoi/wp-writer",
-    "mode": "architectural-reference-only",
-    "copy_state": false,
-    "copy_code": false
-  },
+  "project": "thuha-writer",
   "publishing": {
-    "enabled": false,
-    "owner_release_required": true,
+    "allow_blind_retry": false,
     "allow_category_creation": false,
     "allow_existing_url_changes": false,
-    "allow_blind_retry": false,
+    "enabled": false,
+    "owner_release_required": true,
     "require_live_taxonomy_match": true,
     "require_receipt_and_readback": true
   },
+  "quality": {
+    "hard_fail_overrides_score": true,
+    "policy_file": "config/qa.json"
+  },
+  "reference": {
+    "copy_code": false,
+    "copy_state": false,
+    "mode": "architectural-reference-only",
+    "repo": "thuexemayhanoi/wp-writer"
+  },
+  "schema_version": 1,
+  "site": {
+    "language": "en-US",
+    "read_only_audit": true,
+    "url": "https://rentbikehanoi.com"
+  },
   "writers": {
+    "automatic_ai_generation": false,
+    "external_ai_runtime_required": true,
     "slots": [
       "W1",
       "W2",
@@ -37,32 +58,6 @@
       "W7",
       "W8",
       "W9"
-    ],
-    "automatic_ai_generation": false,
-    "external_ai_runtime_required": true
-  },
-  "audit": {
-    "status": "PHASE_1_SAMPLE_ONLY",
-    "sample_size": 30,
-    "full_inventory_pending": true,
-    "no_production_changes": true
-  },
-  "quality": {
-    "score_threshold": "OWNER_APPROVAL_REQUIRED",
-    "hard_fails": [
-      "duplicate_intent",
-      "wrong_taxonomy",
-      "unverified_business_claim",
-      "unsafe_legal_claim",
-      "canonical_collision",
-      "missing_publication_provenance"
     ]
-  },
-  "business": {
-    "name": "Thuê xe máy Nguyễn Hà",
-    "address": "Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm)",
-    "phone": "+84 334 699 969",
-    "hours": "09:00–21:00 daily",
-    "pricing": "Only owner-approved reference prices; confirm before booking"
   }
 }

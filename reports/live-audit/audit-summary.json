@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-10-20T18:46:04.693932+00:00",
+  "complete": true,
+  "counts": {
+    "live_verified_posts": 273,
+    "pages": 6,
+    "posts": 273
+  },
+  "errors": [],
+  "factual_english_semantic_review": "NOT_PERFORMED",
+  "google_index_status": "UNKNOWN — no Search Console evidence",
+  "matrix_rows": 483,
+  "production_writes": 0,
+  "site": "https://rentbikehanoi.com"
+}

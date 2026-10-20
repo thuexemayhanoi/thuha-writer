@@ -1,0 +1,65 @@
+name: ThuHa publisher pilot (default OFF)
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        default: dry-run
+        options: [dry-run, production, reconcile, verify]
+      topic_id:
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: thuha-wordpress-publisher
+  cancel-in-progress: false
+jobs:
+  dry-run:
+    if: github.ref == 'refs/heads/main' && inputs.mode == 'dry-run'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - run: python3 -m thuha.cli --remote publisher --mode dry-run
+  protected-pilot:
+    if: github.ref == 'refs/heads/main' && inputs.mode != 'dry-run'
+    environment: thuha-production
+    permissions:
+      contents: write
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+      THUHA_GO_LIVE_APPROVAL: ${{ vars.THUHA_GO_LIVE_APPROVAL }}
+      MODE: ${{ inputs.mode }}
+      TOPIC_ID: ${{ inputs.topic_id }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Presence checks only (no credential values)
+        run: python3 -m thuha.cli credentials
+      - name: Single-topic guarded publisher / read-only reconciliation
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$TOPIC_ID" =~ ^TH-[0-9]{6}$ ]] || exit 1
+          python3 -m thuha.cli --remote publisher --mode "$MODE" --topic-id "$TOPIC_ID"
+      - name: Report actual receipts, never infer publication from job success
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: publisher-evidence-${{ github.run_id }}
+          path: artifacts/
+          retention-days: 30

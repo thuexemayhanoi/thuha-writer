@@ -1,0 +1,11 @@
+{
+  "approved": false,
+  "approval_ref": null,
+  "enabled": false,
+  "paused": true,
+  "emergency_stop": false,
+  "pilot_max_posts": 2,
+  "minimum_post_interval_seconds": 60,
+  "environment": "thuha-production",
+  "cross_publisher_coordination_verified": false
+}

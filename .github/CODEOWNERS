@@ -1,0 +1,5 @@
+# Review routing only; branch protections and state-app restrictions must be enforced separately.
+/src/ @thuexemayhanoi
+/config/ @thuexemayhanoi
+/.github/ @thuexemayhanoi
+/tests/ @thuexemayhanoi

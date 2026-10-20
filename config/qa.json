@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "score_threshold": 85,
+  "minimum_internal_links": 2,
+  "maximum_repairs": 3,
+  "inventory_max_age_seconds": 21600,
+  "research_max_age_seconds": 2592000,
+  "trusted_reviewers": [],
+  "semantic_review_required": true,
+  "threshold_status": "development default; confirm at go-live",
+  "hard_fail_overrides_score": true
+}
