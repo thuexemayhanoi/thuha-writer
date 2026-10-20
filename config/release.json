@@ -5,6 +5,10 @@
   "paused": true,
   "emergency_stop": false,
   "pilot_max_posts": 2,
+  "stage": "pilot",
+  "approved_capacity": 2,
+  "maximum_daily_posts": 2,
+  "expansion_approval_ref": null,
   "minimum_post_interval_seconds": 60,
   "environment": "thuha-production",
   "cross_publisher_coordination_verified": false

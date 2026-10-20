@@ -8,9 +8,11 @@ from .store import event
 def capture_source(store,url):
     safe_public_url(url)
     data,headers,status=HTTP().request(url)
+    from .audit import parse
+    page=parse(data.decode('utf-8',errors='replace'))
     # Keep only bounded evidence snapshots, not entire copyrighted websites.
     snapshot={'url':url,'checked_at':now(),'http_status':status,'response_sha256':digest(data),
-              'excerpt':data.decode('utf-8',errors='replace')[:2000],
+              'excerpt':' '.join(' '.join(page.text).split()[:20]),'page_title':page.title,
               'content_type':headers.get('Content-Type',headers.get('content-type'))}
     return {'document':store.put_document(snapshot),'url':url}
 
@@ -79,7 +81,8 @@ def refill(store,inv,below=30,batch_max=100):
         if planned>=below:return {'needed':False,'planned':planned}
         outstanding=[r for r in state['research_requests'].values() if r['status']=='AWAITING_EXTERNAL_RESEARCH']
         if outstanding:return outstanding[0]
-        capacity=min(batch_max,2000-len(state['topics']))
+        queued=sum(x['status']!='VERIFIED' for x in state['topics'].values())
+        capacity=min(batch_max,2000-len(state['topics']),max(0,2000-inv['counts']['posts']-queued))
         if capacity<=0:return {'needed':False,'reason':'CAPACITY'}
         request={'request_id':'research-'+digest([digest(inv),len(state['topics'])])[:16],
                  'created_at':now(),'status':'AWAITING_EXTERNAL_RESEARCH','maximum_topics':capacity,

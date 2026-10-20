@@ -38,6 +38,7 @@ is not a publishable article or real research evidence.
 python3 -m thuha.cli --remote heartbeat --slot W1 --session SESSION --fence FENCE
 python3 -m thuha.cli --remote submit --slot W1 --session SESSION --fence FENCE --file article.json
 python3 -m thuha.cli --remote qa --topic-id TH-000001
+python3 -m thuha.cli --remote resume --topic-id TH-000001
 ```
 
 Submission first saves the immutable document, then its receipt. Preserve the

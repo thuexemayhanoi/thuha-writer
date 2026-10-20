@@ -1,13 +1,16 @@
 from collections import Counter
 from pathlib import Path
-from .common import now,age,save
+from .common import ROOT,now,age,save,load
 from .coordinator import SLOTS,timestamp
 
 
 def report(store,inv,release):
     s=store.read();counts=Counter(t['status'] for t in s['topics'].values())
+    for status in ('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','PUBLISHING','VERIFIED'):
+        counts.setdefault(status,0)
     verified=inv.get('counts',{}).get('live_verified_posts',0)
     result={'generated_at':now(),'wordpress_published':inv.get('counts',{}).get('posts'),
+       'state_backend':'github-factory-state' if store.durable_remote else 'local-offline-snapshot',
        'wordpress_pages':inv.get('counts',{}).get('pages'),'inventory_complete':inv.get('complete',False),
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'remaining_to_2000_site_verified':max(0,2000-verified),'factory_verified_receipts':len(s['receipts']),
@@ -22,6 +25,7 @@ def report(store,inv,release):
        'attribution_note':'Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.',
        'blockers':[]}
     if not release['approved']:result['blockers'].append('Separate owner go-live approval outstanding')
+    if not load(ROOT/'config/qa.json')['trusted_reviewers']:result['blockers'].append('No independent reviewer roster configured')
     if not release.get('cross_publisher_coordination_verified'):result['blockers'].append('Other publisher coordination not verified')
     if not s['leases']:result['blockers'].append('No external AI session lease; Actions do not generate prose')
     if not inv.get('complete'):result['blockers'].append('Inventory incomplete; new topics and publisher blocked')

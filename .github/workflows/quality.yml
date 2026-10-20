@@ -33,6 +33,13 @@ jobs:
           python3 -m thuha.cli publisher --mode dry-run > artifacts-dry-run.json
           python3 -m thuha.cli --output artifacts report
           cp artifacts-dry-run.json artifacts/dry-run.json
+      - name: Read authoritative remote state and dry-run (trusted main push only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          THUHA_GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m thuha.cli --remote --output artifacts/live-factory health
+          python3 -m thuha.cli --remote publisher --mode dry-run > artifacts/live-factory/publisher-dry-run.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: quality-evidence-${{ github.sha }}

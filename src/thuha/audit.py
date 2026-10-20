@@ -16,6 +16,10 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.text, self.links, self.images, self.headings = [], [], [], []
         self.canonicals, self.robots, self.descriptions, self.schema = [], [], [], []
+        self.valid_schema_types=[]
+        self.schema_errors=0
+        self._ld=False
+        self._ld_raw=[]
         self.title, self.heading, self.tag, self.hidden = '', None, '', 0
 
     def handle_starttag(self, tag, attrs):
@@ -38,8 +42,20 @@ class Page(HTMLParser):
             self.descriptions.append(attrs.get('content',''))
         if tag == 'script' and attrs.get('type') == 'application/ld+json':
             self.schema.append(True)
+            self._ld=True
+            self._ld_raw=[]
 
     def handle_endtag(self, tag):
+        if tag=='script' and self._ld:
+            try:
+                obj=json.loads(''.join(self._ld_raw))
+                if not isinstance(obj,dict) or not obj.get('@context'):raise ValueError('Missing schema context')
+                nodes=obj.get('@graph',[obj])
+                for node in nodes:
+                    types=node.get('@type',[])
+                    self.valid_schema_types.extend(types if isinstance(types,list) else [types])
+            except (ValueError,TypeError,AttributeError):self.schema_errors+=1
+            self._ld=False
         if tag in ('script','style'):
             self.hidden = max(0,self.hidden-1)
         if tag == 'title':
@@ -49,6 +65,8 @@ class Page(HTMLParser):
             self.heading = None
 
     def handle_data(self, data):
+        if self._ld:
+            self._ld_raw.append(data)
         if self.hidden:
             return
         if self.tag == 'title':
@@ -111,7 +129,8 @@ def inventory(client=None, check_pages=True):
                     return {'http_status':status,'canonicals':p.canonicals,'robots':p.robots,
                             'x_robots_tag':headers.get('X-Robots-Tag',headers.get('x-robots-tag')),
                             'title':p.title,'descriptions':p.descriptions,'h1_count':sum(x[0]=='h1' for x in p.headings),
-                            'schema_present':bool(p.schema),'html_sha256':digest(source.encode()),'checked_at':now()}
+                            'schema_present':bool(p.schema),'schema_types':p.valid_schema_types,'schema_json_errors':p.schema_errors,
+                            'html_sha256':digest(source.encode()),'checked_at':now()}
                 except Exception as exc:
                     return {'http_status':None,'error':str(exc),'checked_at':now()}
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
@@ -157,6 +176,9 @@ def matrix(inv):
         if c.get('error'):flag('P1','PUBLIC_FETCH_UNKNOWN',c['error'])
         if c.get('http_status')==200 and c.get('canonicals')!=[item['url']]:flag('P1','CANONICAL_REVIEW',json.dumps(c.get('canonicals')))
         if c.get('http_status')==200 and c.get('h1_count')!=1:flag('P2','H1_COUNT_REVIEW',str(c.get('h1_count')))
+        if c.get('http_status')==200 and c.get('title')!=item.get('seo_title'):flag('P1','RENDERED_SEO_TITLE_MISMATCH','Rendered title differs from REST Yoast title')
+        if c.get('http_status')==200 and c.get('descriptions')!=[item.get('meta_description')]:flag('P1','RENDERED_META_DESCRIPTION_MISMATCH','Rendered meta description differs from REST Yoast description')
+        if c.get('schema_json_errors'):flag('P1','INVALID_SCHEMA_JSON',str(c['schema_json_errors'])+' invalid JSON-LD blocks')
         if 'noindex' in str(c.get('robots',[])).lower() or 'noindex' in str(c.get('x_robots_tag')).lower():flag('P1','NOINDEX_DIRECTIVE','Rendered robots or HTTP header; no Google index-status inference')
         canonical=item.get('canonical')
         if canonical:canonicals.setdefault(canonical,[]).append(item)

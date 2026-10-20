@@ -80,6 +80,8 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(result['status'],'NEEDS_REVIEW')
         state=self.store.read();sha=state['topics']['TH-000001']['held_article_sha']
         self.assertEqual(self.store.get_document(sha),self.article)
+        self.assertEqual(state['leases'],{})
+        with self.assertRaises(ValueError):self.send()
     def test_same_session_cannot_change_declared_agent(self):
         with self.assertRaises(ValueError):claim(self.store,'session-fixture','other-agent')
     def test_corrupt_event_chain_is_never_reset_silently(self):
@@ -97,6 +99,16 @@ class RecoveryTests(unittest.TestCase):
 
 
 class SecurityTests(unittest.TestCase):
+    def test_qa_batch_continues_after_one_contract_failure(self):
+        output=io.StringIO()
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp)
+            store.mutate(lambda s:s['topics'].update({'TH-000001':{'status':'DRAFT_READY'},'TH-000002':{'status':'DRAFT_READY'}}))
+            inv=Path(temp)/'inventory.json';inv.write_text('{}')
+            with patch('thuha.quality.run_qa',side_effect=[ValueError('isolated broken topic'),{'status':'PASS'}]) as mock,patch('sys.stdout',output):
+                code=main(['--state-dir',temp,'--inventory',str(inv),'qa'])
+            self.assertEqual(mock.call_count,2);self.assertEqual(code,1)
+            self.assertEqual(json.loads(output.getvalue())['results']['TH-000002']['status'],'PASS')
     def test_missing_external_controls_blocks_go_live(self):
         class API:
             def request(self,*args):return {}

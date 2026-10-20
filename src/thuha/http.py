@@ -24,7 +24,9 @@ def safe_public_url(url):
     # Arbitrary research URLs retain the strict public-address check below.
     if p.hostname in ('rentbikehanoi.com', 'api.github.com'):
         return url
-    addresses = socket.getaddrinfo(p.hostname, 443, type=socket.SOCK_STREAM)
+    try:addresses = socket.getaddrinfo(p.hostname, 443, type=socket.SOCK_STREAM)
+    except OSError:
+        raise NetworkError('DNS lookup failed for source origin; no content verdict was made') from None
     if not addresses or any(not ipaddress.ip_address(x[4][0]).is_global for x in addresses):
         raise ValueError('Source resolves to a non-public address')
     return url

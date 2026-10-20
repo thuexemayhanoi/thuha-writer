@@ -3,20 +3,45 @@
   "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
   "blockers": [
     "Separate owner go-live approval outstanding",
+    "No independent reviewer roster configured",
     "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose"
   ],
   "factory_remaining_to_2000": 2000,
   "factory_verified_receipts": 0,
-  "generated_at": "2026-10-20T18:55:46.456512+00:00",
-  "inventory_age_seconds": 582,
+  "generated_at": "2026-10-20T19:09:55.029941+00:00",
+  "inventory_age_seconds": 1430,
   "inventory_complete": true,
   "production_enabled": false,
   "published_articles": [],
   "publisher_uncertain": [],
   "qa": {},
   "remaining_to_2000_site_verified": 1727,
-  "research_requests": [],
+  "research_requests": [
+    {
+      "created_at": "2026-10-20T19:01:25.452661+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "maximum_topics": 100,
+      "planned": 2,
+      "request_id": "research-02c699867a6129e1",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
+    },
+    {
+      "admitted_topic_ids": [
+        "TH-000001",
+        "TH-000002"
+      ],
+      "completed_at": "2026-10-20T19:01:25.441752+00:00",
+      "created_at": "2026-10-20T19:01:10.087964+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "maximum_topics": 100,
+      "planned": 0,
+      "request_id": "research-bf46daf1e88fa9d4",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    }
+  ],
   "site_live_verified_posts": 273,
   "slots": {
     "W1": {
@@ -56,7 +81,19 @@
       "status": "AVAILABLE"
     }
   },
-  "states": {},
+  "state_backend": "local-offline-snapshot",
+  "states": {
+    "BLOCKED": 0,
+    "CLAIMED": 0,
+    "DRAFT_READY": 0,
+    "NEEDS_REPAIR": 0,
+    "NEEDS_REVIEW": 0,
+    "PLANNED": 2,
+    "PUBLISHING": 0,
+    "READY": 0,
+    "RESEARCH": 0,
+    "VERIFIED": 0
+  },
   "wordpress_pages": 6,
   "wordpress_published": 273
 }

@@ -130,9 +130,18 @@ class ResearchTests(Fixture):
         a=refill(self.store,self.inv);b=refill(self.store,self.inv)
         self.assertEqual(a,b);self.assertEqual(a['maximum_topics'],100)
         self.assertEqual(self.store.read()['topics'],{})
+    def test_refill_stops_at_existing_website_target(self):
+        self.inv['counts']['posts']=2000
+        self.assertEqual(refill(self.store,self.inv)['reason'],'CAPACITY')
 
 
 class QualityTests(Fixture):
+    def test_qa_cannot_close_another_writers_live_repair_lease(self):
+        topic,article,sub=self.ready()
+        self.store.mutate(lambda s:s['topics'][topic['topic_id']].update(status='NEEDS_REPAIR'))
+        lease=claim(self.store,'repair-session','another-writer')
+        with self.assertRaises(ValueError):run_qa(self.store,topic['topic_id'],self.inv,self.policy,self.business)
+        self.assertEqual(self.store.read()['leases'][lease['slot']]['fence'],lease['fence'])
     def test_missing_independent_review_is_hard_fail(self):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
         self.assertEqual(r['status'],'FAIL');self.assertIn('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED',r['hard_fails'])
@@ -172,7 +181,7 @@ class FakeWordPress:
     def page(self,url):
         p=self.created[0];meta=p['meta']
         canonical=SITE+'/wrong/' if self.wrong_canonical else p['link']
-        return '<title>'+meta['_yoast_wpseo_title']+'</title><meta name="description" content="'+meta['_yoast_wpseo_metadesc']+'"><link rel="canonical" href="'+canonical+'"><script type="application/ld+json">{}</script>',{},200
+        return '<title>'+meta['_yoast_wpseo_title']+'</title><meta name="description" content="'+meta['_yoast_wpseo_metadesc']+'"><link rel="canonical" href="'+canonical+'"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article"}</script>',{},200
 
 
 class PublisherTests(Fixture):
@@ -229,8 +238,25 @@ class PublisherTests(Fixture):
             with self.assertRaises(ValueError):p.publish(tid)
         self.assertEqual(self.client.created,[])
 
+    def test_legacy_wordpress_id_is_never_counted_as_new_factory_post(self):
+        p,tid=self.publisher();original=self.client.create
+        def wrong_id(payload):
+            post=original(payload);post['id']=1;return post
+        self.client.create=wrong_id
+        with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):
+            with self.assertRaises(ValueError):p.publish(tid)
+        self.assertEqual(self.store.read()['receipts'],{})
+    def test_scale_cannot_skip_verified_pilot(self):
+        p,tid=self.publisher();self.release.update(stage='controlled-scale',approved_capacity=2000,maximum_daily_posts=10,expansion_approval_ref='synthetic-test-only')
+        with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):
+            with self.assertRaises(ValueError):p.publish(tid)
+        self.assertEqual(self.client.created,[])
+
 
 class HTTPAndAuditTests(unittest.TestCase):
+    def test_schema_marker_alone_is_not_valid_schema(self):
+        p=Page();p.feed('<script type="application/ld+json">{}</script>')
+        self.assertEqual(p.schema_errors,1);self.assertEqual(p.valid_schema_types,[])
     def test_readonly_transport_rejects_post(self):
         with self.assertRaises(ValueError):HTTP().request(SITE+'/wp-json/wp/v2/posts',method='POST',body={})
     def test_arbitrary_put_or_delete_rejected(self):

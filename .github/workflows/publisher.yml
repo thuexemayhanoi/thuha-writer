@@ -38,6 +38,7 @@ jobs:
       PYTHONPATH: src
       THUHA_GITHUB_TOKEN: ${{ github.token }}
       THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_GITHUB_SECURITY_TOKEN: ${{ secrets.THUHA_GITHUB_SECURITY_TOKEN }}
       THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
       THUHA_GO_LIVE_APPROVAL: ${{ vars.THUHA_GO_LIVE_APPROVAL }}
       MODE: ${{ inputs.mode }}

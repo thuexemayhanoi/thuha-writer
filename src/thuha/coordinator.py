@@ -67,6 +67,7 @@ def heartbeat(store,slot,session,fence,ttl=1800):
 
 def submit(store,slot,session,fence,article,max_repairs=3):
     state=store.read();lease=owned(state,slot,session,fence)
+    if state['topics'][lease['topic_id']]['status']=='NEEDS_REVIEW':raise ValueError('Held topic requires owner review before another revision')
     if article.get('topic_id')!=lease['topic_id'] or article.get('agent_id')!=lease['agent_id'] or article.get('session')!=session:
         raise ValueError('Submission provenance does not match lease')
     if len(str(article.get('body_html','')))>200_000:raise ValueError('Draft too large')
@@ -81,6 +82,7 @@ def submit(store,slot,session,fence,article,max_repairs=3):
             state['topics'][tid]['status']='NEEDS_REVIEW'
             state['topics'][tid]['held_article_sha']=sha
             event(state,'REPAIR_LIMIT',topic_id=tid,article_sha=sha)
+            del state['leases'][slot]
             return {'status':'NEEDS_REVIEW','article_sha':sha}
         value={'article_sha':sha,'session':session,'agent_id':lease['agent_id'],'slot':slot,'fence':fence,
                'submitted_at':now(),'repair_count':repairs,'commit':article.get('source_commit')}

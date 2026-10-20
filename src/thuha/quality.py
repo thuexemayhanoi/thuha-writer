@@ -9,6 +9,7 @@ from .audit import parse
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
 from .research import collisions
 from .store import event
+from .coordinator import timestamp
 
 REVIEW_CHECKS=('intent','factual_accuracy','english','originality','business_facts','image_relevance')
 
@@ -106,11 +107,13 @@ def run_qa(store,topic_id,inv,policy,business):
     report_sha=store.put_document(result)
     def transaction(state):
         if state['submissions'][topic_id]['article_sha']!=sub['article_sha']:raise ValueError('Draft changed during QA')
+        if any(l['topic_id']==topic_id and l['fence']!=sub['fence'] and l['expires_at']>timestamp() for l in state['leases'].values()):
+            raise ValueError('Another live writer is repairing this checkpoint; do not close their lease')
         if topic_id in state['intents']:raise ValueError('Publication pending; reconcile before QA mutation')
         state['qa'][topic_id]={'report_sha':report_sha,'article_sha':sub['article_sha'],'status':result['status']}
         state['topics'][topic_id]['status']='READY' if result['status']=='PASS' else 'NEEDS_REPAIR'
         if sub['repair_count']>=policy['maximum_repairs'] and result['status']!='PASS':state['topics'][topic_id]['status']='NEEDS_REVIEW'
-        if result['status']=='PASS':
+        if result['status']=='PASS' or state['topics'][topic_id]['status']=='NEEDS_REVIEW':
             state['leases']={s:l for s,l in state['leases'].items() if l['topic_id']!=topic_id}
         event(state,'QA',topic_id=topic_id,report_sha=report_sha,status=result['status'])
         return result

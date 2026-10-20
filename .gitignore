@@ -8,3 +8,5 @@ artifacts/
 *.pem
 *.key
 *.sqlite*
+/reports/**/authenticated-*.json
+/private-audit/

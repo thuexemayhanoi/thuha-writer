@@ -1,7 +1,7 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**V4 implementation in progress. WordPress production publishing remains OFF.**
+**V4 core implemented and tested. WordPress production publishing remains OFF.**
 
 Repository: `thuexemayhanoi/thuha-writer`  
 Language: English (en-US)  
@@ -26,7 +26,7 @@ Create an original WordPress editorial factory, informed by architectural study 
 
 ## Project stages
 
-1. **Audit & baseline (current)** — read reference code and real WordPress; document gaps, risks and safeguards.
+1. **Audit & baseline** — read reference code and real WordPress; document gaps, risks and safeguards.
 2. **Inventory-only tooling** — safely inspect all existing posts/pages/taxonomy and generate timestamped reproducible reports.
 3. **Topic research + intent mapping** — grounded source checks, deduplication, existing category matching, topic queue.
 4. **W1–W9 coordinator** — lease/heartbeat/atomic claim, durable checkpoints, source and submission receipts.
@@ -37,6 +37,7 @@ Create an original WordPress editorial factory, informed by architectural study 
 Read `docs/PHASE-01-AUDIT.md` and `docs/EXECUTION-ROADMAP.md` before implementing automation.
 
 Current implementation: [V4 architecture and boundaries](docs/V4-IMPLEMENTATION.md).
+Measured delivery and blockers: [V4 delivery checkpoint](docs/V4-DELIVERY.md).
 Run `PYTHONPATH=src python3 -m unittest discover -s tests -v` and
 `PYTHONPATH=src python3 -m thuha.cli --help`. The complete technical inventory
 and protected URLs are under `reports/live-audit/`. There is no paid AI API

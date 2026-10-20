@@ -1,0 +1,27 @@
+{
+  "audit_snapshot_pages": 6,
+  "audit_snapshot_published": 273,
+  "checked_at": "2026-10-20T19:09:17.646115+00:00",
+  "factory_receipts": 0,
+  "factory_state_commit": "34d368528b25faaefbfa750cedf326a1bd31a9f7",
+  "initial_ci": {
+    "commit": "f84b86e82ed78a5da61eaec226ca4a9d644efa4c",
+    "conclusion": "success",
+    "run_id": 39479456140
+  },
+  "limitations": [
+    "Deep factual/English/semantic review of all legacy articles is pending.",
+    "Publisher credentials, main/state branch enforcement and protected environment must be verified before go-live.",
+    "Independent reviewer roster is empty.",
+    "An external AI session must actually execute research and prose writing.",
+    "Other publishers targeting the site must be coordinated."
+  ],
+  "planned_topics": 2,
+  "production_writes": 0,
+  "scope": "Destination repository only; reference repository and theme unchanged",
+  "unit_integration_regression_tests": {
+    "fail": 0,
+    "pass": 58
+  },
+  "wordpress_live_published": 273
+}

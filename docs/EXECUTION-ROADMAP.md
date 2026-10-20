@@ -1,5 +1,10 @@
 # ThuHa Writer — Incremental Execution Roadmap
 
+V4 checkpoint (21 October 2026): technical inventory and core implementation are
+complete and tested; two source-backed topics are seeded on factory-state.
+Publisher is OFF. See `V4-DELIVERY.md` for measured results and remaining go-live
+gates. The phase descriptions below retain the original acceptance contract.
+
 Every phase produces a verifiable checkpoint. Do not enter the next phase on the strength of an AI-generated narrative alone.
 
 ## Phase 1 — Audit & safe baseline (CURRENT)

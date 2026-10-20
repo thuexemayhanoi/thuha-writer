@@ -42,6 +42,7 @@ def main(argv=None):
     policy=load(ROOT/'config/qa.json');facts=load(ROOT/'config/business-facts.json');factory=load(ROOT/'config/factory.json')
     release=load(ROOT/'config/release.json')
     result={}
+    exit_code=0
     if args.command=='validate':
         for file in (ROOT/'config').glob('*.json'):load(file)
         for file in (ROOT/'src').rglob('*.py'):ast.parse(file.read_text())
@@ -59,6 +60,7 @@ def main(argv=None):
             print(json.dumps(result));return 2
     elif args.command=='credentials':
         result={'github_token_configured':bool(os.environ.get('THUHA_GITHUB_TOKEN')),
+                'github_security_read_token_configured':bool(os.environ.get('THUHA_GITHUB_SECURITY_TOKEN')),
                 'wordpress_user_configured':bool(os.environ.get('THUHA_WP_USER')),
                 'wordpress_password_configured':bool(os.environ.get('THUHA_WP_APPLICATION_PASSWORD')),
                 'wordpress_writes':0,'production_enabled':release['enabled']}
@@ -66,6 +68,7 @@ def main(argv=None):
         result={'expired_slots':store.mutate(coordinator.recover),'ai_runtime':'External session required; no AI launched'}
     elif args.command=='claim':
         inv=inventory_for(store,args.inventory);validate_inventory(inv)
+        research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'])
         result=coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'])
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
@@ -93,7 +96,15 @@ def main(argv=None):
     elif args.command=='qa':
         inv=inventory_for(store,args.inventory)
         ids=[args.topic_id] if args.topic_id else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
-        result={'results':{tid:quality.run_qa(store,tid,inv,policy,facts) for tid in ids}}
+        result={'results':{}}
+        for tid in ids:
+            try:
+                value=quality.run_qa(store,tid,inv,policy,facts)
+                result['results'][tid]=value
+                if value['status']!='PASS':exit_code=max(exit_code,1)
+            except (ValueError,OSError,RuntimeError,KeyError) as exc:
+                result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError)) else 'STATE_OR_CONTRACT'}
+                exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)
     elif args.command=='publisher':
         pub=Publisher(store,WordPress(HTTP(allow_write=args.mode=='production')),inventory_for(store,args.inventory),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()
@@ -114,7 +125,7 @@ def main(argv=None):
         result=dashboard.report(store,inventory_for(store,args.inventory),release)
         dashboard.write_report(result,args.output)
     print(json.dumps(result,ensure_ascii=False,indent=2))
-    return 0
+    return exit_code
 
 
 if __name__=='__main__':
