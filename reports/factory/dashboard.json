@@ -9,8 +9,12 @@
   ],
   "factory_remaining_to_2000": 2000,
   "factory_verified_receipts": 0,
-  "generated_at": "2026-10-20T19:09:55.029941+00:00",
-  "inventory_age_seconds": 1430,
+  "generated_at": "2026-10-20T19:16:42.653535+00:00",
+  "github_actions": {
+    "runs": [],
+    "status": "UNKNOWN"
+  },
+  "inventory_age_seconds": 1838,
   "inventory_complete": true,
   "production_enabled": false,
   "published_articles": [],

@@ -1,6 +1,6 @@
 from collections import Counter
 from pathlib import Path
-from .common import ROOT,now,age,save,load
+from .common import ROOT,REPO,now,age,save,load
 from .coordinator import SLOTS,timestamp
 
 
@@ -24,6 +24,14 @@ def report(store,inv,release):
        'agent_attribution':dict(Counter(x.get('agent_id','UNKNOWN') for x in s['receipts'].values())),
        'attribution_note':'Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.',
        'blockers':[]}
+    result['github_actions']={'status':'UNKNOWN','runs':[]}
+    if store.durable_remote and hasattr(store,'api'):
+        try:
+            runs=store.api.request('GET','/repos/'+REPO+'/actions/runs?per_page=10').get('workflow_runs',[])
+            result['github_actions']={'status':'READBACK','runs':[
+                {k:x.get(k) for k in ('id','name','head_sha','status','conclusion','html_url')} for x in runs]}
+        except Exception:
+            result['github_actions']={'status':'UNKNOWN','runs':[],'reason':'Actions metadata read was unavailable; no success inferred'}
     if not release['approved']:result['blockers'].append('Separate owner go-live approval outstanding')
     if not load(ROOT/'config/qa.json')['trusted_reviewers']:result['blockers'].append('No independent reviewer roster configured')
     if not release.get('cross_publisher_coordination_verified'):result['blockers'].append('Other publisher coordination not verified')
@@ -45,4 +53,7 @@ def write_report(value,directory):
     for slot,value_slot in value['slots'].items():text+='| '+slot+' | '+value_slot['status']+' | NOT_OBSERVED |\n'
     text+='\n## Blockers\n\n'+''.join('- '+x+'\n' for x in value['blockers'])
     text+='\nExisting articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.\n'
-    (directory/'dashboard.md').write_text(text)
+    text+='\n## GitHub Actions\n\nStatus: '+value['github_actions']['status']+'\n\n'
+    for run in value['github_actions']['runs']:
+        text+='- '+str(run['id'])+': '+str(run['status'])+' / '+str(run['conclusion'])+'\n'
+    (directory/'dashboard.md').write_text(text.rstrip()+'\n')

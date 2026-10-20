@@ -7,11 +7,12 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
-from thuha.common import REPO,canonical_json,digest,load,ROOT
+from thuha.common import REPO,canonical_json,digest,load,ROOT,now
 from thuha.store import GitStore,GitError,LocalStore,initial,event,validate,GitHub
 from thuha.coordinator import claim,submit,heartbeat
 from thuha.publisher import verify_security
 from thuha.cli import main
+from thuha.dashboard import report
 
 
 class MemoryGitHub:
@@ -99,6 +100,15 @@ class RecoveryTests(unittest.TestCase):
 
 
 class SecurityTests(unittest.TestCase):
+    def test_actions_read_failure_stays_unknown(self):
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp);store.durable_remote=True
+            class API:
+                def request(self,*args):raise GitError(403)
+            store.api=API()
+            inv={'captured_at':now(),'counts':{'posts':0,'pages':0,'live_verified_posts':0},'complete':True}
+            value=report(store,inv,load(ROOT/'config/release.json'))
+            self.assertEqual(value['github_actions']['status'],'UNKNOWN');self.assertEqual(value['github_actions']['runs'],[])
     def test_qa_batch_continues_after_one_contract_failure(self):
         output=io.StringIO()
         with tempfile.TemporaryDirectory() as temp:

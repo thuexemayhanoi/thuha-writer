@@ -21,7 +21,7 @@
   "scope": "Destination repository only; reference repository and theme unchanged",
   "unit_integration_regression_tests": {
     "fail": 0,
-    "pass": 60
+    "pass": 61
   },
   "wordpress_live_published": 273
 }

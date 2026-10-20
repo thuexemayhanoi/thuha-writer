@@ -13,6 +13,7 @@ on:
         default: ''
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: thuha-maintenance
   cancel-in-progress: false
@@ -38,6 +39,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.task != 'health' && inputs.task != 'report'
     permissions:
       contents: write
+      actions: read
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:

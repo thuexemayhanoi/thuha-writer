@@ -11,6 +11,7 @@ on:
         default: ''
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: thuha-wordpress-publisher
   cancel-in-progress: false
@@ -32,6 +33,7 @@ jobs:
     environment: thuha-production
     permissions:
       contents: write
+      actions: read
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
