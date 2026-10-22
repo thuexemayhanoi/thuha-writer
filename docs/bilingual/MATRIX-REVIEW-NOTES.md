@@ -44,6 +44,9 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
   bị cấm khi lái, khác hành vi; 164 "biển cấm đỗ ngày chẵn/lẻ" và 164 "cấm dừng, cấm đỗ khác nhau" cùng chủ đề biển phụ; 164 "dông
   lốc: chỗ để xe qua đêm" và 165 "giông lốc giữa đường" (xe đã đỗ so với xe đang chạy); 165 "mặt đường trơn lá, bùn, dầu loang"
   gần bài EN về vạch sơn và nắp cống ướt (2001).
+- 166–171 (đợt bổ sung): 166 "phỏng vấn visa" và 166 "phỏng vấn xin việc" cùng xoay quanh đến sớm và gửi xe (đồ được mang vào khác
+  nhau); 169 "điểm check-in viral", 171 "chạy tới nơi mới biết đóng cửa" và 169 "Hồ Đại Lải: vào tự do hay cần vé" đều là xác minh quyền vào
+  cửa; 170 "ngủ lại ngoài kế hoạch" gần 170 "chọn homestay" (khác ở chỗ không đặt trước).
 - 156–159: đồng hồ xăng/nạp xăng/chi phí xăng gần các bài EN 1947, 1956, 1958; sạc xe điện gần 1977, 3299,
   3350; độ tuổi 50cc gần ba bài 50cc; smart key gần 1925. VI viết cho người đọc Việt (E5/RON95, CCCD, tin nhắn
   hỏi cửa hàng) nhưng cùng chủ đề với bài EN thì reviewer cần xác nhận không phải bản dịch ý.
