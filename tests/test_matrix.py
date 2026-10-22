@@ -116,6 +116,17 @@ class CommittedMatrixTests(unittest.TestCase):
                 if any(w in (r['title'] + ' ' + r['primary_keyword'] + ' ' + r['search_intent']).lower() for w in words):
                     self.assertIn('official_health', r['source_requirements'], r['id'] + ' ' + r['title'])
 
+    def test_reviewed_pairs_name_real_rows_and_every_other_close_pair_fails_validation(self):
+        known = matrix.reviewed_pairs()
+        slugs = {r['slug'] for m in self.m.values() for r in m['rows']}
+        for pair in known:
+            self.assertTrue(pair <= slugs, 'reviewed pair names a slug that no longer exists: ' + str(set(pair) - slugs))
+        for x in known.values():
+            self.assertEqual((x['verdict'], x['independent_review']), ('DISTINCT', 'PENDING'))
+        broken = copy.deepcopy(self.m['vi']);new = [r for r in broken['rows'] if r['kind'] == 'NEW']
+        new[5]['title'] = new[4]['title'].split(':')[0] + ': một phần đuôi hoàn toàn khác'
+        self.assertIn('SUBJECT_PAIR_NEEDS_REVIEW', {p['code'] for p in matrix.validate(broken, 'vi')})
+
     def test_priority_one_rows_are_written_first_and_write_order_is_a_permutation(self):
         for lang, m in self.m.items():
             new = [r for r in m['rows'] if r['kind'] == 'NEW']
@@ -175,17 +186,6 @@ class ValidatorRuleTests(unittest.TestCase):
         self.assertEqual(len(pairs), 1);self.assertEqual(pairs[0][0], 1.0)
         other = seed(t='Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào', k='trả xe muộn vì kẹt xe', u='tra-xe-muon-vi-ket-xe-mua-lon')
         self.assertEqual(matrix.subject_pairs(rows_for('vi', [a, other]), 'vi'), [])
-
-    def test_reviewed_pairs_name_real_rows_and_every_other_close_pair_fails_validation(self):
-        known = matrix.reviewed_pairs()
-        slugs = {r['slug'] for m in self.m.values() for r in m['rows']}
-        for pair in known:
-            self.assertTrue(pair <= slugs, 'reviewed pair names a slug that no longer exists: ' + str(set(pair) - slugs))
-        for x in known.values():
-            self.assertEqual((x['verdict'], x['independent_review']), ('DISTINCT', 'PENDING'))
-        broken = copy.deepcopy(self.m['vi']);new = [r for r in broken['rows'] if r['kind'] == 'NEW']
-        new[5]['title'] = new[4]['title'].split(':')[0] + ': một phần đuôi hoàn toàn khác'
-        self.assertIn('SUBJECT_PAIR_NEEDS_REVIEW', {p['code'] for p in matrix.validate(broken, 'vi')})
 
     def test_validation_catches_a_wrong_total_a_bad_id_and_fabricated_progress(self):
         m = load(matrix.matrix_path('vi'))

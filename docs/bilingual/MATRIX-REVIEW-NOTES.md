@@ -141,3 +141,21 @@ hóa đơn tiền xăng với xếp tuyến giữa hai cuộc họp khi đi côn
 về xe, nhiên liệu, bảo dưỡng và thủ tục; nhiều vòng bổ sung chỉ cho ra khoảng một nửa dòng hợp lệ. Mốc 500 được giữ để đúng yêu cầu,
 nhưng một số dòng cuối là chủ đề nhỏ (một phần của bài lớn hơn). Khi reviewer hoặc dữ liệu tìm kiếm thật cho thấy một dòng quá
 mỏng, hãy gộp nó vào bài cha thay vì viết riêng; không bù lại bằng paraphrase.
+
+### Đợt bổ sung cuối (j, k, l, m) và 7 dòng gỡ thêm
+
+Sau lượt quét thứ hai, các đợt j/k (xe, thủ tục, hành lý, tuyến) cho 11 dòng, l/m (địa điểm, chuyến đi, kế hoạch, bảo dưỡng, giao thông)
+cho 25 ứng viên; chỉ giữ dòng thật sự khác. Đã gỡ 7 ứng viên: trùng nghĩa với dòng đã có ("viếng đám tang" ở 166 và 171; giữ bản 171), gần bài EN
+(Đồ Sơn), hoặc xa chủ đề trang web (câu cá hồ, lớp học nấu ăn, nghỉ trưa gần cơ quan, bãi giữa sông Hồng, sắm lễ chùa/đền):
+- 167: Sắm lễ đi chùa khác đi đền, phủ thế nào: lễ chay hay lễ mặn, mua ở đâu gần nơi thờ và nên hỏi ai cho chắc
+- 169: Đi câu cá hồ ngoại thành trong ngày: chở cần câu bằng xe máy thế nào và hỏi chủ hồ những gì trước khi đến
+- 170: Cuối tuần ra biển Đồ Sơn bằng xe máy: chọn giờ xuất phát vừa sức và xem thông báo an toàn trước khi xuống nước
+- 166: Xuống bãi giữa sông Hồng nhìn từ cầu Long Biên: tìm lối vào, giữ xe ở đâu và tôn trọng ruộng của người dân
+- 166: Đi viếng đám tang ở Hà Nội bằng xe máy: giờ viếng, trang phục gọn và chỗ dừng xe để không chắn lối vào
+- 168: Học nấu món Hà Nội một buổi: chọn lớp có đi chợ buổi sáng hay chỉ nấu trong bếp, và xếp giờ đến cho kịp
+- 168: Nghỉ trưa chỉ có một giờ: ăn gần cơ quan hay chạy xe đi quán xa, tính cả gửi xe và đoạn đường đông giờ trưa
+
+Dòng cần reviewer nhìn kỹ ở đợt này: 154 "căn cước gốc giữa kỳ thuê tháng" (gần 153 về giữ bản gốc và EN 1931); 171 "đi xem điểm thi" (gần cụm phỏng vấn
+ở 166); 162 "giáp bảo hộ đường dài" (gần EN 2132); 169/170 các điểm Tây Thiên, Chí Linh, Phủ Dầy – chùa Keo, khóa tu (dữ kiện địa điểm chưa kiểm chứng,
+bắt buộc `official_venue`/`field_check`); 167 thánh đường Hồi giáo phố Hàng Lược và quan họ Bắc Ninh (nghi lễ/văn hóa: cần nguồn chính thức trước khi viết);
+154 "đối chiếu tin nhắn" với các dòng 153. Chủ đề sức khỏe (khám sức khỏe nhịn ăn, mang thai, thuốc, sơ cứu) đều mang `official_health`.

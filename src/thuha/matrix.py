@@ -112,7 +112,6 @@ def similarity(lang, a, b):
     return len(sa & sb) / len(sa | sb) if sa and sb else 0.0
 
 
-@functools.lru_cache(maxsize=None)
 def subject(lang, title):
     """The part of a title before the colon: it names the situation, the tail only adds detail."""
     return title.split(':')[0]
@@ -137,6 +136,7 @@ def reviewed_pairs():
     return {frozenset((x['a'], x['b'])): x for x in load(path)['pairs']} if path.exists() else {}
 
 
+@functools.lru_cache(maxsize=None)
 def collapse(lang, title):
     """Title with places and bike models replaced, to expose doorway-style template variants."""
     text = ' ' + norm(title) + ' '
