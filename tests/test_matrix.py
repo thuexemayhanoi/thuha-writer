@@ -108,6 +108,13 @@ class CommittedMatrixTests(unittest.TestCase):
                 if any(w in (r['title'] + ' ' + r['primary_keyword']).lower() for w in pattern):
                     self.assertIn('official_vn_law', r['source_requirements'], r['id'] + ' ' + r['title'])
 
+    def test_health_sensitive_topics_demand_an_official_health_source(self):
+        words = ('mang thai', 'pregnan', 'bệnh', 'thuốc', 'sức khỏe', 'health', 'medic', 'injur', 'chấn thương')
+        for m in self.m.values():
+            for r in (x for x in m['rows'] if x['kind'] == 'NEW'):
+                if any(w in (r['title'] + ' ' + r['primary_keyword'] + ' ' + r['search_intent']).lower() for w in words):
+                    self.assertIn('official_health', r['source_requirements'], r['id'] + ' ' + r['title'])
+
     def test_priority_one_rows_are_written_first_and_write_order_is_a_permutation(self):
         for lang, m in self.m.items():
             new = [r for r in m['rows'] if r['kind'] == 'NEW']

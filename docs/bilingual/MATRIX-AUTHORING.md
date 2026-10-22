@@ -23,7 +23,7 @@ hoặc `en-<nhóm>.jsonl`:
 | `q` | Một câu mô tả **nhu cầu riêng** của chủ đề này (ai, đang ở tình huống nào, cần quyết định gì) | 40–400 ký tự; không lặp ý chủ đề khác |
 | `i` | Loại ý định | `informational`, `commercial_investigation`, `comparison`, `transactional_support`, `troubleshooting`, `planning`, `local_navigation` |
 | `s` | Trang dịch vụ để dẫn CTA/liên kết nội bộ | khóa trong `data/bilingual/service-targets.json` |
-| `r` | Loại nguồn phải thu thập trước khi viết | một hay nhiều trong `first_party_facts`, `official_vn_law`, `official_weather`, `official_venue`, `official_transport`, `manufacturer_manual`, `field_check`, `editorial_only` |
+| `r` | Loại nguồn phải thu thập trước khi viết | một hay nhiều trong `first_party_facts`, `official_vn_law`, `official_weather`, `official_health`, `official_venue`, `official_transport`, `manufacturer_manual`, `field_check`, `editorial_only` |
 | `p` | Ưu tiên viết | 1 = gần dịch vụ/hỗ trợ khách thuê, 2 = so sánh/hướng dẫn, 3 = khám phá/nội dung rộng |
 | `u` | Slug | chỉ a–z, 0–9 và dấu gạch ngang, 8–90 ký tự, không dấu tiếng Việt, duy nhất toàn site và khác slug của 275 bài + 6 trang tĩnh + từ khóa hệ thống |
 
@@ -48,7 +48,8 @@ Slug tiếng Việt: bỏ dấu, `đ` thành `d`, ví dụ `dat-coc-xe-may-bang-
    pháp luật, tồn kho, chính sách của cửa hàng (giao xe, hoàn cọc, phụ phí gia hạn
    chưa được xác nhận), trải nghiệm trực tiếp hay lời hứa. Chủ đề được phép hỏi
    "cần hỏi cửa hàng điều gì" nhưng không trả lời thay cửa hàng. Chủ đề pháp lý
-   phải có `official_vn_law`; thời tiết `official_weather`; địa điểm `official_venue`.
+   phải có `official_vn_law`; thời tiết `official_weather`; sức khỏe (ví dụ mang thai, chấn thương) `official_health`
+   và bài chỉ hướng người đọc hỏi chuyên gia y tế; địa điểm `official_venue`.
 5. **Không trùng 275 bài tiếng Anh đang chạy** (xem
    `data/bilingual/live-posts-2026-10-22.json`) và 2 chủ đề đã vào hàng đợi
    (`data/bilingual/existing-queued-en.json`). Bài EN cũ dày ở: bảng giá/đặt cọc/bàn giao,

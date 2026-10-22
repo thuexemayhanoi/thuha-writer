@@ -24,7 +24,7 @@ MATRIX = DATA / 'matrix'
 SNAPSHOT = '2026-10-22'
 INTENT_TYPES = ('informational', 'commercial_investigation', 'comparison', 'transactional_support',
                 'troubleshooting', 'planning', 'local_navigation')
-SOURCE_KINDS = ('first_party_facts', 'official_vn_law', 'official_weather', 'official_venue',
+SOURCE_KINDS = ('first_party_facts', 'official_vn_law', 'official_weather', 'official_health', 'official_venue',
                 'official_transport', 'manufacturer_manual', 'field_check', 'editorial_only')
 WRITER_STATES = ('NEEDS_SOURCE', 'SOURCE_CAPTURED', 'INTAKE_READY', 'CLAIMED', 'DRAFT_READY',
                  'NEEDS_REPAIR', 'READY', 'VERIFIED', 'BLOCKED')

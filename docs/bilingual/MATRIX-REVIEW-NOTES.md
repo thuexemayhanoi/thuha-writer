@@ -35,6 +35,11 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
   155: nhận xe ở bến Gia Lâm và từ phố cổ sang Long Biên gần EN 1937, 3405; 153 (hoàn cọc) với 155 (cuối kỳ thuê tháng); 152
   (trả sớm) với 154 (chấm dứt sớm hợp đồng tháng); 155 (mức xăng) với 159. Một cặp trùng thật A/D ("chỗ để xe ở nhà trọ khi
   thuê tháng", 154 và 164) đã được validator bắt và thay bằng chủ đề lùi xe khỏi chỗ đỗ chật.
+- Chủ đề nhạy cảm về sức khỏe (VI 156 "đang mang thai có nên tự lái xe ga thuê"): nguồn bắt buộc `official_health`, bài chỉ
+  hướng người đọc hỏi bác sĩ, không đưa lời khuyên y tế; reviewer cân nhắc có nên giữ.
+- 156–160 (đợt bổ sung): 160 "chân chống cạnh lỏng" gần 157 "thử cần số/côn khi nhận xe" (cùng bước nhận xe, khác bộ phận);
+  157 "đường ướt về số thấp quá gấp" gần 157 "xuống đèo phanh động cơ" và 165 "mưa phùn kéo dài"; 160 "việc nhỏ nào tự làm"
+  gần hai bài EN 3303 và 3384.
 - 156–159: đồng hồ xăng/nạp xăng/chi phí xăng gần các bài EN 1947, 1956, 1958; sạc xe điện gần 1977, 3299,
   3350; độ tuổi 50cc gần ba bài 50cc; smart key gần 1925. VI viết cho người đọc Việt (E5/RON95, CCCD, tin nhắn
   hỏi cửa hàng) nhưng cùng chủ đề với bài EN thì reviewer cần xác nhận không phải bản dịch ý.
