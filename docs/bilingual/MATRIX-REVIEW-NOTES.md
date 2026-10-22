@@ -29,6 +29,12 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
 
 ## VI mới
 
+- 152–155: "trả sớm", "trả muộn", "chuyển gói ngày sang tuần", "xe hỏng mất ngày" gần các bài EN về gia hạn và đổi xe
+  (252, 1923) nhưng khác ở góc tính tiền; 153: hóa đơn công tác phí (EN 3324), giữ căn cước gốc (EN 1931), giấy tờ xe khi
+  bị kiểm tra (EN 3289), Việt kiều (EN 3287, 3288), mất xe (EN 1927); 153 với 163 chồng nhau ở bằng lái, độ tuổi, bảo hiểm;
+  155: nhận xe ở bến Gia Lâm và từ phố cổ sang Long Biên gần EN 1937, 3405; 153 (hoàn cọc) với 155 (cuối kỳ thuê tháng); 152
+  (trả sớm) với 154 (chấm dứt sớm hợp đồng tháng); 155 (mức xăng) với 159. Một cặp trùng thật A/D ("chỗ để xe ở nhà trọ khi
+  thuê tháng", 154 và 164) đã được validator bắt và thay bằng chủ đề lùi xe khỏi chỗ đỗ chật.
 - 156–159: đồng hồ xăng/nạp xăng/chi phí xăng gần các bài EN 1947, 1956, 1958; sạc xe điện gần 1977, 3299,
   3350; độ tuổi 50cc gần ba bài 50cc; smart key gần 1925. VI viết cho người đọc Việt (E5/RON95, CCCD, tin nhắn
   hỏi cửa hàng) nhưng cùng chủ đề với bài EN thì reviewer cần xác nhận không phải bản dịch ý.
