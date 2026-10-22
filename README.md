@@ -31,7 +31,7 @@ Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 ## Commands
 
 ```
-PYTHONPATH=src python3 -m unittest discover -s tests -v     # 100+ offline tests (PHP harness runs if php exists)
+PYTHONPATH=src python3 -m unittest discover -s tests -v     # 180+ offline tests (PHP harness runs if php exists)
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
 PYTHONPATH=src python3 -m thuha.cli matrix next --language vi --limit 10   # next topics to research (read-only)
 PYTHONPATH=src python3 -m thuha.cli quota                   # per-language target / live / unresolved / remaining

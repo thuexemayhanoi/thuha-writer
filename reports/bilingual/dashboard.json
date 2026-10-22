@@ -1,0 +1,141 @@
+{
+  "adapter": {
+    "code": "BLOCKED_ADAPTER_NOT_DEPLOYED",
+    "status": "NOT_VERIFIED"
+  },
+  "agent_attribution": {},
+  "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
+  "blockers": [
+    "Separate owner go-live approval outstanding",
+    "No language enabled in the release (production stays OFF)",
+    "BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded",
+    "No independent reviewer roster configured",
+    "Other publisher coordination not verified",
+    "No external AI session lease; Actions do not generate prose"
+  ],
+  "factory_verified_receipts": 0,
+  "generated_at": "2026-10-22T20:27:25.960555+00:00",
+  "github_actions": {
+    "runs": [],
+    "status": "UNKNOWN"
+  },
+  "inventory_age_seconds": 6106,
+  "inventory_complete": true,
+  "inventory_language_source": "authenticated-snapshot",
+  "languages": {
+    "en": {
+      "complete": false,
+      "factory_verified_receipts": 0,
+      "needs_source_or_research": [],
+      "open_topics": 0,
+      "over_target": false,
+      "published_live": 275,
+      "remaining": 225,
+      "states": {
+        "BLOCKED": 0,
+        "CLAIMED": 0,
+        "DRAFT_READY": 0,
+        "NEEDS_REPAIR": 0,
+        "NEEDS_REVIEW": 0,
+        "PLANNED": 0,
+        "PUBLISHING": 0,
+        "READY": 0,
+        "RESEARCH": 0,
+        "VERIFIED": 0
+      },
+      "target": 500,
+      "unresolved_intents": 0
+    },
+    "vi": {
+      "complete": false,
+      "factory_verified_receipts": 0,
+      "needs_source_or_research": [],
+      "open_topics": 0,
+      "over_target": false,
+      "published_live": 0,
+      "remaining": 500,
+      "states": {
+        "BLOCKED": 0,
+        "CLAIMED": 0,
+        "DRAFT_READY": 0,
+        "NEEDS_REPAIR": 0,
+        "NEEDS_REVIEW": 0,
+        "PLANNED": 0,
+        "PUBLISHING": 0,
+        "READY": 0,
+        "RESEARCH": 0,
+        "VERIFIED": 0
+      },
+      "target": 500,
+      "unresolved_intents": 0
+    }
+  },
+  "languages_enabled": [],
+  "priority": [
+    "vi",
+    "en"
+  ],
+  "production_enabled": false,
+  "published_articles": [],
+  "publisher_uncertain": [],
+  "qa": {},
+  "research_requests": [],
+  "site_live_verified_posts": 0,
+  "slots": {
+    "W1": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W2": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W3": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W4": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W5": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W6": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W7": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W8": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    },
+    "W9": {
+      "ai_execution": "NOT_OBSERVED",
+      "status": "AVAILABLE"
+    }
+  },
+  "state_backend": "local-offline-snapshot",
+  "states": {
+    "BLOCKED": 0,
+    "CLAIMED": 0,
+    "DRAFT_READY": 0,
+    "NEEDS_REPAIR": 0,
+    "NEEDS_REVIEW": 0,
+    "PLANNED": 0,
+    "PUBLISHING": 0,
+    "READY": 0,
+    "RESEARCH": 0,
+    "VERIFIED": 0
+  },
+  "targets": {
+    "en": 500,
+    "vi": 500
+  },
+  "wordpress_pages": 0,
+  "wordpress_published": 275
+}
