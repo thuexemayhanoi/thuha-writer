@@ -118,7 +118,7 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
         sig=set(old['content_signature'])
         if len(new_sig&sig)/max(1,min(len(new_sig),len(sig)))>.75:errors.append('CONTENT_OVERLAP_REVIEW')
     if policy.get('semantic_review_required'):
-        valid=bool(review and review.get('article_sha')==sha and
+        valid=bool(review and review.get('article_sha')==sha and review.get('language')==lang and
                    review.get('reviewer_id') in policy['trusted_reviewers'] and
                    review.get('reviewer_id')!=article['agent_id'] and
                    all(review.get('checks',{}).get(k) is True for k in REVIEW_CHECKS) and

@@ -1,5 +1,7 @@
 # ThuHa Writer: safely adopted WP AIWriter execution pattern
 
+> **HISTORICAL — English-only, 2,000-post era.** This describes the English-only adaptation. The target site now serves English at the root and Vietnamese under `/vi/`; the reference blog's routing (Vietnamese at the root) is NOT carried over.
+
 Source (read-only architectural reference): https://github.com/thuexemayhanoi/wp-aiwriter
 
 Destination (only editable repository): https://github.com/thuexemayhanoi/thuha-writer

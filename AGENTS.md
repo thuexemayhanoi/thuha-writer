@@ -3,11 +3,12 @@
 ## Current owner brief — 2026-10-22 UTC / 2026-10-23 Vietnam
 
 Target only `https://rentbikehanoi.com`, repository `thuexemayhanoi/thuha-writer`.
-Read `docs/bilingual/HANDOFF.md`, `docs/bilingual/CLAUDE-PROMPT.md` and
-`data/bilingual/plan.json` first. This brief supersedes the old **English-only,
-2,000-post goal** for the next implementation. It does not claim that the V4
-runtime has already been migrated: inspect and update every affected code,
-configuration, test, report and workflow consistently.
+Read `docs/bilingual/HANDOFF.md`, `docs/bilingual/CLAUDE-PROMPT.md`,
+`docs/bilingual/IMPLEMENTATION-STATUS.md` and `data/bilingual/plan.json` first. This brief
+supersedes the old **English-only, 2,000-post goal**. The V4 runtime has been migrated to it
+(state schema 5, per-language quota, Vietnamese-first claim/refill/drain, bilingual QA,
+adapter-only publishing); anything that still says 2,000 or en-US-only is historical and must
+carry a label. Keep code, config, tests, reports and workflows consistent when you change behavior.
 
 The new final site goal is **500 published English blog posts total and 500
 published Vietnamese blog posts total**, including existing posts, excluding
@@ -19,6 +20,24 @@ Claude is GitHub-only. WordPress/crawler access is NOT a prerequisite for code,
 matrix, drafting or offline QA. Use committed evidence and mark live checks
 PENDING. Never claim live QA was completed without an actual receipt. The
 credentialed publisher owns live reconciliation and post-publication checks.
+
+## Language contract (enforced in code; do not weaken)
+
+- English stays at the site root; Vietnamese posts live at `/vi/{ascii-slug}/`, categories at
+  `/vi/chuyen-muc/{slug}/`. Topic IDs are `TH-VI-####` / `TH-EN-####` (legacy `TH-######` is English).
+- A topic, its category path, URL, article `language` (`vi` / `en-US`), title, meta, alt text, body
+  links, review and receipt all carry one language. Cross-language body links are a hard fail;
+  hreflang only for a genuinely equivalent pair that already exists.
+- Quota is per language: `config/project.json goal.targets` (500/500). Count = live published
+  posts from an **adapter** inventory + unresolved intents. Pages, drafts, trash are excluded; the
+  public REST collection is not trusted for Vietnamese. 499 -> 500 is allowed, 500 -> 501 never.
+- Vietnamese is claimed, refilled, QA'd and drained first; English is not blocked when no
+  Vietnamese topic is researched. Each language stops at its own ceiling.
+- All writes go through `thuha-native-vi-publisher` (`src/thuha/adapter.py`, `wordpress/`): draft with
+  marker, `RBHVI_Language::set_vi`, SEO, verify, publish; replay by idempotency key; never a core
+  `/wp/v2/posts` write. Live deployment is unverified until `adapter-preflight` passes.
+- Matrix rows (`data/bilingual/matrix/`) are plans. They stay `NEEDS_SOURCE` until dated primary
+  sources are captured; never fabricate a crawl, source, price, rule or demand figure.
 
 ## Editorial and SEO invariants
 
@@ -57,4 +76,13 @@ register crawlers or run terminal commands to unblock offline work.
 
 Update README, operating docs and this file when behavior changes. Record the
 exact commit, completed checks, next resumable task and unresolved live checks
-before quota exhaustion.
+before quota exhaustion: `docs/bilingual/IMPLEMENTATION-STATUS.md` is that record.
+
+## Checks before any push
+
+```
+PYTHONPATH=src python3 -m unittest discover -s tests -v
+PYTHONPATH=src python3 -m thuha.cli validate
+php tests/php/run.php
+python3 scripts/build_matrices.py && python3 scripts/build_adapter_zip.py   # then `git diff --exit-code`
+```

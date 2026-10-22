@@ -77,3 +77,23 @@ The initial implementation does not rewrite old WordPress posts, create
 categories, upload media, alter SEO settings, modify the theme, or enable
 production publishing. Infrastructure failures remain separate from content
 repairs. Invalid state is held for review, not silently reset.
+
+## Bilingual deltas (current behavior; the text above predates them)
+
+- `language.py`: language registry, URL namespaces (`/vi/…`), slug rules, diacritic and
+  function-word screens. `quota.py`: per-language ceilings (500 each), unknown outcomes counted.
+- `store.py`: state schema 5 with an append-only, idempotent migration from schema 4 (every
+  pre-existing topic, request, lease and intent was English; receipts are untouched). Topic
+  language, ID prefix and URL namespace must agree; one WordPress slug per topic across languages.
+- `coordinator.py` / `research.py` / `pipeline.py`: Vietnamese-first claim, refill and drain;
+  repairs first within a language; a language at its ceiling takes no writers; admission capacity
+  is ceiling − live posts − open topics, per language.
+- `quality.py`: language label, category-chain language, body/title/meta/alt screens, same-language
+  live-verified internal links (cross-language body links fail), Vietnamese regulated/first-hand/
+  price-disclaimer rules, per-language length floor, review must name the language and attest
+  `native_language` and `no_machine_translation`.
+- `adapter.py` + `wordpress/thuha-native-vi-publisher`: the only write path (create-only,
+  idempotent, marker before publish) and the complete two-language inventory. `http.py` refuses any
+  other POST. `publisher.py` verifies the adapter readback and the public page (canonical, title,
+  meta, `<html lang>`, no foreign hreflang, schema).
+- `matrix.py`: seeds → validated matrices; `package.py`: reproducible ZIP and static safety scan.

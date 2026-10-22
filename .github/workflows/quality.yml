@@ -2,9 +2,9 @@ name: ThuHa V4 quality
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**']
   pull_request:
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,8 +22,17 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, official ref checked 2026-10-21
         with:
           persist-credentials: false
+      - name: PHP adapter plugin harness (offline WordPress simulation; not a live test)
+        run: |
+          php -v
+          for f in $(find wordpress -name '*.php'); do php -l "$f"; done
+          php tests/php/run.php
       - name: Unit, integration and regression tests (no WordPress writes)
         run: python3 -m unittest discover -s tests -v
+      - name: Matrices (500 VI, 275 EN protected + 225 EN new) and adapter package integrity
+        run: |
+          python3 -m thuha.cli matrix validate
+          python3 -m thuha.cli package
       - name: Python and policy validation
         run: |
           python3 -m compileall -q src tests

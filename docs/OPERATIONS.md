@@ -1,4 +1,4 @@
-# Operating ThuHa Writer V4
+# Operating ThuHa Writer V4 (bilingual: 500 Vietnamese + 500 English)
 
 All commands run from this repository with `PYTHONPATH=src`. There is no pip
 install step. Use Python 3.11+ on Linux. No model API credentials are needed.
@@ -29,7 +29,7 @@ complete inventory and every queued intent before it admits PLANNED records.
 ## Article contract
 
 Submit a JSON object with topic_id, session, agent_id, source_commit, language
-`en-US`, title, body_html, seo_title, meta_description, focus_keyword, canonical,
+(`vi` for a `TH-VI-####` topic, `en-US` for `TH-EN-####`; any mismatch is refused), title, body_html, seo_title, meta_description, focus_keyword, canonical,
 category_id, featured_media (an existing verified image), sources and declared
 business_claims. See the synthetic fixture in tests for field shape; test data
 is not a publishable article or real research evidence.
@@ -37,8 +37,8 @@ is not a publishable article or real research evidence.
 ```
 python3 -m thuha.cli --remote heartbeat --slot W1 --session SESSION --fence FENCE
 python3 -m thuha.cli --remote submit --slot W1 --session SESSION --fence FENCE --file article.json
-python3 -m thuha.cli --remote qa --topic-id TH-000001
-python3 -m thuha.cli --remote resume --topic-id TH-000001
+python3 -m thuha.cli --remote qa --topic-id TH-VI-0001
+python3 -m thuha.cli --remote resume --topic-id TH-VI-0001
 ```
 
 Submission first saves the immutable document, then its receipt. Preserve the
@@ -49,9 +49,30 @@ does not make an Actions job rewrite prose; the external writer repairs it and
 resubmits. Expired leases never permit overwriting another live writer's work.
 
 An independent authorized reviewer must attest the exact revision's intent,
-factual accuracy, English, originality, business facts and image relevance. The
+factual accuracy, native language (Vietnamese or English), no machine translation,
+originality, business facts and image relevance, and the review names the article's
+language. The
 reviewer allowlist starts empty. Reviewer metadata is not cryptographic proof;
 protect code/policy and the state writer before trusting it for production.
+
+## Two languages: quota, priority, matrix
+
+```
+python3 -m thuha.cli quota                          # per language: target, live, unresolved, remaining
+python3 -m thuha.cli matrix next --language vi --limit 10   # planned topics awaiting sources
+python3 -m thuha.cli --remote brief --language vi   # PLANNED topics already admitted
+```
+
+`claim` and `refill` serve Vietnamese first; English only when Vietnamese has nothing admissible
+or needs nothing more. A language at its ceiling (live + unresolved intents) takes no writers and
+no publication. The quota needs an inventory whose `language_source` is `adapter` (or the
+committed authenticated snapshot for offline planning); the public REST inventory is labelled
+`public-rest-unverified` and is refused for counting.
+
+The 725 planned topics are in `data/bilingual/matrix/` (`vi500`, `en500`). A row becomes a topic only
+through `intake`, which needs captured dated sources and an independent intent review. If sources
+cannot be reached the row stays `NEEDS_SOURCE`. Fresh `audit` with adapter credentials replaces the
+stale inventory before any intake.
 
 ## Publisher and emergency stop
 
@@ -59,7 +80,7 @@ protect code/policy and the state writer before trusting it for production.
 python3 -m thuha.cli --remote publisher --mode dry-run
 python3 -m thuha.cli --remote controls --pause on
 python3 -m thuha.cli --remote controls --emergency-stop on
-python3 -m thuha.cli --remote publisher --mode reconcile --topic-id TH-000001
+python3 -m thuha.cli --remote publisher --mode reconcile --topic-id TH-VI-0001
 python3 -m thuha.cli --remote --output artifacts report
 ```
 
@@ -67,8 +88,11 @@ No command updates/deletes existing WordPress posts or creates categories. A
 timeout, 4xx/5xx or checkpoint error after reservation remains an intent to
 reconcile. Do not clear intents or POST again. Reconciliation requires exact
 ownership marker, content, ID/status/URL, category, image and SEO readback.
-Unknown outcomes consume the two-post pilot budget until reviewed.
+Unknown outcomes consume the two-post pilot budget and count against their language's ceiling until reviewed.
 
+All writes go through the companion plugin (see `docs/bilingual/ADAPTER.md`); until
+`adapter-preflight` succeeds the status is `BLOCKED_ADAPTER_NOT_DEPLOYED`. The release lists
+`languages_enabled` (empty by default); enabling Vietnamese first is the intended pilot.
 Go-live is a separate owner decision. Configure new repo-specific credentials
 inside the protected thuha-production environment, not by copying another
 repo's secrets. Keep main required review + the `quality` check; restrict the

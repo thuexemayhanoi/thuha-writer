@@ -1,6 +1,7 @@
 name: ThuHa QA to guarded queue publisher
 # Adapted from wp-aiwriter: successful push QA -> preflight -> guarded queue drain.
-# No AI model runs here. Default release is OFF; no secret, WordPress or site write on preflight.
+# No AI model runs here. Default release is OFF (no language enabled); no secret, WordPress or site write on preflight.
+# Writes go only through the companion adapter plugin, Vietnamese first, 500 posts per language.
 on:
   workflow_run:
     workflows: ['ThuHa V4 quality']
@@ -59,7 +60,8 @@ jobs:
           valid = bool(
               release.get('enabled') and release.get('approved') and
               not release.get('paused') and not release.get('emergency_stop') and
-              release.get('approval_ref') and release.get('cross_publisher_coordination_verified')
+              release.get('approval_ref') and release.get('cross_publisher_coordination_verified') and
+              release.get('languages_enabled')
           )
           if os.environ['EVENT_NAME'] == 'workflow_dispatch' and os.environ.get('MANUAL_LIVE') != 'true':
               valid = False

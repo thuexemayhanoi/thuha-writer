@@ -55,7 +55,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          [[ "$TOPIC_ID" =~ ^TH-[0-9]{6}$ ]] || exit 1
+          [[ "$TOPIC_ID" =~ ^TH-(VI|EN)-[0-9]{4}$ || "$TOPIC_ID" =~ ^TH-[0-9]{6}$ ]] || exit 1
           python3 -m thuha.cli --remote publisher --mode "$MODE" --topic-id "$TOPIC_ID"
       - name: Report actual receipts, never infer publication from job success
         if: always()
