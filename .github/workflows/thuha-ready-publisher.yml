@@ -1,0 +1,107 @@
+name: ThuHa QA to guarded queue publisher
+# Adapted from wp-aiwriter: successful push QA -> preflight -> guarded queue drain.
+# No AI model runs here. Default release is OFF; no secret, WordPress or site write on preflight.
+on:
+  workflow_run:
+    workflows: ['ThuHa V4 quality']
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: '13 * * * *'
+  workflow_dispatch:
+    inputs:
+      live:
+        description: 'Explicitly request guarded live run; false = read-only preview'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: thuha-wordpress-publisher
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: >-
+      ${{
+        github.event_name != 'workflow_run' ||
+        (github.event.workflow_run.conclusion == 'success' &&
+         github.event.workflow_run.event == 'push' &&
+         github.event.workflow_run.head_branch == 'main')
+      }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    outputs:
+      may_publish: ${{ steps.gate.outputs.may_publish }}
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate source and contracts; no WordPress writes
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 -m thuha.cli validate
+      - name: Publisher read-only preview
+        run: python3 -m thuha.cli --remote publisher --mode dry-run
+      - name: Enforce independently approved release gate
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          MANUAL_LIVE: ${{ inputs.live }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          release = json.load(open('config/release.json', encoding='utf-8'))
+          valid = bool(
+              release.get('enabled') and release.get('approved') and
+              not release.get('paused') and not release.get('emergency_stop') and
+              release.get('approval_ref') and release.get('cross_publisher_coordination_verified')
+          )
+          if os.environ['EVENT_NAME'] == 'workflow_dispatch' and os.environ.get('MANUAL_LIVE') != 'true':
+              valid = False
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write('may_publish=' + str(valid).lower() + '\n')
+          print('Protected publication eligible:', valid, '(no WordPress writes in preflight)')
+          PY
+  protected-publish:
+    needs: preflight
+    if: needs.preflight.outputs.may_publish == 'true'
+    environment: thuha-production
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: write
+      actions: read
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_GITHUB_SECURITY_TOKEN: ${{ secrets.THUHA_GITHUB_SECURITY_TOKEN }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+      THUHA_GO_LIVE_APPROVAL: ${{ vars.THUHA_GO_LIVE_APPROVAL }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Re-run full QA on latest main inside exclusive publisher lock
+        run: |
+          python3 -m unittest discover -s tests -v
+          python3 -m thuha.cli validate
+          python3 -m thuha.cli credentials
+      - name: Drain only QA-ready articles inside approved release and daily caps
+        run: python3 -m thuha.cli --remote --output artifacts publisher --mode drain
+      - name: Preserve verifiable receipts and blockers
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: thuha-guarded-queue-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 30
