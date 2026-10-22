@@ -149,6 +149,36 @@ class BilingualQualityTests(Fixture):
         self.assertIn('CONTENT_OVERLAP_REVIEW', evaluate(a, t, s, other, self.policy, self.store, None, self.business)['hard_fails'])
 
 
+class CountingTests(unittest.TestCase):
+    def test_only_published_posts_count_and_existing_posts_are_included(self):
+        from thuha.audit import counts, snapshot_inventory
+        from thuha.quota import published, status
+        items = [{'type': 'posts', 'status': s, 'language': l, 'public_check': {}} for s, l in
+                 [('publish', 'en')] * 275 + [('draft', 'en'), ('trash', 'vi'), ('future', 'vi'), ('private', 'en'), ('pending', 'vi')]]
+        items += [{'type': 'pages', 'status': 'publish', 'language': 'vi', 'public_check': {}}] * 11
+        c = counts(items)
+        self.assertEqual(c['posts_by_language'], {'vi': 0, 'en': 275})
+        self.assertEqual(c['pages_by_language'], {'vi': 11, 'en': 0})
+        self.assertEqual(c['posts'], 275)
+        inv = snapshot_inventory()
+        self.assertEqual(published(inv), {'vi': 0, 'en': 275})
+        from thuha.store import initial
+        view = status(initial(), published(inv), {'vi': 500, 'en': 500})
+        self.assertEqual((view['vi']['remaining'], view['en']['remaining']), (500, 225))
+
+    def test_the_committed_snapshot_matches_the_handoff(self):
+        from thuha.audit import snapshot_inventory
+        inv = snapshot_inventory()
+        self.assertEqual(len(inv['items']), 275);self.assertEqual(len(inv['categories']), 59)
+        self.assertEqual(sum(c['language'] == 'vi' for c in inv['categories']), 27)
+        self.assertTrue(all(i['language'] == 'en' and i['status'] == 'publish' for i in inv['items']))
+
+    def test_vietnamese_pages_are_never_counted_as_posts_even_when_numerous(self):
+        from thuha.audit import counts
+        pages = [{'type': 'pages', 'status': 'publish', 'language': 'vi', 'public_check': {}}] * 11
+        self.assertEqual(counts(pages)['posts_by_language'], {'vi': 0, 'en': 0})
+
+
 class PriorityTests(Fixture):
     def test_vietnamese_is_claimed_before_english_even_when_english_was_admitted_first(self):
         intake(self.store, [self.candidate(1, 'en')], self.inv)

@@ -41,6 +41,11 @@ class ClientTests(unittest.TestCase):
         client = AdapterClient(ScriptedHTTP({}))
         with self.assertRaisesRegex(ValueError, NOT_DEPLOYED):client.preflight()
 
+    def test_rejected_credentials_are_not_mistaken_for_a_missing_plugin(self):
+        for status in (401, 403):
+            http = ScriptedHTTP({'/preflight': NetworkError('HTTP %d for /wp-json/thuha-writer/v1/preflight' % status, status)})
+            with self.assertRaisesRegex(ValueError, 'ADAPTER_AUTH_REJECTED'):AdapterClient(http).preflight()
+
     def test_preflight_demands_every_native_and_publishing_prerequisite(self):
         self.assertEqual(AdapterClient(ScriptedHTTP({'/preflight': good_preflight()})).preflight()['contract'], 'thuha-writer/1')
         cases = {

@@ -70,10 +70,12 @@ class AdapterClient(WordPress):
         try:
             data, _, _ = self.http.request(url, auth=True)
         except NetworkError as exc:
-            if exc.status in (404, 401, 403):
-                raise ValueError(NOT_DEPLOYED + ': adapter endpoint answered HTTP ' + str(exc.status)
-                                 + '. Install and activate ' + PLUGIN_SLUG + ' and use an Application Password of a '
-                                 'user who may publish posts.') from None
+            if exc.status == 404:
+                raise ValueError(NOT_DEPLOYED + ': the adapter route answered HTTP 404. Install and activate '
+                                 + PLUGIN_SLUG + ' (see docs/bilingual/ADAPTER.md).') from None
+            if exc.status in (401, 403):
+                raise ValueError('ADAPTER_AUTH_REJECTED: HTTP ' + str(exc.status) + '. Use an Application Password of a user who '
+                                 'may publish posts; cookie sessions and browser origins are refused.') from None
             raise
         return json.loads(data)
 

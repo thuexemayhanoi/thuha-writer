@@ -17,7 +17,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.text, self.links, self.images, self.headings = [], [], [], []
         self.canonicals, self.robots, self.descriptions, self.schema = [], [], [], []
-        self.html_lang, self.hreflangs = None, []
+        self.html_lang, self.hreflangs, self.rels = None, [], {}
         self.valid_schema_types=[]
         self.schema_errors=0
         self._ld=False
@@ -30,6 +30,9 @@ class Page(HTMLParser):
             self.html_lang = attrs['lang']
         if tag == 'link' and 'alternate' in attrs.get('rel','').split() and attrs.get('hreflang'):
             self.hreflangs.append((attrs['hreflang'], attrs.get('href')))
+        if tag in ('link','a') and attrs.get('href'):
+            for rel in attrs.get('rel','').split():
+                if rel in ('next','prev'):self.rels.setdefault(rel,[]).append(attrs['href'])
         if tag in ('script','style'):
             self.hidden += 1
         if tag == 'title':

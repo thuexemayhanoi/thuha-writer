@@ -409,21 +409,35 @@ def main(argv=None):
         del argv[i:i + 2]
     if command == 'check':
         # Fast loop for authors: validates seed files only; counts are checked by `validate`.
+        # `--against FILE...` adds other seed files to the similarity checks and reports only
+        # problems that involve a row of the checked file(s).
+        against = []
+        if '--against' in argv:
+            i = argv.index('--against')
+            against = argv[i + 1:]
+            argv = argv[:i]
         tax, svc = taxonomy(), services()
-        rows = []
-        for i, seed in enumerate(read_seeds(argv)):
-            missing = [k for k in ('c', 't', 'k', 'q', 'i', 's', 'r', 'p', 'u') if k not in seed]
-            if missing:
-                print(json.dumps({'code': 'SEED_FIELDS_MISSING', 'row': seed['_at'], 'detail': missing}, ensure_ascii=False))
-                return 1
-            row = expand(seed, check(lang), tax, svc)
-            row['_at'] = seed['_at']
-            rows.append(row)
-        problems = check_rows(rows, lang, tax=tax, svc=svc, allowed_categories=scope)
+
+        def load_rows(paths):
+            out = []
+            for seed in read_seeds(paths):
+                missing = [k for k in ('c', 't', 'k', 'q', 'i', 's', 'r', 'p', 'u') if k not in seed]
+                if missing:
+                    raise SystemExit(json.dumps({'code': 'SEED_FIELDS_MISSING', 'row': seed['_at'], 'detail': missing}, ensure_ascii=False))
+                row = expand(seed, check(lang), tax, svc)
+                row['_at'] = seed['_at']
+                out.append(row)
+            return out
+        mine_files = {Path(x).name for x in argv}
+        rows = load_rows(argv)
+        others = load_rows([x for x in against if Path(x).name not in mine_files])
+        problems = check_rows(others + rows, lang, tax=tax, svc=svc, allowed_categories=scope)
+        mine = {r['_at'] for r in rows}
+        problems = [p for p in problems if p['row'] in mine or p['detail'] in mine]
         by_cat = {}
         for r in rows:
             by_cat[r['category_id']] = by_cat.get(r['category_id'], 0) + 1
-        print(json.dumps({'rows': len(rows), 'per_category': by_cat, 'problems': problems}, ensure_ascii=False, indent=1))
+        print(json.dumps({'rows': len(rows), 'per_category': by_cat, 'compared_with_other_rows': len(others), 'problems': problems}, ensure_ascii=False, indent=1))
         return 1 if problems else 0
     langs = [lang] if lang else list(LANGUAGES)
     code = 0

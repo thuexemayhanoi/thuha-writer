@@ -3,3 +3,8 @@
 /config/ @thuexemayhanoi
 /.github/ @thuexemayhanoi
 /tests/ @thuexemayhanoi
+# The plugin installed on the live site, its ZIP and the editorial matrices change what is published.
+/wordpress/ @thuexemayhanoi
+/dist/ @thuexemayhanoi
+/scripts/ @thuexemayhanoi
+/data/bilingual/ @thuexemayhanoi
