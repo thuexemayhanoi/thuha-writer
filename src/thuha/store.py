@@ -15,17 +15,67 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 from .common import ROOT, REPO, canonical_json, digest, load, now, save
+from .language import LANGUAGES, TOPIC_ID, LEGACY_TOPIC_ID, split_url, topic_language
+
+SCHEMA = 5
 
 
 def initial():
-    return {'schema':4,'version':0,'topics':{},'leases':{},'submissions':{},'qa':{},
+    return {'schema':SCHEMA,'version':0,'topics':{},'leases':{},'submissions':{},'qa':{},
             'intents':{},'receipts':{},'research_requests':{},'events':[],
             'controls':{'paused':False,'emergency_stop':False}}
 
 
-def validate(state, previous=None):
+def migrate(state):
+    """Schema 4 (English-only) to 5 (bilingual), in place; append-only and idempotent.
+
+    Every pre-existing topic, request and intent was English. Receipts are left
+    byte-identical because they are append-only evidence.
+    """
+    if state.get('schema') == SCHEMA:
+        return state
     if state.get('schema') != 4:
         raise ValueError('Unknown state schema')
+    for topic in state['topics'].values():
+        topic.setdefault('language', 'en')
+    for request in state['research_requests'].values():
+        request.setdefault('language', 'en')
+    for intent in state['intents'].values():
+        intent.setdefault('language', 'en')
+    for lease in state['leases'].values():
+        lease.setdefault('language', 'en')
+    state['schema'] = SCHEMA
+    event(state, 'SCHEMA_MIGRATION', **{'from': 4, 'to': SCHEMA, 'legacy_language': 'en'})
+    return state
+
+
+def validate_topic(tid, topic):
+    lang = topic.get('language')
+    if lang not in LANGUAGES:
+        raise ValueError('Topic has no valid language')
+    if TOPIC_ID.fullmatch(tid) or LEGACY_TOPIC_ID.fullmatch(tid):
+        if topic_language(tid) != lang:
+            raise ValueError('Topic ID language does not match topic language')
+    if topic.get('proposed_url'):
+        url_lang, _ = split_url(topic['proposed_url'])
+        if url_lang != lang:
+            raise ValueError('Topic URL is outside its language namespace')
+
+
+def validate(state, previous=None):
+    if state.get('schema') != SCHEMA:
+        raise ValueError('Unknown state schema')
+    slugs = {}
+    for tid, topic in state['topics'].items():
+        validate_topic(tid, topic)
+        if topic.get('proposed_url'):
+            # WordPress post slugs are unique across languages even though URLs differ.
+            slug = split_url(topic['proposed_url'])[1]
+            if slugs.setdefault(slug, tid) != tid:
+                raise ValueError('Two topics share one WordPress slug')
+    for tid, intent in state['intents'].items():
+        if intent.get('language') != state['topics'].get(tid, {}).get('language'):
+            raise ValueError('Publication intent language does not match its topic')
     seen = set()
     previous_event=None
     for entry in state['events']:
@@ -39,6 +89,8 @@ def validate(state, previous=None):
         seen.add(lease['topic_id'])
         if lease['topic_id'] not in state['topics']:
             raise ValueError('Lease references missing topic')
+        if lease.get('language') != state['topics'][lease['topic_id']]['language']:
+            raise ValueError('Lease language does not match its topic')
     if previous:
         if state['events'][:len(previous['events'])]!=previous['events']:
             raise ValueError('Existing state events cannot be rewritten')
@@ -66,7 +118,7 @@ class LocalStore:
         self.path=self.directory/'state.json'
 
     def read(self):
-        value=load(self.path) if self.path.exists() else initial()
+        value=migrate(load(self.path)) if self.path.exists() else initial()
         validate(value)
         return value
 
@@ -151,7 +203,7 @@ class GitStore:
             raise
 
     def read(self):
-        state,_=self._state();validate(state);return state
+        state,_=self._state();migrate(state);validate(state);return state
 
     def _put(self,path,value,sha=None):
         if path!=self.state_path and not re.fullmatch(r'data/documents/[a-f0-9]{64}\.json',path):
@@ -175,7 +227,7 @@ class GitStore:
 
     def mutate(self,callback):
         for attempt in range(5):
-            state,sha=self._state();old=copy.deepcopy(state)
+            state,sha=self._state();migrate(state);old=copy.deepcopy(state)
             validate(state)
             result=callback(state)
             validate(state,old);state['version']+=1

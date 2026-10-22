@@ -10,9 +10,14 @@ import urllib.request
 from urllib.parse import urlsplit, urlencode
 from .common import SITE
 
+ADAPTER_BASE = SITE + '/wp-json/thuha-writer/v1'
+ADAPTER_CREATE_URL = ADAPTER_BASE + '/posts'
+
 
 class NetworkError(RuntimeError):
-    pass
+    def __init__(self, message, status=None):
+        super().__init__(message)
+        self.status = status
 
 
 def safe_public_url(url):
@@ -50,9 +55,10 @@ class HTTP:
 
     def request(self, url, *, method='GET', body=None, auth=False):
         safe_public_url(url)
-        if method != 'GET' and not (method == 'POST' and self.allow_write and
-                                   url == SITE + '/wp-json/wp/v2/posts'):
-            raise ValueError('Only explicitly enabled create-post writes are supported')
+        # The only write is one create-only POST to the companion adapter; core
+        # /wp/v2/posts is never written because it cannot attach the VI marker first.
+        if method != 'GET' and not (method == 'POST' and self.allow_write and url == ADAPTER_CREATE_URL):
+            raise ValueError('Only explicitly enabled adapter create-post writes are supported')
         headers = {'User-Agent': 'ThuHa-Writer/4 read-only-audit', 'Accept-Encoding': 'identity'}
         if auth:
             if not url.startswith(SITE + '/wp-json/'):
@@ -76,7 +82,7 @@ class HTTP:
                 if method == 'GET' and exc.code in (429, 500, 502, 503, 504) and attempt < 2:
                     time.sleep(min(5, 1 + attempt))
                     continue
-                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path) from None
+                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path, exc.code) from None
             except (OSError, TimeoutError) as exc:
                 if method == 'GET' and attempt < 2:
                     time.sleep(1+attempt)
@@ -117,20 +123,3 @@ class WordPress:
         data, headers, status = self.http.request(url)
         return data.decode('utf-8'), headers, status
 
-    def create(self, body):
-        data, _, _ = self.http.request(SITE+'/wp-json/wp/v2/posts', method='POST', body=body, auth=True)
-        return json.loads(data)
-
-    def preflight(self):
-        user,_ = self.get('users/me',auth=True,context='edit')
-        raw,_,_=self.http.request(SITE+'/wp-json/wp/v2',auth=True)
-        routes=json.loads(raw).get('routes',{})
-        endpoints=routes.get('/wp/v2/posts',{}).get('endpoints',[])
-        properties={}
-        for endpoint in endpoints:
-            if 'POST' in endpoint.get('methods',[]):
-                properties=endpoint.get('args',{}).get('meta',{}).get('properties',{})
-        fields={'_yoast_wpseo_title','_yoast_wpseo_metadesc','_yoast_wpseo_focuskw'}
-        if not user.get('capabilities',{}).get('publish_posts') or not fields<=set(properties):
-            raise ValueError('Publishing capability or registered Yoast REST meta fields not verified')
-        return {'publish_posts':True,'registered_yoast_meta':sorted(fields)}

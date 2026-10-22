@@ -8,5 +8,11 @@
   "trusted_reviewers": [],
   "semantic_review_required": true,
   "threshold_status": "development default; confirm at go-live",
-  "hard_fail_overrides_score": true
+  "hard_fail_overrides_score": true,
+  "minimum_internal_content_links": 1,
+  "substantial_length": {
+    "en": 700,
+    "vi": 950
+  },
+  "language_screens": "deterministic diacritic/function-word screens; native-language review stays mandatory"
 }

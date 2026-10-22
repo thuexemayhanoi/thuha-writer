@@ -59,9 +59,14 @@ def save(path, value):
             os.unlink(temp)
 
 
+def fold(text):
+    """Strip diacritics; unlike bare NFKD this keeps the Vietnamese đ as d."""
+    text = str(text).replace('đ', 'd').replace('Đ', 'D')
+    return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+
+
 def norm(text):
-    text = unicodedata.normalize('NFKD', str(text)).encode('ascii', 'ignore').decode().lower()
-    return ' '.join(re.findall(r'[a-z0-9]+', text))
+    return ' '.join(re.findall(r'[a-z0-9]+', fold(text).lower()))
 
 
 def urlkey(url):

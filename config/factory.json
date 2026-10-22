@@ -2,8 +2,15 @@
   "lease_seconds": 1800,
   "refill_below": 30,
   "refill_batch_max": 100,
-  "topic_capacity": 2000,
   "maximum_get_attempts": 3,
   "maximum_post_attempts": 1,
-  "ai_runtime": "external authorized ChatGPT/Claude session; not supplied by Actions"
+  "ai_runtime": "external authorized ChatGPT/Claude session; not supplied by Actions",
+  "topic_capacity_by_language": {
+    "vi": 500,
+    "en": 500
+  },
+  "language_priority": [
+    "vi",
+    "en"
+  ]
 }

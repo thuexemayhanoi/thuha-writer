@@ -1,0 +1,100 @@
+{
+  "auth": {
+    "browser_origin": "refused unless listed in option thuha_adapter_allowed_origins",
+    "capabilities": {
+      "read": "edit_posts",
+      "write": "publish_posts"
+    },
+    "cookie_sessions": "refused",
+    "credential": "WordPress Application Password only"
+  },
+  "contract": "thuha-writer/1",
+  "create_fields": [
+    "contract",
+    "idempotency_key",
+    "topic_id",
+    "language",
+    "slug",
+    "title",
+    "content",
+    "category_id",
+    "featured_media",
+    "seo",
+    "marker"
+  ],
+  "error_codes": [
+    "thuha_unauthenticated",
+    "thuha_app_password_required",
+    "thuha_origin_forbidden",
+    "thuha_forbidden",
+    "thuha_schema",
+    "thuha_language_mismatch",
+    "thuha_marker",
+    "thuha_unsafe_html",
+    "thuha_key_payload_mismatch",
+    "thuha_topic_already_created",
+    "thuha_category_language_mismatch",
+    "thuha_media_invalid",
+    "thuha_slug_conflict",
+    "thuha_insert_failed",
+    "thuha_language_marker_failed",
+    "thuha_seo_failed",
+    "thuha_media_failed",
+    "thuha_category_failed",
+    "thuha_publish_failed",
+    "thuha_permalink_mismatch",
+    "thuha_duplicate_key",
+    "thuha_foreign_post",
+    "thuha_inventory_filtered",
+    "thuha_native_vi_missing"
+  ],
+  "live_status": "NOT_DEPLOYED_NOT_TESTED_AGAINST_WORDPRESS",
+  "namespace": "thuha-writer/v1",
+  "plugin": {
+    "requires_native_plugin": "rentbikehanoi-native-vi (class RBHVI_Language, taxonomy rbhvi_language)",
+    "slug": "thuha-native-vi-publisher",
+    "version": "1.0.0"
+  },
+  "routes": {
+    "categories": [
+      "GET",
+      "/categories"
+    ],
+    "create": [
+      "POST",
+      "/posts"
+    ],
+    "inventory": [
+      "GET",
+      "/inventory"
+    ],
+    "preflight": [
+      "GET",
+      "/preflight"
+    ],
+    "reconcile": [
+      "GET",
+      "/posts/by-key/(?P<key>[a-f0-9]{64})"
+    ]
+  },
+  "safety": {
+    "create_only": true,
+    "draft_before_publish": true,
+    "language_marker_before_publish": true,
+    "public_routes": 0,
+    "raw_sql": false,
+    "replay_mutates": false,
+    "request_supplied_code": false
+  },
+  "seo_fields": [
+    "title",
+    "description",
+    "focus_keyword"
+  ],
+  "site": "https://rentbikehanoi.com",
+  "yoast_meta": [
+    "_yoast_wpseo_title",
+    "_yoast_wpseo_metadesc",
+    "_yoast_wpseo_focuskw"
+  ]
+}

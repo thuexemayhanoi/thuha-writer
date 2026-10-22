@@ -9,6 +9,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 from .common import SITE, now, norm, urlkey, digest, signature, category_path, save
 from .http import WordPress
+from .language import LANGUAGES, url_language
 
 
 class Page(HTMLParser):
@@ -16,6 +17,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.text, self.links, self.images, self.headings = [], [], [], []
         self.canonicals, self.robots, self.descriptions, self.schema = [], [], [], []
+        self.html_lang, self.hreflangs = None, []
         self.valid_schema_types=[]
         self.schema_errors=0
         self._ld=False
@@ -24,6 +26,10 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == 'html' and attrs.get('lang'):
+            self.html_lang = attrs['lang']
+        if tag == 'link' and 'alternate' in attrs.get('rel','').split() and attrs.get('hreflang'):
+            self.hreflangs.append((attrs['hreflang'], attrs.get('href')))
         if tag in ('script','style'):
             self.hidden += 1
         if tag == 'title':
@@ -144,10 +150,99 @@ def inventory(client=None, check_pages=True):
     except Exception as exc:
         result['errors'].append({'stage':'inventory','error':str(exc)})
     result['captured_at'] = now()
-    result['counts'] = {k:sum(x['type']==k for x in result['items']) for k in ('posts','pages')}
-    result['counts']['live_verified_posts'] = sum(x['type']=='posts' and x.get('public_check',{}).get('http_status')==200 and
-          x.get('public_check',{}).get('canonicals')==[x['url']] for x in result['items'])
+    for item in result['items']:
+        item['language'] = url_language(item['url']) or 'en'
+    result['language_source'] = 'public-rest-unverified'  # the public collection can hide native VI posts
+    result['counts'] = counts(result['items'])
     return result
+
+
+def counts(items):
+    """Published posts by language; pages, drafts and trash never count toward a target."""
+    posts = [x for x in items if x['type'] == 'posts' and x['status'] == 'publish']
+    out = {k:sum(x['type']==k for x in items) for k in ('posts','pages')}
+    out['posts'] = len(posts)
+    out['posts_by_language'] = {lang:sum(x['language'] == lang for x in posts) for lang in LANGUAGES}
+    out['pages_by_language'] = {lang:sum(x['language'] == lang for x in items if x['type'] == 'pages') for lang in LANGUAGES}
+    out['live_verified_posts'] = sum(x['type']=='posts' and x.get('public_check',{}).get('http_status')==200 and
+          x.get('public_check',{}).get('canonicals')==[x['url']] for x in items)
+    return out
+
+
+def check_item(client, item):
+    try:
+        source, headers, status = client.page(item['url'])
+        p = parse(source)
+        return {'http_status':status,'canonicals':p.canonicals,'robots':p.robots,
+                'x_robots_tag':headers.get('X-Robots-Tag',headers.get('x-robots-tag')),
+                'title':p.title,'descriptions':p.descriptions,'h1_count':sum(x[0]=='h1' for x in p.headings),
+                'html_lang':p.html_lang,'hreflangs':p.hreflangs,
+                'schema_present':bool(p.schema),'schema_types':p.valid_schema_types,'schema_json_errors':p.schema_errors,
+                'html_sha256':digest(source.encode()),'checked_at':now()}
+    except Exception as exc:
+        return {'http_status':None,'error':str(exc),'checked_at':now()}
+
+
+def inventory_bilingual(adapter, client=None, check_pages=True):
+    """Complete EN+VI inventory read through the companion adapter, never the public collection."""
+    result = {'site':SITE,'schema':'bilingual-1','language_source':'adapter','started_at':now(),
+              'complete':False,'errors':[],'items':[],'categories':[],'media':[]}
+    try:
+        for kind, label in (('post','posts'),('page','pages')):
+            for raw in adapter.inventory_rows(kind):
+                if raw.get('language') not in LANGUAGES:
+                    raise ValueError('Adapter row without a verified language: '+str(raw.get('id')))
+                post = {'id':raw['id'],'link':raw['link'],'slug':raw['slug'],'status':raw['status'],
+                        'title':{'rendered':raw['title']},'content':{'rendered':raw['content']},
+                        'modified_gmt':raw.get('modified_gmt'),'categories':raw.get('categories',[]),
+                        'featured_media':raw.get('featured_media',0),'meta':raw.get('meta',{}),
+                        'yoast_head_json':{'title':raw.get('meta',{}).get('_yoast_wpseo_title'),
+                                           'description':raw.get('meta',{}).get('_yoast_wpseo_metadesc'),
+                                           'canonical':raw['link']}}
+                item = summarize(post, label)
+                item['language'] = raw['language']
+                result['items'].append(item)
+        result['categories'] = adapter.categories()
+        for item in result['items']:
+            item['category_paths'] = [category_path(x,result['categories']) for x in item['categories']]
+        media_ids = sorted({x['featured_media'] for x in result['items'] if x['featured_media']})
+        for start in range(0,len(media_ids),100):
+            result['media'].extend((client or adapter).collection('media',include=','.join(map(str,media_ids[start:start+100])),_fields='id,alt_text,source_url'))
+        if check_pages:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                checks = list(pool.map(lambda i: check_item(client or adapter, i), result['items']))
+            for item, check_result in zip(result['items'],checks):
+                item['public_check'] = check_result
+                if check_result.get('error'):
+                    result['errors'].append({'id':item['id'],'stage':'public-page','error':check_result['error']})
+        result['collection_complete'] = True
+        result['complete'] = not result['errors']
+    except Exception as exc:
+        result['errors'].append({'stage':'inventory','error':str(exc)})
+    result['captured_at'] = now()
+    result['counts'] = counts(result['items'])
+    return result
+
+
+def snapshot_inventory(root=None):
+    """Offline view of the committed 2026-10-22 authenticated snapshot (275 EN, 0 VI).
+
+    It lacks article bodies and live page checks, so it feeds planning and the
+    dashboard only: publishing needs a fresh adapter inventory.
+    """
+    from pathlib import Path
+    from .common import ROOT, load
+    base = Path(root or ROOT) / 'data/bilingual'
+    posts = load(base / 'live-posts-2026-10-22.json')
+    manifest = load(base / 'live-categories-2026-10-22.json')
+    items = [{'id':p['id'],'type':'posts','url':p['link'],'slug':p['slug'],'status':p['status'],
+              'title':html.unescape(p['title']['rendered']),'categories':p['categories'],'language':'en',
+              'content_signature':[]} for p in posts['posts']]
+    cats = [{'id':c['id'],'parent':c['parent'],'name':html.unescape(c['name']),'slug':c['slug'],'link':c['link'],
+             'language':c['language']} for c in manifest['categories']]
+    return {'site':SITE,'schema':'bilingual-1','language_source':'authenticated-snapshot','complete':True,'errors':[],
+            'captured_at':posts['captured_at'].replace('Z','+00:00'),'items':items,'categories':cats,'media':[],
+            'counts':counts(items)}
 
 
 def matrix(inv):

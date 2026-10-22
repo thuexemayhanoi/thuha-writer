@@ -1,0 +1,25 @@
+{
+  "source": "factory-state branch, state schema 4, version 3, captured 2026-10-20",
+  "status": "QUEUED_NOT_PUBLISHED",
+  "note": "Two English topics already admitted as PLANNED in remote state. They are not published posts and do not count toward 500, but new matrix rows must not duplicate them.",
+  "topics": [
+    {
+      "topic_id": "TH-000001",
+      "language": "en",
+      "title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
+      "slug": "ho-chi-minh-museum-hanoi-exhibition-guide",
+      "url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+      "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
+      "category_id": 121
+    },
+    {
+      "topic_id": "TH-000002",
+      "language": "en",
+      "title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
+      "slug": "hanoi-ceramic-mosaic-mural-art-walk",
+      "url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+      "primary_keyword": "Hanoi ceramic mosaic mural walk",
+      "category_id": 117
+    }
+  ]
+}

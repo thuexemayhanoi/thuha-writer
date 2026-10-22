@@ -2,6 +2,8 @@ import datetime as dt
 import re
 import uuid
 from .common import now, digest
+from .language import LANGUAGES, locale
+from .quota import complete_languages
 from .store import event
 
 SLOTS=['W'+str(i) for i in range(1,10)]
@@ -30,7 +32,12 @@ def owned(state, slot, session, fence, at=None):
     return lease
 
 
-def claim(store,session,agent_id,slot='auto',ttl=1800):
+def claim_order(topic):
+    """Vietnamese first, then English; repairs before fresh topics inside a language."""
+    return (LANGUAGES.index(topic['language']),0 if topic['status']=='NEEDS_REPAIR' else 1,topic['topic_id'])
+
+
+def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None):
     if not re.fullmatch('[a-zA-Z0-9_-]{4,80}',session) or not agent_id.strip():
         raise ValueError('Stable session and explicit external agent attribution required')
     if slot!='auto' and slot not in SLOTS:raise ValueError('Unknown writer slot')
@@ -44,13 +51,14 @@ def claim(store,session,agent_id,slot='auto',ttl=1800):
             return mine[0]
         available=next((x for x in SLOTS if x not in state['leases']),None) if slot=='auto' else slot
         if available is None or available in state['leases']:raise ValueError('No free slot')
-        candidates=[x for x in state['topics'].values() if x['status']=='NEEDS_REPAIR']
-        candidates += [x for x in state['topics'].values() if x['status']=='PLANNED']
+        # A language already at its ceiling (live posts + unresolved intents) takes no more writers.
+        full=complete_languages(state,counts,targets) if counts is not None and targets is not None else set()
+        candidates=sorted((x for x in state['topics'].values() if x['status'] in ('NEEDS_REPAIR','PLANNED') and x['language'] not in full),key=claim_order)
         busy={x['topic_id'] for x in state['leases'].values()}
         candidate=next((x for x in candidates if x['topic_id'] not in busy),None)
         if not candidate:raise ValueError('No admissible researched topic; external research required')
         lease={'slot':available,'session':session,'agent_id':agent_id,'topic_id':candidate['topic_id'],
-               'fence':fence,'heartbeat_at':now(),'expires_at':timestamp()+ttl}
+               'language':candidate['language'],'fence':fence,'heartbeat_at':now(),'expires_at':timestamp()+ttl}
         state['leases'][available]=lease;candidate['status']='CLAIMED'
         event(state,'CLAIM',**lease)
         return lease
@@ -70,6 +78,8 @@ def submit(store,slot,session,fence,article,max_repairs=3):
     if state['topics'][lease['topic_id']]['status']=='NEEDS_REVIEW':raise ValueError('Held topic requires owner review before another revision')
     if article.get('topic_id')!=lease['topic_id'] or article.get('agent_id')!=lease['agent_id'] or article.get('session')!=session:
         raise ValueError('Submission provenance does not match lease')
+    if article.get('language')!=locale(state['topics'][lease['topic_id']]['language']):
+        raise ValueError('Submission language does not match the topic language')
     if len(str(article.get('body_html','')))>200_000:raise ValueError('Draft too large')
     sha=store.put_document(article) # Durable BEFORE releasing or changing state.
     def transaction(state):

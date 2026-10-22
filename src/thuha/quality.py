@@ -1,21 +1,36 @@
 """Trusted technical QA. Scores never override hard failures or missing review.
 
-Semantic/factual/English judgments require a separate authorized reviewer;
-this deterministic screen deliberately does not claim to replace that work.
+Semantic, factual and native-language judgments require a separate authorized
+reviewer; this deterministic screen deliberately does not claim to replace that
+work. It is bilingual: every check runs against the topic's own language and
+rejects mixed or cross-language content.
 """
 import re
+import unicodedata
 from urllib.parse import urljoin,urlsplit
 from .audit import parse
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
-from .research import collisions
+from .language import locale, screen, url_language
+from .research import collisions, item_language
 from .store import event
 from .coordinator import timestamp
 
-REVIEW_CHECKS=('intent','factual_accuracy','english','originality','business_facts','image_relevance')
+REVIEW_CHECKS=('intent','factual_accuracy','native_language','originality','business_facts','image_relevance','no_machine_translation')
+REGULATED={'en':r'\b(licen[cs]e|permit|registration|legal|law|visa|embass(?:y|ies))\b',
+           'vi':r'(giấy phép|bằng lái|gplx|nghị định|thông tư|\bluật\b|mức phạt|xử phạt|csgt|cảnh sát giao thông|\bvisa\b|đại sứ quán|đăng kiểm|bảo hiểm bắt buộc)'}
+FIRSTHAND={'en':r'\b(no deposit|deposit.free|guaranteed refund|we personally tested|we have tested)\b',
+           'vi':r'(không (cần )?đặt cọc|miễn (đặt )?cọc|không cọc|đảm bảo hoàn (lại )?(tiền|cọc)|chúng tôi đã (tự |trực tiếp )?(thử|chạy thử|kiểm tra)|tôi đã (trực tiếp|tự) )'}
+DISCLAIMER={'en':r'reference prices?|confirm.*(?:rate|price|booking)',
+            'vi':r'giá tham khảo|xác nhận (lại )?(giá|mức giá|báo giá|xe|đặt xe)|reference prices?'}
+
+
+def nfc(text):
+    return unicodedata.normalize('NFC',str(text or ''))
 
 
 def evaluate(article,topic,submission,inv,policy,store,review=None,business=None):
     errors=[];score=0
+    lang=topic['language']
     sha=digest(article)
     try:validate_inventory(inv,policy['inventory_max_age_seconds'])
     except ValueError as e:errors.append(str(e))
@@ -23,39 +38,58 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     for k in ('topic_id','session','agent_id'):
         expected=topic.get(k) if k=='topic_id' else submission.get(k)
         if not article.get(k) or article[k]!=expected:errors.append('PROVENANCE_'+k.upper())
-    if article.get('language')!='en-US':errors.append('ENGLISH_LANGUAGE_REQUIRED')
+    if article.get('language')!=locale(lang):errors.append('ARTICLE_LANGUAGE_MISMATCH')
     if article.get('canonical')!=topic['proposed_url']:errors.append('CANONICAL_MISMATCH')
     try:
         if article.get('category_id')!=topic['category_id'] or category_path(topic['category_id'],inv['categories'])!=topic['category_path']:
             errors.append('TAXONOMY_MISMATCH')
-    except ValueError:errors.append('TAXONOMY_UNKNOWN')
+        by_id={c['id']:c for c in inv['categories']}
+        # A category of the other language, or an unverified one, never makes a post belong to this language.
+        if any(by_id[i].get('language')!=lang for i in topic['category_path']):errors.append('CATEGORY_LANGUAGE_MISMATCH')
+    except (ValueError,KeyError):errors.append('TAXONOMY_UNKNOWN')
     if collisions(topic,inv,[]):errors.append('DUPLICATE_OR_CANNIBALIZATION')
-    body=article.get('body_html','');page=parse(body);text=' '.join(page.text)
+    body=article.get('body_html','');page=parse(body);text=nfc(' '.join(page.text))
     if not body or not re.search(r'<p[ >]',body):errors.append('ARTICLE_BODY_MISSING')
     if re.search(r'<(?:script|iframe|form|meta|link|style|title|base|object|embed)\b|\bon(?:error|click|load)\s*=',body,re.I):errors.append('UNSAFE_OR_DUPLICATE_SCHEMA_HTML')
     if '<!-- thuha:' in body.lower():errors.append('RESERVED_PROVENANCE_MARKER')
     if any(h[0]=='h1' for h in page.headings):errors.append('BODY_H1_DUPLICATES_TEMPLATE')
     score+=10 if sum(h[0]=='h2' for h in page.headings)>=2 else 0
-    score+=10 if len(norm(text).split())>=700 else 5
-    score+=10 if 35<=len(article.get('seo_title',''))<=75 else 0
-    score+=10 if 110<=len(article.get('meta_description',''))<=180 else 0
+    # Syllables for Vietnamese, words for English: the floors are set per language.
+    score+=10 if len(norm(text).split())>=policy['substantial_length'][lang] else 5
+    if len(text.split())>=30:
+        errors.extend('BODY_'+x for x in screen(lang,text))
+    for field in ('title','seo_title','meta_description','focus_keyword'):
+        errors.extend(field.upper()+'_'+x for x in screen(lang,nfc(article.get(field,'')),short=True))
+    score+=10 if 35<=len(nfc(article.get('seo_title','')))<=75 else 0
+    score+=10 if 110<=len(nfc(article.get('meta_description','')))<=180 else 0
     if not article.get('focus_keyword'):errors.append('FOCUS_KEYWORD_MISSING')
-    known={urlkey(x['url']) for x in inv['items'] if x.get('public_check',{}).get('http_status')==200}
-    internal=set()
+    live={urlkey(x['url']):x for x in inv['items'] if x.get('public_check',{}).get('http_status')==200 and item_language(x)==lang}
+    archives={urlkey(c['link']) for c in inv['categories'] if c.get('language')==lang and c.get('link')}
+    internal=set();content_links=set()
     for link in page.links:
         if link.startswith('#'):continue
         u=urljoin(topic['proposed_url'],link);p=urlsplit(u)
         if p.scheme in ('tel','mailto'):continue
         if p.scheme!='https' or p.username or p.password:errors.append('UNSAFE_LINK');continue
         if p.netloc==urlsplit(SITE).netloc:
-            if urlkey(u) not in known:errors.append('INTERNAL_LINK_NOT_LIVE_VERIFIED')
-            else:internal.add(urlkey(u))
-    if len(internal)<policy['minimum_internal_links']:errors.append('INSUFFICIENT_REAL_INTERNAL_LINKS')
+            other=url_language(u)
+            if other!=lang:errors.append('CROSS_LANGUAGE_BODY_LINK');continue
+            key=urlkey(u)
+            if key not in live and key not in archives:errors.append('INTERNAL_LINK_NOT_LIVE_VERIFIED')
+            else:
+                internal.add(key)
+                if key in live:content_links.add(key)
+    if len(internal)<policy['minimum_internal_links'] or len(content_links)<policy['minimum_internal_content_links']:
+        errors.append('INSUFFICIENT_REAL_INTERNAL_LINKS')
     else:score+=20
     media=next((m for m in inv.get('media',[]) if m['id']==article.get('featured_media')),None)
     if not media or not str(media.get('alt_text','')).strip():errors.append('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED')
-    else:score+=10
+    else:
+        score+=10
+        errors.extend('FEATURED_ALT_'+x for x in screen(lang,nfc(media['alt_text']),short=True))
     if any(not str(img.get('alt') or '').strip() for img in page.images):errors.append('BODY_IMAGE_ALT_MISSING')
+    for img in page.images:
+        errors.extend('BODY_IMAGE_ALT_'+x for x in screen(lang,nfc(img.get('alt') or ''),short=True) if img.get('alt'))
     sources=article.get('sources',[]);source_hosts=[]
     if not sources:errors.append('RESEARCH_EVIDENCE_MISSING')
     for ref in sources:
@@ -67,20 +101,20 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
             source_hosts.append(urlsplit(ref['url']).hostname or '')
         except (ValueError,KeyError,OSError):errors.append('SOURCE_SNAPSHOT_MISSING')
     if sources:score+=10
-    if re.search(r'\b(licen[cs]e|permit|registration|legal|law|visa|embass(?:y|ies))\b',text,re.I):
+    if re.search(REGULATED[lang],text,re.I):
         official=lambda h:h.endswith(('.gov.vn','.gov.uk','.gov','.gouv.fr')) or h in ('unece.org','www.unece.org')
         if not any(official(h) for h in source_hosts):errors.append('REGULATED_CLAIM_NEEDS_OFFICIAL_SOURCE')
-    if re.search(r'\b(no deposit|deposit.free|guaranteed refund|we personally tested|we have tested)\b',text,re.I):
+    if re.search(FIRSTHAND[lang],text,re.I):
         errors.append('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM')
     if business:
         for claim in article.get('business_claims',[]):
             if claim.get('kind')!='reference_price':errors.append('UNAPPROVED_BUSINESS_POLICY');continue
             interval=business['reference_prices_vnd'].get(claim.get('vehicle'),{}).get(claim.get('period'))
             if not interval or not interval[0]<=claim.get('value_vnd',-1)<=interval[1]:errors.append('UNAPPROVED_PRICE')
-        if article.get('business_claims') and not re.search(r'reference prices?|confirm.*(?:rate|price|booking)',text,re.I):
+        if article.get('business_claims') and not re.search(DISCLAIMER[lang],text,re.I):
             errors.append('REFERENCE_PRICE_DISCLAIMER_MISSING')
     new_sig=set(signature(text))
-    for old in inv['items']:
+    for old in (x for x in inv['items'] if item_language(x)==lang):
         sig=set(old['content_signature'])
         if len(new_sig&sig)/max(1,min(len(new_sig),len(sig)))>.75:errors.append('CONTENT_OVERLAP_REVIEW')
     if policy.get('semantic_review_required'):
@@ -93,7 +127,7 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
         else:score+=10
     else:
         errors.append('SEMANTIC_REVIEW_POLICY_CANNOT_BE_DISABLED')
-    return {'status':'PASS' if not errors and score>=policy['score_threshold'] else 'FAIL',
+    return {'status':'PASS' if not errors and score>=policy['score_threshold'] else 'FAIL','language':lang,
             'score':score,'threshold':policy['score_threshold'],'hard_fails':sorted(set(errors)),
             'article_sha':sha,'policy_sha256':digest(policy),'inventory_sha256':digest(inv),
             'checked_at':now(),'semantic_review':(review or {}).get('reviewer_id'),

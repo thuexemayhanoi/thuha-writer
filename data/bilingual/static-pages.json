@@ -1,0 +1,66 @@
+{
+  "source": "reports/live-audit/inventory.json captured 2026-10-20 (English static pages only)",
+  "pages": [
+    {
+      "id": 48,
+      "slug": "about-us",
+      "url": "https://rentbikehanoi.com/about-us/"
+    },
+    {
+      "id": 59,
+      "slug": "contact-us",
+      "url": "https://rentbikehanoi.com/contact-us/"
+    },
+    {
+      "id": 67,
+      "slug": "hanoi-motorbike-for-rent-and-sale-affordable-reliable",
+      "url": "https://rentbikehanoi.com/"
+    },
+    {
+      "id": 173,
+      "slug": "privacy-police",
+      "url": "https://rentbikehanoi.com/privacy-police/"
+    },
+    {
+      "id": 178,
+      "slug": "terms-of-use",
+      "url": "https://rentbikehanoi.com/terms-of-use/"
+    },
+    {
+      "id": 182,
+      "slug": "faq",
+      "url": "https://rentbikehanoi.com/faq/"
+    }
+  ],
+  "vietnamese_pages": {
+    "count_reported": 11,
+    "slugs": "UNKNOWN_PENDING_LIVE_INVENTORY",
+    "note": "Handoff reports 11 static Vietnamese pages. Matrix slugs are checked against known EN pages and WordPress reserved words here; the publisher must re-check against the live VI page inventory before any reservation."
+  },
+  "reserved_slugs": [
+    "vi",
+    "blog",
+    "category",
+    "tag",
+    "author",
+    "page",
+    "feed",
+    "amp",
+    "embed",
+    "wp-admin",
+    "wp-json",
+    "wp-content",
+    "wp-includes",
+    "sitemap",
+    "sitemap-index",
+    "robots",
+    "search",
+    "comments",
+    "trackback",
+    "attachment",
+    "chuyen-muc",
+    "en",
+    "admin",
+    "login"
+  ]
+}

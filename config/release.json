@@ -11,5 +11,6 @@
   "expansion_approval_ref": null,
   "minimum_post_interval_seconds": 60,
   "environment": "thuha-production",
-  "cross_publisher_coordination_verified": false
+  "cross_publisher_coordination_verified": false,
+  "languages_enabled": []
 }
