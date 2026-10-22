@@ -71,3 +71,42 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
 3. Trùng: bỏ dòng ít giá trị hơn khỏi seed, chạy `python3 scripts/build_matrices.py`
    (cân lại 500/225 bằng chủ đề mới thật sự khác, không paraphrase).
 4. Chủ đề pháp lý, thời tiết, địa điểm: không viết khi chưa chụp nguồn chính thức còn hiệu lực (`NEEDS_SOURCE`).
+
+## Dòng đã gỡ vì trùng nghĩa giữa hai mục (lần quét ngữ nghĩa thủ công trước khi chốt 500/225)
+
+Validator đo trùng từ nên không bắt được các cặp cùng tình huống nhưng khác từ ngữ giữa hai mục (do hai tác giả
+độc lập viết). Sau khi dựng matrix lần đầu, một lượt đọc cặp có điểm tương đồng cao nhất (tiêu đề + từ khóa + ý định)
+đã gỡ 17 dòng VI và 6 dòng EN, giữ lại một dòng tốt hơn trong mỗi cặp; số thiếu được bù bằng chủ đề mới thật sự khác
+(không paraphrase). Danh sách dòng đã gỡ (mục, tiêu đề):
+
+**VI**
+
+- 156 (TH-VI-0119): Cha mẹ chở con nhỏ bằng xe ga thuê: mũ, tư thế ngồi và những quy định cần tra trước
+- 157 (TH-VI-0138): Xe côn tay dung tích lớn và hạng bằng lái: đối chiếu số cc trên giấy đăng ký với văn bản hiện hành
+- 160 (TH-VI-0204): Nhận xe lúc trời đã tối: cách kiểm tra đèn pha, đèn hậu và xi nhan khi thiếu ánh sáng
+- 162 (TH-VI-0255): Áo chống nắng, găng tay và khẩu trang chống nắng khi đi xe máy giữa trưa hè: chọn sao để vẫn quan sát tốt
+- 162 (TH-VI-0258): Xuống xe khách ở Bến xe Gia Lâm với túi hành lý rồi lấy xe thuê: sắp xếp đồ sao cho chạy an toàn
+- 162 (TH-VI-0263): Địa chỉ ngõ, ngách ở Hà Nội: gõ số nhà hay thả ghim vị trí khi nhờ giao xe hoặc tìm đường
+- 162 (TH-VI-0273): Trang phục đi xe máy khi trời rét đậm ở Hà Nội: giữ ấm mà tay vẫn linh hoạt, tầm nhìn không bị che
+- 163 (TH-VI-0289): Xe thuê đã có bảo hiểm trách nhiệm dân sự của chủ xe chưa: cách kiểm tra giấy chứng nhận còn hiệu lực
+- 164 (TH-VI-0313): Nhường đường xe cứu thương và xe ưu tiên khi đang đi xe máy trong phố đông: nên làm gì cho an toàn
+- 164 (TH-VI-0335): Xin gửi xe tháng ở chung cư hoặc tòa văn phòng khi xe thuê không đứng tên bạn
+- 165 (TH-VI-0365): Phanh xe ga có phanh kết hợp: bóp tay phanh nào trước khi cần dừng gấp trên đường trơn
+- 166 (TH-VI-0381): Người nhà ra Hà Nội chăm bệnh dài ngày: tuyến đi giữa nhà trọ, bệnh viện và chợ bằng xe máy
+- 166 (TH-VI-0387): Đi làm ca ở khu công nghiệp ngoại thành bằng xe máy thuê: tuyến sáng sớm, xe tải và giờ đổi ca
+- 168 (TH-VI-0437): Đi ăn nhậu cùng bạn bè: tính trước chỗ gửi xe thuê và cách về khi đã uống rượu bia
+- 168 (TH-VI-0448): Đi xem ca nhạc hoặc bóng đá ở sân Mỹ Đình bằng xe máy: gửi xe, giờ tan sự kiện và đường về
+- 169 (TH-VI-0459): Chạy xe dọc đê sông Hồng buổi chiều ngắm làng quê: kiểm tra mặt đường đê và mùa nước trước khi đi
+- 171 (TH-VI-0486): Chia tiền xăng, vé và bữa ăn khi đi chơi nhóm bằng xe máy: ghi chép thế nào cho khỏi phiền lòng
+
+**EN**
+
+- 129 (TH-EN-0109): Tank Level at Handover: Record the Starting Gauge and Agree How Fuel Is Settled at Return
+- 130 (TH-EN-0115): Can You Wash a Rental Scooter? What to Avoid Around Electrics, Seat Locks and Brakes
+- 132 (TH-EN-0145): Leaving a Helmet With a Parked Scooter in Hanoi: Hooks, Seat Storage or Carry It With You
+- 139 (TH-EN-0222): Vietnamese Public Holidays Beyond Tet: Plan Around Crowds and Closures in Hanoi
+- 139 (TH-EN-0224): Choosing a Navigation App for Hanoi Riding: Motorbike Routing, Voice Prompts and Local Alternatives
+- 139 (TH-EN-0225): Jet Lag and Your First Hanoi Ride: Plan a Gentler First Day Before Heavy Traffic
+
+Bài học đã áp vào hướng dẫn soạn seed: trước khi thêm dòng, tự hỏi người tìm kiếm có thỏa mãn bằng một dòng đã có không; hai mục
+cha-con khác nhau vẫn có thể viết cùng một tình huống (chăm người nhà ở bệnh viện, thẻ xe tháng, chở trẻ nhỏ, bảo hiểm trách nhiệm).

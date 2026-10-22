@@ -58,7 +58,10 @@ Slug tiếng Việt: bỏ dấu, `đ` thành `d`, ví dụ `dat-coc-xe-may-bang-
 6. **Tránh phân mảnh vô nghĩa.** Mỗi mục con chỉ nên có số chủ đề mà bạn tự tin là
    khác nhau về ý định. Nếu không thể đủ số gợi ý mà vẫn khác nhau, viết ít hơn và
    nói rõ; không nhồi paraphrase. Sai lệch tối đa 20% so với bảng gợi ý.
-7. **Không kiểm chứng nhu cầu tìm kiếm.** Không ghi lượng tìm kiếm hay thứ hạng.
+7. **Trùng ý định giữa hai mục cũng là trùng.** Máy chỉ đo trùng từ. Cùng một tình huống người đọc (chăm người nhà ở bệnh viện,
+   thẻ xe tháng ở chung cư, chở trẻ nhỏ, bảo hiểm trách nhiệm, trang phục chống rét) không được xuất hiện ở hai mục dù từ ngữ khác
+   nhau. Trước khi thêm dòng hãy hỏi: người tìm kiếm có thỏa mãn khi đọc một dòng đã có không? Có thì bỏ.
+8. **Không kiểm chứng nhu cầu tìm kiếm.** Không ghi lượng tìm kiếm hay thứ hạng.
    Matrix ghi `demand_evidence: NOT_MEASURED`.
 
 ## Chạy kiểm tra
