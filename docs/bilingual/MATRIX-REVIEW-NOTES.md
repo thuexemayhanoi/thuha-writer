@@ -40,6 +40,10 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
 - 156–160 (đợt bổ sung): 160 "chân chống cạnh lỏng" gần 157 "thử cần số/côn khi nhận xe" (cùng bước nhận xe, khác bộ phận);
   157 "đường ướt về số thấp quá gấp" gần 157 "xuống đèo phanh động cơ" và 165 "mưa phùn kéo dài"; 160 "việc nhỏ nào tự làm"
   gần hai bài EN 3303 và 3384.
+- 161–165 (đợt bổ sung): 163 "cầm ô, xách đồ, buông một tay khi lái" và 163 "nhìn bản đồ, đeo tai nghe khi lái" cùng nhóm hành vi
+  bị cấm khi lái, khác hành vi; 164 "biển cấm đỗ ngày chẵn/lẻ" và 164 "cấm dừng, cấm đỗ khác nhau" cùng chủ đề biển phụ; 164 "dông
+  lốc: chỗ để xe qua đêm" và 165 "giông lốc giữa đường" (xe đã đỗ so với xe đang chạy); 165 "mặt đường trơn lá, bùn, dầu loang"
+  gần bài EN về vạch sơn và nắp cống ướt (2001).
 - 156–159: đồng hồ xăng/nạp xăng/chi phí xăng gần các bài EN 1947, 1956, 1958; sạc xe điện gần 1977, 3299,
   3350; độ tuổi 50cc gần ba bài 50cc; smart key gần 1925. VI viết cho người đọc Việt (E5/RON95, CCCD, tin nhắn
   hỏi cửa hàng) nhưng cùng chủ đề với bài EN thì reviewer cần xác nhận không phải bản dịch ý.
