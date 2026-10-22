@@ -9,6 +9,7 @@ import re
 import unicodedata
 from urllib.parse import urljoin,urlsplit
 from .audit import parse
+from . import htmlpolicy
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
 from .language import locale, screen, url_language
 from .research import collisions, item_language
@@ -50,7 +51,8 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     if collisions(topic,inv,[]):errors.append('DUPLICATE_OR_CANNIBALIZATION')
     body=article.get('body_html','');page=parse(body);text=nfc(' '.join(page.text))
     if not body or not re.search(r'<p[ >]',body):errors.append('ARTICLE_BODY_MISSING')
-    if re.search(r'<(?:script|iframe|form|meta|link|style|title|base|object|embed)\b|\bon(?:error|click|load)\s*=',body,re.I):errors.append('UNSAFE_OR_DUPLICATE_SCHEMA_HTML')
+    # Canonical-form allow-list shared with the plugin; anything exotic is refused rather than interpreted.
+    if htmlpolicy.violations(body):errors.append('UNSAFE_OR_DUPLICATE_SCHEMA_HTML')
     if '<!-- thuha:' in body.lower():errors.append('RESERVED_PROVENANCE_MARKER')
     if any(h[0]=='h1' for h in page.headings):errors.append('BODY_H1_DUPLICATES_TEMPLATE')
     score+=10 if sum(h[0]=='h2' for h in page.headings)>=2 else 0
@@ -63,6 +65,11 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     score+=10 if 35<=len(nfc(article.get('seo_title','')))<=75 else 0
     score+=10 if 110<=len(nfc(article.get('meta_description','')))<=180 else 0
     if not article.get('focus_keyword'):errors.append('FOCUS_KEYWORD_MISSING')
+    # SEO plugins re-sanitise these fields; text that would not survive unchanged breaks the exact read-back later.
+    for field in ('title','seo_title','meta_description','focus_keyword'):
+        value=nfc(article.get(field,''))
+        if value and (value!=' '.join(value.split()) or re.search(r'[<>]',value)):errors.append(field.upper()+'_NOT_CANONICAL_PLAIN_TEXT')
+    if re.search(r'["\'`]',nfc(article.get('focus_keyword',''))):errors.append('FOCUS_KEYWORD_HAS_QUOTES')
     live={urlkey(x['url']):x for x in inv['items'] if x.get('public_check',{}).get('http_status')==200 and item_language(x)==lang}
     archives={urlkey(c['link']) for c in inv['categories'] if c.get('language')==lang and c.get('link')}
     internal=set();content_links=set()

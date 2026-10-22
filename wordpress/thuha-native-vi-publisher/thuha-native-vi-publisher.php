@@ -24,6 +24,7 @@ define( 'THUHA_ADAPTER_DIR', __DIR__ );
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-contract.php';
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-auth.php';
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-language.php';
+require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-query.php';
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-readback.php';
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-inventory.php';
 require_once THUHA_ADAPTER_DIR . '/includes/class-thuha-writer.php';

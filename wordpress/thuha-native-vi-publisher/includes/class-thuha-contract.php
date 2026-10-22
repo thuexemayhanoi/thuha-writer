@@ -18,6 +18,91 @@ class Thuha_Contract {
 	const META_STATE    = '_thuha_state';
 	const MAX_CONTENT   = 200000;
 
+	private static $data = null;
+
+	/** contract.json is the single source of the byte limits and the HTML allow-lists shared with the Python QA. */
+	public static function data() {
+		if ( null === self::$data ) {
+			$raw        = is_readable( THUHA_ADAPTER_DIR . '/contract.json' ) ? file_get_contents( THUHA_ADAPTER_DIR . '/contract.json' ) : '';
+			$decoded    = json_decode( (string) $raw, true );
+			self::$data = is_array( $decoded ) ? $decoded : array();
+		}
+		return self::$data;
+	}
+
+	public static function limit( $name ) {
+		$data = self::data();
+		return isset( $data['limits'][ $name ] ) ? (int) $data['limits'][ $name ] : 0; // 0 means "unknown": every size check then fails closed
+	}
+
+	/**
+	 * Strict canonical-form HTML policy (identical algorithm to src/thuha/htmlpolicy.py): lower-case allow-listed tags,
+	 * double-quoted allow-listed attributes without duplicates, URL values in printable ASCII with only &amp; entities and
+	 * a safe scheme, no comments, declarations or bare '<'. Anything else is refused, not interpreted.
+	 */
+	public static function html_violations( $markup ) {
+		$data = self::data();
+		if ( empty( $data['html_policy']['tags'] ) ) {
+			return array( 'policy-unavailable' );
+		}
+		$p       = $data['html_policy'];
+		$tags    = array_flip( $p['tags'] );
+		$voids   = array_flip( $p['void_tags'] );
+		$global  = array_flip( $p['global_attributes'] );
+		$urls    = array_flip( $p['url_attributes'] );
+		$schemes = array_flip( $p['url_schemes'] );
+		$out     = array();
+		$i       = 0;
+		while ( false !== ( $i = strpos( $markup, '<', $i ) ) ) {
+			if ( ! preg_match( '/\G<(\/?)([a-z][a-z0-9]*)((?:[ \t\r\n\f]+[a-z][a-z0-9-]*="[^"<>]*")*)[ \t\r\n\f]*(\/?)>/', $markup, $m, 0, $i ) ) {
+				$out[] = 'malformed-markup';
+				$i++;
+				continue;
+			}
+			$i += strlen( $m[0] );
+			list( , $closing, $tag, $attrs, $self ) = $m;
+			if ( ! isset( $tags[ $tag ] ) ) {
+				$out[] = 'tag:' . $tag;
+				continue;
+			}
+			if ( '' !== $closing && ( '' !== trim( $attrs, " \t\r\n\f" ) || '' !== $self || isset( $voids[ $tag ] ) ) ) {
+				$out[] = 'closing-tag-form:' . $tag;
+			}
+			if ( '' !== $self && ! isset( $voids[ $tag ] ) ) {
+				$out[] = 'self-closing:' . $tag;
+			}
+			$allowed = isset( $p['attributes'][ $tag ] ) ? array_flip( $p['attributes'][ $tag ] ) : array();
+			$seen    = array();
+			preg_match_all( '/[ \t\r\n\f]+([a-z][a-z0-9-]*)="([^"<>]*)"/', $attrs, $found, PREG_SET_ORDER );
+			foreach ( $found as $attr ) {
+				$name  = $attr[1];
+				$value = $attr[2];
+				if ( isset( $seen[ $name ] ) ) {
+					$out[] = 'duplicate-attribute:' . $tag . '.' . $name;
+				}
+				$seen[ $name ] = true;
+				if ( ! isset( $global[ $name ] ) && ! isset( $allowed[ $name ] ) ) {
+					$out[] = 'attribute:' . $tag . '.' . $name;
+					continue;
+				}
+				if ( isset( $p['attribute_values'][ $name ] ) && ! in_array( $value, $p['attribute_values'][ $name ], true ) ) {
+					$out[] = 'attribute-value:' . $tag . '.' . $name;
+				}
+				if ( isset( $urls[ $name ] ) ) {
+					if ( false !== strpos( str_replace( '&amp;', '', $value ), '&' ) || preg_match( '/[^\x21-\x7e]|[\\\\"\'`<>]/', $value ) ) {
+						$out[] = 'url-form:' . $tag . '.' . $name;
+						continue;
+					}
+					$low = strtolower( str_replace( '&amp;', '&', $value ) );
+					if ( preg_match( '/^[a-z][a-z0-9+.-]*:/', $low ) && ! isset( $schemes[ explode( ':', $low, 2 )[0] ] ) ) {
+						$out[] = 'url-scheme:' . $tag . '.' . $name;
+					}
+				}
+			}
+		}
+		return $out;
+	}
+
 	public static function create_fields() {
 		return array( 'contract', 'idempotency_key', 'topic_id', 'language', 'slug', 'title', 'content', 'category_id', 'featured_media', 'seo', 'marker' );
 	}
@@ -72,23 +157,23 @@ class Thuha_Contract {
 				return self::error( 'thuha_schema', 'Field ' . $name . ' must be a string.', 400 );
 			}
 		}
-		if ( ! preg_match( '/^[a-f0-9]{64}$/', $body['idempotency_key'] ) ) {
+		if ( ! preg_match( '/^[a-f0-9]{64}$/D', $body['idempotency_key'] ) ) {
 			return self::error( 'thuha_schema', 'Idempotency key must be 64 lowercase hex characters.', 400 );
 		}
 		if ( ! in_array( $body['language'], self::languages(), true ) ) {
 			return self::error( 'thuha_schema', 'Language must be vi or en.', 400 );
 		}
-		if ( ! preg_match( '/^TH-(VI|EN)-\d{4}$|^TH-\d{6}$/', $body['topic_id'], $m ) ) {
+		if ( ! preg_match( '/^TH-(VI|EN)-[0-9]{4}$|^TH-[0-9]{6}$/D', $body['topic_id'], $m ) ) {
 			return self::error( 'thuha_schema', 'Topic ID format is invalid.', 400 );
 		}
 		$topic_language = ( isset( $m[1] ) && '' !== $m[1] ) ? strtolower( $m[1] ) : 'en'; // Legacy IDs were English-only.
 		if ( $topic_language !== $body['language'] ) {
 			return self::error( 'thuha_language_mismatch', 'Topic ID language does not match the request language.', 422 );
 		}
-		if ( ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $body['slug'] ) || strlen( $body['slug'] ) > 90 ) {
+		if ( ! preg_match( '/^[a-z0-9]+(?:-[a-z0-9]+)*$/D', $body['slug'] ) || strlen( $body['slug'] ) > self::limit( 'slug_bytes' ) ) {
 			return self::error( 'thuha_schema', 'Slug must be lowercase ASCII words joined by hyphens.', 400 );
 		}
-		if ( '' === $body['title'] || strlen( $body['title'] ) > 300 || wp_strip_all_tags( $body['title'] ) !== $body['title'] ) {
+		if ( '' === $body['title'] || $body['title'] !== trim( preg_replace( '/[ \t\r\n\f]+/', ' ', $body['title'] ) ) || strlen( $body['title'] ) > self::limit( 'title_bytes' ) || wp_strip_all_tags( $body['title'] ) !== $body['title'] ) {
 			return self::error( 'thuha_schema', 'Title must be plain text up to 300 bytes.', 400 );
 		}
 		if ( ! is_int( $body['category_id'] ) || $body['category_id'] < 1 || ! is_int( $body['featured_media'] ) || $body['featured_media'] < 0 ) {
@@ -106,7 +191,7 @@ class Thuha_Contract {
 		}
 		foreach ( self::seo_fields() as $name ) {
 			$value = $body['seo'][ $name ];
-			if ( ! is_string( $value ) || '' === $value || strlen( $value ) > 400 || wp_strip_all_tags( $value ) !== $value ) {
+			if ( ! is_string( $value ) || '' === $value || strlen( $value ) > self::limit( 'seo_bytes' ) || wp_strip_all_tags( $value ) !== $value ) {
 				return self::error( 'thuha_schema', 'SEO ' . $name . ' must be plain text up to 400 bytes.', 400 );
 			}
 		}
@@ -118,18 +203,18 @@ class Thuha_Contract {
 	}
 
 	private static function check_content( $content, $marker, $topic_id ) {
-		if ( '' === $content || strlen( $content ) > self::MAX_CONTENT ) {
+		if ( '' === $content || strlen( $content ) > self::limit( 'content_bytes' ) ) {
 			return self::error( 'thuha_schema', 'Content is empty or too large.', 400 );
 		}
-		if ( ! preg_match( '/^<!-- thuha:v5 topic=(TH-(?:VI|EN)-\d{4}|TH-\d{6}) sha256=[a-f0-9]{64} -->$/', $marker, $m ) || $m[1] !== $topic_id ) {
+		if ( ! preg_match( '/^<!-- thuha:v5 topic=(TH-(?:VI|EN)-[0-9]{4}|TH-[0-9]{6}) sha256=[a-f0-9]{64} -->$/D', $marker, $m ) || $m[1] !== $topic_id ) {
 			return self::error( 'thuha_marker', 'Ownership marker is malformed or names another topic.', 422 );
 		}
 		if ( substr( $content, -strlen( $marker ) ) !== $marker || substr_count( strtolower( $content ), '<!-- thuha:' ) !== 1 ) {
 			return self::error( 'thuha_marker', 'Content must end with exactly one ownership marker.', 422 );
 		}
-		$forbidden = '/<\s*(?:script|iframe|form|meta|link|style|title|base|object|embed)\b|\son[a-z]+\s*=|javascript\s*:/i';
-		if ( preg_match( $forbidden, $content ) ) {
-			return self::error( 'thuha_unsafe_html', 'Content contains markup the factory never publishes.', 422 );
+		$problems = self::html_violations( substr( $content, 0, -strlen( $marker ) ) );
+		if ( $problems ) {
+			return self::error( 'thuha_unsafe_html', 'Content is outside the HTML policy: ' . implode( ', ', array_slice( $problems, 0, 3 ) ), 422 );
 		}
 		return true;
 	}

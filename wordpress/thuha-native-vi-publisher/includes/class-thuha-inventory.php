@@ -52,16 +52,20 @@ class Thuha_Inventory {
 		}
 		$page     = max( 1, (int) $page );
 		$per_page = min( 100, max( 1, (int) $per_page ) );
-		$ids      = get_posts(
-			array(
-				'post_type'        => $type,
-				'post_status'      => $status,
-				'fields'           => 'ids',
-				'nopaging'         => true,
-				'orderby'          => 'ID',
-				'order'            => 'ASC',
-				'suppress_filters' => true,
-			)
+		$ids      = Thuha_Query::unfiltered(
+			function () use ( $type, $status ) {
+				return get_posts(
+					array(
+						'post_type'        => $type,
+						'post_status'      => $status,
+						'fields'           => 'ids',
+						'nopaging'         => true,
+						'orderby'          => 'ID',
+						'order'            => 'ASC',
+						'suppress_filters' => true,
+					)
+				);
+			}
 		);
 		$counts = wp_count_posts( $type );
 		$expect = isset( $counts->$status ) ? (int) $counts->$status : 0;

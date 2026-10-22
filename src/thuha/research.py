@@ -115,10 +115,12 @@ def refill(store,inv,below=30,batch_max=100,targets=None):
     targets=targets or language_targets()
     counts=published(inv)
     def transaction(state):
-        outstanding=[r for r in state['research_requests'].values() if r['status']=='AWAITING_EXTERNAL_RESEARCH']
-        if outstanding:return sorted(outstanding,key=lambda r:LANGUAGES.index(r['language']))[0]
         reasons={}
+        # Priority order decides which language is served; an outstanding English request (for example one
+        # migrated from schema 4) must not stop a Vietnamese request from being opened first.
         for lang in LANGUAGES:
+            waiting=[r for r in state['research_requests'].values() if r['status']=='AWAITING_EXTERNAL_RESEARCH' and r.get('language')==lang]
+            if waiting:return waiting[0]
             planned=sum(x['status']=='PLANNED' and x['language']==lang for x in state['topics'].values())
             if planned>=below:reasons[lang]={'needed':False,'planned':planned};continue
             capacity=min(batch_max,topics_needed(state,counts,targets,lang))

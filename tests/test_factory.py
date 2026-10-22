@@ -273,7 +273,7 @@ class FakeAdapter:
                 '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article"}</script></head></html>'),{},200
 
 
-class PublisherTests(Fixture):
+class PublisherBase(Fixture):
     def publisher(self,lang='en',enabled=('en','vi')):
         topic,article,sub=self.ready(lang)
         self.store.durable_remote=True # Test double for durable CAS; never used against a real site.
@@ -288,6 +288,13 @@ class PublisherTests(Fixture):
     def publish(self,p,tid):
         with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):return p.publish(tid)
 
+    def quota_publish(self,lang,live):
+        p,tid=self.publisher(lang);self.inv['counts']['posts_by_language'][lang]=live
+        return p,tid
+
+
+
+class PublisherTests(PublisherBase):
     def test_default_configuration_never_posts(self):
         p,tid=self.publisher();self.release.update(load(ROOT/'config/release.json'))
         with self.assertRaises(ValueError):p.publish(tid)
@@ -369,9 +376,6 @@ class PublisherTests(Fixture):
         self.assertEqual(intent['idempotency_key'],idempotency_key(tid,intent['article_sha']))
         self.assertIn(intent['marker'],sent['content'])
 
-    def quota_publish(self,lang,live):
-        p,tid=self.publisher(lang);self.inv['counts']['posts_by_language'][lang]=live
-        return p,tid
     def test_quota_allows_the_500th_post_and_blocks_the_501st(self):
         for lang in ('vi','en'):
             with self.subTest(lang=lang):

@@ -13,12 +13,15 @@ import json
 import re
 from urllib.parse import urlencode
 from .common import SITE
+from . import htmlpolicy
 from .http import ADAPTER_BASE, NetworkError, WordPress
-from .language import LANGUAGES, TOPIC_ID, LEGACY_TOPIC_ID
+from .language import LANGUAGES, TOPIC_ID, LEGACY_TOPIC_ID, SLUG as SLUG_RE
 
 CONTRACT = 'thuha-writer/1'
 PLUGIN_SLUG = 'thuha-native-vi-publisher'
+from .policy import LIMITS, HTML_POLICY, DEFINITIVE_REJECTIONS
 KEY = re.compile(r'[a-f0-9]{64}')
+MARKER = re.compile(r'<!-- thuha:v5 topic=(TH-(?:VI|EN)-[0-9]{4}|TH-[0-9]{6}) sha256=[a-f0-9]{64} -->')
 YOAST_META = ('_yoast_wpseo_title', '_yoast_wpseo_metadesc', '_yoast_wpseo_focuskw')
 CREATE_FIELDS = ('contract', 'idempotency_key', 'topic_id', 'language', 'slug', 'title', 'content',
                  'category_id', 'featured_media', 'seo', 'marker')
@@ -46,7 +49,10 @@ def build_payload(topic, article, key, marker, slug):
 
 
 def validate_payload(payload):
-    """Client-side mirror of the plugin's schema validation (the plugin enforces it again)."""
+    """Client-side mirror of the plugin's schema validation (the plugin enforces it again).
+
+    Run BEFORE the intent is reserved: a payload the plugin would refuse must never cost a publication slot.
+    """
     if set(payload) != set(CREATE_FIELDS):
         raise ValueError('Adapter payload fields do not match the contract')
     if payload['contract'] != CONTRACT or not KEY.fullmatch(str(payload['idempotency_key'])):
@@ -59,6 +65,27 @@ def validate_payload(payload):
         raise ValueError('Adapter SEO fields invalid')
     if not isinstance(payload['category_id'], int) or not isinstance(payload['featured_media'], int):
         raise ValueError('Adapter category and media IDs must be integers')
+    topic_language = 'en' if LEGACY_TOPIC_ID.fullmatch(payload['topic_id']) else TOPIC_ID.fullmatch(payload['topic_id']).group(1).lower()
+    if topic_language != payload['language']:
+        raise ValueError('Topic ID language does not match the payload language')
+    if not SLUG_RE.fullmatch(payload['slug']) or len(payload['slug'].encode()) > LIMITS['slug_bytes']:
+        raise ValueError('Adapter slug invalid')
+    marker = payload['marker']
+    if not MARKER.fullmatch(marker) or MARKER.fullmatch(marker).group(1) != payload['topic_id']:
+        raise ValueError('Adapter ownership marker is malformed or names another topic')
+    if not payload['content'].endswith(marker) or payload['content'].count('<!-- thuha:') != 1:
+        raise ValueError('Adapter content must end with exactly one ownership marker')
+    sizes = (('content', payload['content'], 'content_bytes'), ('title', payload['title'], 'title_bytes'))
+    sizes += tuple(('seo ' + k, v, 'seo_bytes') for k, v in payload['seo'].items())
+    for name, value, limit in sizes:
+        if not isinstance(value, str) or not value or len(value.encode()) > LIMITS[limit]:
+            raise ValueError('Adapter ' + name + ' is empty or over the ' + str(LIMITS[limit]) + '-byte limit')
+    for name, value in (('title', payload['title']),) + tuple(('seo ' + k, v) for k, v in payload['seo'].items()):
+        if '<' in value or '>' in value or value != ' '.join(value.split()):
+            raise ValueError('Adapter ' + name + ' must be plain text with single spaces')
+    problems = htmlpolicy.violations(payload['content'][:-len(marker)])
+    if problems:
+        raise ValueError('Adapter content breaks the HTML policy: ' + ', '.join(problems[:3]))
     return payload
 
 
@@ -136,4 +163,5 @@ def manifest():
     """Contract summary compared with wordpress/.../contract.json by a test."""
     return {'contract': CONTRACT, 'namespace': 'thuha-writer/v1', 'routes': ROUTES,
             'create_fields': list(CREATE_FIELDS), 'seo_fields': list(SEO_FIELDS),
-            'yoast_meta': list(YOAST_META), 'site': SITE}
+            'yoast_meta': list(YOAST_META), 'site': SITE, 'limits': LIMITS, 'html_policy': HTML_POLICY,
+            'definitive_rejections_before_insert': list(DEFINITIVE_REJECTIONS)}

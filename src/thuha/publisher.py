@@ -8,13 +8,16 @@ POST is never sent twice and a draft or unknown intent is never counted as a pos
 """
 import os
 import uuid
-from .adapter import NOT_DEPLOYED, build_payload
+from .adapter import NOT_DEPLOYED, build_payload, validate_payload
+from .policy import DEFINITIVE_REJECTIONS
+from .http import NetworkError
 from .audit import inventory_bilingual, parse
 from .common import ROOT, REPO, SITE, digest, load, now, urlkey
 from .coordinator import timestamp
 from .language import SPEC, html_lang_matches, split_url, targets as language_targets, url_language
 from .quality import evaluate
 from . import quota
+from .quota import CLOSED_PHASES
 from .research import collisions
 from .store import GitError,GitHub,event
 
@@ -99,7 +102,7 @@ class Publisher:
         previous={x['id']:x for x in self.inv['items']}
         for item in live['items']:
             old=previous.get(item['id'])
-            if old and old['content_sha256']==item['content_sha256']:
+            if old and old.get('content_sha256')==item['content_sha256']:
                 item['public_check']=old.get('public_check',{})
         return live
 
@@ -107,31 +110,38 @@ class Publisher:
         release=self.release_loader();release_guard(release,self.store)
         state=self.store.read();lang=state['topics'][topic_id]['language']
         if lang not in release['languages_enabled']:raise ValueError('Language '+lang+' is not enabled in the approved release')
-        if topic_id in state['intents']:
+        prior=state['intents'].get(topic_id)
+        if prior and prior['phase'] not in CLOSED_PHASES:
             return self.reconcile(topic_id) # Read-only. Never send the POST again.
+        if self.inv.get('language_source')!='adapter':
+            raise ValueError('The stored inventory is not an adapter inventory; run `audit` with adapter credentials before publishing')
         self.security();self.client.preflight() # BLOCKED_ADAPTER_NOT_DEPLOYED until the plugin answers
         live=self.fresh_inventory()
         if live.get('language_source')!='adapter':raise ValueError('Publishing needs an adapter inventory of both languages')
-        counts=quota.published(live)
+        counts=quota.published(live);live_ids={x['id'] for x in live['items']}
         if counts[lang]>=self.targets[lang]:raise quota.LanguageComplete('Language target reached: '+lang+'; reconcile and improve existing content')
         topic,sub,article,qa=self.prepare(topic_id,live)
         marker='<!-- thuha:v5 topic='+topic_id+' sha256='+sub['article_sha']+' -->'
         slug=split_url(topic['proposed_url'])[1]
         key=idempotency_key(topic_id,sub['article_sha'])
         payload=build_payload(topic,article,key,marker,slug)
+        validate_payload(payload) # a payload the plugin would refuse must fail BEFORE it costs a publication slot
         fence=uuid.uuid4().hex
         def reserve(s):
             if any(s['controls'].values()):raise ValueError('Factory is paused')
-            if topic_id in s['intents']:raise ValueError('Intent already reserved')
-            quota.reserve(s,counts,self.targets,lang,topic_id) # 499 -> 500 passes, 500 -> 501 never
+            old=s['intents'].get(topic_id)
+            if old and old['phase'] not in CLOSED_PHASES:raise ValueError('Intent already reserved')
+            quota.reserve(s,counts,self.targets,lang,topic_id,live_ids) # 499 -> 500 passes, 500 -> 501 never
+            active=quota.active_intents(s)
+            active.pop(topic_id,None)
             limit=release['pilot_max_posts'] if release.get('stage','pilot')=='pilot' else release['approved_capacity']
-            if len(s['intents'])>=limit:raise ValueError('Approved publication intent budget exhausted')
+            if len(active)>=limit:raise ValueError('Approved publication intent budget exhausted')
             today=now()[:10]
-            if sum(x['reserved_at'][:10]==today for x in s['intents'].values())>=release.get('maximum_daily_posts',2):
+            if sum(x['reserved_at'][:10]==today for x in active.values())>=release.get('maximum_daily_posts',2):
                 raise ValueError('Daily publication intent limit reached')
-            active=s.get('publisher_lease')
-            if active and active['expires_at']>timestamp():raise ValueError('Another publisher owns the lease')
-            latest=max((x['reserved_epoch'] for x in s['intents'].values()),default=0)
+            lease=s.get('publisher_lease')
+            if lease and lease['expires_at']>timestamp():raise ValueError('Another publisher owns the lease')
+            latest=max((x['reserved_epoch'] for x in active.values()),default=0)
             if timestamp()-latest<release['minimum_post_interval_seconds']:raise ValueError('Publish rate limit')
             if s['submissions'][topic_id]['article_sha']!=sub['article_sha'] or s['topics'][topic_id]['status']!='READY':
                 raise ValueError('Draft changed while preparing publication')
@@ -142,27 +152,42 @@ class Publisher:
                  'session':sub['session'],'commit':os.environ.get('GITHUB_SHA',article.get('source_commit')),
                  'run_id':os.environ.get('GITHUB_RUN_ID'),'approval_ref':release['approval_ref'],'fence':fence,
                  'live_counts_at_reservation':dict(counts)}
-            s['intents'][topic_id]['preexisting_wp_ids']=[x['id'] for x in live['items']]
+            s['intents'][topic_id]['preexisting_wp_ids']=sorted(live_ids)
             s['topics'][topic_id]['status']='PUBLISHING'
             event(s,'PUBLICATION_INTENT',topic_id=topic_id,language=lang,payload_sha=digest(payload))
         self.store.mutate(reserve) # This remote commit MUST succeed before POST.
+        sent=False
         try:
             release_guard(self.release_loader(),self.store)
             current=self.store.read()
             if any(current['controls'].values()) or current['publisher_lease']['fence']!=fence or current['publisher_lease']['expires_at']<=timestamp():
                 raise ValueError('Stopped after durable intent; reconcile required')
+            sent=True # from here on the outcome of the POST can be unknown
             created=self.client.create(payload) # EXACTLY ONE HTTP attempt.
             def record(s):
                 s['intents'][topic_id].update(phase='VERIFY_PENDING',wp_id=created['post']['id'])
             self.store.mutate(record)
             return self.reconcile(topic_id)
-        except Exception:
-            def uncertain(s):
-                s['intents'][topic_id]['phase']='NEEDS_RECONCILIATION'
-                s['topics'][topic_id]['status']='BLOCKED'
+        except Exception as exc:
+            closing=None
+            if not sent:
+                closing=('NOT_SENT',None)
+            elif isinstance(exc,NetworkError) and exc.code in DEFINITIVE_REJECTIONS:
+                try: # An authoritative refusal from the plugin; only a read-back proving nothing exists closes the intent.
+                    if not self.client.reconcile(key).get('found'):closing=('REJECTED',exc.code)
+                except Exception:closing=None
+            def settle(s):
+                intent=s['intents'][topic_id]
+                if intent['phase']=='VERIFIED':return # a lost response must never undo a recorded verification
                 if s.get('publisher_lease',{}).get('fence')==fence:s.pop('publisher_lease',None)
-                event(s,'PUBLISH_OUTCOME_UNCERTAIN',topic_id=topic_id)
-            self.store.mutate(uncertain)
+                if closing:
+                    intent['phase']=closing[0];intent['closed_reason']=closing[1] or str(exc)[:200]
+                    s['topics'][topic_id]['status']='READY' if closing[0]=='NOT_SENT' else 'NEEDS_REPAIR'
+                    event(s,'PUBLICATION_INTENT_CLOSED',topic_id=topic_id,phase=closing[0])
+                else:
+                    intent['phase']='NEEDS_RECONCILIATION';s['topics'][topic_id]['status']='BLOCKED'
+                    event(s,'PUBLISH_OUTCOME_UNCERTAIN',topic_id=topic_id)
+            self.store.mutate(settle)
             raise
 
     def reconcile(self,topic_id):
@@ -211,6 +236,7 @@ class Publisher:
         if p.get('category_languages')!=[lang]:raise ValueError('Category language mismatch on readback')
         if ' '.join(parse(content).text).split()!=' '.join(parse(article['body_html']).text).split():
             raise ValueError('Readback visible article body mismatch')
+        if p.get('title')!=article['title']:raise ValueError('Readback post title differs from the reviewed title')
         meta=p.get('meta',{})
         if (meta.get('_yoast_wpseo_focuskw')!=article['focus_keyword'] or meta.get('_yoast_wpseo_title')!=article['seo_title'] or
             meta.get('_yoast_wpseo_metadesc')!=article['meta_description']):

@@ -15,6 +15,7 @@ class WPWorld {
 	public static $actions = array();
 	public static $posts, $terms, $termmeta, $options, $routes, $log, $user, $next_id, $vi_posts, $vi_terms;
 	public static $native, $fail_set_vi, $hide_vi_in_queries, $vi_permalink_bug, $fail_insert, $denied_posts;
+	public static $pre_get_posts_hides_vi, $content_filter, $break_permalink_on_publish, $block_revert;
 
 	public static function reset() {
 		self::$posts = array();
@@ -33,6 +34,11 @@ class WPWorld {
 		self::$vi_permalink_bug = false;
 		self::$fail_insert = false;
 		self::$denied_posts = array();
+		self::$pre_get_posts_hides_vi = false;
+		self::$content_filter = null;
+		self::$break_permalink_on_publish = false;
+		self::$block_revert = false;
+		unset( $GLOBALS['wp_filter'] );
 		Thuha_Auth::reset_for_tests();
 		// English tree: Blog(10) > Travel(20). Vietnamese tree: Cam nang(140) > Gia thue(152).
 		self::term( 10, 0, 'Blog', 'blog', false );
@@ -55,7 +61,7 @@ class WPWorld {
 	public static function blank( $id, $type, $status, $title, $slug ) {
 		return array(
 			'ID' => $id, 'post_type' => $type, 'post_status' => $status, 'post_title' => $title, 'post_content' => '',
-			'post_name' => $slug, 'post_author' => 1, 'post_modified_gmt' => '2026-10-22 00:00:00', 'meta' => array(), 'cats' => array(), 'thumb' => 0,
+			'post_name' => $slug, 'post_password' => '', 'post_author' => 1, 'post_modified_gmt' => '2026-10-22 00:00:00', 'meta' => array(), 'cats' => array(), 'thumb' => 0,
 		);
 	}
 
@@ -113,6 +119,10 @@ function current_user_can( $cap, $arg = null ) {
 	return in_array( $cap, WPWorld::$user->caps, true );
 }
 function get_option( $k, $d = false ) { return WPWorld::$options[ $k ] ?? $d; }
+function add_option( $k, $v, $deprecated = '', $autoload = 'yes' ) { if ( array_key_exists( $k, WPWorld::$options ) ) { return false; } WPWorld::$options[ $k ] = $v; return true; }
+function delete_option( $k ) { unset( WPWorld::$options[ $k ] ); return true; }
+function wp_slash( $v ) { return is_array( $v ) ? array_map( 'wp_slash', $v ) : ( is_string( $v ) ? addslashes( $v ) : $v ); }
+function wp_unslash( $v ) { return is_array( $v ) ? array_map( 'wp_unslash', $v ) : ( is_string( $v ) ? stripslashes( $v ) : $v ); }
 function taxonomy_exists( $t ) { return WPWorld::$native && 'rbhvi_language' === $t; }
 function wp_strip_all_tags( $s ) { return trim( strip_tags( $s ) ); }
 function wp_json_encode( $d ) { return json_encode( $d, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ); }
@@ -122,8 +132,9 @@ function get_post( $id ) {
 	$p = WPWorld::$posts[ $id ] ?? null;
 	return $p ? (object) $p : null;
 }
-function get_permalink( $id ) {
-	$p = WPWorld::$posts[ $id ];
+function get_permalink( $post ) {
+	$id = is_object( $post ) ? $post->ID : $post;
+	$p = is_object( $post ) ? (array) $post : WPWorld::$posts[ $id ];
 	if ( 'publish' !== $p['post_status'] ) { return home_url( '/?p=' . $id ); }
 	$vi = ! empty( WPWorld::$vi_posts[ $id ] ) && ! WPWorld::$vi_permalink_bug;
 	return home_url( ( $vi ? '/vi/' : '/' ) . $p['post_name'] . '/' );
@@ -135,6 +146,7 @@ function get_posts( $args ) {
 		if ( 'any' === $status ? 'trash' === $p['post_status'] : ! in_array( $p['post_status'], (array) $status, true ) ) { return false; }
 		if ( isset( $args['meta_key'] ) && ( $p['meta'][ $args['meta_key'] ] ?? null ) !== $args['meta_value'] ) { return false; }
 		if ( WPWorld::$hide_vi_in_queries && ! empty( WPWorld::$vi_posts[ $p['ID'] ] ) ) { return false; }
+		if ( WPWorld::$pre_get_posts_hides_vi && ! empty( $GLOBALS['wp_filter']['pre_get_posts'] ) && ! empty( WPWorld::$vi_posts[ $p['ID'] ] ) ) { return false; }
 		return true;
 	} ) );
 	usort( $list, function ( $a, $b ) { return $a['ID'] <=> $b['ID']; } );
@@ -165,10 +177,12 @@ function wp_insert_post( $arr, $wp_error = false ) {
 	if ( WPWorld::$fail_insert ) { return $wp_error ? new WP_Error( 'insert', 'failed' ) : 0; }
 	$id = WPWorld::$next_id++;
 	$p = WPWorld::blank( $id, $arr['post_type'], $arr['post_status'], $arr['post_title'], $arr['post_name'] );
-	$p['post_content'] = $arr['post_content'];
+	$p['post_title'] = wp_unslash( $arr['post_title'] ); // core's wp_insert_post unslashes its input
+	$p['post_content'] = wp_unslash( $arr['post_content'] );
+	if ( WPWorld::$content_filter ) { $p['post_content'] = call_user_func( WPWorld::$content_filter, $p['post_content'] ); }
 	$p['post_author'] = $arr['post_author'];
 	$p['cats'] = $arr['post_category'] ?? array();
-	$p['meta'] = $arr['meta_input'] ?? array();
+	$p['meta'] = array_map( 'wp_unslash', $arr['meta_input'] ?? array() ); // add_metadata unslashes values too
 	WPWorld::$posts[ $id ] = $p;
 	WPWorld::$vi_posts[ $id ] = false;
 	WPWorld::$log[] = array( 'insert', $id, $arr['post_status'] );
@@ -181,13 +195,15 @@ function wp_update_post( $arr, $wp_error = false ) {
 			$unique = wp_unique_post_slug( WPWorld::$posts[ $id ]['post_name'], $id, 'publish', 'post', 0 );
 			WPWorld::$posts[ $id ]['post_name'] = $unique;
 		}
+		if ( 'draft' === $arr['post_status'] && WPWorld::$block_revert ) { return $id; } // simulates a revert that does not take
 		WPWorld::$posts[ $id ]['post_status'] = $arr['post_status'];
+		if ( 'publish' === $arr['post_status'] && WPWorld::$break_permalink_on_publish ) { WPWorld::$vi_permalink_bug = true; }
 		WPWorld::$log[] = array( 'status', $id, $arr['post_status'], ! empty( WPWorld::$vi_posts[ $id ] ) );
 	}
 	return $id;
 }
 function get_post_meta( $id, $key, $single = false ) { return WPWorld::$posts[ $id ]['meta'][ $key ] ?? ''; }
-function update_post_meta( $id, $key, $value ) { WPWorld::$posts[ $id ]['meta'][ $key ] = $value; WPWorld::$log[] = array( 'meta', $id, $key ); return true; }
+function update_post_meta( $id, $key, $value ) { WPWorld::$posts[ $id ]['meta'][ $key ] = wp_unslash( $value ); WPWorld::$log[] = array( 'meta', $id, $key ); return true; }
 function wp_get_post_categories( $id ) { return WPWorld::$posts[ $id ]['cats']; }
 function set_post_thumbnail( $id, $media ) { WPWorld::$posts[ $id ]['thumb'] = $media; return true; }
 function get_post_thumbnail_id( $id ) { return WPWorld::$posts[ $id ]['thumb']; }

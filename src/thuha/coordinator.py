@@ -3,6 +3,7 @@ import re
 import uuid
 from .common import now, digest
 from .language import LANGUAGES, locale
+from .policy import LIMITS
 from .quota import complete_languages
 from .store import event
 
@@ -80,7 +81,7 @@ def submit(store,slot,session,fence,article,max_repairs=3):
         raise ValueError('Submission provenance does not match lease')
     if article.get('language')!=locale(state['topics'][lease['topic_id']]['language']):
         raise ValueError('Submission language does not match the topic language')
-    if len(str(article.get('body_html','')))>200_000:raise ValueError('Draft too large')
+    if len(str(article.get('body_html','')).encode())>LIMITS['content_bytes']-200:raise ValueError('Draft too large for the adapter byte limit')
     sha=store.put_document(article) # Durable BEFORE releasing or changing state.
     def transaction(state):
         lease=owned(state,slot,session,fence)

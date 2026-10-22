@@ -13,6 +13,17 @@ class Thuha_Auth {
 		self::$application_password = true;
 	}
 
+	/**
+	 * Prefer core's own per-request answer (WordPress 5.7+); the static flag is only the fallback, because it can
+	 * outlive a request in long-lived PHP workers and is never set if authentication ran before this plugin loaded.
+	 */
+	private static function used_application_password() {
+		if ( function_exists( 'rest_get_authenticated_app_password' ) ) {
+			return (bool) rest_get_authenticated_app_password();
+		}
+		return self::$application_password;
+	}
+
 	public static function reset_for_tests() {
 		self::$application_password = false;
 	}
@@ -26,7 +37,7 @@ class Thuha_Auth {
 		if ( ! is_user_logged_in() ) {
 			return Thuha_Contract::error( 'thuha_unauthenticated', 'Authentication is required.', 401 );
 		}
-		if ( ! self::$application_password ) {
+		if ( ! self::used_application_password() ) {
 			return Thuha_Contract::error( 'thuha_app_password_required', 'Only Application Password authentication is accepted.', 403 );
 		}
 		$origin = trim( (string) $request->get_header( 'origin' ) );

@@ -43,7 +43,8 @@ def report(store,inv,release,targets=None):
        'slots':{slot:{'status':'LEASE_PRESENT' if slot in s['leases'] and s['leases'][slot]['expires_at']>timestamp() else 'AVAILABLE',
                 'ai_execution':'NOT_OBSERVED',**({'lease':s['leases'][slot]} if slot in s['leases'] else {})} for slot in SLOTS},
        'qa':dict(Counter(x['status'] for x in s['qa'].values())),
-       'publisher_uncertain':[k for k,v in s['intents'].items() if v['phase']!='VERIFIED'],
+       'publisher_uncertain':[k for k,v in s['intents'].items() if v['phase'] not in ('VERIFIED',)+quota.CLOSED_PHASES],
+       'closed_intents':{k:v['phase'] for k,v in s['intents'].items() if v['phase'] in quota.CLOSED_PHASES},
        'agent_attribution':dict(Counter(x.get('agent_id','UNKNOWN') for x in s['receipts'].values())),
        'attribution_note':'Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.',
        'blockers':[]}

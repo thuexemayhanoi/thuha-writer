@@ -26,7 +26,8 @@ class Thuha_Readback {
 		foreach ( $cats as $cid ) {
 			$cat_languages[] = Thuha_Language::term_language( $cid );
 		}
-		$content = (string) $post->post_content;
+		$protected = '' !== (string) $post->post_password;
+		$content   = $protected ? '' : (string) $post->post_content; // core REST withholds protected bodies; so do we
 		$marker  = (string) get_post_meta( $id, Thuha_Contract::META_OWNER, true ) === Thuha_Contract::OWNER;
 		return array(
 			'id'                => $id,
@@ -51,6 +52,7 @@ class Thuha_Readback {
 			'state'             => (string) get_post_meta( $id, Thuha_Contract::META_STATE, true ),
 			'marker_present'    => $marker && 1 === preg_match( '/<!-- thuha:v5 topic=[A-Z0-9-]+ sha256=[a-f0-9]{64} -->\s*$/', $content ),
 			'incomplete'        => 'publish' !== $post->post_status,
+			'password_protected' => $protected,
 		);
 	}
 

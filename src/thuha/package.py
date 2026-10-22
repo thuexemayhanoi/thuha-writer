@@ -28,6 +28,36 @@ FORBIDDEN = {
 }
 
 
+ERROR_CODES = ('thuha_unauthenticated', 'thuha_app_password_required', 'thuha_origin_forbidden', 'thuha_forbidden', 'thuha_schema',
+               'thuha_language_mismatch', 'thuha_marker', 'thuha_unsafe_html', 'thuha_key_payload_mismatch', 'thuha_topic_already_created',
+               'thuha_category_language_mismatch', 'thuha_media_invalid', 'thuha_slug_conflict', 'thuha_insert_failed', 'thuha_content_altered',
+               'thuha_language_marker_failed', 'thuha_seo_failed', 'thuha_media_failed', 'thuha_category_failed', 'thuha_slug_changed',
+               'thuha_permalink_mismatch', 'thuha_publish_failed', 'thuha_revert_failed', 'thuha_in_progress', 'thuha_duplicate_key',
+               'thuha_foreign_post', 'thuha_inventory_filtered', 'thuha_native_vi_missing')
+
+
+def contract_document():
+    """The machine-readable contract. The plugin itself reads its limits and HTML allow-lists from this file."""
+    doc = manifest()
+    doc['plugin'] = {'slug': SLUG, 'version': version(),
+                     'requires_native_plugin': 'rentbikehanoi-native-vi (class RBHVI_Language, taxonomy rbhvi_language)'}
+    doc['auth'] = {'credential': 'WordPress Application Password only', 'cookie_sessions': 'refused',
+                   'browser_origin': 'refused unless listed in option thuha_adapter_allowed_origins',
+                   'capabilities': {'read': 'edit_posts', 'write': 'publish_posts'}}
+    doc['safety'] = {'public_routes': 0, 'raw_sql': False, 'request_supplied_code': False, 'create_only': True,
+                     'draft_before_publish': True, 'language_marker_before_publish': True, 'permalink_checked_before_publish': True,
+                     'replay_mutates': False, 'html_policy': 'strict canonical form, shared with QA'}
+    doc['error_codes'] = list(ERROR_CODES)
+    doc['live_status'] = 'NOT_DEPLOYED_NOT_TESTED_AGAINST_WORDPRESS'
+    doc['routes'] = {k: list(v) for k, v in doc['routes'].items()}
+    return doc
+
+
+def write_contract():
+    import json
+    (SOURCE / 'contract.json').write_text(json.dumps(contract_document(), indent=2, ensure_ascii=False, sort_keys=True) + '\n', encoding='utf-8')
+
+
 def files():
     return sorted(p for p in SOURCE.rglob('*') if p.is_file() and not p.name.startswith('.'))
 
@@ -86,15 +116,11 @@ def scan():
 def verify():
     """Raise unless the committed archive, contract and source agree. Returns evidence."""
     contract = load(SOURCE / 'contract.json')
-    mine = manifest()
-    drift = [k for k in ('contract', 'namespace', 'create_fields', 'seo_fields', 'yoast_meta', 'site')
-             if contract.get(k) != mine[k]]
-    if {k: list(v) for k, v in mine['routes'].items()} != contract['routes']:
-        drift.append('routes')
-    if drift:
-        raise ValueError('contract.json differs from src/thuha/adapter.py: ' + ','.join(drift))
-    if contract['plugin']['version'] != version() or contract['plugin']['slug'] != SLUG:
-        raise ValueError('contract.json plugin version/slug differs from the plugin header')
+    if contract != contract_document():
+        raise ValueError('contract.json is out of date with src/thuha/adapter.py and policy.py; run scripts/build_adapter_zip.py')
+    unknown = [c for c in contract['definitive_rejections_before_insert'] if c not in contract['error_codes']]
+    if unknown:
+        raise ValueError('Definitive rejection codes missing from the plugin error list: ' + ','.join(unknown))
     findings = scan()
     if findings:
         raise ValueError('Plugin safety scan failed: ' + '; '.join(findings))

@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 from .coordinator import timestamp, claim_order
 from .language import LANGUAGES
 from .publisher import release_guard
-from .quota import LanguageComplete
+from .quota import LanguageComplete, CLOSED_PHASES
 
 
 def brief(state, limit=10, language=None):
@@ -50,7 +50,7 @@ def remaining_budget(state, release, day=None):
     inventory at reservation; this window only limits how many attempts are made.
     """
     day = day or datetime.now(timezone.utc).date().isoformat()
-    intents = state.get('intents', {})
+    intents = {k: v for k, v in state.get('intents', {}).items() if v.get('phase') not in CLOSED_PHASES}
     pending = [key for key, val in intents.items() if val.get('phase') != 'VERIFIED']
     cap = release['pilot_max_posts'] if release.get('stage', 'pilot') == 'pilot' else release['approved_capacity']
     daily = sum(v.get('reserved_at', '')[:10] == day for v in intents.values())

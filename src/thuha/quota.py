@@ -28,13 +28,30 @@ def published(inv):
     return counts
 
 
+# Intent phases in which no post and no draft can exist (the POST was never sent, or the plugin refused it before
+# creating anything and a read-back by key confirmed it). They free their publication slot; every other phase
+# except VERIFIED stays unresolved and keeps counting.
+CLOSED_PHASES = ('NOT_SENT', 'REJECTED')
+
+
 class LanguageComplete(ValueError):
     """The language already holds its ceiling of posts (live plus unresolved intents)."""
 
 
 def unresolved(state, lang, ignore=None):
     return [k for k, v in state['intents'].items()
-            if v['language'] == lang and v.get('phase') != 'VERIFIED' and k != ignore]
+            if v['language'] == lang and v.get('phase') not in ('VERIFIED',) + CLOSED_PHASES and k != ignore]
+
+
+def active_intents(state):
+    """Intents that still occupy publication budget (closed ones never reached WordPress)."""
+    return {k: v for k, v in state['intents'].items() if v.get('phase') not in CLOSED_PHASES}
+
+
+def verified_outside_inventory(state, lang, live_ids):
+    """Verified factory posts a possibly older inventory read does not yet contain."""
+    return [k for k, v in state['intents'].items()
+            if v['language'] == lang and v.get('phase') == 'VERIFIED' and v.get('wp_id') not in live_ids]
 
 
 def status(state, counts, targets):
@@ -52,9 +69,14 @@ def status(state, counts, targets):
     return out
 
 
-def reserve(state, counts, targets, lang, topic_id):
-    """Raise unless exactly one more `lang` post fits under its ceiling."""
-    if counts[lang] + len(unresolved(state, lang, ignore=topic_id)) + 1 > targets[lang]:
+def reserve(state, counts, targets, lang, topic_id, live_ids=None):
+    """Raise unless exactly one more `lang` post fits under its ceiling.
+
+    `live_ids` (WordPress IDs in the inventory the counts came from) closes the window where another factory
+    publisher finished and verified a post after that inventory was read.
+    """
+    late = len(verified_outside_inventory(state, lang, live_ids)) if live_ids is not None else 0
+    if counts[lang] + late + len(unresolved(state, lang, ignore=topic_id)) + 1 > targets[lang]:
         raise LanguageComplete('Language target reached: ' + lang + ' has no remaining publication slot')
 
 

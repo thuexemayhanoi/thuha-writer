@@ -189,13 +189,31 @@ run_test( 'slug conflicts across posts, pages and languages create no draft', fu
 	check( 0 === count( array_filter( WPWorld::posts_of(), function ( $p ) { return isset( $p['meta']['_thuha_owner'] ); } ) ), 'no factory draft exists' );
 } );
 
-run_test( 'permalink outside the language namespace returns the post to draft', function () {
+run_test( 'a permalink outside the language namespace is caught BEFORE publication', function () {
 	publisher();
 	WPWorld::$vi_permalink_bug = true;
 	$r = call( '/posts', post_request(), 'POST' );
 	check( 'thuha_permalink_mismatch' === code_of( $r ), 'refused' );
 	$p = WPWorld::posts_of()[0];
-	check( 'draft' === $p['post_status'], 'back to draft' );
+	check( 'draft' === $p['post_status'], 'still a draft' );
+	foreach ( WPWorld::$log as $e ) { check( ! ( 'status' === $e[0] && 'publish' === $e[2] ), 'must never have been published at all' ); }
+} );
+
+run_test( 'a post that goes wrong after publication is reverted, and a failed revert is reported loudly', function () {
+	publisher();
+	WPWorld::$break_permalink_on_publish = true; // the pre-publish probe passes; the live URL then turns out wrong
+	$r = call( '/posts', post_request(), 'POST' );
+	check( 'thuha_permalink_mismatch' === code_of( $r ), 'safety net refuses' );
+	check( 'draft' === WPWorld::posts_of()[0]['post_status'], 'returned to draft' );
+	WPWorld::reset();
+	Thuha_Routes::register();
+	publisher();
+	WPWorld::$break_permalink_on_publish = true;
+	WPWorld::$block_revert = true;
+	$r = call( '/posts', post_request(), 'POST' );
+	check( 'thuha_revert_failed' === code_of( $r ) && 500 === status_of( $r ), 'a revert that did not take must not be reported as success' );
+	check( false !== strpos( $r->get_error_message(), 'LIVE' ), 'the message says the post may be live' );
+	check( 'publish' === WPWorld::posts_of()[0]['post_status'], 'the simulation really left it published' );
 } );
 
 run_test( 'media and insert failures leave nothing live', function () {
@@ -269,6 +287,85 @@ run_test( 'disagreeing language markers are reported as conflict', function () {
 	$cats = call( '/categories', new WP_REST_Request() )->data['items'];
 	$by = array(); foreach ( $cats as $c ) { $by[ $c['id'] ] = $c['language']; }
 	check( 'conflict' === $by[152] && 'vi' === $by[140] && 'en' === $by[10], 'term markers must agree: ' . json_encode( $by ) );
+} );
+
+run_test( 'HTML policy vectors: allowed markup passes, every bypass is refused', function () {
+	$v = json_decode( file_get_contents( dirname( __DIR__ ) . '/fixtures/html-policy-vectors.json' ), true );
+	foreach ( $v['ok'] as $html ) { check( array() === Thuha_Contract::html_violations( $html ), 'must pass: ' . $html . ' got ' . json_encode( Thuha_Contract::html_violations( $html ) ) ); }
+	foreach ( $v['bad'] as $html ) { check( array() !== Thuha_Contract::html_violations( $html ), 'must be refused: ' . $html ); }
+	publisher();
+	$bad = body( array( 'content' => '<svg/onload=alert(1)>' . "\n" . body()['marker'] ) );
+	check( 'thuha_unsafe_html' === code_of( call( '/posts', new WP_REST_Request( $bad ), 'POST' ) ), 'create refuses a policy violation' );
+	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
+	check( 201 === call( '/posts', post_request( array( 'content' => '<p>JavaScript: a language, and one = two.</p>' . "\n" . body( array( '_n' => 2 ) )['marker'], 'idempotency_key' => key_for( 2 ), 'topic_id' => 'TH-VI-0002', 'slug' => 'ok-prose-2', 'marker' => body( array( '_n' => 2 ) )['marker'] ) ), 'POST' )->status, 'ordinary prose is not a violation' );
+} );
+
+run_test( 'backslashes and quotes survive: strings are slashed for core and read back exactly', function () {
+	publisher();
+	$content = '<p>Path C:\\Users\\x and a "quote" and it\'s fine.</p>' . "\n" . body()['marker'];
+	$r = call( '/posts', post_request( array( 'content' => $content, 'title' => 'Tên có dấu \\ gạch ngược' ) ), 'POST' );
+	check( ! is_wp_error( $r ) && 201 === $r->status, 'created: ' . code_of( $r ) );
+	check( $content === $r->data['post']['content_raw'], 'body unchanged' );
+	check( 'Tên có dấu \\ gạch ngược' === $r->data['post']['title'], 'title unchanged' );
+} );
+
+run_test( 'a filter that rewrites the stored body keeps the post a draft', function () {
+	publisher();
+	WPWorld::$content_filter = function ( $c ) { return str_replace( '<p>', '<p class="x">', $c ); };
+	$r = call( '/posts', post_request(), 'POST' );
+	check( 'thuha_content_altered' === code_of( $r ), 'refused: ' . code_of( $r ) );
+	check( 'draft' === WPWorld::posts_of()[0]['post_status'], 'draft only' );
+} );
+
+run_test( 'a request already running for the same key is refused; a stale lock is taken over', function () {
+	publisher();
+	WPWorld::$options[ 'thuha_lock_' . substr( key_for( 1 ), 0, 40 ) ] = (string) time();
+	check( 'thuha_in_progress' === code_of( call( '/posts', post_request(), 'POST' ) ), 'held lock refuses' );
+	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
+	WPWorld::$options[ 'thuha_lock_' . substr( key_for( 1 ), 0, 40 ) ] = (string) ( time() - 4000 );
+	check( 201 === call( '/posts', post_request(), 'POST' )->status, 'stale lock replaced' );
+	check( ! array_key_exists( 'thuha_lock_' . substr( key_for( 1 ), 0, 40 ), WPWorld::$options ), 'lock released' );
+} );
+
+run_test( 'a query hook that hides Vietnamese posts cannot defeat key lookup or inventory, and is restored', function () {
+	publisher();
+	$first = call( '/posts', post_request(), 'POST' );
+	check( 201 === $first->status, 'created' );
+	WPWorld::$pre_get_posts_hides_vi = true;
+	$GLOBALS['wp_filter']['pre_get_posts'] = array( 'native-vi-filter' );
+	$again = call( '/posts', post_request(), 'POST' );
+	check( ! is_wp_error( $again ) && true === $again->data['idempotent_replay'], 'replay still finds the Vietnamese post: ' . code_of( $again ) );
+	check( 1 === count( WPWorld::posts_of() ), 'no duplicate' );
+	$inv = call( '/inventory', new WP_REST_Request( null, array( 'type' => 'post', 'status' => 'publish' ) ) );
+	check( ! is_wp_error( $inv ) && 1 === $inv->data['total'], 'inventory complete: ' . code_of( $inv ) );
+	check( $GLOBALS['wp_filter']['pre_get_posts'] === array( 'native-vi-filter' ), 'the hook is put back' );
+} );
+
+run_test( 'password-protected posts expose no body in the inventory', function () {
+	publisher();
+	$id = WPWorld::add_post( 'post', 'publish', 'Locked', 'locked', false );
+	WPWorld::$posts[ $id ]['post_content'] = 'secret body';
+	WPWorld::$posts[ $id ]['post_password'] = 'pw';
+	$row = call( '/inventory', new WP_REST_Request( null, array( 'type' => 'post', 'status' => 'publish' ) ) )->data['items'][0];
+	check( '' === $row['content'] && true === $row['password_protected'], 'body withheld' );
+} );
+
+run_test( 'strict anchors: trailing newline, multibyte overflow and padded text are refused', function () {
+	publisher();
+	$marker = body()['marker'];
+	$cases = array(
+		'slug newline' => body( array( 'slug' => "dat-coc\n" ) ),
+		'topic newline' => body( array( 'topic_id' => "TH-VI-0001\n" ) ),
+		'marker newline' => body( array( 'marker' => $marker . "\n" ) ),
+		'padded title' => body( array( 'title' => 'Hai  dấu cách' ) ),
+		'padded seo' => body( array( 'seo' => array( 'title' => ' leading', 'description' => 'd', 'focus_keyword' => 'k' ) ) ),
+		'bytes not chars' => body( array( 'content' => str_repeat( 'ế', 70000 ) . "\n" . $marker ) ), // 70,000 characters, 210,000 bytes
+	);
+	foreach ( $cases as $name => $payload ) {
+		$r = call( '/posts', raw_post_request( $payload ), 'POST' );
+		check( is_wp_error( $r ) && in_array( status_of( $r ), array( 400, 422 ), true ), 'must refuse: ' . $name . ' got ' . code_of( $r ) );
+	}
+	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
 } );
 
 echo json_encode( $results, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE ) . "\n";

@@ -16,8 +16,8 @@ SPEC = {
     'vi': {'locale': 'vi', 'html_lang': 'vi', 'url_prefix': 'vi/', 'category_prefix': 'vi/chuyen-muc/', 'topic_prefix': 'TH-VI-', 'label': 'Tiếng Việt'},
 }
 SLUG = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*')
-TOPIC_ID = re.compile(r'TH-(VI|EN)-(\d{4})')
-LEGACY_TOPIC_ID = re.compile(r'TH-\d{6}')  # schema-4 English-only IDs already in remote state
+TOPIC_ID = re.compile(r'TH-(VI|EN)-([0-9]{4})')
+LEGACY_TOPIC_ID = re.compile(r'TH-[0-9]{6}')  # schema-4 English-only IDs already in remote state
 
 
 def check(lang):

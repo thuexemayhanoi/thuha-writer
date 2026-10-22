@@ -89,6 +89,8 @@ timeout, 4xx/5xx or checkpoint error after reservation remains an intent to
 reconcile. Do not clear intents or POST again. Reconciliation requires exact
 ownership marker, content, ID/status/URL, category, image and SEO readback.
 Unknown outcomes consume the two-post pilot budget and count against their language's ceiling until reviewed.
+Two intent phases are *closed* and free their slot: `NOT_SENT` (the factory stopped or the payload failed local validation before any POST)
+and `REJECTED` (the plugin refused with a code that proves nothing was created AND a read-back by key found nothing).
 
 All writes go through the companion plugin (see `docs/bilingual/ADAPTER.md`); until
 `adapter-preflight` succeeds the status is `BLOCKED_ADAPTER_NOT_DEPLOYED`. The release lists

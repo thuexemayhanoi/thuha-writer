@@ -16,6 +16,7 @@ import urllib.request
 from pathlib import Path
 from .common import ROOT, REPO, canonical_json, digest, load, now, save
 from .language import LANGUAGES, TOPIC_ID, LEGACY_TOPIC_ID, split_url, topic_language
+from .quota import CLOSED_PHASES
 
 SCHEMA = 5
 
@@ -98,6 +99,8 @@ def validate(state, previous=None):
             if state['receipts'].get(key) != value:
                 raise ValueError('Publication receipts are append-only')
         for key, value in previous['intents'].items():
+            if value.get('phase') in CLOSED_PHASES:
+                continue  # never reached WordPress: may be replaced by a fresh reservation for a repaired article
             if key not in state['intents'] or state['intents'][key]['article_sha'] != value['article_sha']:
                 raise ValueError('Publication intents cannot disappear or change source')
 

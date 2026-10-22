@@ -2,10 +2,12 @@
 /**
  * Create-only, idempotent publishing.
  *
- * Order matters: validate everything, create a DRAFT that already carries the ownership
- * and idempotency markers, attach the language marker and SEO fields, verify them, and
- * only then publish. A failure after the draft exists leaves a draft (never a live post)
- * that a replay with the same key reports, without creating or changing anything.
+ * Order matters: validate everything, create a DRAFT that already carries the ownership and idempotency markers,
+ * attach the language marker and SEO fields, verify them, check the would-be permalink on a copy that already has
+ * the published status, and only then publish. A failure after the draft exists leaves a draft; a replay with the
+ * same key reports it without creating or changing anything. After publication the checks run once more as a
+ * safety net, but publication side effects (feeds, sitemaps, pings) cannot be undone by returning a post to draft,
+ * which is why the decisive checks happen BEFORE the status change.
  */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -15,18 +17,22 @@ class Thuha_Writer {
 	const ALL_STATUSES = array( 'publish', 'future', 'draft', 'pending', 'private', 'trash' );
 
 	public static function find_by( $meta_key, $value ) {
-		return get_posts(
-			array(
-				'post_type'        => 'post',
-				'post_status'      => self::ALL_STATUSES,
-				'meta_key'         => $meta_key, // phpcs:ignore WordPress.DB.SlowDBQuery
-				'meta_value'       => $value, // phpcs:ignore WordPress.DB.SlowDBQuery
-				'fields'           => 'ids',
-				'numberposts'      => 3,
-				'orderby'          => 'ID',
-				'order'            => 'ASC',
-				'suppress_filters' => true,
-			)
+		return Thuha_Query::unfiltered(
+			function () use ( $meta_key, $value ) {
+				return get_posts(
+					array(
+						'post_type'        => 'post',
+						'post_status'      => self::ALL_STATUSES,
+						'meta_key'         => $meta_key, // phpcs:ignore WordPress.DB.SlowDBQuery
+						'meta_value'       => $value, // phpcs:ignore WordPress.DB.SlowDBQuery
+						'fields'           => 'ids',
+						'numberposts'      => 3,
+						'orderby'          => 'ID',
+						'order'            => 'ASC',
+						'suppress_filters' => true,
+					)
+				);
+			}
 		);
 	}
 
@@ -48,11 +54,35 @@ class Thuha_Writer {
 		return array( 'contract' => Thuha_Contract::CONTRACT, 'found' => true, 'post' => Thuha_Readback::post( $id ) );
 	}
 
+	/** Two identical POSTs racing past the key lookup would both insert; an atomic add_option is the lock. */
+	private static function lock( $key ) {
+		$name = 'thuha_lock_' . substr( $key, 0, 40 );
+		if ( add_option( $name, (string) time(), '', 'no' ) ) {
+			return $name;
+		}
+		$held = (int) get_option( $name, 0 );
+		if ( $held && time() - $held > 300 ) { // a crashed request; take the lock over
+			delete_option( $name );
+			if ( add_option( $name, (string) time(), '', 'no' ) ) {
+				return $name;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Returns the post to draft and CHECKS that it worked. If it did not, say so loudly: the post may be live.
+	 */
 	private static function fail_draft( $post_id, $code, $message, $status ) {
 		update_post_meta( $post_id, Thuha_Contract::META_STATE, $code );
 		$post = get_post( $post_id );
-		if ( $post && 'publish' === $post->post_status ) {
+		if ( $post && 'draft' !== $post->post_status ) {
 			wp_update_post( array( 'ID' => $post_id, 'post_status' => 'draft' ) );
+			$after = get_post( $post_id );
+			if ( ! $after || 'draft' !== $after->post_status ) {
+				update_post_meta( $post_id, Thuha_Contract::META_STATE, 'thuha_revert_failed' );
+				return Thuha_Contract::error( 'thuha_revert_failed', $message . ' The post could NOT be returned to draft and may be LIVE: check it in WordPress now.', 500 );
+			}
 		}
 		return Thuha_Contract::error( $code, $message, $status );
 	}
@@ -60,7 +90,18 @@ class Thuha_Writer {
 	public static function create( $fields ) {
 		$language = $fields['language'];
 		$payload  = Thuha_Contract::payload_hash( $fields );
+		$lock     = self::lock( $fields['idempotency_key'] );
+		if ( ! $lock ) {
+			return Thuha_Contract::error( 'thuha_in_progress', 'Another request for this idempotency key is running; reconcile by key instead of retrying.', 409 );
+		}
+		try {
+			return self::create_locked( $fields, $language, $payload );
+		} finally {
+			delete_option( $lock );
+		}
+	}
 
+	private static function create_locked( $fields, $language, $payload ) {
 		// 1. Idempotency: the same key is a replay, a different payload under it is refused.
 		$existing = self::reconcile( $fields['idempotency_key'] );
 		if ( is_wp_error( $existing ) ) {
@@ -100,24 +141,26 @@ class Thuha_Writer {
 			return Thuha_Contract::error( 'thuha_slug_conflict', 'The slug is already taken by a post or page.', 409 );
 		}
 
-		// 5. Draft with ownership markers first; nothing is public yet.
+		// 5. Draft with ownership markers first; nothing is public yet. WordPress unslashes what it is given, so
+		// every string is slashed first or backslashes in the article would be silently removed.
+		$meta = array(
+			Thuha_Contract::META_OWNER    => Thuha_Contract::OWNER,
+			Thuha_Contract::META_KEY      => $fields['idempotency_key'],
+			Thuha_Contract::META_PAYLOAD  => $payload,
+			Thuha_Contract::META_TOPIC    => $fields['topic_id'],
+			Thuha_Contract::META_LANGUAGE => $language,
+			Thuha_Contract::META_STATE    => 'DRAFT_CREATED',
+		);
 		$post_id = wp_insert_post(
 			array(
 				'post_type'     => 'post',
 				'post_status'   => 'draft',
-				'post_title'    => $fields['title'],
-				'post_content'  => $fields['content'],
+				'post_title'    => wp_slash( $fields['title'] ),
+				'post_content'  => wp_slash( $fields['content'] ),
 				'post_name'     => $fields['slug'],
 				'post_author'   => get_current_user_id(),
 				'post_category' => array( $fields['category_id'] ),
-				'meta_input'    => array(
-					Thuha_Contract::META_OWNER    => Thuha_Contract::OWNER,
-					Thuha_Contract::META_KEY      => $fields['idempotency_key'],
-					Thuha_Contract::META_PAYLOAD  => $payload,
-					Thuha_Contract::META_TOPIC    => $fields['topic_id'],
-					Thuha_Contract::META_LANGUAGE => $language,
-					Thuha_Contract::META_STATE    => 'DRAFT_CREATED',
-				),
+				'meta_input'    => array_map( 'wp_slash', $meta ),
 			),
 			true
 		);
@@ -125,6 +168,12 @@ class Thuha_Writer {
 			return Thuha_Contract::error( 'thuha_insert_failed', 'WordPress could not create the draft.', 500 );
 		}
 		$post_id = (int) $post_id;
+
+		// Title and body must be stored exactly as reviewed (kses or a content filter can alter them).
+		$stored = get_post( $post_id );
+		if ( ! $stored || $stored->post_title !== $fields['title'] || $stored->post_content !== $fields['content'] ) {
+			return self::fail_draft( $post_id, 'thuha_content_altered', 'WordPress stored the title or body differently from the reviewed text; the post stays a draft.', 422 );
+		}
 
 		// 6. Language marker BEFORE publish, then verify both documented markers.
 		if ( 'vi' === $language ) {
@@ -137,9 +186,9 @@ class Thuha_Writer {
 
 		// 7. SEO fields and featured image, each read back.
 		foreach ( Thuha_Contract::yoast_meta() as $field => $meta_key ) {
-			update_post_meta( $post_id, $meta_key, $fields['seo'][ $field ] );
+			update_post_meta( $post_id, $meta_key, wp_slash( $fields['seo'][ $field ] ) );
 			if ( get_post_meta( $post_id, $meta_key, true ) !== $fields['seo'][ $field ] ) {
-				return self::fail_draft( $post_id, 'thuha_seo_failed', 'An SEO field did not persist; the post stays a draft.', 500 );
+				return self::fail_draft( $post_id, 'thuha_seo_failed', 'An SEO field did not persist unchanged; the post stays a draft.', 500 );
 			}
 		}
 		if ( $fields['featured_media'] > 0 ) {
@@ -153,19 +202,27 @@ class Thuha_Writer {
 			return self::fail_draft( $post_id, 'thuha_category_failed', 'The category assignment differs; the post stays a draft.', 500 );
 		}
 
-		// 8. Publish only if the final slug stays exactly as requested.
+		// 8. Decide BEFORE publishing: the slug must stay exactly as requested and the permalink of a copy that already
+		// has the published status must sit in the right language namespace.
 		if ( wp_unique_post_slug( $fields['slug'], $post_id, 'publish', 'post', 0 ) !== $fields['slug'] ) {
-			return self::fail_draft( $post_id, 'thuha_slug_conflict', 'The slug changed before publication; the post stays a draft.', 409 );
+			return self::fail_draft( $post_id, 'thuha_slug_changed', 'The slug would change on publication; the post stays a draft.', 409 );
 		}
+		$probe              = clone get_post( $post_id );
+		$probe->post_status = 'publish';
+		$planned            = (string) get_permalink( $probe );
+		if ( ( 0 === strpos( $planned, home_url( '/vi/' ) ) ) !== ( 'vi' === $language ) || false === strpos( $planned, '/' . $fields['slug'] . '/' ) ) {
+			return self::fail_draft( $post_id, 'thuha_permalink_mismatch', 'The permalink would leave the language namespace; the post stays a draft.', 409 );
+		}
+
 		$published = wp_update_post( array( 'ID' => $post_id, 'post_status' => 'publish' ), true );
 		if ( is_wp_error( $published ) ) {
 			return self::fail_draft( $post_id, 'thuha_publish_failed', 'WordPress refused to publish the draft.', 500 );
 		}
+		// Safety net only: the decisive checks already happened.
 		$post = get_post( $post_id );
 		$link = (string) get_permalink( $post_id );
-		$vi   = 0 === strpos( $link, home_url( '/vi/' ) );
-		if ( 'publish' !== $post->post_status || $post->post_name !== $fields['slug'] || $vi !== ( 'vi' === $language ) ) {
-			return self::fail_draft( $post_id, 'thuha_permalink_mismatch', 'The permalink is outside the language namespace; the post was returned to draft.', 409 );
+		if ( 'publish' !== $post->post_status || $post->post_name !== $fields['slug'] || ( 0 === strpos( $link, home_url( '/vi/' ) ) ) !== ( 'vi' === $language ) ) {
+			return self::fail_draft( $post_id, 'thuha_permalink_mismatch', 'The post was published but its slug or URL is not as planned and it was returned to draft; publication side effects may already have run.', 409 );
 		}
 		update_post_meta( $post_id, Thuha_Contract::META_STATE, 'PUBLISHED' );
 		return array( 'contract' => Thuha_Contract::CONTRACT, 'created' => true, 'idempotent_replay' => false, 'post' => Thuha_Readback::post( $post_id ) );

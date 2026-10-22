@@ -43,26 +43,38 @@ không có trường ngôn ngữ đã kiểm chứng.
 
 ### Luồng `POST /posts`
 
-1. Xác thực (chỉ Application Password; phiên cookie và `Origin` của trình duyệt bị từ chối).
-2. Kiểm tra schema đóng: chỉ 11 trường, không nhận `post_status`, `post_type`, meta,
-   taxonomy hay author; HTML nguy hiểm (`script`, `iframe`, `form`, `meta`, `link`,
-   `style`, `on*=`, `javascript:`) bị từ chối; nội dung phải kết thúc bằng đúng một
-   marker `<!-- thuha:v5 topic=… sha256=… -->`.
-3. Idempotency: cùng khóa + cùng payload → trả `200 idempotent_replay` và **không đổi gì**;
-   cùng khóa khác payload → `409`; cùng topic khác khóa → `409`.
-4. Category và toàn bộ tổ tiên phải cùng ngôn ngữ với bài; slug phải còn trống (slug bài
-   dùng chung một không gian giữa EN và VI nên slug VI không được trùng slug EN hay trang).
-5. Tạo **bản nháp** đã mang marker sở hữu/idempotency.
-6. `RBHVI_Language::set_vi($id, true)` (chỉ bài Việt), rồi kiểm tra cả `is_vi` lẫn
-   taxonomy `rbhvi_language`. Bài EN phải không có dấu nào.
-7. Ghi Yoast (`_yoast_wpseo_title/metadesc/focuskw`), ảnh đại diện, category; đọc lại từng thứ.
-8. Chỉ khi slug cuối cùng vẫn đúng mới xuất bản; sau đó kiểm tra permalink nằm đúng
-   không gian (`/vi/…` cho VI, gốc cho EN). Sai thì **trả về nháp**.
+1. Xác thực: chỉ Application Password (ưu tiên hàm lõi `rest_get_authenticated_app_password()`, cờ nội bộ chỉ là phương án
+   dự phòng); phiên cookie và `Origin` của trình duyệt bị từ chối.
+2. Schema đóng: đúng 11 trường, regex neo chặt (`\z`/`D`, chữ số ASCII), giới hạn theo **byte** UTF-8 (nội dung 200000, tiêu đề 300,
+   mỗi trường SEO 400, slug 90 — lấy từ `contract.json`), tiêu đề/SEO là văn bản thuần một dấu cách; nội dung phải kết thúc bằng
+   đúng một marker `<!-- thuha:v5 topic=… sha256=… -->`.
+3. **Chính sách HTML dạng chuẩn** (`contract.json › html_policy`, cùng thuật toán trong `src/thuha/htmlpolicy.py` và PHP): chỉ thẻ
+   thường trong danh sách cho phép, thuộc tính trong dấu nháy kép, không trùng, URL chỉ ASCII in được, chỉ thực thể `&amp;`, chỉ
+   scheme `http/https/mailto/tel`, không bình luận/khai báo/`<` trần. Cái gì ngoài khuôn bị từ chối chứ không được "diễn giải".
+   Vector dùng chung `tests/fixtures/html-policy-vectors.json` chạy ở cả Python và PHP.
+4. Khóa đồng thời (`add_option` nguyên tử) theo khóa idempotency, rồi idempotency: cùng khóa + cùng payload → `200 idempotent_replay`
+   và **không đổi gì**; cùng khóa khác payload → `409`; cùng topic khác khóa → `409`; đang có yêu cầu chạy → `409 thuha_in_progress`.
+5. Category và toàn bộ tổ tiên phải cùng ngôn ngữ; ảnh đại diện phải là attachment đọc được có alt; slug phải còn trống (slug bài
+   dùng chung một không gian giữa EN và VI, và không trùng trang).
+6. Tạo **bản nháp** mang marker sở hữu/idempotency. Mọi chuỗi đi qua `wp_slash` (lõi tự `unslash`, nếu không dấu `\` bị mất), rồi
+   đọc lại tiêu đề và thân bài: khác bản đã review (ví dụ do kses) → `thuha_content_altered`, bài ở lại nháp.
+7. `RBHVI_Language::set_vi($id, true)` (chỉ bài Việt), kiểm tra cả `is_vi` lẫn taxonomy `rbhvi_language`; bài EN phải không có dấu nào.
+8. Ghi Yoast, ảnh đại diện, category; đọc lại từng thứ.
+9. **Quyết định trước khi publish:** slug cuối vẫn đúng; permalink của một **bản sao đã đặt trạng thái publish** nằm đúng không gian
+   (`/vi/…` hoặc gốc). Sai thì dừng khi bài vẫn là nháp.
+10. Publish, rồi kiểm tra lại một lần như lưới an toàn. Nếu lúc này vẫn sai, bài bị trả về nháp và **được đọc lại để chắc**; nếu không
+    trả về được thì trả `thuha_revert_failed` và nói rõ bài có thể ĐANG CHẠY. Hiệu ứng phụ của việc đã publish (feed, sitemap, ping)
+    không thể hoàn tác bằng cách đặt lại nháp, vì vậy bước 9 mới là bước quyết định.
 
-Lỗi sau bước 5 để lại bản nháp, không bao giờ để lại bài đang chạy ở URL sai. Python
-không POST lại sau kết quả không rõ: nó đối chiếu bằng khóa (`reconcile`) và chỉ ghi
-biên nhận khi đọc lại đủ (chủ sở hữu, marker, ID/URL/slug, ngôn ngữ, hai dấu native,
-category, ảnh, thân bài, SEO, canonical, `<html lang>`, không có hreflang lạ, schema).
+Lỗi sau bước 6 để lại bản nháp. Python không POST lại sau kết quả không rõ: nó đối chiếu theo khóa (`reconcile`) và chỉ ghi biên nhận
+khi đọc lại đủ: chủ sở hữu, marker, ID/URL/slug, ngôn ngữ, hai dấu native, category, ảnh, tiêu đề, thân bài, SEO, canonical,
+`<html lang>`, không có hreflang lạ, schema.
+
+**Đóng intent thay vì đốt vĩnh viễn.** Intent có hai pha *đóng* (không tính vào quota, ngân sách pilot hay hạn mức ngày, và topic được
+đăng lại sau khi sửa): `NOT_SENT` (lỗi trước khi POST được gửi: payload không qua `validate_payload`, tạm dừng, mất quyền) và `REJECTED`
+(plugin trả một mã trong `definitive_rejections_before_insert` **và** đọc lại theo khóa không thấy gì). Payload mà plugin chắc chắn từ chối
+bị chặn **trước** khi giữ chỗ. Mọi trường hợp khác (timeout, 5xx, mã có thể xảy ra sau khi đã có bản nháp) vẫn là `NEEDS_RECONCILIATION`
+và tiếp tục tính vào quota; một bản ghi VERIFIED không bao giờ bị ghi đè.
 
 ## Đã bảo đảm gì, bằng cách nào
 
@@ -74,6 +86,12 @@ category, ảnh, thân bài, SEO, canonical, `<html lang>`, không có hreflang 
 | Sai ngôn ngữ category | test PHP: VI vào category EN, EN vào category VI, con VI dưới cha EN |
 | Chỉ category VI không đủ | test PHP: `set_vi` lỗi → bài ở lại bản nháp, không từng xuất bản |
 | Gắn VI trước publish | test PHP: thứ tự `insert(draft) → set_vi → publish` |
+| Permalink sai bị chặn trước publish | test PHP: bài chưa từng được publish; revert thất bại được báo `thuha_revert_failed` |
+| Bộ lọc HTML không bị lách (`<svg/onload>`, `onerror` dính liền, `&#106;avascript:`) | vector chung chạy ở Python và PHP; mutation test |
+| Dấu `\` và nháy trong bài còn nguyên | test PHP với mô phỏng `unslash` như lõi |
+| Hai POST đồng thời cùng khóa | test PHP: khóa giữ → `thuha_in_progress`; khóa treo cũ được tiếp quản |
+| Bộ lọc truy vấn của plugin native ẩn bài VI | test PHP: hook `pre_get_posts` được gỡ tạm khi tra khóa/inventory và đặt lại |
+| Bài có mật khẩu không lộ thân bài trong inventory | test PHP |
 | Replay không tạo thêm | test PHP: 200 replay, đúng một bài, đảo thứ tự khóa JSON vẫn cùng payload |
 | Không đếm nháp/unknown là bài | test Python: `NEEDS_RECONCILIATION` không thành biên nhận |
 | Inventory đầy đủ hai ngôn ngữ | test PHP: lọc ẩn bài VI → `thuha_inventory_filtered`, không trả danh sách thiếu |
@@ -86,10 +104,19 @@ category, ảnh, thân bài, SEO, canonical, `<html lang>`, không có hreflang 
   `is_callable` của từng hàm và plugin còn đối chiếu hai dấu độc lập (hàm và taxonomy
   `rbhvi_language`, termmeta `_rbhvi_lang`); bất đồng được báo là `conflict` chứ không bị bỏ qua.
 - Phiên bản PHP tối thiểu 7.4 được viết theo cú pháp tương thích nhưng chỉ chạy thử trên PHP 8.3.
-- Hành vi thật của `wp_unique_post_slug`, kses, permalink `/vi/` và bộ lọc truy vấn của plugin
-  native chưa được xem trên website thật; mô phỏng chỉ là bản thay thế.
-- `/inventory` đối chiếu số lượng với `wp_count_posts` để phát hiện bộ lọc ẩn bài; nếu bộ lọc
-  native chặn cả hai, lỗi sẽ không hiện. Cần một lần so sánh với đếm tay trên WP-Admin.
+- Hành vi thật của `wp_unique_post_slug`, kses, `wp_slash`/`unslash`, permalink `/vi/` và các hook truy vấn của plugin native chưa được
+  xem trên website thật; mô phỏng chỉ là bản thay thế. Hook `pre_get_posts`/`posts_pre_query` được gỡ tạm khi tra khóa và inventory
+  để plugin native không giấu bài VI; cách này chưa được thử với plugin native thật.
+- `/inventory` đối chiếu số lượng với `wp_count_posts` để phát hiện bộ lọc ẩn bài; nếu bộ lọc native chặn cả hai, lỗi sẽ không hiện.
+  Cần một lần so sánh với đếm tay trên WP-Admin.
+- Tài khoản có quyền `unfiltered_html` (Editor, Administrator) bỏ qua kses, nên chính sách HTML của adapter là lớp chặn duy nhất cho nội
+  dung; còn tài khoản không có quyền đó có thể bị kses sửa nội dung, khi đó `thuha_content_altered` giữ bài ở nháp.
+- Yoast có thể làm sạch lại trường SEO khi lưu (ví dụ bỏ dấu nháy trong từ khóa chính). QA đã từ chối khoảng trắng thừa, thẻ HTML và
+  nháy trong từ khóa, nhưng quy tắc làm sạch thật của phiên bản Yoast đang cài chưa được thấy; sai khác sẽ để bài ở nháp.
+- Quota đếm hai lần một bài đã lên WordPress nhưng chưa đọc lại xong (vừa nằm trong inventory vừa là intent chưa giải quyết); đây là
+  thiên về an toàn và chỉ tự hết sau khi `reconcile` thành công. Nhà xuất bản bên ngoài không thuộc factory vẫn có thể làm vượt
+  trần giữa hai lần đếm: cần `cross_publisher_coordination_verified` như đã yêu cầu trong release.
+- Phiên làm việc dài của PHP (worker): cờ Application Password chỉ là dự phòng; đường chính là hàm lõi.
 
 ## Việc live còn lại (PENDING, do publisher có quyền làm)
 

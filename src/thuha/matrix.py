@@ -359,7 +359,7 @@ def validate(matrix, lang=None):
     if len(set(ids)) != len(ids):
         out.append({'code': 'DUPLICATE_ID', 'row': None, 'detail': ''})
     for r in new:
-        if not re.fullmatch('TH-' + lang.upper() + r'-\d{4}', r['id']):
+        if not re.fullmatch('TH-' + lang.upper() + r'-[0-9]{4}', r['id']):
             out.append(problem('ID_FORMAT', r))
         if r['writer_state'] not in WRITER_STATES or r['writer_state'] != 'NEEDS_SOURCE' or r['checkpoint'] is not None:
             out.append(problem('STATE_CLAIMS_PROGRESS_WITHOUT_EVIDENCE', r))

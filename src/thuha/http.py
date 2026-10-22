@@ -3,6 +3,7 @@ import base64
 import ipaddress
 import json
 import os
+import re
 import socket
 import time
 import urllib.error
@@ -15,9 +16,10 @@ ADAPTER_CREATE_URL = ADAPTER_BASE + '/posts'
 
 
 class NetworkError(RuntimeError):
-    def __init__(self, message, status=None):
+    def __init__(self, message, status=None, code=None):
         super().__init__(message)
         self.status = status
+        self.code = code  # machine code from a JSON error answer (letters/underscores only); never the body text
 
 
 def safe_public_url(url):
@@ -35,6 +37,15 @@ def safe_public_url(url):
     if not addresses or any(not ipaddress.ip_address(x[4][0]).is_global for x in addresses):
         raise ValueError('Source resolves to a non-public address')
     return url
+
+
+def error_code(exc):
+    """The `code` field of a WordPress JSON error, or None; the rest of the body is discarded."""
+    try:
+        value = json.loads(exc.read(4096)).get('code')
+    except (ValueError, OSError, AttributeError):
+        return None
+    return value if isinstance(value, str) and re.fullmatch(r'[a-z_]{3,60}', value) else None
 
 
 class Redirects(urllib.request.HTTPRedirectHandler):
@@ -82,7 +93,7 @@ class HTTP:
                 if method == 'GET' and exc.code in (429, 500, 502, 503, 504) and attempt < 2:
                     time.sleep(min(5, 1 + attempt))
                     continue
-                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path, exc.code) from None
+                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path, exc.code, error_code(exc)) from None
             except (OSError, TimeoutError) as exc:
                 if method == 'GET' and attempt < 2:
                     time.sleep(1+attempt)
