@@ -10,6 +10,7 @@ Seeds (data/bilingual/seeds/*.jsonl) hold the hand-written topic ideas; `build`
 expands them with the real category IDs and URLs from the committed manifest.
 """
 import csv
+import functools
 import html
 import json
 import re
@@ -100,6 +101,7 @@ def content_tokens(lang, text):
     return [t for t in norm(text).split() if t not in STOP[lang] and len(t) > 1]
 
 
+@functools.lru_cache(maxsize=None)
 def shingles(lang, text):
     tokens = content_tokens(lang, text)
     return set(tokens) | set(zip(tokens, tokens[1:]))
@@ -110,6 +112,7 @@ def similarity(lang, a, b):
     return len(sa & sb) / len(sa | sb) if sa and sb else 0.0
 
 
+@functools.lru_cache(maxsize=None)
 def collapse(lang, title):
     """Title with places and bike models replaced, to expose doorway-style template variants."""
     text = ' ' + norm(title) + ' '

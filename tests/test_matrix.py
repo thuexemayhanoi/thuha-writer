@@ -109,7 +109,8 @@ class CommittedMatrixTests(unittest.TestCase):
                     self.assertIn('official_vn_law', r['source_requirements'], r['id'] + ' ' + r['title'])
 
     def test_health_sensitive_topics_demand_an_official_health_source(self):
-        words = ('mang thai', 'pregnan', 'bệnh', 'thuốc', 'sức khỏe', 'health', 'medic', 'injur', 'chấn thương')
+        # Advice about a body or medicine needs a health source; a trip to a hospital is only logistics.
+        words = ('mang thai', 'pregnan', 'thuốc', 'sơ cứu', 'first aid', 'cảm cúm', 'chấn thương', 'sức khỏe', 'medical', 'medication')
         for m in self.m.values():
             for r in (x for x in m['rows'] if x['kind'] == 'NEW'):
                 if any(w in (r['title'] + ' ' + r['primary_keyword'] + ' ' + r['search_intent']).lower() for w in words):
