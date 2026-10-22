@@ -33,7 +33,13 @@ nằm yên khi đi công tác"); "vùng phát thải thấp" (VI 163 và 164; gi
   (252, 1923) nhưng khác ở góc tính tiền; 153: hóa đơn công tác phí (EN 3324), giữ căn cước gốc (EN 1931), giấy tờ xe khi
   bị kiểm tra (EN 3289), Việt kiều (EN 3287, 3288), mất xe (EN 1927); 153 với 163 chồng nhau ở bằng lái, độ tuổi, bảo hiểm;
   155: nhận xe ở bến Gia Lâm và từ phố cổ sang Long Biên gần EN 1937, 3405; 153 (hoàn cọc) với 155 (cuối kỳ thuê tháng); 152
-  (trả sớm) với 154 (chấm dứt sớm hợp đồng tháng); 155 (mức xăng) với 159. Một cặp trùng thật A/D ("chỗ để xe ở nhà trọ khi
+  (trả sớm) với 154 (chấm dứt sớm hợp đồng tháng); 155 (mức xăng) với 159. - EN thay thế (en-d): "exhaust smoke colour at start-up" (130) gần "smoke or a burning smell" (134: tắt máy, tránh xa, gọi cửa hàng) —
+  ý định khác nhau (ghi nhận để mô tả vs dừng khẩn cấp) nhưng reviewer cần xác nhận; "where to stay when you plan to ride" (139) gần
+  các bài đỗ xe khách sạn (EN 1981) và 132 apartment block; "which sights close on which days" (139) gần 139 "Do You Need the Bike
+  Every Day?"; "Wave Alpha or Sirius" (142) gần 142 Exciter/Winner và 141 Vision/Air Blade; "house-hunting week" (125) gần 125 trial week
+  và 123 "Count Your Trips First". Các cặp cần reviewer đọc `search_intent`.
+
+Một cặp trùng thật A/D ("chỗ để xe ở nhà trọ khi
   thuê tháng", 154 và 164) đã được validator bắt và thay bằng chủ đề lùi xe khỏi chỗ đỗ chật.
 - Chủ đề nhạy cảm về sức khỏe (VI 156 "đang mang thai có nên tự lái xe ga thuê"): nguồn bắt buộc `official_health`, bài chỉ
   hướng người đọc hỏi bác sĩ, không đưa lời khuyên y tế; reviewer cân nhắc có nên giữ.
