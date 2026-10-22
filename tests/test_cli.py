@@ -72,5 +72,36 @@ class CliTests(unittest.TestCase):
         with self.assertRaises(ValueError):run('publisher', '--mode', 'production', '--topic-id', 'TH-VI-0001')
 
 
+class WorkflowThroughCliTests(unittest.TestCase):
+    """intake -> brief -> claim -> quota with real files and one local store; no network, no WordPress."""
+    def test_vietnamese_topic_is_briefed_and_claimed_before_english(self):
+        from test_factory import Fixture, inventory_fixture
+        from thuha.common import now, save
+        class Seed(Fixture):
+            def runTest(self):pass
+        seed = Seed();seed.setUp()
+        try:
+            store = seed.store
+            inv_path = os.path.join(seed.temp.name, 'inventory.json');save(inv_path, seed.inv)
+            candidates = [seed.candidate(1, 'en'), seed.candidate(1, 'vi')]
+            cand_path = os.path.join(seed.temp.name, 'candidates.json');save(cand_path, candidates)
+            base = ['--state-dir', seed.temp.name, '--inventory', inv_path]
+            def call(*argv):
+                out = io.StringIO()
+                with patch('sys.stdout', out):code = main(base + list(argv))
+                return code, json.loads(out.getvalue())
+            self.assertEqual(call('intake', '--file', cand_path)[1]['admitted'], ['TH-EN-0001', 'TH-VI-0001'])
+            brief = call('brief')[1]
+            self.assertEqual([t['topic_id'] for t in brief['topics']], ['TH-VI-0001', 'TH-EN-0001'])
+            self.assertEqual([t['topic_id'] for t in call('brief', '--language', 'en')[1]['topics']], ['TH-EN-0001'])
+            lease = call('claim', '--session', 'session-vi', '--agent-id', 'writer-vi')[1]
+            self.assertEqual((lease['topic_id'], lease['language']), ('TH-VI-0001', 'vi'))
+            quota = call('quota')[1]['languages']
+            self.assertEqual(quota['vi']['open_topics'], 1);self.assertEqual(quota['en']['open_topics'], 1)
+            self.assertEqual(call('resume', '--topic-id', 'TH-VI-0001')[1]['topic']['language'], 'vi')
+        finally:
+            seed.temp.cleanup()
+
+
 if __name__ == '__main__':
     unittest.main()

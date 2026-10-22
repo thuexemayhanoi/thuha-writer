@@ -1,5 +1,11 @@
 # Bàn giao workflow hai ngôn ngữ — rentbikehanoi.com
 
+> **Cập nhật triển khai (nhánh `feature/bilingual-500-workflow`):** runtime, matrix, plugin kết nối và test offline
+> đã làm xong trong repo; xem [IMPLEMENTATION-STATUS.md](IMPLEMENTATION-STATUS.md) (commit, kiểm tra đã chạy, việc dang dở,
+> việc live còn PENDING), [ADAPTER.md](ADAPTER.md) và [MATRIX-AUTHORING.md](MATRIX-AUTHORING.md). Phần "Phạm vi Claude phải
+> thực hiện" bên dưới là yêu cầu gốc, giữ nguyên làm hợp đồng. Mọi mục "đã làm trên WordPress thật" là quan sát của
+> phiên trước; phiên này không có kết nối WordPress nên không xác nhận lại.
+
 ## Việc đã làm trên WordPress thật
 
 Thời điểm: 2026-10-22 UTC / 23-10-2026 Việt Nam.
