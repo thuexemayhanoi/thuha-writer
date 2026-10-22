@@ -167,6 +167,26 @@ class ValidatorRuleTests(unittest.TestCase):
              's': 'faq', 'r': ['first_party_facts'], 'p': 1, 'u': 'record-deposit-payment-and-return-in-hanoi'}
         self.assertIn('TOO_CLOSE_TO_EXISTING_POST', codes('en', [s]))
 
+    def test_same_situation_named_twice_is_flagged_even_when_the_tails_differ(self):
+        a = seed(t='Xe thuê hết xăng giữa đường: mua xăng chai ven đường hay đẩy xe tới cây xăng', k='xe thuê hết xăng mua xăng chai', u='het-xang-mua-xang-chai')
+        b = seed(t='Xe thuê hết xăng giữa đường: dắt bộ đến cây xăng gần nhất hay gọi cửa hàng trước', k='xe thuê hết xăng gọi cửa hàng', u='het-xang-goi-cua-hang', c=161,
+                 q='Người đang chạy thì xe tắt hẳn vì cạn bình, cần biết quãng dắt bộ nào hợp lý, có gọi cửa hàng trước không và ghi lại gì.')
+        pairs = matrix.subject_pairs(rows_for('vi', [a, b]), 'vi')
+        self.assertEqual(len(pairs), 1);self.assertEqual(pairs[0][0], 1.0)
+        other = seed(t='Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào', k='trả xe muộn vì kẹt xe', u='tra-xe-muon-vi-ket-xe-mua-lon')
+        self.assertEqual(matrix.subject_pairs(rows_for('vi', [a, other]), 'vi'), [])
+
+    def test_reviewed_pairs_name_real_rows_and_every_other_close_pair_fails_validation(self):
+        known = matrix.reviewed_pairs()
+        slugs = {r['slug'] for m in self.m.values() for r in m['rows']}
+        for pair in known:
+            self.assertTrue(pair <= slugs, 'reviewed pair names a slug that no longer exists: ' + str(set(pair) - slugs))
+        for x in known.values():
+            self.assertEqual((x['verdict'], x['independent_review']), ('DISTINCT', 'PENDING'))
+        broken = copy.deepcopy(self.m['vi']);new = [r for r in broken['rows'] if r['kind'] == 'NEW']
+        new[5]['title'] = new[4]['title'].split(':')[0] + ': một phần đuôi hoàn toàn khác'
+        self.assertIn('SUBJECT_PAIR_NEEDS_REVIEW', {p['code'] for p in matrix.validate(broken, 'vi')})
+
     def test_validation_catches_a_wrong_total_a_bad_id_and_fabricated_progress(self):
         m = load(matrix.matrix_path('vi'))
         short = copy.deepcopy(m);short['rows'].pop()

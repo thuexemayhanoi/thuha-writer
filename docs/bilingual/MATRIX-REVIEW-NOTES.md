@@ -116,3 +116,28 @@ Validator đo trùng từ nên không bắt được các cặp cùng tình hu�
 
 Bài học đã áp vào hướng dẫn soạn seed: trước khi thêm dòng, tự hỏi người tìm kiếm có thỏa mãn bằng một dòng đã có không; hai mục
 cha-con khác nhau vẫn có thể viết cùng một tình huống (chăm người nhà ở bệnh viện, thẻ xe tháng, chở trẻ nhỏ, bảo hiểm trách nhiệm).
+
+### Lượt quét thứ hai: chủ đề tiêu đề trùng nhau
+
+So từng cặp dòng theo phần trước dấu hai chấm của tiêu đề (nó nêu tình huống; phần sau chỉ thêm chi tiết) bắt thêm 12 cặp mà
+độ trùng từ cả câu không thấy, ví dụ hai dòng cùng bắt đầu "Xe thuê hết xăng giữa đường" ở mục 159 và 161. Đã gỡ 12 dòng:
+- 154 (vi-a.jsonl): Thực tập hè ở Hà Nội vài tháng: gói tuần nối tiếp hay thuê trọn kỳ thực tập
+- 156 (vi-b.jsonl): Mặc váy công sở hoặc áo dài đi xe ga: chọn dáng xe, cách ngồi và chỗ để chân cho gọn gàng
+- 157 (vi-b.jsonl): Sơ đồ số khác nhau giữa xe số phổ thông và xe côn tay: xem sơ đồ trước khi nổ máy lần đầu
+- 159 (vi-b.jsonl): Xe thuê hết xăng giữa đường: mua xăng chai ven đường hay đẩy xe tới cây xăng có niêm yết giá
+- 159 (vi-b.jsonl): Nhận xe bao nhiêu xăng thì trả bấy nhiêu: các câu hỏi về quy ước xăng khi nhận và trả xe thuê
+- 160 (vi-c.jsonl): Xe số khó vào số hoặc tuột số khi đang chạy: mô tả thế nào để cửa hàng quyết định đổi xe hay kiểm tra
+- 160 (vi-c.jsonl): Xe ga có khóa thông minh hay khóa cơ: người thuê cần hỏi gì về chìa khóa trước khi nhận xe
+- 160 (vi-c.jsonl): Phanh liên hợp CBS và ABS trên xe ga: xe thuê của bạn có hệ thống nào và thử cảm giác phanh ra sao
+- 162 (vi-c.jsonl): Dép lê, dép tổ ong hay giày thể thao khi lái xe số: chọn gì để sang số và phanh chân an toàn
+- 163 (vi-c.jsonl): Gây tai nạn khi lái xe thuê: trách nhiệm của người lái và chủ xe tra ở đâu và hỏi cửa hàng gì
+- 166 (vi-d.jsonl): Xuống xe khách ở bến Gia Lâm với hành lý: đến chỗ nhận xe thuê bằng cách nào cho gọn
+- 169 (vi-e.jsonl): Đền Phù Đổng ở Gia Lâm: đi nửa ngày từ Long Biên và những điều cần xác nhận về giờ mở cửa, ngày hội
+
+Hai cặp còn lại vượt ngưỡng 0,6 được ghi vào `reviewed-pairs.json` là khác ý định (chia tiền với chọn cùng loại xe ga cho nhóm bạn;
+hóa đơn tiền xăng với xếp tuyến giữa hai cuộc họp khi đi công tác). Đây là phán đoán của tác giả; cần reviewer độc lập.
+
+**Giới hạn cần nói thẳng:** phần chủ đề thực sự khác nhau cho một cửa hàng thuê xe nhỏ có vẻ bão hòa quanh vài trăm dòng ở các mục
+về xe, nhiên liệu, bảo dưỡng và thủ tục; nhiều vòng bổ sung chỉ cho ra khoảng một nửa dòng hợp lệ. Mốc 500 được giữ để đúng yêu cầu,
+nhưng một số dòng cuối là chủ đề nhỏ (một phần của bài lớn hơn). Khi reviewer hoặc dữ liệu tìm kiếm thật cho thấy một dòng quá
+mỏng, hãy gộp nó vào bài cha thay vì viết riêng; không bù lại bằng paraphrase.

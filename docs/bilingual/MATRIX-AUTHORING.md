@@ -61,6 +61,8 @@ Slug tiếng Việt: bỏ dấu, `đ` thành `d`, ví dụ `dat-coc-xe-may-bang-
 7. **Trùng ý định giữa hai mục cũng là trùng.** Máy chỉ đo trùng từ. Cùng một tình huống người đọc (chăm người nhà ở bệnh viện,
    thẻ xe tháng ở chung cư, chở trẻ nhỏ, bảo hiểm trách nhiệm, trang phục chống rét) không được xuất hiện ở hai mục dù từ ngữ khác
    nhau. Trước khi thêm dòng hãy hỏi: người tìm kiếm có thỏa mãn khi đọc một dòng đã có không? Có thì bỏ.
+   `validate` còn so **chủ đề của tiêu đề (phần trước dấu hai chấm)** giữa mọi cặp dòng: cặp giống nhau từ 0,6 trở lên bị chặn
+   (`SUBJECT_PAIR_NEEDS_REVIEW`) trừ khi nằm trong `data/bilingual/matrix/reviewed-pairs.json` kèm lý do khác ý định.
 8. **Không kiểm chứng nhu cầu tìm kiếm.** Không ghi lượng tìm kiếm hay thứ hạng.
    Matrix ghi `demand_evidence: NOT_MEASURED`.
 

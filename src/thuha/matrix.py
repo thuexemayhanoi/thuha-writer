@@ -113,6 +113,30 @@ def similarity(lang, a, b):
 
 
 @functools.lru_cache(maxsize=None)
+def subject(lang, title):
+    """The part of a title before the colon: it names the situation, the tail only adds detail."""
+    return title.split(':')[0]
+
+
+SUBJECT_REVIEW = 0.6
+
+
+def subject_pairs(rows, lang, threshold=SUBJECT_REVIEW):
+    """Pairs of rows whose title subjects overlap heavily: the duplicates word-level checks miss."""
+    out = []
+    for i, a in enumerate(rows):
+        for b in rows[i + 1:]:
+            score = similarity(lang, subject(lang, a['title']), subject(lang, b['title']))
+            if score >= threshold:
+                out.append((score, a, b))
+    return sorted(out, key=lambda x: -x[0])
+
+
+def reviewed_pairs():
+    path = MATRIX / 'reviewed-pairs.json'
+    return {frozenset((x['a'], x['b'])): x for x in load(path)['pairs']} if path.exists() else {}
+
+
 def collapse(lang, title):
     """Title with places and bike models replaced, to expose doorway-style template variants."""
     text = ' ' + norm(title) + ' '
@@ -346,6 +370,11 @@ def validate(matrix, lang=None):
         if len(r['internal_link_plan']['links']) < 3:
             out.append(problem('INTERNAL_LINK_PLAN_THIN', r))
     out.extend(check_rows(new, lang, tax=tax))
+    known = reviewed_pairs()
+    for score, a, b in subject_pairs(new, lang):
+        if frozenset((a['slug'], b['slug'])) not in known:
+            out.append({'code': 'SUBJECT_PAIR_NEEDS_REVIEW', 'row': a['id'],
+                        'detail': '%s vs %s (%.2f): same situation named twice? add to reviewed-pairs.json only if distinct' % (b['id'], a['slug'], score)})
     planned = {int(k): v for k, v in p['suggested_' + lang + '_new_topics_by_category'].items()}
     counts = {}
     for r in new:
