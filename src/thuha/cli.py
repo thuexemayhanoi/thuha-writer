@@ -10,6 +10,7 @@ from .store import LocalStore,GitStore,event,validate
 from . import audit,coordinator,research,quality,dashboard
 from .http import HTTP,WordPress,NetworkError
 from .publisher import Publisher
+from . import pipeline
 
 
 def inventory_for(store,path):
@@ -32,10 +33,11 @@ def main(argv=None):
         if command=='submit':q.add_argument('--file',required=True)
     q=sub.add_parser('source');q.add_argument('--url',required=True)
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
+    q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
     q=sub.add_parser('qa');q.add_argument('--topic-id')
-    q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify'],default='dry-run');q.add_argument('--topic-id')
+    q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain'],default='dry-run');q.add_argument('--topic-id')
     q=sub.add_parser('controls');q.add_argument('--pause',choices=['on','off']);q.add_argument('--emergency-stop',choices=['on','off'])
     args=p.parse_args(argv)
     store=GitStore() if args.remote else LocalStore(args.state_dir)
@@ -81,6 +83,7 @@ def main(argv=None):
                 'held_draft':store.get_document(state['topics'][args.topic_id]['held_article_sha']) if state['topics'][args.topic_id].get('held_article_sha') else None,
                 'qa':store.get_document(state['qa'][args.topic_id]['report_sha']) if args.topic_id in state['qa'] else None,
                 'leases':[v for v in state['leases'].values() if v['topic_id']==args.topic_id]}
+    elif args.command=='brief':result=pipeline.brief(store.read(),args.limit)
     elif args.command=='intake':result={'admitted':research.intake(store,load(args.file),inventory_for(store,args.inventory),factory['refill_batch_max'])}
     elif args.command=='refill':result=research.refill(store,inventory_for(store,args.inventory),factory['refill_below'],factory['refill_batch_max'])
     elif args.command=='review':
@@ -106,8 +109,9 @@ def main(argv=None):
                 result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError)) else 'STATE_OR_CONTRACT'}
                 exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)
     elif args.command=='publisher':
-        pub=Publisher(store,WordPress(HTTP(allow_write=args.mode=='production')),inventory_for(store,args.inventory),policy,facts)
+        pub=Publisher(store,WordPress(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()
+        elif args.mode=='drain':result=pipeline.drain(pub)
         elif args.mode=='production':
             if not args.topic_id:raise ValueError('Explicit single topic ID required for pilot')
             result=pub.publish(args.topic_id)
