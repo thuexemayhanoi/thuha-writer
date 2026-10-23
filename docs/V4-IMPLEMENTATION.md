@@ -1,3 +1,5 @@
+> **HISTORICAL V4 IMPLEMENTATION RECORD (superseded, 23/10/2026).** References below to QA85, mandatory independent reviewers, protected GitHub Environments or release OFF are historical design assumptions, **not** current instructions. Current writer policy: QA >=75 inclusive, zero hard failures, release enabled auto-scale 50/day. Refer to [AGENTS.md](../AGENTS.md), current `config/qa.json`/`config/release.json` and the latest shared ledger. No article, source or receipt is changed by this note.
+
 # ThuHa Writer V4 — implementation and operating boundaries
 
 This is independently implemented Python standard-library code. The reference

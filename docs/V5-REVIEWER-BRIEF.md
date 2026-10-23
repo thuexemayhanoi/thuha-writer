@@ -1,8 +1,8 @@
-# V5 independent reviewer brief
+# V5 independent reviewer brief — ARCHIVE ONLY (NOT a publication gate)
 
 **Historical optional procedure, superseded for publication on 23 October 2026.**
 The owner removed the independent AI review gate. Do not run this as a prerequisite
-for QA or publishing. Completed drafts go directly to `qa --pending` (>=85/100,
+for QA or publishing. Completed drafts go directly to `qa --pending` (>=75/100,
 no hard failures), then the configured publisher. Existing review records stay
 immutable; the procedure below is retained only to explain those records.
 
@@ -15,9 +15,8 @@ For each topic you are given:
 1. `python3 -m thuha.cli --git-branch resume --topic-id <TOPIC> > resume.json`
    Read `topic`, `submission.article_sha`, `draft` (the exact revision) and the
    captured source documents listed in `draft.sources`.
-2. Open every source URL with the Parallel `web_fetch` tool (session_id
-   `thuha-v5-factory-3la2u4-20261023-aaaaaaaa`, model_name `claude-fable-5-1`)
-   and check that each factual claim in the draft that depends on a source is
+2. Historical instruction: open every source URL with a real available research tool; the original Claude session/model IDs no longer apply, and this is **not** a required review step.
+   Check that each factual claim in the draft that depends on a source is
    actually supported by it. Check the business facts against
    `config/business-facts.json`. Check that the draft answers the topic's
    `search_intent`, reads as natural English (natural Vietnamese for a Vietnamese topic), is original (no copied
