@@ -49,6 +49,26 @@ def passed_post_checks(state):
     return sum(1 for v in state['intents'].values() if v.get('phase')=='PUBLISHED' and v.get('post_check',{}).get('status')=='PASSED')
 
 
+def release_intent_cap(release, state):
+    """Graduate the two-post pilot automatically after two verified WordPress readbacks.
+
+    No independent AI review or further human approval is required by this stage.
+    Pending, mismatched and draft outcomes never count toward graduation.
+    """
+    stage = release.get('stage', 'pilot')
+    if stage == 'pilot':
+        return release['pilot_max_posts']
+    if stage == 'auto-scale':
+        confirmed = sum(
+            1 for tid, receipt in state.get('receipts', {}).items()
+            if receipt.get('integrity') == 'MATCH'
+            and state.get('intents', {}).get(tid, {}).get('phase') == 'PUBLISHED'
+        )
+        if confirmed < release['pilot_max_posts']:
+            return release['pilot_max_posts']
+    return release['approved_capacity']
+
+
 def release_guard(release,store):
     if not store.durable_remote:raise ValueError('Production requires cross-host durable remote CAS')
     if not release.get('enabled') or not release.get('approved') or release.get('paused') or release.get('emergency_stop'):
@@ -67,6 +87,13 @@ def release_guard(release,store):
         if (passed_post_checks(store.read())<2 or release.get('expansion_approval_ref')!=release['approval_ref'] or
             not 2<=release.get('approved_capacity',0)<=ceiling or not 1<=release.get('maximum_daily_posts',0)<=20):
             raise ValueError('Controlled scale requires two pilot posts whose public-page check passed and a separately scoped expansion release')
+    elif stage=='auto-scale':
+        ceiling=sum(language_targets().values())
+        if (release.get('pilot_max_posts')!=2 or
+            release.get('expansion_approval_ref')!=release['approval_ref'] or
+            not 2<=release.get('approved_capacity',0)<=ceiling or
+            not 1<=release.get('maximum_daily_posts',0)<=50):
+            raise ValueError('Owner auto-scale requires a two-post pilot, valid capacity and a daily cap')
     else:raise ValueError('Unknown release stage')
 
 
@@ -175,7 +202,7 @@ class Publisher:
             quota.reserve(s,counts,self.targets,lang,topic_id,live_ids) # 499 -> 500 passes, 500 -> 501 never
             active=quota.active_intents(s)
             active.pop(topic_id,None)
-            limit=release['pilot_max_posts'] if release.get('stage','pilot')=='pilot' else release['approved_capacity']
+            limit=release_intent_cap(release,s)
             if len(active)>=limit:raise ValueError('Approved publication intent budget exhausted')
             today=now()[:10]
             if sum(x['reserved_at'][:10]==today for x in active.values())>=release.get('maximum_daily_posts',2):
