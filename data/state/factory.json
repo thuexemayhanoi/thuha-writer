@@ -234,6 +234,15 @@
       "sha256": "010c1ea927e1d49117769f325a737e4a3eaa1bdf09fcc07010243b6d976c1e96",
       "status": "FAIL",
       "topic_id": "TH-000001"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:13:48.700295+00:00",
+      "previous": "010c1ea927e1d49117769f325a737e4a3eaa1bdf09fcc07010243b6d976c1e96",
+      "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
+      "sha256": "eec60177240d2c6f204b1b9151b0a50c4ce363c26304cfb305a987a47debdc27",
+      "status": "FAIL",
+      "topic_id": "TH-000002"
     }
   ],
   "intents": {},
@@ -325,6 +334,11 @@
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
       "report_sha": "d21f54fa461ff9d43fe2debce59c8406cbcb4f0a8896a4dc29b8e3665675cc49",
+      "status": "FAIL"
+    },
+    "TH-000002": {
+      "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+      "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
       "status": "FAIL"
     }
   },
@@ -498,7 +512,7 @@
           "url": "https://vietnam.travel/things-to-do/hanoi-art-lovers"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "NEEDS_REPAIR",
       "topic_id": "TH-000002"
     },
     "TH-000003": {
@@ -2341,5 +2355,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 38
+  "version": 39
 }
