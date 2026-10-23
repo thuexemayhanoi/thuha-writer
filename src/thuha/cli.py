@@ -13,7 +13,7 @@ from .http import HTTP,NetworkError
 from .language import LANGUAGES,targets as language_targets
 from .publisher import Publisher
 from . import pipeline
-from . import runtime
+from . import runtime, writing
 
 def dispatch_qa_ready(store, topic_ids):
     """Signal a successful QA revision without waiting for cron or AI review.
@@ -89,6 +89,25 @@ def qa_one(store,tid,inv,policy,facts):
     return quality.run_qa(store,tid,inv,policy,facts)
 
 
+def submit_guard(store,args,article,policy,facts):
+    """Run the writer's precheck on the exact file about to be stored, without changing anything, and refuse a draft that is known to fail.
+
+    A draft with a known fault, or one that waits for data it did not declare (or declares data that exists), would only be
+    sent back for repair; refusing it spends no repair. `--allow-faults` stores it anyway; the wait rules still hold.
+    """
+    state=store.read()
+    if article.get('topic_id') not in state['topics']:return {'status':'OK','waiting_for':[c for c in (args.waiting_for or []) if c!='auto']} # the lease check names the real error
+    try:result=runtime.precheck(store,state,inventory_for(store,args.inventory),article['topic_id'],article,policy,facts)
+    except (ValueError,OSError,KeyError) as exc:
+        # The check itself cannot run (e.g. an unreadable inventory): the draft is stored as it was before this guard existed.
+        return {'status':'OK','waiting_for':[c for c in (args.waiting_for or []) if c!='auto'],'notes':['precheck could not run ('+str(exc)+'): the draft was stored without it']}
+    ok,problems,declared=writing.submission_check(result,args.waiting_for,args.allow_faults)
+    if ok:return {'status':'OK','waiting_for':declared}
+    return {'status':'NOT_SUBMITTED','ledger_writes':0,'problems':problems,'data_waits':result['data_waits'],'content_fails':result['content_fails'],
+            'lint':[f for f in result['lint'] if f['severity']=='fix'],'fixes':writing.hints(result['content_fails']),
+            'next':'Fix the text, run `precheck` (or `build`) again, then submit; --allow-faults stores it as it is.'}
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description='ThuHa Writer V4; production is disabled until separately approved')
     p.add_argument('--remote',action='store_true',help='Use authoritative GitHub CAS; required across computers')
@@ -107,12 +126,18 @@ def main(argv=None):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':
             q.add_argument('--file',required=True)
-            q.add_argument('--waiting-for',nargs='+',choices=coordinator.WAIT_CODES,help='Store the draft as WAITING_DATA: what it still lacks (never READY, never QA)')
+            q.add_argument('--waiting-for',nargs='+',choices=coordinator.WAIT_CODES+('auto',),help='Store the draft as WAITING_DATA: what it still lacks (never READY, never QA). `auto` waits for exactly what the check says is missing')
+            q.add_argument('--allow-faults',action='store_true',help='Store the draft although the precheck knows of faults in it (they will come back as a repair)')
     q=sub.add_parser('source');q.add_argument('--url');q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
     q.add_argument('--repository-file',choices=research.FIRST_PARTY_FILES,help='Capture the owner facts file as labelled first-party evidence (not a web page)')
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
+    q=sub.add_parser('pack',help='Read-only writing pack for one topic, assembled from the repository');q.add_argument('--topic-id',required=True);q.add_argument('--out')
+    q=sub.add_parser('build',help='Compose an article from the pack, a body and a small meta file, save it and run the precheck');q.add_argument('--topic-id',required=True)
+    q.add_argument('--body',required=True,help='HTML file with the article body');q.add_argument('--meta',required=True,help='JSON file: seo_title, meta_description, featured_media, business_claims, extra_sources')
+    q.add_argument('--out');q.add_argument('--session');q.add_argument('--agent-id')
+    q=sub.add_parser('next',help='Read-only ranking of what can be written now');q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',help='Optional attribution; no reviewer is needed');q.add_argument('--extra-queue')
     sub.add_parser('cycle');sub.add_parser('recheck-data')
     q=sub.add_parser('hold');q.add_argument('--topic-id',required=True);q.add_argument('--reason',required=True)
@@ -188,7 +213,11 @@ def main(argv=None):
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
     elif args.command=='submit':
         article=load(args.file)
-        result={'submission':coordinator.submit(store,args.slot,args.session,args.fence,article,policy['maximum_repairs'],args.waiting_for)}
+        guard=submit_guard(store,args,article,policy,facts)
+        if guard['status']!='OK':
+            print(json.dumps(guard,ensure_ascii=False,indent=2));return 1 # nothing was stored and no repair was spent
+        result={'submission':coordinator.submit(store,args.slot,args.session,args.fence,article,policy['maximum_repairs'],guard['waiting_for'] or None)}
+        if guard.get('notes'):result['submit_notes']=guard['notes']
         tid=article['topic_id']
         if store.read()['topics'][tid]['status']=='DRAFT_READY':
             # A completed draft goes straight to automatic QA, with no reviewer. A draft stored with --waiting-for, or one over its
@@ -211,9 +240,28 @@ def main(argv=None):
         inv=inventory_for(store,args.inventory)
         review=load(args.review) if args.review else None
         result=runtime.precheck(store,store.read(),inv,args.topic_id,load(args.file),policy,facts,review)
-        if result['content_fails']:exit_code=1 # a fault in the article itself
-        elif result['data_waits']:exit_code=3 # only data is missing: store the draft with --waiting-for
+        if result['content_fails'] or any(f['severity']=='fix' for f in result['lint']):exit_code=1 # a fault in the article itself
+        elif result['data_waits']:exit_code=3 # only data is missing: store the draft with --waiting-for auto
         elif not result['would_pass_qa']:exit_code=1 # a low score also needs repair, even without hard failures
+    elif args.command=='pack':
+        inv=inventory_for(store,args.inventory);validate_inventory(inv,inventory_max_age(inv,policy,factory))
+        result=writing.pack(store,store.read(),inv,args.topic_id,policy,facts)
+        if args.out:save(Path(args.out),result)
+    elif args.command=='build':
+        inv=inventory_for(store,args.inventory);validate_inventory(inv,inventory_max_age(inv,policy,factory))
+        state=store.read()
+        data=writing.pack(store,state,inv,args.topic_id,policy,facts)
+        article=writing.compose(data,Path(args.body).read_text(encoding='utf-8'),load(args.meta),args.session,args.agent_id)
+        target=Path(args.out) if args.out else Path(args.output)/('article-'+args.topic_id+'.json')
+        save(target,article)
+        result=runtime.precheck(store,state,inv,args.topic_id,article,policy,facts)
+        result['article_file']=str(target)
+        if result['content_fails'] or any(f['severity']=='fix' for f in result['lint']):exit_code=1
+        elif result['data_waits']:exit_code=3
+        elif not result['would_pass_qa']:exit_code=1
+    elif args.command=='next':
+        inv=inventory_for(store,args.inventory);validate_inventory(inv,inventory_max_age(inv,policy,factory))
+        result=writing.readiness(store,store.read(),inv,policy,facts,args.language,args.limit)
     elif args.command=='admit':
         inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
         extra=load(args.extra_queue) if args.extra_queue else []

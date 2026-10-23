@@ -48,12 +48,43 @@ Writers follow [the V5 writer brief](V5-WRITER-BRIEF.md). There is no reviewer s
 automatic QA, and the historical [reviewer brief](V5-REVIEWER-BRIEF.md) is kept only as history.
 
 ```
+python3 -m thuha.cli --git-branch next --language vi      # what can be written now, in order (read-only; HELD topics are never offered)
 python3 -m thuha.cli --git-branch claim --session SESSION --agent-id claude-writer-W1
-python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # same-language links, images with that language's alt text
+python3 -m thuha.cli --git-branch pack --topic-id TH-VI-0001 --out pack.json     # everything the repository already holds for the topic (read-only)
+python3 -m thuha.cli --git-branch build --topic-id TH-VI-0001 --body body.html --meta meta.json   # article.json from the pack + the precheck, in one step
+python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # the older read-only handoff: same-language links, images with that language's alt text
 python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0001 --file article.json     # exit 0 pass, 1 fix the article, 3 only data is missing
-python3 -m thuha.cli --git-branch submit --slot W1 --session SESSION --fence FENCE --file article.json
+python3 -m thuha.cli --git-branch submit --slot W1 --session SESSION --fence FENCE --file article.json [--waiting-for auto]
 python3 -m thuha.cli --remote qa --pending            # every completed draft, and READY drafts whose QA predates the policy or the text
 ```
+
+**Writing support (read-only, advisory).** Nobody types again what the repository already knows, and nobody learns a fault from a spent repair.
+
+* `next` ranks what can be written now: Vietnamese first; topics that can be finished without waiting, then those that will be stored waiting
+  (the expected `FEATURED_MEDIA` / `INTERNAL_LINKS`), then matrix rows that may be admitted (asking only for the shop's own facts or no
+  source), then saved external sources that must be read again, and last the topics that overlap another (`CHECK_OVERLAP`). A HELD
+  topic is never offered, and a topic that needs an official or manufacturer page nobody has read is counted, not offered. Topics about a
+  policy the shop has not confirmed (deposit, refund, delivery, extension) are marked: the article says what to ask, never what the policy is.
+* `pack` assembles, for one topic, the confirmed intent and category chain, the canonical URL, the shop's name, address, hours, phone and
+  reference prices (a price with no reference is listed as such), the saved sources that are still current and, separately, other topics'
+  sources that fit, the live same-language pages and category archives it may link to (planned pages are listed but are not live links), the
+  images whose alt text is in the article's language, the metadata and HTML bands, what the topic is expected to wait for, and a skeleton
+  carrying the lease's session and agent. It writes nothing and invents nothing: what the repository does not hold is said to be missing.
+* `build` composes the article from the pack's skeleton, a body file and a small meta file (`seo_title`, `meta_description`, optional
+  `featured_media` that must be one of the pack's options, `business_claims`, `extra_sources`), saves it and runs `precheck`.
+* `precheck` (and `build`) now also return `lint` (advisory findings; `fix` ones would be refused by `submit`, `consider` ones are judgement calls),
+  `fixes` (where and how to fix every QA failure code, from `config/writing.json`), and `ready_to_submit` / `submit_problems` / `submit_waiting_for`.
+  The lint never changes the score, a threshold or a hard failure. It reads Markdown left in the body, broken heading levels, padding by repetition,
+  provenance leaking into the shop's voice, and likeness to the other stored drafts of the same language (contact lines are left out of that
+  comparison, so a shared address is not "a template"). For prices it judges only a sentence that presents an amount as the shop's own (the shop
+  is named, or the sentence speaks of a rental price per day, week or month): an amount the shop never gave, an amount tied to an unconfirmed
+  policy, or a reference price that is not declared in `business_claims` or lacks the disclaimer. Fines and fees from official sources and the
+  arithmetic of a worked example are never read as shop prices, and a sentence that says "ví dụ" / "for example" is treated as an illustration.
+* `submit` runs the same precheck on the exact file first and refuses, **storing nothing and spending no repair**, a draft with a known fault
+  (`NOT_SUBMITTED`, exit 1, with the fixes), a draft that depends on data that does not exist yet without saying so, and a declared wait for
+  data that does exist (someone must choose that image or add that link). `--waiting-for auto` declares exactly what the check found missing
+  (`FEATURED_MEDIA`, `INTERNAL_LINKS`); `AUTHORITATIVE_INVENTORY` is never a wait the writer has to declare. `--allow-faults` stores a faulty draft
+  on purpose (it will come back from QA as a repair); the wait rules still apply to it.
 
 On the shared ledger (`--remote`) `submit` evaluates a completed draft at once and dispatches the queue on a pass; an expired
 inventory is first replaced by a fresh public read (GET only; if the site cannot be reached the old one is kept and QA refuses it,
@@ -96,7 +127,7 @@ to, an authoritative inventory) is stored instead of being held back or faked:
 
 ```
 python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0004 --file article.json   # exit 3: only data is missing; data_waits / content_fails
-python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for FEATURED_MEDIA INTERNAL_LINKS AUTHORITATIVE_INVENTORY
+python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for auto    # or name the codes: FEATURED_MEDIA INTERNAL_LINKS
 python3 -m thuha.cli --remote recheck-data          # (protected job) clears only what the authenticated inventory really holds
 python3 scripts/export_drafts.py                    # drafts/<language>/<ID>.json + drafts/INDEX.md, derived from the ledger
 python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004   # edit a stored draft whose data is still missing (or one whose QA is BLOCKED_DATA)

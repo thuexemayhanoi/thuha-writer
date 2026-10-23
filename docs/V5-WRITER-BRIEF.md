@@ -18,10 +18,11 @@ cannot reach any website except api.github.com: research with the Parallel
    SESSION is `w<N>-<date>-<random>` (letters, digits, dashes, 4–80 chars),
    AGENT is `claude-writer-W<N>`. Save slot, fence, topic_id from the output.
    If it fails with "No admissible researched topic", stop and report.
-2. `python3 -m thuha.cli --git-branch kit --topic-id <TOPIC> > kit.json`. Read the
-   topic record, the category ancestry, the existing titles in the same
-   category (do not duplicate them), the internal link targets, the media
-   options and the rules.
+2. `python3 -m thuha.cli --git-branch pack --topic-id <TOPIC> --out pack.json` (read-only; `next` shows what can be written now).
+   Read the topic record and intent, the category chain and canonical, the shop facts and reference prices, the saved
+   sources and the other topics' sources that fit, the live same-language links and archives, the images with alt text in the
+   article's language, the existing titles in the same category (do not duplicate them), what the topic is expected to wait for,
+   and the rules. Nothing in it is invented: what is missing is listed as missing. `kit` is the older, smaller handoff.
 3. Research. The topic's `sources` already carry captured evidence documents
    (`resume --topic-id` or the kit shows them). Read each source URL with
    web_fetch to learn the facts. You may add up to three more sources: fetch
@@ -43,12 +44,16 @@ cannot reach any website except api.github.com: research with the Parallel
    a draft that waits for data, step 7: it cannot pass QA until an image with alt text in that language exists, and nothing may be invented), sources (list of {url, document, supports}; include the topic's own
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
-6. `python3 -m thuha.cli --git-branch precheck --topic-id <TOPIC> --file article.json`.
-   Fix every entry in `hard_fails` and re-run until it is empty
-   and `would_pass_qa` is true (automatic score >=85/100). No independent AI review is required. Only then:
+6. `python3 -m thuha.cli --git-branch build --topic-id <TOPIC> --body body.html --meta meta.json` composes `article.json` from the pack
+   (topic, session, agent, commit, language, canonical, category, sources are filled in; you write the body, `seo_title`,
+   `meta_description`, the chosen `featured_media` and any `business_claims`) and runs the precheck; `precheck --file` runs it on a file you wrote
+   yourself. Read `fixes` (where and how to fix each failure) and `lint` (`fix` ones will be refused by `submit`; `consider` ones are judgement
+   calls). Fix and re-run until `ready_to_submit` is true and, when nothing is missing, `would_pass_qa` is true (automatic score >=85/100).
+   The check changes nothing, so repeat it as often as you need; do not submit a draft you know will fail. No independent AI review is required. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
-   If `precheck` exits 3 (only data is missing: `data_waits` lists `FEATURED_MEDIA`, `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and
-   `content_fails` is empty), add `--waiting-for` with exactly those codes. The draft is stored as `WAITING_DATA`: never READY, no QA, the
+   `submit` runs the same check again and refuses (nothing stored, no repair spent) a draft that is known to fail. If `precheck` exits 3 (only
+   data is missing: `data_waits` lists `FEATURED_MEDIA`, `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and `content_fails` is empty), add
+   `--waiting-for auto` (or name exactly the codes in `submit_waiting_for`). The draft is stored as `WAITING_DATA`: never READY, no QA, the
    slot is freed, and it is claimed again only after `recheck-data` shows the data exists. If `content_fails` is not empty, fix the prose first.
    Record the returned article_sha, then free the slot for the next writer:
    `python3 -m thuha.cli --git-branch release --slot <SLOT> --session <SESSION> --fence <FENCE>`.

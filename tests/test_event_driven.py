@@ -49,7 +49,12 @@ class SharedWriterTests(Line):
         lease = claim(self.shared, 'session-d%d' % number, 'writer-d%d' % number)
         return topic, lease
 
-    def run_submit(self, topic, lease, mutate=None, waiting_for=None):
+    def without_media(self):
+        """The live situation for a waiting draft: the library holds no image the article could use yet."""
+        document = self.shared.put_document(dict(self.inv, media=[]))
+        self.shared.mutate(lambda s: s.update(inventory_document=document))
+
+    def run_submit(self, topic, lease, mutate=None, waiting_for=None, allow_faults=False):
         article = self.article_for(topic, lease['session'], lease['agent_id'])
         if mutate:
             mutate(article)
@@ -58,6 +63,8 @@ class SharedWriterTests(Line):
         argv = ['--remote', 'submit', '--slot', lease['slot'], '--session', lease['session'], '--fence', lease['fence'], '--file', str(path)]
         if waiting_for:
             argv += ['--waiting-for'] + waiting_for
+        if allow_faults:
+            argv += ['--allow-faults']
         out = io.StringIO()
         with patch('thuha.cli.GitStore', lambda: self.shared), contextlib.redirect_stdout(out):
             code = cli.main(argv)
@@ -73,6 +80,7 @@ class SharedWriterTests(Line):
 
     def test_a_draft_stored_while_it_waits_for_data_is_not_evaluated_and_dispatches_nothing(self):
         topic, lease = self.claimed()
+        self.without_media()
         code, result = self.run_submit(topic, lease, mutate=lambda a: a.update(featured_media=None), waiting_for=['FEATURED_MEDIA'])
         self.assertEqual(code, 0)
         self.assertNotIn('qa', result)
@@ -81,9 +89,19 @@ class SharedWriterTests(Line):
         state = self.shared.read()
         self.assertEqual((state['topics'][topic['topic_id']]['status'], state['qa']), ('WAITING_DATA', {}))
 
-    def test_a_draft_that_fails_qa_exits_1_and_dispatches_nothing(self):
+    def test_a_draft_known_to_fail_is_not_submitted_and_spends_no_repair(self):
         topic, lease = self.claimed()
         code, result = self.run_submit(topic, lease, mutate=lambda a: a.update(body_html=a['body_html'] + '<p>no deposit</p>'))
+        self.assertEqual((code, result['status'], result['ledger_writes']), (1, 'NOT_SUBMITTED', 0))
+        self.assertEqual(result['content_fails'], ['UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM'])
+        self.assertEqual([f['code'] for f in result['fixes']], ['UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM'])  # and where and how to fix it
+        state = self.shared.read()
+        self.assertEqual((state['topics'][topic['topic_id']]['status'], state['submissions'], state['qa']), ('CLAIMED', {}, {}))
+        self.assertEqual(self.api.dispatches, [])
+
+    def test_a_draft_that_fails_qa_exits_1_and_dispatches_nothing(self):
+        topic, lease = self.claimed()
+        code, result = self.run_submit(topic, lease, mutate=lambda a: a.update(body_html=a['body_html'] + '<p>no deposit</p>'), allow_faults=True)
         self.assertEqual((code, result['qa']['status']), (1, 'FAIL'))
         self.assertNotIn('publisher_trigger', result)
         self.assertEqual(self.api.dispatches, [])

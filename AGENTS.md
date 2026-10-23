@@ -65,6 +65,14 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`. Revising or finishing a
   stored `WAITING_DATA` draft is not a repair, and `promote` accepts it (any other replaced draft must have spent one).
 
+- **Write from the pack, check before storing.** `next` ranks what can be written now (HELD topics are never offered, and a topic that
+  needs an official page nobody has read is not offered as writable). `pack --topic-id` assembles what the repository already holds
+  (intent, category chain, canonical, shop facts and reference prices, still-current saved sources, live same-language links and images,
+  metadata bands, a skeleton with the lease); `build` composes the article from it and runs the non-mutating precheck. `config/writing.json`
+  holds the shared bands, templates and fix hints. The advisory lint (`src/thuha/writing.py`) never adds or removes a point and never changes a
+  hard failure. `submit` refuses (nothing stored, no repair spent) a draft the precheck knows is faulty, or one that waits for data it did not
+  declare, or declares a wait for data that exists; `--waiting-for auto` declares exactly what is missing, `--allow-faults` stores a faulty draft on purpose.
+
 ## Language contract (enforced in code; do not weaken)
 
 - English stays at the site root; Vietnamese posts live at `/vi/{ascii-slug}/`, categories at

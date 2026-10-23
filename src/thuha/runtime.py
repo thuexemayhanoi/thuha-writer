@@ -9,30 +9,14 @@ to WordPress or lowers a gate.
 from collections import Counter
 from .common import digest, now, norm, urlkey, validate_inventory
 from .coordinator import WAIT_CODES, timestamp
-from .datawait import DATA_WAIT_FAILS, media_catalogue, planned_urls, potential_score, qa_blocked, split, unknown_internal_links  # shared with QA
+from .datawait import DATA_WAIT_FAILS, link_catalogue, media_catalogue, planned_urls, potential_score, qa_blocked, split, unknown_internal_links  # shared with QA and writing
 from .language import LANGUAGES, locale, targets as language_targets
-from . import quota
+from . import quota, writing
 from .quality import evaluate
 from .research import capture_external_source, collisions, intake, item_language
 
 ARTICLE_FIELDS=('topic_id','session','agent_id','source_commit','language','title','body_html','seo_title',
                 'meta_description','focus_keyword','canonical','category_id','featured_media','sources','business_claims')
-
-
-def link_catalogue(inv,language=None,limit=None):
-    """Live-verified same-site URLs of ONE language a writer may link to; nothing else passes QA.
-
-    A body link to the other language is a hard QA failure, so the catalogue never offers one.
-    """
-    rows=[]
-    for item in inv['items']:
-        if language and item_language(item)!=language:continue
-        check=item.get('public_check',{})
-        if check.get('http_status')!=200 or check.get('canonicals') not in (None,[item['url']]):continue
-        rows.append({'id':item['id'],'type':item['type'],'url':urlkey(item['url'])+'/','title':item.get('title'),
-                     'categories':item.get('categories',[]),'words':item.get('word_count')})
-    rows.sort(key=lambda r:(r['type']!='posts',r['id']))
-    return rows[:limit] if limit else rows
 
 
 RULES={
@@ -70,8 +54,11 @@ def kit(state,inv,topic_id,policy,business):
             'rules':RULES[lang]}
 
 
-def precheck(store,state,inv,topic_id,article,policy,business,review=None):
-    """Run the production QA function without touching state, leases or repair counts."""
+def precheck(store,state,inv,topic_id,article,policy,business,review=None,cfg=None):
+    """Run the production QA function without touching state, leases or repair counts.
+
+    The advisory writing lint and the fix hints are added beside the QA answer; they never change the score or a gate.
+    """
     topic=state['topics'][topic_id]
     missing=[k for k in ARTICLE_FIELDS if k not in article]
     submission={'article_sha':digest(article),'session':article.get('session'),'agent_id':article.get('agent_id')}
@@ -90,6 +77,12 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None):
                   hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,content_fails=faults,potential_score=potential)
     result['would_pass_qa']=not failures and result['score']>=policy['score_threshold']
     result['status']='PASS' if result['would_pass_qa'] else 'FAIL'
+    cfg=cfg or writing.settings()
+    others=writing.stored_bodies(store,state,topic['language'],topic_id,cfg['similarity']['compare_limit'])
+    needed=[c for c in waits if c!='AUTHORITATIVE_INVENTORY'] # an offline inventory is never a wait the writer has to declare
+    result.update(lint=writing.lint(article,topic,business,others,cfg),fixes=writing.hints(result['hard_fails'],cfg),submit_waiting_for=needed)
+    ready,problems,_=writing.submission_check(result,needed or None)
+    result.update(ready_to_submit=ready,submit_problems=problems)
     return result
 
 

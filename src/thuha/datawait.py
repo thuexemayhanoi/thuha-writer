@@ -19,6 +19,22 @@ DATA_WAIT_FAILS={'FEATURED_MEDIA':('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED',),
 DATA_POINTS={'INTERNAL_LINKS':20,'FEATURED_MEDIA':10}
 
 
+def link_catalogue(inv,language=None,limit=None):
+    """Live-verified same-site URLs of ONE language a writer may link to; nothing else passes QA.
+
+    A body link to the other language is a hard QA failure, so the catalogue never offers one.
+    """
+    rows=[]
+    for item in inv['items']:
+        if language and item_language(item)!=language:continue
+        check=item.get('public_check',{})
+        if check.get('http_status')!=200 or check.get('canonicals') not in (None,[item['url']]):continue
+        rows.append({'id':item['id'],'type':item['type'],'url':urlkey(item['url'])+'/','title':item.get('title'),
+                     'categories':item.get('categories',[]),'words':item.get('word_count')})
+    rows.sort(key=lambda r:(r['type']!='posts',r['id']))
+    return rows[:limit] if limit else rows
+
+
 def media_catalogue(inv,language=None):
     """Existing media whose alt text is written in the article's language (QA screens the alt text)."""
     return [m for m in inv.get('media',[]) if str(m.get('alt_text','')).strip()

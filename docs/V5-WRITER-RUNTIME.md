@@ -50,13 +50,16 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
 export PYTHONPATH=src
 STATE=--git-branch   # or --remote where factory-state REST writes are allowed
 python3 -m thuha.cli --git-branch sync --apply          # once per session: start from the shared ledger
+python3 -m thuha.cli $STATE next --language vi                 # read-only: what can be written now, in order
 python3 -m thuha.cli $STATE claim --session SESSION --agent-id claude-writer-WN
-python3 -m thuha.cli $STATE kit --topic-id TH-VI-0001 > kit.json   # or TH-EN-0001 / legacy TH-00000N
+python3 -m thuha.cli $STATE pack --topic-id TH-VI-0001 --out pack.json   # read-only: everything the repository holds for the topic
+python3 -m thuha.cli $STATE kit --topic-id TH-VI-0001 > kit.json   # the older handoff; or TH-EN-0001 / legacy TH-00000N
 # research: web_fetch each source, write a fetch record, then
 python3 -m thuha.cli $STATE source --url URL --external-fetch record.json
 python3 -m thuha.cli $STATE heartbeat --slot WN --session SESSION --fence FENCE
+python3 -m thuha.cli $STATE build --topic-id TH-VI-0001 --body body.html --meta meta.json   # article.json from the pack + precheck
 python3 -m thuha.cli $STATE precheck --topic-id TH-00000N --file article.json
-python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --file article.json
+python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --file article.json [--waiting-for auto]
 ```
 
 Rules the kit repeats and QA enforces (the kit prints the Vietnamese version for a Vietnamese topic: native
@@ -70,7 +73,10 @@ mentions licences, permits, registration, law, visas or embassies, and never a
 
 `precheck` runs `quality.evaluate` on the draft with no state change, so a
 writer fixes mechanical faults before `submit`; a changed resubmission still
-counts toward the three bounded repairs.
+counts toward the three bounded repairs. It also returns the advisory `lint`, a
+`fixes` entry (where and how to fix) for every QA failure code and
+`ready_to_submit`; `submit` re-runs it on the exact file and refuses a draft that is
+known to fail before anything is stored (see [Operations](OPERATIONS.md#writers-and-automatic-qa)).
 
 ## External fetch record
 

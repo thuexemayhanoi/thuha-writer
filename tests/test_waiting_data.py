@@ -365,11 +365,13 @@ class SubmitCommandTests(Fixture):
         article = dict(self.article_for(topic, 'session-cli', 'writer-cli'), featured_media=None)
         path = Path(self.temp.name) / 'article.json'
         path.write_text(json.dumps(article))
+        inventory = Path(self.temp.name) / 'inv.json'
+        inventory.write_text(json.dumps(without_vi_media(self.inv)))  # the live situation: no Vietnamese image exists yet
         with contextlib.redirect_stdout(io.StringIO()):
-            code = cli.main(['--state-dir', self.temp.name, 'submit', '--slot', lease['slot'], '--session', lease['session'], '--fence', lease['fence'],
-                             '--file', str(path), '--waiting-for', 'FEATURED_MEDIA', 'INTERNAL_LINKS'])
+            code = cli.main(['--state-dir', self.temp.name, '--inventory', str(inventory), 'submit', '--slot', lease['slot'], '--session', lease['session'],
+                             '--fence', lease['fence'], '--file', str(path), '--waiting-for', 'FEATURED_MEDIA'])
         self.assertEqual(code, 0)
-        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['waiting_for'], ['FEATURED_MEDIA', 'INTERNAL_LINKS'])
+        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['waiting_for'], ['FEATURED_MEDIA'])
         self.assertEqual(set(WAIT_CODES), {'FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'})
 
 

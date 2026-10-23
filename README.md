@@ -39,6 +39,7 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
 | Vietnamese topics and drafts | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only; overlap checks while writing merged 17 pages into 7 and held the rest, **not READY, no QA, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to (each draft links only to category archives for now, so a writer adds one live content link when finishing), an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
 | Drafts that wait for data (`WAITING_DATA`, `recheck-data`, `drafts/`) | **Implemented, tested offline**; the credentialed publisher's audit clears a wait only when the inventory really holds the data |
+| Writing support: `next`, `pack`, `build`, advisory lint and fix hints, the `submit` guard (`config/writing.json`, `src/thuha/writing.py`) | **Implemented, tested offline**; read-only, never changes a score or a gate; `submit` refuses a draft the precheck knows is faulty before it spends a repair ([details](docs/OPERATIONS.md#writers-and-automatic-qa)) |
 | English draft QA queue | All 9 drafts are eligible for automatic QA on a fresh inventory (the historical reviews of TH-000005 and TH-000006 play no part); a live writer lease is respected. Run offline against the stale committed snapshot, QA refuses to evaluate and records nothing, so no draft is sent to repair for a missing audit |
 | QA outcomes | `PASS` -> READY; `FAIL` -> repair; `BLOCKED_DATA` (only linked pages are not live yet) stays a draft, spends no repair and passes by itself once they are live; an unusable inventory changes nothing and turns the run red |
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
@@ -54,7 +55,7 @@ Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 ## From draft to published post
 
 ```
-writer session            claim -> kit -> source -> precheck -> submit        (session ledger: data/state + data/documents)
+writer session            next -> claim -> pack -> build (precheck) -> submit  (session ledger: data/state + data/documents)
 merge to main             quality workflow runs, then the scheduled workflow starts
 queue job (no WordPress secret)
                           promote --apply      session ledger -> factory-state, fast-forward only, documents first
@@ -111,6 +112,9 @@ PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: br
 PYTHONPATH=src python3 -m thuha.cli --remote qa --pending   # QA for all completed drafts and stale READY ones; no reviewer gate
 PYTHONPATH=src python3 -m thuha.cli --remote publisher --mode drain     # reconcile, publish, check (needs the release gate)
 PYTHONPATH=src python3 -m thuha.cli matrix next --language vi --limit 10   # next topics to research (read-only)
+PYTHONPATH=src python3 -m thuha.cli --git-branch next --language vi       # what can be written now, in order (read-only)
+PYTHONPATH=src python3 -m thuha.cli --git-branch pack --topic-id TH-VI-0001   # everything the repository holds for one topic (read-only)
+PYTHONPATH=src python3 -m thuha.cli --git-branch build --topic-id TH-VI-0001 --body body.html --meta meta.json   # compose + precheck
 PYTHONPATH=src python3 -m thuha.cli quota                   # per-language target / live / unresolved / remaining
 python3 scripts/build_matrices.py                           # rebuild + validate the matrices from seeds
 python3 scripts/export_queued.py                            # refresh the queued English topics from the ledger, then rebuild

@@ -3,6 +3,7 @@ import concurrent.futures
 import datetime as dt
 import json
 import os
+import random
 import tempfile
 import unittest
 from pathlib import Path
@@ -21,6 +22,18 @@ from thuha.language import post_url
 
 VI_SENTENCE='Chuẩn bị lộ trình trước khi đi giúp bạn chủ động hơn và tránh những đoạn đường không cần thiết trong thành phố. '
 EN_SENTENCE=' '.join('word'+str(i) for i in range(720))
+# Vietnamese filler for fixtures that only need to be long enough: every draft gets its own words, because one sentence repeated
+# is exactly the padding the writing lint rejects (and identical drafts would read as one template).
+VI_POOL=('chuẩn bị lộ trình trước khi đi giúp bạn chủ động hơn và tránh những đoạn đường không cần thiết trong thành phố '
+         'xe máy được nắng mưa gió sáng chiều tối quán cà phê ven hồ phố cổ cầu sông bến chợ đêm nhà hàng khách sạn giờ cao điểm '
+         'đông đúc thoáng mát yên tĩnh dễ dàng nhanh chậm rẽ phải trái thẳng vòng xoay ngã tư đèn đỏ xanh vàng tốc độ an toàn mũ bảo hiểm '
+         'áo kính chắn xăng đầy bình sạc điện thoại bản đồ chỉ dẫn hỏi người dân địa phương thân thiện cẩn thận kiên nhẫn bình tĩnh').split()
+
+
+def vi_filler(seed,tokens=1000,paragraph=50):
+    rng=random.Random(seed)
+    words=[rng.choice(VI_POOL) for _ in range(tokens)]
+    return ''.join('<p>'+' '.join(words[i:i+paragraph])+'.</p>' for i in range(0,tokens,paragraph))
 
 
 def inventory_fixture():
@@ -69,7 +82,7 @@ class Fixture(unittest.TestCase):
 
     def article_for(self,topic,session='session-test',agent='writer-fixture'):
         if topic['language']=='vi':
-            body=('<h2>Chuẩn bị lộ trình</h2><p>'+VI_SENTENCE*45+'</p><h2>Điểm dừng thực tế</h2><p>Xem thêm <a href="'+SITE+'/vi/gioi-thieu-cua-hang/">giới thiệu cửa hàng</a> và <a href="'
+            body=('<h2>Chuẩn bị lộ trình</h2>'+vi_filler(topic['topic_id'])+'<h2>Điểm dừng thực tế</h2><p>Xem thêm <a href="'+SITE+'/vi/gioi-thieu-cua-hang/">giới thiệu cửa hàng</a> và <a href="'
                   +SITE+'/vi/bai-viet-co-san/">bài viết liên quan</a>.</p>')
             return {'topic_id':topic['topic_id'],'session':session,'agent_id':agent,'language':'vi','title':topic['proposed_title'],
               'seo_title':'Kế hoạch lộ trình nhẹ nhàng cho một ngày di chuyển thoải mái','meta_description':'Chuẩn bị lộ trình, điểm dừng thực tế và các liên kết hữu ích trước khi chọn chi tiết cho chuyến đi trong ngày của bạn tại Hà Nội.',
