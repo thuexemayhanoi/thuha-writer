@@ -6590,6 +6590,18 @@
       "sha256": "33fa01a1904de4528d3fe6bf5e2e42213ef231613b6bdaf818c84d247bed2616",
       "slot": "W1",
       "topic_id": "TH-VI-0371"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "0846a05f364573e18e40b253be5a9da295112e3109cac74239139e768f3d74a1",
+      "at": "2026-10-23T16:07:56.312858+00:00",
+      "previous": "33fa01a1904de4528d3fe6bf5e2e42213ef231613b6bdaf818c84d247bed2616",
+      "sha256": "0b4ae64d5c041306f7093221a8a7d6f1a37cc8b38a2862f993ff38fc0f30292c",
+      "topic_id": "TH-VI-0371",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9565,18 +9577,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773471.710046,
-      "fence": "1119f36364864842bdc5d84c80baba92",
-      "heartbeat_at": "2026-10-23T16:07:51.710000+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0371"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10888,13 +10889,13 @@
     },
     "TH-VI-0371": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "9ba036b491e056daeb24459896a075fca782bb300a1570a652aa4022736719d1",
+      "article_sha": "0846a05f364573e18e40b253be5a9da295112e3109cac74239139e768f3d74a1",
       "commit": "d60f079f9faa23c4288d0c7348a011019bc2a1ce",
-      "fence": "db36528b43924a939010619412b08fc1",
+      "fence": "1119f36364864842bdc5d84c80baba92",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:58:08.559465+00:00"
+      "submitted_at": "2026-10-23T16:07:56.312830+00:00"
     },
     "TH-VI-0445": {
       "agent_id": "claude-writer-W1",
@@ -15524,7 +15525,6 @@
         165
       ],
       "cluster": "lai-xe-an-toan",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "kỹ năng vào cua xe máy đường đê ngoại thành",
       "proposed_title": "Vào cua gắt trên đường đê hoặc đường ngoại thành: giảm tốc trước cua, nhìn xa và không phanh gấp giữa cua",
@@ -15537,7 +15537,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0371",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15703,5 +15703,5 @@
       ]
     }
   },
-  "version": 853
+  "version": 854
 }
