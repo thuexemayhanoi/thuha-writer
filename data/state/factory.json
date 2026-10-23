@@ -441,6 +441,15 @@
       "sha256": "7f9b757966852adc305d1856b9e9734f1cff0b9de40f2e43fc2eabf30e6c9619",
       "status": "PASS",
       "topic_id": "TH-000005"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W11",
+      "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+      "at": "2026-10-23T02:18:58.553084+00:00",
+      "previous": "7f9b757966852adc305d1856b9e9734f1cff0b9de40f2e43fc2eabf30e6c9619",
+      "sha256": "42b157d51ac332115e5124476187566c496cb8c1d828dcb1997ed1176484d21f",
+      "topic_id": "TH-000001"
     }
   ],
   "intents": {},
@@ -635,14 +644,14 @@
   "schema": 4,
   "submissions": {
     "TH-000001": {
-      "agent_id": "claude-writer-W1",
-      "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
-      "commit": "d8f84a81403ce546555f49645f55f7cf8e318694",
-      "fence": "bc80b55594e743ee8544b08e524aa8ea",
-      "repair_count": 0,
-      "session": "w1-20261023-b1",
+      "agent_id": "claude-writer-W11",
+      "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+      "commit": "84d9cc101cb5031304e79c2e6cb77521830a847d",
+      "fence": "96afbe289bf843c79d504eca05418e51",
+      "repair_count": 1,
+      "session": "w11-20261023-d1",
       "slot": "W1",
-      "submitted_at": "2026-10-23T02:07:08.788872+00:00"
+      "submitted_at": "2026-10-23T02:18:58.553053+00:00"
     },
     "TH-000002": {
       "agent_id": "claude-writer-W2",
@@ -756,7 +765,7 @@
           "url": "https://baotanghochiminh.vn/"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000001"
     },
     "TH-000002": {
@@ -2631,5 +2640,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 91
+  "version": 92
 }
