@@ -95,7 +95,7 @@ class Line(tf.Fixture):
 
     # -- the writer side: a session ledger, then a hand-over -----------------------------------------------------------
 
-    def draft(self, lang, subject, reviewed=True):
+    def draft(self, lang, subject, reviewed=True, soft_qa_75=False):
         keyword, title, slug = subject
         self.sessions += 1
         number = self.sessions
@@ -107,7 +107,10 @@ class Line(tf.Fixture):
         session, agent = 'session-w%d' % number, 'writer-w%d' % number
         lease = claim(self.store, session, agent)
         self.assertEqual(lease['topic_id'], topic['topic_id'])
-        receipt = submit(self.store, lease['slot'], lease['session'], lease['fence'], distinct_body(self.article_for(topic, session, agent), lang))
+        article = distinct_body(self.article_for(topic, session, agent), lang)
+        if soft_qa_75:
+            article.update(seo_title='Short', meta_description='Too short')
+        receipt = submit(self.store, lease['slot'], lease['session'], lease['fence'], article)
         if reviewed:
             review = {'article_sha': receipt['article_sha'], 'reviewer_id': 'reviewer-qa', 'language': lang, 'checked_at': now(),
                       'checks': {k: True for k in quality.REVIEW_CHECKS}, 'notes': 'Synthetic review for an end-to-end test; never evidence.'}
@@ -213,6 +216,16 @@ class FullLineTests(Line):
         with self.assertRaisesRegex(ValueError, 'public-page check passed'):
             self.drain(**scale)
         self.assertEqual(len(self.wp.created), 2)
+
+    def test_score_75_without_reviewer_publishes_and_records_receipt(self):
+        topic_id = self.draft('en', EN[0], reviewed=False, soft_qa_75=True)
+        self.assertEqual(self.hand_over()['status'], 'FAST_FORWARD')
+        self.assertEqual(self.qa(), {topic_id: 'PASS'})
+        report = self.shared.get_document(self.state()['qa'][topic_id]['report_sha'])
+        self.assertEqual((report['score'], report['threshold'], report['hard_fails']), (75, 75, []))
+        self.assertEqual([row['topic_id'] for row in self.drain()['published']], [topic_id])
+        self.assertEqual(self.state()['intents'][topic_id]['phase'], 'PUBLISHED')
+        self.assertEqual(len(self.wp.created), 1)
 
     def test_a_draft_without_a_review_passes_qa_and_publishes(self):
         unreviewed = self.draft('vi', VI[2], reviewed=False)
