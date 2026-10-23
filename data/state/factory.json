@@ -376,11 +376,33 @@
       "sha256": "e00f179eaf0f79f0a0eec7e21b12cca2657b4b415d6b4f82f2231f185db2e11b",
       "slot": "W1",
       "topic_id": "TH-000001"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W11",
+      "at": "2026-10-23T02:17:17.481203+00:00",
+      "expires_at": 1792723637.48119,
+      "fence": "96afbe289bf843c79d504eca05418e51",
+      "heartbeat_at": "2026-10-23T02:17:17.481075+00:00",
+      "previous": "e00f179eaf0f79f0a0eec7e21b12cca2657b4b415d6b4f82f2231f185db2e11b",
+      "session": "w11-20261023-d1",
+      "sha256": "053319e5dbd843034d3d58e4330d084b785fb64cf09e370674241157da638733",
+      "slot": "W1",
+      "topic_id": "TH-000001"
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
   "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W11",
+      "expires_at": 1792723637.48119,
+      "fence": "96afbe289bf843c79d504eca05418e51",
+      "heartbeat_at": "2026-10-23T02:17:17.481075+00:00",
+      "session": "w11-20261023-d1",
+      "slot": "W1",
+      "topic_id": "TH-000001"
+    },
     "W2": {
       "agent_id": "claude-writer-W2",
       "expires_at": 1792722756.594043,
@@ -655,7 +677,7 @@
           "url": "https://baotanghochiminh.vn/"
         }
       ],
-      "status": "NEEDS_REPAIR",
+      "status": "CLAIMED",
       "topic_id": "TH-000001"
     },
     "TH-000002": {
@@ -2530,5 +2552,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 76
+  "version": 77
 }
