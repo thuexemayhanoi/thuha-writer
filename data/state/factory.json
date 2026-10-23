@@ -2153,6 +2153,15 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:33.502527+00:00",
+      "previous": "e764eedcfcb3e37b6726234b83ce793caf5b4cebd8b1d2497d52d4e41f0030c3",
+      "previous_status": "WAITING_DATA",
+      "reason": "Merged after the second independent editorial review: its early-return table and questions now live in TH-VI-0019, which also owns the day/week comparison.",
+      "sha256": "1e6826205b816d191d8c2a505b4a06d9d0a2985a99de1f1b26f9f9c81e644376",
+      "topic_id": "TH-VI-0006"
     }
   ],
   "intents": {},
@@ -4586,6 +4595,11 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T08:19:33.502505+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Merged after the second independent editorial review: its early-return table and questions now live in TH-VI-0019, which also owns the day/week comparison."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -4610,7 +4624,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0006",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5279,5 +5293,5 @@
       ]
     }
   },
-  "version": 285
+  "version": 286
 }
