@@ -3500,22 +3500,24 @@
       "sha256": "d0c007eb5268ebd427c41d4879b86bb21d1998f5cbe4cbb113ec262458c79fac",
       "slot": "W1",
       "topic_id": "TH-VI-0146"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "da5c3acd8e12158d464755b7c7bc2a4f238af60fdba939f9cfa6ebb6037106a2",
+      "at": "2026-10-23T13:54:30.788958+00:00",
+      "previous": "d0c007eb5268ebd427c41d4879b86bb21d1998f5cbe4cbb113ec262458c79fac",
+      "sha256": "8bd2b2f436630beb0f35e0ae34d0e4f32d65805125ffcb0e915005daa59ec3a6",
+      "topic_id": "TH-VI-0146",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765467.832501,
-      "fence": "e684611542f342a9b0ae1c30905fddc3",
-      "heartbeat_at": "2026-10-23T13:54:27.832477+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0146"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4105,13 +4107,13 @@
     },
     "TH-VI-0146": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "6a1358887dd7b923b68eea15ab3cf414bf9b95abb43dafeb07bf810d13c4e03d",
-      "commit": "2675fdddd7d723ab482d9cea3a9af6403007c0ee",
-      "fence": "02d804f16ea744ff9985a90cdfb6d9f2",
+      "article_sha": "da5c3acd8e12158d464755b7c7bc2a4f238af60fdba939f9cfa6ebb6037106a2",
+      "commit": "cd3e39b248fc5875d66e5ebd3992de8ef192eb45",
+      "fence": "e684611542f342a9b0ae1c30905fddc3",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:32:33.713612+00:00"
+      "submitted_at": "2026-10-23T13:54:30.788940+00:00"
     },
     "TH-VI-0151": {
       "agent_id": "claude-writer-W1",
@@ -7512,7 +7514,6 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi dép lê lái xe số xe côn có nguy hiểm không",
       "proposed_title": "Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân",
@@ -7525,7 +7526,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0146",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7979,5 +7980,5 @@
       ]
     }
   },
-  "version": 490
+  "version": 491
 }
