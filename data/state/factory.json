@@ -295,6 +295,14 @@
       "sha256": "81578cdfac9c89066556166a7c902401dfad3c438be47a813bbe132b45381e47",
       "slot": "W5",
       "topic_id": "TH-000005"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:16.717059+00:00",
+      "previous": "81578cdfac9c89066556166a7c902401dfad3c438be47a813bbe132b45381e47",
+      "sha256": "af4e40bf999c7531f61dac876b818eff6391d292327b7b5418a105d73fc13902",
+      "slot": "W6",
+      "topic_id": "TH-000006"
     }
   ],
   "intents": {},
@@ -326,15 +334,6 @@
       "session": "w4-20261023-c1",
       "slot": "W4",
       "topic_id": "TH-000004"
-    },
-    "W6": {
-      "agent_id": "claude-writer-W6",
-      "expires_at": 1792723524.168096,
-      "fence": "d196eeb9692c4477b0c6175637427fef",
-      "heartbeat_at": "2026-10-23T02:15:24.168078+00:00",
-      "session": "w6-20261023-c1",
-      "slot": "W6",
-      "topic_id": "TH-000006"
     },
     "W7": {
       "agent_id": "claude-writer-W7",
@@ -2429,5 +2428,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 62
+  "version": 63
 }
