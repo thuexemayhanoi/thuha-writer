@@ -333,6 +333,15 @@
       "sha256": "8b1ec3bd0ba613f2f6e64579ebf29c5846e070fe1c20eba7b8f7f197b3115914",
       "slot": "W3",
       "topic_id": "TH-000010"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W4",
+      "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+      "at": "2026-10-23T02:16:52.944317+00:00",
+      "previous": "8b1ec3bd0ba613f2f6e64579ebf29c5846e070fe1c20eba7b8f7f197b3115914",
+      "sha256": "1506953ea421d8dd07aca477817a7cdff56d926fa860d40626d95f64b2a71d4b",
+      "topic_id": "TH-000004"
     }
   ],
   "intents": {},
@@ -521,6 +530,16 @@
       "slot": "W3",
       "submitted_at": "2026-10-23T02:15:25.872275+00:00"
     },
+    "TH-000004": {
+      "agent_id": "claude-writer-W4",
+      "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+      "commit": "df88f757414860018f16cf029df5c406276149ab",
+      "fence": "2d6c3390616c4fb7813a481d695ec4f4",
+      "repair_count": 0,
+      "session": "w4-20261023-c1",
+      "slot": "W4",
+      "submitted_at": "2026-10-23T02:16:52.944291+00:00"
+    },
     "TH-000005": {
       "agent_id": "claude-writer-W5",
       "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
@@ -697,7 +716,7 @@
           "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000004"
     },
     "TH-000005": {
@@ -2468,5 +2487,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 69
+  "version": 70
 }
