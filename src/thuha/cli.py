@@ -18,9 +18,23 @@ from . import runtime
 
 def inventory_for(store,path):
     state=store.read()
-    if state.get('inventory_document'):return store.get_document(state['inventory_document'])
+    if state.get('inventory_document'):
+        stored=store.get_document(state['inventory_document'])
+        # An inventory recorded before languages existed carries no label and cannot count anything; an honestly
+        # labelled one (even the public-only one) is kept as it is.
+        if stored.get('language_source'):return stored
     if path and Path(path).exists():return load(path)
     return audit.snapshot_inventory() # Offline planning view only; it is stale by design.
+
+
+def inventory_max_age(inv,policy,factory):
+    """How old an inventory may be for the work at hand.
+
+    The committed authenticated snapshot may feed planning (topic admission, writer claims, quota and dashboard) for a
+    week; everything that publishes or passes QA keeps the strict policy age, and the snapshot never satisfies that.
+    """
+    if inv.get('language_source')=='authenticated-snapshot':return factory['planning_inventory_max_age_seconds']
+    return policy['inventory_max_age_seconds']
 
 
 def live_counts(inv,state=None):
@@ -45,13 +59,15 @@ def main(argv=None):
     q=sub.add_parser('claim');q.add_argument('--session',required=True);q.add_argument('--agent-id',required=True);q.add_argument('--slot',default='auto')
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
-        if command=='submit':q.add_argument('--file',required=True)
+        if command=='submit':
+            q.add_argument('--file',required=True)
+            q.add_argument('--waiting-for',nargs='+',choices=coordinator.WAIT_CODES,help='Store the draft as WAITING_DATA: what it still lacks (never READY, never QA)')
     q=sub.add_parser('source');q.add_argument('--url',required=True);q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
     q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',required=True);q.add_argument('--extra-queue')
-    sub.add_parser('cycle')
+    sub.add_parser('cycle');sub.add_parser('recheck-data')
     q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10);q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
@@ -112,31 +128,38 @@ def main(argv=None):
     elif args.command in ('coordinator','recovery'):
         result={'expired_slots':store.mutate(coordinator.recover),'ai_runtime':'External session required; no AI launched'}
     elif args.command=='claim':
-        inv=inventory_for(store,args.inventory);validate_inventory(inv);note=None
-        try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'])
+        inv=inventory_for(store,args.inventory);planning=inventory_max_age(inv,policy,factory);validate_inventory(inv,planning);note=None
+        try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],inventory_max_age=planning)
         except ValueError as exc:note=str(exc) # e.g. inventory not language-authoritative; claiming itself stays possible
         result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets()))
         if note:result['refill_note']=note
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
-    elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])
+    elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'],args.waiting_for)
     elif args.command=='source':
         result=(research.capture_external_source(store,args.url,load(args.external_fetch)) if args.external_fetch
                 else research.capture_source(store,args.url))
     elif args.command=='kit':
-        inv=inventory_for(store,args.inventory);validate_inventory(inv)
+        inv=inventory_for(store,args.inventory);validate_inventory(inv,inventory_max_age(inv,policy,factory))
         result=runtime.kit(store.read(),inv,args.topic_id,policy,facts)
     elif args.command=='precheck':
         inv=inventory_for(store,args.inventory)
         review=load(args.review) if args.review else None
         result=runtime.precheck(store,store.read(),inv,args.topic_id,load(args.file),policy,facts,review)
-        if result['hard_fails_excluding_review']:exit_code=1
+        if result['content_fails']:exit_code=1 # a fault in the article itself
+        elif result['data_waits']:exit_code=3 # only data is missing: store the draft with --waiting-for
     elif args.command=='admit':
         inv=inventory_for(store,args.inventory)
         extra=load(args.extra_queue) if args.extra_queue else []
-        result={'admitted':runtime.admit(store,inv,load(args.file),args.reviewer_id,load(args.fetch_records),factory['refill_batch_max'],extra)}
+        result={'admitted':runtime.admit(store,inv,load(args.file),args.reviewer_id,load(args.fetch_records),factory['refill_batch_max'],extra,
+                                         inventory_max_age=inventory_max_age(inv,policy,factory))}
     elif args.command=='cycle':
         result=runtime.cycle(store.read(),inventory_for(store,args.inventory),release)
+    elif args.command=='recheck-data':
+        # Only an authoritative, fresh inventory can show that the image or the live links now exist. Nothing becomes READY.
+        inv=inventory_for(store,args.inventory)
+        result={'inventory_language_source':inv.get('language_source'),'cleared':store.mutate(lambda s:coordinator.clear_satisfied(s,inv,policy)),
+                'still_waiting':{k:v['waiting_for'] for k,v in store.read()['topics'].items() if v['status']=='WAITING_DATA' and v.get('waiting_for')}}
     elif args.command=='resume':
         state=store.read();submission=state['submissions'].get(args.topic_id)
         result={'topic':state['topics'][args.topic_id],'submission':submission,
@@ -165,12 +188,16 @@ def main(argv=None):
             result={l:matrix.validate(load(matrix.matrix_path(l)),l) for l in ([args.language] if args.language else LANGUAGES)}
             if any(result.values()):exit_code=1
         else:
-            rows=[]
+            rows=[];admitted=set(store.read()['topics']) # a row already admitted to the ledger is not "next"
             for l in ([args.language] if args.language else LANGUAGES):
-                rows+=sorted((r for r in load(matrix.matrix_path(l))['rows'] if r['kind']=='NEW' and r['writer_state']=='NEEDS_SOURCE'),key=lambda r:r['write_order'])[:args.limit]
+                rows+=sorted((r for r in load(matrix.matrix_path(l))['rows'] if r['kind']=='NEW' and r['writer_state']=='NEEDS_SOURCE' and r['id'] not in admitted),key=lambda r:r['write_order'])[:args.limit]
             result={'mode':'read-only','wordpress_writes':0,'next_research':[{k:r[k] for k in ('id','language','title','primary_keyword','category_id','proposed_url','source_requirements','writer_state')} for r in rows]}
-    elif args.command=='intake':result={'admitted':research.intake(store,load(args.file),inventory_for(store,args.inventory),factory['refill_batch_max'],language_targets())}
-    elif args.command=='refill':result=research.refill(store,inventory_for(store,args.inventory),factory['refill_below'],factory['refill_batch_max'],language_targets())
+    elif args.command=='intake':
+        inv=inventory_for(store,args.inventory)
+        result={'admitted':research.intake(store,load(args.file),inv,factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))}
+    elif args.command=='refill':
+        inv=inventory_for(store,args.inventory)
+        result=research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))
     elif args.command=='review':
         value=load(args.file)
         # Setting a string ID is attribution, not authentication; enforced GitHub

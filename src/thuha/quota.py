@@ -6,7 +6,7 @@ language past its ceiling nor be forgotten.
 """
 from .language import LANGUAGES
 
-OPEN_TOPIC_STATES = ('PLANNED', 'CLAIMED', 'DRAFT_READY', 'READY', 'NEEDS_REPAIR',
+OPEN_TOPIC_STATES = ('PLANNED', 'CLAIMED', 'DRAFT_READY', 'WAITING_DATA', 'READY', 'NEEDS_REPAIR',
                      'NEEDS_REVIEW', 'BLOCKED', 'PUBLISHING')
 
 

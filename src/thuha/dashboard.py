@@ -5,7 +5,7 @@ from .coordinator import SLOTS,timestamp
 from .language import LANGUAGES,screen_alt,targets as language_targets
 from . import ledger,quota
 
-STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','PUBLISHING','PUBLISHED')
+STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','WAITING_DATA','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','PUBLISHING','PUBLISHED')
 
 
 def language_view(s,inv,targets):
@@ -25,7 +25,7 @@ def language_view(s,inv,targets):
     return out,None
 
 
-QUEUE_COLUMNS=('awaiting_review','awaiting_qa','qa_pass','publishing','published','needs_repair','held_or_unknown')
+QUEUE_COLUMNS=('waiting_data','awaiting_review','awaiting_qa','qa_pass','publishing','published','needs_repair','held_or_unknown')
 
 
 def queue_view(s):
@@ -36,7 +36,8 @@ def queue_view(s):
         for tid,t in sorted(s['topics'].items()):
             if t['language']!=lang or tid not in s['submissions']:continue
             status=t['status']
-            if status=='DRAFT_READY':rows['awaiting_qa' if tid in s.get('reviews',{}) else 'awaiting_review'].append(tid)
+            if status=='WAITING_DATA':rows['waiting_data'].append(tid) # stored, complete but for data that does not exist yet; never QA pass
+            elif status=='DRAFT_READY':rows['awaiting_qa' if tid in s.get('reviews',{}) else 'awaiting_review'].append(tid)
             elif status=='READY':rows['qa_pass'].append(tid)
             elif status=='PUBLISHING':rows['publishing'].append(tid)
             elif status=='PUBLISHED':rows['published'].append(tid)
@@ -91,7 +92,7 @@ def report(store,inv,release,targets=None,live_ledger=None):
        'wordpress_pages':inv.get('counts',{}).get('pages'),'inventory_complete':inv.get('complete',False),
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'factory_published_receipts':len(s['receipts']),
-       'queue':queue_view(s),'post_checks':post_checks(s),'open_alerts':[a for a in s.get('alerts',[]) if not a.get('acknowledged')],
+       'queue':queue_view(s),'waiting_data':{k:v.get('waiting_for',[]) for k,v in sorted(s['topics'].items()) if v['status']=='WAITING_DATA'},'post_checks':post_checks(s),'open_alerts':[a for a in s.get('alerts',[]) if not a.get('acknowledged')],
        'handoff':handoff(store,live_ledger),
        'states':dict(counts),'production_enabled':release['enabled'],'languages_enabled':release.get('languages_enabled',[]),
        'adapter':s.get('adapter') or {'status':'NOT_VERIFIED','code':'BLOCKED_ADAPTER_NOT_DEPLOYED'},
@@ -126,6 +127,11 @@ def report(store,inv,release,targets=None,live_ledger=None):
     if result['handoff'] and result['handoff']['status']=='FAST_FORWARD':result['blockers'].append('The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over')
     if result['handoff'] and result['handoff']['status'] in ('DIVERGED','INCONSISTENT','INVALID_LEDGER'):result['blockers'].append('Session ledger cannot be handed over ('+result['handoff']['status']+'): sync the session branch from the shared ledger')
     if inv.get('media_library')=='complete':result['blockers'].extend(media_blockers(inv)) # an inventory that listed only featured images says nothing about the library
+    if result['waiting_data']:
+        by_code=Counter(c for codes in result['waiting_data'].values() for c in codes)
+        ready=[k for k,v in result['waiting_data'].items() if not v]
+        result['blockers'].append(str(len(result['waiting_data']))+' draft(s) wait for data ('+', '.join(c+' x'+str(n) for c,n in sorted(by_code.items()))+')'
+                                  +('; '+str(len(ready))+' now have it and wait for a writer to finish them' if ready else '')+': '+', '.join(list(result['waiting_data'])[:12]))
     awaiting=[t for lang in LANGUAGES for t in result['queue'][lang]['awaiting_review']]
     if awaiting:result['blockers'].append(str(len(awaiting))+' draft(s) wait for an independent review before QA: '+', '.join(awaiting[:12]))
     return result
@@ -142,7 +148,7 @@ def write_report(value,directory):
     for lang in value['priority']:
         row=(value['languages'] or {}).get(lang)
         text+='| '+lang+' | '+str(value['targets'][lang])+' | '+(' | '.join(str(row[k]) for k in ('published_live','unresolved_intents','remaining','factory_published_receipts')) if row else 'UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN')+' |\n'
-    text+='\n## Shared queue (not published posts)\n\n| Language | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|\n'
+    text+='\n## Shared queue (not published posts)\n\n| Language | Waiting for data | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|---|\n'
     for lang in value['priority']:
         q=value['queue'][lang]
         text+='| '+lang+' | '+' | '.join(str(len(q[k])) for k in QUEUE_COLUMNS)+' |\n'

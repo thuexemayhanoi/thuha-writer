@@ -12,7 +12,7 @@ from .audit import parse
 from . import htmlpolicy
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
 from .language import locale, screen, screen_alt, url_language
-from .research import collisions, item_language
+from .research import collisions, evidence_current, item_language
 from .quota import CLOSED_PHASES
 from .store import event
 from .coordinator import timestamp
@@ -121,8 +121,9 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
             evidence=store.get_document(ref['document'])
             if evidence['url']!=ref['url'] or evidence['http_status']!=200 or not 0<=age(evidence['checked_at'])<=policy['research_max_age_seconds']:
                 errors.append('SOURCE_STALE_OR_UNVERIFIED')
+            if not evidence_current(evidence):errors.append('SOURCE_STALE_OR_UNVERIFIED') # a first-party file changed after capture
             if len(ref.get('supports',''))<20:errors.append('SOURCE_SUPPORT_UNSPECIFIED')
-            source_hosts.append(urlsplit(ref['url']).hostname or '')
+            source_hosts.append('' if evidence.get('capture_method')=='repository-file' else urlsplit(ref['url']).hostname or '') # first-party files are no official host
         except (ValueError,KeyError,OSError):errors.append('SOURCE_SNAPSHOT_MISSING')
     if sources:score+=10
     if re.search(REGULATED[lang],text,re.I):
@@ -160,6 +161,8 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
 
 def run_qa(store,topic_id,inv,policy,business):
     state=store.read();sub=state['submissions'][topic_id];topic=state['topics'][topic_id]
+    if topic['status']=='WAITING_DATA':
+        raise ValueError('Topic waits for data ('+', '.join(topic.get('waiting_for') or ['finish the draft'])+'); it cannot be evaluated or made READY until the draft is complete')
     article=store.get_document(sub['article_sha'])
     review=store.get_document(state['reviews'][topic_id]) if topic_id in state.get('reviews',{}) else None
     result=evaluate(article,topic,sub,inv,policy,store,review,business)

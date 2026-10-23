@@ -1,5 +1,5 @@
 """Source-backed admission; refill requests never pretend to be researched prose."""
-from .common import age, digest, now, norm, urlkey, category_path, validate_inventory
+from .common import ROOT, age, digest, now, norm, urlkey, category_path, validate_inventory
 from .http import HTTP, safe_public_url, safe_url_shape
 from .language import LANGUAGES, TOPIC_ID, check, post_url, split_url, url_language, targets as language_targets
 from .quota import effective, published, topics_needed
@@ -45,6 +45,35 @@ def capture_external_source(store,url,record,max_record_age=86400):
     return {'document':store.put_document(snapshot),'url':url,'capture_method':'external-fetcher'}
 
 
+# First-party evidence: facts the owner supplied and the repository keeps. Nothing else is read this way, so a
+# repository file can never stand in for a captured external page.
+FIRST_PARTY_FILES=('config/business-facts.json',)
+REPOSITORY_SCHEME='repo://'
+
+
+def capture_repository_file(store,path):
+    """Record the owner's business-facts file as labelled first-party evidence (an excerpt, never the whole file).
+
+    The evidence carries the file's digest, so it goes stale the moment the file changes; QA and intake refuse it then.
+    It supports statements about the business itself and nothing else: it is no official source for a legal claim.
+    """
+    if path not in FIRST_PARTY_FILES:raise ValueError('Only the owner facts file can be captured as first-party evidence')
+    data=(ROOT/path).read_bytes()
+    words=data.decode('utf-8').split()
+    snapshot={'url':REPOSITORY_SCHEME+path,'checked_at':now(),'http_status':200,'response_sha256':digest(data),'file_sha256':digest(data),
+              'excerpt':' '.join(words[:20]),'page_title':path,'content_type':'application/json; repository file',
+              'capture_method':'repository-file','http_status_basis':'the repository file was read; there is no HTTP request'}
+    return {'document':store.put_document(snapshot),'url':snapshot['url'],'capture_method':'repository-file'}
+
+
+def evidence_current(evidence):
+    """A repository-file capture is current only while the file still has the captured digest; web captures have none."""
+    if evidence.get('capture_method')!='repository-file':return True
+    path=str(evidence.get('url',''))[len(REPOSITORY_SCHEME):]
+    if not str(evidence.get('url','')).startswith(REPOSITORY_SCHEME) or path not in FIRST_PARTY_FILES:return False
+    return digest((ROOT/path).read_bytes())==evidence.get('file_sha256')
+
+
 def item_language(item):
     """Language of an inventory item or queued topic; URL namespace when untagged."""
     if item.get('language') in LANGUAGES:
@@ -78,8 +107,8 @@ def collisions(topic,inv,queue):
     return hits
 
 
-def validate_candidate(candidate,inv,queue,store,max_age=2592000):
-    validate_inventory(inv)
+def validate_candidate(candidate,inv,queue,store,max_age=2592000,inventory_max_age=None):
+    validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
     required=['topic_id','language','primary_keyword','search_intent','proposed_title','category_id','category_path',
               'cluster','proposed_url','sources','intent_review']
     if any(not candidate.get(k) for k in required):raise ValueError('Incomplete topic contract')
@@ -100,6 +129,7 @@ def validate_candidate(candidate,inv,queue,store,max_age=2592000):
         evidence=store.get_document(ref['document'])
         if evidence.get('url')!=ref['url'] or evidence.get('http_status')!=200 or not 0<=age(evidence['checked_at'])<=max_age:
             raise ValueError('Source capture missing, stale or unsuccessful')
+        if not evidence_current(evidence):raise ValueError('First-party source is stale: the repository file changed after it was captured')
         if not ref.get('supports') or len(ref['supports'])<20:raise ValueError('Explain which claim the source supports')
     verdict=candidate['intent_review']
     if verdict.get('verdict')!='DISTINCT' or verdict.get('inventory_sha256')!=digest(inv) or not verdict.get('reviewer_id') or not verdict.get('rationale'):
@@ -108,7 +138,7 @@ def validate_candidate(candidate,inv,queue,store,max_age=2592000):
     return True
 
 
-def intake(store,candidates,inv,batch_max=100,targets=None):
+def intake(store,candidates,inv,batch_max=100,targets=None,inventory_max_age=None):
     if not 1<=len(candidates)<=batch_max:raise ValueError('Research batch size out of range')
     targets=targets or language_targets()
     inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
@@ -121,7 +151,7 @@ def intake(store,candidates,inv,batch_max=100,targets=None):
         for candidate in candidates:
             tid=candidate['topic_id']
             if tid in state['topics']:raise ValueError('Topic ID already exists')
-            validate_candidate(candidate,inv,state['topics'].values(),store)
+            validate_candidate(candidate,inv,state['topics'].values(),store,inventory_max_age=inventory_max_age)
             state['topics'][tid]={**candidate,'status':'PLANNED','admitted_at':now()}
             admitted.append(tid)
         for request in state['research_requests'].values():
@@ -133,13 +163,13 @@ def intake(store,candidates,inv,batch_max=100,targets=None):
     return store.mutate(transaction)
 
 
-def refill(store,inv,below=30,batch_max=100,targets=None):
+def refill(store,inv,below=30,batch_max=100,targets=None,inventory_max_age=None):
     """One outstanding research request at a time, Vietnamese before English.
 
     English is asked for only when Vietnamese needs nothing more (its open topics
     already cover the ceiling or it holds enough PLANNED topics).
     """
-    validate_inventory(inv)
+    validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
     targets=targets or language_targets()
     inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
     def transaction(state):

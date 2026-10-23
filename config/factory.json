@@ -2,6 +2,7 @@
   "lease_seconds": 1800,
   "refill_below": 30,
   "refill_batch_max": 100,
+  "planning_inventory_max_age_seconds": 604800,
   "maximum_get_attempts": 3,
   "maximum_post_attempts": 1,
   "ai_runtime": "external authorized ChatGPT/Claude session; not supplied by Actions",

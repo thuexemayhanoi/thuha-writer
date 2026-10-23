@@ -8,12 +8,17 @@ to WordPress or lowers a gate.
 """
 from collections import Counter
 from .common import digest, now, norm, urlkey, validate_inventory
-from .coordinator import timestamp
+from .coordinator import WAIT_CODES, timestamp
 from .language import LANGUAGES, locale, screen_alt, targets as language_targets
 from . import quota
 from .quality import evaluate, REVIEW_CHECKS
 from .research import capture_external_source, collisions, intake, item_language
 
+# Hard-fail codes that mean "the data does not exist yet" rather than "the article is wrong". A draft may be stored with
+# `--waiting-for` for these; everything else must be fixed in the prose.
+DATA_WAIT_FAILS={'FEATURED_MEDIA':('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED',),
+                 'INTERNAL_LINKS':('INTERNAL_LINK_NOT_LIVE_VERIFIED','INSUFFICIENT_REAL_INTERNAL_LINKS'),
+                 'AUTHORITATIVE_INVENTORY':('Inventory is stale or future-dated','Complete inventory for the exact production site is required')}
 ARTICLE_FIELDS=('topic_id','session','agent_id','source_commit','language','title','body_html','seo_title',
                 'meta_description','focus_keyword','canonical','category_id','featured_media','sources','business_claims')
 
@@ -71,7 +76,7 @@ def kit(state,inv,topic_id,policy,business):
             'blockers':([] if media else ['NEEDS_MEDIA: no existing image has '+lang+' alt text, so this article cannot pass QA until one is added in WordPress']),
             'business_facts':business,'qa_policy':{k:policy[k] for k in ('score_threshold','minimum_internal_links','minimum_internal_content_links','maximum_repairs')},
             'minimum_length':{'unit':'syllables' if lang=='vi' else 'words','value':policy['substantial_length'][lang]},
-            'article_fields':list(ARTICLE_FIELDS),'review_checks':list(REVIEW_CHECKS),
+            'article_fields':list(ARTICLE_FIELDS),'review_checks':list(REVIEW_CHECKS),'waiting_for_choices':list(WAIT_CODES),
             'rules':RULES[lang]}
 
 
@@ -82,8 +87,11 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     submission={'article_sha':digest(article),'session':article.get('session'),'agent_id':article.get('agent_id')}
     result=evaluate(article,topic,submission,inv,policy,store,review,business)
     words=len(norm(' '.join(_text(article.get('body_html','')))).split())
+    excluding=[x for x in result['hard_fails'] if x!='INDEPENDENT_SEMANTIC_REVIEW_REQUIRED']
+    waits=sorted(code for code,fails in DATA_WAIT_FAILS.items() if any(x in fails for x in excluding))
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
-                  hard_fails_excluding_review=[x for x in result['hard_fails'] if x!='INDEPENDENT_SEMANTIC_REVIEW_REQUIRED'])
+                  hard_fails_excluding_review=excluding,data_waits=waits,
+                  content_fails=[x for x in excluding if not any(x in DATA_WAIT_FAILS[c] for c in waits)])
     result['would_pass_after_review']=not result['hard_fails_excluding_review'] and result['score']+(0 if review else 10)>=policy['score_threshold']
     return result
 
@@ -93,7 +101,7 @@ def _text(html):
     return parse(html).text
 
 
-def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=(),targets=None):
+def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=(),targets=None,inventory_max_age=None):
     """Capture every declared source through its external fetch record, attach the
     fresh inventory digest to each DISTINCT verdict and admit atomically.
 
@@ -101,7 +109,7 @@ def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=()
     record in `fetch_records`. A missing or failed record blocks the candidate; the
     batch is rejected as a whole, which is the existing intake contract.
     """
-    validate_inventory(inv)
+    validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
     if not reviewer_id:raise ValueError('Intent reviewer identity required')
     prepared=[];queue=list(extra_queue)
     for candidate in batch:
@@ -118,7 +126,7 @@ def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=()
         candidate['intent_review']=review
         if collisions(candidate,inv,queue):raise ValueError('Candidate collides with inventory or queue: '+candidate['topic_id'])
         prepared.append(candidate);queue.append(candidate)
-    return intake(store,prepared,inv,batch_max,targets)
+    return intake(store,prepared,inv,batch_max,targets,inventory_max_age=inventory_max_age)
 
 
 def cycle(state,inv,release,targets=None):
@@ -134,11 +142,11 @@ def cycle(state,inv,release,targets=None):
         unresolved=sum(1 for k,i in state['intents'].items() if i.get('language')==lang and i['phase'] not in ('PUBLISHED',)+quota.CLOSED_PHASES)
         languages[lang]={'target':targets[lang],'live':None if live is None else live[lang],
                          'remaining':None if live is None else max(0,targets[lang]-live[lang]-unresolved),
-                         'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY'],'qa_pass':c['READY'],
+                         'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY'],'waiting_data':c['WAITING_DATA'],'qa_pass':c['READY'],
                          'qa_fail':c['NEEDS_REPAIR']+c['NEEDS_REVIEW'],'published':c['PUBLISHED'],
                          'blocked':c['BLOCKED']+c['PUBLISHING']}
     row={'FACTORY PUBLISHED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY'],
-         'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['PUBLISHED'],
+         'WAITING DATA':counts['WAITING_DATA'],'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['PUBLISHED'],
          'BLOCKED':counts['BLOCKED']+counts['PUBLISHING']}
     for lang in LANGUAGES:
         row['LIVE '+lang.upper()]='UNKNOWN' if live is None else live[lang]
