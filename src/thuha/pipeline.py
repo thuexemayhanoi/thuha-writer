@@ -133,12 +133,15 @@ def drain(publisher, sleep=time.sleep):
         if quota_unresolved(state):
             return halt('Unresolved publication outcome(s): ' + ', '.join(quota_unresolved(state)) + '. Reconcile; the POST is never repeated')
     enabled = set(release.get('languages_enabled', []))
+    fixed_window = remaining_budget(state, release) if release.get('stage', 'pilot') != 'auto-scale' else None
     candidates = sorted((k for k, v in state.get('topics', {}).items()
                          if v.get('status') == 'READY' and v.get('language') in enabled),
                         key=lambda k: claim_order({**state['topics'][k], 'topic_id': k}))
     full = set()
     for topic_id in candidates:
-        if remaining_budget(publisher.store.read(), publisher.release_loader())['remaining'] <= 0:
+        if fixed_window is not None and len(summary['published']) >= fixed_window['remaining']:
+            break
+        if fixed_window is None and remaining_budget(publisher.store.read(), publisher.release_loader())['remaining'] <= 0:
             break
         release = publisher.release_loader()
         release_guard(release, publisher.store)
