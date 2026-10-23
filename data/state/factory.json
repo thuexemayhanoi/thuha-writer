@@ -279,6 +279,14 @@
       "previous": "19e37bd77b614bc0a8befc5d49eee9bb4ca4fa04b8b62a53cadb7cf90f19b93e",
       "sha256": "9ba1f9d7db1d6e38c5b5ec8f3e44aa5fe5347296c0c6e380a0a594f2db4370aa",
       "topic_id": "TH-000005"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:13.092471+00:00",
+      "previous": "9ba1f9d7db1d6e38c5b5ec8f3e44aa5fe5347296c0c6e380a0a594f2db4370aa",
+      "sha256": "e9bd45aa0efe6498f84985c664ef5b5612003acae3a51d02c637bd85782d624a",
+      "slot": "W3",
+      "topic_id": "TH-000003"
     }
   ],
   "intents": {},
@@ -301,15 +309,6 @@
       "session": "w2-20261023-b1",
       "slot": "W2",
       "topic_id": "TH-000002"
-    },
-    "W3": {
-      "agent_id": "claude-writer-W3",
-      "expires_at": 1792723520.602184,
-      "fence": "af77e3b43142465ab7d874922c7af697",
-      "heartbeat_at": "2026-10-23T02:15:20.602169+00:00",
-      "session": "w3-20261023-c1",
-      "slot": "W3",
-      "topic_id": "TH-000003"
     },
     "W4": {
       "agent_id": "claude-writer-W4",
@@ -2431,5 +2430,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 60
+  "version": 61
 }
