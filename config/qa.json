@@ -11,7 +11,7 @@
   "reviewer_roster_note": "Legacy optional review attribution only. No reviewer or attestation is required for QA or publishing.",
   "semantic_review_required": false,
   "review_mode": "automated",
-  "score_basis": "Automatic points out of 80 normalized to 100. PASS if >=75 and no hard failures. Reviews add no points.",
+  "score_basis": "Automatic points out of 80 normalized to 100. Featured images/alt optional: neutral 10 raw points. PASS when >=75 and no non-image hard failures.",
   "threshold_status": "Owner-approved automated QA >=75 PASS, below 75 FAIL (2026-10-23); any hard failure blocks publication.",
   "hard_fail_overrides_score": true,
   "minimum_internal_content_links": 1,

@@ -282,7 +282,7 @@ class FullLineTests(Line):
         english_only['media_library'] = 'complete'
         self.assertFalse(any(b.startswith('NEEDS_MEDIA') for b in dashboard.report(self.store, dict(english_only, media_library=None), self.release)['blockers']))
         value = dashboard.report(self.store, english_only, self.release)
-        self.assertTrue(any(b.startswith('NEEDS_MEDIA') and ' vi ' in b for b in value['blockers']))
+        self.assertFalse(any(b.startswith('NEEDS_MEDIA') and ' vi ' in b for b in value['blockers']))
         self.assertFalse(any(b.startswith('NEEDS_MEDIA') and ' en ' in b for b in value['blockers']))
 
     def test_an_explicit_stopped_release_publishes_nothing(self):

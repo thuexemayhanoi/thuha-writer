@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](docs/MEDIA-OPTIONAL-POLICY.md).
+
 > **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
 
 # ThuHa Writer
@@ -63,7 +65,7 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Companion plugin `wordpress/thuha-native-vi-publisher` 1.0.0 + `dist/*.zip` | **Implemented, packaged, run against an offline WordPress simulation** |
 | Plugin installed on rentbikehanoi.com, `RBHVI_Language` called for real, Yoast verified | **NOT installed, NOT tested live** (`BLOCKED_ADAPTER_NOT_DEPLOYED`) |
 | Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
-| Vietnamese topics and drafts | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only; overlap checks while writing merged 17 pages into 7 and held the rest, **not READY, no QA, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to (each draft links only to category archives for now, so a writer adds one live content link when finishing), an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
+| Vietnamese topics and drafts | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only; overlap checks while writing merged 17 pages into 7 and held the rest, **not READY, no QA, none published**. At that historical checkpoint, these drafts waited for an image with Vietnamese alt text (a requirement now retired) and live Vietnamese pages to link to (each draft links only to category archives for now, so a writer adds one live content link when finishing), an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
 | Drafts that wait for data (`WAITING_DATA`, `recheck-data`, `drafts/`) | **Implemented, tested offline**; the credentialed publisher's audit clears a wait only when the inventory really holds the data |
 | Writing support: `next`, `pack`, `build`, advisory lint and fix hints, the `submit` guard (`config/writing.json`, `src/thuha/writing.py`) | **Implemented, tested offline**; read-only, never changes a score or a gate; `submit` refuses a draft the precheck knows is faulty before it spends a repair ([details](docs/OPERATIONS.md#writers-and-automatic-qa)) |
 | English draft QA queue | All 9 drafts are eligible for automatic QA on a fresh inventory (the historical reviews of TH-000005 and TH-000006 play no part); a live writer lease is respected. Run offline against the stale committed snapshot, QA refuses to evaluate and records nothing, so no draft is sent to repair for a missing audit |
@@ -117,9 +119,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 3. **Repository GitHub Actions Secrets:** configure `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` for the publishing account. No `thuha-production` Environment or separate `THUHA_GO_LIVE_APPROVAL` variable is required. Never store credentials in code. Owner approval is recorded in `config/release.json` and the publisher retains QA, adapter checks, collision coordination and the two-post pilot.
 4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
    access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
-5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
-   language. Only 15 images carry (English) alt text today, so no Vietnamese article can pass QA until at least one image whose
-   alt text is Vietnamese (it must contain Vietnamese letters) is added to the media library. The inventory now lists the whole library.
+5. **Optional images.** Use `featured_media: null` without visiting the WordPress media library; QA and publishing proceed normally without image/alt requirements.
 6. **Automatic QA.** Run `qa --pending` for every completed draft; no independent reviewer is required. WAITING_DATA/HELD remain blocked until their actual missing data or content is resolved.
 7. **Go-live configuration** records the owner's request in `config/release.json` once prerequisites are verified (`enabled`, `approved`, `approval_ref`, `paused: false`,
    `cross_publisher_coordination_verified`, `languages_enabled`). The first stage publishes at most two posts. Nothing in this
@@ -170,7 +170,7 @@ Create an original WordPress editorial factory, informed by architectural study 
 2. **Inventory-only tooling** — safely inspect all existing posts/pages/taxonomy and generate timestamped reproducible reports.
 3. **Topic research + intent mapping** — grounded source checks, deduplication, existing category matching, topic queue.
 4. **W1–W9 coordinator** — lease/heartbeat/atomic claim, durable checkpoints, source and submission receipts.
-5. **Quality gates** — factual validation, useful original writing in each language, metadata, image, links, taxonomy, intent, accessibility and QA.
+5. **Quality gates** — factual validation, useful original writing in each language, metadata, optional images, links, taxonomy, intent, accessibility and QA.
 6. **Publisher pilot** — owner-controlled enablement, small batches, isolated WordPress credentials, post-publish verification and recovery.
 7. **Controlled scale** — reach 500 published posts per language including existing posts, Vietnamese first, each language capped independently.
 

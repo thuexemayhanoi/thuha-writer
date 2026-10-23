@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](MEDIA-OPTIONAL-POLICY.md).
+
 # Operating ThuHa Writer (bilingual: 500 Vietnamese + 500 English)
 
 All commands run from this repository with `PYTHONPATH=src`. There is no pip
@@ -52,7 +54,7 @@ python3 -m thuha.cli --git-branch next --language vi      # what can be written 
 python3 -m thuha.cli --git-branch claim --session SESSION --agent-id claude-writer-W1 [--topic-id TH-VI-0134]   # next in order, or this claimable topic (recorded as picked)
 python3 -m thuha.cli --git-branch pack --topic-id TH-VI-0001 --out pack.json     # everything the repository already holds for the topic (read-only)
 python3 -m thuha.cli --git-branch build --topic-id TH-VI-0001 --body body.html --meta meta.json   # article.json from the pack + the precheck, in one step
-python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # the older read-only handoff: same-language links, images with that language's alt text
+python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # read-only handoff: same-language links; images optional
 python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0001 --file article.json     # exit 0 pass, 1 fix the article, 3 only data is missing
 python3 -m thuha.cli --git-branch submit --slot W1 --session SESSION --fence FENCE --file article.json [--waiting-for auto]
 python3 -m thuha.cli --remote qa --pending            # every completed draft, and READY drafts whose QA predates the policy or the text
@@ -61,7 +63,7 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
 **Writing support (read-only, advisory).** Nobody types again what the repository already knows, and nobody learns a fault from a spent repair.
 
 * `next` ranks what can be written now: Vietnamese first; topics that can be finished without waiting, then those that will be stored waiting
-  (the expected `FEATURED_MEDIA` / `INTERNAL_LINKS`), then matrix rows that may be admitted (asking only for the shop's own facts or no
+  (the expected `INTERNAL_LINKS`, never featured images), then matrix rows that may be admitted (asking only for the shop's own facts or no
   source), then saved external sources that must be read again, and last the topics that overlap another (`CHECK_OVERLAP`). A HELD
   topic is never offered, and a topic that needs an official or manufacturer page nobody has read is counted, not offered. Topics about a
   policy the shop has not confirmed (deposit, refund, delivery, extension) are marked: the article says what to ask, never what the policy is.
@@ -71,10 +73,10 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
 * `pack` assembles, for one topic, the confirmed intent and category chain, the canonical URL, the shop's name, address, hours, phone and
   reference prices (a price with no reference is listed as such), the saved sources that are still current and, separately, other topics'
   sources that fit, the live same-language pages and category archives it may link to (planned pages are listed but are not live links), the
-  images whose alt text is in the article's language, the metadata and HTML bands, what the topic is expected to wait for, and a skeleton
+  optional images (not needed for QA), the metadata and HTML bands, what the topic is expected to wait for, and a skeleton
   carrying the lease's session and agent. It writes nothing and invents nothing: what the repository does not hold is said to be missing.
 * `build` composes the article from the pack's skeleton, a body file and a small meta file (`seo_title`, `meta_description`, optional
-  `featured_media` that must be one of the pack's options, `business_claims`, `extra_sources`), saves it and runs `precheck`.
+  `featured_media` (optional: null or existing id from the pack), `business_claims`, `extra_sources`), saves it and runs `precheck`.
 * `precheck` (and `build`) now also return `lint` (advisory findings; `fix` ones would be refused by `submit`, `consider` ones are judgement calls),
   `fixes` (where and how to fix every QA failure code, from `config/writing.json`), and `ready_to_submit` / `submit_problems` / `submit_waiting_for`.
   The lint never changes the score, a threshold or a hard failure. It reads Markdown left in the body, broken heading levels, padding by repetition,
@@ -85,8 +87,8 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
   arithmetic of a worked example are never read as shop prices, and a sentence that says "ví dụ" / "for example" is treated as an illustration.
 * `submit` runs the same precheck on the exact file first and refuses, **storing nothing and spending no repair**, a draft with a known fault
   (`NOT_SUBMITTED`, exit 1, with the fixes), a draft that depends on data that does not exist yet without saying so, and a declared wait for
-  data that does exist (someone must choose that image or add that link). `--waiting-for auto` declares exactly what the check found missing
-  (`FEATURED_MEDIA`, `INTERNAL_LINKS`); `AUTHORITATIVE_INVENTORY` is never a wait the writer has to declare. `--allow-faults` stores a faulty draft
+  data that does exist (for example, a now verified link). `--waiting-for auto` declares exactly what the check found missing
+  (`INTERNAL_LINKS`); `AUTHORITATIVE_INVENTORY` is never a wait the writer has to declare. `--allow-faults` stores a faulty draft
   on purpose (it will come back from QA as a repair); the wait rules still apply to it.
 
 On the shared ledger (`--remote`) `submit` evaluates a completed draft at once and dispatches the queue on a pass; an expired
@@ -101,11 +103,10 @@ checks the complete inventory and every queued intent.
 
 **Article contract.** `topic_id`, `session`, `agent_id`, `source_commit`, `language` (`vi` for `TH-VI-####`, `en-US`
 for `TH-EN-####` and legacy `TH-######`), `title`, `body_html`, `seo_title`, `meta_description`, `focus_keyword`,
-`canonical`, `category_id`, `featured_media` (an existing image whose alt text is in the article's language; a Vietnamese alt text must contain at least one Vietnamese letter, because a short English caption cannot be told apart otherwise),
+`canonical`, `category_id`, `featured_media` (optional: null; no WordPress media/alt lookup required),
 `sources`, `business_claims`. Submission saves the immutable document first, then its receipt; preserve the
 SHA through quota exhaustion. Only changed bytes count as a repair (limit in policy). QA failure never makes an
-Actions job rewrite prose. An empty `featured_media` is refused by `submit` unless the draft is stored with
-`--waiting-for FEATURED_MEDIA`: QA cannot pass it, so it would only cost a repair.
+Actions job rewrite prose. Empty `featured_media` is valid; image/alt lookup does not block submit, QA or publish.
 
 **QA** is deterministic (raw automatic points out of 80, normalized to 100, threshold 75 inclusive, any hard failure blocks) and
 runs on the shared ledger for every completed draft. Historical review records neither gate it nor add points. Its outcomes:
@@ -125,20 +126,19 @@ does not exist or for live content it will be completed with. Vietnamese QA need
 
 ## Drafts that wait for data
 
-A finished text that lacks something no session can create (an image whose alt text is Vietnamese, live Vietnamese pages to link
+A finished text that lacks something no session can create (live Vietnamese pages to link
 to, an authoritative inventory) is stored instead of being held back or faked:
 
 ```
 python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0004 --file article.json   # exit 3: only data is missing; data_waits / content_fails
-python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for auto    # or name the codes: FEATURED_MEDIA INTERNAL_LINKS
+python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for auto    # or name the codes: INTERNAL_LINKS
 python3 -m thuha.cli --remote recheck-data          # (protected job) clears only what the authenticated inventory really holds
 python3 scripts/export_drafts.py                    # drafts/<language>/<ID>.json + drafts/INDEX.md, derived from the ledger
 python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004   # edit a stored draft whose data is still missing (or one whose QA is BLOCKED_DATA)
 ```
 
 `WAITING_DATA` is a stored state, never READY: `qa` refuses it, `qa --pending` skips it, the publisher cannot take it, it is not
-claimable until `waiting_for` is empty, and the dashboard shows it in its own column with the missing codes. `FEATURED_MEDIA`
-requires `featured_media` to stay empty. Finishing a draft after the data arrives is a completion, not a repair: it does not use
+claimable until `waiting_for` is empty, and the dashboard shows it in its own column with the missing codes. Legacy `FEATURED_MEDIA` waits are cleared by `recheck-data`; image-only drafts re-enter QA. Finishing a draft after the data arrives is a completion, not a repair: it does not use
 the three bounded repairs, and a lease lost half-way returns the topic to `WAITING_DATA`. A completed draft then goes through
 automatic QA like any other. Each stored Vietnamese draft links only to category archives for now: once live Vietnamese content
 exists, the writer adds one link to it when finishing (QA needs at least one live content link, and archives do not count). The owner-facts file can be captured as labelled first-party evidence (`source --repository-file

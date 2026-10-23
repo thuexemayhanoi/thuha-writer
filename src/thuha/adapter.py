@@ -42,7 +42,7 @@ def build_payload(topic, article, key, marker, slug):
         'contract': CONTRACT, 'idempotency_key': key, 'topic_id': topic['topic_id'],
         'language': topic['language'], 'slug': slug, 'title': article['title'],
         'content': article['body_html'] + '\n' + marker, 'category_id': topic['category_id'],
-        'featured_media': article['featured_media'], 'marker': marker,
+        'featured_media': article.get('featured_media') or 0, 'marker': marker,
         'seo': {'title': article['seo_title'], 'description': article['meta_description'],
                 'focus_keyword': article['focus_keyword']},
     }

@@ -25,13 +25,13 @@ RULES={
        'Only reference prices from business facts, declared in business_claims with a disclaimer sentence',
        'Regulated claims (licence, law, visa, registration) need an official .gov/.gov.vn source',
        'Never promise no deposit, refunds, delivery policy or firsthand testing',
-       'Internal links only to internal_link_targets (English, live-verified); featured_media only from featured_media_options'],
+       'Internal links only to internal_link_targets (English, live-verified); featured_media optional (null valid; never require WordPress image lookup)'],
  'vi':['Văn xuôi tiếng Việt gốc, viết cho người đọc Việt; không dịch máy, không dịch từ bài tiếng Anh; dẫn nguồn đã chụp bằng địa chỉ tài liệu',
        'Không có <h1> trong thân bài; từ hai <h2> trở lên; chỉ dùng HTML trong danh sách cho phép (không script/style/meta/iframe/form, không chú thích HTML, không dấu nhận diện)',
        'Chỉ nêu giá tham khảo lấy từ business facts, khai trong business_claims và có câu "giá tham khảo", nhắc xác nhận trước khi đặt xe',
        'Nội dung về giấy phép, bằng lái, luật, mức phạt, visa, đăng kiểm phải có nguồn chính thống (.gov.vn hoặc cơ quan nhà nước)',
        'Không hứa "không cọc", hoàn tiền, chính sách giao xe hay trải nghiệm trực tiếp chưa được xác thực',
-       'Link nội bộ chỉ tới internal_link_targets tiếng Việt đã xác thực còn sống; featured_media chỉ từ featured_media_options (alt text tiếng Việt)']}
+       'Link nội bộ chỉ tới internal_link_targets tiếng Việt đã xác thực còn sống; featured_media tùy chọn (null hợp lệ; không cần xem ảnh hay alt)']}
 
 
 def kit(state,inv,topic_id,policy,business):
@@ -47,7 +47,7 @@ def kit(state,inv,topic_id,policy,business):
             'category_ancestry':[{'id':i,'slug':names[i]['slug'],'name':names[i].get('name'),'language':names[i].get('language')} for i in topic['category_path']],
             'existing_titles_same_category':[x['title'] for x in inv['items'] if topic['category_id'] in x.get('categories',[])],
             'internal_link_targets':link_catalogue(inv,lang),'featured_media_options':media,
-            'blockers':([] if media else ['NEEDS_MEDIA: no existing image has '+lang+' alt text, so this article cannot pass QA until one is added in WordPress']),
+            'blockers':[], # images are optional
             'business_facts':business,'qa_policy':{k:policy[k] for k in ('score_threshold','minimum_internal_links','minimum_internal_content_links','maximum_repairs')},
             'minimum_length':{'unit':'syllables' if lang=='vi' else 'words','value':policy['substantial_length'][lang]},
             'article_fields':list(ARTICLE_FIELDS),'review_mode':'automated','waiting_for_choices':list(WAIT_CODES),
@@ -72,7 +72,7 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None,cfg=No
     # (an unfinished draft may wait for what it will be completed with; the automatic QA is stricter, see datawait.split).
     waits,faults=split(failures,article,topic,inv,state,policy,declared=True)
     potential=potential_score(result,waits)
-    if waits and not faults and potential<policy['score_threshold']:faults.append('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA')
+    if not faults and potential<policy['score_threshold']:faults.append('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA')
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
                   hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,content_fails=faults,potential_score=potential)
     result['would_pass_qa']=not failures and result['score']>=policy['score_threshold']
