@@ -277,9 +277,9 @@
     },
     "W6": {
       "agent_id": "claude-writer-W6",
-      "expires_at": 1792723205.378861,
+      "expires_at": 1792723371.46028,
       "fence": "d196eeb9692c4477b0c6175637427fef",
-      "heartbeat_at": "2026-10-23T02:10:05.378842+00:00",
+      "heartbeat_at": "2026-10-23T02:12:51.460265+00:00",
       "session": "w6-20261023-c1",
       "slot": "W6",
       "topic_id": "TH-000006"
@@ -2322,5 +2322,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 32
+  "version": 33
 }
