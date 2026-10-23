@@ -237,6 +237,7 @@ class DataOnlyFailureTests(QaDataHelpers):
             relink(article, *PLANNED)
             article['body_html'] = article['body_html'].replace('<h2>Điểm dừng thực tế</h2>', '<h3>Điểm dừng thực tế</h3>')  # one h2 less: -10 points
             article['seo_title'] = 'Ngắn'  # outside the title length band: -10 points
+            article['meta_description'] = 'Quá ngắn.'  # still below 75 after missing data becomes available
         topic, article, sub = self.drafted('vi', mutate=thin)
         result = quality.run_qa(self.store, topic['topic_id'], self.inv, self.policy, self.business)
         self.assertEqual(result['status'], 'FAIL')
@@ -386,6 +387,7 @@ class PrecheckAgreesWithQaTests(QaDataHelpers):
     def test_a_low_score_is_a_fault_even_when_data_is_also_missing(self):
         def thin(article):
             article.update(featured_media=None, seo_title='Ngắn', meta_description='Quá ngắn.')
+            article['body_html'] = article['body_html'].replace('<h2>Điểm dừng thực tế</h2>', '<h3>Điểm dừng thực tế</h3>')  # below 75 even if an image becomes available
         result = self.precheck(thin, self.inv_without_media())
         self.assertIn('FEATURED_MEDIA', result['data_waits'])
         self.assertIn('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA', result['content_fails'])
