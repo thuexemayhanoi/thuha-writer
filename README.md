@@ -166,8 +166,8 @@ dependency and no automatic AI prose generation inside GitHub Actions.
 ## Simple automated flow
 
 A real external Claude/ChatGPT writer submits each source-backed article with `submit`. For a completed draft the CLI immediately
-runs the deterministic QA (threshold 85 of 100 from 80 automatic points, every hard failure unchanged, no reviewer); a passing revision
+runs the deterministic QA (threshold 75 inclusive of 100 from 80 automatic points, every hard failure unchanged, no reviewer); a passing revision
 dispatches `thuha-qa-ready`, so the queue is drained without waiting for a cron tick. A draft stored with `--waiting-for` is not evaluated
 and dispatches nothing. The guarded WordPress publisher rechecks live QA, taxonomy and duplicates and records readback receipts. The hourly
-cron is a recovery fallback, not a queue delay. See the [direct QA85 publisher runbook](docs/AUTO-QA85-PUBLISHER.md). Production release
+cron is a recovery fallback, not a queue delay. See the [current QA75 publisher runbook (legacy filename)](docs/AUTO-QA85-PUBLISHER.md). Production release
 remains separately gated until credentials and other site publishers are coordinated.
