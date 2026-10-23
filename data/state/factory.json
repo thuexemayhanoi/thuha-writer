@@ -2524,22 +2524,24 @@
       "sha256": "d71676ab5d2e95200610f030369ccbc04526b12f80a6a61feed197345137cb33",
       "slot": "W1",
       "topic_id": "TH-VI-0016"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "d5a39cec75b6258011c469a6d88b4a66d7ad3ebbfa1eb9920222e22742f4631e",
+      "at": "2026-10-23T12:18:10.209252+00:00",
+      "previous": "d71676ab5d2e95200610f030369ccbc04526b12f80a6a61feed197345137cb33",
+      "sha256": "22e5fb0897f902405f6ccb70484dd386f55934dc8e5d959f38c3c23fa97dd1b0",
+      "topic_id": "TH-VI-0016",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792759685.488,
-      "fence": "3263c967fcbd47c6a296d037ca4f693c",
-      "heartbeat_at": "2026-10-23T12:18:05.487982+00:00",
-      "language": "vi",
-      "session": "sess-rev1",
-      "slot": "W1",
-      "topic_id": "TH-VI-0016"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -2844,13 +2846,13 @@
     },
     "TH-VI-0016": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "c6aba29f2fcd95da8e8ab34e96d00f76e476f45c61a24110d830274d66e637a0",
-      "commit": "e3210b598da668031a92667d04ae39728d8232b7",
-      "fence": "ea50fec16be24708b0792498f77d4260",
+      "article_sha": "d5a39cec75b6258011c469a6d88b4a66d7ad3ebbfa1eb9920222e22742f4631e",
+      "commit": "24b7673a8ff67e58882c4e87af806448c95939a7",
+      "fence": "3263c967fcbd47c6a296d037ca4f693c",
       "repair_count": 0,
-      "session": "w7-20261023-r0016",
+      "session": "sess-rev1",
       "slot": "W1",
-      "submitted_at": "2026-10-23T08:34:27.627973+00:00"
+      "submitted_at": "2026-10-23T12:18:10.209228+00:00"
     },
     "TH-VI-0019": {
       "agent_id": "claude-writer-W1",
@@ -5301,7 +5303,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -5326,10 +5327,9 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0016",
       "waiting_for": [
-        "AUTHORITATIVE_INVENTORY",
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
@@ -6248,5 +6248,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 323
+  "version": 324
 }
