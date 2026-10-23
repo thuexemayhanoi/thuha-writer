@@ -358,12 +358,17 @@ class PublisherBase(Fixture):
 
 
 class PublisherTests(PublisherBase):
-    def test_default_configuration_never_posts(self):
-        p,tid=self.publisher();self.release.update(load(ROOT/'config/release.json'))
+    def test_explicit_stopped_release_never_posts(self):
+        p,tid=self.publisher()
+        self.release.update(load(ROOT/'config/release.json'))
+        self.release.update(enabled=False, approved=False, paused=True, languages_enabled=[])
         with self.assertRaises(ValueError):p.publish(tid)
         self.assertEqual(len(self.client.posts),0)
-    def test_no_language_is_enabled_by_default(self):
-        self.assertEqual(load(ROOT/'config/release.json')['languages_enabled'],[])
+    def test_repository_enables_languages_only_with_owner_approval(self):
+        release=load(ROOT/'config/release.json')
+        self.assertFalse(release['enabled'] and not release['approved'])
+        self.assertFalse(release['enabled'] and not release.get('approval_ref'))
+        self.assertEqual(set(release['languages_enabled']), {'vi', 'en'} if release['enabled'] else set())
     def test_explicit_repository_approval_needs_no_environment_variable(self):
         p,tid=self.publisher()
         with patch.dict(os.environ, {'THUHA_GO_LIVE_APPROVAL': ''}):
