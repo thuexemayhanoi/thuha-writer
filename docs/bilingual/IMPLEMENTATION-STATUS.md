@@ -1,8 +1,10 @@
+> **Cập nhật hiệu lực 23/10/2026:** QA tự động từ **75 điểm trở lên PASS**, dưới 75 FAIL; mọi hard fail vẫn chặn. Không yêu cầu AI reviewer riêng, không cài GitHub Environment; dùng Repository Secrets. Những đoạn lịch sử phía dưới nhắc 85, environment hoặc reviewer là thông tin cũ, không dùng để triển khai. Đọc `AGENTS.md`, `config/qa.json` và `docs/AUTO-QA85-PUBLISHER.md` (tên file lịch sử).
+
 # Trạng thái triển khai: workflow 500 VI + 500 EN
 
 ## Cập nhật đang có hiệu lực: QA tự động, bỏ AI review (23/10/2026)
 
-Theo yêu cầu mới của chủ website, bài hoàn chỉnh đi thẳng từ writer -> QA >=85/100,
+Theo yêu cầu mới của chủ website, bài hoàn chỉnh đi thẳng từ writer -> QA >=75/100,
 kiểm tra trùng + danh mục/ngôn ngữ -> publisher. Không chờ AI reviewer và không cần
 `review.json`/`THUHA_REVIEWER_ID`. Điểm tự động gốc tối đa 80 được quy đổi về 100;
 review không cộng điểm. Mọi hard fail, nguồn, ảnh/alt, link thật, quota và chống đăng trùng vẫn giữ.
