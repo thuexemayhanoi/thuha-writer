@@ -1056,6 +1056,15 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T07:49:02.136280+00:00",
+      "previous": "54f144d25f056b5d4decd050036201de3bb628a2b1f98247cc0ee8cf26d9fc55",
+      "previous_status": "WAITING_DATA",
+      "reason": "Held after the independent editorial pre-review: it repeats the compensation questions of TH-VI-0011 and adds only a guess; its one distinct idea (ask whether the figures differ by vehicle) now lives in a section of TH-VI-0011.",
+      "sha256": "a39db0fc8d6ea90b7b89115597e752e35e6fc5d4d40ca3faff82133a41c16930",
+      "topic_id": "TH-VI-0024"
     }
   ],
   "intents": {},
@@ -3593,6 +3602,11 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T07:49:02.136255+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Held after the independent editorial pre-review: it repeats the compensation questions of TH-VI-0011 and adds only a guess; its one distinct idea (ask whether the figures differ by vehicle) now lives in a section of TH-VI-0011."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -3617,7 +3631,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0024",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -3749,5 +3763,5 @@
       ]
     }
   },
-  "version": 168
+  "version": 169
 }
