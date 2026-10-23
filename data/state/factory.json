@@ -458,6 +458,15 @@
       "sha256": "ee725eeaa394c87f86309b78fbb17f40c1845733e06c9f1499f07bcf4c74006b",
       "slot": "W1",
       "topic_id": "TH-000001"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:19:09.528390+00:00",
+      "previous": "ee725eeaa394c87f86309b78fbb17f40c1845733e06c9f1499f07bcf4c74006b",
+      "report_sha": "2a30a188c36d1097338a9a8b410a97226fda964bfdcf42f3923ef5b812b93228",
+      "sha256": "6007b800a8028fdd856d7c116b18ee39d87b9bd4964bcf9f337884deb9710736",
+      "status": "PASS",
+      "topic_id": "TH-000006"
     }
   ],
   "intents": {},
@@ -550,6 +559,11 @@
     "TH-000005": {
       "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
       "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
+      "status": "PASS"
+    },
+    "TH-000006": {
+      "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+      "report_sha": "2a30a188c36d1097338a9a8b410a97226fda964bfdcf42f3923ef5b812b93228",
       "status": "PASS"
     }
   },
@@ -936,7 +950,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000006"
     },
     "TH-000007": {
@@ -2640,5 +2654,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 95
+  "version": 96
 }
