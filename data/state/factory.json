@@ -6394,6 +6394,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:06:37.462064+00:00",
+      "expires_at": 1792773397.462044,
+      "fence": "ae0d7a4aef2542d6b4790ed3c8c551a0",
+      "heartbeat_at": "2026-10-23T16:06:37.461990+00:00",
+      "language": "vi",
+      "previous": "66475aa733b3f812e404e428919bcd3c3939a6cd1d91babd39c17397c37ec972",
+      "session": "sess-b4",
+      "sha256": "3653ad9defbcb50e97a1e1a1070406cc9a8beaeb6e7bd9da99dfe8c3f3991352",
+      "slot": "W1",
+      "topic_id": "TH-VI-0140"
     }
   ],
   "intents": {
@@ -9369,7 +9383,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773397.462044,
+      "fence": "ae0d7a4aef2542d6b4790ed3c8c551a0",
+      "heartbeat_at": "2026-10-23T16:06:37.461990+00:00",
+      "language": "vi",
+      "session": "sess-b4",
+      "slot": "W1",
+      "topic_id": "TH-VI-0140"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -14821,6 +14846,7 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "sinh viên thuê xe số hay xe ga theo tháng",
       "proposed_title": "Sinh viên thuê xe theo tháng: xe số hay xe ga hợp với nhà trọ chật, bãi gửi ký túc xá và đường đi học",
@@ -14833,7 +14859,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0140",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15495,5 +15521,5 @@
       ]
     }
   },
-  "version": 831
+  "version": 832
 }
