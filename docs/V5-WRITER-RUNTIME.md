@@ -104,10 +104,12 @@ source screens do not claim independent semantic or factual judgment.
 
 ## Admission of researched topics
 
-`admit --file candidates.json --fetch-records records.json --reviewer-id ID
-[--extra-queue other.json]` captures every declared source through its fetch
-record, stamps the DISTINCT verdict with the current inventory digest and
-admits the batch atomically through the existing `intake` contract. The extra
+`admit --file candidates.json --fetch-records records.json
+[--reviewer-id ID] [--extra-queue other.json]` captures every declared source through its fetch
+record and admits the batch atomically through the existing `intake` contract. No AI or human intent
+reviewer is needed (owner update, 23 October): the automatic collision checks against the inventory and the
+queue are the gate. A verdict a researcher supplies is stamped with the current inventory digest and, when it is not
+DISTINCT, still blocks; `--reviewer-id` is optional attribution. The extra
 queue lets the researcher include another publisher's planned titles in the
 collision check so two workflows targeting the same site do not cannibalize.
 

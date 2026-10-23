@@ -145,6 +145,15 @@ class ResearchTests(Fixture):
     def test_valid_admission_in_both_languages(self):
         self.assertEqual(intake(self.store,[self.candidate(1,'en')],self.inv),['TH-EN-0001'])
         self.assertEqual(intake(self.store,[self.candidate(1,'vi')],self.inv),['TH-VI-0001'])
+    def test_source_backed_topic_does_not_need_ai_intent_reviewer(self):
+        topic=self.candidate()
+        topic.pop('intent_review')
+        self.assertEqual(intake(self.store,[topic],self.inv),['TH-EN-0001'])
+    def test_non_distinct_topic_verdict_cannot_be_auto_approved(self):
+        topic=self.candidate()
+        topic['intent_review']={'verdict':'MERGE'}
+        with self.assertRaises(ValueError):
+            intake(self.store,[topic],self.inv)
     def test_wrong_parent_blocks_intake(self):
         c=self.candidate();c['category_path']=[20]
         with self.assertRaises(ValueError):intake(self.store,[c],self.inv)
@@ -218,7 +227,7 @@ class QualityTests(Fixture):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
         self.assertEqual(r['status'],'PASS');self.assertEqual(r['hard_fails'],[])
         self.assertEqual((r['raw_score'],r['raw_maximum'],r['score']), (80,80,100))
-        self.assertIsNone(r['semantic_review'])
+        self.assertEqual(r['semantic_review'],'not-required')
     def test_a_review_cannot_add_points_or_rescue_low_automatic_qa(self):
         t,a,s=self.ready();self.policy['trusted_reviewers']=['writer-fixture']
         a.update(seo_title='Short',meta_description='Too short')
@@ -244,6 +253,22 @@ class QualityTests(Fixture):
             return original(sha)
         with patch.object(self.store,'get_document',side_effect=read):
             self.assertEqual(run_qa(self.store,t['topic_id'],self.inv,self.policy,self.business)['status'],'PASS')
+    def test_no_external_reviewer_required_but_qa85_kept(self):
+        t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
+        self.assertEqual(r['status'],'PASS',r)
+        self.assertGreaterEqual(r['score'],85)
+        self.assertEqual(r['threshold'],85)
+        self.assertEqual(r['semantic_review'],'not-required')
+    def test_fake_review_does_not_change_automated_qa_or_override_hard_fails(self):
+        t,a,s=self.ready()
+        review={'reviewer_id':'writer-fixture','article_sha':digest(a),'checks':{k:True for k in REVIEW_CHECKS},'notes':'fake','checked_at':now()}
+        plain=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
+        with_fake=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
+        self.assertEqual((plain['score'],plain['hard_fails']),(with_fake['score'],with_fake['hard_fails']))
+        a['body_html']+='<script>alert(1)</script>'
+        forged=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
+        self.assertEqual(forged['status'],'FAIL')
+        self.assertIn('UNSAFE_OR_DUPLICATE_SCHEMA_HTML',forged['hard_fails'])
     def test_forged_report_does_not_authorize_changed_draft(self):
         t,a,s=self.ready();sha=self.store.read()['qa'][t['topic_id']]['report_sha']
         a['body_html']+='<p>tampered</p>'

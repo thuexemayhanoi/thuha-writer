@@ -104,6 +104,21 @@ class RuntimeTests(Fixture):
                 admit(self.store, self.inv, [dup], 'claude-researcher', {url: record(url)})
             self.assertEqual(len(self.store.read()['topics']), 1)
 
+    def test_admit_needs_no_intent_reviewer_but_a_negative_verdict_and_a_collision_still_block(self):
+        url = 'https://example.org/official/'
+        base = self.candidate(1); base['sources'] = [{'url': url, 'supports': 'Official notice describing the destination entity.'}]
+        base.pop('intent_review', None)  # owner update: no AI or human reviewer is needed to admit a source-backed topic
+        with patch('thuha.research.safe_public_url', lambda u: u):
+            self.assertEqual(admit(self.store, self.inv, [base], None, {url: record(url)}), ['TH-EN-0001'])
+            self.assertNotIn('intent_review', self.store.read()['topics']['TH-EN-0001'])
+            negative = self.candidate(2); negative['sources'] = base['sources']; negative['intent_review'] = {'verdict': 'MERGE', 'rationale': 'Same intent as an existing guide.'}
+            with self.assertRaises(ValueError):
+                admit(self.store, self.inv, [negative], None, {url: record(url)})
+            dup = self.candidate(3); dup['proposed_title'] = base['proposed_title']; dup['sources'] = base['sources']; dup.pop('intent_review', None)
+            with self.assertRaises(ValueError):  # the automatic collision check is the gate, with or without a reviewer
+                admit(self.store, self.inv, [dup], None, {url: record(url)})
+            self.assertEqual(len(self.store.read()['topics']), 1)
+
     def test_admit_checks_extra_queue_from_other_publisher(self):
         url = 'https://example.org/official/'
         base = self.candidate(1); base['sources'] = [{'url': url, 'supports': 'Official notice describing the destination entity.'}]

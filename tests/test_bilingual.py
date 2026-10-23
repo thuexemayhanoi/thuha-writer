@@ -127,7 +127,7 @@ class BilingualQualityTests(Fixture):
                   'checks': {k: True for k in REVIEW_CHECKS}, 'notes': 'English reviewer'}
         r = evaluate(a, t, s, self.inv, self.policy, self.store, review, self.business)
         self.assertEqual(r['status'], 'PASS')
-        self.assertIsNone(r['semantic_review'])
+        self.assertEqual(r['semantic_review'],'not-required')
         review['language'] = 'vi';review['checks'].pop('no_machine_translation')
         self.assertEqual(evaluate(a, t, s, self.inv, self.policy, self.store, None, self.business)['score'], r['score'])
 

@@ -15,16 +15,54 @@ from .publisher import Publisher
 from . import pipeline
 from . import runtime
 
+def dispatch_qa_ready(store, topic_ids):
+    """Signal a successful QA revision without waiting for cron or AI review.
 
-def inventory_for(store,path):
+    Only the shared ledger (`--remote`, which has an API client) is read by Actions, so only it dispatches: a session ledger in a
+    branch reaches the queue through `promote` after the merge. The GitHub API returns 204 on acceptance; publication still remains
+    independently gated by live QA, WordPress readback and release controls.
+    """
+    if not getattr(store,'durable_remote',False) or not hasattr(store,'api') or not topic_ids:
+        return {'status':'LOCAL_ONLY','topics':topic_ids}
+    try:
+        store.api.request('POST','/repos/'+REPO+'/dispatches',{
+            'event_type':'thuha-qa-ready',
+            'client_payload':{'topic_ids':topic_ids[:10]}
+        })
+        return {'status':'DISPATCH_ACCEPTED','topics':topic_ids[:10]}
+    except (ValueError,OSError,RuntimeError) as exc:
+        # READY remains safely queued; the hourly workflow is a fallback.
+        return {'status':'DISPATCH_FAILED','topics':topic_ids[:10],
+                'reason':type(exc).__name__}
+
+
+def inventory_for(store,path,max_age=None):
+    """Refresh expired live WordPress evidence for write-capable operations.
+
+    This uses public GET requests only. Read-only health/dry-run workflows
+    deliberately pass max_age=None and do not mutate durable remote state.
+    """
     state=store.read()
+    chosen=None
     if state.get('inventory_document'):
         stored=store.get_document(state['inventory_document'])
         # An inventory recorded before languages existed carries no label and cannot count anything; an honestly
         # labelled one (even the public-only one) is kept as it is.
-        if stored.get('language_source'):return stored
-    if path and Path(path).exists():return load(path)
-    return audit.snapshot_inventory() # Offline planning view only; it is stale by design.
+        if stored.get('language_source'):chosen=stored
+    if chosen is None:
+        chosen=load(path) if path and Path(path).exists() else audit.snapshot_inventory() # the snapshot is an offline planning view; it is stale by design
+    limit=max_age(chosen) if callable(max_age) else max_age
+    if limit is not None and getattr(store,'durable_remote',False):
+        try:validate_inventory(chosen,limit)
+        except ValueError:
+            try:
+                fresh_inv=audit.inventory() # live public GET; never a WordPress POST
+                validate_inventory(fresh_inv,limit)
+            except (NetworkError,OSError,ValueError):return chosen # cannot reach the site: the caller's own check refuses the old one clearly
+            document=store.put_document(fresh_inv)
+            store.mutate(lambda st:st.update(inventory_document=document))
+            return fresh_inv
+    return chosen
 
 
 def inventory_max_age(inv,policy,factory):
@@ -42,6 +80,13 @@ def live_counts(inv,state=None):
     try:counts=quota.published(inv)
     except ValueError:return None
     return quota.effective(state,counts,{x['id'] for x in inv.get('items',[])}) if state is not None else counts
+
+
+def qa_one(store,tid,inv,policy,facts):
+    """One automatic QA run. Vietnamese needs an authoritative inventory: a public-only one cannot see Vietnamese posts or categories."""
+    if store.read()['topics'][tid]['language']!='en' and inv.get('language_source') not in quota.SOURCES:
+        raise quality.InventoryUnusable('Vietnamese QA needs an adapter or authenticated inventory; this one is '+str(inv.get('language_source')))
+    return quality.run_qa(store,tid,inv,policy,facts)
 
 
 def main(argv=None):
@@ -68,7 +113,7 @@ def main(argv=None):
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
-    q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',required=True);q.add_argument('--extra-queue')
+    q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',help='Optional attribution; no reviewer is needed');q.add_argument('--extra-queue')
     sub.add_parser('cycle');sub.add_parser('recheck-data')
     q=sub.add_parser('hold');q.add_argument('--topic-id',required=True);q.add_argument('--reason',required=True)
     q=sub.add_parser('unhold');q.add_argument('--topic-id',required=True)
@@ -134,14 +179,26 @@ def main(argv=None):
     elif args.command in ('coordinator','recovery'):
         result={'expired_slots':store.mutate(coordinator.recover),'ai_runtime':'External session required; no AI launched'}
     elif args.command=='claim':
-        inv=inventory_for(store,args.inventory);planning=inventory_max_age(inv,policy,factory);validate_inventory(inv,planning);note=None
+        inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory));planning=inventory_max_age(inv,policy,factory);validate_inventory(inv,planning);note=None
         try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],inventory_max_age=planning)
         except ValueError as exc:note=str(exc) # e.g. inventory not language-authoritative; claiming itself stays possible
         result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets(),args.revise))
         if note:result['refill_note']=note
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
-    elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'],args.waiting_for)
+    elif args.command=='submit':
+        article=load(args.file)
+        result={'submission':coordinator.submit(store,args.slot,args.session,args.fence,article,policy['maximum_repairs'],args.waiting_for)}
+        tid=article['topic_id']
+        if store.read()['topics'][tid]['status']=='DRAFT_READY':
+            # A completed draft goes straight to automatic QA, with no reviewer. A draft stored with --waiting-for, or one over its
+            # repair limit, is not evaluated and dispatches nothing.
+            try:result['qa']=qa_one(store,tid,inventory_for(store,args.inventory,policy['inventory_max_age_seconds']),policy,facts)
+            except (ValueError,OSError,RuntimeError,KeyError) as exc:
+                # The draft is stored; an unusable inventory only means QA cannot run now (the scheduled run evaluates it).
+                result['qa']={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError,quality.InventoryUnusable)) else 'STATE_OR_CONTRACT'}
+            if result['qa']['status']=='PASS':result['publisher_trigger']=dispatch_qa_ready(store,[tid])
+            elif result['qa']['status']=='FAIL':exit_code=1 # repair and resubmit
     elif args.command=='source':
         if bool(args.repository_file)==bool(args.url):raise ValueError('Name exactly one source: --url (web page) or --repository-file (first-party facts)')
         result=(research.capture_repository_file(store,args.repository_file) if args.repository_file
@@ -158,7 +215,7 @@ def main(argv=None):
         elif result['data_waits']:exit_code=3 # only data is missing: store the draft with --waiting-for
         elif not result['would_pass_qa']:exit_code=1 # a low score also needs repair, even without hard failures
     elif args.command=='admit':
-        inv=inventory_for(store,args.inventory)
+        inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
         extra=load(args.extra_queue) if args.extra_queue else []
         result={'admitted':runtime.admit(store,inv,load(args.file),args.reviewer_id,load(args.fetch_records),factory['refill_batch_max'],extra,
                                          inventory_max_age=inventory_max_age(inv,policy,factory))}
@@ -204,10 +261,10 @@ def main(argv=None):
                 rows+=sorted((r for r in load(matrix.matrix_path(l))['rows'] if r['kind']=='NEW' and r['writer_state']=='NEEDS_SOURCE' and r['id'] not in admitted),key=lambda r:r['write_order'])[:args.limit]
             result={'mode':'read-only','wordpress_writes':0,'next_research':[{k:r[k] for k in ('id','language','title','primary_keyword','category_id','proposed_url','source_requirements','writer_state')} for r in rows]}
     elif args.command=='intake':
-        inv=inventory_for(store,args.inventory)
+        inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
         result={'admitted':research.intake(store,load(args.file),inv,factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))}
     elif args.command=='refill':
-        inv=inventory_for(store,args.inventory)
+        inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
         result=research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))
     elif args.command=='review':
         value=load(args.file)
@@ -223,10 +280,11 @@ def main(argv=None):
         store.mutate(record)
         result={'review_document':document}
     elif args.command=='qa':
-        inv=inventory_for(store,args.inventory)
+        inv=inventory_for(store,args.inventory,policy['inventory_max_age_seconds']) # an expired inventory is refreshed from the public site (GET only) before QA
         languages=[args.language] if args.language else None
         ids=[args.topic_id] if args.topic_id else quality.pending_qa(store,policy,languages) if args.pending else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR') and (not languages or v['language'] in languages)]
         result={'results':{}}
+        passed=[]
         for tid in ids:
             try:
                 if store.read()['topics'][tid]['language']!='en' and inv.get('language_source') not in quota.SOURCES:
@@ -235,15 +293,18 @@ def main(argv=None):
                 value=quality.run_qa(store,tid,inv,policy,facts)
                 result['results'][tid]=value
                 # A scheduled batch reports FAIL / BLOCKED_DATA in the ledger, not as a red step; asking for one topic says so in the exit code.
-                if value['status']=='BLOCKED_DATA' and not args.pending:exit_code=max(exit_code,3)
-                elif value['status'] not in ('PASS','BLOCKED_DATA') and not args.pending:exit_code=max(exit_code,1)
+                if value['status']=='PASS':passed.append(tid)
+                elif value['status']=='BLOCKED_DATA':exit_code=max(exit_code,0 if args.pending else 3)
+                elif not args.pending:exit_code=max(exit_code,1)
             except (ValueError,OSError,RuntimeError,KeyError) as exc:
                 # An unusable inventory (stale audit, wrong site, public-only for Vietnamese) is infrastructure: the run is red, no draft is touched.
                 infra=isinstance(exc,(NetworkError,OSError,quality.InventoryUnusable))
                 result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if infra else 'STATE_OR_CONTRACT'}
                 exit_code=max(exit_code,2 if infra else 1)
+        if passed:result['publisher_trigger']=dispatch_qa_ready(store,passed) # the queue is drained now; the hourly run is only the fallback
     elif args.command=='publisher':
-        pub=Publisher(store,AdapterClient(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
+        pub=Publisher(store,AdapterClient(HTTP(allow_write=args.mode in ('production','drain'))),
+                      inventory_for(store,args.inventory,policy['inventory_max_age_seconds'] if args.mode in ('production','drain') else None),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()
         elif args.mode=='drain':
             result=pipeline.drain(pub)

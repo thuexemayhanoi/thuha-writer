@@ -99,15 +99,14 @@ def _text(html):
 
 
 def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=(),targets=None,inventory_max_age=None):
-    """Capture every declared source through its external fetch record, attach the
-    fresh inventory digest to each DISTINCT verdict and admit atomically.
+    """Capture every declared source through its external fetch record, stamp the current
+    inventory digest on any verdict a researcher supplied (none is required) and admit atomically.
 
     `batch` items carry `sources` with url/supports and a `fetch` key naming the
     record in `fetch_records`. A missing or failed record blocks the candidate; the
     batch is rejected as a whole, which is the existing intake contract.
     """
     validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
-    if not reviewer_id:raise ValueError('Intent reviewer identity required')
     prepared=[];queue=list(extra_queue)
     for candidate in batch:
         candidate=dict(candidate);sources=[]
@@ -117,10 +116,13 @@ def admit(store,inv,batch,reviewer_id,fetch_records,batch_max=100,extra_queue=()
             captured=capture_external_source(store,ref['url'],record)
             sources.append({'url':ref['url'],'document':captured['document'],'supports':ref['supports']})
         candidate['sources']=sources
-        review=dict(candidate.get('intent_review',{}))
-        review.update(inventory_sha256=digest(inv),reviewer_id=reviewer_id)
-        if review.get('verdict')!='DISTINCT' or not review.get('rationale'):raise ValueError('Each candidate needs a DISTINCT verdict with rationale')
-        candidate['intent_review']=review
+        # Owner update: no AI or human intent reviewer is needed. A verdict a researcher supplies is stamped with the current inventory
+        # digest and, if it is not DISTINCT, still blocks; the automatic collision checks here and in `intake` are the gate.
+        review=dict(candidate.get('intent_review') or {})
+        if review:
+            if review.get('verdict') not in (None,'DISTINCT'):raise ValueError('Candidate declares a non-distinct intent: '+candidate['topic_id'])
+            review.update(inventory_sha256=digest(inv),**({'reviewer_id':reviewer_id} if reviewer_id else {}))
+            candidate['intent_review']=review
         if collisions(candidate,inv,queue):raise ValueError('Candidate collides with inventory or queue: '+candidate['topic_id'])
         prepared.append(candidate);queue.append(candidate)
     return intake(store,prepared,inv,batch_max,targets,inventory_max_age=inventory_max_age)

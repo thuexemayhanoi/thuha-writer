@@ -1,7 +1,7 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**Bilingual workflow and shared queue implemented and tested offline. WordPress production publishing remains OFF.**
+**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=85 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**
 
 **Owner update, 23 October 2026: no independent AI article review.** Completed drafts go straight to automatic
 QA (>=85/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
@@ -85,11 +85,12 @@ holds is never counted and never re-sent.
 Nothing below is done by this repository, and none of it can be checked offline.
 
 1. **Review and merge this branch.** The merge starts the quality workflow and then the queue job, which hands the nine drafts over.
-2. **Protect the branches**: `main` needs one review and the `quality` check; `factory-state` must accept writes only from the
-   GitHub Actions app and forbid force pushes (the publisher refuses to run otherwise).
-3. **Environment `thuha-production`** with required reviewers, secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` (an
-   Application Password of an account that may publish posts), `THUHA_GITHUB_SECURITY_TOKEN` (read access to branch protection)
-   and the variable `THUHA_GO_LIVE_APPROVAL`.
+2. **Protect the branches (recommended)**: `main` needs the `quality` check; `factory-state` should accept writes only from the
+   GitHub Actions app and forbid force pushes. Since the owner's 23 October change the publisher no longer verifies branch
+   protection or environment reviewers: it requires that it runs from `main` and that the `main` and `factory-state` refs exist.
+3. **Environment `thuha-production`** with the secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` (an Application Password of
+   an account that may publish posts) and the variable `THUHA_GO_LIVE_APPROVAL`. For publication with no human wait the environment
+   must have no required reviewers: only its GitHub administrator can change that, and this repository does not.
 4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
    access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
 5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
@@ -155,3 +156,12 @@ and protected URLs are under `reports/live-audit/`. There is no paid AI API
 dependency and no automatic AI prose generation inside GitHub Actions.
 
 **Counting rule:** Historical reports mentioning 107 or 273 published posts are not a fresh count. Count distinct published post IDs per native language through the adapter, include existing posts, exclude pages/drafts/trash, count an unknown publication outcome as if it had published, and only attribute articles to an agent when explicit provenance and readback evidence exist.
+
+## Simple automated flow
+
+A real external Claude/ChatGPT writer submits each source-backed article with `submit`. For a completed draft the CLI immediately
+runs the deterministic QA (threshold 85 of 100 from 80 automatic points, every hard failure unchanged, no reviewer); a passing revision
+dispatches `thuha-qa-ready`, so the queue is drained without waiting for a cron tick. A draft stored with `--waiting-for` is not evaluated
+and dispatches nothing. The guarded WordPress publisher rechecks live QA, taxonomy and duplicates and records readback receipts. The hourly
+cron is a recovery fallback, not a queue delay. See the [direct QA85 publisher runbook](docs/AUTO-QA85-PUBLISHER.md). Production release
+remains separately gated until credentials and other site publishers are coordinated.

@@ -11,7 +11,7 @@ from thuha.common import REPO,canonical_json,digest,load,ROOT,now
 from thuha.store import GitStore,GitError,LocalStore,initial,event,validate,GitHub
 from thuha.coordinator import claim,submit,heartbeat
 from thuha.publisher import verify_security
-from thuha.cli import main
+from thuha.cli import main, inventory_for
 from thuha.dashboard import report
 
 
@@ -169,10 +169,61 @@ class SecurityTests(unittest.TestCase):
                 code=main(['--state-dir',temp,'--inventory',str(inv),'qa'])
             self.assertEqual(mock.call_count,2);self.assertEqual(code,1)
             self.assertEqual(json.loads(output.getvalue())['results']['TH-EN-0002']['status'],'PASS')
+    def test_github_dispatch_http_204_is_success(self):
+        class EmptyResponse:
+            def __enter__(self):return self
+            def __exit__(self,*args):return False
+            def read(self):return b''
+        with patch('thuha.store.urllib.request.urlopen',return_value=EmptyResponse()):
+            result=GitHub('fixture-token').request('POST','/repos/'+REPO+'/dispatches',
+                {'event_type':'thuha-qa-ready','client_payload':{'topic_ids':['TH-000001']}})
+        self.assertEqual(result,{})
+    def test_security_accepts_valid_refs_without_manual_reviewer(self):
+        class API:
+            def request(self,method,path):
+                if path.endswith('/git/ref/heads/main'):
+                    return {'ref':'refs/heads/main','object':{'sha':'a'*40}}
+                if path.endswith('/git/ref/heads/factory-state'):
+                    return {'ref':'refs/heads/factory-state','object':{'sha':'b'*40}}
+                raise AssertionError(path)
+        with patch.dict(os.environ,{'GITHUB_REF':'refs/heads/main'}):
+            self.assertTrue(verify_security(API())['automated_qa_required'])
+    def test_security_rejects_non_main_execution(self):
+        class API:
+            def request(self,*args):raise AssertionError('should fail before API')
+        with patch.dict(os.environ,{'GITHUB_REF':'refs/heads/untrusted'}):
+            with self.assertRaisesRegex(ValueError,'trusted main'):
+                verify_security(API())
     def test_missing_external_controls_blocks_go_live(self):
         class API:
             def request(self,*args):return {}
         with self.assertRaises(ValueError):verify_security(API())
+    def test_expired_remote_inventory_refreshes_from_wordpress_get(self):
+        from thuha.common import SITE
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp)
+            store.durable_remote=True
+            stale={'site':SITE,'captured_at':'2020-01-01T00:00:00+00:00','complete':True,'errors':[]}
+            fresh={'site':SITE,'captured_at':now(),'complete':True,'errors':[],
+                   'items':[],'categories':[],'counts':{'posts':0,'pages':0,'live_verified_posts':0}}
+            path=Path(temp)/'inventory.json'
+            path.write_text(json.dumps(stale))
+            with patch('thuha.cli.audit.inventory',return_value=fresh) as fetch:
+                out=inventory_for(store,path,21600)
+            self.assertEqual(out,fresh)
+            self.assertEqual(fetch.call_count,1)
+            self.assertEqual(store.get_document(store.read()['inventory_document']),fresh)
+    def test_fresh_inventory_does_not_make_external_requests(self):
+        from thuha.common import SITE
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp)
+            store.durable_remote=True
+            fresh={'site':SITE,'captured_at':now(),'complete':True,'errors':[]}
+            path=Path(temp)/'inventory.json'
+            path.write_text(json.dumps(fresh))
+            with patch('thuha.cli.audit.inventory') as fetch:
+                self.assertEqual(inventory_for(store,path,21600),fresh)
+            fetch.assert_not_called()
     def test_credential_presence_command_never_prints_secret_values(self):
         output=io.StringIO()
         with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,THUHA_WP_USER='private-fixture-user',THUHA_WP_APPLICATION_PASSWORD='private-fixture-password'),patch('sys.stdout',output):

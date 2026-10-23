@@ -150,7 +150,7 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
             'score':score,'raw_score':raw_score,'raw_maximum':80,'score_maximum':100,
             'threshold':policy['score_threshold'],'hard_fails':sorted(set(errors)),
             'article_sha':sha,'policy_sha256':digest(policy),'inventory_sha256':digest(inv),
-            'checked_at':now(),'review_mode':'automated','semantic_review':None,
+            'checked_at':now(),'review_mode':'automated','qa_mode':'automated','semantic_review':'not-required',
             'disclaimer':'Automatic technical and evidence QA; no independent semantic review performed; not a ranking or indexing guarantee'}
 
 

@@ -1,6 +1,8 @@
 name: ThuHa QA to guarded queue publisher
 # Adapted from wp-aiwriter: successful push QA -> hand-over -> QA -> guarded queue drain.
-# No AI model runs here. Default release is OFF (no language enabled); no secret, WordPress or site write before the gate.
+# Event-driven: a writer's QA PASS dispatches `thuha-qa-ready` and the queue is drained immediately; the hourly cron is
+# the recovery fallback, not a queue delay. No AI model runs here and there is no AI review gate.
+# Default release is OFF (no language enabled); no secret, WordPress or site write before the gate.
 # Writes go only through the companion adapter plugin, Vietnamese first, 500 posts per language.
 #
 #   preflight        read-only: tests, validation, dry-run, release gate
@@ -10,6 +12,8 @@ name: ThuHa QA to guarded queue publisher
 #                    authenticated inventory, automatic QA of every completed draft (no AI reviewer), then the drain (reconcile -> publish ->
 #                    public-page checks). A halted drain makes the run red; public-page warnings never do.
 on:
+  repository_dispatch:
+    types: [thuha-qa-ready]
   workflow_run:
     workflows: ['ThuHa V4 quality']
     types: [completed]

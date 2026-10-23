@@ -552,7 +552,7 @@ class ReviewFindingsTests(Line):
         out = io.StringIO()
         real = cli.load
         with patch('thuha.cli.GitStore', lambda: self.shared), patch('thuha.cli.load', lambda p: self.policy if str(p).endswith('config/qa.json') else real(p)), \
-                patch('thuha.cli.inventory_for', lambda store, path: self.shared.get_document(self.state()['inventory_document'])), \
+                patch('thuha.cli.inventory_for', lambda store, path, max_age=None: self.shared.get_document(self.state()['inventory_document'])), \
                 patch('thuha.quality.run_qa', return_value={'status': 'FAIL'}), contextlib.redirect_stdout(out):
             pending = cli.main(['--remote', 'qa', '--pending'])
             single = cli.main(['--remote', 'qa', '--topic-id', tid])

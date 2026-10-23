@@ -110,7 +110,7 @@ def collisions(topic,inv,queue):
 def validate_candidate(candidate,inv,queue,store,max_age=2592000,inventory_max_age=None):
     validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
     required=['topic_id','language','primary_keyword','search_intent','proposed_title','category_id','category_path',
-              'cluster','proposed_url','sources','intent_review']
+              'cluster','proposed_url','sources'] # the topic intent verdict is optional; collisions are checked automatically
     if any(not candidate.get(k) for k in required):raise ValueError('Incomplete topic contract')
     lang=check(candidate['language'])
     match=TOPIC_ID.fullmatch(candidate['topic_id'])
@@ -131,9 +131,14 @@ def validate_candidate(candidate,inv,queue,store,max_age=2592000,inventory_max_a
             raise ValueError('Source capture missing, stale or unsuccessful')
         if not evidence_current(evidence):raise ValueError('First-party source is stale: the repository file changed after it was captured')
         if not ref.get('supports') or len(ref['supports'])<20:raise ValueError('Explain which claim the source supports')
-    verdict=candidate['intent_review']
-    if verdict.get('verdict')!='DISTINCT' or verdict.get('inventory_sha256')!=digest(inv) or not verdict.get('reviewer_id') or not verdict.get('rationale'):
-        raise ValueError('Fresh semantic intent review required; keyword matching alone is insufficient')
+    # Keep the existing automated deduplication and independently captured
+    # sources, but do not wait for another AI/human intent reviewer.
+    # A supplied negative verdict or stale inventory claim must still block.
+    verdict=candidate.get('intent_review') or {}
+    if verdict and verdict.get('verdict') not in (None,'DISTINCT'):
+        raise ValueError('Candidate self-declared non-distinct intent')
+    if verdict.get('inventory_sha256') and verdict['inventory_sha256']!=digest(inv):
+        raise ValueError('Candidate used a stale inventory; recheck collisions')
     if collisions(candidate,inv,queue):raise ValueError('Duplicate or cannibalization review required')
     return True
 
