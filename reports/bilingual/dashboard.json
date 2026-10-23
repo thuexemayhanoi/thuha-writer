@@ -12,12 +12,11 @@
     "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "7 draft(s) wait for data (AUTHORITATIVE_INVENTORY x7, FEATURED_MEDIA x7, INTERNAL_LINKS x7): TH-VI-0004, TH-VI-0011, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0058, TH-VI-0093",
-    "7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
+    "7 draft(s) wait for data (AUTHORITATIVE_INVENTORY x7, FEATURED_MEDIA x7, INTERNAL_LINKS x7): TH-VI-0004, TH-VI-0011, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0058, TH-VI-0093"
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T08:20:26.341754+00:00",
+  "generated_at": "2026-10-23T08:27:51.193537+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
@@ -128,8 +127,7 @@
   },
   "queue": {
     "en": {
-      "awaiting_qa": [],
-      "awaiting_review": [
+      "awaiting_qa": [
         "TH-000001",
         "TH-000002",
         "TH-000003",
@@ -150,7 +148,6 @@
     },
     "vi": {
       "awaiting_qa": [],
-      "awaiting_review": [],
       "held_or_unknown": [
         "TH-VI-0006",
         "TH-VI-0014",

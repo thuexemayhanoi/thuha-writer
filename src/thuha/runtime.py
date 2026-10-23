@@ -12,7 +12,7 @@ from .common import SITE, digest, load, now, norm, urlkey, validate_inventory
 from .coordinator import WAIT_CODES, timestamp
 from .language import LANGUAGES, locale, screen_alt, targets as language_targets
 from . import quota
-from .quality import evaluate, REVIEW_CHECKS
+from .quality import evaluate
 from .matrix import matrix_path
 from .research import capture_external_source, collisions, intake, item_language
 
@@ -78,7 +78,7 @@ def kit(state,inv,topic_id,policy,business):
             'blockers':([] if media else ['NEEDS_MEDIA: no existing image has '+lang+' alt text, so this article cannot pass QA until one is added in WordPress']),
             'business_facts':business,'qa_policy':{k:policy[k] for k in ('score_threshold','minimum_internal_links','minimum_internal_content_links','maximum_repairs')},
             'minimum_length':{'unit':'syllables' if lang=='vi' else 'words','value':policy['substantial_length'][lang]},
-            'article_fields':list(ARTICLE_FIELDS),'review_checks':list(REVIEW_CHECKS),'waiting_for_choices':list(WAIT_CODES),
+            'article_fields':list(ARTICLE_FIELDS),'review_mode':'automated','waiting_for_choices':list(WAIT_CODES),
             'rules':RULES[lang]}
 
 
@@ -116,14 +116,16 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     submission={'article_sha':digest(article),'session':article.get('session'),'agent_id':article.get('agent_id')}
     result=evaluate(article,topic,submission,inv,policy,store,review,business)
     words=len(norm(' '.join(_text(article.get('body_html','')))).split())
-    excluding=[x for x in result['hard_fails'] if x!='INDEPENDENT_SEMANTIC_REVIEW_REQUIRED']
+    failures=list(result['hard_fails'])
     unknown=unknown_internal_links(article,topic,inv,state)
-    if unknown:excluding.append('INTERNAL_LINK_TARGET_UNKNOWN')
-    waits=sorted(code for code,fails in DATA_WAIT_FAILS.items() if any(x in fails for x in excluding))
+    if unknown:failures.append('INTERNAL_LINK_TARGET_UNKNOWN')
+    if missing:failures.append('ARTICLE_FIELDS_MISSING')
+    waits=sorted(code for code,fails in DATA_WAIT_FAILS.items() if any(x in fails for x in failures))
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
-                  hard_fails_excluding_review=excluding,data_waits=waits,unknown_internal_links=unknown,
-                  content_fails=[x for x in excluding if not any(x in DATA_WAIT_FAILS[c] for c in waits)])
-    result['would_pass_after_review']=not result['hard_fails_excluding_review'] and result['score']+(0 if review else 10)>=policy['score_threshold']
+                  hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,
+                  content_fails=[x for x in failures if not any(x in DATA_WAIT_FAILS[c] for c in waits)])
+    result['would_pass_qa']=not failures and result['score']>=policy['score_threshold']
+    result['status']='PASS' if result['would_pass_qa'] else 'FAIL'
     return result
 
 

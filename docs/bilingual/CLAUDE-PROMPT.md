@@ -45,7 +45,10 @@ hreflang khi hai bài thật tương đương. Bài Việt độc lập đã đ�
 sitemap, không cần tạo bài Anh giả để ghép. Kiểm tra archive cha/con, sitemap,
 robots, phân trang và language isolation bằng fixture local, còn live để
 publisher có quyền thực hiện sau. Giữ mọi cổng chất lượng hiện có, không hạ
-ngưỡng chỉ để đạt 1000 bài; review nội dung phải là review thật.
+ngưỡng chỉ để đạt 1000 bài. Cập nhật của chủ website ngày 23/10: bỏ cổng AI review độc lập;
+bản thảo hoàn chỉnh chạy QA tự động >=85/100 + chống trùng + đúng danh mục/ngôn ngữ rồi publisher.
+Không chờ reviewer, không giả review và không cộng điểm review. Lỗi nghiêm trọng vẫn chặn; bài WAITING_DATA/HELD
+không được biến thành READY khi chưa đủ dữ liệu. Lưu review cũ như lịch sử, không dùng làm điều kiện xuất bản.
 
 README.md, AGENTS.md, docs vận hành, config và workflow phải nói cùng một
 mục tiêu. Xóa mâu thuẫn 2000/en-US-only ở phần đang có hiệu lực, giữ lịch sử có

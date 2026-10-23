@@ -206,13 +206,15 @@ class FullLineTests(Line):
             self.drain(**scale)
         self.assertEqual(len(self.wp.created), 2)
 
-    def test_a_draft_without_a_review_waits_and_is_not_sent_to_repair(self):
+    def test_a_draft_without_a_review_passes_qa_and_publishes(self):
         unreviewed = self.draft('vi', VI[2], reviewed=False)
         reviewed = self.draft('vi', VI[0])
         self.hand_over()
-        self.assertEqual(self.qa(), {reviewed: 'PASS'})
-        self.assertEqual(self.state()['topics'][unreviewed]['status'], 'DRAFT_READY')
-        self.assertEqual([p['topic_id'] for p in self.drain()['published']], [reviewed])
+        self.assertEqual(self.qa(), {unreviewed: 'PASS', reviewed: 'PASS'})
+        self.assertEqual(self.state()['topics'][unreviewed]['status'], 'READY')
+        self.assertNotIn(unreviewed, self.state()['reviews'])
+        self.assertEqual({p['topic_id'] for p in self.drain()['published']}, {reviewed, unreviewed})
+        self.assertNotIn(unreviewed, self.state()['reviews'])
 
     def test_a_ready_draft_whose_qa_predates_the_policy_is_qualified_again_before_it_can_publish(self):
         vi1 = self.draft('vi', VI[0])
@@ -233,20 +235,21 @@ class FullLineTests(Line):
         unreviewed = self.draft('vi', VI[2], reviewed=False)
         vi1, vi2 = self.draft('vi', VI[0]), self.draft('vi', VI[1])
         before = dashboard.report(self.store, self.inv, self.release)  # the session ledger before any hand-over
-        self.assertEqual(before['queue']['vi']['awaiting_review'], [unreviewed])
+        self.assertEqual(set(before['queue']['vi']['awaiting_qa']), {unreviewed, vi1, vi2})
+        self.assertNotIn('awaiting_review', before['queue']['vi'])
         self.hand_over()
         self.qa()
         self.wp.page_faults.add('canonical')
         self.drain()
         value = dashboard.report(self.shared, self.shared.get_document(self.state()['inventory_document']), self.release)
-        self.assertEqual(value['queue']['vi']['published'], [vi1, vi2])
-        self.assertEqual(value['queue']['vi']['awaiting_review'], [unreviewed])
+        self.assertEqual(value['queue']['vi']['published'], [unreviewed, vi1])
+        self.assertEqual(value['queue']['vi']['qa_pass'], [vi2])
         self.assertEqual(value['post_checks']['counts'], {'WARNING': 2})
-        self.assertEqual(sorted(value['post_checks']['warnings']), [vi1, vi2])
+        self.assertEqual(sorted(value['post_checks']['warnings']), [unreviewed, vi1])
         self.assertEqual(value['factory_published_receipts'], 2)
         self.assertEqual(value['languages']['vi']['published_live'], 3)  # the fixture's own Vietnamese post plus the two published since the audit
         self.assertEqual(value['languages']['vi']['remaining'], 497)
-        self.assertTrue(any('wait for an independent review' in b for b in value['blockers']))
+        self.assertFalse(any('independent review' in b for b in value['blockers']))
         self.assertEqual(value['open_alerts'], [])
         text = dashboard.write_report(value, self.temp.name) or (Path(self.temp.name) / 'dashboard.md').read_text(encoding='utf-8')
         for heading in ('Shared queue', 'Public-page checks after publication', 'warning TH-VI-0002'):
@@ -494,11 +497,6 @@ class ReviewFindingsTests(Line):
         article = dict(self.shared.get_document(state['submissions'][tid]['article_sha']), session='session-repair', agent_id='writer-repair')
         article['body_html'] = article['body_html'].replace('<p>', '<p>Bổ sung một câu. ', 1)
         submit(self.shared, lease['slot'], lease['session'], lease['fence'], article)
-        self.assertEqual(quality.pending_qa(self.shared, self.policy), [])  # the review belongs to the OLD draft
-        review = {'article_sha': self.state()['submissions'][tid]['article_sha'], 'reviewer_id': 'reviewer-qa', 'language': 'vi',
-                  'checked_at': now(), 'checks': {k: True for k in quality.REVIEW_CHECKS}, 'notes': 'Synthetic review of the repaired draft.'}
-        sha = self.shared.put_document(review)
-        self.shared.mutate(lambda s: s['reviews'].update({tid: sha}))
         self.assertEqual(quality.pending_qa(self.shared, self.policy), [tid])
         self.assertEqual(self.qa(), {tid: 'PASS'})
 
@@ -511,8 +509,8 @@ class ReviewFindingsTests(Line):
         article['body_html'] = article['body_html'].replace('<p>', '<p>Bổ sung. ', 1)
         submit(self.shared, lease['slot'], lease['session'], lease['fence'], article)
         self.assertEqual(self.state()['topics'][tid]['status'], 'DRAFT_READY')
-        self.assertEqual(self.qa(), {})  # nothing is evaluated until a reviewer has seen THIS revision
-        self.assertEqual(self.state()['topics'][tid]['status'], 'DRAFT_READY')
+        self.assertEqual(self.qa(), {tid: 'PASS'})  # the old review never gates the repaired revision
+        self.assertEqual(self.state()['topics'][tid]['status'], 'READY')
 
     def test_a_draft_held_by_wordpress_that_a_person_deleted_closes_after_the_grace_period_and_can_publish_again(self):
         tid = self.one_ready()

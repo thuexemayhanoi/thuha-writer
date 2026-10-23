@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-23T08:20:26.341754+00:00
+Generated: 2026-10-23T08:27:51.193537+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -18,10 +18,10 @@ Generated: 2026-10-23T08:20:26.341754+00:00
 
 ## Shared queue (not published posts)
 
-| Language | Waiting for data | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
+| Language | Waiting for data | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
 |---|---|---|---|---|---|---|---|---|
-| vi | 7 | 0 | 0 | 0 | 0 | 0 | 0 | 11 |
-| en | 0 | 7 | 0 | 2 | 0 | 0 | 0 | 0 |
+| vi | 7 | 0 | 0 | 0 | 0 | 0 | 11 |
+| en | 0 | 7 | 2 | 0 | 0 | 0 | 0 |
 
 Public-page checks after publication: none yet. Public-page checks run after publication, back off and retry; they never stop the queue.
 
@@ -52,7 +52,6 @@ Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight suc
 - No external AI session lease; Actions do not generate prose
 - The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over
 - 7 draft(s) wait for data (AUTHORITATIVE_INVENTORY x7, FEATURED_MEDIA x7, INTERNAL_LINKS x7): TH-VI-0004, TH-VI-0011, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0058, TH-VI-0093
-- 7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009
 
 Existing articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.
 

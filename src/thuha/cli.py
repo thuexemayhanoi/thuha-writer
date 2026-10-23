@@ -76,7 +76,7 @@ def main(argv=None):
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
-    q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='Only drafts with a recorded review, and READY drafts whose QA report predates the current policy');q.add_argument('--language',choices=LANGUAGES)
+    q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='All completed drafts without a reviewer gate, and READY drafts whose QA report predates the current policy');q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('promote');q.add_argument('--source-state',default='data/state/factory.json');q.add_argument('--source-docs',default='data/documents');q.add_argument('--apply',action='store_true')
     q=sub.add_parser('sync');q.add_argument('--apply',action='store_true')
     q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain','acknowledge'],default='dry-run');q.add_argument('--topic-id');q.add_argument('--note')
@@ -95,6 +95,8 @@ def main(argv=None):
         project=load(ROOT/'config/project.json')
         if project['quality']['policy_file']!='config/qa.json':raise ValueError('QA policy pointer drift')
         if not policy['hard_fail_overrides_score']:raise ValueError('Hard-fail policy disabled')
+        if policy.get('review_mode')!='automated' or policy.get('semantic_review_required') is not False or policy['score_threshold']!=85:
+            raise ValueError('Owner policy: automated QA >=85, no independent AI review gate')
         if language_targets(project)!={'vi':500,'en':500} or factory['topic_capacity_by_language']!={'vi':500,'en':500}:
             raise ValueError('Goal drift: the owner goal is 500 published posts per language')
         problems={l:matrix.validate(load(matrix.matrix_path(l)),l) for l in LANGUAGES}
@@ -154,6 +156,7 @@ def main(argv=None):
         result=runtime.precheck(store,store.read(),inv,args.topic_id,load(args.file),policy,facts,review)
         if result['content_fails']:exit_code=1 # a fault in the article itself
         elif result['data_waits']:exit_code=3 # only data is missing: store the draft with --waiting-for
+        elif not result['would_pass_qa']:exit_code=1 # a low score also needs repair, even without hard failures
     elif args.command=='admit':
         inv=inventory_for(store,args.inventory)
         extra=load(args.extra_queue) if args.extra_queue else []

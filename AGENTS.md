@@ -3,6 +3,12 @@
 ## Current owner brief — 2026-10-23 UTC
 
 Target only `https://rentbikehanoi.com`, repository `thuexemayhanoi/thuha-writer`.
+Latest owner instruction (23 October): **remove the independent AI article-review gate**.
+The active route is writer -> automatic QA >=85/100 + duplicates + correct category/language -> publisher.
+Completed drafts go straight to QA; never wait for or fabricate a reviewer. Historical reviews stay immutable.
+Hard failures, evidence, real media/links, release configuration, credentials and idempotency still apply.
+The owner has requested automatic publication; do not ask for the same content-review approval again.
+Do not claim the live queue is enabled until the running branch, adapter and credentialed preflight prove it.
 Read `docs/bilingual/HANDOFF.md`, `docs/bilingual/CLAUDE-PROMPT.md`,
 `docs/bilingual/IMPLEMENTATION-STATUS.md` and `data/bilingual/plan.json` first. The goal is
 **500 published English posts and 500 published Vietnamese posts on the site, existing posts included, Vietnamese
@@ -27,10 +33,10 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   done on a stale copy cannot be merged automatically. Run `--git-branch sync --apply` before a new session works, so its
   ledger starts from the shared one; hand-over works repeatedly (sync, work, promote). The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
   ledger from a session.
-- **QA before publication, review before QA.** `qa --pending` evaluates a draft only once an independent review is recorded
-  (otherwise it would fail for the missing review alone and be sent to repair), and again every READY draft whose report
-  predates the current policy. Vietnamese QA needs an adapter or authenticated inventory. English reviews recorded before
-  schema 5 (which attest `english`) stay valid for English only.
+- **Automatic QA before publication; no independent AI review gate.** `qa --pending` evaluates every DRAFT_READY submission
+  and every READY draft whose policy or article hash is stale. Score = raw automatic points / 80 * 100; threshold 85.
+  Any hard failure blocks publication regardless of score. Vietnamese QA needs an adapter or authenticated inventory.
+  Legacy review records neither gate QA nor add points; no synthetic attestation may replace them.
 - **PUBLISHED means WordPress said so.** The intent becomes PUBLISHED when WordPress returns a valid ID, status `publish` and
   the planned permalink for the post this intent created. Stored-content differences (adapter read-back) are recorded in the
   receipt and raise an alert that stops *new* posts until a person acknowledges it. The public-page crawl is a separate step
@@ -40,18 +46,19 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   from WordPress after the grace period closes an intent and frees its slot. A draft WordPress holds is never counted and
   never re-sent. Unresolved intents stop the drain (red run) until reconciled.
 - **The queue is not blocked by one topic.** A READY topic that can no longer pass QA goes back to repair; the drain moves on.
-- Production stays OFF: `config/release.json` is changed only by a reviewed go-live decision, never by a session.
+- Publication is requested by the owner. The checked-in release remains OFF until operational prerequisites are verified;
+  report missing configuration precisely, rather than asking again for permission to remove AI review.
 - **A draft may wait for data, never fake it.** A finished text that lacks an image with Vietnamese alt text, live same-language links or an
   authoritative inventory is stored with `submit --waiting-for` as `WAITING_DATA`: never READY, never QA-passed, no media ID, source,
   permalink or check result invented, shared English alt text never edited to help it pass. `recheck-data` (credentialed inventory only)
-  clears a wait; completing the draft then goes through the ordinary independent review and QA. Drafts are exported to `drafts/`.
+  clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`.
 
 ## Language contract (enforced in code; do not weaken)
 
 - English stays at the site root; Vietnamese posts live at `/vi/{ascii-slug}/`, categories at
   `/vi/chuyen-muc/{slug}/`. Topic IDs are `TH-VI-####` / `TH-EN-####` (legacy `TH-######` is English).
 - A topic, its category path, URL, article `language` (`vi` / `en-US`), title, meta, alt text, body
-  links, review and receipt all carry one language. Cross-language body links are a hard fail;
+  links and receipt all carry one language. Cross-language body links are a hard fail;
   hreflang only for a genuinely equivalent pair that already exists.
 - Quota is per language: `config/project.json goal.targets` (500/500). Count = live published
   posts from an **adapter** inventory + unresolved intents. Pages, drafts, trash are excluded; the
@@ -92,11 +99,10 @@ read-only structural inspiration; do not import their code, live ledgers or
 business identity. The source topic exports here are **candidate ideas**, not
 approved articles, current facts, existing target posts or publish receipts.
 
-Implementation and offline checks are authorized now. Existing production
-publisher remains OFF while this is prepared; do not turn it on by changing
-`config/release.json`, secrets, reviewer policy or repository protections. Make
-the implementation and installable adapter concrete and reviewable first, and
-report any deployment needs truthfully. Do not ask the nontechnical owner to
+Implementation and offline checks are authorized now, including the owner's removal of the AI reviewer gate.
+The existing production publisher remains OFF while operational prerequisites are unverified.
+Do not bypass credentials or repository protections, invent a verified preflight, or merge/deploy as part of a status check.
+Make the implementation and installable adapter concrete and report deployment needs truthfully. Do not ask the nontechnical owner to
 register crawlers or run terminal commands to unblock offline work.
 
 Update README, operating docs and this file when behavior changes. Record the

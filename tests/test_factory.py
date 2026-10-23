@@ -214,13 +214,36 @@ class QualityTests(Fixture):
         lease=claim(self.store,'repair-session','another-writer')
         with self.assertRaises(ValueError):run_qa(self.store,topic['topic_id'],self.inv,self.policy,self.business)
         self.assertEqual(self.store.read()['leases'][lease['slot']]['fence'],lease['fence'])
-    def test_missing_independent_review_is_hard_fail(self):
+    def test_complete_draft_passes_automatic_qa_without_review(self):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
-        self.assertEqual(r['status'],'FAIL');self.assertIn('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED',r['hard_fails'])
-    def test_self_review_rejected(self):
+        self.assertEqual(r['status'],'PASS');self.assertEqual(r['hard_fails'],[])
+        self.assertEqual((r['raw_score'],r['raw_maximum'],r['score']), (80,80,100))
+        self.assertIsNone(r['semantic_review'])
+    def test_a_review_cannot_add_points_or_rescue_low_automatic_qa(self):
         t,a,s=self.ready();self.policy['trusted_reviewers']=['writer-fixture']
+        a.update(seo_title='Short',meta_description='Too short')
+        s=dict(s,article_sha=digest(a))
         review={'reviewer_id':'writer-fixture','language':'en','article_sha':digest(a),'checks':{k:True for k in REVIEW_CHECKS},'notes':'fake','checked_at':now()}
-        self.assertEqual(evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)['status'],'FAIL')
+        with_review=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
+        without=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
+        self.assertEqual(with_review['status'],'FAIL');self.assertEqual(with_review['score'],75)
+        self.assertEqual(with_review['score'],without['score'])
+    def test_held_draft_cannot_be_released_by_explicit_qa(self):
+        t,a,s=self.ready()
+        self.store.mutate(lambda state:state['topics'][t['topic_id']].update(status='HELD'))
+        before=self.store.read()
+        with self.assertRaisesRegex(ValueError,'HELD'):
+            run_qa(self.store,t['topic_id'],self.inv,self.policy,self.business)
+        self.assertEqual(self.store.read(),before)
+    def test_automatic_qa_does_not_load_a_legacy_review(self):
+        t,a,s=self.ready()
+        review_sha=self.store.read()['reviews'][t['topic_id']]
+        original=self.store.get_document
+        def read(sha):
+            if sha==review_sha:raise OSError('Legacy reviewer document unavailable')
+            return original(sha)
+        with patch.object(self.store,'get_document',side_effect=read):
+            self.assertEqual(run_qa(self.store,t['topic_id'],self.inv,self.policy,self.business)['status'],'PASS')
     def test_forged_report_does_not_authorize_changed_draft(self):
         t,a,s=self.ready();sha=self.store.read()['qa'][t['topic_id']]['report_sha']
         a['body_html']+='<p>tampered</p>'

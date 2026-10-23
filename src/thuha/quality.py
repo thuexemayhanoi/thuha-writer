@@ -1,9 +1,8 @@
-"""Trusted technical QA. Scores never override hard failures or missing review.
+"""Automatic bilingual QA. Scores never override hard failures.
 
-Semantic, factual and native-language judgments require a separate authorized
-reviewer; this deterministic screen deliberately does not claim to replace that
-work. It is bilingual: every check runs against the topic's own language and
-rejects mixed or cross-language content.
+This deterministic screen checks evidence and language signals; it does not
+claim human factual or native-language judgment. Historical reviews are kept
+for attribution but are neither a prerequisite nor a source of score points.
 """
 import re
 import unicodedata
@@ -142,33 +141,29 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     for old in (x for x in inv['items'] if item_language(x)==lang):
         sig=set(old['content_signature'])
         if len(new_sig&sig)/max(1,min(len(new_sig),len(sig)))>.75:errors.append('CONTENT_OVERLAP_REVIEW')
-    if policy.get('semantic_review_required'):
-        valid=bool(review and review.get('article_sha')==sha and review_language(review)==lang and
-                   review.get('reviewer_id') in policy['trusted_reviewers'] and
-                   review.get('reviewer_id')!=article['agent_id'] and
-                   review_checks_ok(review,lang) and
-                   review.get('notes') and review.get('checked_at') and 0<=age(review['checked_at'])<=policy['research_max_age_seconds'])
-        if not valid:errors.append('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED')
-        else:score+=10
-    else:
-        errors.append('SEMANTIC_REVIEW_POLICY_CANNOT_BE_DISABLED')
+    # Eight ten-point units are available from automatic checks (links carry two).
+    # Normalize these to 100 explicitly; never award points for a review attestation.
+    raw_score=score
+    score=round(raw_score*100/80,2)
     return {'status':'PASS' if not errors and score>=policy['score_threshold'] else 'FAIL','language':lang,
-            'score':score,'threshold':policy['score_threshold'],'hard_fails':sorted(set(errors)),
+            'score':score,'raw_score':raw_score,'raw_maximum':80,'score_maximum':100,
+            'threshold':policy['score_threshold'],'hard_fails':sorted(set(errors)),
             'article_sha':sha,'policy_sha256':digest(policy),'inventory_sha256':digest(inv),
-            'checked_at':now(),'semantic_review':(review or {}).get('reviewer_id'),
-            'disclaimer':'Technical QA plus separately attested semantic review; not a search ranking or indexing guarantee'}
+            'checked_at':now(),'review_mode':'automated','semantic_review':None,
+            'disclaimer':'Automatic technical and evidence QA; no independent semantic review performed; not a ranking or indexing guarantee'}
 
 
 def run_qa(store,topic_id,inv,policy,business):
     state=store.read();sub=state['submissions'][topic_id];topic=state['topics'][topic_id]
     if topic['status']=='WAITING_DATA':
         raise ValueError('Topic waits for data ('+', '.join(topic.get('waiting_for') or ['finish the draft'])+'); it cannot be evaluated or made READY until the draft is complete')
+    if topic['status']=='HELD':raise ValueError('Topic is HELD; resolve its hold before QA')
     article=store.get_document(sub['article_sha'])
-    review=store.get_document(state['reviews'][topic_id]) if topic_id in state.get('reviews',{}) else None
-    result=evaluate(article,topic,sub,inv,policy,store,review,business)
+    result=evaluate(article,topic,sub,inv,policy,store,business=business)
     report_sha=store.put_document(result)
     def transaction(state):
         if state['submissions'][topic_id]['article_sha']!=sub['article_sha']:raise ValueError('Draft changed during QA')
+        if state['topics'][topic_id]['status'] in ('WAITING_DATA','HELD'):raise ValueError('Topic put on hold or waiting for data during QA')
         if any(l['topic_id']==topic_id and l['fence']!=sub['fence'] and l['expires_at']>timestamp() for l in state['leases'].values()):
             raise ValueError('Another live writer is repairing this checkpoint; do not close their lease')
         intent=state['intents'].get(topic_id)
@@ -183,26 +178,18 @@ def run_qa(store,topic_id,inv,policy,business):
     return store.mutate(transaction)
 
 
-def reviewed_current(store,state,tid):
-    """A review is recorded for the draft as it is now (a repaired draft needs a new one)."""
-    if tid not in state.get('reviews',{}):return False
-    try:review=store.get_document(state['reviews'][tid])
-    except (ValueError,OSError,KeyError):return False
-    return review.get('article_sha')==state['submissions'][tid]['article_sha']
-
-
 def pending_qa(store,policy,languages=None):
     """Drafts that a scheduled QA run should evaluate.
 
-    A draft without a recorded review is not evaluated: it would fail only for the missing review and move to
-    NEEDS_REPAIR, which sends a writer to "repair" something that needs a reviewer. A READY draft whose report was
-    produced under an older policy (or for another revision) must be evaluated again before it can publish.
+    Every completed draft is eligible without a reviewer. A READY draft whose
+    report was produced under an older policy or revision is evaluated again.
+    WAITING_DATA, HELD and incomplete drafts remain excluded.
     """
     state=store.read();out=[]
     for tid,topic in sorted(state['topics'].items()):
         sub=state['submissions'].get(tid)
         if not sub or (languages and topic['language'] not in languages):continue
-        if topic['status']=='DRAFT_READY' and reviewed_current(store,state,tid):out.append(tid)
+        if topic['status']=='DRAFT_READY':out.append(tid)
         elif topic['status']=='READY':
             record=state['qa'].get(tid)
             try:

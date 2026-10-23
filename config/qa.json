@@ -6,14 +6,16 @@
   "inventory_max_age_seconds": 21600,
   "research_max_age_seconds": 2592000,
   "trusted_reviewers": ["claude-editorial-reviewer"],
-  "reviewer_roster_note": "V5: one independent AI editorial reviewer identity, distinct from every writer agent_id; it is attribution metadata, not a human sign-off. Owner confirms or replaces the roster at go-live.",
-  "semantic_review_required": true,
-  "threshold_status": "development default; confirm at go-live",
+  "reviewer_roster_note": "Legacy optional review attribution only. No reviewer or attestation is required for QA or publishing.",
+  "semantic_review_required": false,
+  "review_mode": "automated",
+  "score_basis": "Automatic raw score out of 80 normalized to 100; reviews add no points; any hard failure blocks publication",
+  "threshold_status": "Owner requested automatic QA >=85 then publish, 2026-10-23",
   "hard_fail_overrides_score": true,
   "minimum_internal_content_links": 1,
   "substantial_length": {
     "en": 700,
     "vi": 950
   },
-  "language_screens": "deterministic diacritic/function-word screens; native-language review stays mandatory"
+  "language_screens": "deterministic diacritic/function-word screens; no independent native-language review claimed or required"
 }

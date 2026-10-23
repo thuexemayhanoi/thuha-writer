@@ -22,4 +22,4 @@ Không cần cài đặt hay chạy lệnh gì: chỉ cần trả lời bằng c
 Khi có câu trả lời, nơi ghi đúng là `config/business-facts.json` (một thay đổi cần được xem xét như mọi thay đổi cấu hình). **Lưu ý:** bằng chứng first-party của các bản thảo hiện tại gắn
 với bản ghi hiện có của tệp đó; khi tệp đổi, bằng chứng cũ được coi là cũ và các bản thảo phải được viết lại dựa trên câu trả lời thật (đó chính là mục đích: chuyển từ
 "hãy hỏi cửa hàng" sang "cửa hàng cho biết"). Không bài nào được xuất bản chỉ vì câu trả lời đã có: vẫn cần ảnh có alt tiếng Việt, liên kết nội bộ đã xác thực, inventory từ adapter,
-review độc lập và QA.
+QA tự động >=85/100, không chờ AI review độc lập (yêu cầu chủ website ngày 23/10).

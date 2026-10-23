@@ -25,7 +25,7 @@ def language_view(s,inv,targets):
     return out,None
 
 
-QUEUE_COLUMNS=('waiting_data','awaiting_review','awaiting_qa','qa_pass','publishing','published','needs_repair','held_or_unknown')
+QUEUE_COLUMNS=('waiting_data','awaiting_qa','qa_pass','publishing','published','needs_repair','held_or_unknown')
 
 
 def queue_view(s):
@@ -37,7 +37,7 @@ def queue_view(s):
             if t['language']!=lang or tid not in s['submissions']:continue
             status=t['status']
             if status=='WAITING_DATA':rows['waiting_data'].append(tid) # stored, complete but for data that does not exist yet; never QA pass
-            elif status=='DRAFT_READY':rows['awaiting_qa' if tid in s.get('reviews',{}) else 'awaiting_review'].append(tid)
+            elif status=='DRAFT_READY':rows['awaiting_qa'].append(tid)
             elif status=='READY':rows['qa_pass'].append(tid)
             elif status=='PUBLISHING':rows['publishing'].append(tid)
             elif status=='PUBLISHED':rows['published'].append(tid)
@@ -118,7 +118,6 @@ def report(store,inv,release,targets=None,live_ledger=None):
     if not release.get('languages_enabled'):result['blockers'].append('No language enabled in the release (production stays OFF)')
     if result['adapter'].get('status')!='VERIFIED':result['blockers'].append('BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded')
     if language_error:result['blockers'].append('Language counts unknown: '+language_error)
-    if not load(ROOT/'config/qa.json')['trusted_reviewers']:result['blockers'].append('No independent reviewer roster configured')
     if not release.get('cross_publisher_coordination_verified'):result['blockers'].append('Other publisher coordination not verified')
     if not s['leases']:result['blockers'].append('No external AI session lease; Actions do not generate prose')
     if not inv.get('complete'):result['blockers'].append('Inventory incomplete; new topics and publisher blocked')
@@ -133,8 +132,6 @@ def report(store,inv,release,targets=None,live_ledger=None):
         ready=[k for k,v in result['waiting_data'].items() if not v]
         result['blockers'].append(str(len(result['waiting_data']))+' draft(s) wait for data ('+', '.join(c+' x'+str(n) for c,n in sorted(by_code.items()))+')'
                                   +('; '+str(len(ready))+' now have it and wait for a writer to finish them' if ready else '')+': '+', '.join(list(result['waiting_data'])[:12]))
-    awaiting=[t for lang in LANGUAGES for t in result['queue'][lang]['awaiting_review']]
-    if awaiting:result['blockers'].append(str(len(awaiting))+' draft(s) wait for an independent review before QA: '+', '.join(awaiting[:12]))
     return result
 
 
@@ -149,7 +146,7 @@ def write_report(value,directory):
     for lang in value['priority']:
         row=(value['languages'] or {}).get(lang)
         text+='| '+lang+' | '+str(value['targets'][lang])+' | '+(' | '.join(str(row[k]) for k in ('published_live','unresolved_intents','remaining','factory_published_receipts')) if row else 'UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN')+' |\n'
-    text+='\n## Shared queue (not published posts)\n\n| Language | Waiting for data | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|---|\n'
+    text+='\n## Shared queue (not published posts)\n\n| Language | Waiting for data | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|---|\n'
     for lang in value['priority']:
         q=value['queue'][lang]
         text+='| '+lang+' | '+' | '.join(str(len(q[k])) for k in QUEUE_COLUMNS)+' |\n'

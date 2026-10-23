@@ -121,14 +121,15 @@ class BilingualQualityTests(Fixture):
     def test_featured_image_alt_must_be_in_the_article_language(self):
         self.assertIn('FEATURED_ALT_NOT_VIETNAMESE_TEXT', self.fails('vi', lambda a:a.update(featured_media=50)))
 
-    def test_review_must_cover_the_articles_language(self):
+    def test_vietnamese_qa_does_not_require_or_claim_a_review(self):
         t, a, s = self.ready('vi')
         review = {'article_sha': digest(a), 'reviewer_id': 'reviewer-qa', 'language': 'en', 'checked_at': now(),
                   'checks': {k: True for k in REVIEW_CHECKS}, 'notes': 'English reviewer'}
         r = evaluate(a, t, s, self.inv, self.policy, self.store, review, self.business)
-        self.assertIn('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED', r['hard_fails'])
+        self.assertEqual(r['status'], 'PASS')
+        self.assertIsNone(r['semantic_review'])
         review['language'] = 'vi';review['checks'].pop('no_machine_translation')
-        self.assertIn('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED', evaluate(a, t, s, self.inv, self.policy, self.store, review, self.business)['hard_fails'])
+        self.assertEqual(evaluate(a, t, s, self.inv, self.policy, self.store, None, self.business)['score'], r['score'])
 
     def test_category_of_the_wrong_language_fails_even_if_ancestry_matches(self):
         t, a, s = self.ready('vi')

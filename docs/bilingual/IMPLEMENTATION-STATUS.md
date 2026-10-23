@@ -1,5 +1,33 @@
 # Trạng thái triển khai: workflow 500 VI + 500 EN
 
+## Cập nhật đang có hiệu lực: QA tự động, bỏ AI review (23/10/2026)
+
+Theo yêu cầu mới của chủ website, bài hoàn chỉnh đi thẳng từ writer -> QA >=85/100,
+kiểm tra trùng + danh mục/ngôn ngữ -> publisher. Không chờ AI reviewer và không cần
+`review.json`/`THUHA_REVIEWER_ID`. Điểm tự động gốc tối đa 80 được quy đổi về 100;
+review không cộng điểm. Mọi hard fail, nguồn, ảnh/alt, link thật, quota và chống đăng trùng vẫn giữ.
+`precheck` trả `would_pass_qa`, `hard_fails` và điểm thật; điểm thấp trả lỗi kể cả khi không có hard fail.
+
+`qa --pending` nhận tất cả DRAFT_READY, chạy lại READY khi policy/hash cũ, loại WAITING_DATA/HELD.
+Dashboard không còn mục chờ AI review. Review cũ và 27 bản thảo giữ nguyên bất biến.
+NEEDS_REVIEW còn là trạng thái sửa thất bại quá giới hạn, không phải bước reviewer bắt buộc cho bài đạt QA.
+README, AGENTS, hướng dẫn Claude/writer và tên bước Actions đã đồng bộ.
+
+Việc đăng tự động đã được chủ website yêu cầu; bản sửa này không tự khai đã bật live.
+Nhánh `main` và shared ledger chưa nhận nhánh song ngữ; release đang OFF, adapter live chưa được xác minh,
+chưa chứng minh credential/preflight hoạt động. Không merge, deploy hoặc tạo bài WordPress trong bản sửa này.
+Tiếp tục từ commit chứa cập nhật này: kiểm tra quality của PR, chuyển code đã kiểm thử vào nhánh chạy,
+credentialed publisher kiểm tra adapter/inventory/config rồi `qa --pending` -> drain.
+Claude chỉ có repo: không yêu cầu đăng nhập/crawl WordPress, không giả preflight hay biên nhận.
+
+Kiểm tra bản sửa: **368 test chạy, 366 đạt, 2 PHP test bỏ qua vì môi trường local không có PHP**;
+`thuha.cli validate`, matrix500VI/500EN, kiểm tra gói ZIP, parse toàn bộ workflow YAML và `git diff --check` đều đạt.
+Xuất lại draft/matrix/gói không đổi nội dung (export có đường dẫn máy khác được hoàn nguyên).
+Đã đọc danh sách plugin WordPress qua kết nối ngày 23/10: chưa có companion publisher adapter;
+không có thao tác cài đặt, viết bài hay thay theme trong bản sửa. CI là nơi chạy PHP harness trước khi đưa code vào nhánh chạy.
+
+Các mục dưới là lịch sử trước yêu cầu mới; mọi câu "chờ review độc lập" dưới đây đã được thay thế.
+
 Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ; ngày 23/10 đã gộp thêm nhánh phiên V5).
 Không có pull request nào được tạo; `main` không bị đụng; production publisher **vẫn tắt**.
 

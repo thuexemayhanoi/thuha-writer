@@ -78,10 +78,10 @@ class RuntimeTests(Fixture):
         before = copy.deepcopy(state)
         broken = dict(article); broken['body_html'] += '<p>we personally tested this</p>'
         out = precheck(self.store, state, self.inv, topic['topic_id'], broken, self.policy, self.business)
-        self.assertIn('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM', out['hard_fails_excluding_review'])
+        self.assertIn('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM', out['hard_fails'])
         clean = precheck(self.store, state, self.inv, topic['topic_id'], article, self.policy, self.business)
-        self.assertEqual(clean['hard_fails_excluding_review'], [])
-        self.assertTrue(clean['would_pass_after_review'])
+        self.assertEqual(clean['hard_fails'], [])
+        self.assertTrue(clean['would_pass_qa'])
         self.assertEqual(self.store.read(), before)
         self.assertEqual(self.store.read()['submissions'][topic['topic_id']]['repair_count'], 0)
 
@@ -154,11 +154,23 @@ class CliRuntimeTests(Fixture):
         self.assertEqual(code, 0)
         self.assertEqual(self.store.read(), before)
 
-    def test_reviewer_roster_contains_no_writer_identity(self):
+    def test_automatic_qa_is_the_configured_publication_policy(self):
         policy = load(ROOT / 'config/qa.json')
-        self.assertTrue(policy['trusted_reviewers'])
-        self.assertTrue(all(r.startswith('claude-editorial') for r in policy['trusted_reviewers']))
-        self.assertTrue(policy['semantic_review_required'])
+        self.assertFalse(policy['semantic_review_required'])
+        self.assertEqual(policy['review_mode'], 'automated')
+        self.assertEqual(policy['score_threshold'], 85)
+        self.assertTrue(policy['hard_fail_overrides_score'])
+
+    def test_cli_precheck_rejects_a_low_score_even_without_hard_failures(self):
+        topic, article, sub = self.ready()
+        article.update(seo_title='Short', meta_description='Too short')
+        inventory = os.path.join(self.temp.name, 'inv.json'); json.dump(self.inv, open(inventory, 'w'))
+        draft = os.path.join(self.temp.name, 'low.json'); json.dump(article, open(draft, 'w'))
+        before = copy.deepcopy(self.store.read())
+        with patch('sys.stdout'):
+            code = main(['--state-dir', self.temp.name, '--inventory', inventory, 'precheck', '--topic-id', topic['topic_id'], '--file', draft])
+        self.assertEqual(code, 1)
+        self.assertEqual(self.store.read(), before)
 
 
 if __name__ == '__main__':

@@ -85,19 +85,22 @@ timestamp older than a day is rejected. The resulting snapshot carries
 it apart from a direct capture. A blocked source is recorded as blocked in the
 topic notes; it is never invented.
 
-## Independent review
+## Automatic QA, no AI reviewer gate (owner instruction, 23 October)
 
-A separate agent identity on the `trusted_reviewers` roster
-(`claude-editorial-reviewer`) reads the exact submitted revision with `resume`,
-verifies intent, factual accuracy against the captured sources, the language
-(`english` or `native_language`; for Vietnamese also `no_machine_translation`),
-originality, business facts and image relevance, and records a review for that
-`article_sha` with `THUHA_REVIEWER_ID` set. The writer agent cannot review its
-own draft. Reviews recorded before schema 5 (`english`, no `language` label)
-stay valid for English drafts. Then `qa --topic-id` (or the queue job's
-`qa --pending`) recomputes everything; PASS moves the topic to READY, FAIL to
-NEEDS_REPAIR. The roster is attribution metadata; the owner confirms or
-replaces it at go-live.
+Run `qa --topic-id` or `qa --pending` directly after a completed submission.
+The latter also rechecks READY reports produced under another policy/revision.
+The deterministic points available total 80, normalized to 100; >=85 is required
+and any hard failure blocks regardless of score. `precheck` returns `would_pass_qa`,
+the real score and `hard_fails`; it never assumes a reviewer will add points.
+PASS moves the draft to READY; FAIL to bounded repair. WAITING_DATA and HELD are
+excluded. NEEDS_REVIEW remains a legacy status for exhausted repair attempts,
+not a mandatory reviewer step for otherwise passing drafts.
+
+The publisher re-runs the same QA with fresh authenticated inventory before a
+write. Legacy review documents and their events are retained without gating
+or score credit. The optional `review` command is for historical attribution
+only; never fabricate a reviewer to release the queue. Automated language and
+source screens do not claim independent semantic or factual judgment.
 
 ## Admission of researched topics
 

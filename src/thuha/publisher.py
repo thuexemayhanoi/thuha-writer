@@ -111,9 +111,8 @@ class Publisher:
         if report['status']!='PASS' or report['article_sha']!=sub['article_sha'] or report['policy_sha256']!=digest(self.policy):
             raise PublishBlocked('QA evidence/source/policy mismatch: run QA again')
         article=self.store.get_document(sub['article_sha'])
-        review=self.store.get_document(s['reviews'][topic_id]) if topic_id in s.get('reviews',{}) else None
         current=live or self.inv
-        qa=evaluate(article,topic,sub,current,self.policy,self.store,review,self.business)
+        qa=evaluate(article,topic,sub,current,self.policy,self.store,business=self.business)
         if qa['status']!='PASS':raise PublishBlocked('Fresh QA failed: '+','.join(qa['hard_fails']),qa['hard_fails'])
         if collisions(topic,current,[]):raise PublishBlocked('Live duplicate detected',['DUPLICATE_OR_CANNIBALIZATION'])
         return topic,sub,article,qa

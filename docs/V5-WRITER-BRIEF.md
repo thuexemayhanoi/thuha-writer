@@ -44,8 +44,8 @@ cannot reach any website except api.github.com: research with the Parallel
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
 6. `python3 -m thuha.cli --git-branch precheck --topic-id <TOPIC> --file article.json`.
-   Fix every entry in `hard_fails_excluding_review` and re-run until it is empty
-   and `would_pass_after_review` is true. Only then:
+   Fix every entry in `hard_fails` and re-run until it is empty
+   and `would_pass_qa` is true (automatic score >=85/100). No independent AI review is required. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
    If `precheck` exits 3 (only data is missing: `data_waits` lists `FEATURED_MEDIA`, `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and
    `content_fails` is empty), add `--waiting-for` with exactly those codes. The draft is stored as `WAITING_DATA`: never READY, no QA, the
@@ -56,7 +56,7 @@ cannot reach any website except api.github.com: research with the Parallel
    consumes one of three repairs and goes through a fresh claim of the
    NEEDS_REPAIR topic (read `topic.repair_notes` in the kit first).
 8. Report: topic_id, slot, article_sha, word count, sources used, any blocked
-   source, anything the reviewer should double-check.
+   source, automatic QA result and remaining data blockers. Run `qa --pending` for completed submissions; never wait for a reviewer.
 
 ## Editorial bar
 

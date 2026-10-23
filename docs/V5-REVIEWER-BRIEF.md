@@ -1,5 +1,11 @@
 # V5 independent reviewer brief
 
+**Historical optional procedure, superseded for publication on 23 October 2026.**
+The owner removed the independent AI review gate. Do not run this as a prerequisite
+for QA or publishing. Completed drafts go directly to `qa --pending` (>=85/100,
+no hard failures), then the configured publisher. Existing review records stay
+immutable; the procedure below is retained only to explain those records.
+
 You are the independent editorial reviewer identity `claude-editorial-reviewer`.
 You never wrote the draft you review and you never edit it. Work from the
 repository root with `export PYTHONPATH=src THUHA_REVIEWER_ID=claude-editorial-reviewer`.

@@ -5,9 +5,9 @@ name: ThuHa QA to guarded queue publisher
 #
 #   preflight        read-only: tests, validation, dry-run, release gate
 #   queue            no WordPress secret: hand the session ledger over to the shared ledger (fast-forward only,
-#                    never overwrites), refresh a stale public inventory, QA the English drafts that have a review
+#                    never overwrites), refresh a stale public inventory, QA all completed English drafts
 #   protected-publish  only when the release gate is open, inside the protected environment: adapter preflight,
-#                    authenticated inventory, QA of every draft with a review, then the drain (reconcile -> publish ->
+#                    authenticated inventory, automatic QA of every completed draft (no AI reviewer), then the drain (reconcile -> publish ->
 #                    public-page checks). A halted drain makes the run red; public-page warnings never do.
 on:
   workflow_run:
@@ -101,7 +101,7 @@ jobs:
       - name: Refresh the public inventory when the stored one is older than five hours
         continue-on-error: true # one page that does not answer must not stop QA of what is already in the queue
         run: python3 -m thuha.cli --remote --output artifacts/live-audit audit --max-age 18000
-      - name: QA the English drafts that have an independent review (Vietnamese QA needs the authenticated inventory)
+      - name: Automatic QA of completed English drafts (Vietnamese QA needs authenticated inventory)
         continue-on-error: true
         run: python3 -m thuha.cli --remote qa --pending --language en
       - name: Report
@@ -154,7 +154,7 @@ jobs:
       - name: Clear the waits that the authenticated inventory now satisfies (drafts stay unfinished; nothing becomes READY)
         continue-on-error: true
         run: python3 -m thuha.cli --remote recheck-data
-      - name: QA every draft that has an independent review
+      - name: Automatic QA of every completed draft (no independent AI reviewer gate)
         continue-on-error: true
         run: python3 -m thuha.cli --remote qa --pending
       - name: Drain only QA-ready articles inside approved release and daily caps

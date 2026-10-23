@@ -3,12 +3,19 @@ https://rentbikehanoi.com
 
 **Bilingual workflow and shared queue implemented and tested offline. WordPress production publishing remains OFF.**
 
+**Owner update, 23 October 2026: no independent AI article review.** Completed drafts go straight to automatic
+QA (>=85/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
+The 80 automatic points are normalized to 100; a review adds no points. This is technical/evidence screening,
+not a claim of independent factual or native-language judgment. No reviewer identity is needed to move a draft forward.
+The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
+need verification before that can be reported as live. No WordPress publication is claimed by this code change.
+
 The nine English drafts, their sources, the two reviews and the whole history written by the V5 writer session are merged
 into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
 (`promote`) moves them into the ledger that GitHub Actions read (`factory-state`) once this branch is merged. From
 there the queue job runs QA and, only when go-live is enabled, the protected job publishes. See
 [how a draft becomes a post](#from-draft-to-published-post) and [what must be set up once](#set-up-once-for-automatic-operation).
-V5 documents: [writer runtime](docs/V5-WRITER-RUNTIME.md), [writer brief](docs/V5-WRITER-BRIEF.md), [reviewer brief](docs/V5-REVIEWER-BRIEF.md).
+V5 documents: [writer runtime](docs/V5-WRITER-RUNTIME.md), [writer brief](docs/V5-WRITER-BRIEF.md), [historical optional reviewer brief](docs/V5-REVIEWER-BRIEF.md).
 Live inventory on 23 October 2026: 275 published posts, 6 pages, 59 categories.
 
 Repository: `thuexemayhanoi/thuha-writer`  
@@ -32,7 +39,7 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
 | Vietnamese topics, drafts, reviews | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only, independently reviewed for content twice (not a ledger review; the second review advised 7 pages instead of 17 and the rest were merged or held), **not READY, no QA, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to, an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
 | Drafts that wait for data (`WAITING_DATA`, `recheck-data`, `drafts/`) | **Implemented, tested offline**; the credentialed publisher's audit clears a wait only when the inventory really holds the data |
-| Independent review of the English drafts | 2 of 9 reviewed (TH-000005, TH-000006; both pass QA again under the new policy); the other 7 wait for a reviewer (TH-000002 is under a writer lease that expires and returns it to the queue) |
+| English draft QA queue | Historical reviews for TH-000005 and TH-000006 are retained. All 9 drafts are eligible for automatic QA on a fresh inventory, including the 7 without a reviewer; a live writer lease is respected |
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 
 Published counts in the repo are a snapshot (275 EN, 0 VI at 2026-10-22). They are not a live counter:
@@ -47,7 +54,6 @@ Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 
 ```
 writer session            claim -> kit -> source -> precheck -> submit        (session ledger: data/state + data/documents)
-independent reviewer      resume -> review                                    (a different identity; cannot review its own draft)
 merge to main             quality workflow runs, then the scheduled workflow starts
 queue job (no WordPress secret)
                           promote --apply      session ledger -> factory-state, fast-forward only, documents first
@@ -63,7 +69,7 @@ protected job (only if release.json is fully enabled; environment thuha-producti
 
 A post is recorded as **PUBLISHED** the moment WordPress answers with a valid ID, status `publish` and the planned
 permalink for the intent that created it. What WordPress stored (body, title, SEO fields, category, language marker) is
-compared with the reviewed article and recorded with the receipt; a difference raises an alert that stops *new* posts until a
+compared with the QA-passed article and recorded with the receipt; a difference raises an alert that stops *new* posts until a
 person acknowledges it. The public page (canonical, title, meta, `<html lang>`, schema, no `noindex`) is checked afterwards
 with back-off and five attempts: its failures are warnings on the dashboard and never stop the queue. An answer to the POST
 that is lost is reconciled by idempotency key at once and on every run; the POST is never sent twice. A draft that WordPress
@@ -84,8 +90,8 @@ Nothing below is done by this repository, and none of it can be checked offline.
 5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
    language. Only 15 images carry (English) alt text today, so no Vietnamese article can pass QA until at least one image whose
    alt text is Vietnamese (it must contain Vietnamese letters) is added to the media library. The inventory now lists the whole library.
-6. **Reviews.** Seven English drafts need an independent review (`claude-editorial-reviewer` is the only trusted reviewer in `config/qa.json`; the owner confirms or replaces it. The identity is a declared string, not an authenticated person: protect who may write the shared ledger and the policy before trusting it for production); Vietnamese drafts do not exist yet.
-7. **Go-live** is one reviewed change to `config/release.json` (`enabled`, `approved`, `approval_ref`, `paused: false`,
+6. **Automatic QA.** Run `qa --pending` for every completed draft; no independent reviewer is required. WAITING_DATA/HELD remain blocked until their actual missing data or content is resolved.
+7. **Go-live configuration** records the owner's request in `config/release.json` once prerequisites are verified (`enabled`, `approved`, `approval_ref`, `paused: false`,
    `cross_publisher_coordination_verified`, `languages_enabled`). The first stage publishes at most two posts. Nothing in this
    repository does this.
 
@@ -96,7 +102,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests -v     # 327 offline tests 
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
 PYTHONPATH=src python3 -m thuha.cli --remote promote        # PLAN of the hand-over; add --apply to perform it (queue job only)
 PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: bring the session ledger up to the shared one first
-PYTHONPATH=src python3 -m thuha.cli --remote qa --pending   # QA for reviewed drafts and stale READY ones
+PYTHONPATH=src python3 -m thuha.cli --remote qa --pending   # QA for all completed drafts and stale READY ones; no reviewer gate
 PYTHONPATH=src python3 -m thuha.cli --remote publisher --mode drain     # reconcile, publish, check (needs the release gate)
 PYTHONPATH=src python3 -m thuha.cli matrix next --language vi --limit 10   # next topics to research (read-only)
 PYTHONPATH=src python3 -m thuha.cli quota                   # per-language target / live / unresolved / remaining
