@@ -4201,6 +4201,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:52:19.820707+00:00",
+      "expires_at": 1792768939.820698,
+      "fence": "ea1f03645a4542758b84184e4104de4e",
+      "heartbeat_at": "2026-10-23T14:52:19.820680+00:00",
+      "language": "vi",
+      "previous": "53bf1f959b1fe537f719bc299c49f8f27b2d1ba2a89a684cf167ec2c394ffcd5",
+      "session": "sess-b3r",
+      "sha256": "f11b89ff7a4e7287d4ab4bf8ff5b485245c69d2f28ae16abf2f6bfc29c376dd3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0268"
     }
   ],
   "intents": {
@@ -7176,7 +7190,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792768939.820698,
+      "fence": "ea1f03645a4542758b84184e4104de4e",
+      "heartbeat_at": "2026-10-23T14:52:19.820680+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0268"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11693,6 +11718,7 @@
         162
       ],
       "cluster": "su-dung-va-cham-soc-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "mặc váy áo dài quần ống rộng đi xe máy",
       "proposed_title": "Mặc váy, áo dài hoặc quần ống rộng đi xe máy: tránh vướng bánh sau, xích và chân người ngồi sau",
@@ -11705,7 +11731,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0268",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -11898,5 +11924,5 @@
       ]
     }
   },
-  "version": 579
+  "version": 580
 }
