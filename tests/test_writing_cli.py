@@ -499,6 +499,24 @@ class NextTests(Cli):
         self.assertNotIn('TH-EN-0001', [i['topic_id'] for i in out['start_now']])  # a stale capture is no source at all
         self.assertEqual(out['not_writable_here'], {'NEEDS_SOURCE': 1})
 
+    def test_a_stored_draft_whose_first_party_evidence_is_stale_is_listed_so_it_is_recaptured_before_it_is_submitted_again(self):
+        from thuha.coordinator import submit
+        stale = {'url': 'repo://config/business-facts.json', 'checked_at': now(), 'http_status': 200, 'response_sha256': 'a' * 64, 'file_sha256': '0' * 64,
+                 'capture_method': 'repository-file', 'excerpt': 'x', 'page_title': 'config/business-facts.json'}
+        topic, lease = self.leased()
+        ref = dict(topic['sources'][0], url=stale['url'], document=self.store.put_document(stale))
+        article = dict(self.article_for(topic, lease['session'], lease['agent_id']), sources=[ref], featured_media=None)
+        submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['FEATURED_MEDIA'])
+        other = self.distinct(2)
+        intake(self.store, [other], self.inv)
+        lease2 = claim(self.store, 'session-w2', 'writer-w2')
+        held_article = dict(self.article_for(other, lease2['session'], lease2['agent_id']), sources=[ref], featured_media=None)
+        submit(self.store, lease2['slot'], lease2['session'], lease2['fence'], held_article, waiting_for=['FEATURED_MEDIA'])
+        hold(self.store, 'TH-VI-0002', 'Overlaps another row.')
+        with self.matrix(self.rows()):
+            out = self.run_cli('next', '--language', 'vi')[1]
+        self.assertEqual(out['stale_first_party_evidence'], {'needs_recapture': [{'topic_id': 'TH-VI-0001', 'status': 'WAITING_DATA'}], 'held_not_resubmitted': 1})
+
     def test_a_held_topic_is_never_offered_and_is_counted(self):
         topic = self.distinct(2)
         intake(self.store, [topic], self.inv)
@@ -517,6 +535,83 @@ class NextTests(Cli):
         languages = [i['language'] for i in both['admit_first']]
         self.assertEqual(languages, sorted(languages, key=['vi', 'en'].index))
         self.assertIn('en', languages)
+
+
+class LinkCycleTests(Cli):
+    """QA fails a link to a page that is not live, so a draft can pass only after the topics it links to are published; drafts that link to each other never can."""
+    matrix = NextTests.matrix
+
+    def stored_pair(self, a_links_b=True, b_links_a=True):
+        from thuha.coordinator import submit
+        a, b = self.candidate(1, 'vi'), self.distinct(2)
+        intake(self.store, [a, b], self.inv)
+        leases = [claim(self.store, 'session-w1', 'writer-w1'), claim(self.store, 'session-w2', 'writer-w2')]
+        link = lambda target: '<p>Xem thêm <a href="%s">bài kế tiếp</a>.</p>' % target['proposed_url']
+        for topic, lease, other, wanted in ((a, leases[0], b, a_links_b), (b, leases[1], a, b_links_a)):
+            article = self.article_for(topic, lease['session'], lease['agent_id'])
+            if wanted:
+                article = dict(article, body_html=article['body_html'] + link(other))
+            submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['INTERNAL_LINKS'])
+        return a, b
+
+    def test_two_drafts_that_link_to_each_other_form_a_cycle(self):
+        self.stored_pair()
+        graph = writing.link_graph(self.store, self.store.read())
+        self.assertEqual(graph['depends_on'], {'TH-VI-0001': ['TH-VI-0002'], 'TH-VI-0002': ['TH-VI-0001']})
+        self.assertEqual(graph['cycles'], [['TH-VI-0001', 'TH-VI-0002']])
+
+    def test_a_chain_is_not_a_cycle_because_the_first_draft_can_go_out_first(self):
+        self.stored_pair(a_links_b=False)
+        graph = writing.link_graph(self.store, self.store.read())
+        self.assertEqual((graph['depends_on'], graph['cycles']), ({'TH-VI-0002': ['TH-VI-0001']}, []))
+
+    def test_a_published_topic_is_no_longer_a_dependency(self):
+        import copy
+        self.stored_pair()
+        state = copy.deepcopy(self.store.read())
+        state['topics']['TH-VI-0001']['status'] = 'PUBLISHED'  # the page is live now, so a link to it is a live link
+        graph = writing.link_graph(self.store, state)
+        self.assertEqual((graph['depends_on'], graph['cycles']), ({}, []))
+
+    def test_three_drafts_in_a_ring_are_one_cycle(self):
+        edges = {'a': ['b'], 'b': ['c'], 'c': ['a'], 'd': ['a'], 'e': []}
+        self.assertEqual(writing._cycles(edges), [['a', 'b', 'c']])  # d depends on the ring but is not in it
+
+    def test_next_lists_the_cycles_among_stored_drafts(self):
+        self.stored_pair()
+        with self.matrix([]):
+            out = self.run_cli('next', '--language', 'vi')[1]
+        self.assertEqual(out['planned_link_cycles'], [['TH-VI-0001', 'TH-VI-0002']])
+
+    def test_precheck_names_the_cycle_and_refuses_it_once_the_site_has_live_pages_to_link_to(self):
+        a, b = self.stored_pair(b_links_a=False)  # TH-VI-0001 stored with a link to TH-VI-0002
+        article = self.article_for(b, 'session-w2', 'writer-w2')
+        article = dict(article, body_html=article['body_html'] + '<p>Xem thêm <a href="%s">bài trước</a>.</p>' % a['proposed_url'])
+        code, out = self.run_cli('precheck', '--topic-id', 'TH-VI-0002', '--file', self.write('b.json', article))
+        self.assertEqual(out['link_cycle'], ['TH-VI-0001', 'TH-VI-0002'])
+        cycle = next(f for f in out['lint'] if f['code'] == 'LINT_LINK_CYCLE')
+        self.assertEqual((code, cycle['severity'], out['ready_to_submit']), (1, 'fix', False))  # the fixture has live Vietnamese pages, so the wait is no excuse
+        self.assertIn('LINT_LINK_CYCLE', ' '.join(out['submit_problems']))
+
+    def test_before_any_page_is_live_a_cycle_is_a_warning_because_the_draft_waits_anyway(self):
+        a, b = self.stored_pair(b_links_a=False)
+        offline = dict(self.inv, items=[i for i in self.inv['items'] if i['language'] != 'vi'])
+        archive = SITE + '/vi/chuyen-muc/gia-thue-va-chi-phi/'
+        article = dict(self.article_for(b, 'session-w2', 'writer-w2'),
+                       body_html='<h2>Chuẩn bị lộ trình</h2>' + vi_filler('TH-VI-0002') + '<h2>Điểm dừng</h2><p>Xem <a href="%s">chuyên mục</a> và <a href="%s">bài trước</a>.</p>' % (archive, a['proposed_url']))
+        code, out = self.run_cli('precheck', '--topic-id', 'TH-VI-0002', '--file', self.write('b.json', article), inv=offline)
+        cycle = next(f for f in out['lint'] if f['code'] == 'LINT_LINK_CYCLE')
+        self.assertEqual(cycle['severity'], 'consider')
+        self.assertIn('INTERNAL_LINKS', out['data_waits'])
+        self.assertTrue(out['ready_to_submit'])  # it may be stored waiting; the cycle has to be cut before it is finished
+
+    def test_a_link_to_a_topic_that_is_not_published_yet_is_listed_even_without_a_cycle(self):
+        a, b = self.stored_pair(a_links_b=False, b_links_a=False)
+        article = dict(self.article_for(b, 'session-w2', 'writer-w2'))
+        article['body_html'] += '<p>Xem thêm <a href="%s">bài trước</a>.</p>' % a['proposed_url']
+        out = self.run_cli('precheck', '--topic-id', 'TH-VI-0002', '--file', self.write('b.json', article))[1]
+        self.assertEqual((out['planned_links'], out['link_cycle']), (['TH-VI-0001'], []))
+        self.assertEqual(next(f for f in out['lint'] if f['code'] == 'LINT_PLANNED_LINK')['severity'], 'consider')
 
 
 if __name__ == '__main__':

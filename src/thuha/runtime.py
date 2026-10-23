@@ -81,6 +81,17 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None,cfg=No
     others=writing.stored_bodies(store,state,topic['language'],topic_id,cfg['similarity']['compare_limit'])
     needed=[c for c in waits if c!='AUTHORITATIVE_INVENTORY'] # an offline inventory is never a wait the writer has to declare
     result.update(lint=writing.lint(article,topic,business,others,cfg),fixes=writing.hints(result['hard_fails'],cfg),submit_waiting_for=needed)
+    graph=writing.link_graph(store,state,topic['language'],{topic_id:article})
+    planned=graph['depends_on'].get(topic_id,[]);cycle=next((c for c in graph['cycles'] if topic_id in c),[])
+    result.update(planned_links=planned,link_cycle=cycle)
+    if cycle:
+        # While the site has no live page of this language to link to, such a draft is waiting anyway; once it has, a cycle is the only thing left that can never clear.
+        result['lint'].append(writing.finding('LINT_LINK_CYCLE','fix' if link_catalogue(inv,topic['language']) else 'consider',
+            'This draft and '+', '.join(t for t in cycle if t!=topic_id)+' link to each other, and QA fails a link to a page that is not live yet: none of them can be first, so none can ever pass.',
+            'Link only to drafts that will be published earlier (a live service page is enough) and remove the link in the other direction.',cycle=cycle))
+    elif planned:
+        result['lint'].append(writing.finding('LINT_PLANNED_LINK','consider','This draft links to topics that are not published yet ('+', '.join(planned)+'): QA waits until each of them is live.',
+            'Keep a link only if that page will be published first; the category archive and a live service page are enough to pass.',targets=planned))
     ready,problems,_=writing.submission_check(result,needed or None)
     result.update(ready_to_submit=ready,submit_problems=problems)
     return result

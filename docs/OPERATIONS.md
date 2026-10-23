@@ -68,6 +68,8 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
 * `claim` gives the next topic in order, Vietnamese first. A writer that knows from `next` which topics it can finish may name one with
   `--topic-id`: the topic must be claimable, unleased and in a language below its ceiling, and the claim event records `picked`. Without it a topic that
   needs a page nobody can read here would stand in front of all the ones that can be written.
+* `next` also lists the stored drafts whose first-party evidence the shop facts file has outgrown (`stale_first_party_evidence`): such a draft cannot pass
+  QA until the file is captured again and the draft is submitted with the fresh capture. See "When the shop facts change" below.
 * `pack` assembles, for one topic, the confirmed intent and category chain, the canonical URL, the shop's name, address, hours, phone and
   reference prices (a price with no reference is listed as such), the saved sources that are still current and, separately, other topics'
   sources that fit, the live same-language pages and category archives it may link to (planned pages are listed but are not live links), the
@@ -123,6 +125,21 @@ inventory does not show, and a score that stays below the threshold are faults, 
 same classifier and adds only what a writer may declare with `--waiting-for` (below): an unfinished draft may wait for an image that
 does not exist or for live content it will be completed with. Vietnamese QA needs an adapter or authenticated inventory.
 
+## When the shop facts change
+
+`config/business-facts.json` is the owner's word about the shop. A first-party capture of it (`source --repository-file`) is current only while the file
+still has the captured digest, so the moment the owner changes the file every earlier capture is stale and every draft that cites one fails QA with
+`SOURCE_STALE_OR_UNVERIFIED`. Old documents, QA reports and receipts are never rewritten to hide this. What a session does, once per change:
+
+1. `source --repository-file config/business-facts.json` captures the file again (a new immutable document).
+2. `next` lists the affected stored drafts (`stale_first_party_evidence`). For each one that is not HELD: read what the change means for the text (a policy
+   that used to be "ask the shop" may now have an answer), `claim --revise ID` (for a draft that waits) or claim it, `build` with the fresh capture in the meta
+   file's `extra_sources` (`build` leaves the stale one out and says so) and `submit --waiting-for auto`. Finishing a waiting draft is a completion, not a repair.
+3. A HELD draft is not resubmitted; if it is ever unheld it needs the same treatment first.
+
+The 23 October 2026 confirmation of the extension fee (20,000 VND per hour; more than 6 hours is charged as one rental day) is the first such change:
+the seven waiting Vietnamese drafts were re-captured and three of them (late return, day counting, switching to a weekly package) were rewritten around the confirmed fee.
+
 ## Drafts that wait for data
 
 A finished text that lacks something no session can create (an image whose alt text is Vietnamese, live Vietnamese pages to link
@@ -140,8 +157,16 @@ python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-
 claimable until `waiting_for` is empty, and the dashboard shows it in its own column with the missing codes. `FEATURED_MEDIA`
 requires `featured_media` to stay empty. Finishing a draft after the data arrives is a completion, not a repair: it does not use
 the three bounded repairs, and a lease lost half-way returns the topic to `WAITING_DATA`. A completed draft then goes through
-automatic QA like any other. Each stored Vietnamese draft links only to category archives for now: once live Vietnamese content
-exists, the writer adds one link to it when finishing (QA needs at least one live content link, and archives do not count). The owner-facts file can be captured as labelled first-party evidence (`source --repository-file
+automatic QA like any other. Each stored Vietnamese draft links to category archives and to sibling drafts of its own batch (none of them live yet): once live Vietnamese content
+exists, the writer adds one link to it when finishing (QA needs at least one live content link, and archives do not count). The best such link is the matrix row's service target
+(`internal_link_plan`, role `service`, status `PENDING_LIVE_VI_PAGE_INVENTORY` until the audit lists the page): every draft then has a live link of its own and none depends on another
+draft being published first (a link to a sibling draft is only `planned`, so two drafts that link only to each other could never pass).
+
+**Links between waiting drafts must not form a loop.** QA fails a link to a page that is not live, so a draft can only pass after every draft it links to is published.
+`next` therefore reports `planned_link_cycles` (groups of stored drafts that depend on each other, which can never pass) and `precheck`/`build` report `planned_links` and
+`link_cycle` for the draft in hand, with the replacement text taken into account. Keep the links acyclic: a draft may link to a draft written before it, never back (the 2026-10-23
+batches were pruned to such an order, and a mention of an unpublished sibling is plain text, not a link). The roots of the order still need one live link of their own, which only the
+credentialed inventory can supply. The owner-facts file can be captured as labelled first-party evidence (`source --repository-file
 config/business-facts.json`); it is stale the moment that file changes, supports statements about the shop only and is never an
 official source for a legal claim. A planning inventory (the committed authenticated snapshot) may feed claims, kits and admission for
 seven days; QA and publication keep the six-hour limit.

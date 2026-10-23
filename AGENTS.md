@@ -66,7 +66,8 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
 - **A draft may wait for data, never fake it.** A finished text that lacks an image with Vietnamese alt text, live same-language links or an
   authoritative inventory is stored with `submit --waiting-for` as `WAITING_DATA`: never READY, never QA-passed, no media ID, source,
   permalink or check result invented, shared English alt text never edited to help it pass. `recheck-data` (credentialed inventory only)
-  clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`. Revising or finishing a
+  clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`. Waiting drafts must not link to each other in a loop: QA fails a link to a page that is not live, so a draft links only to drafts written
+  before it (`next` reports `planned_link_cycles`, `precheck`/`build` report `link_cycle`). Revising or finishing a
   stored `WAITING_DATA` draft is not a repair, and `promote` accepts it (any other replaced draft must have spent one).
 
 - **Write from the pack, check before storing.** `next` ranks what can be written now (HELD topics are never offered, and a topic that

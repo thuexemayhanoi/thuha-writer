@@ -9,7 +9,7 @@ import copy
 import re
 import subprocess
 from html.parser import HTMLParser
-from .common import ROOT, age, fold, load, norm, validate_inventory
+from .common import ROOT, age, fold, load, norm, urlkey, validate_inventory
 from .coordinator import claimable, claim_order
 from .language import LANGUAGES, locale, topic_language
 from .matrix import matrix_path
@@ -686,6 +686,96 @@ def policy_flags(text, business, cfg):
                   if name in business.get('unconfirmed_policies', []) and any(fold(k).lower() in folded for k in keys))
 
 
+def stale_first_party(store, state, language=None):
+    """Stored drafts whose first-party evidence the shop facts file has outgrown. They cannot pass QA until the evidence is captured again
+    (`source --repository-file`) and the draft is submitted with the fresh capture; a HELD draft is only counted, because it is not submitted."""
+    active, held = [], 0
+    for tid, submission in sorted(state['submissions'].items()):
+        topic = state['topics'].get(tid, {})
+        if (language and topic.get('language') != language) or topic.get('status') in ('PUBLISHED', 'PUBLISHING'):
+            continue
+        try:
+            article = store.get_document(submission['article_sha'])
+            outgrown = any(evidence.get('capture_method') == 'repository-file' and not evidence_current(evidence)
+                           for evidence in (store.get_document(ref['document']) for ref in article.get('sources', [])))
+        except (ValueError, OSError, KeyError):
+            continue
+        if outgrown and topic.get('status') == 'HELD':
+            held += 1
+        elif outgrown:
+            active.append({'topic_id': tid, 'status': topic.get('status')})
+    return {'needs_recapture': active, 'held_not_resubmitted': held}
+
+
+def _cycles(edges):
+    """Groups of more than one topic that reach each other through `edges` (strongly connected components, iterative Tarjan)."""
+    index, low, stack, on, groups, counter = {}, {}, [], set(), [], [0]
+
+    def enter(node):
+        index[node] = low[node] = counter[0]
+        counter[0] += 1
+        stack.append(node)
+        on.add(node)
+        return (node, iter(edges.get(node, ())))
+
+    for root in sorted(set(edges) | {t for targets in edges.values() for t in targets}):
+        if root in index:
+            continue
+        work = [enter(root)]
+        while work:
+            node, children = work[-1]
+            for child in children:
+                if child not in index:
+                    work.append(enter(child))
+                    break
+                if child in on:
+                    low[node] = min(low[node], index[child])
+            else:
+                work.pop()
+                if work:
+                    low[work[-1][0]] = min(low[work[-1][0]], low[node])
+                if low[node] == index[node]:
+                    group = []
+                    while True:
+                        member = stack.pop()
+                        on.discard(member)
+                        group.append(member)
+                        if member == node:
+                            break
+                    if len(group) > 1:
+                        groups.append(sorted(group))
+    return sorted(groups)
+
+
+def link_graph(store, state, language=None, replace=None):
+    """The links stored drafts make to the planned (not yet live) address of another topic, and the cycles those links form.
+
+    QA refuses a link to a page that is not live, and a draft whose only fault is such a link waits (BLOCKED_DATA) until the page is
+    live. A draft can therefore pass only after every topic it links to is published, and drafts that link to each other, directly or
+    through others, can never pass: none of them can be first. `replace` maps a topic ID to an article that is not stored yet.
+    """
+    by_url = {urlkey(t['proposed_url']): tid for tid, t in state['topics'].items() if t.get('proposed_url') and (not language or t['language'] == language)}
+    pending = lambda tid: state['topics'][tid]['status'] not in ('PUBLISHED', 'PUBLISHING')
+    articles = {}
+    for tid, submission in state['submissions'].items():
+        topic = state['topics'].get(tid)
+        if not topic or (language and topic['language'] != language) or not pending(tid):
+            continue
+        try:
+            articles[tid] = store.get_document(submission['article_sha'])
+        except (ValueError, OSError, KeyError):
+            continue
+    for tid, article in (replace or {}).items():
+        if tid in state['topics']:
+            articles[tid] = article
+    edges = {}
+    for tid, article in sorted(articles.items()):
+        targets = sorted(t for t in {by_url[k] for k in datawait.own_links(article, state['topics'][tid]) if k in by_url} if t != tid and pending(t))
+        if targets:
+            edges[tid] = targets
+    return {'depends_on': edges, 'cycles': _cycles(edges)}
+
+
 def readiness(store, state, inv, policy, business, language=None, limit=10, cfg=None):
     """What can be written now, in order. Read-only; nothing is claimed, admitted or written.
 
@@ -761,4 +851,6 @@ def readiness(store, state, inv, policy, business, language=None, limit=10, cfg=
             'order': 'Vietnamese first; inside a language: finish without waiting, store waiting, admit from the matrix, read a saved source again, and last the topics that overlap another',
             'inventory': {'language_source': inv.get('language_source'), 'captured_at': inv.get('captured_at')},
             'start_now': order(start)[:limit], 'admit_first': order(admit)[:limit],
-            'not_writable_here': {k: len(v) for k, v in blocked.items()}, 'held_not_offered': held}
+            'not_writable_here': {k: len(v) for k, v in blocked.items()}, 'held_not_offered': held,
+            'stale_first_party_evidence': stale_first_party(store, state, language),
+            'planned_link_cycles': link_graph(store, state, language)['cycles']}
