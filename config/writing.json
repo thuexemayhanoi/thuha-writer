@@ -297,7 +297,7 @@
     },
     "SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA": {
       "where": "điểm tự động",
-      "fix": "Dù có đủ dữ liệu bài vẫn dưới 85: thiếu h2, độ dài, độ dài seo_title/meta_description; sửa nội dung, không độn chữ."
+      "fix": "Dù có đủ dữ liệu bài vẫn dưới 75: thiếu h2, độ dài, độ dài seo_title/meta_description; sửa nội dung, không độn chữ."
     }
   },
   "prices": {
