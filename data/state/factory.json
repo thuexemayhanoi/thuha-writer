@@ -243,6 +243,15 @@
       "sha256": "eec60177240d2c6f204b1b9151b0a50c4ce363c26304cfb305a987a47debdc27",
       "status": "FAIL",
       "topic_id": "TH-000002"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W3",
+      "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+      "at": "2026-10-23T02:15:25.872303+00:00",
+      "previous": "eec60177240d2c6f204b1b9151b0a50c4ce363c26304cfb305a987a47debdc27",
+      "sha256": "bf9de9ae691cb43922ee0b0fe97e94fcb81c2ee4b5d5f82f19f811273bc129e5",
+      "topic_id": "TH-000003"
     }
   ],
   "intents": {},
@@ -447,6 +456,16 @@
       "session": "w2-20261023-b1",
       "slot": "W2",
       "submitted_at": "2026-10-23T02:02:47.148607+00:00"
+    },
+    "TH-000003": {
+      "agent_id": "claude-writer-W3",
+      "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+      "commit": "7bebbf54a46aa7c0f83566ca912dfc0d0596d575",
+      "fence": "af77e3b43142465ab7d874922c7af697",
+      "repair_count": 0,
+      "session": "w3-20261023-c1",
+      "slot": "W3",
+      "submitted_at": "2026-10-23T02:15:25.872275+00:00"
     }
   },
   "topics": {
@@ -548,7 +567,7 @@
           "url": "https://vn.usembassy.gov/driving-in-vietnam/"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000003"
     },
     "TH-000004": {
@@ -2355,5 +2374,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 48
+  "version": 49
 }
