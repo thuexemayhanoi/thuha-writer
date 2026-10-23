@@ -11,6 +11,7 @@ from . import audit,coordinator,research,quality,dashboard
 from .http import HTTP,WordPress,NetworkError
 from .publisher import Publisher
 from . import pipeline
+from . import runtime
 
 
 def inventory_for(store,path):
@@ -31,8 +32,12 @@ def main(argv=None):
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':q.add_argument('--file',required=True)
-    q=sub.add_parser('source');q.add_argument('--url',required=True)
+    q=sub.add_parser('source');q.add_argument('--url',required=True);q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
+    q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
+    q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
+    q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',required=True);q.add_argument('--extra-queue')
+    sub.add_parser('cycle')
     q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
@@ -75,7 +80,23 @@ def main(argv=None):
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
     elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])
-    elif args.command=='source':result=research.capture_source(store,args.url)
+    elif args.command=='source':
+        result=(research.capture_external_source(store,args.url,load(args.external_fetch)) if args.external_fetch
+                else research.capture_source(store,args.url))
+    elif args.command=='kit':
+        inv=inventory_for(store,args.inventory);validate_inventory(inv)
+        result=runtime.kit(store.read(),inv,args.topic_id,policy,facts)
+    elif args.command=='precheck':
+        inv=inventory_for(store,args.inventory)
+        review=load(args.review) if args.review else None
+        result=runtime.precheck(store,store.read(),inv,args.topic_id,load(args.file),policy,facts,review)
+        if result['hard_fails_excluding_review']:exit_code=1
+    elif args.command=='admit':
+        inv=inventory_for(store,args.inventory)
+        extra=load(args.extra_queue) if args.extra_queue else []
+        result={'admitted':runtime.admit(store,inv,load(args.file),args.reviewer_id,load(args.fetch_records),factory['refill_batch_max'],extra)}
+    elif args.command=='cycle':
+        result=runtime.cycle(store.read(),inventory_for(store,args.inventory),release)
     elif args.command=='resume':
         state=store.read();submission=state['submissions'].get(args.topic_id)
         result={'topic':state['topics'][args.topic_id],'submission':submission,

@@ -577,14 +577,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
-    "post_id": 1892,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/a-motorbike-rental-booking-message-for-hanoi-copy-and-send-template/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 1895,
@@ -681,14 +673,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
-    "post_id": 1921,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/monthly-motorbike-rental-in-hanoi-a-maintenance-visit-calendar/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 1923,
@@ -731,14 +715,6 @@
     "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 1933,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/booking-a-hanoi-rental-bike-during-tet-what-to-confirm-early/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
     "post_id": 1933,
     "priority": "P2",
     "url": "https://rentbikehanoi.com/booking-a-hanoi-rental-bike-during-tet-what-to-confirm-early/"
@@ -953,14 +929,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 1979,
-    "priority": "P1",
-    "url": "https://rentbikehanoi.com/hanoi-motorbike-parking-tickets-payment-and-collection-checklist/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 1981,
@@ -1041,14 +1009,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 1997,
-    "priority": "P1",
-    "url": "https://rentbikehanoi.com/hanoi-weekend-pedestrian-streets-plan-your-motorbike-parking-boundary/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 1999,
@@ -1057,26 +1017,10 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 1999,
-    "priority": "P1",
-    "url": "https://rentbikehanoi.com/choosing-a-motorbike-departure-time-in-hanoi-a-rush-hour-worksheet/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 2001,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 2001,
-    "priority": "P1",
     "url": "https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/"
   },
   {
@@ -1109,14 +1053,6 @@
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 2008,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/hanoi-motorbike-breakdown-after-2100-prepare-a-safe-waiting-plan/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 2008,
-    "priority": "P1",
     "url": "https://rentbikehanoi.com/hanoi-motorbike-breakdown-after-2100-prepare-a-safe-waiting-plan/"
   },
   {
@@ -1173,14 +1109,6 @@
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 2023,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/riding-in-hanoi-during-tet-traffic-changes-and-a-backup-travel-plan/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 2023,
-    "priority": "P1",
     "url": "https://rentbikehanoi.com/riding-in-hanoi-during-tet-traffic-changes-and-a-backup-travel-plan/"
   },
   {
@@ -1437,14 +1365,6 @@
     "issue": "FOCUS_KEYWORD_UNKNOWN",
     "post_id": 2099,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/tran-quoc-pagoda-and-truc-bach-a-motorbike-and-walking-morning-2/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "No same-origin anchor found in REST article body",
-    "issue": "NO_BODY_INTERNAL_LINKS",
-    "post_id": 2099,
-    "priority": "P1",
     "url": "https://rentbikehanoi.com/tran-quoc-pagoda-and-truc-bach-a-motorbike-and-walking-morning-2/"
   },
   {
@@ -2369,14 +2289,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
-    "post_id": 3306,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/changing-hotels-during-a-monthly-hanoi-rental-update-contact-and-parking-records/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "featured_media=0",
     "issue": "MISSING_FEATURED_IMAGE",
     "post_id": 3307,
@@ -2809,14 +2721,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
-    "post_id": 3336,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/vietnamese-lacquer-art-in-hanoi-understand-layers-materials-and-conservation/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "featured_media=0",
     "issue": "MISSING_FEATURED_IMAGE",
     "post_id": 3337,
@@ -2827,14 +2731,6 @@
     "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 3337,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/dong-ho-prints-in-hanoi-collections-read-a-woodblock-image/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
     "post_id": 3337,
     "priority": "P2",
     "url": "https://rentbikehanoi.com/dong-ho-prints-in-hanoi-collections-read-a-woodblock-image/"
@@ -3697,14 +3593,6 @@
   },
   {
     "action": "REVIEW_ONLY",
-    "evidence": "Potential orphan in captured body-link graph; menus/footer not included",
-    "issue": "NO_INBOUND_BODY_LINKS",
-    "post_id": 3381,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/fish-sauce-versus-shrimp-paste-on-a-hanoi-menu-ask-about-both/"
-  },
-  {
-    "action": "REVIEW_ONLY",
     "evidence": "featured_media=0",
     "issue": "MISSING_FEATURED_IMAGE",
     "post_id": 3382,
@@ -3803,17 +3691,17 @@
     "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 48,
+    "post_id": 3404,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/about-us/"
+    "url": "https://rentbikehanoi.com/monthly-motorbike-rental-hanoi/"
   },
   {
     "action": "REVIEW_ONLY",
     "evidence": "field is not exposed; authenticated read required",
     "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 59,
+    "post_id": 3405,
     "priority": "P2",
-    "url": "https://rentbikehanoi.com/contact-us/"
+    "url": "https://rentbikehanoi.com/motorbike-rental-hanoi-old-quarter/"
   },
   {
     "action": "REVIEW_ONLY",
@@ -3830,37 +3718,5 @@
     "post_id": 59,
     "priority": "P2",
     "url": "https://rentbikehanoi.com/contact-us/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "field is not exposed; authenticated read required",
-    "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 67,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "field is not exposed; authenticated read required",
-    "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 173,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/privacy-police/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "field is not exposed; authenticated read required",
-    "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 178,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/terms-of-use/"
-  },
-  {
-    "action": "REVIEW_ONLY",
-    "evidence": "field is not exposed; authenticated read required",
-    "issue": "FOCUS_KEYWORD_UNKNOWN",
-    "post_id": 182,
-    "priority": "P2",
-    "url": "https://rentbikehanoi.com/faq/"
   }
 ]

@@ -106,7 +106,9 @@ class LocalStore:
 
 class GitHub:
     def __init__(self, token=None):
-        self.token=token or os.environ.get('THUHA_GITHUB_TOKEN')
+        # An authorized session may only hold the harness-provided GITHUB_TOKEN;
+        # it is used for the same destination-only repository with the same path guard.
+        self.token=token or os.environ.get('THUHA_GITHUB_TOKEN') or os.environ.get('GITHUB_TOKEN')
         if not self.token:raise ValueError('GitHub state credential is missing')
 
     def request(self, method, path, body=None):
