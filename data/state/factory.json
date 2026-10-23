@@ -6616,6 +6616,18 @@
       "sha256": "5b0eea27f4f7b3fcd8d5374b02464df8f2029594d8c97cdd02fafa6e84ecc972",
       "slot": "W1",
       "topic_id": "TH-VI-0151"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "1c1489e8d17e319bc9131d56209a63b2d811cc8135dea0fc0203bc02b5415d18",
+      "at": "2026-10-23T16:08:06.860353+00:00",
+      "previous": "5b0eea27f4f7b3fcd8d5374b02464df8f2029594d8c97cdd02fafa6e84ecc972",
+      "sha256": "7efa9f4c8bf3a3a2468e228fffe53f68ca920057cf0bbef6bf1d353097850852",
+      "topic_id": "TH-VI-0151",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9591,18 +9603,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773482.176184,
-      "fence": "1c8052318f4948d099c109dab2b1b531",
-      "heartbeat_at": "2026-10-23T16:08:02.176163+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0151"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10784,13 +10785,13 @@
     },
     "TH-VI-0151": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "5e6d5ae45981d3a867f082ffb393dd44ddf3b79e39982d68269f2d9d1bd09419",
+      "article_sha": "1c1489e8d17e319bc9131d56209a63b2d811cc8135dea0fc0203bc02b5415d18",
       "commit": "9b129c54f41578d20fcfe4dcc81b6a4ec86390ef",
-      "fence": "79d8d33b8c8a47548ce8eb4d0d3e7b3b",
+      "fence": "1c8052318f4948d099c109dab2b1b531",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:58:26.976597+00:00"
+      "submitted_at": "2026-10-23T16:08:06.860326+00:00"
     },
     "TH-VI-0158": {
       "agent_id": "claude-writer-W1",
@@ -15108,7 +15109,6 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "người lớn tuổi quen xe số có nên đổi sang xe ga",
       "proposed_title": "Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi?",
@@ -15121,7 +15121,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0151",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15729,5 +15729,5 @@
       ]
     }
   },
-  "version": 856
+  "version": 857
 }
