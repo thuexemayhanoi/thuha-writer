@@ -5228,6 +5228,18 @@
       "sha256": "1bcef9a46b34141cb7423174f3c0143e0ddaf099675f64db6a1a2916daf741f6",
       "slot": "W1",
       "topic_id": "TH-VI-0267"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "ca40e2e6cbac3fcd97e7b89eca12f374d1a686474fcc30dcfc5ea853608e444a",
+      "at": "2026-10-23T14:58:35.837292+00:00",
+      "previous": "1bcef9a46b34141cb7423174f3c0143e0ddaf099675f64db6a1a2916daf741f6",
+      "sha256": "0887bde8913923218cd5b9aefaf0564f72b69d5da24eb3c5c2dc2405980d3fd9",
+      "topic_id": "TH-VI-0267",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8203,18 +8215,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792769311.401481,
-      "fence": "858c22afc0db413eae5c13f822d0e6d7",
-      "heartbeat_at": "2026-10-23T14:58:31.401463+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0267"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -9155,13 +9156,13 @@
     },
     "TH-VI-0267": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "4e35198c4a1259c0c4c36840291db7d049c842b882637391b2c915f4bd90d346",
+      "article_sha": "ca40e2e6cbac3fcd97e7b89eca12f374d1a686474fcc30dcfc5ea853608e444a",
       "commit": "f7e21557c5c791cfe9358add5fa86c2cd42e4e2e",
-      "fence": "29bae8357c064d37bec393132af29aa3",
+      "fence": "858c22afc0db413eae5c13f822d0e6d7",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:09.201941+00:00"
+      "submitted_at": "2026-10-23T14:58:35.833021+00:00"
     },
     "TH-VI-0268": {
       "agent_id": "claude-writer-W1",
@@ -12956,7 +12957,6 @@
         162
       ],
       "cluster": "su-dung-va-cham-soc-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi làm bằng xe máy thuê tháng mặc đồ công sở",
       "proposed_title": "Đi làm bằng xe thuê tháng khi mặc đồ công sở: cất áo khoác, giày thay và áo mưa thế nào cho gọn",
@@ -12969,7 +12969,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0267",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13192,5 +13192,5 @@
       ]
     }
   },
-  "version": 698
+  "version": 699
 }
