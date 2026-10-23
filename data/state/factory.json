@@ -5162,6 +5162,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:58:13.259417+00:00",
+      "expires_at": 1792769293.259407,
+      "fence": "6708f58a5c3343338e45e65da596447e",
+      "heartbeat_at": "2026-10-23T14:58:13.259386+00:00",
+      "language": "vi",
+      "previous": "7d513a42ec9cbb9400ffc4eca16ddee95af9dc56806314df44264e0d0c2c64ef",
+      "session": "sess-b3",
+      "sha256": "9f747406e6ae4fcbcc34559b81eb663ab33ed60efaead61bc479eadf014a8575",
+      "slot": "W1",
+      "topic_id": "TH-VI-0158"
     }
   ],
   "intents": {
@@ -8137,7 +8151,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792769293.259407,
+      "fence": "6708f58a5c3343338e45e65da596447e",
+      "heartbeat_at": "2026-10-23T14:58:13.259386+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0158"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -12698,6 +12723,7 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chở người ngồi sau xe số sang số êm",
       "proposed_title": "Chở người ngồi sau bằng xe số: sang số thế nào để người ngồi sau không bị gật đầu hay dồn vào lưng bạn",
@@ -12710,7 +12736,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0158",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13114,5 +13140,5 @@
       ]
     }
   },
-  "version": 691
+  "version": 692
 }
