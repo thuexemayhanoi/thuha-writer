@@ -270,6 +270,15 @@
       "previous": "2aff6702887fbbe6f61e8e6b38dcb9789c5802611b5892a3978d9257939f2a7c",
       "sha256": "19e37bd77b614bc0a8befc5d49eee9bb4ca4fa04b8b62a53cadb7cf90f19b93e",
       "topic_id": "TH-000008"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W5",
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "at": "2026-10-23T02:15:55.236539+00:00",
+      "previous": "19e37bd77b614bc0a8befc5d49eee9bb4ca4fa04b8b62a53cadb7cf90f19b93e",
+      "sha256": "9ba1f9d7db1d6e38c5b5ec8f3e44aa5fe5347296c0c6e380a0a594f2db4370aa",
+      "topic_id": "TH-000005"
     }
   ],
   "intents": {},
@@ -485,6 +494,16 @@
       "slot": "W3",
       "submitted_at": "2026-10-23T02:15:25.872275+00:00"
     },
+    "TH-000005": {
+      "agent_id": "claude-writer-W5",
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "commit": "8965daf111713f820f49522e52d0d26ec659bdda",
+      "fence": "d02aa4184a48470c8cc8ebcfb6f1b9d9",
+      "repair_count": 0,
+      "session": "w5-20261023-c1",
+      "slot": "W5",
+      "submitted_at": "2026-10-23T02:15:55.236513+00:00"
+    },
     "TH-000006": {
       "agent_id": "claude-writer-W6",
       "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
@@ -672,7 +691,7 @@
           "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000005"
     },
     "TH-000006": {
@@ -2412,5 +2431,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 56
+  "version": 57
 }
