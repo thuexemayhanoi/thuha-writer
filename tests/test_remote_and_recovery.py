@@ -119,6 +119,31 @@ class SecurityTests(unittest.TestCase):
                 code=main(['--state-dir',temp,'--inventory',str(inv),'qa'])
             self.assertEqual(mock.call_count,2);self.assertEqual(code,1)
             self.assertEqual(json.loads(output.getvalue())['results']['TH-000002']['status'],'PASS')
+    def test_github_dispatch_http_204_is_success(self):
+        class EmptyResponse:
+            def __enter__(self):return self
+            def __exit__(self,*args):return False
+            def read(self):return b''
+        with patch('thuha.store.urllib.request.urlopen',return_value=EmptyResponse()):
+            result=GitHub('fixture-token').request('POST','/repos/'+REPO+'/dispatches',
+                {'event_type':'thuha-qa-ready','client_payload':{'topic_ids':['TH-000001']}})
+        self.assertEqual(result,{})
+    def test_security_accepts_valid_refs_without_manual_reviewer(self):
+        class API:
+            def request(self,method,path):
+                if path.endswith('/git/ref/heads/main'):
+                    return {'ref':'refs/heads/main','object':{'sha':'a'*40}}
+                if path.endswith('/git/ref/heads/factory-state'):
+                    return {'ref':'refs/heads/factory-state','object':{'sha':'b'*40}}
+                raise AssertionError(path)
+        with patch.dict(os.environ,{'GITHUB_REF':'refs/heads/main'}):
+            self.assertTrue(verify_security(API())['automated_qa_required'])
+    def test_security_rejects_non_main_execution(self):
+        class API:
+            def request(self,*args):raise AssertionError('should fail before API')
+        with patch.dict(os.environ,{'GITHUB_REF':'refs/heads/untrusted'}):
+            with self.assertRaisesRegex(ValueError,'trusted main'):
+                verify_security(API())
     def test_missing_external_controls_blocks_go_live(self):
         class API:
             def request(self,*args):return {}
