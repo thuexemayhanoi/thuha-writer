@@ -364,6 +364,12 @@ class PublisherTests(PublisherBase):
         self.assertEqual(len(self.client.posts),0)
     def test_no_language_is_enabled_by_default(self):
         self.assertEqual(load(ROOT/'config/release.json')['languages_enabled'],[])
+    def test_explicit_repository_approval_needs_no_environment_variable(self):
+        p,tid=self.publisher()
+        with patch.dict(os.environ, {'THUHA_GO_LIVE_APPROVAL': ''}):
+            receipt=p.publish(tid)
+        self.assertEqual(receipt['wp_id'],999)
+        self.assertEqual(len(self.client.posts),1)
     def test_local_store_cannot_publish(self):
         p,tid=self.publisher();self.store.durable_remote=False
         with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):
