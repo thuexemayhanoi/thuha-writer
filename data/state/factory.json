@@ -4140,11 +4140,36 @@
       "sha256": "4ac1fe72c81fd7690b4a44526696cc6690496fe5781f7e11e4babe9013c9243c",
       "status": "PASS",
       "topic_id": "TH-EN-0139"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T13:58:53.115413+00:00",
+      "expires_at": 1792765733.115402,
+      "fence": "6173df92ad4b4a0ba6e7ddfd93ee7e87",
+      "heartbeat_at": "2026-10-23T13:58:53.115383+00:00",
+      "language": "en",
+      "previous": "4ac1fe72c81fd7690b4a44526696cc6690496fe5781f7e11e4babe9013c9243c",
+      "session": "sess-e1c",
+      "sha256": "6fdf6e75afe8e0683987f494157a8ac9ade9b3a8393aed21655d033193460ce0",
+      "slot": "W1",
+      "topic_id": "TH-EN-0140"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792765733.115402,
+      "fence": "6173df92ad4b4a0ba6e7ddfd93ee7e87",
+      "heartbeat_at": "2026-10-23T13:58:53.115383+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0140"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7231,6 +7256,7 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "group motorbike ride hanoi stay together",
       "proposed_title": "Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider",
@@ -7243,7 +7269,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0140",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8849,5 +8875,5 @@
       ]
     }
   },
-  "version": 539
+  "version": 540
 }
