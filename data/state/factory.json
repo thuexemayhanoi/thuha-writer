@@ -6108,6 +6108,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:04:38.959144+00:00",
+      "expires_at": 1792773278.959135,
+      "fence": "35972da361fa43f99b05fef94c16cfea",
+      "heartbeat_at": "2026-10-23T16:04:38.959107+00:00",
+      "language": "vi",
+      "previous": "6d85af73b821d23aef7e5df762c05364e53d3222df7cb4be34a33301e0d6750c",
+      "session": "sess-b3r",
+      "sha256": "1386bb67eb415e14a5f7bbc9698fc642ed80f8b107fdfa661577b747648093df",
+      "slot": "W1",
+      "topic_id": "TH-VI-0022"
     }
   ],
   "intents": {
@@ -9083,7 +9097,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773278.959135,
+      "fence": "35972da361fa43f99b05fef94c16cfea",
+      "heartbeat_at": "2026-10-23T16:04:38.959107+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0022"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -13685,6 +13710,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "gọi xe công nghệ hay thuê xe máy đi ít chặng",
       "proposed_title": "Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy",
@@ -13697,7 +13723,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0022",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15209,5 +15235,5 @@
       ]
     }
   },
-  "version": 798
+  "version": 799
 }
