@@ -343,7 +343,9 @@ class PublisherTests(PublisherBase):
         import socket,urllib.error
         self.assertTrue(never_connected(urllib.error.URLError(socket.gaierror(-2,'Name or service not known'))))
         self.assertTrue(never_connected(urllib.error.URLError(ConnectionRefusedError())))
-        for ambiguous in (TimeoutError(),ConnectionResetError(),urllib.error.URLError(TimeoutError()),BrokenPipeError()):
+        import errno
+        for ambiguous in (TimeoutError(),ConnectionResetError(),urllib.error.URLError(TimeoutError()),BrokenPipeError(),
+                          urllib.error.URLError(OSError(errno.EHOSTUNREACH,'No route to host')),urllib.error.URLError(OSError(errno.ENETUNREACH,'Network is unreachable'))):
             self.assertFalse(never_connected(ambiguous),repr(ambiguous))
         p,tid=self.publisher('vi');original=self.client.create
         def refused(payload):raise NetworkError('Network failure',not_sent=True)

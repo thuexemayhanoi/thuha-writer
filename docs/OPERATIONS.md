@@ -19,18 +19,26 @@ python3 -m thuha.cli --git-branch sync                # plan: bring the session 
 python3 -m thuha.cli --git-branch sync --apply        # do it (before a new session starts working)
 ```
 
-`promote` is **fast-forward only**: the shared ledger's history (events before the schema migration marker)
-must be the first part of the session ledger's, nothing may have been written to the shared ledger after its
-own migration, every topic/submission/receipt/intent/research request of the shared ledger must still be
-there unchanged, and no publisher may hold the ledger. Documents are copied first (immutable and
-content-addressed: an existing one is compared and kept, a collision aborts), then the ledger is replaced in
-one compare-and-swap that re-plans if the shared ledger moved in between. The stricter of the two `controls`
-wins, the shared `inventory_document` and `adapter` pointers are kept, and a `LEDGER_PROMOTION` event records
-what was handed over. Running it again changes nothing. A session that kept working on an old copy is
-refused (`DIVERGED`), nothing is written, and the remedy is `sync` *before* working.
+`promote` is **fast-forward only**: every event of the shared ledger must also be in the session ledger, in the same
+order (events are compared on what they say, not on the hash chain, so a ledger that was migrated or promoted in between
+still compares), every topic/submission/receipt/intent/research request of the shared ledger must still be there
+unchanged, no publisher may hold the ledger (an expired lease does not count), and the session ledger may not carry an
+intent or a receipt that the shared one lacks or changed (only the publisher writes those). Documents are copied first
+(immutable and content-addressed: an existing one is compared and kept, a collision aborts), then the ledger is replaced in
+one compare-and-swap that re-plans if the shared ledger moved in between. The stricter of the two `controls` wins, the
+shared `inventory_document`, `adapter` and `alerts` are kept, and a `LEDGER_PROMOTION` event records what was handed over.
+Running it again changes nothing, and it works repeatedly: **sync, work, promote, sync, work, promote**. A review is an
+event (`REVIEW`) so it travels with the rest.
 
-The schema-4 to schema-5 migration is deterministic (the marker event copies the timestamp of the event it
-follows), so the shared ledger and a session ledger can be migrated by different processes and still compare.
+If the shared ledger holds events the session ledger lacks (Actions ran QA, a publisher wrote an intent) and the session
+also has new work, the verdict is `DIVERGED`, nothing is written, and the reasons name the shared events. Work done on a
+stale copy cannot be merged automatically: `sync` refuses too, because it would discard that work. Start every session with
+`sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
+point to. A session ledger that holds state no event explains (a review recorded by older code, for instance) is reported
+`INCONSISTENT` instead of being silently called "already included".
+
+The schema-4 to schema-5 migration is deterministic and renames `VERIFIED` to `PUBLISHED` and `VERIFY_PENDING` to
+`NEEDS_RECONCILIATION`; receipts are left byte-identical.
 
 ## Writers, reviewers, QA
 
@@ -113,6 +121,10 @@ ceiling is skipped. A topic that can no longer pass QA goes back to repair and t
 touches WordPress and is not clean stops the run. (3) Run public-page checks that are due. The JSON says why a
 run stopped; the exit code is 2.
 
+**A held draft** (`DRAFT_HELD`) is resolved by a person in WordPress: publish it and the next run records it; delete it
+permanently and, once the grace period has passed, the next run closes the intent and the topic can publish again. A
+trashed draft still carries the idempotency key, so it must be deleted permanently, not just trashed.
+
 **What decides PUBLISHED.** WordPress returned an ID, status `publish`, the planned permalink in the right
 language namespace, and the post carries this intent's owner, key and marker. Then (not before) the adapter
 read-back is compared with the reviewed article and the result is kept in the receipt (`integrity`). A
@@ -130,10 +142,13 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
 
 * `quality` — tests, matrices, plugin package, validation, dry-run; on `main` also reads the real ledger and prints
   the promotion plan. Triggered by code, config, matrix **and ledger** changes.
-* `thuha-ready-publisher` — after a successful quality run on `main`, hourly, or by hand. Jobs: `preflight`
+* `thuha-ready-publisher` — after a successful quality run on `main`, hourly, or by hand. A manual run without `live` is the
+  read-only preview: it runs `preflight` only and writes nothing (the `queue` job is skipped). Jobs: `preflight`
   (read-only, evaluates the release gate); `queue` (no WordPress secret: `promote --apply`, `audit --max-age 18000`,
-  `qa --pending --language en`); `protected-publish` (only when the gate is open, inside `thuha-production`:
-  adapter preflight, authenticated `audit`, `qa --pending`, `publisher --mode drain`).
+  `qa --pending --language en`; each step carries on if the one before failed, and a refused hand-over fails the run at the
+  end); `protected-publish` (only when the gate is open, inside `thuha-production`: adapter preflight, authenticated `audit`,
+  `qa --pending`, `publisher --mode drain`; a failed audit or QA step does not stop the drain, which re-reads the inventory
+  itself). `qa --pending` reports a failed draft in the ledger and exits 0; an unusable input exits non-zero.
 * `maintenance` — read-only health every six hours; manual tasks (`audit`, `coordinator`, `refill`, `intake`,
   `qa`, `recovery`, `promote`).
 * `publisher` — manual single-topic modes (`dry-run`, `production`, `reconcile`, `verify`, `acknowledge`).

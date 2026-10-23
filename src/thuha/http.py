@@ -1,6 +1,5 @@
 """Bounded GET retries; WordPress POST is create-only and NEVER retried."""
 import base64
-import errno
 import http.client
 import ipaddress
 import json
@@ -50,14 +49,14 @@ def safe_public_url(url):
 
 
 def never_connected(exc):
-    """True only for failures that happen before any request byte is sent: unresolvable name, refused or unreachable.
+    """True only for failures that can happen only before any request byte is sent: the name does not resolve or the
+    connection is refused.
 
-    A time-out, a reset or a dropped connection may come after the server received the request, so they are not here.
+    A time-out, a reset, a dropped connection or an unreachable-network error may come after the server received the
+    request (an ICMP error can arrive on a connection that is already open), so they are not here.
     """
     reason = getattr(exc, 'reason', exc)
-    if isinstance(reason, (socket.gaierror, ConnectionRefusedError)):
-        return True
-    return isinstance(reason, OSError) and getattr(reason, 'errno', None) in (errno.ENETUNREACH, errno.EHOSTUNREACH)
+    return isinstance(reason, (socket.gaierror, ConnectionRefusedError))
 
 
 def error_code(exc):

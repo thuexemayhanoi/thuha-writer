@@ -58,6 +58,57 @@ class BranchStoreTests(unittest.TestCase):
         log = git('log', '--format=%s', 'session/test', cwd=self.bare)
         self.assertIn('remote move', log); self.assertIn('factory checkpoint v1', log)
 
+    def other_clone(self):
+        other = Path(self.temp.name) / ('other-%d' % len(list(Path(self.temp.name).glob('other-*'))))
+        git('clone', '-q', '-b', 'session/test', str(self.bare), str(other), cwd=self.temp.name)
+        git('config', 'user.email', 'o@example.org', cwd=other); git('config', 'user.name', 'other', cwd=other)
+        return other
+
+    def test_two_clones_changing_the_ledger_both_keep_their_change_and_nothing_is_left_half_merged(self):
+        self.store.mutate(lambda s: s['topics'].update({'TH-EN-0001': {'status': 'PLANNED', 'language': 'en'}}))
+        other = self.other_clone()
+        theirs = GitBranchStore(other)
+        theirs.mutate(lambda s: s['topics'].update({'TH-EN-0002': {'status': 'PLANNED', 'language': 'en'}}))
+        # Our clone is now behind and edits the same file: the commit must be dropped and the mutation redone, not rebased.
+        self.store.mutate(lambda s: s['topics'].update({'TH-EN-0003': {'status': 'PLANNED', 'language': 'en'}}))
+        state = self.store.read()  # readable: no conflict markers
+        self.assertEqual(set(state['topics']), {'TH-EN-0001', 'TH-EN-0002', 'TH-EN-0003'})
+        self.assertEqual(git('status', '--porcelain', cwd=self.work).strip(), '')
+        self.assertFalse((self.work / '.git' / 'rebase-merge').exists() or (self.work / '.git' / 'rebase-apply').exists())
+        remote = json.loads(git('show', 'session/test:data/state/factory.json', cwd=self.bare))
+        self.assertEqual(set(remote['topics']), {'TH-EN-0001', 'TH-EN-0002', 'TH-EN-0003'})
+        self.assertEqual(remote['version'], 3)
+
+    def test_a_document_written_but_never_committed_is_committed_by_the_retry(self):
+        value = {'article': 'cut off before the commit'}
+        sha = digest(value)
+        path = self.work / 'data/documents' / (sha + '.json')
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(__import__('thuha.common', fromlist=['canonical_json']).canonical_json(value))  # the process died here
+        self.assertNotIn(sha, git('ls-tree', '-r', '--name-only', 'session/test', cwd=self.bare))
+        self.assertEqual(self.store.put_document(value), sha)
+        self.assertIn('data/documents/' + sha + '.json', git('ls-tree', '-r', '--name-only', 'session/test', cwd=self.bare))
+
+    def test_a_truncated_uncommitted_document_is_replaced_but_a_committed_one_never_is(self):
+        value = {'article': 'whole document'}
+        sha = digest(value)
+        path = self.work / 'data/documents' / (sha + '.json')
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('{"article": "whole doc')  # half written
+        self.assertEqual(self.store.put_document(value), sha)
+        self.assertEqual(self.store.get_document(sha), value)
+        path.write_text('{"article": "tampered"}')  # now it is committed: a change is a collision
+        with self.assertRaises(ValueError):
+            self.store.put_document(value)
+
+    def test_a_branch_that_cannot_be_fast_forwarded_is_reported_not_corrupted(self):
+        (self.work / 'local.txt').write_text('local only'); git('add', 'local.txt', cwd=self.work); git('commit', '-q', '-m', 'unpushed local', cwd=self.work)
+        other = self.other_clone()
+        GitBranchStore(other).mutate(lambda s: s['topics'].update({'TH-EN-0009': {'status': 'PLANNED', 'language': 'en'}}))
+        with self.assertRaisesRegex(RuntimeError, 'local commits'):
+            self.store.mutate(lambda s: s['topics'].update({'TH-EN-0001': {'status': 'PLANNED', 'language': 'en'}}))
+        self.assertEqual(git('status', '--porcelain', cwd=self.work).strip(), '')
+
     def test_invalid_state_is_not_committed(self):
         def bad(s): s['leases']['W1'] = {'topic_id': 'missing', 'expires_at': 0}
         with self.assertRaises(ValueError):

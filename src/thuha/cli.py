@@ -5,7 +5,7 @@ import json
 import os
 import sys
 from pathlib import Path
-from .common import ROOT,REPO,age,digest,load,now,save,validate_inventory
+from .common import ROOT,REPO,age,digest,fresh,load,now,save,validate_inventory
 from .store import LocalStore,GitStore,GitBranchStore,event,validate
 from . import audit,coordinator,research,quality,dashboard,matrix,quota,ledger
 from .adapter import AdapterClient
@@ -88,7 +88,7 @@ def main(argv=None):
         # and is labelled unverified; quota and publishing refuse to trust it.
         stored=store.read().get('inventory_document')
         current=store.get_document(stored) if stored else None
-        if args.max_age and current and age(current['captured_at'])<args.max_age:
+        if args.max_age and current and fresh(current['captured_at'],args.max_age):
             print(json.dumps({'status':'SKIPPED','reason':'stored inventory is fresh','age_seconds':round(age(current['captured_at'])),
                               'language_source':current.get('language_source')}));return 0
         if os.environ.get('THUHA_WP_USER') and os.environ.get('THUHA_WP_APPLICATION_PASSWORD'):
@@ -179,7 +179,10 @@ def main(argv=None):
             raise ValueError('Authorized independent reviewer identity required')
         if value.get('article_sha')!=store.read()['submissions'][args.topic_id]['article_sha']:raise ValueError('Review references different revision')
         document=store.put_document(value)
-        store.mutate(lambda s:s.setdefault('reviews',{}).update({args.topic_id:document}))
+        def record(s):
+            s.setdefault('reviews',{})[args.topic_id]=document
+            event(s,'REVIEW',topic_id=args.topic_id,review_document=document,reviewer_id=value['reviewer_id']) # an event, so the hand-over sees it
+        store.mutate(record)
         result={'review_document':document}
     elif args.command=='qa':
         inv=inventory_for(store,args.inventory)
@@ -193,7 +196,7 @@ def main(argv=None):
                     raise ValueError('Vietnamese QA needs an adapter or authenticated inventory; this one is '+str(inv.get('language_source')))
                 value=quality.run_qa(store,tid,inv,policy,facts)
                 result['results'][tid]=value
-                if value['status']!='PASS':exit_code=max(exit_code,1)
+                if value['status']!='PASS' and not args.pending:exit_code=max(exit_code,1) # a scheduled batch reports FAIL in the ledger, not as a red step
             except (ValueError,OSError,RuntimeError,KeyError) as exc:
                 result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError)) else 'STATE_OR_CONTRACT'}
                 exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)

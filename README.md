@@ -91,7 +91,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 ## Commands
 
 ```
-PYTHONPATH=src python3 -m unittest discover -s tests -v     # 289 offline tests (the PHP harness runs if php exists)
+PYTHONPATH=src python3 -m unittest discover -s tests -v     # 327 offline tests (the PHP harness runs if php exists)
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
 PYTHONPATH=src python3 -m thuha.cli --remote promote        # PLAN of the hand-over; add --apply to perform it (queue job only)
 PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: bring the session ledger up to the shared one first

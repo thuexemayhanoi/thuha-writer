@@ -13,6 +13,7 @@ from . import htmlpolicy
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
 from .language import locale, screen, screen_alt, url_language
 from .research import collisions, item_language
+from .quota import CLOSED_PHASES
 from .store import event
 from .coordinator import timestamp
 
@@ -167,7 +168,8 @@ def run_qa(store,topic_id,inv,policy,business):
         if state['submissions'][topic_id]['article_sha']!=sub['article_sha']:raise ValueError('Draft changed during QA')
         if any(l['topic_id']==topic_id and l['fence']!=sub['fence'] and l['expires_at']>timestamp() for l in state['leases'].values()):
             raise ValueError('Another live writer is repairing this checkpoint; do not close their lease')
-        if topic_id in state['intents']:raise ValueError('Publication pending; reconcile before QA mutation')
+        intent=state['intents'].get(topic_id)
+        if intent and intent['phase'] not in CLOSED_PHASES:raise ValueError('Publication pending; reconcile before QA mutation') # a closed intent never reached WordPress
         state['qa'][topic_id]={'report_sha':report_sha,'article_sha':sub['article_sha'],'status':result['status']}
         state['topics'][topic_id]['status']='READY' if result['status']=='PASS' else 'NEEDS_REPAIR'
         if sub['repair_count']>=policy['maximum_repairs'] and result['status']!='PASS':state['topics'][topic_id]['status']='NEEDS_REVIEW'
@@ -176,6 +178,14 @@ def run_qa(store,topic_id,inv,policy,business):
         event(state,'QA',topic_id=topic_id,report_sha=report_sha,status=result['status'])
         return result
     return store.mutate(transaction)
+
+
+def reviewed_current(store,state,tid):
+    """A review is recorded for the draft as it is now (a repaired draft needs a new one)."""
+    if tid not in state.get('reviews',{}):return False
+    try:review=store.get_document(state['reviews'][tid])
+    except (ValueError,OSError,KeyError):return False
+    return review.get('article_sha')==state['submissions'][tid]['article_sha']
 
 
 def pending_qa(store,policy,languages=None):
@@ -189,7 +199,7 @@ def pending_qa(store,policy,languages=None):
     for tid,topic in sorted(state['topics'].items()):
         sub=state['submissions'].get(tid)
         if not sub or (languages and topic['language'] not in languages):continue
-        if topic['status']=='DRAFT_READY' and tid in state.get('reviews',{}):out.append(tid)
+        if topic['status']=='DRAFT_READY' and reviewed_current(store,state,tid):out.append(tid)
         elif topic['status']=='READY':
             record=state['qa'].get(tid)
             try:

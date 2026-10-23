@@ -73,6 +73,17 @@ class MigrationTests(unittest.TestCase):
         value['research_requests']={'research-x':{'status':'FULFILLED','request_id':'research-x'}}
         value['receipts']={'TH-000001':{'wp_id':1,'url':'u'}}
         return value
+    def test_schema_four_publication_phases_get_their_schema_five_names(self):
+        from thuha.store import migrate
+        old=self.legacy()
+        old['topics']['TH-000001']['status']='VERIFIED'
+        old['intents']={'TH-000001':{'phase':'VERIFIED','article_sha':'a'*64,'wp_id':1},
+                        'TH-000002':{'phase':'VERIFY_PENDING','article_sha':'b'*64}}
+        old['topics']['TH-000002']={'topic_id':'TH-000002','status':'BLOCKED','proposed_url':'https://rentbikehanoi.com/another-guide/'}
+        value=migrate(copy.deepcopy(old));validate(value)
+        self.assertEqual((value['intents']['TH-000001']['phase'],value['topics']['TH-000001']['status']),('PUBLISHED','PUBLISHED'))
+        self.assertEqual(value['intents']['TH-000002']['phase'],'NEEDS_RECONCILIATION') # still unresolved, still counted
+        self.assertEqual(value['receipts'],old['receipts'])
     def test_schema_four_state_becomes_english_schema_five_without_touching_receipts(self):
         from thuha.store import migrate
         old=self.legacy();value=migrate(copy.deepcopy(old));validate(value)

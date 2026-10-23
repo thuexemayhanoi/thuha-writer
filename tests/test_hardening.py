@@ -180,6 +180,17 @@ class ClosedIntentTests(tf.PublisherBase):
         self.assertEqual(old['phase'], 'REJECTED')
 
 
+class FreshnessTests(unittest.TestCase):
+    def test_an_inventory_dated_in_the_future_is_never_fresh(self):
+        import datetime as dt
+        from thuha.common import fresh
+        future = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=2)).isoformat()
+        past = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(seconds=30)).isoformat()
+        self.assertFalse(fresh(future, 1000))
+        self.assertTrue(fresh(past, 1000))
+        self.assertFalse(fresh(past, 10))
+
+
 class QuotaRaceTests(unittest.TestCase):
     def test_a_post_published_after_the_inventory_was_read_still_counts(self):
         state = initial()

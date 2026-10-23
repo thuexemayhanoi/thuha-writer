@@ -347,13 +347,14 @@ class Publisher:
                 return {'status':'UNRESOLVED','reason':'No post carries the idempotency key yet; the POST is never repeated while this may still arrive'}
             def close(s):
                 current=s['intents'][topic_id]
-                if current['phase'] in ('PUBLISHED','DRAFT_HELD') or current['phase'] in CLOSED_PHASES:return
-                current['phase']='REJECTED';current['closed_reason']='absent_after_grace'
+                if current['phase']=='PUBLISHED' or current['phase'] in CLOSED_PHASES:return False
+                current['phase']='REJECTED';current['closed_reason']='absent_after_grace' # also ends a held draft that a person deleted
                 s['topics'][topic_id]['status']='READY'
                 if s.get('publisher_lease',{}).get('fence')==current.get('fence'):s.pop('publisher_lease',None)
                 event(s,'PUBLICATION_INTENT_CLOSED',topic_id=topic_id,phase='REJECTED')
-            self.store.mutate(close)
-            return {'status':'CLOSED','phase':'REJECTED','reason':'absent_after_grace'}
+                return True
+            if self.store.mutate(close):return {'status':'CLOSED','phase':'REJECTED','reason':'absent_after_grace'}
+            return self.reconcile(topic_id) # something else resolved it in the meantime: report what the ledger says now
         return self.finish(topic_id,found['post'],'adapter-reconcile')
 
     def reconcile_all(self):

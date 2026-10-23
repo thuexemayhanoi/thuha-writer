@@ -43,6 +43,11 @@ def migrate(state):
         request.setdefault('language', 'en')
     for intent in state['intents'].values():
         intent.setdefault('language', 'en')
+        # Schema 5 says PUBLISHED where schema 4 said VERIFIED, and has no VERIFY_PENDING (an unknown outcome).
+        intent['phase'] = {'VERIFIED': 'PUBLISHED', 'VERIFY_PENDING': 'NEEDS_RECONCILIATION'}.get(intent.get('phase'), intent.get('phase'))
+    for topic in state['topics'].values():
+        if topic.get('status') == 'VERIFIED':
+            topic['status'] = 'PUBLISHED'
     for lease in state['leases'].values():
         lease.setdefault('language', 'en')
     state['schema'] = SCHEMA
@@ -180,6 +185,10 @@ class LocalStore:
         return value
 
 
+class StateConflict(RuntimeError):
+    """The branch moved under a ledger commit; the commit was dropped and the caller starts again from the new ledger."""
+
+
 class GitBranchStore:
     """Durable state through ordinary git commits and pushes on one branch.
 
@@ -189,7 +198,11 @@ class GitBranchStore:
     so a trusted Actions task can later promote the ledger to factory-state.
     Every mutation is committed with an explicit pathspec, so unrelated working
     tree changes are never swept into a checkpoint, and pushed before it is
-    reported durable; a rejected push is a CAS conflict: fetch, rebase, retry.
+    reported durable.
+
+    A rejected push of the ledger is a compare-and-swap conflict: our commit is dropped, the branch is brought to the
+    remote tip and the mutation runs again on the new ledger (a rebase would leave conflict markers in the JSON).
+    Documents are separate content-addressed files, so a rejected push of a document is simply rebased.
     """
     durable_remote=True
     state_path='data/state/factory.json'
@@ -207,27 +220,58 @@ class GitBranchStore:
         value=migrate(load(path)) if path.exists() else initial()
         validate(value);return value
 
-    def _commit_push(self,paths,message):
+    def _dirty(self,relative):
+        return bool(self._run(['status','--porcelain','--',relative]).stdout.strip())
+
+    def _untracked(self,relative):
+        return self._run(['status','--porcelain','--',relative]).stdout.startswith('??')
+
+    def _commit(self,paths,message):
         self._run(['add','--']+paths)
         self._run(['commit','-q','-m',message,'--']+paths)
+
+    def _push(self,rebase):
         for attempt in range(5):
             try:
                 self._run(['push','-q',self.remote,'HEAD:refs/heads/'+self.branch]);return
             except Exception:
-                if attempt==4:raise RuntimeError('Checkpoint committed locally but push rejected; retry push before continuing')
+                if attempt==4:raise RuntimeError('Checkpoint committed locally but push rejected; retry push before continuing') from None
                 self._run(['fetch','-q',self.remote,self.branch])
-                self._run(['rebase','-q',self.remote+'/'+self.branch])
+                if not rebase:break
+                try:self._run(['rebase','-q',self.remote+'/'+self.branch])
+                except Exception:
+                    self._run(['rebase','--abort']) # never leave the checkout half-way through a rebase
+                    raise RuntimeError('Rebase of a checkpoint failed and was abandoned; the checkout is unchanged') from None
+        raise RuntimeError('push rejected')
+
+    def _publish_state(self,paths,message):
+        self._commit(paths,message)
+        try:self._push(rebase=False)
+        except RuntimeError:
+            # Drop our commit and our edit of the ledger, then move to the remote tip; the caller redoes the mutation.
+            self._run(['reset','-q','--soft','HEAD~1']);self._run(['reset','-q','HEAD','--']+paths)
+            for relative in paths:
+                try:self._run(['checkout','--',relative])
+                except Exception:(self.root/relative).unlink(missing_ok=True) # the ledger did not exist before this commit
+            try:self._run(['merge','-q','--ff-only',self.remote+'/'+self.branch])
+            except Exception:raise RuntimeError('The branch has local commits the remote lacks; push or discard them before continuing') from None
+            raise StateConflict('The branch moved; the ledger change was dropped and will be redone') from None
+
+    def _write(self,state,message):
+        save(self.root/self.state_path,state)
+        self._publish_state([self.state_path],message)
 
     def mutate(self,callback):
         with self.lock.open('a') as lock:
             fcntl.flock(lock,fcntl.LOCK_EX)
-            state=self.read();old=copy.deepcopy(state)
-            result=callback(state)
-            validate(state,old);state['version']+=1
-            if len(canonical_json(state))>15_000_000:raise ValueError('Registry size guard reached; archive events before scaling')
-            save(self.root/self.state_path,state)
-            self._commit_push([self.state_path],'factory checkpoint v'+str(state['version'])+' [skip ci]')
-            return result
+            for _ in range(5):
+                state=self.read();old=copy.deepcopy(state)
+                result=callback(state)
+                validate(state,old);state['version']+=1
+                if len(canonical_json(state))>15_000_000:raise ValueError('Registry size guard reached; archive events before scaling')
+                try:self._write(state,'factory checkpoint v'+str(state['version'])+' [skip ci]');return result
+                except StateConflict:continue
+            raise RuntimeError('CAS retry limit reached')
 
     def raw(self):
         path=self.root/self.state_path
@@ -236,24 +280,36 @@ class GitBranchStore:
     def adopt(self,builder):
         with self.lock.open('a') as lock:
             fcntl.flock(lock,fcntl.LOCK_EX)
-            current,_=self.raw()
-            new=builder(copy.deepcopy(current))
-            if new is None:return None
-            validate(new);new['version']=max(current.get('version',0),new.get('version',0))+1
-            save(self.root/self.state_path,new)
-            self._commit_push([self.state_path],'factory checkpoint v'+str(new['version'])+' [skip ci]')
-            return new
+            for _ in range(5):
+                current,_=self.raw()
+                new=builder(copy.deepcopy(current))
+                if new is None:return None
+                validate(new);new['version']=max(current.get('version',0),new.get('version',0))+1
+                try:self._write(new,'factory checkpoint v'+str(new['version'])+' [skip ci]');return new
+                except StateConflict:continue
+            raise RuntimeError('CAS retry limit reached')
 
     def put_document(self,value):
         sha=digest(value);relative='data/documents/'+sha+'.json';path=self.root/relative
         with self.lock.open('a') as lock:
             fcntl.flock(lock,fcntl.LOCK_EX)
             if path.exists():
-                if load(path)!=value:raise ValueError('Immutable document collision')
-                return sha
+                try:same=load(path)==value
+                except ValueError:same=False
+                if same:
+                    if self._dirty(relative):self._commit([relative],'factory document '+sha[:12]+' [skip ci]');self._push(rebase=True) # an earlier run stopped before its commit
+                    return sha
+                if not self._untracked(relative):raise ValueError('Immutable document collision') # a committed document never changes
+                # An untracked file at this address that is not this document is a cut-off write: replace it.
             path.parent.mkdir(parents=True,exist_ok=True)
-            path.write_bytes(canonical_json(value))
-            self._commit_push([relative],'factory document '+sha[:12]+' [skip ci]')
+            fd,temp=tempfile.mkstemp(prefix='.document-',dir=path.parent)
+            try:
+                with os.fdopen(fd,'wb') as f:
+                    f.write(canonical_json(value));f.flush();os.fsync(f.fileno())
+                os.replace(temp,path)
+            finally:
+                if os.path.exists(temp):os.unlink(temp)
+            self._commit([relative],'factory document '+sha[:12]+' [skip ci]');self._push(rebase=True)
         return sha
 
     def get_document(self,sha):

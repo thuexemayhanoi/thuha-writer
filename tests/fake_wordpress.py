@@ -58,6 +58,7 @@ class FakeWordPress:
         self.faults = []  # [method, path suffix, kind, remaining]
         self.page_faults = set()  # public-page problems: 'canonical', 'lang', 'noindex', 'schema', 'down'
         self.stored_title_suffix = ''  # makes WordPress store a different title than the one sent
+        self.readback_override = {}  # field -> value WordPress reports back although something else was sent
         self.preflight_status = 200
         for item in inventory['items']:
             self.rows.append({'id': item['id'], 'type': 'post' if item['type'] == 'posts' else 'page', 'link': item['url'],
@@ -74,7 +75,8 @@ class FakeWordPress:
     # ------------------------------------------------------------------ faults
 
     def fail(self, method, suffix, kind, count=1):
-        """kind: refuse | timeout_before | timeout_after | reset_after | http500_after:<code> | http_error:<status>:<code>"""
+        """kind: refuse | timeout_before | reject:<status>:<code> (nothing created) | timeout_after | reset_after |
+        http500_after:<code> | http_error:<status>:<code> (after the post was created)"""
         self.faults.append([method, suffix, kind, count])
 
     def take_fault(self, method, path):
@@ -96,6 +98,9 @@ class FakeWordPress:
                 raise urllib.error.URLError(ConnectionRefusedError(111, 'Connection refused'))
             if fault == 'timeout_before':
                 raise TimeoutError('timed out')
+            if fault and fault.startswith('reject:'):  # the plugin refuses before creating anything
+                _, status, code = fault.split(':')
+                raise self.error(int(status), code)
             response = self.route(method, path, query, json.loads(body) if body else None, url)
             if fault == 'timeout_after':
                 raise TimeoutError('timed out')
@@ -179,6 +184,10 @@ class FakeWordPress:
         return Response({'created': True, 'idempotent_replay': False, 'post': self.readback(post)})
 
     def readback(self, post):
+        language = post['language']
+        return dict(self.plain_readback(post), **self.readback_override)
+
+    def plain_readback(self, post):
         language = post['language']
         return {'id': post['id'], 'type': 'post', 'status': post['status'], 'language': language, 'slug': post['slug'], 'link': post['link'],
                 'title': post['title'], 'content': post['content_raw'], 'content_raw': post['content_raw'],

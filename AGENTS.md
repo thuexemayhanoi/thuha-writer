@@ -21,10 +21,11 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
 
 - **Two ledgers, one hand-over.** Actions read `factory-state` (`GitStore`). A session that can only push its own branch
   keeps a session ledger in that branch (`--git-branch`, `data/state/factory.json` + `data/documents/`). Nothing reads that
-  copy until `promote` moves it into `factory-state`: **fast-forward only** (the shared ledger's history must be the first part
-  of the session ledger's), documents first, one compare-and-swap, idempotent, never an overwrite. A diverged ledger is
-  refused with nothing written. Run `--git-branch sync --apply` before a new session works, so its ledger starts from the
-  shared one. The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
+  copy until `promote` moves it into `factory-state`: **fast-forward only** (every event of the shared ledger must be in the
+  session ledger in the same order), documents first, one compare-and-swap, idempotent, never an overwrite; a session never
+  carries intents or receipts (only the publisher writes them). A diverged ledger is refused with nothing written, and work
+  done on a stale copy cannot be merged automatically. Run `--git-branch sync --apply` before a new session works, so its
+  ledger starts from the shared one; hand-over works repeatedly (sync, work, promote). The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
   ledger from a session.
 - **QA before publication, review before QA.** `qa --pending` evaluates a draft only once an independent review is recorded
   (otherwise it would fail for the missing review alone and be sent to repair), and again every READY draft whose report

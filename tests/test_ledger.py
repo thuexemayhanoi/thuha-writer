@@ -227,6 +227,186 @@ class PromoteTests(unittest.TestCase):
             ledger.read_documents(directory)
 
 
+class RoundsTests(unittest.TestCase):
+    """The hand-over works repeatedly: sync, work, promote, while the shared ledger keeps moving (QA, publishing)."""
+
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.api = MemoryGitHub()
+        self.remote = GitStore(self.api)
+        self.base = legacy_live()
+        self.api.files[GitStore.state_path] = copy.deepcopy(self.base)
+        self.session = LocalStore(Path(self.temp.name) / 'session')
+        save(self.session.path, advanced(self.base, doc=self.session.put_document({'article': 'round one'})))
+
+    def promote(self):
+        return ledger.promote(self.remote, self.session.raw()[0], ledger.read_documents(self.session.directory / 'documents'), apply=True)
+
+    def work(self, tid):
+        """One more topic with a draft in the session ledger, as a writer would leave it."""
+        doc = self.session.put_document({'article': 'draft of ' + tid})
+
+        def add(state):
+            state['topics'][tid] = dict(topic(tid), language='en')
+            event(state, 'RESEARCH_INTAKE', topic_ids=[tid])
+            state['topics'][tid]['status'] = 'DRAFT_READY'
+            state['submissions'][tid] = {'article_sha': doc, 'session': 's-' + tid, 'agent_id': 'a-' + tid, 'slot': 'W4', 'fence': 'f',
+                                         'submitted_at': now(), 'repair_count': 0, 'commit': 'c'}
+            event(state, 'SUBMISSION', topic_id=tid, article_sha=doc)
+        self.session.mutate(add)
+
+    def actions_move_the_shared_ledger(self, action):
+        self.remote.mutate(lambda s: event(s, action, note='written by Actions'))
+
+    def test_three_rounds_each_new_batch_arrives_and_the_shared_events_survive(self):
+        self.assertEqual(self.promote()['status'], 'FAST_FORWARD')
+        for tid in ('TH-000004', 'TH-000005'):
+            self.actions_move_the_shared_ledger('QA')
+            nothing_new = self.promote()  # the session did not look at the shared ledger, but it has nothing to hand over either
+            self.assertEqual((nothing_new['status'], nothing_new['applied']), ('ALREADY_INCLUDED', False))
+            self.assertEqual(ledger.sync(self.session, self.remote, apply=True)['status'], 'FAST_FORWARD')
+            self.work(tid)
+            result = self.promote()
+            self.assertEqual((result['status'], result['applied']), ('FAST_FORWARD', True), result)
+            state = self.remote.read()
+            self.assertIn(tid, state['topics'])
+            self.assertEqual(state['submissions'][tid]['agent_id'], 'a-' + tid)
+        actions = [e['action'] for e in self.remote.read()['events']]
+        self.assertEqual(actions.count('QA'), 2)  # what Actions wrote in between is still there
+        self.assertEqual(actions.count('LEDGER_PROMOTION'), 3)
+        validate(self.remote.read())
+
+    def test_work_on_top_of_a_synced_ledger_is_not_reported_as_already_included(self):
+        self.promote()
+        self.actions_move_the_shared_ledger('QA')
+        ledger.sync(self.session, self.remote, apply=True)
+        self.work('TH-000004')
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'FAST_FORWARD')
+
+    def test_a_session_that_never_synced_is_told_which_shared_events_it_lacks(self):
+        self.promote()
+        self.actions_move_the_shared_ledger('QA')
+        self.work('TH-000004')
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'DIVERGED')
+        self.assertIn('QA', ' '.join(verdict['reasons']))
+        self.assertIn('LEDGER_PROMOTION', ' '.join(verdict['reasons']))
+
+    def test_a_review_with_no_event_cannot_be_silently_dropped(self):
+        self.promote()
+        ledger.sync(self.session, self.remote, apply=True)
+        review = self.session.put_document({'review': 'recorded without an event, as older code did'})
+        self.session.mutate(lambda s: s.setdefault('reviews', {}).update({'TH-000003': review}))
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('review TH-000003', ' '.join(verdict['reasons']))
+
+    def test_a_session_ledger_may_never_carry_intents_or_receipts_the_publisher_did_not_write(self):
+        self.promote()
+        ledger.sync(self.session, self.remote, apply=True)
+
+        def forge(state):
+            state['intents']['TH-000003'] = {'phase': 'NOT_SENT', 'language': 'en', 'article_sha': 'a' * 64, 'reserved_at': now()}
+            event(state, 'CLAIM', topic_id='TH-000003')
+        self.session.mutate(forge)
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('never wrote', ' '.join(verdict['reasons']))
+
+    def test_a_session_ledger_that_forgets_a_publication_intent_or_forges_a_receipt_is_refused(self):
+        live = legacy_live()
+        live['topics']['TH-000003'] = dict(topic('TH-000003'), status='BLOCKED')
+        event(live, 'RESEARCH_INTAKE', topic_ids=['TH-000003'])
+        live['intents']['TH-000003'] = {'phase': 'NEEDS_RECONCILIATION', 'language': 'en', 'article_sha': 'a' * 64, 'reserved_at': now()}
+        forgetful = copy.deepcopy(live)
+        event(forgetful, 'CLAIM', topic_id='TH-000001')
+        forgetful['intents'].clear()
+        verdict = ledger.plan(live, forgetful)
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('Publication intent differs', ' '.join(verdict['reasons']))
+        forger = copy.deepcopy(live)
+        event(forger, 'CLAIM', topic_id='TH-000001')
+        forger['receipts']['TH-000001'] = {'document': 'b' * 64, 'wp_id': 7, 'url': SITE + '/x/', 'language': 'en'}
+        verdict = ledger.plan(live, forger)
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('receipt the publisher never wrote', ' '.join(verdict['reasons']))
+
+    def test_an_unresolved_intent_cannot_be_rewritten_by_a_session(self):
+        self.promote()
+        article = self.session.raw()[0]['submissions']['TH-000003']['article_sha']
+
+        def publisher_state(state):
+            state['intents']['TH-000003'] = {'phase': 'NEEDS_RECONCILIATION', 'language': 'en', 'article_sha': article, 'reserved_at': now()}
+            state['topics']['TH-000003']['status'] = 'BLOCKED'
+            event(state, 'PUBLISH_OUTCOME_UNCERTAIN', topic_id='TH-000003')
+        self.remote.mutate(publisher_state)
+        ledger.sync(self.session, self.remote, apply=True)
+
+        def tamper(state):
+            state['intents']['TH-000003']['phase'] = 'NOT_SENT'  # would let the next run POST the same key again
+            state['topics']['TH-000003']['status'] = 'READY'
+            event(state, 'CLAIM', topic_id='TH-000003')
+        self.session.mutate(tamper)
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('intent', ' '.join(verdict['reasons']).lower())
+
+    def test_receipts_research_requests_and_reviews_of_the_shared_ledger_survive(self):
+        for name, damage, text in (
+                ('receipt', lambda s: s['receipts'].pop('TH-000003'), 'Receipt differs'),
+                ('request', lambda s: s['research_requests'].pop('research-x'), 'Research request missing'),
+                ('review', lambda s: s['reviews'].pop('TH-000003'), 'Review changed')):
+            with self.subTest(name):
+                live = legacy_live()
+                live['topics']['TH-000003'] = topic('TH-000003')
+                event(live, 'RESEARCH_INTAKE', topic_ids=['TH-000003'])
+                live['submissions']['TH-000003'] = {'article_sha': 'a' * 64, 'session': 's', 'agent_id': 'a', 'slot': 'W1', 'fence': 'f',
+                                                    'submitted_at': now(), 'repair_count': 0, 'commit': 'c'}
+                live['receipts']['TH-000003'] = {'document': 'b' * 64, 'wp_id': 5, 'url': SITE + '/x/', 'language': 'en'}
+                live['research_requests']['research-x'] = {'request_id': 'research-x', 'status': 'FULFILLED'}
+                live['reviews'] = {'TH-000003': 'c' * 64}
+                handoff = copy.deepcopy(live)
+                event(handoff, 'CLAIM', topic_id='TH-000003')
+                damage(handoff)
+                verdict = ledger.plan(live, handoff)
+                self.assertEqual(verdict['status'], 'INCONSISTENT')
+                self.assertIn(text, ' '.join(verdict['reasons']))
+
+    def test_an_expired_publisher_lease_does_not_block_but_a_live_one_does(self):
+        live = legacy_live()
+        handoff = advanced(live)
+        live['publisher_lease'] = {'fence': 'x', 'expires_at': 1}
+        self.assertEqual(ledger.plan(live, handoff)['status'], 'FAST_FORWARD')
+        live['publisher_lease'] = {'fence': 'x', 'expires_at': 9e12}
+        self.assertEqual(ledger.plan(live, handoff)['status'], 'BLOCKED')
+
+    def test_a_lease_the_session_ledger_carries_never_reaches_the_shared_ledger(self):
+        documents = ledger.read_documents(self.session.directory / 'documents')
+        handoff = advanced(self.base, doc=next(iter(documents)))
+        handoff['publisher_lease'] = {'fence': 'stale', 'expires_at': 1}
+        result = ledger.promote(self.remote, handoff, documents, apply=True)
+        self.assertTrue(result['applied'], result)
+        self.assertNotIn('publisher_lease', self.remote.read())
+
+    def test_source_snapshots_that_articles_point_to_are_found_and_fetched(self):
+        snapshot = self.remote.put_document({'url': SITE + '/source/', 'excerpt': 'evidence'})
+        article = self.remote.put_document({'title': 'An article', 'sources': [{'url': SITE + '/source/', 'document': snapshot, 'supports': 'x'}]})
+        live = copy.deepcopy(self.base)
+        live['topics']['TH-000003'] = topic('TH-000003')
+        event(live, 'RESEARCH_INTAKE', topic_ids=['TH-000003'])
+        live['submissions']['TH-000003'] = {'article_sha': article, 'session': 's', 'agent_id': 'a', 'slot': 'W1', 'fence': 'f',
+                                            'submitted_at': now(), 'repair_count': 0, 'commit': 'c'}
+        self.assertNotIn(snapshot, ledger.referenced(live))
+        self.assertIn(snapshot, ledger.referenced(live, self.remote.get_document))
+        self.api.files[GitStore.state_path] = live
+        fresh = LocalStore(Path(self.temp.name) / 'fresh')
+        save(fresh.path, self.base)
+        self.assertEqual(ledger.sync(fresh, self.remote, apply=True)['status'], 'FAST_FORWARD')
+        self.assertEqual(fresh.get_document(snapshot)['excerpt'], 'evidence')  # a fresh session has the evidence its QA will need
+
+
 class SyncTests(unittest.TestCase):
     """A session ledger is refreshed from the live one before more work, so the next promotion is a fast-forward again."""
 

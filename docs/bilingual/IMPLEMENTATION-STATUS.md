@@ -33,6 +33,28 @@ từ chức năng tiếng Việt nên chặn nhầm TH-000003 (bài Anh trích t
 chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **chưa bài VI nào qua được QA**
 cho đến khi thư viện có ít nhất một ảnh như vậy (việc của người có quyền WordPress).
 
+### Review độc lập lần hai (23/10) và cách xử lý
+
+Một agent khác đọc phần hand-over, publisher, workflow và test, rồi chạy 54 đột biến một dòng. Mọi phát hiện đều được tôi chạy lại trước khi sửa:
+
+| # | Phát hiện | Xử lý |
+|---|---|---|
+| 1 | **Hand-over chỉ chạy được một lần**: sau lần đầu, mọi lô việc sau bị báo "đã có" và bỏ rơi lặng lẽ; `sync` không chép gì | so sánh lịch sử theo nội dung từng sự kiện (bỏ qua chuỗi hash và dấu migration); test ba vòng sync → làm việc → promote |
+| 2 | Intent đã đóng (`NOT_SENT`/`REJECTED`) chặn QA mãi; mã thoát của QA làm bước Drain bị bỏ qua | `run_qa` chỉ chặn intent chưa đóng; `qa --pending` báo FAIL trong sổ cái và thoát 0; bước audit/QA có `continue-on-error` |
+| 3 | `pending_qa` nhận review của bản cũ | review phải đúng `article_sha` hiện tại |
+| 4 | `DRAFT_HELD` không có lối ra; `reconcile` báo CLOSED mà sổ cái không đổi | bản nháp bị xóa → sau thời gian chờ intent đóng và chủ đề đăng lại được; bản nháp trong thùng rác phải xóa hẳn |
+| 5 | Review không để lại sự kiện nên không bao giờ được chuyển; `continuity` quá lỏng (sổ cái phiên sửa tay có thể mở lại intent đang chờ) | `review` ghi sự kiện `REVIEW`; sổ cái phiên không được mang intent/biên nhận mà publisher không viết; kiểm tra cả biên nhận, intent, yêu cầu nghiên cứu, review |
+| 6 | Một trang 404 làm audit dở dang và dừng QA/drain; `promote` bị từ chối làm các bước sau bị bỏ qua | các bước độc lập, cuối job báo đỏ nếu hand-over bị từ chối |
+| 7 | `GitBranchStore`: ghi dở tài liệu không bao giờ được commit; hai clone cùng nhánh để lại file JSON đầy dấu xung đột; `sync` bỏ 24/39 tài liệu nguồn | ghi nguyên tử, commit nốt tài liệu bỏ dở, ghi sổ cái theo kiểu CAS (bỏ commit, kéo nhánh, làm lại), `referenced` đi theo nguồn trong bài |
+| 8 | `publisher_lease` hết hạn chặn `promote` mãi | chỉ lease còn hạn mới chặn |
+| 9 | `ENETUNREACH`/`EHOSTUNREACH` có thể đến sau khi yêu cầu đã tới nơi nhưng bị coi là "chưa gửi" | chỉ lỗi phân giải tên và bị từ chối kết nối mới là `NOT_SENT` |
+| 10, 11 | `audit --max-age` coi inventory ngày mai là mới; `migrate` không đổi `VERIFIED` | `fresh()`; migrate đổi `VERIFIED` → `PUBLISHED`, `VERIFY_PENDING` → `NEEDS_RECONCILIATION` |
+| 12 | `live=false` ghi là xem trước chỉ-đọc nhưng job `queue` vẫn ghi | job `queue` bỏ qua khi chạy tay không `live` |
+| — | Tiêu đề test nói "hai publisher cùng lúc" nhưng không có test; nhiều guard không test nào bắt (lease, fence trước POST, rate limit, ngân sách pilot, bản nháp đổi, `quota.reserve`, `verify_security`, pilot==2, so sánh nội dung/category/Yoast, ghi biên nhận trùng, `demote`, khoảng chờ, re-plan của sync…) | thêm test cho từng guard và test chạy luồng thật hai publisher đồng thời (6 vòng); chạy lại các đột biến đó (và các kiểm tra mới của sổ cái): tất cả bị bắt |
+
+Còn lại và nói thẳng: công việc làm trên bản sao cũ của sổ cái (khi Actions đã ghi thêm) không tự gộp được, chỉ bị từ chối; một intent
+mà WordPress không bao giờ thấy chỉ được đóng sau một giờ; khoảng trống của bộ lọc ngôn ngữ cho văn bản rất ngắn đã được vá riêng cho alt text.
+
 ### Việc phải thiết lập một lần để chạy tự động (không làm được và không kiểm được offline)
 
 1. Review và merge nhánh này → quality chạy → job `queue` chuyển chín bản thảo vào `factory-state`.
@@ -141,7 +163,7 @@ Cập nhật ở cuối phiên: xem commit cuối của nhánh `feature/bilingua
 
 | Hạng mục | Kết quả |
 |---|---|
-| Python unittest | 289 test, tất cả OK (~25 giây) |
+| Python unittest | 327 test, tất cả OK (~33 giây) |
 | PHP harness (mô phỏng WordPress) | 25 tình huống đạt, 0 lỗi |
 | `thuha.cli validate` | PASS (goal 500/500, 2 matrix, gói adapter, chính sách QA) |
 | Matrix VI500 | 500 dòng mới, 0 vấn đề |

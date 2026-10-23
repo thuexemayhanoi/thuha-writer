@@ -6,26 +6,34 @@ including network faults, repeated runs and two publishers at once.
 WordPress is simulated (tests/fake_wordpress.py). Passing here shows the factory's own logic holds up; it is not
 evidence about the real site, the native Vietnamese plugin or Yoast.
 """
+import contextlib
 import copy
 import datetime as dt
+import errno
+import io
+import json
 import os
 import random
 import re
 import threading
+import time
 import unittest
+import urllib.error
 from pathlib import Path
 from unittest.mock import patch
 import test_factory as tf
 from fake_wordpress import FakeWordPress, PLUGIN
 from test_remote_and_recovery import MemoryGitHub
-from thuha import audit, dashboard, ledger, pipeline, quality
+from thuha import audit, cli, dashboard, ledger, pipeline, quality
+from thuha import publisher as pubmod
+from thuha.quota import LanguageComplete
 from thuha.adapter import AdapterClient
-from thuha.common import ROOT, SITE, digest, load, now
+from thuha.common import ROOT, SITE, digest, load, now, save
 from thuha.coordinator import claim, submit
 from thuha.language import post_url
 from thuha.publisher import Publisher, quota_unresolved
 from thuha.research import intake
-from thuha.store import GitStore, validate
+from thuha.store import GitStore, LocalStore, event, validate
 
 VI = [('bảo dưỡng xe tay ga định kỳ', 'Lịch bảo dưỡng định kỳ cho xe tay ga: những hạng mục cần kiểm tra', 'lich-bao-duong-dinh-ky-xe-tay-ga'),
       ('chọn mũ bảo hiểm phù hợp', 'Cách chọn mũ bảo hiểm vừa đầu và đạt chuẩn an toàn khi đi phố', 'cach-chon-mu-bao-hiem-vua-dau'),
@@ -455,6 +463,340 @@ class CeilingTests(Line):
         self.assertEqual(result['languages_at_ceiling'], ['vi'])
         self.assertEqual(self.state()['topics'][ids[1]]['status'], 'READY')
         self.assertEqual(len([p for p in self.wp.created if p['language'] == 'vi']), 1)
+
+
+class ReviewFindingsTests(Line):
+    """Defects an independent reviewer reproduced; each failed before its fix."""
+
+    def one_ready(self):
+        tid = self.draft('vi', VI[0])
+        self.hand_over()
+        self.qa()
+        return tid
+
+    def test_a_closed_intent_never_blocks_qa_again(self):
+        tid = self.one_ready()
+        self.wp.fail('POST', '/posts', 'refuse')
+        self.drain()
+        self.assertEqual(self.state()['intents'][tid]['phase'], 'NOT_SENT')
+        self.policy.update(score_threshold=self.policy['score_threshold'] - 5)  # a merged policy change invalidates the old report
+        self.assertEqual(quality.pending_qa(self.shared, self.policy), [tid])
+        self.assertEqual(self.qa(), {tid: 'PASS'})  # used to raise "Publication pending" forever
+        self.assertEqual([p['topic_id'] for p in self.drain()['published']], [tid])
+
+    def test_a_repaired_draft_after_a_rejected_intent_can_be_qualified_again(self):
+        tid = self.one_ready()
+        self.wp.fail('POST', '/posts', 'reject:409:thuha_slug_conflict')
+        self.drain()
+        state = self.state()
+        self.assertEqual((state['intents'][tid]['phase'], state['topics'][tid]['status']), ('REJECTED', 'NEEDS_REPAIR'))
+        lease = claim(self.shared, 'session-repair', 'writer-repair')
+        article = dict(self.shared.get_document(state['submissions'][tid]['article_sha']), session='session-repair', agent_id='writer-repair')
+        article['body_html'] = article['body_html'].replace('<p>', '<p>Bổ sung một câu. ', 1)
+        submit(self.shared, lease['slot'], lease['session'], lease['fence'], article)
+        self.assertEqual(quality.pending_qa(self.shared, self.policy), [])  # the review belongs to the OLD draft
+        review = {'article_sha': self.state()['submissions'][tid]['article_sha'], 'reviewer_id': 'reviewer-qa', 'language': 'vi',
+                  'checked_at': now(), 'checks': {k: True for k in quality.REVIEW_CHECKS}, 'notes': 'Synthetic review of the repaired draft.'}
+        sha = self.shared.put_document(review)
+        self.shared.mutate(lambda s: s['reviews'].update({tid: sha}))
+        self.assertEqual(quality.pending_qa(self.shared, self.policy), [tid])
+        self.assertEqual(self.qa(), {tid: 'PASS'})
+
+    def test_a_stale_review_does_not_send_a_repaired_draft_back_to_repair(self):
+        tid = self.one_ready()
+        publisher = self.publisher()
+        self.assertTrue(pipeline.demote(publisher, tid, 'live duplicate', ['DUPLICATE_OR_CANNIBALIZATION']))
+        lease = claim(self.shared, 'session-repair', 'writer-repair')
+        article = dict(self.shared.get_document(self.state()['submissions'][tid]['article_sha']), session='session-repair', agent_id='writer-repair')
+        article['body_html'] = article['body_html'].replace('<p>', '<p>Bổ sung. ', 1)
+        submit(self.shared, lease['slot'], lease['session'], lease['fence'], article)
+        self.assertEqual(self.state()['topics'][tid]['status'], 'DRAFT_READY')
+        self.assertEqual(self.qa(), {})  # nothing is evaluated until a reviewer has seen THIS revision
+        self.assertEqual(self.state()['topics'][tid]['status'], 'DRAFT_READY')
+
+    def test_a_draft_held_by_wordpress_that_a_person_deleted_closes_after_the_grace_period_and_can_publish_again(self):
+        tid = self.one_ready()
+        original = self.wp.create
+
+        def drafted(payload):
+            original(payload)
+            self.wp.created[-1]['status'] = 'draft'
+            raise self.wp.error(422, 'thuha_content_altered')
+        self.wp.create = drafted
+        self.drain()
+        self.assertEqual(self.state()['intents'][tid]['phase'], 'DRAFT_HELD')
+        self.wp.create = original
+        self.wp.created.clear()  # the stray draft is deleted in WordPress
+        self.assertIn('Unresolved', self.drain()['halted'])  # inside the grace period nothing is concluded
+        long_ago = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=5)).isoformat()
+        self.shared.mutate(lambda s: s['intents'][tid].update(reserved_at=long_ago, reserved_epoch=0))
+        result = self.drain()
+        self.assertEqual(result['reconciled'][tid]['phase'], 'REJECTED')
+        self.assertEqual(self.state()['intents'][tid]['phase'] if tid not in result['published'] else 'x', 'PUBLISHED')
+        self.assertEqual([p['topic_id'] for p in result['published']], [tid])
+
+    def test_an_error_after_the_request_was_delivered_is_never_taken_for_a_request_that_never_left(self):
+        tid = self.one_ready()
+        original = self.wp.create
+
+        def processed_then_unreachable(payload):
+            original(payload)  # WordPress processed and published the post ...
+            raise urllib.error.URLError(OSError(errno.EHOSTUNREACH, 'No route to host'))  # ... the answer never came back
+        self.wp.create = processed_then_unreachable
+        result = self.drain()
+        self.assertEqual([p['topic_id'] for p in result['published']], [tid])  # reconciled by key, not closed as NOT_SENT
+        self.assertEqual((len(self.wp.post_requests()), len(self.wp.created)), (1, 1))
+        self.assertEqual(self.state()['intents'][tid]['phase'], 'PUBLISHED')
+
+    def test_a_qa_failure_in_a_scheduled_batch_is_not_a_failed_step(self):
+        tid = self.one_ready()
+        self.policy.update(score_threshold=self.policy['score_threshold'] - 5)
+        out = io.StringIO()
+        real = cli.load
+        with patch('thuha.cli.GitStore', lambda: self.shared), patch('thuha.cli.load', lambda p: self.policy if str(p).endswith('config/qa.json') else real(p)), \
+                patch('thuha.cli.inventory_for', lambda store, path: self.shared.get_document(self.state()['inventory_document'])), \
+                patch('thuha.quality.run_qa', return_value={'status': 'FAIL'}), contextlib.redirect_stdout(out):
+            pending = cli.main(['--remote', 'qa', '--pending'])
+            single = cli.main(['--remote', 'qa', '--topic-id', tid])
+        self.assertEqual((pending, single), (0, 1))  # the scheduled batch reports in the ledger; an explicit single run still says FAIL
+
+
+    def test_recording_a_review_leaves_an_event_so_the_hand_over_sees_it(self):
+        tid = self.draft('en', EN[0], reviewed=False)
+        sha = self.store.read()['submissions'][tid]['article_sha']
+        review = Path(self.temp.name) / 'review.json'
+        review.write_text(json.dumps({'article_sha': sha, 'reviewer_id': 'claude-editorial-reviewer', 'language': 'en', 'checked_at': now(),
+                                      'checks': {k: True for k in quality.REVIEW_CHECKS}, 'notes': 'Synthetic review through the command line.'}))
+        before = len(self.store.read()['events'])
+        with patch.dict(os.environ, {'THUHA_REVIEWER_ID': 'claude-editorial-reviewer'}), contextlib.redirect_stdout(io.StringIO()):
+            cli.main(['--state-dir', self.temp.name, 'review', '--file', str(review), '--topic-id', tid])
+        state = self.store.read()
+        self.assertIn(tid, state['reviews'])
+        self.assertEqual([e['action'] for e in state['events']][before:], ['REVIEW'])
+        self.assertEqual(self.hand_over()['status'], 'FAST_FORWARD')  # and it travels
+
+
+class ConcurrencyTests(Line):
+    def test_two_publishers_draining_at_once_never_publish_a_topic_twice(self):
+        for round_number in range(6):
+            with self.subTest(round=round_number):
+                self.setUp()
+                ids = [self.draft('vi', VI[0]), self.draft('vi', VI[1])]
+                self.hand_over()
+                self.qa()
+                results, errors = [], []
+
+                def run():
+                    try:
+                        results.append(pipeline.drain(self.publisher(), sleep=lambda _s: None))
+                    except Exception as exc:  # a refused reservation may raise out of a drain's own checks
+                        errors.append(exc)
+                threads = [threading.Thread(target=run) for _ in range(2)]
+                for t in threads:
+                    t.start()
+                for t in threads:
+                    t.join()
+                created = [p['topic_id'] for p in self.wp.created]
+                self.assertEqual(len(created), len(set(created)), created)  # never a topic twice
+                self.assertLessEqual(len(created), 2)
+                state = self.state()
+                validate(state)
+                self.assertEqual(set(state['receipts']), set(created))  # the ledger and WordPress agree
+                for tid in created:
+                    self.assertEqual(state['intents'][tid]['phase'], 'PUBLISHED')
+                self.assertEqual(len(self.wp.post_requests()), len(created))  # one POST per post: nobody sent a second
+
+
+class GuardTests(Line):
+    """Each safeguard of publish() and drain() alone: remove one and one of these goes red."""
+
+    def ready(self, count=1):
+        ids = [self.draft('vi', VI[i]) for i in range(count)]
+        self.hand_over()
+        self.qa()
+        return ids
+
+    def test_a_live_lease_of_another_publisher_stops_the_reservation(self):
+        tid = self.ready()[0]
+        self.shared.mutate(lambda s: s.update(publisher_lease={'fence': 'someone-else', 'expires_at': time.time() + 600}))
+        with self.assertRaisesRegex(ValueError, 'owns the lease'):
+            self.publisher().publish(tid)
+        self.assertEqual(self.wp.post_requests(), [])
+        self.assertEqual(self.state()['intents'], {})
+
+    def test_a_lease_taken_over_between_reservation_and_post_stops_the_post(self):
+        tid = self.ready()[0]
+        publisher = self.publisher()
+        calls = []
+        base = publisher.release_loader
+
+        def loader():
+            calls.append(1)
+            if len(calls) == 2:  # the look just before the POST
+                self.shared.mutate(lambda s: s['publisher_lease'].update(fence='thief'))
+            return base()
+        publisher.release_loader = loader
+        with self.assertRaisesRegex(ValueError, 'Stopped after durable intent'):
+            publisher.publish(tid)
+        self.assertEqual(self.wp.post_requests(), [])
+        self.assertEqual(self.state()['intents'][tid]['phase'], 'NOT_SENT')
+
+    def test_the_rate_limit_the_pilot_budget_and_the_changed_draft_each_stop_a_reservation(self):
+        first, second, third = self.ready(3)
+        publisher = self.publisher(minimum_post_interval_seconds=3600)
+        publisher.publish(first)
+        with self.assertRaisesRegex(ValueError, 'Publish rate limit'):
+            publisher.publish(second)
+        publisher = self.publisher()  # no interval: the budget is next
+        publisher.publish(second)
+        with self.assertRaisesRegex(ValueError, 'budget exhausted'):
+            publisher.publish(third)
+        self.assertEqual(len(self.wp.created), 2)
+
+    def test_a_draft_that_changes_while_the_payload_is_prepared_is_not_published(self):
+        tid = self.ready()[0]
+        real = pubmod.build_payload
+
+        def moves_the_ledger(*args):
+            self.shared.mutate(lambda s: s['topics'][tid].update(status='NEEDS_REPAIR'))
+            return real(*args)
+        with patch('thuha.publisher.build_payload', moves_the_ledger):
+            with self.assertRaisesRegex(ValueError, 'Draft changed'):
+                self.publisher().publish(tid)
+        self.assertEqual((self.wp.post_requests(), self.state()['intents']), ([], {}))
+
+    def test_an_unresolved_intent_counts_when_the_last_slot_is_taken_even_if_the_live_count_has_room(self):
+        self.fill(498)  # 498 + the fixture's own post = 499 live
+        tid = self.ready()[0]
+
+        def other_topic_unresolved(s):
+            s['topics']['TH-VI-0099'] = {'language': 'vi', 'status': 'BLOCKED'}
+            s['intents']['TH-VI-0099'] = {'phase': 'NEEDS_RECONCILIATION', 'language': 'vi', 'article_sha': 'a' * 64, 'reserved_at': now(), 'reserved_epoch': 0}
+        self.shared.mutate(other_topic_unresolved)
+        with self.assertRaises(LanguageComplete):
+            self.publisher().publish(tid)
+        self.assertEqual(self.wp.post_requests(), [])
+
+    def fill(self, vi):
+        CeilingTests.fill(self, vi)
+
+    def test_a_full_language_is_refused_before_any_QA_or_payload_work_is_done(self):
+        self.fill(499)  # 499 + the fixture's post = 500 live Vietnamese posts
+        tid = self.ready()[0]
+        publisher = self.publisher()
+        with patch.object(publisher, 'prepare', side_effect=AssertionError('QA ran for a language that is already complete')):
+            with self.assertRaises(LanguageComplete):
+                publisher.publish(tid)
+        self.assertEqual(self.state()['intents'], {})
+
+    def test_an_open_alert_stops_a_publication_before_any_request_and_also_at_the_reservation(self):
+        first, second = self.ready(2)
+        self.wp.readback_override = {'title': 'Edited by a plugin'}
+        publisher = self.publisher()
+        publisher.publish(first)
+        self.assertEqual(len(self.state()['alerts']), 1)
+        self.wp.readback_override = {}
+        requests = len(self.wp.requests)
+        with self.assertRaisesRegex(ValueError, 'integrity alert'):
+            publisher.publish(second)
+        self.assertEqual(len(self.wp.requests), requests)  # stopped before even asking WordPress anything
+        # ... and an alert that appears while the payload is being prepared stops the reservation itself.
+        publisher.acknowledge(first, 'Compared the title with the reviewed one in WordPress by hand')
+        real = pubmod.build_payload
+
+        def alert_appears(*args):
+            self.shared.mutate(lambda s: s.setdefault('alerts', []).append({'id': 'x', 'topic_id': first, 'code': 'INTEGRITY_MISMATCH',
+                                                                           'problems': ['title'], 'at': now(), 'acknowledged': False}))
+            return real(*args)
+        with patch('thuha.publisher.build_payload', alert_appears):
+            with self.assertRaisesRegex(ValueError, 'integrity alert'):
+                publisher.publish(second)
+        self.assertEqual(len(self.wp.created), 1)
+
+    def test_the_github_controls_check_and_the_pilot_size_are_enforced(self):
+        tid = self.ready()[0]
+
+        def refuses():
+            raise ValueError('Required branch checks/review and environment reviewers are not enforced')
+        publisher = self.publisher()
+        publisher.security = refuses
+        with self.assertRaisesRegex(ValueError, 'not enforced'):
+            publisher.publish(tid)
+        self.assertEqual(self.state()['intents'], {})
+        with self.assertRaisesRegex(ValueError, 'two intents'):
+            self.publisher(pilot_max_posts=3).publish(tid)
+
+    def test_what_wordpress_stored_is_compared_field_by_field(self):
+        cases = {
+            'visible body text': lambda r: r.update(content_raw=r['content_raw'].replace('<h2>', '<h2>Edited ', 1)),
+            'category or its language': lambda r: r.update(categories=[20], category_languages=['en']),
+            'Yoast SEO fields': lambda r: r['meta'].update(_yoast_wpseo_metadesc='A description nobody reviewed, written by a plugin.'),
+            'featured image': lambda r: r.update(featured_media=50),
+            'native language marker': lambda r: r.update(language_markers={'is_vi': False, 'taxonomy_vi': True}),
+        }
+        for problem, change in cases.items():
+            with self.subTest(problem):
+                self.setUp()
+                tid = self.ready()[0]
+                original = self.wp.plain_readback
+
+                def altered(post, original=original, change=change):
+                    result = original(post)
+                    change(result)
+                    return result
+                self.wp.plain_readback = altered
+                receipt = self.publisher().publish(tid)
+                self.assertEqual(self.state()['intents'][tid]['phase'], 'PUBLISHED')
+                self.assertIn(problem, self.shared.get_document(receipt['document'])['integrity']['problems'])
+                self.assertEqual(len(self.state()['alerts']), 1)
+
+    def test_recording_the_same_publication_twice_changes_nothing(self):
+        tid = self.ready()[0]
+        publisher = self.publisher()
+        publisher.publish(tid)
+        before = copy.deepcopy(self.state())
+        intent = before['intents'][tid]
+        again = publisher.finish(tid, self.wp.readback(self.wp.created[0]), 'adapter-reconcile')
+        after = self.state()
+        self.assertEqual(again['status'], 'PUBLISHED')
+        self.assertEqual(after['receipts'], before['receipts'])
+        self.assertEqual([e['action'] for e in after['events']].count('PUBLICATION_PUBLISHED'), 1)
+        post = dict(self.wp.readback(self.wp.created[0]))
+        self.assertEqual(publisher.judge(post, dict(intent, wp_id=post['id'] + 1))[0], 'INCONSISTENT')  # the ID recorded earlier is pinned
+        self.assertEqual(publisher.judge(post, intent)[0], 'PUBLISHED')
+
+    def test_a_published_topic_is_never_sent_back_to_repair(self):
+        tid = self.ready()[0]
+        publisher = self.publisher()
+        publisher.publish(tid)
+        self.assertFalse(pipeline.demote(publisher, tid, 'too late', ['DUPLICATE_OR_CANNIBALIZATION']))
+        self.assertEqual(self.state()['topics'][tid]['status'], 'PUBLISHED')
+
+    def test_the_drain_refuses_to_wait_longer_than_five_minutes_for_the_interval(self):
+        first, second = self.ready(2)
+        slow = dict(minimum_post_interval_seconds=3600, maximum_daily_posts=2)
+        self.assertEqual([p['topic_id'] for p in self.drain(**slow)['published']], [first])
+        result = self.drain(**slow)
+        self.assertIn('Unsafe publication interval', result['halted'])
+        self.assertEqual(len(self.wp.created), 1)
+
+    def test_sync_replans_when_the_session_ledger_moves_while_it_is_being_brought_up_to_date(self):
+        self.hand_over()  # an empty hand-over first so the shared ledger exists
+        topic_id = self.draft('vi', VI[0])
+        self.hand_over()
+        self.qa()
+        stale = LocalStore(Path(self.temp.name) / 'stale')
+        save(stale.path, self.shared.raw()[0])
+        self.shared.mutate(lambda s: event(s, 'CONTROL_CHANGE', controls=s['controls']))  # the shared ledger moves on
+        original = stale.adopt
+
+        def adopt_after_a_local_write(builder):
+            stale.mutate(lambda s: event(s, 'CLAIM', topic_id=topic_id))  # someone writes the session ledger first
+            return original(builder)
+        stale.adopt = adopt_after_a_local_write
+        result = ledger.sync(stale, self.shared, apply=True)
+        self.assertFalse(result['applied'])
+        self.assertIn('CLAIM', [e['action'] for e in stale.raw()[0]['events']])  # their write was not overwritten
 
 
 class WiringTests(unittest.TestCase):

@@ -25,6 +25,11 @@ def age(stamp):
     return (dt.datetime.now(dt.timezone.utc) - parsed).total_seconds()
 
 
+def fresh(stamp, max_age):
+    """Younger than `max_age` seconds and not dated in the future."""
+    return 0 <= age(stamp) < max_age
+
+
 def canonical_json(value):
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()
 
