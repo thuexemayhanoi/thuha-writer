@@ -1,0 +1,59 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Phần gây căng thẳng nhất khi trả xe thường là câu chuyện \"hỏng gì, đền bao nhiêu\". Nếu mức đền bù chỉ được nói miệng, hoặc chỉ được nêu ra sau khi sự cố đã xảy ra, bạn rất khó so sánh hay phản biện. Việc đơn giản nhất là xin xem, hoặc xin gửi, bảng mức đền bù trước khi nhận xe. Bài này giải thích một bảng đáng đọc nên có những dòng nào, cách hỏi về cách tính, và cách ghi lại hiện trạng xe để cả hai bên cùng nhìn vào một sự thật. Bài không nêu mức đền bù của cửa hàng nào: con số phải do cửa hàng bạn chọn cung cấp.</p>\n\n<h2>Một bảng mức đền bù đáng đọc có những dòng nào</h2>\n<p>Nếu cửa hàng chỉ nói \"hỏng thì đền theo giá sửa\", đó là một nguyên tắc, chưa phải một bảng. Một bảng dễ dùng thường tách riêng từng loại hư hỏng để mỗi dòng có cách tính riêng. Bạn có thể dùng danh sách dưới đây như một mẫu để đối chiếu và hỏi xem dòng nào còn thiếu.</p>\n<table>\n<thead><tr><th>Hạng mục</th><th>Điều cần hỏi</th></tr></thead>\n<tbody>\n<tr><td>Xước nhẹ ở vỏ nhựa, yên hoặc dàn áo</td><td>Vết xước nhỏ cỡ nào thì được xem là hao mòn, cỡ nào thì phải đền? Tính theo vết hay theo chi tiết?</td></tr>\n<tr><td>Gãy hoặc vỡ gương</td><td>Mức đền một gương và hai gương? Tính theo giá niêm yết hay theo hóa đơn thay thế?</td></tr>\n<tr><td>Vỡ đèn, xi nhan</td><td>Có mức riêng cho từng loại đèn không?</td></tr>\n<tr><td>Mất hoặc gãy chìa khóa</td><td>Làm lại chìa mất bao lâu, có thay cả ổ khóa không, mức tính gồm những gì?</td></tr>\n<tr><td>Mất đồ đi kèm</td><td>Mũ, áo mưa, giá đỡ điện thoại: mỗi món đền thế nào?</td></tr>\n<tr><td>Hư hỏng do ngã xe hoặc va chạm</td><td>Ai đánh giá thiệt hại, theo tiêu chí nào, có ảnh và hóa đơn sửa chữa kèm không?</td></tr>\n</tbody>\n</table>\n<p>Thiếu dòng nào là hỏi dòng đó. Một bảng ngắn nhưng rõ vẫn tốt hơn một lời hứa dài nhưng mơ hồ.</p>\n\n<h2>Hai cách tính cần phân biệt</h2>\n<p>Về nguyên tắc có hai hướng: mức cố định ghi sẵn cho từng loại hư hỏng, hoặc mức theo hóa đơn sửa chữa thực tế. Cửa hàng cũng có thể kết hợp cả hai. Mỗi hướng đều dẫn đến một nhóm câu hỏi khác nhau.</p>\n<ul>\n<li><strong>Nếu là mức cố định:</strong> con số đã gồm công thay không, có áp dụng cho cả những vết rất nhỏ không?</li>\n<li><strong>Nếu là hóa đơn thực tế:</strong> ai chọn nơi sửa, tôi có được xem báo giá và hóa đơn không, phụ tùng chính hãng hay phụ tùng thay thế?</li>\n<li><strong>Trong cả hai trường hợp:</strong> xe nằm sửa trong vài ngày có bị tính tiền thuê thêm không?</li>\n<li><strong>Về tiền cọc:</strong> khoản đền bù được trừ vào cọc hay thu riêng? Phần cọc còn lại được xử lý thế nào?</li>\n</ul>\n\n<h2>Ghi lại hiện trạng xe lúc nhận</h2>\n<p>Dù bảng đền bù có rõ đến đâu, hiện trạng ban đầu của xe vẫn là cơ sở để phân biệt \"đã có từ trước\" với \"xảy ra trong lúc thuê\". Hãy dành mười phút ở cửa hàng cho việc này.</p>\n<ol>\n<li>Cùng nhân viên đi vòng quanh xe, chỉ và ghi từng vết xước hoặc vết lõm đã có lên phiếu thuê.</li>\n<li>Quay một đoạn video ngắn, rõ ngày giờ, đi từ đầu xe, hai bên, sau xe, yên, gương, đèn, chìa khóa.</li>\n<li>Chụp ảnh đồng hồ công-tơ-mét và kim xăng để có mức km và mức xăng lúc nhận.</li>\n<li>Nhờ nhân viên ký hoặc xác nhận phiếu, rồi chụp lại phiếu bằng điện thoại của bạn.</li>\n<li>Lưu những ảnh và video này ở nơi dễ tìm cho đến khi nhận lại tiền cọc và trả xe xong.</li>\n</ol>\n\n<h2>Khi sự cố xảy ra giữa chuyến</h2>\n<p>Nếu có người bị thương, việc đầu tiên là cấp cứu; chuyện xe tính sau. Khi mọi người đã an toàn, hãy chụp ảnh hiện trường và phần xe bị hỏng, ghi lại giờ và nơi xảy ra, rồi gọi cho cửa hàng trước khi tự đưa xe đi sửa ở nơi khác. Giữ lại mọi hóa đơn nếu có sửa chữa. Hỏi cửa hàng điều gì cần làm tiếp theo và xin họ xác nhận lại bằng tin nhắn. Làm theo thứ tự này giúp bạn không phải tự quyết định các chi phí mà hai bên chưa thống nhất.</p>\n\n<h2>Hai tình huống minh họa</h2>\n<p><strong>Vết xước đã có từ trước.</strong> Khi trả xe, nhân viên chỉ vào một vết xước ở dàn áo bên trái và nói đó là hư hỏng mới. Nếu phiếu thuê lúc nhận không ghi vết này và bạn cũng không có ảnh, hai bên chỉ còn trí nhớ để đối chiếu. Nếu bạn đã chụp phía bên trái xe lúc nhận, việc kiểm tra chỉ mất một phút. Đó là lý do hiện trạng ban đầu quan trọng hơn bất kỳ lời nói nào về sau.</p>\n<p><strong>Gãy gương, hai cách tính.</strong> Giả sử gương trái bị gãy. Nếu bảng ghi mức cố định là X đồng cho mỗi gương, bạn biết ngay số tiền cần chuẩn bị. Nếu bảng ghi \"theo hóa đơn thay thế\", số tiền là Y và chỉ biết khi có hóa đơn. Khi đó câu hỏi hợp lý là: tôi có được xem báo giá trước khi sửa không, và có thể đề nghị so sánh với một nơi sửa khác không? X và Y ở đây chỉ là chữ cái minh họa; số thật phải do cửa hàng cung cấp.</p>\n\n<h2>Mẫu tin nhắn xin bảng mức đền bù</h2>\n<p>\"Trước khi nhận xe, xin anh chị gửi cho tôi bảng mức đền bù khi hư hỏng hoặc mất đồ (xước, gãy gương, vỡ đèn, mất chìa, mất phụ kiện) và cách tính khi xe cần sửa chữa. Nếu chưa có bảng, anh chị cho tôi biết các khoản này được tính thế nào. Xin gửi bằng tin nhắn để tôi lưu lại.\"</p>\n\n<h2>Hỏi bảng đền bù ở đâu</h2>\n<p>Với Thuê xe máy Nguyễn Hà, bạn có thể gọi <a href=\"tel:+84334699969\">0334 699 969</a> trong giờ mở cửa từ 09:00 đến 21:00 mỗi ngày, hoặc đến cửa hàng ở Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm) để xin xem bảng mức đền bù trước khi nhận xe. Các chủ đề liên quan đến chi phí được gom trong chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/gia-thue-va-chi-phi/\">Giá thuê và chi phí</a>; bạn cũng có thể đọc thêm trong <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/huong-dan-thue-xe/\">Hướng dẫn thuê xe</a>.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/xuoc-nhe-gay-guong-mat-chia-xin-bang-muc-den-bu-truoc-khi-nhan/",
+    "category_id": 152,
+    "featured_media": null,
+    "focus_keyword": "mức đền bù khi làm hỏng xe thuê",
+    "language": "vi",
+    "meta_description": "Xước nhẹ, gãy gương hay mất chìa thì đền bao nhiêu? Bảng hạng mục nên có, hai cách tính cần hỏi và cách ghi lại hiện trạng xe lúc nhận để tránh tranh cãi.",
+    "seo_title": "Mức đền bù khi làm hỏng xe thuê: xin xem bảng trước khi nhận xe",
+    "session": "w1-20261023-v0011",
+    "source_commit": "02688b804daa6cc4e3eb6eb05c10b855c162d4b8",
+    "sources": [
+      {
+        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Xước nhẹ, gãy gương, mất chìa: xin xem bảng mức đền bù trước khi nhận xe",
+    "topic_id": "TH-VI-0011"
+  },
+  "article_sha": "4dce567cbaa1df43818ef121a172c7d3303b93e916fb7d64fb7d6096297df1bc",
+  "category_id": 152,
+  "language": "vi",
+  "proposed_url": "https://rentbikehanoi.com/vi/xuoc-nhe-gay-guong-mat-chia-xin-bang-muc-den-bu-truoc-khi-nhan/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "review_recorded": false,
+  "source_documents": [
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+  ],
+  "source_evidence": {
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T07:27:36.600141+00:00",
+  "topic_id": "TH-VI-0011",
+  "waiting_for": [
+    "AUTHORITATIVE_INVENTORY",
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

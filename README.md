@@ -30,7 +30,8 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Companion plugin `wordpress/thuha-native-vi-publisher` 1.0.0 + `dist/*.zip` | **Implemented, packaged, run against an offline WordPress simulation** |
 | Plugin installed on rentbikehanoi.com, `RBHVI_Language` called for real, Yoast verified | **NOT installed, NOT tested live** (`BLOCKED_ADAPTER_NOT_DEPLOYED`) |
 | Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
-| Vietnamese topics with sources, drafts, reviews | **None yet**: Vietnamese rows wait for real research sessions |
+| Vietnamese topics, drafts, reviews | **10 topics admitted and 10 drafts stored as `WAITING_DATA`** (`drafts/vi/`): complete text, first-party facts only, **not READY, no QA, no review, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to, and an authoritative inventory. 490 Vietnamese rows remain plans |
+| Drafts that wait for data (`WAITING_DATA`, `recheck-data`, `drafts/`) | **Implemented, tested offline**; the credentialed publisher's audit clears a wait only when the inventory really holds the data |
 | Independent review of the English drafts | 2 of 9 reviewed (TH-000005, TH-000006; both pass QA again under the new policy); the other 7 wait for a reviewer (TH-000002 is under a writer lease that expires and returns it to the queue) |
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 

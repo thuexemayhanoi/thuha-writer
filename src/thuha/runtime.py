@@ -7,11 +7,13 @@ writer does not burn bounded repairs on mechanical faults. Nothing here writes
 to WordPress or lowers a gate.
 """
 from collections import Counter
-from .common import digest, now, norm, urlkey, validate_inventory
+from urllib.parse import urljoin, urlsplit
+from .common import SITE, digest, load, now, norm, urlkey, validate_inventory
 from .coordinator import WAIT_CODES, timestamp
 from .language import LANGUAGES, locale, screen_alt, targets as language_targets
 from . import quota
 from .quality import evaluate, REVIEW_CHECKS
+from .matrix import matrix_path
 from .research import capture_external_source, collisions, intake, item_language
 
 # Hard-fail codes that mean "the data does not exist yet" rather than "the article is wrong". A draft may be stored with
@@ -80,6 +82,33 @@ def kit(state,inv,topic_id,policy,business):
             'rules':RULES[lang]}
 
 
+def planned_urls(state,language):
+    """Every same-site URL a draft may legitimately point to before it is live: the ledger's topics and the language's matrix plan."""
+    urls={urlkey(t['proposed_url']) for t in state['topics'].values() if t.get('proposed_url')}
+    try:urls|={urlkey(r['proposed_url']) for r in load(matrix_path(language))['rows'] if r.get('proposed_url')}
+    except (OSError,ValueError,KeyError):pass
+    return urls
+
+
+def unknown_internal_links(article,topic,inv,state):
+    """Same-site links that are neither live (inventory item or category archive) nor planned: a typo, not a data wait."""
+    known={urlkey(x['url']) for x in inv['items']}|{urlkey(c['link']) for c in inv['categories'] if c.get('link')}|planned_urls(state,topic['language'])
+    out=[]
+    for link in _links(article.get('body_html','')):
+        if link.startswith('#'):continue
+        url=urljoin(topic['proposed_url'],link);parts=urlsplit(url)
+        if parts.scheme!='https' or parts.netloc!=urlsplit(SITE).netloc:continue
+        try:
+            if urlkey(url) not in known:out.append(url)
+        except ValueError:out.append(url)
+    return out
+
+
+def _links(html):
+    from .audit import parse
+    return parse(html).links
+
+
 def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     """Run the production QA function without touching state, leases or repair counts."""
     topic=state['topics'][topic_id]
@@ -88,9 +117,11 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     result=evaluate(article,topic,submission,inv,policy,store,review,business)
     words=len(norm(' '.join(_text(article.get('body_html','')))).split())
     excluding=[x for x in result['hard_fails'] if x!='INDEPENDENT_SEMANTIC_REVIEW_REQUIRED']
+    unknown=unknown_internal_links(article,topic,inv,state)
+    if unknown:excluding.append('INTERNAL_LINK_TARGET_UNKNOWN')
     waits=sorted(code for code,fails in DATA_WAIT_FAILS.items() if any(x in fails for x in excluding))
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
-                  hard_fails_excluding_review=excluding,data_waits=waits,
+                  hard_fails_excluding_review=excluding,data_waits=waits,unknown_internal_links=unknown,
                   content_fails=[x for x in excluding if not any(x in DATA_WAIT_FAILS[c] for c in waits)])
     result['would_pass_after_review']=not result['hard_fails_excluding_review'] and result['score']+(0 if review else 10)>=policy['score_threshold']
     return result

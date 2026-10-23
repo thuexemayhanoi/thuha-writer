@@ -120,6 +120,8 @@ live minus unresolved intents. FACTORY PUBLISHED and PUBLISHED count only receip
 - The media library is now listed in full by `audit`, but only 15 of the site's featured images carry alt text, all of it
   English, and no image has Vietnamese alt text. A Vietnamese article may only use an image whose alt text is Vietnamese, so
   none can pass QA until the owner adds such images. The kit reports `NEEDS_MEDIA` and the dashboard shows it. Media upload is
-  deliberately not implemented.
-- An inventory older than six hours blocks claim, QA and admission. Re-dispatch the audit workflow; do not relax the age limit.
+  deliberately not implemented. A writer does not stop for this: the draft is written and stored with
+  `submit --waiting-for FEATURED_MEDIA ...` (see OPERATIONS.md, "Drafts that wait for data").
+- An inventory older than six hours blocks QA and publishing. Claim, kit and admission accept the committed authenticated snapshot as a
+  planning inventory for seven days; QA never does. Re-dispatch the audit workflow; do not relax the six-hour limit.
 - The conflict with the open PR #2 brief (500 EN + 500 VI) is resolved: that is the goal.

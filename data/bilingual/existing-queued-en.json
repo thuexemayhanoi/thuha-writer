@@ -1,7 +1,7 @@
 {
-  "ledger_events_sha256": "80e27e9ad83ef0e107ed697324409fac75fcd34a13ea250f8d88e400cc3e9f5d",
+  "ledger_events_sha256": "fd2c09d22df760c675bb1ea2702182f1261cd555d46ab9b3be33a3a8c0a36e77",
   "note": "English topics already admitted to the ledger with captured sources. They are not published posts and do not count toward 500 until WordPress confirms them; the English matrix counts them as planned and never re-plans them.",
-  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 137",
+  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 168",
   "status": "QUEUED_NOT_PUBLISHED",
   "topics": [
     {
@@ -17,7 +17,7 @@
     {
       "category_id": 117,
       "language": "en",
-      "ledger_status": "CLAIMED",
+      "ledger_status": "DRAFT_READY",
       "primary_keyword": "Hanoi ceramic mosaic mural walk",
       "slug": "hanoi-ceramic-mosaic-mural-art-walk",
       "title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
@@ -97,7 +97,7 @@
     {
       "category_id": 145,
       "language": "en",
-      "ledger_status": "CLAIMED",
+      "ledger_status": "PLANNED",
       "primary_keyword": "hanoi traffic etiquette motorbike horn",
       "slug": "hanoi-motorbike-traffic-communication-horns-lanes",
       "title": "Horns, Lanes and Flashing Lights: How Hanoi Riders Communicate and What a Visitor Should Copy",
@@ -107,7 +107,7 @@
     {
       "category_id": 145,
       "language": "en",
-      "ledger_status": "CLAIMED",
+      "ledger_status": "PLANNED",
       "primary_keyword": "first time riding scooter hanoi practice",
       "slug": "first-hour-rental-scooter-hanoi-practice-plan",
       "title": "Your First Hour on a Rental Scooter in Hanoi: A Low-Traffic Practice Plan on the Long Bien Side",
@@ -117,7 +117,7 @@
     {
       "category_id": 133,
       "language": "en",
-      "ledger_status": "CLAIMED",
+      "ledger_status": "PLANNED",
       "primary_keyword": "hanoi winter riding fog drizzle",
       "slug": "riding-hanoi-winter-drizzle-fog-visibility-grip",
       "title": "Riding in Hanoi's Winter Drizzle and Fog: Visibility, Grip and Clothing for January to March",
@@ -127,7 +127,7 @@
     {
       "category_id": 133,
       "language": "en",
-      "ledger_status": "CLAIMED",
+      "ledger_status": "PLANNED",
       "primary_keyword": "hanoi summer heat motorbike riding",
       "slug": "riding-scooter-hanoi-heatwaves-june-july-planning",
       "title": "Riding a Scooter Through Hanoi Heatwaves: Timing, Hydration and Heat-Index Planning for June and July",

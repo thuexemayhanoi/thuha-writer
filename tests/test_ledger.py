@@ -473,11 +473,25 @@ class RealLedgerTests(unittest.TestCase):
         self.assertEqual(state['reviews'], handoff['reviews'])
         self.assertEqual(state['qa'], handoff['qa'])
         self.assertEqual(state['events'][:len(handoff['events'])], handoff['events'])
-        self.assertTrue(all(t['language'] == 'en' for t in state['topics'].values()))
+        # The 57 English topics of the V5 session are still there; Vietnamese topics may have been added since.
+        self.assertEqual(len([t for t in state['topics'].values() if t['language'] == 'en']), 57)
+        self.assertTrue(all(t['language'] in ('en', 'vi') for t in state['topics'].values()))
         self.assertEqual(state['receipts'], {})
         self.assertEqual(state['intents'], {})
+        # The nine V5 drafts are the very same immutable documents: never rewritten, never counted twice.
+        self.assertEqual({k: v['article_sha'] for k, v in state['submissions'].items() if k.startswith('TH-0')}, self.V5_DRAFTS)
+        self.assertEqual(len([k for k in state['submissions'] if k.startswith('TH-0')]), 9)
 
     # Immutable documents of the V5 session, addressed by their own digest: they cannot change, so these stay true.
+    V5_DRAFTS = {'TH-000001': '9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108',
+                 'TH-000002': '0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526',
+                 'TH-000003': '08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c',
+                 'TH-000004': '922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb',
+                 'TH-000005': '4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316',
+                 'TH-000006': '6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704',
+                 'TH-000007': '1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f',
+                 'TH-000008': '922c56c8c1b7b01c43393a923418f5e2e61bce7b43cc74f9be5d48489001a196',
+                 'TH-000009': '095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4'}
     TH3_ARTICLE = '08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c'
     TH5_REVIEW = '7d4bad6b4deab4218185ac9e11d702571aa402607d5fb91cc572403d9d170386'
 

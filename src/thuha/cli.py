@@ -62,7 +62,8 @@ def main(argv=None):
         if command=='submit':
             q.add_argument('--file',required=True)
             q.add_argument('--waiting-for',nargs='+',choices=coordinator.WAIT_CODES,help='Store the draft as WAITING_DATA: what it still lacks (never READY, never QA)')
-    q=sub.add_parser('source');q.add_argument('--url',required=True);q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
+    q=sub.add_parser('source');q.add_argument('--url');q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
+    q.add_argument('--repository-file',choices=research.FIRST_PARTY_FILES,help='Capture the owner facts file as labelled first-party evidence (not a web page)')
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
@@ -137,7 +138,9 @@ def main(argv=None):
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
     elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'],args.waiting_for)
     elif args.command=='source':
-        result=(research.capture_external_source(store,args.url,load(args.external_fetch)) if args.external_fetch
+        if bool(args.repository_file)==bool(args.url):raise ValueError('Name exactly one source: --url (web page) or --repository-file (first-party facts)')
+        result=(research.capture_repository_file(store,args.repository_file) if args.repository_file
+                else research.capture_external_source(store,args.url,load(args.external_fetch)) if args.external_fetch
                 else research.capture_source(store,args.url))
     elif args.command=='kit':
         inv=inventory_for(store,args.inventory);validate_inventory(inv,inventory_max_age(inv,policy,factory))

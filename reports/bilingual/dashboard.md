@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-23T06:26:53.789176+00:00
+Generated: 2026-10-23T07:39:01.000019+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -18,14 +18,14 @@ Generated: 2026-10-23T06:26:53.789176+00:00
 
 ## Shared queue (not published posts)
 
-| Language | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
-|---|---|---|---|---|---|---|---|
-| vi | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| en | 6 | 0 | 2 | 0 | 0 | 0 | 0 |
+| Language | Waiting for data | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
+|---|---|---|---|---|---|---|---|---|
+| vi | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| en | 0 | 7 | 0 | 2 | 0 | 0 | 0 | 0 |
 
 Public-page checks after publication: none yet. Public-page checks run after publication, back off and retry; they never stop the queue.
 
-Session ledger hand-over: FAST_FORWARD (session v137, shared v5)
+Session ledger hand-over: FAST_FORWARD (session v168, shared v5)
 
 Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 
@@ -49,8 +49,10 @@ Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight suc
 - No language enabled in the release (production stays OFF)
 - BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded
 - Other publisher coordination not verified
+- No external AI session lease; Actions do not generate prose
 - The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over
-- 6 draft(s) wait for an independent review before QA: TH-000001, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009
+- 10 draft(s) wait for data (AUTHORITATIVE_INVENTORY x10, FEATURED_MEDIA x10, INTERNAL_LINKS x10): TH-VI-0004, TH-VI-0006, TH-VI-0011, TH-VI-0014, TH-VI-0016, TH-VI-0019, TH-VI-0024, TH-VI-0033, TH-VI-0035, TH-VI-0058
+- 7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009
 
 Existing articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.
 

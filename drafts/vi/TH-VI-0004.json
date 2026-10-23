@@ -1,0 +1,72 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Bạn nhận xe lúc 16 giờ chiều thứ Sáu và định trả vào 10 giờ sáng thứ Hai. Vậy chuyến đi này là ba ngày hay bốn ngày thuê? Câu trả lời nằm ở cách cửa hàng đếm \"một ngày\", và hai cách đếm khác nhau có thể cho ra hai con số khác nhau cho cùng một chuyến đi. Bài này giúp bạn nhận ra cách đếm trong báo giá, tự tính thử bằng ví dụ giờ giấc cụ thể, và biết cần chốt điều gì bằng tin nhắn trước khi nhận xe.</p>\n\n<h2>Hai cách đếm một ngày thuê</h2>\n<p><strong>Đếm theo đủ 24 giờ.</strong> Thời gian thuê bắt đầu từ lúc bạn nhận xe. Nhận xe lúc 16 giờ thì ngày thứ nhất kết thúc lúc 16 giờ hôm sau; ngày thứ hai kết thúc lúc 16 giờ hôm sau nữa, và cứ thế. Trả xe lúc nào trong khoảng đó vẫn thuộc ngày đang chạy.</p>\n<p><strong>Đếm theo ngày lịch.</strong> Mỗi ngày dương lịch mà xe còn nằm ở chỗ bạn được tính là một ngày, dù bạn nhận lúc 9 giờ sáng hay 8 giờ tối. Nhận xe chiều thứ Sáu và trả sáng thứ Hai thì xe đã \"đi qua\" bốn ngày lịch: thứ Sáu, thứ Bảy, Chủ nhật và thứ Hai.</p>\n<p>Ngoài hai cách trên, bạn cũng có thể gặp những cách pha trộn: tính theo ngày lịch nhưng cho một khoảng thời gian trả muộn không tính thêm, hoặc có một mốc giờ cắt trong ngày (ví dụ trả trước mốc đó thì chưa bị tính thêm ngày). Vì vậy chữ \"ngày\" trong báo giá chỉ có nghĩa đầy đủ khi đi kèm giờ nhận, giờ trả.</p>\n\n<h2>Cùng một chuyến đi, đếm theo hai cách</h2>\n<p>Bảng dưới đây là ví dụ minh họa để bạn tự tính; đây không phải cách tính của một cửa hàng cụ thể nào.</p>\n<table>\n<thead><tr><th>Giờ nhận</th><th>Giờ trả</th><th>Đếm đủ 24 giờ</th><th>Đếm theo ngày lịch</th></tr></thead>\n<tbody>\n<tr><td>16:00 thứ Sáu</td><td>10:00 thứ Hai</td><td>3 ngày (thứ Hai vẫn nằm trong ngày thứ ba)</td><td>4 ngày (Sáu, Bảy, Chủ nhật, Hai)</td></tr>\n<tr><td>09:30 thứ Bảy</td><td>21:00 Chủ nhật</td><td>2 ngày (đã quá 24 giờ được 11 tiếng rưỡi)</td><td>2 ngày (Bảy, Chủ nhật)</td></tr>\n<tr><td>09:00 thứ Ba</td><td>09:00 thứ Tư</td><td>1 ngày (đúng 24 giờ)</td><td>2 ngày (Ba, Tư)</td></tr>\n<tr><td>18:00 thứ Năm</td><td>11:00 thứ Sáu</td><td>1 ngày (mới 17 tiếng)</td><td>2 ngày (Năm, Sáu)</td></tr>\n</tbody>\n</table>\n<p>Hai dòng cuối cho thấy điều dễ gây bất ngờ nhất: nhận xe vào buổi chiều và trả vào buổi sáng hôm sau là một ngày nếu đếm đủ 24 giờ, nhưng là hai ngày nếu đếm theo ngày lịch. Dòng đầu cho thấy khoảng cách có thể là cả một ngày thuê trong chuyến đi dài cuối tuần.</p>\n\n<h2>Chênh một ngày thì chênh bao nhiêu tiền</h2>\n<p>Theo khoảng giá tham khảo do Thuê xe máy Nguyễn Hà cung cấp, xe số và xe ga có giá thuê một ngày từ 150.000 đồng. Đó là giá tham khảo; bạn cần xác nhận lại giá, loại xe và thời gian thuê khi đặt. Dùng mức này để hình dung: nếu cách đếm khiến chuyến đi của bạn thành bốn ngày thay vì ba, khoản chênh tương ứng một ngày thuê, tức là từ 150.000 đồng cho mỗi lần chênh. Một câu hỏi ngắn trước khi nhận xe rẻ hơn nhiều so với một khoản phát sinh khi trả xe.</p>\n\n<h2>Những chỗ dễ hiểu nhầm</h2>\n<ul>\n<li><strong>\"Giá một ngày\" không đồng nghĩa với \"24 giờ\".</strong> Bảng giá thường chỉ ghi giá theo ngày; cách đếm nằm ở điều khoản hoặc lời giải thích của cửa hàng.</li>\n<li><strong>\"Trả trong ngày\" có thể là trước một giờ cụ thể.</strong> Hãy hỏi mốc giờ đó là mấy giờ và bạn đang so với giờ nhận hay với nửa đêm.</li>\n<li><strong>Thời gian ân hạn.</strong> Trả muộn nửa tiếng hay hai tiếng có bị tính thêm không, và nếu có thì tính thêm theo giờ hay theo cả ngày?</li>\n<li><strong>Giờ làm việc của cửa hàng.</strong> Thuê xe máy Nguyễn Hà mở cửa từ 09:00 đến 21:00 hằng ngày, nên giờ nhận và giờ trả hợp lý nằm trong khung này. Nhận hoặc trả ngoài khung đó cần hỏi riêng.</li>\n<li><strong>Giờ ghi trên giấy tờ.</strong> Nếu lời nói và giấy ghi khác nhau, thứ bạn giữ được làm bằng chứng là giấy hoặc tin nhắn.</li>\n</ul>\n\n<h2>Sáu câu hỏi nên chốt trước khi nhận xe</h2>\n<ol>\n<li>Một ngày thuê được tính từ giờ nhận xe, hay tính theo ngày lịch?</li>\n<li>Nếu tính từ giờ nhận xe: ngày thứ nhất kết thúc lúc mấy giờ ngày hôm sau?</li>\n<li>Có khoảng thời gian trả muộn không bị tính thêm không? Nếu quá khoảng đó thì tính thêm theo cách nào?</li>\n<li>Giờ nhận và giờ trả dự kiến của tôi là ... và ... thì tổng cộng được tính là bao nhiêu ngày?</li>\n<li>Tổng số tiền tương ứng là bao nhiêu, đã gồm những khoản nào?</li>\n<li>Nếu tôi trả sớm hơn hoặc muộn hơn dự kiến thì số ngày được tính lại ra sao?</li>\n</ol>\n\n<h2>Ghi lại để khỏi phải tranh cãi</h2>\n<p>Sau khi cửa hàng trả lời, hãy gửi lại một tin nhắn tóm tắt để cửa hàng xác nhận. Một mẫu ngắn bạn có thể dùng: \"Tôi nhận xe lúc ... ngày ..., dự kiến trả lúc ... ngày ..., tổng cộng ... ngày, giá ... đồng. Anh chị xác nhận giúp tôi cách tính này.\" Hãy chụp lại phần giờ nhận trên biên nhận hoặc phiếu thuê, và khi trả xe cũng chụp lại thời điểm bàn giao nếu cửa hàng đồng ý. Những thứ nhỏ này giúp hai bên cùng nhìn vào một con số.</p>\n\n<h2>Hỏi trực tiếp cửa hàng</h2>\n<p>Thuê xe máy Nguyễn Hà ở Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm), mở cửa từ 09:00 đến 21:00 mỗi ngày. Bạn có thể gọi <a href=\"tel:+84334699969\">0334 699 969</a> để hỏi cách cửa hàng đếm ngày thuê và xin xác nhận lại bằng tin nhắn. Muốn đọc thêm về cách hiểu báo giá, hãy xem chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/gia-thue-va-chi-phi/\">Giá thuê và chi phí</a> hoặc các bài trong <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/huong-dan-thue-xe/\">Hướng dẫn thuê xe</a>.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "automatic"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/ngay-thue-xe-may-tinh-theo-24-gio-hay-ngay-lich/",
+    "category_id": 152,
+    "featured_media": null,
+    "focus_keyword": "ngày thuê xe tính theo 24 giờ hay ngày lịch",
+    "language": "vi",
+    "meta_description": "Một ngày thuê xe được đếm theo đủ 24 giờ hay theo ngày lịch? Xem ví dụ giờ nhận, giờ trả và sáu câu hỏi cần chốt với cửa hàng trước khi nhận xe.",
+    "seo_title": "Thuê xe máy tính 24 giờ hay ngày lịch? Cách đọc giờ nhận trả",
+    "session": "w1-20261023-v0004",
+    "source_commit": "2b1256f40e4f8743d61edfe60d23fd9b960696b5",
+    "sources": [
+      {
+        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả",
+    "topic_id": "TH-VI-0004"
+  },
+  "article_sha": "62b599fa4a0a60edd2014e3826a017751b19c95d42e11a06b0edcd3f3dc69e34",
+  "category_id": 152,
+  "language": "vi",
+  "proposed_url": "https://rentbikehanoi.com/vi/ngay-thue-xe-may-tinh-theo-24-gio-hay-ngay-lich/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "review_recorded": false,
+  "source_documents": [
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+  ],
+  "source_evidence": {
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T07:27:16.092352+00:00",
+  "topic_id": "TH-VI-0004",
+  "waiting_for": [
+    "AUTHORITATIVE_INVENTORY",
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

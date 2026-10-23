@@ -39,14 +39,17 @@ cannot reach any website except api.github.com: research with the Parallel
    meta_description (110–180 chars), focus_keyword (the topic's primary
    keyword), canonical (the topic's proposed_url), category_id (the topic's),
    featured_media (an id from the kit's featured_media_options whose alt text
-   fits; if the kit lists `NEEDS_MEDIA` under `blockers`, stop: no article in that language can pass QA until an image with
-   alt text in that language exists), sources (list of {url, document, supports}; include the topic's own
+   fits; if the kit lists `NEEDS_MEDIA` under `blockers`, write the article anyway, leave `featured_media` null and store it as
+   a draft that waits for data, step 7: it cannot pass QA until an image with alt text in that language exists, and nothing may be invented), sources (list of {url, document, supports}; include the topic's own
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
 6. `python3 -m thuha.cli --git-branch precheck --topic-id <TOPIC> --file article.json`.
    Fix every entry in `hard_fails_excluding_review` and re-run until it is empty
    and `would_pass_after_review` is true. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
+   If `precheck` exits 3 (only data is missing: `data_waits` lists `FEATURED_MEDIA`, `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and
+   `content_fails` is empty), add `--waiting-for` with exactly those codes. The draft is stored as `WAITING_DATA`: never READY, no QA, the
+   slot is freed, and it is claimed again only after `recheck-data` shows the data exists. If `content_fails` is not empty, fix the prose first.
    Record the returned article_sha, then free the slot for the next writer:
    `python3 -m thuha.cli --git-branch release --slot <SLOT> --session <SESSION> --fence <FENCE>`.
    Do not resubmit unless QA later asks for a repair; each changed resubmission

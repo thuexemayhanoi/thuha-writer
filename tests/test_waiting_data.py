@@ -275,6 +275,28 @@ class SubmitCommandTests(Fixture):
         self.assertEqual(set(WAIT_CODES), {'FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'})
 
 
+class LinkTypoTests(Fixture):
+    def test_a_link_to_nowhere_is_a_content_fault_not_a_data_wait(self):
+        topic = self.candidate(1, 'vi')
+        intake(self.store, [topic], self.inv)
+        article = dict(self.article_for(topic), featured_media=None)
+        typo = dict(article, body_html=article['body_html'] + '<p><a href="' + SITE + '/vi/chuyen-muc/khong-co-chuyen-muc-nay/">sai</a></p>')
+        result = runtime.precheck(self.store, self.store.read(), self.inv, 'TH-VI-0001', typo, self.policy, self.business)
+        self.assertIn('INTERNAL_LINK_TARGET_UNKNOWN', result['content_fails'])
+        self.assertEqual(result['unknown_internal_links'], [SITE + '/vi/chuyen-muc/khong-co-chuyen-muc-nay/'])
+        clean = runtime.precheck(self.store, self.store.read(), self.inv, 'TH-VI-0001', article, self.policy, self.business)
+        self.assertEqual((clean['content_fails'], clean['unknown_internal_links']), ([], []))
+
+    def test_a_planned_url_of_the_matrix_or_the_ledger_is_not_a_typo(self):
+        topic = self.candidate(1, 'vi')
+        intake(self.store, [topic], self.inv)
+        planned = load(ROOT / 'data/bilingual/matrix/vi500.json')['rows'][0]['proposed_url']
+        article = dict(self.article_for(topic), featured_media=None)
+        article = dict(article, body_html=article['body_html'] + '<p><a href="' + planned + '">bài sẽ đăng</a></p>')
+        result = runtime.precheck(self.store, self.store.read(), self.inv, 'TH-VI-0001', article, self.policy, self.business)
+        self.assertEqual(result['unknown_internal_links'], [])
+
+
 class CommandLineTests(Fixture):
     def run_cli(self, *argv, inventory=True):
         path = Path(self.temp.name) / 'inv.json'
@@ -299,6 +321,15 @@ class CommandLineTests(Fixture):
         code, again = self.run_cli('recheck-data')
         self.assertEqual(again['cleared'], {})  # nothing more to clear, nothing written
         self.assertEqual(sum(e['action'] == 'DATA_AVAILABLE' for e in self.store.read()['events']), 1)
+
+    def test_source_command_captures_first_party_facts_and_needs_exactly_one_source(self):
+        code, out = self.run_cli('source', '--repository-file', FACTS)
+        self.assertEqual((code, out['capture_method']), (0, 'repository-file'))
+        self.assertEqual(self.store.get_document(out['document'])['url'], 'repo://' + FACTS)
+        with self.assertRaisesRegex(ValueError, 'exactly one'):
+            self.run_cli('source')
+        with self.assertRaisesRegex(ValueError, 'exactly one'):
+            self.run_cli('source', '--repository-file', FACTS, '--url', 'https://example.org/')
 
     def test_precheck_exit_codes_tell_a_fault_from_a_missing_image(self):
         topic = self.candidate(1, 'vi')

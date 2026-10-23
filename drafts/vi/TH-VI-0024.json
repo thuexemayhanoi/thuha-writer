@@ -1,0 +1,72 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Khi cân nhắc giữa một chiếc xe ga đời mới, giá trị cao hơn và một chiếc xe phổ thông, bạn thường so sánh giá thuê một ngày. Nhưng còn hai khoản khác cũng có thể thay đổi theo loại xe: khoản cọc giữ lại và mức đền bù khi xe hỏng hoặc mất đồ. Bài này không nêu con số của cửa hàng nào; nó giúp bạn nhận ra vì sao việc \"xe khác nhau thì giá trị rủi ro khác nhau\" là một câu hỏi hợp lý, và cách hỏi để biết cửa hàng áp dụng thế nào cho xe bạn chọn.</p>\n\n<h2>Giá thuê không phản ánh luôn giá trị xe</h2>\n<p>Có một lý do để đừng suy ra khoản cọc hay mức đền bù từ giá thuê. Theo khoảng giá tham khảo do Thuê xe máy Nguyễn Hà cung cấp, giá thuê một tuần cho xe Vision là 1.000.000 đồng, còn giá cho Air Blade là 900.000 đồng. Hai mức này là giá tham khảo, cần xác nhận lại xe và mức giá khi đặt. Hai dòng xe có giá thuê tuần khác nhau, nhưng chênh lệch đó không cho bạn biết gì về khoản cọc hay mức đền bù. Giá thuê phản ánh nhiều thứ, chẳng hạn nhu cầu, tình trạng xe và chính sách của cửa hàng, nên bạn không thể suy ra từ đó giá trị rủi ro của chiếc xe. Vì vậy cách an toàn nhất không phải là đoán, mà là hỏi.</p>\n\n<h2>Những gì có thể thay đổi theo loại xe</h2>\n<table>\n<thead><tr><th>Khoản</th><th>Vì sao có thể khác nhau giữa các loại xe</th><th>Câu hỏi nên hỏi</th></tr></thead>\n<tbody>\n<tr><td>Khoản cọc</td><td>Xe có giá trị cao hơn có thể kèm khoản giữ lại lớn hơn.</td><td>Khoản cọc cho xe này là bao nhiêu, có khác với xe còn lại tôi đang cân nhắc không?</td></tr>\n<tr><td>Mức đền bù khi hỏng</td><td>Phụ tùng của các dòng xe có giá khác nhau.</td><td>Bảng mức đền bù có áp dụng khác nhau cho từng dòng xe không?</td></tr>\n<tr><td>Mất chìa hoặc ổ khóa</td><td>Loại chìa và ổ khóa khác nhau giữa các dòng xe.</td><td>Chi phí làm lại chìa cho dòng xe này là bao nhiêu và mất bao lâu?</td></tr>\n<tr><td>Điều kiện sử dụng</td><td>Một số dòng xe có thể có quy định riêng về cách dùng.</td><td>Có điều kiện hay giới hạn nào riêng cho dòng xe này không?</td></tr>\n<tr><td>Hồ sơ cần chuẩn bị</td><td>Thủ tục có thể khác nhau tùy loại xe.</td><td>Tôi cần chuẩn bị giấy tờ gì cho dòng xe này?</td></tr>\n</tbody>\n</table>\n<p>Nếu cửa hàng trả lời rằng mọi thứ giống nhau giữa các dòng xe, bạn vẫn nên xin ghi lại câu trả lời đó. Nếu có khác biệt, bạn có thể cân nhắc cả phần chênh lệch về cọc và đền bù chứ không chỉ chênh lệch giá thuê.</p>\n\n<h2>Cách so sánh hai dòng xe công bằng</h2>\n<ol>\n<li>Chọn hai dòng xe bạn thực sự cân nhắc, không phải mọi dòng xe của cửa hàng.</li>\n<li>Hỏi cùng một bộ câu hỏi cho cả hai: giá thuê theo thời gian bạn định thuê, khoản cọc, mức đền bù từng hạng mục, các điều kiện sử dụng.</li>\n<li>Kẻ một bảng hai cột và điền từng câu trả lời. Chỗ nào cửa hàng chưa nói rõ thì để trống.</li>\n<li>So sánh tổng số tiền bạn có thể phải bỏ ra trong hai tình huống: chuyến đi suôn sẻ, và chuyến đi có một sự cố nhỏ như gãy gương.</li>\n</ol>\n<p>Bước cuối cùng thường là bước hữu ích nhất. Một chiếc xe thuê rẻ hơn mỗi ngày nhưng có mức đền bù cao hơn khi xảy ra sự cố có thể không rẻ hơn nếu bạn lo lắng về rủi ro. Ngược lại, nếu bạn tự tin về cách đi, chênh lệch giá thuê có thể quan trọng hơn.</p>\n\n<h2>Ví dụ minh họa: hai lựa chọn, hai bảng câu trả lời</h2>\n<p>Đây là một bảng điền ví dụ để bạn hình dung cách ghi, các giá trị để trống vì chúng phải do cửa hàng cung cấp.</p>\n<table>\n<thead><tr><th>Mục</th><th>Dòng xe A</th><th>Dòng xe B</th></tr></thead>\n<tbody>\n<tr><td>Giá thuê cho ... ngày</td><td>...</td><td>...</td></tr>\n<tr><td>Khoản cọc</td><td>...</td><td>...</td></tr>\n<tr><td>Đền bù một gương bị gãy</td><td>...</td><td>...</td></tr>\n<tr><td>Làm lại chìa khóa</td><td>...</td><td>...</td></tr>\n<tr><td>Điều kiện riêng</td><td>...</td><td>...</td></tr>\n</tbody>\n</table>\n\n<h2>Cọc và đền bù là hai khoản khác nhau</h2>\n<p>Hai khoản này hay bị gộp thành một câu hỏi, nhưng chúng khác nhau. Khoản cọc là số tiền giữ lại trong thời gian thuê. Mức đền bù là số tiền tính khi xe hỏng hoặc mất đồ. Hai khoản có thể liên quan, chẳng hạn đền bù được trừ vào cọc, nhưng không nhất thiết bằng nhau. Câu hỏi đáng hỏi là: nếu thiệt hại lớn hơn khoản cọc thì phần còn lại xử lý thế nào, và nếu nhỏ hơn thì phần dư được hoàn ra sao? Với mỗi dòng xe bạn cân nhắc, câu trả lời có thể khác.</p>\n\n<h2>Nên hỏi vào lúc nào</h2>\n<p>Hãy hỏi trước khi chọn xe, không phải sau. Khi đã đặt xong và đã đưa tiền, khả năng chọn dòng khác thấp hơn nhiều. Một câu như \"Nếu tôi chọn dòng này thay vì dòng kia thì khoản cọc và bảng đền bù khác nhau ra sao?\" giúp bạn so sánh khi vẫn còn quyền chọn.</p>\n\n<h2>Mẫu tin nhắn</h2>\n<p>\"Tôi đang cân nhắc giữa xe ... và xe ... cho ... ngày. Xin cho biết khoản cọc và mức đền bù cho từng hạng mục (gương, đèn, chìa khóa, trầy xước) của hai xe có khác nhau không, và nếu thiệt hại vượt khoản cọc thì xử lý thế nào. Xin gửi bằng tin nhắn để tôi so sánh.\"</p>\n\n<h2>Hỏi cửa hàng và xem thêm</h2>\n<p>Bạn có thể hỏi các dòng xe hiện có và các câu trên qua số <a href=\"tel:+84334699969\">0334 699 969</a> trong giờ mở cửa 09:00 đến 21:00 mỗi ngày, hoặc đến Thuê xe máy Nguyễn Hà ở Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm). Hãy xem thêm trong chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/gia-thue-va-chi-phi/\">Giá thuê và chi phí</a> và <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/huong-dan-thue-xe/\">Hướng dẫn thuê xe</a>.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 1000000,
+        "vehicle": "Vision"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 900000,
+        "vehicle": "Air Blade"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/chon-xe-ga-cao-cap-hay-xe-pho-thong-coc-va-den-bu-co-doi-khong/",
+    "category_id": 152,
+    "featured_media": null,
+    "focus_keyword": "cọc và đền bù khác nhau theo loại xe thuê",
+    "language": "vi",
+    "meta_description": "Xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có khác nhau không? Cách hỏi, bảng so sánh hai dòng xe và vì sao giá thuê không nói hết giá trị xe.",
+    "seo_title": "Cọc và đền bù khác nhau theo loại xe thuê: xe ga hay xe phổ thông",
+    "session": "w1-20261023-v0024",
+    "source_commit": "128719b02875a37741f4ec52ba09634cc442e36e",
+    "sources": [
+      {
+        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không",
+    "topic_id": "TH-VI-0024"
+  },
+  "article_sha": "8d437e1bbcd6d228d2384d0b387a85bf0a94b4152618c6934ca3a5cf82c10418",
+  "category_id": 152,
+  "language": "vi",
+  "proposed_url": "https://rentbikehanoi.com/vi/chon-xe-ga-cao-cap-hay-xe-pho-thong-coc-va-den-bu-co-doi-khong/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "review_recorded": false,
+  "source_documents": [
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+  ],
+  "source_evidence": {
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T07:28:09.675637+00:00",
+  "topic_id": "TH-VI-0024",
+  "waiting_for": [
+    "AUTHORITATIVE_INVENTORY",
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

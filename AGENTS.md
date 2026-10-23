@@ -41,6 +41,10 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   never re-sent. Unresolved intents stop the drain (red run) until reconciled.
 - **The queue is not blocked by one topic.** A READY topic that can no longer pass QA goes back to repair; the drain moves on.
 - Production stays OFF: `config/release.json` is changed only by a reviewed go-live decision, never by a session.
+- **A draft may wait for data, never fake it.** A finished text that lacks an image with Vietnamese alt text, live same-language links or an
+  authoritative inventory is stored with `submit --waiting-for` as `WAITING_DATA`: never READY, never QA-passed, no media ID, source,
+  permalink or check result invented, shared English alt text never edited to help it pass. `recheck-data` (credentialed inventory only)
+  clears a wait; completing the draft then goes through the ordinary independent review and QA. Drafts are exported to `drafts/`.
 
 ## Language contract (enforced in code; do not weaken)
 

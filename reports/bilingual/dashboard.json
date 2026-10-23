@@ -10,19 +10,21 @@
     "No language enabled in the release (production stays OFF)",
     "BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded",
     "Other publisher coordination not verified",
+    "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "6 draft(s) wait for an independent review before QA: TH-000001, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
+    "10 draft(s) wait for data (AUTHORITATIVE_INVENTORY x10, FEATURED_MEDIA x10, INTERNAL_LINKS x10): TH-VI-0004, TH-VI-0006, TH-VI-0011, TH-VI-0014, TH-VI-0016, TH-VI-0019, TH-VI-0024, TH-VI-0033, TH-VI-0035, TH-VI-0058",
+    "7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T06:26:53.789176+00:00",
+  "generated_at": "2026-10-23T07:39:01.000019+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 137,
+    "session_ledger_version": 168,
     "shared_ledger_version": 5,
     "status": "FAST_FORWARD"
   },
@@ -40,15 +42,16 @@
       "remaining": 225,
       "states": {
         "BLOCKED": 0,
-        "CLAIMED": 5,
-        "DRAFT_READY": 6,
+        "CLAIMED": 0,
+        "DRAFT_READY": 7,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
-        "PLANNED": 44,
+        "PLANNED": 48,
         "PUBLISHED": 0,
         "PUBLISHING": 0,
         "READY": 2,
-        "RESEARCH": 0
+        "RESEARCH": 0,
+        "WAITING_DATA": 0
       },
       "target": 500,
       "unresolved_intents": 0
@@ -56,8 +59,19 @@
     "vi": {
       "complete": false,
       "factory_published_receipts": 0,
-      "needs_source_or_research": [],
-      "open_topics": 0,
+      "needs_source_or_research": [
+        {
+          "created_at": "2026-10-23T07:27:09.269308+00:00",
+          "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+          "language": "vi",
+          "maximum_topics": 100,
+          "planned": 10,
+          "request_id": "research-vi-d08b8dd5e031330b",
+          "runtime": "External authorized AI session required",
+          "status": "AWAITING_EXTERNAL_RESEARCH"
+        }
+      ],
+      "open_topics": 10,
       "over_target": false,
       "published_live": 0,
       "remaining": 500,
@@ -71,7 +85,8 @@
         "PUBLISHED": 0,
         "PUBLISHING": 0,
         "READY": 0,
-        "RESEARCH": 0
+        "RESEARCH": 0,
+        "WAITING_DATA": 10
       },
       "target": 500,
       "unresolved_intents": 0
@@ -101,6 +116,7 @@
       "awaiting_qa": [],
       "awaiting_review": [
         "TH-000001",
+        "TH-000002",
         "TH-000003",
         "TH-000004",
         "TH-000007",
@@ -114,7 +130,8 @@
       "qa_pass": [
         "TH-000005",
         "TH-000006"
-      ]
+      ],
+      "waiting_data": []
     },
     "vi": {
       "awaiting_qa": [],
@@ -123,7 +140,19 @@
       "needs_repair": [],
       "published": [],
       "publishing": [],
-      "qa_pass": []
+      "qa_pass": [],
+      "waiting_data": [
+        "TH-VI-0004",
+        "TH-VI-0006",
+        "TH-VI-0011",
+        "TH-VI-0014",
+        "TH-VI-0016",
+        "TH-VI-0019",
+        "TH-VI-0024",
+        "TH-VI-0033",
+        "TH-VI-0035",
+        "TH-VI-0058"
+      ]
     }
   },
   "research_requests": [
@@ -209,6 +238,16 @@
       "request_id": "research-bf46daf1e88fa9d4",
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
+    },
+    {
+      "created_at": "2026-10-23T07:27:09.269308+00:00",
+      "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 10,
+      "request_id": "research-vi-d08b8dd5e031330b",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
     }
   ],
   "site_live_verified_posts": 0,
@@ -219,133 +258,106 @@
     },
     "W2": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-R2",
-        "expires_at": 1792723747.705592,
-        "fence": "8f291e255d484d19a1b75e1391b73ce2",
-        "heartbeat_at": "2026-10-23T02:19:07.705572+00:00",
-        "language": "en",
-        "session": "r2-20261023-a1",
-        "slot": "W2",
-        "topic_id": "TH-000002"
-      },
       "status": "AVAILABLE"
     },
     "W3": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W7",
-        "expires_at": 1792723595.479117,
-        "fence": "184083a4930640a194c6ac5b22bda5b2",
-        "heartbeat_at": "2026-10-23T02:16:35.479096+00:00",
-        "language": "en",
-        "session": "w7-20261023-c2",
-        "slot": "W3",
-        "topic_id": "TH-000010"
-      },
       "status": "AVAILABLE"
     },
     "W4": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W4",
-        "expires_at": 1792723608.924231,
-        "fence": "2d6c3390616c4fb7813a481d695ec4f4",
-        "heartbeat_at": "2026-10-23T02:16:48.924218+00:00",
-        "language": "en",
-        "session": "w4-20261023-c1",
-        "slot": "W4",
-        "topic_id": "TH-000004"
-      },
       "status": "AVAILABLE"
     },
     "W5": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W4",
-        "expires_at": 1792723620.203633,
-        "fence": "48205436fcae471ba3a1a9f22fd4b8ce",
-        "heartbeat_at": "2026-10-23T02:17:00.203612+00:00",
-        "language": "en",
-        "session": "w4-20261023-c2",
-        "slot": "W5",
-        "topic_id": "TH-000011"
-      },
       "status": "AVAILABLE"
     },
     "W6": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W10",
-        "expires_at": 1792723627.919764,
-        "fence": "625d5a5ab56e40eba570b4bd7fa5cdc3",
-        "heartbeat_at": "2026-10-23T02:17:07.919740+00:00",
-        "language": "en",
-        "session": "w10-20261023-d1",
-        "slot": "W6",
-        "topic_id": "TH-000012"
-      },
       "status": "AVAILABLE"
     },
     "W7": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W7",
-        "expires_at": 1792723584.68435,
-        "fence": "597f269dc7b6445fbb49486db659bbd1",
-        "heartbeat_at": "2026-10-23T02:16:24.684335+00:00",
-        "language": "en",
-        "session": "w7-20261023-c1",
-        "slot": "W7",
-        "topic_id": "TH-000007"
-      },
       "status": "AVAILABLE"
     },
     "W8": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W9",
-        "expires_at": 1792723821.167836,
-        "fence": "6d52ffd5664442b7bdbf06287ec1b180",
-        "heartbeat_at": "2026-10-23T02:20:21.167819+00:00",
-        "language": "en",
-        "session": "w9-20261023-c2",
-        "slot": "W8",
-        "topic_id": "TH-000013"
-      },
       "status": "AVAILABLE"
     },
     "W9": {
       "ai_execution": "NOT_OBSERVED",
-      "lease": {
-        "agent_id": "claude-writer-W9",
-        "expires_at": 1792723657.105168,
-        "fence": "191689a4937b46fabb367501b51b171f",
-        "heartbeat_at": "2026-10-23T02:17:37.105151+00:00",
-        "language": "en",
-        "session": "w9-20261023-c1",
-        "slot": "W9",
-        "topic_id": "TH-000009"
-      },
       "status": "AVAILABLE"
     }
   },
   "state_backend": "local-offline-snapshot",
   "states": {
     "BLOCKED": 0,
-    "CLAIMED": 5,
-    "DRAFT_READY": 6,
+    "CLAIMED": 0,
+    "DRAFT_READY": 7,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
-    "PLANNED": 44,
+    "PLANNED": 48,
     "PUBLISHED": 0,
     "PUBLISHING": 0,
     "READY": 2,
-    "RESEARCH": 0
+    "RESEARCH": 0,
+    "WAITING_DATA": 10
   },
   "targets": {
     "en": 500,
     "vi": 500
+  },
+  "waiting_data": {
+    "TH-VI-0004": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0006": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0011": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0014": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0016": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0019": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0024": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0033": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0035": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0058": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ]
   },
   "wordpress_pages": 0,
   "wordpress_published": 275

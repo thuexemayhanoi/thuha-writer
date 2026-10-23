@@ -1,0 +1,132 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Bạn lướt qua một bài đăng trên nhóm Facebook: \"xe số một ngày giá rất mềm, liên hệ ngay\". Bài đăng đã nhiều ngày, ảnh không ghi thời điểm, và bạn không biết mức giá đó còn áp dụng không. Làm sao để biết giá còn hiệu lực trước khi bạn lên kế hoạch hoặc chuyển bất kỳ khoản tiền nào? Bài này chỉ ra những thông tin thường thiếu trong một bài đăng giá, phân biệt \"giá tham khảo\" với \"ưu đãi\", đưa ra một quy trình bốn bước để xác nhận và nêu cách đối chiếu với thông tin chính thức của cửa hàng.</p>\n\n<h2>Một bài đăng giá thường thiếu những gì</h2>\n<ul>\n<li><strong>Ngày đăng:</strong> bài đăng cũ vẫn xuất hiện lại khi có người bình luận hoặc chia sẻ.</li>\n<li><strong>Loại xe cụ thể:</strong> \"xe số\" hay \"xe ga\" là hai nhóm khác nhau, và trong mỗi nhóm còn nhiều dòng xe.</li>\n<li><strong>Thời gian thuê áp dụng:</strong> giá một ngày, một tuần hay một tháng không so sánh trực tiếp được với nhau.</li>\n<li><strong>Điều kiện kèm theo:</strong> giờ nhận, giờ trả, khoản cọc, các khoản tính thêm, thời hạn của ưu đãi.</li>\n<li><strong>Người đăng:</strong> trang của cửa hàng, nhân viên, hay một tài khoản khác đăng lại.</li>\n</ul>\n\n<h2>Giá tham khảo khác ưu đãi ở điểm nào</h2>\n<p>Giá tham khảo là một khoảng giá để bạn hình dung ngân sách; bạn vẫn cần xác nhận lại xe và mức giá cụ thể khi đặt. Ưu đãi là một mức giá hoặc điều kiện đặc biệt có thời hạn và thường chỉ áp dụng cho một số xe hoặc một số khoảng thời gian. Hai thứ này không phải một: một bài đăng có thể nhắc đến ưu đãi đã hết hạn, trong khi khoảng giá tham khảo vẫn còn nguyên.</p>\n<p>Theo thông tin Thuê xe máy Nguyễn Hà cung cấp, khoảng giá tham khảo như sau. Đây là giá tham khảo, cần xác nhận lại xe và mức giá khi đặt.</p>\n<table>\n<thead><tr><th>Loại xe</th><th>Một ngày</th><th>Một tuần</th><th>Một tháng</th></tr></thead>\n<tbody>\n<tr><td>Xe số</td><td>150.000 đến 200.000 đồng</td><td>700.000 đến 800.000 đồng</td><td>1.000.000 đến 1.200.000 đồng</td></tr>\n<tr><td>Xe ga</td><td>150.000 đến 200.000 đồng</td><td>600.000 đến 1.000.000 đồng</td><td>1.200.000 đến 2.000.000 đồng</td></tr>\n</tbody>\n</table>\n<p>Khoảng giá rộng ở xe ga cho thấy giá có thể phụ thuộc vào xe cụ thể bạn chọn. Một bài đăng chỉ ghi \"xe ga\" mà không nói dòng xe vì thế chưa đủ để bạn biết giá nào áp dụng cho mình.</p>\n\n<h2>Bốn bước xác nhận một mức giá trên mạng xã hội</h2>\n<ol>\n<li><strong>Chụp lại bài đăng có ngày.</strong> Chụp màn hình cả tên tài khoản, nội dung và thời điểm đăng. Nếu không thấy ngày, ghi nhận rằng bài đăng không có ngày.</li>\n<li><strong>Đối chiếu thông tin liên hệ với nguồn chính thức.</strong> Thông tin do chủ cửa hàng cung cấp cho Thuê xe máy Nguyễn Hà gồm địa chỉ Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm), số điện thoại 0334 699 969 và giờ mở cửa 09:00 đến 21:00 mỗi ngày. Nếu bài đăng dùng số điện thoại hoặc địa chỉ khác, hãy hỏi vì sao trước khi làm gì tiếp.</li>\n<li><strong>Hỏi bằng câu hỏi cụ thể.</strong> \"Mức giá trong bài đăng ngày ... còn áp dụng không? Áp dụng cho xe nào, thuê bao nhiêu ngày, đến hết ngày nào? Giờ nhận, giờ trả và các khoản tính thêm là gì?\"</li>\n<li><strong>Xin xác nhận bằng tin nhắn trước khi chuyển bất kỳ khoản tiền nào.</strong> Nội dung gồm xe, thời gian, giá và các điều kiện. Một câu xác nhận ngắn, có thể chụp lại, đáng tin hơn một lời nói qua điện thoại.</li>\n</ol>\n\n<h2>Khi mức giá khác xa khoảng tham khảo</h2>\n<p>Một mức giá thấp hơn hẳn khoảng tham khảo chưa chắc là điều xấu: có thể đó là ưu đãi có thời hạn, hoặc là một loại xe khác. Cũng có thể là một chương trình đã hết hạn. Việc nên làm là hỏi lý do và điều kiện, thay vì kết luận ngay. Ngược lại, một mức cao hơn hẳn có thể do loại xe, thời điểm hoặc thời gian thuê. Trong cả hai trường hợp, câu hỏi tốt nhất vẫn là: mức này áp dụng cho xe nào, trong bao lâu, đến khi nào?</p>\n\n<h2>Câu hỏi nhanh nên mang theo</h2>\n<ul>\n<li>Bài đăng này còn hiệu lực không, và đến ngày nào?</li>\n<li>Giá áp dụng cho xe nào, thuê theo ngày, tuần hay tháng?</li>\n<li>Có điều kiện hoặc khoản tính thêm nào không nằm trong bài đăng?</li>\n<li>Tôi nhận được xác nhận bằng tin nhắn không?</li>\n</ul>\n\n<h2>Ví dụ: ba bài đăng và cách đọc từng bài</h2>\n<table>\n<thead><tr><th>Bài đăng</th><th>Điều còn thiếu</th><th>Việc nên làm</th></tr></thead>\n<tbody>\n<tr><td>\"Xe ga giá mềm cả tuần, nhắn để biết giá\"</td><td>Không có số cụ thể, không nói xe nào, không có ngày</td><td>Hỏi giá cho đúng dòng xe và số ngày bạn định thuê; xin xác nhận bằng tin nhắn.</td></tr>\n<tr><td>\"Ưu đãi tháng này cho xe số theo tuần\"</td><td>Không nói tháng nào, đến ngày nào, ưu đãi bao nhiêu</td><td>Hỏi ngày kết thúc ưu đãi và mức giá sau khi áp dụng.</td></tr>\n<tr><td>Ảnh chụp một bảng giá không rõ nguồn</td><td>Không biết ai đăng, đăng khi nào</td><td>Đối chiếu số điện thoại và hỏi cửa hàng xem bảng giá đó có đúng không.</td></tr>\n</tbody>\n</table>\n\n<h2>Cách ghi lại một mức giá đã được xác nhận</h2>\n<p>Khi cửa hàng đã xác nhận, hãy lưu lại thành một dòng ghi chú ngắn để sau này đối chiếu. Mẫu dưới đây giúp bạn không quên mục nào.</p>\n<table>\n<thead><tr><th>Mục</th><th>Bạn ghi</th></tr></thead>\n<tbody>\n<tr><td>Ngày và giờ bạn hỏi</td><td>...</td></tr>\n<tr><td>Dòng xe được báo giá</td><td>...</td></tr>\n<tr><td>Thời gian thuê áp dụng (ngày, tuần, tháng) và từ ngày nào đến ngày nào</td><td>...</td></tr>\n<tr><td>Mức giá và đơn vị tính</td><td>...</td></tr>\n<tr><td>Điều kiện hoặc khoản tính thêm</td><td>...</td></tr>\n<tr><td>Hình thức xác nhận (tin nhắn, cuộc gọi) và thời điểm</td><td>...</td></tr>\n</tbody>\n</table>\n<p>Nếu sau đó mức giá được báo khác với dòng ghi chú này, bạn có sẵn mốc để hỏi lại thay vì chỉ nhớ mang máng.</p>\n\n<h2>Hỏi chính cửa hàng</h2>\n<p>Bạn có thể gọi <a href=\"tel:+84334699969\">0334 699 969</a> trong giờ mở cửa để hỏi xem một mức giá bạn thấy trên mạng xã hội còn hiệu lực không. Hãy xem thêm các bài về chi phí và báo giá trong chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/gia-thue-va-chi-phi/\">Giá thuê và chi phí</a>, hoặc đọc <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/huong-dan-thue-xe/\">Hướng dẫn thuê xe</a> để chuẩn bị trước khi đặt.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 700000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 800000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1000000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 600000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 1000000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 2000000,
+        "vehicle": "automatic"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/gia-tham-khao-va-bai-dang-uu-dai-xac-nhan-con-hieu-luc/",
+    "category_id": 152,
+    "featured_media": null,
+    "focus_keyword": "giá thuê xe máy trên facebook còn hiệu lực không",
+    "language": "vi",
+    "meta_description": "Một mức giá thuê xe trên mạng xã hội còn hiệu lực không? Khác biệt giữa giá tham khảo và ưu đãi, bốn bước xác nhận và câu hỏi cần mang theo trước khi chuyển tiền.",
+    "seo_title": "Giá thuê xe máy trên Facebook còn hiệu lực không? Cách xác nhận",
+    "session": "w1-20261023-v0016",
+    "source_commit": "a35be847365ddeb5e48711d5992ed0d83c39c90d",
+    "sources": [
+      {
+        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực",
+    "topic_id": "TH-VI-0016"
+  },
+  "article_sha": "7fdcd70316f5bfc2f4309478b856c8685a9f4cdf481e4f233ad6b05c394d1a5a",
+  "category_id": 152,
+  "language": "vi",
+  "proposed_url": "https://rentbikehanoi.com/vi/gia-tham-khao-va-bai-dang-uu-dai-xac-nhan-con-hieu-luc/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "review_recorded": false,
+  "source_documents": [
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+  ],
+  "source_evidence": {
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T07:27:53.216985+00:00",
+  "topic_id": "TH-VI-0016",
+  "waiting_for": [
+    "AUTHORITATIVE_INVENTORY",
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

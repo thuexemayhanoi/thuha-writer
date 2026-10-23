@@ -74,6 +74,27 @@ English — `english` or `native_language`. The review names the article's langu
 review is *not* evaluated (it would fail only for the missing review and be sent to repair). Vietnamese QA needs an
 adapter or authenticated inventory; with a public-only one it reports `BLOCKED`, not `FAIL`.
 
+## Drafts that wait for data
+
+A finished text that lacks something no session can create (an image whose alt text is Vietnamese, live Vietnamese pages to link
+to, an authoritative inventory) is stored instead of being held back or faked:
+
+```
+python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0004 --file article.json   # exit 3: only data is missing; data_waits / content_fails
+python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for FEATURED_MEDIA INTERNAL_LINKS AUTHORITATIVE_INVENTORY
+python3 -m thuha.cli --remote recheck-data          # (protected job) clears only what the authenticated inventory really holds
+python3 scripts/export_drafts.py                    # drafts/<language>/<ID>.json + drafts/INDEX.md, derived from the ledger
+```
+
+`WAITING_DATA` is a stored state, never READY: `qa` refuses it, `qa --pending` skips it, the publisher cannot take it, it is not
+claimable until `waiting_for` is empty, and the dashboard shows it in its own column with the missing codes. `FEATURED_MEDIA`
+requires `featured_media` to stay empty. Finishing a draft after the data arrives is a completion, not a repair: it does not use
+the three bounded repairs, and a lease lost half-way returns the topic to `WAITING_DATA`. A completed draft then needs the ordinary
+independent review and QA. The owner-facts file can be captured as labelled first-party evidence (`source --repository-file
+config/business-facts.json`); it is stale the moment that file changes, supports statements about the shop only and is never an
+official source for a legal claim. A planning inventory (the committed authenticated snapshot) may feed claims, kits and admission for
+seven days; QA and publication keep the six-hour limit.
+
 ## Two languages: quota, priority, matrix
 
 ```
