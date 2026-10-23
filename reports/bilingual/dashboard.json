@@ -16,14 +16,14 @@
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T08:27:51.193537+00:00",
+  "generated_at": "2026-10-23T08:36:36.604542+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 295,
+    "session_ledger_version": 313,
     "shared_ledger_version": 5,
     "status": "FAST_FORWARD"
   },

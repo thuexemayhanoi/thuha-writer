@@ -108,6 +108,7 @@ PYTHONPATH=src python3 -m thuha.cli matrix next --language vi --limit 10   # nex
 PYTHONPATH=src python3 -m thuha.cli quota                   # per-language target / live / unresolved / remaining
 python3 scripts/build_matrices.py                           # rebuild + validate the matrices from seeds
 python3 scripts/export_queued.py                            # refresh the queued English topics from the ledger, then rebuild
+python3 scripts/export_drafts.py                            # drafts/<language>/<ID>.json + INDEX.md from the ledger (a test keeps it in sync)
 python3 scripts/build_adapter_zip.py                        # rebuild the reproducible plugin ZIP
 python3 scripts/offline_dashboard.py                        # reports/bilingual/dashboard.* from the committed ledger and snapshots
 php tests/php/run.php                                       # plugin logic against the WordPress simulation

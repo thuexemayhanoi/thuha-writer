@@ -12,7 +12,7 @@ import unittest
 import unittest.mock
 from pathlib import Path
 from test_factory import Fixture
-from thuha import audit, cli, dashboard, drafts, pipeline, quality, research, runtime
+from thuha import audit, cli, dashboard, drafts, ledger, pipeline, quality, research, runtime
 from thuha.common import ROOT, SITE, digest, load, now
 from thuha.coordinator import WAIT_CODES, claim, release, recover, submit
 from thuha.research import capture_repository_file, evidence_current, intake
@@ -455,6 +455,33 @@ class WorkflowTests(unittest.TestCase):
         order = [inside.index(x) for x in (' audit', 'recheck-data', 'qa --pending', 'publisher --mode drain')]
         self.assertEqual(order, sorted(order))
         self.assertNotIn('recheck-data', text[:text.index('  protected-publish:')])  # the job without WordPress access never writes it
+
+
+class CommittedDraftsTests(unittest.TestCase):
+    def test_the_committed_drafts_folder_is_exactly_what_the_committed_ledger_exports(self):
+        """drafts/ is derived; a ledger change without `python3 scripts/export_drafts.py` fails here, like the matrices do."""
+        import tempfile
+        from thuha.store import migrate
+        state = migrate(load(ROOT / 'data/state/factory.json'))
+        documents = ledger.read_documents(ROOT / 'data/documents')
+        with tempfile.TemporaryDirectory() as temp:
+            written = drafts.export(state, lambda sha: documents[sha], Path(temp))
+            expected = {p: (Path(temp) / p).read_bytes() for p in written + ['INDEX.md']}
+        committed = {str(p.relative_to(ROOT / 'drafts')) for p in (ROOT / 'drafts').rglob('*') if p.is_file()}
+        self.assertEqual(committed, set(expected), 'run python3 scripts/export_drafts.py')
+        for name, raw in expected.items():
+            self.assertEqual((ROOT / 'drafts' / name).read_bytes(), raw, name + ' is stale: run python3 scripts/export_drafts.py')
+
+    def test_no_stored_draft_is_ready_or_qa_passed_without_an_independent_review(self):
+        state = load(ROOT / 'data/state/factory.json')
+        for tid, topic in state['topics'].items():
+            if topic['status'] in ('WAITING_DATA', 'HELD'):
+                self.assertNotIn(tid, state['qa'], tid)
+                self.assertNotIn(tid, state['receipts'], tid)
+                self.assertNotIn(tid, state['intents'], tid)
+            if topic['status'] == 'WAITING_DATA':
+                article = ledger.read_documents(ROOT / 'data/documents')[state['submissions'][tid]['article_sha']]
+                self.assertIsNone(article['featured_media'], tid)  # nothing invented to get past the wait
 
 
 class DraftExportTests(Fixture):

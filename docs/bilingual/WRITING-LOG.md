@@ -81,3 +81,14 @@ Không có bài nào trong số này bị xóa; chủ đề vẫn là dòng kế
 
 Điều chưa được giải quyết bằng viết lại: **giọng trung lập kiểu "hướng dẫn người tiêu dùng" đặt trên trang của chính cửa hàng**, và việc mọi bài vẫn trả lời "hãy hỏi cửa hàng". Gốc rễ là cửa hàng chưa trả lời các câu hỏi; reviewer cũng đề nghị chủ cửa hàng
 xác nhận lại khoảng giá (xe số: giá tháng thấp hơn hai tuần; xe ga: giá tuần tối đa gấp hơn năm lần giá ngày thấp nhất). Cả hai nằm trong [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md).
+
+### Kiểm tra độc lập lần ba trên bảy bản đã gộp (23/10/2026)
+
+Kết luận của reviewer: giữ cả bảy (mỗi bài dạy một phép tính, khung hay quy trình mà trang FAQ không dạy được; không cần gộp hay giữ thêm). Số liệu được tính lại bằng script và bằng tay.
+Phát hiện: 1 lỗi chặn ở TH-VI-0019 (câu "chênh lệch chỉ xuất hiện nếu bạn trả xe sớm hơn" sai: chỉ cần số ngày thực tế lệch kế hoạch là hai cách tính khác nhau; kèm một ngưỡng "quá hai tuần" mâu thuẫn với chính ví dụ
+mười ngày), 16 chỗ cần sửa (đường nối sau khi gộp, "thường được hiểu", khẳng định về cách cửa hàng xử lý trả sau 21:00, câu phạm vi của TH-VI-0016, từ khóa vắng trong meta của TH-VI-0011, ảnh nhận xe chưa được dặn ở TH-VI-0058...)
+và 27 chỗ nhỏ. Đã sửa tất cả lỗi chặn và chỗ cần sửa rồi nộp lại sáu bản (TH-VI-0004 sạch, giữ nguyên); precheck của cả bảy: không lỗi nội dung.
+
+Còn lại, nói thẳng (reviewer ghi nhận, chưa giải quyết bằng viết lại): (a) cả bảy bài cùng kết thúc bằng một đoạn liên hệ giống nhau và năm bài mở đầu bằng cùng một công thức "áp dụng cho chuyến của bạn cần được xác nhận khi đặt xe";
+(b) giọng trung lập kiểu hướng dẫn người tiêu dùng vẫn nằm trên trang của cửa hàng; (c) năm bài chỉ đưa câu hỏi chứ không đưa đáp án vì cửa hàng chưa trả lời. Cả ba cần quyết định hoặc dữ kiện của chủ cửa hàng
+([OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)); không có bài nào nên xuất bản trước khi chủ cửa hàng xem giọng văn.

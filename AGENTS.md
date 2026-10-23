@@ -115,6 +115,6 @@ before quota exhaustion: `docs/bilingual/IMPLEMENTATION-STATUS.md` is that recor
 PYTHONPATH=src python3 -m unittest discover -s tests -v
 PYTHONPATH=src python3 -m thuha.cli validate
 php tests/php/run.php
-python3 scripts/export_queued.py && python3 scripts/build_matrices.py && python3 scripts/build_adapter_zip.py   # then `git diff --exit-code`
+python3 scripts/export_queued.py && python3 scripts/export_drafts.py && python3 scripts/build_matrices.py && python3 scripts/build_adapter_zip.py   # then `git diff --exit-code`
 python3 scripts/offline_dashboard.py                                      # refresh reports/bilingual if the ledger or counts changed
 ```
