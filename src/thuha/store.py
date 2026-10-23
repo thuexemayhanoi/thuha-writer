@@ -117,7 +117,9 @@ class GitHub:
         req=urllib.request.Request('https://api.github.com'+path,
                  None if body is None else canonical_json(body),headers,method=method)
         try:
-            with urllib.request.urlopen(req,timeout=25) as r:return json.load(r)
+            with urllib.request.urlopen(req,timeout=25) as r:
+                raw=r.read()
+                return json.loads(raw) if raw else {} # repository_dispatch responds HTTP 204
         except urllib.error.HTTPError as e:
             # Expose a status code only, never the request, headers or token.
             raise GitError(e.code) from None
