@@ -1,13 +1,15 @@
+> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. Live publishing stays separately gated until WordPress adapter, Repository Secrets and pilot are verified. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
+
 # ThuHa Writer
 
 Owner-confirmed extension fee (23 October 2026): **20,000 VND/hour; more than 6 hours is charged as one rental day**.
 See `config/business-facts.json extension_policy` and [the confirmation record](docs/OWNER-EXTENSION-FEE-2026-10-23.md).
 https://rentbikehanoi.com
 
-**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=85 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**
+**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=75 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**
 
 **Owner update, 23 October 2026: no independent AI article review.** Completed drafts go straight to automatic
-QA (>=85/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
+QA (>=75/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
 The 80 automatic points are normalized to 100; a review adds no points. This is technical/evidence screening,
 not a claim of independent factual or native-language judgment. No reviewer identity is needed to move a draft forward.
 The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
@@ -64,7 +66,7 @@ queue job (no WordPress secret)
                           promote --apply      session ledger -> factory-state, fast-forward only, documents first
                           audit --max-age      refresh a stale public inventory
                           qa --pending --language en
-protected job (only if release.json is fully enabled; environment thuha-production)
+publish job (only if release.json is fully enabled; repository Actions Secrets)
                           adapter-preflight -> audit (authenticated, both languages) -> qa --pending
                           publisher --mode drain:
                             1 reconcile every unresolved intent (read-only; the POST is never repeated)
