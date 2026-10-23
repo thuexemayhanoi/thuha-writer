@@ -1,0 +1,1621 @@
+[
+ {
+  "topic_id": "TH-000003",
+  "primary_keyword": "vietnam motorbike licence classes A1 A",
+  "search_intent": "Understand which Vietnamese licence class (A1, A, B1) covers which engine size or electric motor power after 1 January 2025 and what that means for a rental choice",
+  "proposed_title": "Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
+  "sources": [
+   {
+    "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+    "supports": "Official provincial government summary of the 15 licence classes under Law 36/2024, including A1 and A engine-size and electric power thresholds.",
+    "fetch": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+   },
+   {
+    "url": "https://vn.usembassy.gov/driving-in-vietnam/",
+    "supports": "Official US Embassy page stating foreign licences are not valid in Vietnam and listing conversion documents.",
+    "fetch": "https://vn.usembassy.gov/driving-in-vietnam/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand which Vietnamese licence class (A1, A, B1) covers which engine size or electric motor power after 1 January 2025 and what that means for a rental choice. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Rental Motorbike Recalled by Its Manufacturer: Questions for the Shop."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000004",
+  "primary_keyword": "vietnam driving licence points deduction",
+  "search_intent": "Learn how the 12-point licence system introduced in 2025 deducts and restores points for motorbike violations",
+  "proposed_title": "How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
+  "sources": [
+   {
+    "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+    "supports": "Official provincial page explaining the point-deduction principle under Decree 168/2024 from 1 January 2025.",
+    "fetch": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+   },
+   {
+    "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648",
+    "supports": "Ministry of Public Security page listing point deductions and suspensions tied to alcohol offences for motorbike riders.",
+    "fetch": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Learn how the 12-point licence system introduced in 2025 deducts and restores points for motorbike violations. Nearest live titles differ in intent: Motorbike Riding Tips for First-Time Riders | Motorbike Rental Vietnam: Complete Safety Guide for Tourists."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000005",
+  "primary_keyword": "bring own motorbike into vietnam permission",
+  "search_intent": "Understand the official permission regime for foreign-registered motor vehicles driven into Vietnam for tourism since 1 May 2024, and why renting locally is usually simpler",
+  "proposed_title": "Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
+  "sources": [
+   {
+    "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333",
+    "supports": "Ministry of Public Security announcement of Decree 30/2024 conditions for foreign-registered vehicles entering Vietnam.",
+    "fetch": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the official permission regime for foreign-registered motor vehicles driven into Vietnam for tourism since 1 May 2024, and why renting locally is usually simpler. Nearest live titles differ in intent: Motorbike Rental Vietnam: Complete Safety Guide for Tourists | Vietnam eSIM for Tourists: Complete A-to-Z Guide to Buy and Activate."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000006",
+  "primary_keyword": "asean driving licence vietnam motorbike",
+  "search_intent": "Clarify when a national licence from an ASEAN member state is recognised in Vietnam and which documents a renter should still carry",
+  "proposed_title": "Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
+  "sources": [
+   {
+    "url": "https://vn.usembassy.gov/driving-in-vietnam/",
+    "supports": "Official US Embassy page noting limited ASEAN licence recognition and recommending a Vietnamese licence.",
+    "fetch": "https://vn.usembassy.gov/driving-in-vietnam/"
+   },
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+    "supports": "UK government advice that both a 1968 IDP and the national licence must be carried when riding in Vietnam.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Clarify when a national licence from an ASEAN member state is recognised in Vietnam and which documents a renter should still carry. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000007",
+  "primary_keyword": "electric scooter licence vietnam kw",
+  "search_intent": "Find out which electric two-wheelers need an A1 or A licence based on motor power, and which low-power models fall into the no-licence moped class",
+  "proposed_title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+  "sources": [
+   {
+    "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+    "supports": "Official page quoting the electric motor power bands (4 kW to under 14 kW for A1) that define licence classes from 2025.",
+    "fetch": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+   },
+   {
+    "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200",
+    "supports": "Manufacturer specification listing the Evo200 motor rated power, used to show where a common rental model sits.",
+    "fetch": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Find out which electric two-wheelers need an A1 or A licence based on motor power, and which low-power models fall into the no-licence moped class. Nearest live titles differ in intent: Do You Need a Motorcycle License in Vietnam? Current Rules | How to Rent an Electric Scooter in Hanoi: Step-by-Step Guide."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000008",
+  "primary_keyword": "compulsory motorbike insurance vietnam",
+  "search_intent": "Understand the mandatory third-party liability insurance for motorbikes in Vietnam, what it pays for and how to confirm a rental bike carries a valid certificate",
+  "proposed_title": "Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
+  "sources": [
+   {
+    "url": "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329",
+    "supports": "Official source defining compulsory civil liability insurance for motorbike owners and its coverage limits.",
+    "fetch": "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329"
+   },
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+    "supports": "UK government advice that driving without third-party insurance is illegal in Vietnam.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the mandatory third-party liability insurance for motorbikes in Vietnam, what it pays for and how to confirm a rental bike carries a valid certificate. Nearest live titles differ in intent: Motorbike Tyre Age Codes: What the Date Can and Cannot Tell a Renter | Carrying a Rental Motorbike on a Ferry in Northern Vietnam: Permission and Operator Checks."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000009",
+  "primary_keyword": "buy used motorbike hanoi foreigner registration",
+  "search_intent": "Compare the legal steps, fees and documents for transferring and registering a used motorbike in Hanoi against renting for the same period",
+  "proposed_title": "Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates",
+  "category_id": 144,
+  "category_path": [
+   39,
+   60,
+   128,
+   144
+  ],
+  "cluster": "licences-legal",
+  "proposed_url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
+  "sources": [
+   {
+    "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301",
+    "supports": "Ministry of Public Security summary of registration and plate issuance rules effective 1 January 2025 under Circular 79/2024.",
+    "fetch": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+   },
+   {
+    "url": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676",
+    "supports": "Official public-service listing of documents and steps for first-time motorbike registration at commune-level police.",
+    "fetch": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the legal steps, fees and documents for transferring and registering a used motorbike in Hanoi against renting for the same period. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | A Company-Paid Motorbike Rental in Hanoi: Invoice and Reimbursement Questions."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000010",
+  "primary_keyword": "hanoi traffic etiquette motorbike horn",
+  "search_intent": "Decode the informal signalling habits of Hanoi motorbike traffic so a visiting rider can predict movements without adopting unsafe ones",
+  "proposed_title": "Horns, Lanes and Flashing Lights: How Hanoi Riders Communicate and What a Visitor Should Copy",
+  "category_id": 145,
+  "category_path": [
+   39,
+   60,
+   128,
+   145
+  ],
+  "cluster": "riding-skills",
+  "proposed_url": "https://rentbikehanoi.com/hanoi-motorbike-traffic-communication-horns-lanes/",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+    "supports": "UK government advice describing the elevated risk of motorbike travel in Vietnam and the need for experience.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decode the informal signalling habits of Hanoi motorbike traffic so a visiting rider can predict movements without adopting unsafe ones. Nearest live titles differ in intent: A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template | Exploring Hanoi on a Motorbike: Travel Tips and Experience."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000011",
+  "primary_keyword": "first time riding scooter hanoi practice",
+  "search_intent": "Give a nervous first-time renter a structured, low-traffic practice sequence near the pickup area before entering central Hanoi traffic",
+  "proposed_title": "Your First Hour on a Rental Scooter in Hanoi: A Low-Traffic Practice Plan on the Long Bien Side",
+  "category_id": 145,
+  "category_path": [
+   39,
+   60,
+   128,
+   145
+  ],
+  "cluster": "riding-skills",
+  "proposed_url": "https://rentbikehanoi.com/first-hour-rental-scooter-hanoi-practice-plan/",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+    "supports": "UK government advice not to hire a motorbike without experience and to check the bike thoroughly, framing the need for a practice plan.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Give a nervous first-time renter a structured, low-traffic practice sequence near the pickup area before entering central Hanoi traffic. Nearest live titles differ in intent: Three Days in Hanoi With a Rental Motorbike: Plan Distinct Routes | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000012",
+  "primary_keyword": "hanoi winter riding fog drizzle",
+  "search_intent": "Prepare for the cold, damp, low-visibility conditions of Hanoi's late winter when riding a rental scooter",
+  "proposed_title": "Riding in Hanoi's Winter Drizzle and Fog: Visibility, Grip and Clothing for January to March",
+  "category_id": 133,
+  "category_path": [
+   39,
+   60,
+   115,
+   133
+  ],
+  "cluster": "weather",
+  "proposed_url": "https://rentbikehanoi.com/riding-hanoi-winter-drizzle-fog-visibility-grip/",
+  "sources": [
+   {
+    "url": "https://nchmf.gov.vn/KttvSiteE/",
+    "supports": "National Center for Hydro-Meteorological Forecasting portal, the official source for cold surge and seasonal outlooks referenced in the article.",
+    "fetch": "https://nchmf.gov.vn/KttvSiteE/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Prepare for the cold, damp, low-visibility conditions of Hanoi's late winter when riding a rental scooter. Nearest live titles differ in intent: Riding Footwear in Wet Hanoi Weather: Grip, Coverage and Drying | Shopping for Riding Gear in Hanoi: Check Fit Before Buying."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000013",
+  "primary_keyword": "hanoi summer heat motorbike riding",
+  "search_intent": "Plan rental scooter trips around Hanoi's hottest months using official heat warnings and practical timing",
+  "proposed_title": "Riding a Scooter Through Hanoi Heatwaves: Timing, Hydration and Heat-Index Planning for June and July",
+  "category_id": 133,
+  "category_path": [
+   39,
+   60,
+   115,
+   133
+  ],
+  "cluster": "weather",
+  "proposed_url": "https://rentbikehanoi.com/riding-scooter-hanoi-heatwaves-june-july-planning/",
+  "sources": [
+   {
+    "url": "https://nchmf.gov.vn/KttvSiteE/",
+    "supports": "Official forecasting centre portal publishing heat-wave (nang nong) warnings used to plan riding windows.",
+    "fetch": "https://nchmf.gov.vn/KttvSiteE/"
+   },
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health",
+    "supports": "UK government health advice for Vietnam covering heat and medical care.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan rental scooter trips around Hanoi's hottest months using official heat warnings and practical timing. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | Hanoi Opera House and French Quarter: Park for a Walking Loop."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000014",
+  "primary_keyword": "typhoon season hanoi motorbike trip",
+  "search_intent": "Decide whether to postpone or reroute a day trip when a tropical cyclone warning is issued for northern Vietnam",
+  "proposed_title": "Typhoon Season in Northern Vietnam: When to Postpone a Rental Motorbike Trip From Hanoi",
+  "category_id": 133,
+  "category_path": [
+   39,
+   60,
+   115,
+   133
+  ],
+  "cluster": "weather",
+  "proposed_url": "https://rentbikehanoi.com/typhoon-season-northern-vietnam-postpone-motorbike-trip/",
+  "sources": [
+   {
+    "url": "https://nchmf.gov.vn/KttvSiteE/",
+    "supports": "Official tropical cyclone and heavy-rain warnings portal used to make the go-or-postpone decision.",
+    "fetch": "https://nchmf.gov.vn/KttvSiteE/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decide whether to postpone or reroute a day trip when a tropical cyclone warning is issued for northern Vietnam. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000015",
+  "primary_keyword": "hanoi motorbike rental weekly budget",
+  "search_intent": "Build a realistic weekly budget for renting a scooter in Hanoi using reference rental prices, official fuel prices and typical parking charges",
+  "proposed_title": "A Seven-Day Hanoi Motorbike Rental Budget: Rental, Fuel, Parking and Deposit Line by Line",
+  "category_id": 123,
+  "category_path": [
+   39,
+   60,
+   113,
+   123
+  ],
+  "cluster": "prices",
+  "proposed_url": "https://rentbikehanoi.com/seven-day-hanoi-motorbike-rental-budget-breakdown/",
+  "sources": [
+   {
+    "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html",
+    "supports": "Official retail fuel price listing used for the fuel line of the budget.",
+    "fetch": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+   },
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer fuel-consumption figure for a common 125cc automatic scooter used in the range calculation.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Build a realistic weekly budget for renting a scooter in Hanoi using reference rental prices, official fuel prices and typical parking charges. Nearest live titles differ in intent: A Hanoi Motorbike Day Budget: Fuel, Parking and Food Worksheet | Hanoi Botanical Garden by Motorbike: Parking and a Slow Morning Walk."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000016",
+  "primary_keyword": "automatic vs manual rental price hanoi",
+  "search_intent": "Explain the price gap between automatic scooters and manual or semi-automatic motorbikes and help a renter decide which is worth it for their trip",
+  "proposed_title": "Why Automatic Scooters Cost More to Rent Than Manual Bikes in Hanoi, and When the Difference Is Worth Paying",
+  "category_id": 123,
+  "category_path": [
+   39,
+   60,
+   113,
+   123
+  ],
+  "cluster": "prices",
+  "proposed_url": "https://rentbikehanoi.com/automatic-vs-manual-motorbike-rental-price-hanoi/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer page for a CVT automatic scooter showing drivetrain and consumption used in the comparison.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   },
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110",
+    "supports": "Manufacturer page for a semi-automatic 110cc motorbike used as the manual-side comparison.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the price gap between automatic scooters and manual or semi-automatic motorbikes and help a renter decide which is worth it for their trip. Nearest live titles differ in intent: Banh Duc Nong in Hanoi: What Is in the Topping and Sauce? | Where to Rent a High-Performance Sport Motorcycle in Hanoi."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000017",
+  "primary_keyword": "scooter fuel consumption cost hanoi",
+  "search_intent": "Calculate the real fuel cost of a rental scooter from manufacturer consumption figures and current official pump prices",
+  "proposed_title": "Fuel Cost per Kilometre on a Rental Scooter in Hanoi: Litres per 100 km and What One Tank Buys",
+  "category_id": 129,
+  "category_path": [
+   39,
+   60,
+   114,
+   129
+  ],
+  "cluster": "fuel",
+  "proposed_url": "https://rentbikehanoi.com/rental-scooter-fuel-cost-per-kilometre-hanoi/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer fuel-consumption and tank data for a 125cc scooter.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   },
+   {
+    "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html",
+    "supports": "Official retail fuel price list for the cost calculation.",
+    "fetch": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Calculate the real fuel cost of a rental scooter from manufacturer consumption figures and current official pump prices. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000018",
+  "primary_keyword": "e5 ron 92 vs ron 95 scooter vietnam",
+  "search_intent": "Understand the two petrol grades sold in Vietnam, which one a rental scooter should use and how to read the pump",
+  "proposed_title": "RON 95 or E5 RON 92 for a Rental Scooter in Vietnam: What the Pump Labels Mean",
+  "category_id": 129,
+  "category_path": [
+   39,
+   60,
+   114,
+   129
+  ],
+  "cluster": "fuel",
+  "proposed_url": "https://rentbikehanoi.com/ron-95-or-e5-ron-92-rental-scooter-vietnam/",
+  "sources": [
+   {
+    "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html",
+    "supports": "Official retail price list naming the grades sold at Vietnamese pumps.",
+    "fetch": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+   },
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer page stating fuel injection and consumption for a current scooter model.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the two petrol grades sold in Vietnam, which one a rental scooter should use and how to read the pump. Nearest live titles differ in intent: Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000019",
+  "primary_keyword": "electric scooter running cost hanoi",
+  "search_intent": "Estimate the running cost of an electric scooter rental from manufacturer range figures and the battery rental or swap model used in Vietnam",
+  "proposed_title": "What It Costs to Run an Electric Rental Scooter in Hanoi: Electricity, Battery Subscription and Range per Charge",
+  "category_id": 129,
+  "category_path": [
+   39,
+   60,
+   114,
+   129
+  ],
+  "cluster": "fuel",
+  "proposed_url": "https://rentbikehanoi.com/electric-rental-scooter-running-cost-hanoi/",
+  "sources": [
+   {
+    "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo",
+    "supports": "Manufacturer page describing the battery-swap model, range per charge and the national charging/swap network.",
+    "fetch": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+   },
+   {
+    "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200",
+    "supports": "Manufacturer specification for motor power, battery and range.",
+    "fetch": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Estimate the running cost of an electric scooter rental from manufacturer range figures and the battery rental or swap model used in Vietnam. Nearest live titles differ in intent: Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record | How to Rent an Electric Scooter in Hanoi: Step-by-Step Guide."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000020",
+  "primary_keyword": "rent or buy motorbike hanoi six months",
+  "search_intent": "Compare the total cost and paperwork of a long-term rental against buying and registering a motorbike for a stay of around six months",
+  "proposed_title": "Renting vs Buying a Motorbike in Hanoi for a Six-Month Stay: Registration, Resale and Total Cost",
+  "category_id": 125,
+  "category_path": [
+   39,
+   60,
+   113,
+   125
+  ],
+  "cluster": "long-term",
+  "proposed_url": "https://rentbikehanoi.com/renting-vs-buying-motorbike-hanoi-six-month-stay/",
+  "sources": [
+   {
+    "url": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676",
+    "supports": "Official registration procedure and document list a foreign buyer would face.",
+    "fetch": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676"
+   },
+   {
+    "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301",
+    "supports": "Official summary of registration rules in force from 2025.",
+    "fetch": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the total cost and paperwork of a long-term rental against buying and registering a motorbike for a stay of around six months. Nearest live titles differ in intent: Renting a Motorbike for a Film or Photo Shoot in Hanoi: Permissions to Confirm | Motorbike Renting in Hanoi: Requirements and Tips – Complete Guide."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000021",
+  "primary_keyword": "temporary residence vietnam long term rental",
+  "search_intent": "Explain how a long-term renter's visa validity and temporary residence declaration interact with a multi-month rental contract",
+  "proposed_title": "Long-Term Motorbike Rental and Your Vietnam Temporary Residence: Keeping Visa, Address and Contract Aligned",
+  "category_id": 125,
+  "category_path": [
+   39,
+   60,
+   113,
+   125
+  ],
+  "cluster": "long-term",
+  "proposed_url": "https://rentbikehanoi.com/long-term-motorbike-rental-vietnam-temporary-residence-paperwork/",
+  "sources": [
+   {
+    "url": "https://evisa.gov.vn/",
+    "supports": "Official immigration portal stating e-visa validity limits and the temporary residence declaration duty.",
+    "fetch": "https://evisa.gov.vn/"
+   },
+   {
+    "url": "https://evisa.gov.vn/faq",
+    "supports": "Official FAQ on e-visa validity and conditions.",
+    "fetch": "https://evisa.gov.vn/faq"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain how a long-term renter's visa validity and temporary residence declaration interact with a multi-month rental contract. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Motorbike Rental Vietnam vs Other Transport Options: Your Ultimate Transportation Guide."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000022",
+  "primary_keyword": "noi bai airport to motorbike rental shop",
+  "search_intent": "Plan the first leg from Noi Bai Airport to a Hanoi rental shop, comparing public buses, taxis and the questions to ask about delivery",
+  "proposed_title": "Collecting a Rental Motorbike After Landing at Noi Bai: Airport Bus, Taxi and Shop Pickup Compared",
+  "category_id": 126,
+  "category_path": [
+   39,
+   60,
+   113,
+   126
+  ],
+  "cluster": "delivery-return",
+  "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-to-motorbike-rental-shop-options/",
+  "sources": [
+   {
+    "url": "https://noibaiairport.vn/en/public-transportations-nid1.html",
+    "supports": "Official airport page listing public bus routes, fares and operating hours from Noi Bai.",
+    "fetch": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan the first leg from Noi Bai Airport to a Hanoi rental shop, comparing public buses, taxis and the questions to ask about delivery. Nearest live titles differ in intent: Helmet Fit at Motorbike Pickup: A Strap and Size Checklist | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000023",
+  "primary_keyword": "return motorbike before train hanoi station",
+  "search_intent": "Schedule a rental return around an evening train departure from Hanoi Station, including luggage handling and the last transfer",
+  "proposed_title": "Returning a Rental Motorbike Before a Night Train From Hanoi Station: Timing and Luggage Plan",
+  "category_id": 126,
+  "category_path": [
+   39,
+   60,
+   113,
+   126
+  ],
+  "cluster": "delivery-return",
+  "proposed_url": "https://rentbikehanoi.com/return-rental-motorbike-before-night-train-hanoi-station/",
+  "sources": [
+   {
+    "url": "https://dsvn.vn/images/1_RegulationsOnTransport.pdf",
+    "supports": "Official Vietnam Railways page on Hanoi Station services or luggage rules.",
+    "fetch": "https://dsvn.vn/images/1_RegulationsOnTransport.pdf"
+   },
+   {
+    "url": "https://noibaiairport.vn/en/public-transportations-nid1.html",
+    "supports": "Official airport page listing bus 86 which links Hanoi Station and the airport, used for the transfer context.",
+    "fetch": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Schedule a rental return around an evening train departure from Hanoi Station, including luggage handling and the last transfer. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000024",
+  "primary_keyword": "scooter service interval rental",
+  "search_intent": "Translate manufacturer service schedules into what a renter should expect the shop to do and when, during a multi-week rental",
+  "proposed_title": "Scooter Oil Change and Service Intervals for Rental Riders: Reading Honda and Yamaha Schedules",
+  "category_id": 130,
+  "category_path": [
+   39,
+   60,
+   114,
+   130
+  ],
+  "cluster": "maintenance",
+  "proposed_url": "https://rentbikehanoi.com/scooter-oil-change-service-intervals-rental-riders/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer specification page for a current Yamaha scooter.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   },
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2",
+    "supports": "Manufacturer page for the most common Honda rental scooter.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Translate manufacturer service schedules into what a renter should expect the shop to do and when, during a multi-week rental. Nearest live titles differ in intent: Scooter Fit Before Renting: A Stationary Test for Short and Tall Riders | Find the Exact Manual for Your Rental Scooter: Model Code, Year and Market."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000025",
+  "primary_keyword": "cvt belt wear scooter symptoms",
+  "search_intent": "Recognise the vibration, hesitation and noise symptoms of CVT wear on an automatic rental scooter and report them correctly",
+  "proposed_title": "CVT Belt and Roller Wear on an Automatic Scooter: Symptoms a Renter Should Report",
+  "category_id": 130,
+  "category_path": [
+   39,
+   60,
+   114,
+   130
+  ],
+  "cluster": "maintenance",
+  "proposed_url": "https://rentbikehanoi.com/cvt-belt-roller-wear-automatic-scooter-symptoms/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer page confirming the CVT automatic drivetrain on a common rental scooter.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Recognise the vibration, hesitation and noise symptoms of CVT wear on an automatic rental scooter and report them correctly. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000026",
+  "primary_keyword": "motorbike chain check rental",
+  "search_intent": "Show a renter of a Honda Wave-type semi-automatic how to inspect chain slack and lubrication weekly without tools",
+  "proposed_title": "Chain Care on a Semi-Automatic Rental Motorbike: Weekly Slack and Lubrication Checks",
+  "category_id": 130,
+  "category_path": [
+   39,
+   60,
+   114,
+   130
+  ],
+  "cluster": "maintenance",
+  "proposed_url": "https://rentbikehanoi.com/chain-care-semi-automatic-rental-motorbike-weekly-checks/",
+  "sources": [
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110",
+    "supports": "Manufacturer page for a chain-driven semi-automatic motorbike.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Show a renter of a Honda Wave-type semi-automatic how to inspect chain slack and lubrication weekly without tools. Nearest live titles differ in intent: Charging Your Phone on a Rental Motorbike: Ports and Cable Checks | Carrying a Rental Motorbike on a Ferry in Northern Vietnam: Permission and Operator Checks."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000027",
+  "primary_keyword": "scooter brake pad wear check",
+  "search_intent": "Teach a renter to spot worn disc pads and drum shoes on a scooter and when to stop riding",
+  "proposed_title": "Brake Pad and Shoe Wear on a Rental Scooter: Disc and Drum Checks Without Tools",
+  "category_id": 130,
+  "category_path": [
+   39,
+   60,
+   114,
+   130
+  ],
+  "cluster": "maintenance",
+  "proposed_url": "https://rentbikehanoi.com/rental-scooter-brake-pad-drum-wear-checks/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer page listing front disc and rear drum brakes on a common scooter.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Teach a renter to spot worn disc pads and drum shoes on a scooter and when to stop riding. Nearest live titles differ in intent: Securing a Backpack on a Hanoi Rental Bike: Load and Visibility Checks | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000028",
+  "primary_keyword": "electric scooter battery care renter",
+  "search_intent": "Protect range and avoid damage on an electric rental scooter with charging and parking habits based on manufacturer guidance",
+  "proposed_title": "Electric Scooter Battery Care for Renters: Charging Habits, Heat and Range Loss",
+  "category_id": 143,
+  "category_path": [
+   39,
+   60,
+   127,
+   143
+  ],
+  "cluster": "electric",
+  "proposed_url": "https://rentbikehanoi.com/electric-scooter-battery-care-renters-charging-heat-range/",
+  "sources": [
+   {
+    "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html",
+    "supports": "Manufacturer page with battery type, capacity, charging time and range caveats.",
+    "fetch": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+   },
+   {
+    "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200",
+    "supports": "Manufacturer specification for battery and water-resistance rating.",
+    "fetch": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Protect range and avoid damage on an electric rental scooter with charging and parking habits based on manufacturer guidance. Nearest live titles differ in intent: Hanoi Electric Bike Rental: Requirements & Conditions for Renters | Electric or Petrol for a Hanoi Commute: A Charging-Access Worksheet."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000029",
+  "primary_keyword": "vinfast evo200 rental",
+  "search_intent": "Assess the Evo200 for a visitor's rental using manufacturer specifications rather than marketing claims",
+  "proposed_title": "VinFast Evo200 as a Rental Electric Scooter: Range, Speed and Charging Facts From the Spec Sheet",
+  "category_id": 143,
+  "category_path": [
+   39,
+   60,
+   127,
+   143
+  ],
+  "cluster": "electric",
+  "proposed_url": "https://rentbikehanoi.com/vinfast-evo200-rental-electric-scooter-spec-sheet/",
+  "sources": [
+   {
+    "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200",
+    "supports": "Manufacturer specification page for the Evo200.",
+    "fetch": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Assess the Evo200 for a visitor's rental using manufacturer specifications rather than marketing claims. Nearest live titles differ in intent: A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000030",
+  "primary_keyword": "vinfast feliz vs evo",
+  "search_intent": "Compare two current VinFast electric scooters on seat height, storage, range and battery model for a short-term renter",
+  "proposed_title": "VinFast Feliz 2025 vs VinFast Evo: Which Electric Scooter Suits a Hanoi Visitor?",
+  "category_id": 143,
+  "category_path": [
+   39,
+   60,
+   127,
+   143
+  ],
+  "cluster": "electric",
+  "proposed_url": "https://rentbikehanoi.com/vinfast-feliz-2025-vs-evo-electric-scooter-hanoi-visitor/",
+  "sources": [
+   {
+    "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html",
+    "supports": "Manufacturer page for Feliz 2025 specifications.",
+    "fetch": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+   },
+   {
+    "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo",
+    "supports": "Manufacturer page for Evo specifications and battery model.",
+    "fetch": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare two current VinFast electric scooters on seat height, storage, range and battery model for a short-term renter. Nearest live titles differ in intent: Electric Bike vs Electric Scooter Rental Hanoi: Compare Prices | Hanoi Electric Scooter Rental: Common Questions Answered."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000031",
+  "primary_keyword": "battery swap electric scooter hanoi",
+  "search_intent": "Explain the practical difference between battery-swap and home-charged electric scooters for a renter planning daily range",
+  "proposed_title": "Battery-Swap vs Plug-In Electric Scooters in Hanoi: How the Model Changes Range Planning for Renters",
+  "category_id": 143,
+  "category_path": [
+   39,
+   60,
+   127,
+   143
+  ],
+  "cluster": "electric",
+  "proposed_url": "https://rentbikehanoi.com/battery-swap-vs-plug-in-electric-scooters-hanoi-renters/",
+  "sources": [
+   {
+    "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo",
+    "supports": "Manufacturer page describing the swap model and network size.",
+    "fetch": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+   },
+   {
+    "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html",
+    "supports": "Manufacturer page describing a plug-in model with charging time.",
+    "fetch": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the practical difference between battery-swap and home-charged electric scooters for a renter planning daily range. Nearest live titles differ in intent: Hanoi Electric Bike Rental: Requirements & Conditions for Renters | Pho Tron in Hanoi: How the Dry Bowl Differs From Pho Soup."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000032",
+  "primary_keyword": "50cc moped speed limit vietnam",
+  "search_intent": "Understand the legal 40 km/h ceiling for the moped class and how it restricts route choices beyond the city",
+  "proposed_title": "Why a 50cc Moped Is Limited to 40 km/h in Vietnam and What That Means for Hanoi Day Trips",
+  "category_id": 143,
+  "category_path": [
+   39,
+   60,
+   127,
+   143
+  ],
+  "cluster": "electric",
+  "proposed_url": "https://rentbikehanoi.com/50cc-moped-40-kmh-limit-vietnam-day-trips/",
+  "sources": [
+   {
+    "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+    "supports": "Official provincial page describing licence classes including the under-50cc moped class.",
+    "fetch": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the legal 40 km/h ceiling for the moped class and how it restricts route choices beyond the city. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Vietnamese Silk Paintings: What to Look For in a Hanoi Gallery."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000033",
+  "primary_keyword": "yamaha janus vs honda vision rental",
+  "search_intent": "Compare the two most common 125cc automatic rental scooters on measurable specifications",
+  "proposed_title": "Yamaha Janus vs Honda Vision for a Hanoi Rental: Seat Height, Storage and Fuel Use Compared",
+  "category_id": 141,
+  "category_path": [
+   39,
+   60,
+   127,
+   141
+  ],
+  "cluster": "automatic",
+  "proposed_url": "https://rentbikehanoi.com/yamaha-janus-vs-honda-vision-hanoi-rental/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+    "supports": "Manufacturer specifications for Janus.",
+    "fetch": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+   },
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2",
+    "supports": "Manufacturer specifications for Vision.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the two most common 125cc automatic rental scooters on measurable specifications. Nearest live titles differ in intent: How to Track Fuel Use on a Monthly Hanoi Motorbike Rental | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000034",
+  "primary_keyword": "yamaha grande hybrid rental",
+  "search_intent": "Explain the Grande's hybrid assist and storage features for renters deciding between premium scooters",
+  "proposed_title": "Yamaha Grande as a Rental Scooter: What the Blue Core Hybrid Means for Fuel Use and Riding Feel",
+  "category_id": 141,
+  "category_path": [
+   39,
+   60,
+   127,
+   141
+  ],
+  "cluster": "automatic",
+  "proposed_url": "https://rentbikehanoi.com/yamaha-grande-hybrid-rental-scooter/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/",
+    "supports": "Manufacturer specifications for Grande.",
+    "fetch": "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the Grande's hybrid assist and storage features for renters deciding between premium scooters. Nearest live titles differ in intent: A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop | Find the Exact Manual for Your Rental Scooter: Model Code, Year and Market."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000035",
+  "primary_keyword": "yamaha nvx 155 rental licence",
+  "search_intent": "Clarify which licence class a 155cc scooter requires and who benefits from its power on Hanoi roads",
+  "proposed_title": "Yamaha NVX 155 as a Rental: Licence Class, Power and Who Should Choose It",
+  "category_id": 141,
+  "category_path": [
+   39,
+   60,
+   127,
+   141
+  ],
+  "cluster": "automatic",
+  "proposed_url": "https://rentbikehanoi.com/yamaha-nvx-155-rental-licence-class-power/",
+  "sources": [
+   {
+    "url": "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7",
+    "supports": "Manufacturer specifications for NVX 155.",
+    "fetch": "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7"
+   },
+   {
+    "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+    "supports": "Official page defining A1 (to 125cc) and A (over 125cc) classes.",
+    "fetch": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Clarify which licence class a 155cc scooter requires and who benefits from its power on Hanoi roads. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | A Rental Scooter’s Horn Stops Working: Report It Before Continuing."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000036",
+  "primary_keyword": "honda air blade commute rental",
+  "search_intent": "Evaluate the Air Blade as a monthly commuter rental using manufacturer features and consumption data",
+  "proposed_title": "Honda Air Blade for a Daily Hanoi Commute: Fuel Injection, Idling Stop and Storage in Practice",
+  "category_id": 141,
+  "category_path": [
+   39,
+   60,
+   127,
+   141
+  ],
+  "cluster": "automatic",
+  "proposed_url": "https://rentbikehanoi.com/honda-air-blade-daily-hanoi-commute-rental/",
+  "sources": [
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2",
+    "supports": "Manufacturer specifications for Air Blade.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Evaluate the Air Blade as a monthly commuter rental using manufacturer features and consumption data. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | Rental Motorbike Keys in Hanoi: Spare Keys, Loss, and Safe Storage."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000037",
+  "primary_keyword": "honda future 125 rental",
+  "search_intent": "Describe the Future 125's clutchless gearbox and economy for renters who want gears without a clutch lever",
+  "proposed_title": "Honda Future 125 as a Rental: The Semi-Automatic Middle Ground Explained",
+  "category_id": 142,
+  "category_path": [
+   39,
+   60,
+   127,
+   142
+  ],
+  "cluster": "manual",
+  "proposed_url": "https://rentbikehanoi.com/honda-future-125-rental-semi-automatic/",
+  "sources": [
+   {
+    "url": "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1",
+    "supports": "Manufacturer specifications for Future 125.",
+    "fetch": "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Describe the Future 125's clutchless gearbox and economy for renters who want gears without a clutch lever. Nearest live titles differ in intent: How to Verify a Hanoi Scooter Automatic Rental Pickup Address | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000038",
+  "primary_keyword": "suitcase on scooter hanoi",
+  "search_intent": "Explain why a wheeled suitcase cannot be carried safely on a scooter and lay out the transfer alternatives",
+  "proposed_title": "Carrying a Suitcase on a Rental Scooter in Hanoi: Why It Fails and the Alternatives That Work",
+  "category_id": 131,
+  "category_path": [
+   39,
+   60,
+   114,
+   131
+  ],
+  "cluster": "luggage",
+  "proposed_url": "https://rentbikehanoi.com/carrying-suitcase-rental-scooter-hanoi-alternatives/",
+  "sources": [
+   {
+    "url": "https://noibaiairport.vn/en/public-transportations-nid1.html",
+    "supports": "Official airport page listing bus and transport alternatives for luggage transfers.",
+    "fetch": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain why a wheeled suitcase cannot be carried safely on a scooter and lay out the transfer alternatives. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000040",
+  "primary_keyword": "hanoi metro park and ride motorbike",
+  "search_intent": "Combine a rental scooter with the metro by parking at stations on Line 2A and Line 3 and paying metro fares",
+  "proposed_title": "Park and Ride With the Hanoi Metro: Leaving a Rental Scooter at Cat Linh or Nhon Line Stations",
+  "category_id": 132,
+  "category_path": [
+   39,
+   60,
+   115,
+   132
+  ],
+  "cluster": "parking",
+  "proposed_url": "https://rentbikehanoi.com/park-and-ride-hanoi-metro-rental-scooter/",
+  "sources": [
+   {
+    "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1",
+    "supports": "Official Hanoi Metro fare page.",
+    "fetch": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+   },
+   {
+    "url": "https://metrohanoi.vn/en/?noredirect=en_US",
+    "supports": "Official station list for the two operating lines.",
+    "fetch": "https://metrohanoi.vn/en/?noredirect=en_US"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Combine a rental scooter with the metro by parking at stations on Line 2A and Line 3 and paying metro fares. Nearest live titles differ in intent: Ninh Binh from Hanoi: Self-Ride or Bus and Local Rental? | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000041",
+  "primary_keyword": "vietnam emergency numbers motorbike",
+  "search_intent": "List the official emergency numbers and what information to give after a breakdown or accident",
+  "proposed_title": "Emergency Numbers in Vietnam for Motorbike Riders: 113, 114, 115 and What to Say",
+  "category_id": 134,
+  "category_path": [
+   39,
+   60,
+   115,
+   134
+  ],
+  "cluster": "breakdowns",
+  "proposed_url": "https://rentbikehanoi.com/vietnam-emergency-numbers-motorbike-riders/",
+  "sources": [
+   {
+    "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html",
+    "supports": "US State Department country page listing Vietnam emergency contacts and road safety notes.",
+    "fetch": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
+   },
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+    "supports": "UK government safety page for Vietnam.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: List the official emergency numbers and what information to give after a breakdown or accident. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000042",
+  "primary_keyword": "cau giay my dinh motorbike",
+  "search_intent": "Help a renter working or staying in the western districts understand the main roads, underpasses and metro links",
+  "proposed_title": "Cau Giay and My Dinh by Motorbike: Navigating Hanoi's Western Business Districts",
+  "category_id": 135,
+  "category_path": [
+   39,
+   59,
+   117,
+   135
+  ],
+  "cluster": "neighborhoods",
+  "proposed_url": "https://rentbikehanoi.com/cau-giay-my-dinh-motorbike-hanoi-western-districts/",
+  "sources": [
+   {
+    "url": "https://metrohanoi.vn/en/?noredirect=en_US",
+    "supports": "Official station list for Line 3, which serves Cau Giay.",
+    "fetch": "https://metrohanoi.vn/en/?noredirect=en_US"
+   },
+   {
+    "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1",
+    "supports": "Official metro fare page used as the primary factual reference for this topic.",
+    "fetch": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Help a renter working or staying in the western districts understand the main roads, underpasses and metro links. Nearest live titles differ in intent: Hanoi Book Street by Motorbike: Parking and Nearby Stops | Thay Pagoda from Hanoi by Motorbike: Arrival, Parking and Temple Etiquette."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000043",
+  "primary_keyword": "perfume pagoda motorbike hanoi",
+  "search_intent": "Plan a full day to Chua Huong including the ride, the boat leg and the festival-season crowd question",
+  "proposed_title": "Perfume Pagoda From Hanoi by Motorbike: Route, Boat Transfer and Festival Timing",
+  "category_id": 137,
+  "category_path": [
+   39,
+   59,
+   116,
+   137
+  ],
+  "cluster": "day-trips",
+  "proposed_url": "https://rentbikehanoi.com/perfume-pagoda-from-hanoi-by-motorbike/",
+  "sources": [
+   {
+    "url": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival",
+    "supports": "Official tourism or local government page about the Perfume Pagoda complex.",
+    "fetch": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a full day to Chua Huong including the ride, the boat leg and the festival-season crowd question. Nearest live titles differ in intent: Tay Phuong Pagoda from Hanoi by Motorbike: Steps, Parking and Return Timing | Thay Pagoda from Hanoi by Motorbike: Arrival, Parking and Temple Etiquette."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000044",
+  "primary_keyword": "con son kiep bac motorbike",
+  "search_intent": "Plan a day ride east of Hanoi to the Con Son Kiep Bac relic complex",
+  "proposed_title": "Con Son and Kiep Bac From Hanoi by Motorbike: A Hai Duong Day Trip Beyond the Usual List",
+  "category_id": 137,
+  "category_path": [
+   39,
+   59,
+   116,
+   137
+  ],
+  "cluster": "day-trips",
+  "proposed_url": "https://rentbikehanoi.com/con-son-kiep-bac-from-hanoi-by-motorbike/",
+  "sources": [
+   {
+    "url": "https://vietnamtourism.gov.vn/en/post/10405",
+    "supports": "Official page describing the Con Son Kiep Bac relic site.",
+    "fetch": "https://vietnamtourism.gov.vn/en/post/10405"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a day ride east of Hanoi to the Con Son Kiep Bac relic complex. Nearest live titles differ in intent: Duong Lam from Hanoi by Motorbike: Village Access and a Day-Trip Plan | Dong Mo from Hanoi by Motorbike: A Lakeside Day-Trip Checklist."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000045",
+  "primary_keyword": "pho hien hung yen motorbike",
+  "search_intent": "Plan a day ride to Pho Hien ancient town in Hung Yen along the Red River",
+  "proposed_title": "Hung Yen's Pho Hien From Hanoi by Motorbike: A Riverside Heritage Day Trip",
+  "category_id": 137,
+  "category_path": [
+   39,
+   59,
+   116,
+   137
+  ],
+  "cluster": "day-trips",
+  "proposed_url": "https://rentbikehanoi.com/pho-hien-hung-yen-from-hanoi-by-motorbike/",
+  "sources": [
+   {
+    "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html",
+    "supports": "Official page describing Pho Hien.",
+    "fetch": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a day ride to Pho Hien ancient town in Hung Yen along the Red River. Nearest live titles differ in intent: Dong Mo from Hanoi by Motorbike: A Lakeside Day-Trip Checklist | Duong Lam from Hanoi by Motorbike: Village Access and a Day-Trip Plan."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000047",
+  "primary_keyword": "hanoi cat ba motorbike ferry",
+  "search_intent": "Plan a weekend ride to Cat Ba including the ferry crossing and what to confirm about taking a rental bike across",
+  "proposed_title": "Hanoi to Cat Ba by Motorbike and Ferry: Pier Logistics and Island Riding",
+  "category_id": 138,
+  "category_path": [
+   39,
+   59,
+   116,
+   138
+  ],
+  "cluster": "weekend-trips",
+  "proposed_url": "https://rentbikehanoi.com/hanoi-to-cat-ba-by-motorbike-and-ferry/",
+  "sources": [
+   {
+    "url": "https://catbanationalpark.com/",
+    "supports": "Official page about Cat Ba island or national park visiting.",
+    "fetch": "https://catbanationalpark.com/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a weekend ride to Cat Ba including the ferry crossing and what to confirm about taking a rental bike across. Nearest live titles differ in intent: Hanoi Book Street by Motorbike: Parking and Nearby Stops | How to Compare Two Hanoi Motorbike Rental Quotes Line by Line."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000049",
+  "primary_keyword": "moc chau motorbike hanoi weekend",
+  "search_intent": "Plan a weekend ride to the Moc Chau plateau with distance, road character and seasonal timing",
+  "proposed_title": "Hanoi to Moc Chau by Motorbike: A Weekend on National Route 6",
+  "category_id": 138,
+  "category_path": [
+   39,
+   59,
+   116,
+   138
+  ],
+  "cluster": "weekend-trips",
+  "proposed_url": "https://rentbikehanoi.com/hanoi-to-moc-chau-by-motorbike-weekend/",
+  "sources": [
+   {
+    "url": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape",
+    "supports": "Official page about Moc Chau used as the primary factual reference for this topic.",
+    "fetch": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a weekend ride to the Moc Chau plateau with distance, road character and seasonal timing. Nearest live titles differ in intent: Hanoi to Hai Phong by Motorbike: A Non-Expressway Route Checklist | B52 Victory Museum by Motorbike: A Small Hanoi History Route."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000050",
+  "primary_keyword": "vietnam e-visa motorbike trip",
+  "search_intent": "Understand the e-visa rules that shape how long a visitor can rent and ride in Vietnam",
+  "proposed_title": "Vietnam E-Visa for a Motorbike Trip: 90-Day Validity, Entry Points and What Rental Shops Check",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/vietnam-e-visa-motorbike-trip-90-day-validity/",
+  "sources": [
+   {
+    "url": "https://evisa.gov.vn/",
+    "supports": "Official e-visa portal stating validity and conditions.",
+    "fetch": "https://evisa.gov.vn/"
+   },
+   {
+    "url": "https://evisa.gov.vn/faq",
+    "supports": "Official e-visa FAQ used as the primary factual reference for this topic.",
+    "fetch": "https://evisa.gov.vn/faq"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the e-visa rules that shape how long a visitor can rent and ride in Vietnam. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000051",
+  "primary_keyword": "vietnam visa exemption stay limit",
+  "search_intent": "Match a motorbike rental period to the temporary stay granted under visa exemption",
+  "proposed_title": "Visa-Free Entry to Vietnam: Temporary Stay Limits and Planning a Rental Around Your Exit Date",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/visa-free-entry-vietnam-stay-limit-rental-planning/",
+  "sources": [
+   {
+    "url": "https://evisa.gov.vn/",
+    "supports": "Official portal describing visa-exemption stay periods.",
+    "fetch": "https://evisa.gov.vn/"
+   },
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements",
+    "supports": "UK government entry requirements page for Vietnam.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Match a motorbike rental period to the temporary stay granted under visa exemption. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Charging Your Phone on a Rental Motorbike: Ports and Cable Checks."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000052",
+  "primary_keyword": "temporary residence declaration vietnam hotel",
+  "search_intent": "Explain the legal duty behind hotel passport registration and how it interacts with a rental shop's document requests",
+  "proposed_title": "Temporary Residence Declaration in Vietnam: Why Your Hotel Takes Your Passport Details and What It Means for Rentals",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/temporary-residence-declaration-vietnam-hotel-passport/",
+  "sources": [
+   {
+    "url": "https://evisa.gov.vn/",
+    "supports": "Official portal stating the temporary residence declaration duty for foreigners.",
+    "fetch": "https://evisa.gov.vn/"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the legal duty behind hotel passport registration and how it interacts with a rental shop's document requests. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Overnight Motorbike Parking in Hanoi: Questions for Your Hotel."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000053",
+  "primary_keyword": "embassies in hanoi lost passport",
+  "search_intent": "Locate foreign embassies in Hanoi and plan for passport loss during a rental",
+  "proposed_title": "Embassies in Hanoi: Finding Yours and What a Lost or Held Passport Means for a Motorbike Rental",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/embassies-in-hanoi-lost-passport-motorbike-rental/",
+  "sources": [
+   {
+    "url": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx",
+    "supports": "Official Ministry of Foreign Affairs State Protocol list of foreign missions and addresses.",
+    "fetch": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Locate foreign embassies in Hanoi and plan for passport loss during a rental. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000054",
+  "primary_keyword": "noi bai airport bus routes",
+  "search_intent": "Choose the right public bus from Noi Bai using the official route list, fares and hours",
+  "proposed_title": "Noi Bai Airport Buses 86, 90, 17 and 109: Which One Stops Closest to Your Hanoi Hotel",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-buses-86-90-17-109-hanoi/",
+  "sources": [
+   {
+    "url": "https://noibaiairport.vn/en/public-transportations-nid1.html",
+    "supports": "Official airport page listing routes, fares and hours.",
+    "fetch": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Choose the right public bus from Noi Bai using the official route list, fares and hours. Nearest live titles differ in intent: A Hanoi Hotel Closes Its Gate Early: Plan Access to Your Parked Motorbike | Overnight Motorbike Parking in Hanoi: Questions for Your Hotel."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000055",
+  "primary_keyword": "hanoi metro fares visitors",
+  "search_intent": "Explain the two operating metro lines, fares and when a visitor should use them instead of riding",
+  "proposed_title": "Hanoi Metro for Visitors: Fares, Hours and How It Pairs With a Motorbike Rental",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/hanoi-metro-for-visitors-fares-hours/",
+  "sources": [
+   {
+    "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1",
+    "supports": "Official fare page used as the primary factual reference for this topic.",
+    "fetch": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+   },
+   {
+    "url": "https://metrohanoi.vn/en/?noredirect=en_US",
+    "supports": "Official station list used as the primary factual reference for this topic.",
+    "fetch": "https://metrohanoi.vn/en/?noredirect=en_US"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the two operating metro lines, fares and when a visitor should use them instead of riding. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000056",
+  "primary_keyword": "hanoi hospitals travel advice riders",
+  "search_intent": "Summarise official travel-health guidance relevant to a rider, including insurance expectations and emergency care",
+  "proposed_title": "Medical Care in Hanoi for Visiting Riders: What Official Travel Advice Says About Hospitals and Insurance",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/medical-care-hanoi-visiting-riders-official-advice/",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health",
+    "supports": "UK government health advice for Vietnam.",
+    "fetch": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
+   },
+   {
+    "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html",
+    "supports": "US State Department page with health and safety notes.",
+    "fetch": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Summarise official travel-health guidance relevant to a rider, including insurance expectations and emergency care. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | 50cc Motorbike Rental in Hanoi for Beginners: What to Know."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000057",
+  "primary_keyword": "vietnam customs allowance travellers",
+  "search_intent": "Know what a visiting rider can bring into Vietnam and what must be declared",
+  "proposed_title": "Vietnam Customs Rules for Riders: Helmets, Cameras, Drones and Medicines at the Border",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/vietnam-customs-rules-riders-helmets-cameras-drones/",
+  "sources": [
+   {
+    "url": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281",
+    "supports": "Official customs page on allowances and declarations.",
+    "fetch": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Know what a visiting rider can bring into Vietnam and what must be declared. Nearest live titles differ in intent: Motorcycle License for Renting in Vietnam: Requirements & Rules | Vietnam Off-Road Motorcycle Rental: Cost, Rules, and Tips."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000059",
+  "primary_keyword": "hanoi low emission zone motorbike ban",
+  "search_intent": "Understand the official low-emission-zone scheme for central Hanoi, its timeline and vehicle categories, and how it may affect a rental motorbike choice",
+  "proposed_title": "Hanoi's Low-Emission Zone Scheme: What It Covers and What It Means for Motorbike Rentals",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/hanoi-low-emission-zone-ring-road-1-motorbike-restriction/",
+  "sources": [
+   {
+    "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm",
+    "supports": "Official source on the low-emission zone and the Ring Road 1 restriction.",
+    "fetch": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the official low-emission-zone scheme for central Hanoi, its timeline and vehicle categories, and how it may affect a rental motorbike choice. Nearest live titles differ in intent: Motorbike Rental for Hanoi Old Quarter Stays: Pickup and Delivery | 50cc Motorbike Rental in Hanoi for Beginners: What to Know."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000060",
+  "primary_keyword": "vietnam motorbike number plate codes",
+  "search_intent": "Decode the province series on a Vietnamese plate and why it matters when checking a rental bike's papers",
+  "proposed_title": "Reading Vietnamese Motorbike Number Plates: Province Codes and What a Hanoi Plate Tells You",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/reading-vietnamese-motorbike-number-plates-province-codes/",
+  "sources": [
+   {
+    "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617",
+    "supports": "Official source describing plate series and province codes.",
+    "fetch": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617"
+   },
+   {
+    "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301",
+    "supports": "Official summary of plate issuance rules.",
+    "fetch": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decode the province series on a Vietnamese plate and why it matters when checking a rental bike's papers. Nearest live titles differ in intent: Motorbike Tyre Age Codes: What the Date Can and Cannot Tell a Renter | Banh Che Lam: A Northern Sweet and What Its Ingredient List Tells You."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ },
+ {
+  "topic_id": "TH-000061",
+  "primary_keyword": "vietnam motorbike emissions inspection",
+  "search_intent": "Explain the planned emissions testing regime for motorbikes and how it affects the age of bikes a renter should accept",
+  "proposed_title": "Motorbike Emissions Inspection in Vietnam: The Roadmap and What It Means for Older Rental Bikes",
+  "category_id": 139,
+  "category_path": [
+   39,
+   59,
+   139
+  ],
+  "cluster": "practicalities",
+  "proposed_url": "https://rentbikehanoi.com/motorbike-emissions-inspection-vietnam-roadmap-rental-bikes/",
+  "sources": [
+   {
+    "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html",
+    "supports": "Official source on the emissions inspection roadmap.",
+    "fetch": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html"
+   }
+  ],
+  "intent_review": {
+   "verdict": "DISTINCT",
+   "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the planned emissions testing regime for motorbikes and how it affects the age of bikes a renter should accept. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer."
+  },
+  "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record."
+ }
+]

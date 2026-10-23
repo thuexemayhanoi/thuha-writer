@@ -1,0 +1,400 @@
+{
+ "resolved_searches": {
+  "SEARCH official .gov.vn source (bocongan.gov.vn, Circular 79/2024/TT-BCA) describing vehicle number plate series and province codes (ky hieu bien so xe theo tinh)": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617",
+  "SEARCH official .gov.vn source on compulsory civil liability insurance for motorbike owners (bao hiem trach nhiem dan su bat buoc xe may, Decree 67/2023/ND-CP) coverage limits": "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329",
+  "SEARCH official .gov.vn source on the roadmap for motorbike emissions inspection (kiem dinh khi thai xe mo to, xe gan may) under Law 36/2024 and its implementing decree, including Hanoi dates": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html",
+  "SEARCH official Cuc Phuong National Park (cucphuongtourism.com.vn) or Ninh Binh (.gov.vn) visitor page": "http://www.cucphuongtourism.com.vn/",
+  "SEARCH official Hai Duong province (.gov.vn) or vietnam.travel page about Con Son Kiep Bac relic site": "https://vietnamtourism.gov.vn/en/post/10405",
+  "SEARCH official Hai Phong (.gov.vn) or Cat Ba National Park official page or vietnam.travel page about Cat Ba island visiting and ferries": "https://catbanationalpark.com/",
+  "SEARCH official Hanoi Metro (metrohanoi.vn) page listing stations of Line 2A Cat Linh - Ha Dong and Line 3 Nhon - Ga Ha Noi": "https://metrohanoi.vn/en/?noredirect=en_US",
+  "SEARCH official Hanoi city (hanoi.gov.vn or a .gov.vn Hanoi department) page or resolution on motorbike parking fees (gia dich vu trong giu xe may) currently in force": "http://sovhttdl.hanoi.gov.vn/wp-content/uploads/2026/05/ke-hoach-so-198kh-ubnd-ngay-2252026-cua-ubnd-thanh-pho.pdf",
+  "SEARCH official Honda Vietnam (hondaxemay.com.vn) product page for Honda Air Blade with specifications": "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2",
+  "SEARCH official Honda Vietnam (hondaxemay.com.vn) product page for Honda Future 125 FI with specifications": "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1",
+  "SEARCH official Honda Vietnam (hondaxemay.com.vn) product page for Honda Vision with specifications": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2",
+  "SEARCH official Honda Vietnam (hondaxemay.com.vn) product page for Honda Wave Alpha 110 with specifications": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110",
+  "SEARCH official Hung Yen province (.gov.vn) or vietnam.travel page about Pho Hien ancient town": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html",
+  "SEARCH official Petrolimex (petrolimex.com.vn) current retail fuel price page listing RON 95 and E5 RON 92": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html",
+  "SEARCH official Son La (.gov.vn) or vietnam.travel page about Moc Chau plateau visiting": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape",
+  "SEARCH official Thanh Hoa (.gov.vn) or Pu Luong Nature Reserve official page or vietnam.travel page about Pu Luong": "http://puluong.web.vnptthanhhoa.com.vn/web/trang-chu/du-lich-pu-luong",
+  "SEARCH official Transerco (transerco.com.vn) or Hanoi public transport (.gov.vn) page about bus fares and monthly passes": "http://timbus.vn/article.aspx?id=590",
+  "SEARCH official Vietnam Customs (customs.gov.vn) page on duty-free allowances and items travellers must declare on entry": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281",
+  "SEARCH official Vietnam Railways (dsvn.vn) page about Hanoi Station departures or passenger luggage rules": "https://dsvn.vn/images/1_RegulationsOnTransport.pdf",
+  "SEARCH official Vietnam tourism (vietnam.travel) or Hanoi (.gov.vn) page about Perfume Pagoda (Chua Huong, My Duc) visiting": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival",
+  "SEARCH official Yamaha Motor Vietnam (yamaha-motor.com.vn) product page for Yamaha Grande with specifications": "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/",
+  "SEARCH official Yamaha Motor Vietnam (yamaha-motor.com.vn) product page for Yamaha NVX 155 VVA with specifications": "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7",
+  "SEARCH official source (.gov.vn or chinhphu.vn) on Hanoi low-emission zone and the restriction on petrol motorbikes inside Ring Road 1 (Vanh dai 1) from 1 July 2026 under Directive 20/CT-TTg": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
+ },
+ "notes": [
+  "Content is verbatim tool output: full_content (markdown) where a full-content fetch succeeded, otherwise the excerpt-mode snippets joined with newlines (tool inserts '...' between non-contiguous excerpts).",
+  "Many pages are Vietnamese-language (bocongan.gov.vn, hungyen.gov.vn, camau.gov.vn, honda.com.vn, yamaha-motor.com.vn, petrolimex.com.vn, sovhttdl.hanoi.gov.vn PDF, sovhttdl.hungyen.gov.vn, puluong.web.vnptthanhhoa.com.vn, timbus.vn, xaydungchinhsach.chinhphu.vn, metrohanoi.vn fares, dichvucong.bocongan.gov.vn, bachngoc.nghean.gov.vn, vinfastauto.com).",
+  "Honda Vietnam: hondaxemay.com.vn no longer serves product pages; the official manufacturer domain is honda.com.vn/xe-may, so the four Honda searches resolve there. Air Blade and Vision excerpts only partially capture the spec table (weight and dimensions); Future 125 FI and Wave Alpha 110 excerpts include the full spec table.",
+  "Plates (Circular 79/2024/TT-BCA): the bocongan.gov.vn article covers plate colours/series and foreign-vehicle codes (NG, QT, CV, NN) but not the per-province numeric codes table (Phu luc 02 of the Circular); no .gov.vn page with the province table was found.",
+  "Insurance (Decree 67/2023/ND-CP): no bocongan/chinhphu .gov.vn explainer with limits found; pbgdpl.camau.gov.vn (a provincial .gov.vn law-dissemination page) states the limits (150 million VND per person for health/life, 50 million VND per accident for property damage by motorbikes). The fetched excerpt is short; limits appear in the search excerpt of the same page.",
+  "Emissions roadmap: Decision 13/2026/QD-TTg (2 Apr 2026) - inspection starts 1 Jul 2027 in Hanoi and HCMC, 1 Jul 2028 other centrally-run cities, 1 Jul 2030 remaining provinces; from 1 Jan 2028 motorbikes in Hanoi/HCMC must meet Level 2+. hungyen.gov.vn fetch excerpt is partial; fuller text is on pbgdplthainguyen.gov.vn and xaydungchinhsach.chinhphu.vn.",
+  "Hanoi parking fees: no hanoi.gov.vn page for the newest fee decision was reachable; resolved to a May 2026 Hanoi UBND plan PDF on sovhttdl.hanoi.gov.vn which states fees follow Decision 44/2017/QD-UBND and its amendments. NOTE: UBND Hanoi issued Decision 5794/QD-UBND on 15 Oct 2026 (new on-street parking prices: motorbikes 10,000 VND day / 15,000 night / 25,000 day+night, monthly 200,000-250,000 VND) per thanglong.chinhphu.vn and luatvietnam.vn; that decision was not available on a .gov.vn host at fetch time.",
+  "Hanoi bus fares: pbgdpl.hanoi.gov.vn article timed out / connection error on two attempts; resolved to timbus.vn (Transerco's official bus information portal, not transerco.com.vn) which carries the 1 Nov 2024 fare schedule (Decision 5290/QD-UBND): single fares 8,000-20,000 VND by distance; monthly passes 70,000/140,000 (priority), 100,000/200,000 (group), 140,000/280,000 (standard) single-route/inter-route.",
+  "Petrolimex: the retail price table on petrolimex.com.vn is rendered dynamically/as an image and is not captured in fetched text; resolved page is the 22 Oct 2026 press release (prices effective 15:00 22.10.2026). Search excerpts of petrolimex.com.vn showed prices updated 15/10/2026 (e.g. E10 RON 95-III 26,720 VND Vung 1; E5 RON 92 26,670 VND) and 8/10/2026 (E10 RON 95-III 28,250; E5 RON 92 27,700), i.e. figures change weekly.",
+  "Hanoi Metro: https://metrohanoi.vn/en (without query) did not render the station lists in fetched text; the ?noredirect=en_US variant did, so that URL is recorded.",
+  "Vietnam Railways: dsvn.vn luggage content is a 2006 regulation PDF (Decision 01/2006/QD-BGTVT, English); the current operator rule (20 kg hand luggage, per Circular 09/2018/TT-BGTVT) is on vr.com.vn (fetched but not recorded as it is not dsvn.vn).",
+  "Cat Ba: no haiphong.gov.vn or vietnam.travel page with ferry details found; catbanationalpark.com (national park site) recorded. Con Son - Kiep Bac resolved to vietnamtourism.gov.vn (national tourism authority .gov.vn), not haiduong.gov.vn; note Hai Duong merged into Hai Phong in 2025.",
+  "Low-emission zone: resolved to xaydungchinhsach.chinhphu.vn (Government portal) article of 5 Jul 2026 publishing Hanoi's LEZ scheme (Decision 3273/QD-UBND): phase 1 1 Jul-31 Dec 2026 only Zones 1-2 of Hoan Kiem ward, no blanket petrol-motorbike ban on 1 Jul 2026; Directive 20/CT-TTg itself is at vanban.chinhphu.vn/?docid=214542 (not fetched).",
+  "thuvienphapluat.vn Circular 38/2024 page is paywalled; only document attributes returned (status error).",
+  "evisa.gov.vn home page excerpt is only the list of e-visa border gates; the FAQ page was fetched in full.",
+  "gov.uk, travel.state.gov, bocongan.gov.vn (drink-driving fines), metrohanoi.vn fares, cucphuongtourism, catbanationalpark, vietnamtourism.gov.vn, dsvn.vn PDF and vinfast Evo records use full-content fetches (large outputs persisted by the tool and merged here).",
+  "Direct fetch of noibaiairport.vn in excerpt mode returned only footer; full-content retry captured bus routes 07/90/17/109/86/68/E10 with fares."
+ ],
+ "records": {
+  "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307": {
+   "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "14 quy định mới về giao thông áp dụng từ 01/01/2025"
+  },
+  "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648": {
+   "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:59+00:00",
+   "title": "Các mức xử phạt vi phạm nồng độ cồn đối với người điều khiển phương tiện giao thông"
+  },
+  "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333": {
+   "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "Từ ngày 1/5/2024, Bộ Công an cấp phép việc mang phương tiện cơ giới nước ngoài tham gia giao thông tại lãnh thổ Việt Nam"
+  },
+  "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676": {
+   "url": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "CỔNG DỊCH VỤ CÔNG TRỰC TUYẾN"
+  },
+  "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301": {
+   "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "CỔNG DỊCH VỤ CÔNG TRỰC TUYẾN"
+  },
+  "https://evisa.gov.vn/": {
+   "url": "https://evisa.gov.vn/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "Vietnam National Electronic Visa system"
+  },
+  "https://evisa.gov.vn/faq": {
+   "url": "https://evisa.gov.vn/faq",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:53+00:00",
+   "title": "FAQs - Vietnam National Electronic Visa system"
+  },
+  "https://metrohanoi.vn/afc-tickets/metro-fares-1": {
+   "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:59+00:00",
+   "title": "Gía vé các tuyến Hà Nội Metro – Hanoi Metro"
+  },
+  "https://nchmf.gov.vn/KttvSiteE/": {
+   "url": "https://nchmf.gov.vn/KttvSiteE/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "National Center for Hydrometeorological Forecasting"
+  },
+  "https://noibaiairport.vn/en/public-transportations-nid1.html": {
+   "url": "https://noibaiairport.vn/en/public-transportations-nid1.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:53+00:00",
+   "title": "CẢNG HÀNG KHÔNG QUỐC TẾ NỘI BÀI | TRANSPORT TO/FROM THE AIRPORT"
+  },
+  "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html": {
+   "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "Xe máy điện Feliz 2025 02 Pin - Thông số, giá bán mới nhất | VinFast"
+  },
+  "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx": {
+   "url": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:53+00:00",
+   "title": "CoQuanNuocNgoai"
+  },
+  "https://thuvienphapluat.vn/van-ban/EN/Giao-thong-Van-tai/Circular-38-2024-TT-BGTVT-speed-and-safety-distance-of-motor-vehicles/656203/tieng-anh.aspx": {
+   "url": "https://thuvienphapluat.vn/van-ban/EN/Giao-thong-Van-tai/Circular-38-2024-TT-BGTVT-speed-and-safety-distance-of-motor-vehicles/656203/tieng-anh.aspx",
+   "fetcher": "parallel-web-fetch",
+   "status": "error",
+   "error": "page returned only document attributes; full text gated behind thuvienphapluat membership ('You are not logged!')",
+   "fetched_at": "2026-10-23T01:53:02+00:00",
+   "title": "38/2024/TT-BGTVT in Vietnam, Circular 38/2024/TT-BGTVT speed and safety distance of motor vehicles in Vietnam"
+  },
+  "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html": {
+   "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:59+00:00",
+   "title": "Vietnam Travel Advisory | Travel.State.gov"
+  },
+  "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200": {
+   "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "Thông số kỹ thuật xe điện VinFast Evo200 - Mẫu xe điện mới nhiều cải tiến và tính năng thông minh"
+  },
+  "https://vinfastauto.com/vn_vi/xe-may-dien-evo": {
+   "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:07+00:00",
+   "title": "Xe máy điện Evo - Thông số, giá bán mới nhất | VinFast"
+  },
+  "https://vn.usembassy.gov/driving-in-vietnam/": {
+   "url": "https://vn.usembassy.gov/driving-in-vietnam/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:08+00:00",
+   "title": "Driving in Vietnam - U.S. Embassy & Consulate in Vietnam"
+  },
+  "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements": {
+   "url": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:56+00:00",
+   "title": "Entry requirements - Vietnam travel advice - GOV.UK"
+  },
+  "https://www.gov.uk/foreign-travel-advice/vietnam/health": {
+   "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:56+00:00",
+   "title": "Health - Vietnam travel advice - GOV.UK"
+  },
+  "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security": {
+   "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:56+00:00",
+   "title": "Safety and security - Vietnam travel advice - GOV.UK"
+  },
+  "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s": {
+   "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:51:10+00:00",
+   "title": "Janus phiên bản giới hạn hoàn toàn mới, cập nhật giá 2026"
+  },
+  "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617": {
+   "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:03+00:00",
+   "title": "Nhận diện màu sắc, seri, ký hiệu biển số xe của cơ quan, tổ chức, cá nhân từ 01/01/2025"
+  },
+  "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329": {
+   "url": "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Quy định về bảo hiểm bắt buộc của chủ xe cơ giới"
+  },
+  "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html": {
+   "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Quyết định quy định lộ trình áp dụng quy chuẩn kỹ thuật quốc gia về khí thải xe mô tô, xe gắn máy"
+  },
+  "http://www.cucphuongtourism.com.vn/": {
+   "url": "http://www.cucphuongtourism.com.vn/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:00+00:00",
+   "title": "Welcome to Cuc Phuong National Park"
+  },
+  "https://vietnamtourism.gov.vn/en/post/10405": {
+   "url": "https://vietnamtourism.gov.vn/en/post/10405",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:00+00:00",
+   "title": "Con Son - Kiep Bac: Museum of Vietnamese belief and culture"
+  },
+  "https://catbanationalpark.com/": {
+   "url": "https://catbanationalpark.com/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:00+00:00",
+   "title": "Vườn Quốc Gia Cát Bà"
+  },
+  "https://metrohanoi.vn/en/?noredirect=en_US": {
+   "url": "https://metrohanoi.vn/en/?noredirect=en_US",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:45+00:00",
+   "title": "HaNoi Metro – English – Green journey with Hanoi Metro"
+  },
+  "http://sovhttdl.hanoi.gov.vn/wp-content/uploads/2026/05/ke-hoach-so-198kh-ubnd-ngay-2252026-cua-ubnd-thanh-pho.pdf": {
+   "url": "http://sovhttdl.hanoi.gov.vn/wp-content/uploads/2026/05/ke-hoach-so-198kh-ubnd-ngay-2252026-cua-ubnd-thanh-pho.pdf",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:45+00:00",
+   "title": "ỦY BAN NHÂN DÂN Độc lập - Tự do - Hạnh phúc THÀNH PHỐ HÀ NỘI Hà Nội, ngày tháng"
+  },
+  "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2": {
+   "url": "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Honda | Xe máy | Chi tiết"
+  },
+  "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1": {
+   "url": "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:53:57+00:00",
+   "title": "Honda | Xe máy | Chi tiết"
+  },
+  "https://www.honda.com.vn/xe-may/san-pham/vision?category=2": {
+   "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Honda | Xe máy | Chi tiết"
+  },
+  "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110": {
+   "url": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:53:57+00:00",
+   "title": "Honda | Xe máy | Chi tiết"
+  },
+  "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html": {
+   "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Phố Hiến tỉnh Hưng Yên trong lịch sử"
+  },
+  "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html": {
+   "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:56:16+00:00",
+   "title": "Petrolimex điều chỉnh giá xăng dầu từ 15 giờ 00 phút ngày 22.10.2026 :: Petrolimex (PLX) - Tập đoàn Xăng dầu Việt Nam"
+  },
+  "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape": {
+   "url": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Moc Chau: Your One-Stop Nature Escape | Vietnam Tourism"
+  },
+  "http://puluong.web.vnptthanhhoa.com.vn/web/trang-chu/du-lich-pu-luong": {
+   "url": "http://puluong.web.vnptthanhhoa.com.vn/web/trang-chu/du-lich-pu-luong",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Trung tâm Bảo tồn khu thiên nhiên Pù Luông"
+  },
+  "http://timbus.vn/article.aspx?id=590": {
+   "url": "http://timbus.vn/article.aspx?id=590",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:55:05+00:00",
+   "title": "Bản tin buýt"
+  },
+  "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281": {
+   "url": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Hải quan Việt Nam"
+  },
+  "https://dsvn.vn/images/1_RegulationsOnTransport.pdf": {
+   "url": "https://dsvn.vn/images/1_RegulationsOnTransport.pdf",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:54:07+00:00",
+   "title": "REGULATIONS ON Transport of passengers, luggage, consignment on the national railways (Issued attaching to Decision No. 01/2006/QĐ-BGTVT dated January 4,"
+  },
+  "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival": {
+   "url": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Perfume Pagoda Festival | Vietnam Tourism"
+  },
+  "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/": {
+   "url": "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "Grande phiên bản tiêu chuẩn màu mới giá 2026"
+  },
+  "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7": {
+   "url": "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:52:51+00:00",
+   "title": "NVX 155 VVA ABS màu hoàn toàn mới, giá mới 2026"
+  },
+  "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm": {
+   "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm",
+   "fetcher": "parallel-web-fetch",
+   "status": "ok",
+   "error": null,
+   "fetched_at": "2026-10-23T01:53:57+00:00",
+   "title": "Công bố Đề án \"Vùng phát thải thấp trong vành đai 1, thành phố Hà Nội\""
+  }
+ }
+}
