@@ -28,7 +28,7 @@ INTENT_TYPES = ('informational', 'commercial_investigation', 'comparison', 'tran
 SOURCE_KINDS = ('first_party_facts', 'official_vn_law', 'official_weather', 'official_health', 'official_venue',
                 'official_transport', 'manufacturer_manual', 'field_check', 'editorial_only')
 WRITER_STATES = ('NEEDS_SOURCE', 'SOURCE_CAPTURED', 'INTAKE_READY', 'CLAIMED', 'DRAFT_READY',
-                 'NEEDS_REPAIR', 'READY', 'VERIFIED', 'BLOCKED')
+                 'NEEDS_REPAIR', 'READY', 'PUBLISHED', 'BLOCKED')
 # Thresholds on content-token overlap (see `similarity`); calibrated on the committed data.
 TITLE_FAIL, KEYWORD_FAIL, INTENT_FAIL, TEMPLATE_FAIL, EXISTING_FAIL = 0.6, 0.75, 0.6, 0.8, 0.55
 MAX_STEM_FAMILY = 3

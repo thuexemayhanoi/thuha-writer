@@ -113,11 +113,11 @@ class RuntimeTests(Fixture):
             with self.assertRaises(ValueError):
                 admit(self.store, self.inv, [base], 'claude-researcher', {url: record(url)}, extra_queue=other)
 
-    def test_cycle_counts_only_receipts_as_verified(self):
+    def test_cycle_counts_only_receipts_as_published(self):
         topic, article, sub = self.ready()
         value = cycle(self.store.read(), self.inv, load(ROOT / 'config/release.json'))
         self.assertEqual((value['row']['LIVE EN'], value['row']['LIVE VI']), (2, 1))
-        self.assertEqual(value['row']['FACTORY VERIFIED'], 0)
+        self.assertEqual(value['row']['FACTORY PUBLISHED'], 0)
         self.assertEqual(value['row']['QA PASS'], 1)
         self.assertEqual(value['row']['PUBLISHED'], 0)
         # 500 per language: the goal is no longer a single 2,000-post total.

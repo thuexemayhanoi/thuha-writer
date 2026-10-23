@@ -2,9 +2,9 @@ name: ThuHa V4 quality
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**', 'data/state/**', 'data/documents/**']
   pull_request:
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**', 'data/state/**', 'data/documents/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -50,6 +50,7 @@ jobs:
         run: |
           python3 -m thuha.cli --remote --output artifacts/live-factory health
           python3 -m thuha.cli --remote publisher --mode dry-run > artifacts/live-factory/publisher-dry-run.json
+          python3 -m thuha.cli --remote promote > artifacts/live-factory/promotion-plan.json || true # a plan only; nothing is written
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: quality-evidence-${{ github.sha }}

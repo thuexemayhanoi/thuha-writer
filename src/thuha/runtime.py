@@ -131,14 +131,14 @@ def cycle(state,inv,release,targets=None):
     for lang in LANGUAGES:
         topics=[t for t in state['topics'].values() if t['language']==lang]
         c=Counter(t['status'] for t in topics)
-        unresolved=sum(1 for k,i in state['intents'].items() if i.get('language')==lang and i['phase'] not in ('VERIFIED',)+quota.CLOSED_PHASES)
+        unresolved=sum(1 for k,i in state['intents'].items() if i.get('language')==lang and i['phase'] not in ('PUBLISHED',)+quota.CLOSED_PHASES)
         languages[lang]={'target':targets[lang],'live':None if live is None else live[lang],
                          'remaining':None if live is None else max(0,targets[lang]-live[lang]-unresolved),
                          'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY'],'qa_pass':c['READY'],
-                         'qa_fail':c['NEEDS_REPAIR']+c['NEEDS_REVIEW'],'published':c['VERIFIED'],
+                         'qa_fail':c['NEEDS_REPAIR']+c['NEEDS_REVIEW'],'published':c['PUBLISHED'],
                          'blocked':c['BLOCKED']+c['PUBLISHING']}
-    row={'FACTORY VERIFIED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY'],
-         'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['VERIFIED'],
+    row={'FACTORY PUBLISHED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY'],
+         'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['PUBLISHED'],
          'BLOCKED':counts['BLOCKED']+counts['PUBLISHING']}
     for lang in LANGUAGES:
         row['LIVE '+lang.upper()]='UNKNOWN' if live is None else live[lang]

@@ -30,7 +30,7 @@ def published(inv):
 
 # Intent phases in which no post and no draft can exist (the POST was never sent, or the plugin refused it before
 # creating anything and a read-back by key confirmed it). They free their publication slot; every other phase
-# except VERIFIED stays unresolved and keeps counting.
+# except PUBLISHED stays unresolved and keeps counting.
 CLOSED_PHASES = ('NOT_SENT', 'REJECTED')
 
 
@@ -40,7 +40,7 @@ class LanguageComplete(ValueError):
 
 def unresolved(state, lang, ignore=None):
     return [k for k, v in state['intents'].items()
-            if v['language'] == lang and v.get('phase') not in ('VERIFIED',) + CLOSED_PHASES and k != ignore]
+            if v['language'] == lang and v.get('phase') not in ('PUBLISHED',) + CLOSED_PHASES and k != ignore]
 
 
 def active_intents(state):
@@ -48,10 +48,10 @@ def active_intents(state):
     return {k: v for k, v in state['intents'].items() if v.get('phase') not in CLOSED_PHASES}
 
 
-def verified_outside_inventory(state, lang, live_ids):
-    """Verified factory posts a possibly older inventory read does not yet contain."""
+def published_outside_inventory(state, lang, live_ids):
+    """Factory posts WordPress confirmed that a possibly older inventory read does not yet contain."""
     return [k for k, v in state['intents'].items()
-            if v['language'] == lang and v.get('phase') == 'VERIFIED' and v.get('wp_id') not in live_ids]
+            if v['language'] == lang and v.get('phase') == 'PUBLISHED' and v.get('wp_id') not in live_ids]
 
 
 def status(state, counts, targets):
@@ -73,9 +73,9 @@ def reserve(state, counts, targets, lang, topic_id, live_ids=None):
     """Raise unless exactly one more `lang` post fits under its ceiling.
 
     `live_ids` (WordPress IDs in the inventory the counts came from) closes the window where another factory
-    publisher finished and verified a post after that inventory was read.
+    publisher finished a post after that inventory was read.
     """
-    late = len(verified_outside_inventory(state, lang, live_ids)) if live_ids is not None else 0
+    late = len(published_outside_inventory(state, lang, live_ids)) if live_ids is not None else 0
     if counts[lang] + late + len(unresolved(state, lang, ignore=topic_id)) + 1 > targets[lang]:
         raise LanguageComplete('Language target reached: ' + lang + ' has no remaining publication slot')
 
@@ -83,7 +83,7 @@ def reserve(state, counts, targets, lang, topic_id, live_ids=None):
 def topics_needed(state, counts, targets, lang):
     """New topics worth admitting: ceiling minus live posts minus every open topic."""
     open_topics = sum(1 for t in state['topics'].values()
-                      if t['language'] == lang and t['status'] != 'VERIFIED')
+                      if t['language'] == lang and t['status'] != 'PUBLISHED')
     return max(0, targets[lang] - counts[lang] - open_topics)
 
 

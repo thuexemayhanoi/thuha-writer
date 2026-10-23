@@ -1,5 +1,7 @@
 """Bounded GET retries; WordPress POST is create-only and NEVER retried."""
 import base64
+import errno
+import http.client
 import ipaddress
 import json
 import os
@@ -16,10 +18,11 @@ ADAPTER_CREATE_URL = ADAPTER_BASE + '/posts'
 
 
 class NetworkError(RuntimeError):
-    def __init__(self, message, status=None, code=None):
+    def __init__(self, message, status=None, code=None, not_sent=False):
         super().__init__(message)
         self.status = status
         self.code = code  # machine code from a JSON error answer (letters/underscores only); never the body text
+        self.not_sent = not_sent  # True only when no byte of the request can have reached the server
 
 
 def safe_url_shape(url):
@@ -44,6 +47,17 @@ def safe_public_url(url):
     if not addresses or any(not ipaddress.ip_address(x[4][0]).is_global for x in addresses):
         raise ValueError('Source resolves to a non-public address')
     return url
+
+
+def never_connected(exc):
+    """True only for failures that happen before any request byte is sent: unresolvable name, refused or unreachable.
+
+    A time-out, a reset or a dropped connection may come after the server received the request, so they are not here.
+    """
+    reason = getattr(exc, 'reason', exc)
+    if isinstance(reason, (socket.gaierror, ConnectionRefusedError)):
+        return True
+    return isinstance(reason, OSError) and getattr(reason, 'errno', None) in (errno.ENETUNREACH, errno.EHOSTUNREACH)
 
 
 def error_code(exc):
@@ -101,11 +115,11 @@ class HTTP:
                     time.sleep(min(5, 1 + attempt))
                     continue
                 raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path, exc.code, error_code(exc)) from None
-            except (OSError, TimeoutError) as exc:
+            except (OSError, TimeoutError, http.client.HTTPException) as exc:
                 if method == 'GET' and attempt < 2:
                     time.sleep(1+attempt)
                     continue
-                raise NetworkError('Network failure; outcome may be unknown for POST') from None
+                raise NetworkError('Network failure; outcome may be unknown for POST', not_sent=never_connected(exc)) from None
 
 
 class WordPress:

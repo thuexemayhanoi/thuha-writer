@@ -1,7 +1,14 @@
 name: ThuHa QA to guarded queue publisher
-# Adapted from wp-aiwriter: successful push QA -> preflight -> guarded queue drain.
-# No AI model runs here. Default release is OFF (no language enabled); no secret, WordPress or site write on preflight.
+# Adapted from wp-aiwriter: successful push QA -> hand-over -> QA -> guarded queue drain.
+# No AI model runs here. Default release is OFF (no language enabled); no secret, WordPress or site write before the gate.
 # Writes go only through the companion adapter plugin, Vietnamese first, 500 posts per language.
+#
+#   preflight        read-only: tests, validation, dry-run, release gate
+#   queue            no WordPress secret: hand the session ledger over to the shared ledger (fast-forward only,
+#                    never overwrites), refresh a stale public inventory, QA the English drafts that have a review
+#   protected-publish  only when the release gate is open, inside the protected environment: adapter preflight,
+#                    authenticated inventory, QA of every draft with a review, then the drain (reconcile -> publish ->
+#                    public-page checks). A halted drain makes the run red; public-page warnings never do.
 on:
   workflow_run:
     workflows: ['ThuHa V4 quality']
@@ -69,9 +76,43 @@ jobs:
               out.write('may_publish=' + str(valid).lower() + '\n')
           print('Protected publication eligible:', valid, '(no WordPress writes in preflight)')
           PY
-  protected-publish:
+  queue:
     needs: preflight
-    if: needs.preflight.outputs.may_publish == 'true'
+    # Runs whether or not go-live is open: drafts reach the queue the publisher reads even while production is OFF.
+    if: ${{ !cancelled() && needs.preflight.result == 'success' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Hand the session ledger over to the shared ledger (fast-forward only, idempotent, never overwrites)
+        run: python3 -m thuha.cli --remote promote --apply
+      - name: Refresh the public inventory when the stored one is older than five hours
+        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit --max-age 18000
+      - name: QA the English drafts that have an independent review (Vietnamese QA needs the authenticated inventory)
+        run: python3 -m thuha.cli --remote qa --pending --language en
+      - name: Report
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: thuha-queue-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 14
+  protected-publish:
+    needs: [preflight, queue]
+    # A failed hand-over (for instance a diverged session ledger) must not stop the queue that is already in place.
+    if: ${{ !cancelled() && needs.preflight.outputs.may_publish == 'true' }}
     environment: thuha-production
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -95,6 +136,12 @@ jobs:
           python3 -m unittest discover -s tests -v
           python3 -m thuha.cli validate
           python3 -m thuha.cli credentials
+      - name: Adapter preflight (read-only; BLOCKED_ADAPTER_NOT_DEPLOYED until the plugin answers)
+        run: python3 -m thuha.cli --remote adapter-preflight
+      - name: Authenticated inventory of both languages (the public collection can hide Vietnamese posts)
+        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit
+      - name: QA every draft that has an independent review
+        run: python3 -m thuha.cli --remote qa --pending
       - name: Drain only QA-ready articles inside approved release and daily caps
         run: python3 -m thuha.cli --remote --output artifacts publisher --mode drain
       - name: Preserve verifiable receipts and blockers

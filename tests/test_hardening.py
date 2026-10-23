@@ -128,13 +128,14 @@ class ClosedIntentTests(tf.PublisherBase):
         self.assertEqual(remaining_budget(state, self.release)['unresolved_intents'], [])
         p.release_loader = lambda: self.release
         self.assertEqual(self.publish(p, tid)['language'], 'vi')  # the topic can be published afterwards
-        self.assertEqual(self.store.read()['intents'][tid]['phase'], 'VERIFIED')
+        self.assertEqual(self.store.read()['intents'][tid]['phase'], 'PUBLISHED')
 
     def test_an_authoritative_plugin_refusal_closes_the_intent_only_when_a_readback_finds_nothing(self):
+        # A refusal after which a draft exists is NOT proof that nothing was created: the draft is found by key and held.
         for code, creates_draft, phase, topic_status in (('thuha_unsafe_html', False, 'REJECTED', 'NEEDS_REPAIR'),
                                                          ('thuha_slug_conflict', False, 'REJECTED', 'NEEDS_REPAIR'),
-                                                         ('thuha_language_marker_failed', True, 'NEEDS_RECONCILIATION', 'BLOCKED'),
-                                                         ('thuha_unsafe_html', True, 'NEEDS_RECONCILIATION', 'BLOCKED'),
+                                                         ('thuha_language_marker_failed', True, 'DRAFT_HELD', 'BLOCKED'),
+                                                         ('thuha_unsafe_html', True, 'DRAFT_HELD', 'BLOCKED'),
                                                          (None, False, 'NEEDS_RECONCILIATION', 'BLOCKED')):
             with self.subTest(code=code, draft=creates_draft):
                 self.setUp();p, tid = self.publisher('vi');client = self.client;original = client.create
@@ -148,7 +149,7 @@ class ClosedIntentTests(tf.PublisherBase):
                 state = self.store.read()
                 self.assertEqual((state['intents'][tid]['phase'], state['topics'][tid]['status']), (phase, topic_status))
                 self.assertEqual(self.store.read()['receipts'], {})
-                self.assertEqual(bool(quota.unresolved(state, 'vi')), phase == 'NEEDS_RECONCILIATION')
+                self.assertEqual(bool(quota.unresolved(state, 'vi')), phase in ('NEEDS_RECONCILIATION', 'DRAFT_HELD'))
 
     def test_a_closed_intent_frees_the_pilot_budget_but_an_unresolved_one_does_not(self):
         state = {'intents': {'a': {'phase': 'REJECTED', 'reserved_at': now()}, 'b': {'phase': 'NOT_SENT', 'reserved_at': now()},
@@ -156,17 +157,18 @@ class ClosedIntentTests(tf.PublisherBase):
         window = remaining_budget(state, {'stage': 'pilot', 'pilot_max_posts': 2, 'maximum_daily_posts': 5})
         self.assertEqual((window['remaining'], window['unresolved_intents'], window['intents']), (1, ['c'], 1))
 
-    def test_a_recorded_verification_is_never_overwritten_by_a_lost_response(self):
+    def test_a_recorded_publication_is_never_overwritten_by_a_lost_response(self):
         p, tid = self.publisher('vi');original = self.store.mutate
         def lose_response_after_commit(callback):
             result = original(callback)
             if callback.__name__ == 'transaction':raise OSError('response lost after the receipt was committed')
             return result
         self.store.mutate = lose_response_after_commit
-        with self.assertRaises(OSError):self.publish(p, tid)
+        receipt = self.publish(p, tid)  # the lost answer is recovered from the ledger, not turned into a failure
         state = original(lambda s: s)  # read through the real transaction
-        self.assertEqual(state['intents'][tid]['phase'], 'VERIFIED');self.assertEqual(state['topics'][tid]['status'], 'VERIFIED')
-        self.assertIn(tid, state['receipts'])
+        self.assertEqual(receipt['wp_id'], 999)
+        self.assertEqual(state['intents'][tid]['phase'], 'PUBLISHED');self.assertEqual(state['topics'][tid]['status'], 'PUBLISHED')
+        self.assertIn(tid, state['receipts']);self.assertEqual(len(self.client.posts), 1)
 
     def test_a_replacement_reservation_may_follow_a_repaired_article(self):
         p, tid = self.publisher('vi')
@@ -179,11 +181,11 @@ class ClosedIntentTests(tf.PublisherBase):
 
 
 class QuotaRaceTests(unittest.TestCase):
-    def test_a_post_verified_after_the_inventory_was_read_still_counts(self):
+    def test_a_post_published_after_the_inventory_was_read_still_counts(self):
         state = initial()
         for tid, wp in (('TH-VI-0001', 777), ('TH-VI-0002', 5)):
-            state['topics'][tid] = {'language': 'vi', 'status': 'VERIFIED'}
-            state['intents'][tid] = {'language': 'vi', 'phase': 'VERIFIED', 'wp_id': wp, 'article_sha': 'a' * 64}
+            state['topics'][tid] = {'language': 'vi', 'status': 'PUBLISHED'}
+            state['intents'][tid] = {'language': 'vi', 'phase': 'PUBLISHED', 'wp_id': wp, 'article_sha': 'a' * 64}
         state['topics']['TH-VI-0003'] = {'language': 'vi', 'status': 'READY'}
         counts, targets = {'vi': 499, 'en': 0}, {'vi': 500, 'en': 500}
         # 777 is not in the stale inventory (it was published after it was read): the 500th slot is already taken.
@@ -220,13 +222,16 @@ class RefillOnMigratedStateTests(tf.Fixture):
 
 
 class VerifyAndInventoryGuards(tf.PublisherBase):
-    def test_the_reviewed_title_must_be_what_wordpress_stored(self):
+    def test_a_title_wordpress_changed_is_published_but_raises_an_alert_that_stops_new_posts(self):
         p, tid = self.publisher('vi');original = self.client.create
         def altered(payload):
             result = original(payload);result['post']['title'] = payload['title'] + ' (edited)';return result
         self.client.create = altered
-        with self.assertRaisesRegex(ValueError, 'title'):self.publish(p, tid)
-        self.assertEqual(self.store.read()['receipts'], {})
+        receipt = self.publish(p, tid)  # WordPress did publish it: that is what counts
+        state = self.store.read()
+        self.assertEqual(state['intents'][tid]['phase'], 'PUBLISHED')
+        self.assertEqual(self.store.get_document(receipt['document'])['integrity']['problems'], ['title'])
+        self.assertEqual(len([a for a in state['alerts'] if not a['acknowledged']]), 1)
 
     def test_a_snapshot_inventory_cannot_be_used_for_publishing(self):
         p, tid = self.publisher('vi')

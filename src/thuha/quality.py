@@ -178,7 +178,7 @@ def run_qa(store,topic_id,inv,policy,business):
     return store.mutate(transaction)
 
 
-def pending_qa(store,policy):
+def pending_qa(store,policy,languages=None):
     """Drafts that a scheduled QA run should evaluate.
 
     A draft without a recorded review is not evaluated: it would fail only for the missing review and move to
@@ -188,7 +188,7 @@ def pending_qa(store,policy):
     state=store.read();out=[]
     for tid,topic in sorted(state['topics'].items()):
         sub=state['submissions'].get(tid)
-        if not sub:continue
+        if not sub or (languages and topic['language'] not in languages):continue
         if topic['status']=='DRAFT_READY' and tid in state.get('reviews',{}):out.append(tid)
         elif topic['status']=='READY':
             record=state['qa'].get(tid)

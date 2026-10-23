@@ -55,10 +55,10 @@ def main(argv=None):
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
-    q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='Only drafts with a recorded review, and READY drafts whose QA report predates the current policy')
+    q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='Only drafts with a recorded review, and READY drafts whose QA report predates the current policy');q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('promote');q.add_argument('--source-state',default='data/state/factory.json');q.add_argument('--source-docs',default='data/documents');q.add_argument('--apply',action='store_true')
     q=sub.add_parser('sync');q.add_argument('--apply',action='store_true')
-    q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain'],default='dry-run');q.add_argument('--topic-id')
+    q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain','acknowledge'],default='dry-run');q.add_argument('--topic-id');q.add_argument('--note')
     q=sub.add_parser('controls');q.add_argument('--pause',choices=['on','off']);q.add_argument('--emergency-stop',choices=['on','off'])
     args=p.parse_args(argv)
     if args.remote and args.git_branch:raise ValueError('Choose one state backend')
@@ -182,10 +182,14 @@ def main(argv=None):
         result={'review_document':document}
     elif args.command=='qa':
         inv=inventory_for(store,args.inventory)
-        ids=[args.topic_id] if args.topic_id else quality.pending_qa(store,policy) if args.pending else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
+        languages=[args.language] if args.language else None
+        ids=[args.topic_id] if args.topic_id else quality.pending_qa(store,policy,languages) if args.pending else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR') and (not languages or v['language'] in languages)]
         result={'results':{}}
         for tid in ids:
             try:
+                if store.read()['topics'][tid]['language']!='en' and inv.get('language_source') not in quota.SOURCES:
+                    # A public-only inventory cannot see Vietnamese posts or categories: that is a missing input, not a failed article.
+                    raise ValueError('Vietnamese QA needs an adapter or authenticated inventory; this one is '+str(inv.get('language_source')))
                 value=quality.run_qa(store,tid,inv,policy,facts)
                 result['results'][tid]=value
                 if value['status']!='PASS':exit_code=max(exit_code,1)
@@ -195,13 +199,19 @@ def main(argv=None):
     elif args.command=='publisher':
         pub=Publisher(store,AdapterClient(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()
-        elif args.mode=='drain':result=pipeline.drain(pub)
+        elif args.mode=='drain':
+            result=pipeline.drain(pub)
+            if result['halted']:exit_code=2 # the run is red so the stop is seen; the JSON above says why
         elif args.mode=='production':
             if not args.topic_id:raise ValueError('Explicit single topic ID required for pilot')
             result=pub.publish(args.topic_id)
+        elif args.mode=='reconcile':
+            result={'reconciled':{args.topic_id:pub.reconcile(args.topic_id)} if args.topic_id else pub.reconcile_all()}
+            if any(v['status'] not in ('PUBLISHED','CLOSED') for v in result['reconciled'].values()):exit_code=2
+        elif args.mode=='verify':result={'post_checks':pub.run_post_checks(args.topic_id)}
         else:
-            ids=[args.topic_id] if args.topic_id else list(store.read()['intents'])
-            result={'receipts':{tid:pub.reconcile(tid) for tid in ids}}
+            if not args.topic_id:raise ValueError('Name the topic whose alert you checked')
+            result={'acknowledged_alerts':pub.acknowledge(args.topic_id,args.note)}
     elif args.command=='promote':
         if args.apply and not args.remote:raise ValueError('Promotion writes the shared ledger: run it with --remote')
         source=ROOT/args.source_state

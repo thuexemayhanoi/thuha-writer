@@ -115,6 +115,23 @@ def summarize(post, kind):
             'search_intent':'UNREVIEWED', 'agent_attribution':'UNKNOWN'}
 
 
+def media_library(client, items):
+    """Every image of the media library plus the featured images of existing posts, one row per attachment.
+
+    A new article may only use an existing image that already has alt text in its own language, and nothing but a
+    listing of the whole library can show a Vietnamese-alt image that no post uses yet.
+    """
+    rows = {}
+    for row in client.collection('media', _fields='id,alt_text,source_url,media_type'):
+        if row.get('media_type', 'image') == 'image':
+            rows[row['id']] = {k: row.get(k) for k in ('id', 'alt_text', 'source_url')}
+    wanted = sorted({x['featured_media'] for x in items if x['featured_media'] and x['featured_media'] not in rows})
+    for start in range(0, len(wanted), 100):
+        for row in client.collection('media', include=','.join(map(str, wanted[start:start+100])), _fields='id,alt_text,source_url'):
+            rows[row['id']] = {k: row.get(k) for k in ('id', 'alt_text', 'source_url')}
+    return [rows[k] for k in sorted(rows)]
+
+
 def inventory(client=None, check_pages=True):
     client = client or WordPress()
     result = {'site':SITE,'started_at':now(),'complete':False,'errors':[], 'items':[], 'categories':[], 'media':[]}
@@ -126,10 +143,7 @@ def inventory(client=None, check_pages=True):
         result['categories'] = client.collection('categories',hide_empty='false',_fields='id,slug,name,parent,link')
         for item in result['items']:
             item['category_paths'] = [category_path(x,result['categories']) for x in item['categories']]
-        media_ids = sorted({x['featured_media'] for x in result['items'] if x['featured_media']})
-        for start in range(0,len(media_ids),100):
-            rows = client.collection('media',include=','.join(map(str,media_ids[start:start+100])),_fields='id,alt_text,source_url')
-            result['media'].extend(rows)
+        result['media'] = media_library(client, result['items'])
         if check_pages:
             def check(item):
                 try:
@@ -211,9 +225,7 @@ def inventory_bilingual(adapter, client=None, check_pages=True):
         result['categories'] = adapter.categories()
         for item in result['items']:
             item['category_paths'] = [category_path(x,result['categories']) for x in item['categories']]
-        media_ids = sorted({x['featured_media'] for x in result['items'] if x['featured_media']})
-        for start in range(0,len(media_ids),100):
-            result['media'].extend((client or adapter).collection('media',include=','.join(map(str,media_ids[start:start+100])),_fields='id,alt_text,source_url'))
+        result['media'] = media_library(client or adapter, result['items'])
         if check_pages:
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
                 checks = list(pool.map(lambda i: check_item(client or adapter, i), result['items']))

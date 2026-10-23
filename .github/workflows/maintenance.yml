@@ -7,7 +7,7 @@ on:
       task:
         type: choice
         default: health
-        options: [health, report, audit, coordinator, refill, intake, qa, repair, recovery]
+        options: [health, report, audit, coordinator, refill, intake, qa, repair, recovery, promote]
       intake_file:
         type: string
         default: ''
@@ -59,7 +59,8 @@ jobs:
             audit) python3 -m thuha.cli --remote --output artifacts/live-audit audit ;;
             coordinator|recovery) python3 -m thuha.cli --remote "$TASK" ;;
             refill) python3 -m thuha.cli --remote refill ;;
-            qa|repair) python3 -m thuha.cli --remote qa ;;
+            qa|repair) python3 -m thuha.cli --remote qa --pending ;;
+            promote) python3 -m thuha.cli --remote promote --apply ;;
             intake)
               [[ "$INTAKE_FILE" =~ ^data/candidates/[a-zA-Z0-9_-]+\.json$ ]] || exit 1
               python3 -m thuha.cli --remote intake --file "$INTAKE_FILE"

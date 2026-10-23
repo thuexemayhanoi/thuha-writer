@@ -12,7 +12,7 @@ from thuha.store import LocalStore,GitStore,GitError,initial,validate
 from thuha.coordinator import claim,heartbeat,submit,release,recover
 from thuha.research import intake,refill,collisions
 from thuha.quality import evaluate,run_qa,REVIEW_CHECKS
-from thuha.publisher import Publisher,release_guard,idempotency_key
+from thuha.publisher import Publisher,release_guard,idempotency_key,quota_unresolved
 from thuha.audit import summarize,matrix,Page,counts
 from thuha.http import HTTP,WordPress,safe_public_url,NetworkError,ADAPTER_CREATE_URL
 from thuha.dashboard import report
@@ -244,11 +244,11 @@ class FakeAdapter:
     """Stand-in for the companion plugin: same contract, same idempotency, no WordPress."""
     def __init__(self):
         self.posts=[];self.timeout_after_create=False;self.wrong_canonical=False;self.wrong_html_lang=False
-        self.drop_vi_marker=False;self.extra_hreflang=False;self.preflight_calls=0
+        self.drop_vi_marker=False;self.extra_hreflang=False;self.preflight_calls=0;self.reconcile_failures=0;self.create_calls=0
     def preflight(self):self.preflight_calls+=1;return {'contract':'thuha-writer/1'}
     def create(self,payload):
         from thuha.adapter import validate_payload
-        validate_payload(payload)
+        validate_payload(payload);self.create_calls+=1
         old=next((p for p in self.posts if p['idempotency_key']==payload['idempotency_key']),None)
         if old:return {'created':False,'idempotent_replay':True,'post':old}
         lang=payload['language']
@@ -262,6 +262,8 @@ class FakeAdapter:
         if self.timeout_after_create:raise NetworkError('Timeout after server accepted POST')
         return {'created':True,'idempotent_replay':False,'post':post}
     def reconcile(self,key):
+        if self.reconcile_failures:
+            self.reconcile_failures-=1;raise NetworkError('Adapter unreachable')
         post=next((p for p in self.posts if p['idempotency_key']==key),None)
         return {'found':True,'post':post} if post else {'found':False}
     def page(self,url):
@@ -314,20 +316,43 @@ class PublisherTests(PublisherBase):
                 self.setUp();p,tid=self.publisher(lang)
                 receipt=self.publish(p,tid)
                 self.assertEqual(receipt['wp_id'],999);self.assertEqual(receipt['language'],lang)
-                self.assertEqual(self.store.read()['intents'][tid]['phase'],'VERIFIED')
+                self.assertEqual(self.store.read()['intents'][tid]['phase'],'PUBLISHED')
+                self.assertEqual(self.store.read()['topics'][tid]['status'],'PUBLISHED')
                 self.assertEqual(self.client.posts[0]['language_markers']['is_vi'],lang=='vi')
+                self.assertEqual(receipt['post_check'],'PASSED')
     def test_language_not_enabled_in_release_is_refused(self):
         p,tid=self.publisher('vi',enabled=('en',))
         with self.assertRaises(ValueError):self.publish(p,tid)
         self.assertEqual(self.client.posts,[])
-    def test_timeout_reconciles_without_second_post(self):
+    def test_timeout_after_the_server_accepted_the_post_is_reconciled_at_once_without_a_second_post(self):
         p,tid=self.publisher('vi');self.client.timeout_after_create=True
+        receipt=self.publish(p,tid) # the answer was lost, WordPress had published: one read by key finds it
+        self.assertEqual(receipt['wp_id'],999);self.assertEqual(self.client.create_calls,1)
+        self.assertEqual(self.store.read()['intents'][tid]['phase'],'PUBLISHED')
+        self.assertEqual(len(self.client.posts),1)
+    def test_timeout_with_an_unreachable_adapter_stays_unknown_then_reconciles_on_the_next_run(self):
+        p,tid=self.publisher('vi');self.client.timeout_after_create=True;self.client.reconcile_failures=1
         with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):
             with self.assertRaises(NetworkError):p.publish(tid)
             self.assertEqual(self.store.read()['intents'][tid]['phase'],'NEEDS_RECONCILIATION')
             self.assertEqual(self.store.read()['receipts'],{},'an unknown outcome is never a receipt')
-            self.assertEqual(p.publish(tid)['wp_id'],999)
-        self.assertEqual(len(self.client.posts),1)
+            self.assertEqual(p.publish(tid)['wp_id'],999) # reconciled by key; the POST is not sent again
+        self.assertEqual(len(self.client.posts),1);self.assertEqual(self.client.create_calls,1)
+    def test_a_connection_that_never_opened_frees_the_slot_for_a_retry(self):
+        from thuha.http import never_connected
+        import socket,urllib.error
+        self.assertTrue(never_connected(urllib.error.URLError(socket.gaierror(-2,'Name or service not known'))))
+        self.assertTrue(never_connected(urllib.error.URLError(ConnectionRefusedError())))
+        for ambiguous in (TimeoutError(),ConnectionResetError(),urllib.error.URLError(TimeoutError()),BrokenPipeError()):
+            self.assertFalse(never_connected(ambiguous),repr(ambiguous))
+        p,tid=self.publisher('vi');original=self.client.create
+        def refused(payload):raise NetworkError('Network failure',not_sent=True)
+        self.client.create=refused
+        with self.assertRaises(NetworkError):self.publish(p,tid)
+        state=self.store.read()
+        self.assertEqual((state['intents'][tid]['phase'],state['topics'][tid]['status']),('NOT_SENT','READY'))
+        self.client.create=original
+        self.assertEqual(self.publish(p,tid)['wp_id'],999)
     def test_unknown_outcome_without_a_post_stays_unresolved_and_is_never_reposted(self):
         p,tid=self.publisher('vi');original=self.client.create
         def lost(payload):
@@ -338,12 +363,43 @@ class PublisherTests(PublisherBase):
         with self.assertRaises(ValueError):self.publish(p,tid) # reconcile finds nothing: do not POST again
         self.assertEqual(self.client.posts,[]);self.assertEqual(self.store.read()['receipts'],{})
         self.assertEqual(self.store.read()['intents'][tid]['phase'],'NEEDS_RECONCILIATION')
-    def test_readback_drift_does_not_count_verified(self):
-        for knob,attr in (('canonical','wrong_canonical'),('html lang','wrong_html_lang'),('foreign hreflang pair','extra_hreflang'),('vi marker','drop_vi_marker')):
+    def test_public_page_drift_is_a_warning_and_never_undoes_a_publication(self):
+        for knob,attr in (('canonical','wrong_canonical'),('html lang','wrong_html_lang'),('foreign hreflang pair','extra_hreflang')):
             with self.subTest(knob):
                 self.setUp();p,tid=self.publisher('vi');setattr(self.client,attr,True)
-                with self.assertRaises(ValueError):self.publish(p,tid)
-                self.assertEqual(self.store.read()['receipts'],{});self.assertEqual(len(self.client.posts),1)
+                receipt=self.publish(p,tid)
+                state=self.store.read()
+                self.assertEqual(state['intents'][tid]['phase'],'PUBLISHED');self.assertIn(tid,state['receipts'])
+                self.assertEqual(receipt['post_check'],'WARNING')
+                check=state['intents'][tid]['post_check']
+                self.assertEqual((check['status'],check['attempts']),('WARNING',1));self.assertTrue(check['problem'])
+                self.assertEqual(state.get('alerts',[]),[]);self.assertEqual(len(self.client.posts),1)
+                self.assertEqual(p.due_post_checks(state),[]) # back-off: not due again immediately
+                setattr(self.client,attr,False) # the page is fixed (a cache cleared, a plugin updated)
+                self.store.mutate(lambda s:s['intents'][tid]['post_check'].update(next_attempt_after=0))
+                self.assertEqual(p.run_post_checks(),{tid:'PASSED'})
+                self.assertEqual(self.store.read()['intents'][tid]['post_check']['status'],'PASSED')
+    def test_public_page_check_gives_up_after_five_attempts_without_touching_the_receipt(self):
+        p,tid=self.publisher('vi');self.client.wrong_canonical=True;self.publish(p,tid)
+        for _ in range(4):
+            self.store.mutate(lambda s:s['intents'][tid]['post_check'].update(next_attempt_after=0))
+            p.run_post_checks()
+        check=self.store.read()['intents'][tid]['post_check']
+        self.assertEqual((check['status'],check['attempts']),('FAILED_FINAL',5))
+        self.assertEqual(p.due_post_checks(),[])
+        self.assertEqual(self.store.read()['topics'][tid]['status'],'PUBLISHED')
+    def test_content_wordpress_stored_differently_is_published_but_stops_new_posts_until_acknowledged(self):
+        p,tid=self.publisher('vi');self.client.drop_vi_marker=True
+        receipt=self.publish(p,tid)
+        state=self.store.read()
+        self.assertEqual(state['intents'][tid]['phase'],'PUBLISHED')
+        self.assertEqual(self.store.get_document(receipt['document'])['integrity']['status'],'MISMATCH')
+        self.assertEqual([a['code'] for a in state['alerts']],['INTEGRITY_MISMATCH'])
+        other,second=self.second_ready(p)
+        with self.assertRaisesRegex(ValueError,'integrity alert'):self.publish(other,second)
+        with self.assertRaises(ValueError):p.acknowledge(tid,'ok')
+        p.acknowledge(tid,'Opened the post in WordPress and compared the language marker by hand')
+        self.assertEqual(self.publish(other,second)['language'],'vi')
     def test_failed_durable_intent_prevents_post(self):
         p,tid=self.publisher();original=self.store.mutate
         def fail(callback):
@@ -386,7 +442,8 @@ class PublisherTests(PublisherBase):
                 self.assertEqual(self.client.posts,[]);self.assertEqual(self.store.read()['intents'],{})
     def test_unresolved_intent_counts_against_the_ceiling(self):
         p,tid=self.quota_publish('vi',499)
-        self.client.timeout_after_create=True
+        def lost(payload):raise NetworkError('Connection reset; outcome unknown')
+        self.client.create=lost
         with patch.dict(os.environ,THUHA_GO_LIVE_APPROVAL='synthetic-test-only'):
             with self.assertRaises(NetworkError):p.publish(tid)
         self.assertEqual(self.store.read()['intents'][tid]['phase'],'NEEDS_RECONCILIATION')
@@ -397,6 +454,68 @@ class PublisherTests(PublisherBase):
         self.assertEqual((row['unresolved_intents'],row['remaining'],row['complete']),(1,0,True))
         with self.assertRaises(LanguageComplete):reserve(state,{'vi':499,'en':2},targets,'vi','TH-VI-0002')
         reserve(state,{'vi':499,'en':2},targets,'en','TH-EN-0002') # English has its own ceiling
+    def test_an_intent_absent_from_wordpress_after_the_grace_period_is_closed_and_may_be_sent_again(self):
+        p,tid=self.publisher('vi');original=self.client.create
+        def lost(payload):raise NetworkError('Connection reset; outcome unknown')
+        self.client.create=lost
+        with self.assertRaises(NetworkError):self.publish(p,tid)
+        self.client.create=original
+        with self.assertRaises(ValueError):self.publish(p,tid) # inside the grace period nothing is concluded
+        self.assertEqual(self.client.posts,[])
+        long_ago=(dt.datetime.now(dt.timezone.utc)-dt.timedelta(hours=2)).isoformat()
+        self.store.mutate(lambda s:s['intents'][tid].update(reserved_at=long_ago))
+        self.assertEqual(p.reconcile(tid)['phase'],'REJECTED')
+        state=self.store.read();self.assertEqual((state['intents'][tid]['closed_reason'],state['topics'][tid]['status']),('absent_after_grace','READY'))
+        self.store.mutate(lambda s:s['intents'][tid].update(reserved_epoch=0))
+        self.assertEqual(self.publish(p,tid)['wp_id'],999);self.assertEqual(len(self.client.posts),1)
+    def test_a_draft_that_wordpress_holds_is_never_counted_and_never_sent_again(self):
+        p,tid=self.publisher('vi');original=self.client.create
+        def drafted(payload):
+            original(dict(payload));self.client.posts[-1]['status']='draft'
+            raise NetworkError('HTTP 500 for /wp-json/thuha-writer/v1/posts',500,'thuha_permalink_mismatch')
+        self.client.create=drafted
+        with self.assertRaises(NetworkError):self.publish(p,tid)
+        state=self.store.read()
+        self.assertEqual((state['intents'][tid]['phase'],state['topics'][tid]['status'],state['receipts']),('DRAFT_HELD','BLOCKED',{}))
+        self.assertTrue(quota_unresolved(state))
+        with self.assertRaisesRegex(ValueError,'unresolved'):self.publish(p,tid)
+        self.assertEqual(len(self.client.posts),1)
+        self.client.posts[0]['status']='publish' # a person published the draft in WordPress
+        self.assertEqual(p.reconcile(tid)['status'],'PUBLISHED')
+        self.assertEqual(self.store.read()['topics'][tid]['status'],'PUBLISHED')
+    def test_an_id_status_or_permalink_that_is_not_valid_never_becomes_published(self):
+        for name,mutate in (('wrong permalink',lambda post:post.update(link=SITE+'/vi/elsewhere/')),('no id',lambda post:post.update(id=0)),
+                            ('foreign owner',lambda post:post.update(owner='someone-else')),('wrong slug',lambda post:post.update(slug='other'))):
+            with self.subTest(name):
+                self.setUp();p,tid=self.publisher('vi');original=self.client.create
+                def altered(payload,mutate=mutate,original=original):
+                    result=original(payload);mutate(result['post']);return result
+                self.client.create=altered
+                with self.assertRaises(ValueError):self.publish(p,tid)
+                state=self.store.read()
+                self.assertEqual(state['receipts'],{});self.assertEqual(state['intents'][tid]['phase'],'NEEDS_RECONCILIATION')
+                self.assertEqual(len(self.client.posts),1)
+    def second_ready(self,p):
+        """A second, clearly different Vietnamese topic taken through claim, submit, review and QA."""
+        topic=self.candidate(2,'vi')
+        topic.update(primary_keyword='bảo dưỡng xe tay ga định kỳ',search_intent='lịch bảo dưỡng định kỳ cho xe tay ga mới mua',
+                     proposed_title='Lịch bảo dưỡng định kỳ cho xe tay ga: những hạng mục cần kiểm tra',
+                     proposed_url=post_url('vi','lich-bao-duong-dinh-ky-xe-tay-ga'))
+        intake(self.store,[topic],self.inv)
+        lease=claim(self.store,'session-two','writer-two')
+        receipt=submit(self.store,lease['slot'],lease['session'],lease['fence'],self.article_for(topic,'session-two','writer-two'))
+        review={'article_sha':receipt['article_sha'],'reviewer_id':'reviewer-qa','language':'vi','checked_at':now(),
+                'checks':{k:True for k in REVIEW_CHECKS},'notes':'Synthetic test review, never production evidence.'}
+        sha=self.store.put_document(review)
+        self.store.mutate(lambda s:s.setdefault('reviews',{}).update({topic['topic_id']:sha}))
+        self.assertEqual(run_qa(self.store,topic['topic_id'],self.inv,self.policy,self.business)['status'],'PASS')
+        self.store.mutate(lambda s:s['intents'][next(iter(s['intents']))].update(reserved_epoch=0)) # the 60 s publish interval has passed
+        return p,topic['topic_id']
+    def test_running_the_same_publication_twice_sends_one_post(self):
+        p,tid=self.publisher('vi')
+        first=self.publish(p,tid);again=self.publish(p,tid)
+        self.assertEqual(first['wp_id'],again['wp_id']);self.assertEqual(self.client.create_calls,1)
+        self.assertEqual(len(self.store.read()['receipts']),1)
 
 
 class HTTPAndAuditTests(unittest.TestCase):
