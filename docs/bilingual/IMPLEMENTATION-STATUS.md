@@ -1,6 +1,6 @@
 # Trạng thái triển khai: workflow 500 VI + 500 EN
 
-Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ).
+Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ; ngày 23/10 đã gộp thêm nhánh phiên V5).
 Không có pull request nào được tạo; `main` không bị đụng; production publisher **vẫn tắt**.
 
 ## Phiên 23/10/2026: hợp nhất V5, hàng đợi chung, publisher theo bằng chứng WordPress
@@ -40,7 +40,7 @@ cho đến khi thư viện có ít nhất một ảnh như vậy (việc của n
 3. Environment `thuha-production` có người duyệt, secrets `THUHA_WP_USER`, `THUHA_WP_APPLICATION_PASSWORD`, `THUHA_GITHUB_SECURITY_TOKEN`, biến `THUHA_GO_LIVE_APPROVAL`.
 4. Cài `dist/thuha-native-vi-publisher-1.0.0.zip`, chạy `adapter-preflight` (người/AI có quyền WordPress xem trước và triển khai).
 5. Thêm ảnh có alt tiếng Việt vào thư viện media.
-6. Review độc lập bảy bản thảo EN (và các bản VI khi có).
+6. Review độc lập bảy bản thảo EN (và các bản VI khi có). Danh tính reviewer chỉ là chuỗi tự khai (`claude-editorial-reviewer` trong `config/qa.json`), không phải xác thực: chủ sở hữu xác nhận hoặc thay roster và bảo vệ quyền ghi sổ cái trước khi tin cho production.
 7. Quyết định go-live: một thay đổi `config/release.json` đã được review (`enabled`, `approved`, `approval_ref`, `paused:false`, `cross_publisher_coordination_verified`, `languages_enabled`). Giai đoạn đầu tối đa 2 bài.
 
 ## Phân loại trung thực
@@ -57,12 +57,12 @@ cho đến khi thư viện có ít nhất một ảnh như vậy (việc của n
 | Plugin `thuha-native-vi-publisher` 1.0.0 | có | có, trên **mô phỏng** WordPress (PHP 8.3) + mutation test | **chưa cài** | **chưa**: `RBHVI_Language`, Yoast, `wp_unique_post_slug`, permalink `/vi/` thật chưa được thấy |
 | ZIP tái lập `dist/…zip` + SHA-256 | có | có (build lại từng byte) | chưa | không áp dụng |
 | Kiểm tra archive cha/con, phân trang, sitemap, robots, cô lập ngôn ngữ | có (hàm thuần) | có (fixture local) | không áp dụng | **chưa**: publisher có quyền chạy sau bài đầu tiên |
-| Matrix VI500 (500 mới) và EN500 (275 bảo vệ + 225 mới) | có | có (validator, chống trùng, URL/category) | không áp dụng | chưa: dedup live và dedup với 11 trang tĩnh VI cần inventory live |
-| Nguồn nghiên cứu, review ý định, viết bài, review độc lập | **chưa làm** | không áp dụng | không áp dụng | không áp dụng |
+| Matrix VI500 (500 mới) và EN500 (275 bảo vệ + 57 đã vào sổ cái + 168 mới) | có | có (validator, chống trùng, URL/category, khớp sổ cái) | không áp dụng | chưa: dedup live và dedup với 11 trang tĩnh VI cần inventory live |
+| Nguồn nghiên cứu, review ý định, viết bài, review độc lập | **EN: do phiên V5 làm** (57 chủ đề có nguồn đã chụp, 9 bản thảo, 2 review); **VI: chưa làm** | không áp dụng | không áp dụng | không áp dụng |
 
-**Chưa có bài nào được viết hoặc xuất bản.** 725 dòng matrix là kế hoạch, mọi dòng ở `NEEDS_SOURCE`:
-không có nguồn nào được thu thập (không có kết nối WordPress/crawler trong phiên này và không được bịa),
-chưa đo nhu cầu tìm kiếm (`demand_evidence: NOT_MEASURED`). Không được nói "đã có 1000 bài".
+**Chưa có bài nào được xuất bản bởi factory.** Có 9 bản thảo tiếng Anh (từ phiên V5) trong sổ cái, 2 bản có review; chưa có bản thảo tiếng Việt.
+Các dòng matrix là kế hoạch, mọi dòng mới ở `NEEDS_SOURCE`: không có nguồn nào được thu thập cho chúng (không có kết nối WordPress/crawler
+trong phiên này và không được bịa), chưa đo nhu cầu tìm kiếm (`demand_evidence: NOT_MEASURED`). Không được nói "đã có 1000 bài".
 
 ## Review độc lập và cách xử lý
 
@@ -137,20 +137,21 @@ gắn dấu VI): cả ba đều làm test PHP đỏ rồi trở lại xanh khi k
 Cập nhật ở cuối phiên: xem commit cuối của nhánh `feature/bilingual-500-workflow`
 (`git log -1`) và bảng số liệu ngay dưới.
 
-### Số liệu ở điểm dừng (2026-10-22, đo bằng lệnh ở mục "Kiểm tra đã chạy")
+### Số liệu ở điểm dừng (đo bằng lệnh ở mục "Kiểm tra đã chạy"; cập nhật 2026-10-23)
 
 | Hạng mục | Kết quả |
 |---|---|
-| Python unittest | 203 test, tất cả OK (~19 giây) |
+| Python unittest | 289 test, tất cả OK (~25 giây) |
 | PHP harness (mô phỏng WordPress) | 25 tình huống đạt, 0 lỗi |
 | `thuha.cli validate` | PASS (goal 500/500, 2 matrix, gói adapter, chính sách QA) |
 | Matrix VI500 | 500 dòng mới, 0 vấn đề |
-| Matrix EN500 | 500 dòng = 275 bảo vệ + 225 mới, 0 vấn đề |
+| Matrix EN500 | 500 dòng = 275 bảo vệ + 57 đã vào sổ cái + 168 mới, 0 vấn đề |
 | ZIP plugin | `dist/thuha-native-vi-publisher-1.0.0.zip`, SHA-256 `08654741d0bd3c97757b877b67d47c28a9609314b3eaf38d1135555471c3dedb` |
 | Workflow YAML | đọc được (Ruby YAML) |
-| Bài đã viết / đã xuất bản bởi factory | 0 / 0 |
+| Bản thảo EN trong sổ cái (9, từ phiên V5) / bài đã xuất bản bởi factory | 9 / 0 |
 | `release.json` `languages_enabled` | `[]` (production vẫn tắt) |
 | Trạng thái adapter | `BLOCKED_ADAPTER_NOT_DEPLOYED` (chưa cài, chưa preflight) |
+| Sổ cái phiên → `factory-state` | `FAST_FORWARD` trên ảnh chụp ngày 23/10 (phiên V5 v137, shared v5); chưa chạy thật |
 
 Commit cuối của nhánh là điểm dừng; số test có thể thay đổi nếu có commit sau mục này.
 

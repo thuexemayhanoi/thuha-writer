@@ -66,15 +66,21 @@ không có trường ngôn ngữ đã kiểm chứng.
     trả về được thì trả `thuha_revert_failed` và nói rõ bài có thể ĐANG CHẠY. Hiệu ứng phụ của việc đã publish (feed, sitemap, ping)
     không thể hoàn tác bằng cách đặt lại nháp, vì vậy bước 9 mới là bước quyết định.
 
-Lỗi sau bước 6 để lại bản nháp. Python không POST lại sau kết quả không rõ: nó đối chiếu theo khóa (`reconcile`) và chỉ ghi biên nhận
-khi đọc lại đủ: chủ sở hữu, marker, ID/URL/slug, ngôn ngữ, hai dấu native, category, ảnh, tiêu đề, thân bài, SEO, canonical,
-`<html lang>`, không có hreflang lạ, schema.
+Lỗi sau bước 6 để lại bản nháp. Python không POST lại sau kết quả không rõ: nó đối chiếu theo khóa (`reconcile`) ngay lập tức và ở mọi lần
+chạy sau. **Một bài được ghi PUBLISHED khi WordPress trả ID hợp lệ, status `publish` và permalink đúng như kế hoạch** (đúng không gian
+ngôn ngữ), và bài mang đúng chủ sở hữu, khóa idempotency và marker của intent đó; ID thuộc bài đã có từ trước bị từ chối.
+Sau đó (không phải trước) phần đọc lại của adapter được so với bài đã review (ngôn ngữ, hai dấu native, category, ảnh, tiêu đề, thân bài,
+SEO) và kết quả `integrity` được ghi vào biên nhận; lệch → cảnh báo chặn bài MỚI cho đến khi có người `acknowledge`.
+Trang công khai (canonical, tiêu đề, meta, `<html lang>`, không hreflang lạ, schema, không `noindex`) được kiểm tra **sau cùng**
+như bước phụ: thử lại có back-off (10 phút, 30 phút, 1 giờ, 3 giờ), tối đa năm lần, lỗi chỉ là cảnh báo và không bao giờ chặn hàng đợi.
+Bài còn là nháp ở phía WordPress (`DRAFT_HELD`) không bao giờ được tính và không bao giờ bị gửi lại.
 
 **Đóng intent thay vì đốt vĩnh viễn.** Intent có hai pha *đóng* (không tính vào quota, ngân sách pilot hay hạn mức ngày, và topic được
 đăng lại sau khi sửa): `NOT_SENT` (lỗi trước khi POST được gửi: payload không qua `validate_payload`, tạm dừng, mất quyền) và `REJECTED`
 (plugin trả một mã trong `definitive_rejections_before_insert` **và** đọc lại theo khóa không thấy gì). Payload mà plugin chắc chắn từ chối
 bị chặn **trước** khi giữ chỗ. Mọi trường hợp khác (timeout, 5xx, mã có thể xảy ra sau khi đã có bản nháp) vẫn là `NEEDS_RECONCILIATION`
-và tiếp tục tính vào quota; một bản ghi VERIFIED không bao giờ bị ghi đè.
+và tiếp tục tính vào quota; một bản ghi PUBLISHED không bao giờ bị ghi đè. Kết nối chưa từng mở được (không phân giải được tên, bị từ chối,
+mạng không tới được) là `NOT_SENT`; một intent mà WordPress vẫn không có sau một giờ cũng được đóng (`REJECTED`, `absent_after_grace`).
 
 ## Đã bảo đảm gì, bằng cách nào
 
@@ -93,7 +99,8 @@ và tiếp tục tính vào quota; một bản ghi VERIFIED không bao giờ b�
 | Bộ lọc truy vấn của plugin native ẩn bài VI | test PHP: hook `pre_get_posts` được gỡ tạm khi tra khóa/inventory và đặt lại |
 | Bài có mật khẩu không lộ thân bài trong inventory | test PHP |
 | Replay không tạo thêm | test PHP: 200 replay, đúng một bài, đảo thứ tự khóa JSON vẫn cùng payload |
-| Không đếm nháp/unknown là bài | test Python: `NEEDS_RECONCILIATION` không thành biên nhận |
+| Không đếm nháp/unknown là bài | test Python: `NEEDS_RECONCILIATION` và `DRAFT_HELD` không thành biên nhận |
+| Lỗi crawl sau đăng không chặn hàng đợi | test Python toàn tuyến: bài kế tiếp vẫn được đăng; cảnh báo hiện trên dashboard |
 | Inventory đầy đủ hai ngôn ngữ | test PHP: lọc ẩn bài VI → `thuha_inventory_filtered`, không trả danh sách thiếu |
 | ZIP tái lập được | `python3 scripts/build_adapter_zip.py`; test so từng byte với ZIP đã commit |
 

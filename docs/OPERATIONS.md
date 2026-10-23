@@ -52,7 +52,7 @@ checks the complete inventory and every queued intent.
 
 **Article contract.** `topic_id`, `session`, `agent_id`, `source_commit`, `language` (`vi` for `TH-VI-####`, `en-US`
 for `TH-EN-####` and legacy `TH-######`), `title`, `body_html`, `seo_title`, `meta_description`, `focus_keyword`,
-`canonical`, `category_id`, `featured_media` (an existing image whose alt text is in the article's language),
+`canonical`, `category_id`, `featured_media` (an existing image whose alt text is in the article's language; a Vietnamese alt text must contain at least one Vietnamese letter, because a short English caption cannot be told apart otherwise),
 `sources`, `business_claims`. Submission saves the immutable document first, then its receipt; preserve the
 SHA through quota exhaustion. Only changed bytes count as a repair (limit in policy). QA failure never makes an
 Actions job rewrite prose.

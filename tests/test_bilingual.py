@@ -4,7 +4,7 @@ import unittest
 from test_factory import Fixture, VI_SENTENCE
 from thuha.common import SITE, digest, fold, norm, now, load, ROOT
 from thuha.coordinator import claim, submit
-from thuha.language import post_url, profile, screen, slugify, split_url, url_language, topic_language
+from thuha.language import post_url, profile, screen, screen_alt, slugify, split_url, url_language, topic_language
 from thuha.quality import evaluate, REVIEW_CHECKS
 from thuha.research import intake
 
@@ -81,6 +81,17 @@ class BilingualQualityTests(Fixture):
             a['seo_title'] = 'A practical quiet route planner for an unhurried Hanoi day'
         failures = self.fails('vi', mutate)
         self.assertIn('TITLE_NOT_VIETNAMESE_TEXT', failures);self.assertIn('SEO_TITLE_NOT_VIETNAMESE_TEXT', failures)
+
+    def test_a_vietnamese_article_cannot_use_an_image_whose_alt_text_is_a_short_english_caption(self):
+        # "Honda Vision scooter" is too short for the language screen to call it English; the alt rule asks for Vietnamese letters.
+        self.assertEqual(screen_alt('vi', 'Honda Vision scooter'), ['NO_VIETNAMESE_LETTERS'])
+        self.assertEqual(screen_alt('vi', 'Xe tay ga Honda Vision đỗ trước hồ Tây'), [])
+        self.assertEqual(screen_alt('en', 'Hanoi Old Quarter'), [])
+        self.assertTrue(screen_alt('en', 'Xe tay ga đỗ trước hồ Tây vào buổi sáng sớm'))
+        t, a, sub = self.ready('vi')
+        self.inv['media'][1]['alt_text'] = 'Honda Vision scooter'
+        result = evaluate(a, t, sub, self.inv, self.policy, self.store, None, self.business)
+        self.assertIn('FEATURED_ALT_NO_VIETNAMESE_LETTERS', result['hard_fails'])
 
     def test_article_language_label_must_match_topic(self):
         self.assertIn('ARTICLE_LANGUAGE_MISMATCH', self.fails('vi', lambda a:a.update(language='en-US')))

@@ -2,7 +2,7 @@ from collections import Counter
 from pathlib import Path
 from .common import ROOT,REPO,now,age,save,load
 from .coordinator import SLOTS,timestamp
-from .language import LANGUAGES,screen,targets as language_targets
+from .language import LANGUAGES,screen_alt,targets as language_targets
 from . import ledger,quota
 
 STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','PUBLISHING','PUBLISHED')
@@ -73,7 +73,7 @@ def handoff(store,live=None):
 def media_blockers(inv):
     out=[]
     for lang in LANGUAGES:
-        usable=[m for m in inv.get('media',[]) if str(m.get('alt_text','')).strip() and not screen(lang,str(m['alt_text']),short=True)]
+        usable=[m for m in inv.get('media',[]) if str(m.get('alt_text','')).strip() and not screen_alt(lang,str(m['alt_text']))]
         if not usable:out.append('NEEDS_MEDIA: no image in the media library has '+lang+' alt text, so no '+lang+' article can pass QA (featured image rule)')
     return out
 

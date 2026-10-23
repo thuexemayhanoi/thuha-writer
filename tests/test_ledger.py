@@ -317,6 +317,15 @@ class RealLedgerTests(unittest.TestCase):
         self.assertTrue(review_checks_ok(review, 'en'))
         self.assertFalse(review_checks_ok(review, 'vi'))  # no native_language / no_machine_translation attestation
 
+    def test_no_image_of_the_stored_inventory_can_illustrate_a_vietnamese_article(self):
+        """The 15 captioned images of the site are English captions; the dashboard's NEEDS_MEDIA for Vietnamese is true."""
+        from thuha.language import screen_alt
+        inventory = ledger.read_documents(ROOT / 'data/documents')['da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c']
+        captioned = [m for m in inventory['media'] if str(m.get('alt_text', '')).strip()]
+        self.assertEqual(len(captioned), 15)
+        self.assertEqual([m['id'] for m in captioned if not screen_alt('vi', m['alt_text'])], [])
+        self.assertEqual(len([m for m in captioned if not screen_alt('en', m['alt_text'])]), 15)
+
     def test_the_session_documents_are_complete_and_untouched(self):
         documents = ledger.read_documents(ROOT / 'data/documents')
         self.assertGreaterEqual(len(documents), 277)

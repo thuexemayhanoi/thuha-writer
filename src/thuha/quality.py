@@ -11,7 +11,7 @@ from urllib.parse import urljoin,urlsplit
 from .audit import parse
 from . import htmlpolicy
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
-from .language import locale, screen, url_language
+from .language import locale, screen, screen_alt, url_language
 from .research import collisions, item_language
 from .store import event
 from .coordinator import timestamp
@@ -109,10 +109,10 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     if not media or not str(media.get('alt_text','')).strip():errors.append('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED')
     else:
         score+=10
-        errors.extend('FEATURED_ALT_'+x for x in screen(lang,nfc(media['alt_text']),short=True))
+        errors.extend('FEATURED_ALT_'+x for x in screen_alt(lang,nfc(media['alt_text'])))
     if any(not str(img.get('alt') or '').strip() for img in page.images):errors.append('BODY_IMAGE_ALT_MISSING')
     for img in page.images:
-        errors.extend('BODY_IMAGE_ALT_'+x for x in screen(lang,nfc(img.get('alt') or ''),short=True) if img.get('alt'))
+        errors.extend('BODY_IMAGE_ALT_'+x for x in screen_alt(lang,nfc(img.get('alt') or '')) if img.get('alt'))
     sources=article.get('sources',[]);source_hosts=[]
     if not sources:errors.append('RESEARCH_EVIDENCE_MISSING')
     for ref in sources:

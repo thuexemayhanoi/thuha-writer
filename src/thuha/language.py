@@ -149,5 +149,17 @@ def screen(lang, text, short=False):
     return errors
 
 
+def screen_alt(lang, text):
+    """Alt text is short, so `screen` cannot tell a short English caption from a Vietnamese one ("Honda Vision scooter").
+
+    A Vietnamese alt text must therefore show at least one Vietnamese letter (a diacritic or đ); an English one must not
+    read as Vietnamese. Anything this lets through still passes the reviewer's image check.
+    """
+    errors = screen(lang, text, short=True)
+    if lang == 'vi' and not errors and profile(text)['vi_ratio'] == 0:
+        errors.append('NO_VIETNAMESE_LETTERS')
+    return errors
+
+
 def html_lang_matches(lang, value):
     return str(value or '').lower().replace('_', '-').split('-')[0] == SPEC[check(lang)]['html_lang']

@@ -81,9 +81,9 @@ Nothing below is done by this repository, and none of it can be checked offline.
 4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
    access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
 5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
-   language. Only 15 images carry (English) alt text today and none carries Vietnamese alt text, so no Vietnamese article can pass QA
-   until at least one is added to the media library. The inventory now lists the whole library.
-6. **Reviews.** Seven English drafts need an independent review (`claude-editorial-reviewer` is the only trusted reviewer in `config/qa.json`; the owner confirms or replaces it); Vietnamese drafts do not exist yet.
+   language. Only 15 images carry (English) alt text today, so no Vietnamese article can pass QA until at least one image whose
+   alt text is Vietnamese (it must contain Vietnamese letters) is added to the media library. The inventory now lists the whole library.
+6. **Reviews.** Seven English drafts need an independent review (`claude-editorial-reviewer` is the only trusted reviewer in `config/qa.json`; the owner confirms or replaces it. The identity is a declared string, not an authenticated person: protect who may write the shared ledger and the policy before trusting it for production); Vietnamese drafts do not exist yet.
 7. **Go-live** is one reviewed change to `config/release.json` (`enabled`, `approved`, `approval_ref`, `paused: false`,
    `cross_publisher_coordination_verified`, `languages_enabled`). The first stage publishes at most two posts. Nothing in this
    repository does this.
@@ -91,7 +91,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 ## Commands
 
 ```
-PYTHONPATH=src python3 -m unittest discover -s tests -v     # 287 offline tests (the PHP harness runs if php exists)
+PYTHONPATH=src python3 -m unittest discover -s tests -v     # 289 offline tests (the PHP harness runs if php exists)
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
 PYTHONPATH=src python3 -m thuha.cli --remote promote        # PLAN of the hand-over; add --apply to perform it (queue job only)
 PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: bring the session ledger up to the shared one first

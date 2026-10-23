@@ -9,7 +9,7 @@ to WordPress or lowers a gate.
 from collections import Counter
 from .common import digest, now, norm, urlkey, validate_inventory
 from .coordinator import timestamp
-from .language import LANGUAGES, locale, screen, targets as language_targets
+from .language import LANGUAGES, locale, screen_alt, targets as language_targets
 from . import quota
 from .quality import evaluate, REVIEW_CHECKS
 from .research import capture_external_source, collisions, intake, item_language
@@ -37,7 +37,7 @@ def link_catalogue(inv,language=None,limit=None):
 def media_catalogue(inv,language=None):
     """Existing media whose alt text is written in the article's language (QA screens the alt text)."""
     return [m for m in inv.get('media',[]) if str(m.get('alt_text','')).strip()
-            and (language is None or not screen(language,str(m['alt_text']),short=True))]
+            and (language is None or not screen_alt(language,str(m['alt_text'])))]
 
 
 RULES={
