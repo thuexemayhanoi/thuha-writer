@@ -1,4 +1,7 @@
 # ThuHa Writer
+
+Owner-confirmed extension fee (23 October 2026): **20,000 VND/hour; more than 6 hours is charged as one rental day**.
+See `config/business-facts.json extension_policy` and [the confirmation record](docs/OWNER-EXTENSION-FEE-2026-10-23.md).
 https://rentbikehanoi.com
 
 **Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=85 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**

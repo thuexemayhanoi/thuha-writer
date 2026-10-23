@@ -118,7 +118,10 @@ class PackTests(Cli):
         rows = {(r['vehicle'], r['period']): r for r in business['price_table']}
         self.assertIsNone(rows[('electric', 'day')]['interval'])
         self.assertEqual(rows[('Air Blade', 'week')]['interval'], [900000, 900000])
-        self.assertEqual(business['never_assert'], ['delivery', 'deposit procedure', 'deposit refunds', 'extension charges'])
+        self.assertEqual(business['never_assert'], ['delivery', 'deposit procedure', 'deposit refunds'])
+        self.assertEqual(business['extension_policy']['hourly_rate_vnd'], 20000)
+        self.assertEqual(business['extension_policy']['one_rental_day_when_extension_hours_exceed'], 6)
+        self.assertEqual(business['extension_policy']['confirmed_by'], 'website owner')
         self.assertTrue(quality.re.search(quality.DISCLAIMER['vi'], business['price_disclaimer'], quality.re.I))
 
     def test_a_saved_source_of_another_topic_that_fits_is_offered_for_reuse_but_never_re_captured(self):

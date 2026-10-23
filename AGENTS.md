@@ -3,6 +3,10 @@
 ## Current owner brief — 2026-10-23 UTC
 
 Target only `https://rentbikehanoi.com`, repository `thuexemayhanoi/thuha-writer`.
+Owner-confirmed extension policy (23 October 2026): **20,000 VND per hour; more than 6 hours is charged as one rental day**.
+Use `config/business-facts.json extension_policy`; this is confirmed, not an unknown policy. Do not change `>6` to `>=6`,
+use 30,000 VND/hour or invent another threshold. Before submitting affected drafts, recapture first-party evidence from
+the updated facts file and reference the new immutable snapshot; do not rewrite old documents, QA reports or receipts.
 Latest owner instruction (23 October): **remove the independent AI article-review gate**.
 The active route is writer -> automatic QA >=85/100 + duplicates + correct category/language -> publisher.
 Completed drafts go straight to QA; never wait for or fabricate a reviewer. Historical reviews stay immutable.

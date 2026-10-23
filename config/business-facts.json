@@ -13,6 +13,14 @@
     "Air Blade": {"day": [200000, 200000], "week": [900000, 900000], "month": [1500000, 1500000]}
   },
   "price_disclaimer": "Reference prices only. Confirm the bike and rate before booking.",
-  "unconfirmed_policies": ["delivery", "deposit procedure", "deposit refunds", "extension charges"],
+  "extension_policy": {
+    "hourly_rate_vnd": 20000,
+    "one_rental_day_when_extension_hours_exceed": 6,
+    "confirmed_by": "website owner",
+    "confirmed_on": "2026-10-23",
+    "statement_vi": "Phí gia hạn 20.000đ/giờ; quá 6 giờ tính một ngày thuê.",
+    "statement_en": "Extension fee: 20,000 VND per hour. More than 6 hours is charged as one rental day."
+  },
+  "unconfirmed_policies": ["delivery", "deposit procedure", "deposit refunds"],
   "rules": ["Never promise no deposit by default", "Never invent an electric daily rate", "Do not infer business policies from another repository"]
 }

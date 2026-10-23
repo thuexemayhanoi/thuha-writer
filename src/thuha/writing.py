@@ -599,6 +599,7 @@ def pack(store, state, inv, topic_id, policy, business, cfg=None):
             'lease': lease and {k: lease[k] for k in ('slot', 'session', 'agent_id', 'fence', 'expires_at')},
             'business': {'name': business['name'], 'address': business['address'], 'phone': business['phone'], 'local_phone': business['local_phone'], 'hours': business['hours'],
                          'contact_html': contact_html(lang, business, cfg), 'price_table': price_table(business, lang), 'price_disclaimer': cfg['disclaimer'][lang],
+                         'extension_policy': business.get('extension_policy'),
                          'never_assert': business['unconfirmed_policies'], 'rules': business['rules']},
             'sources': {'saved': saved, 'reusable': reusable},
             'internal_links': {'live': live, 'archives': archives, 'planned': planned[:10], 'service_target': target or None,
