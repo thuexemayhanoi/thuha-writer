@@ -6316,6 +6316,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:06:01.352824+00:00",
+      "expires_at": 1792773361.352815,
+      "fence": "994936c050c842fc8b5ddb597b5961c7",
+      "heartbeat_at": "2026-10-23T16:06:01.352790+00:00",
+      "language": "vi",
+      "previous": "bd97053dc257564c2b7839713b7d6652270b83898d54cef2b6da6ffbe4a11472",
+      "session": "sess-b4",
+      "sha256": "807a9d4961f97a381d145fc563dbbb7acf1935981298a486b4767ba256780886",
+      "slot": "W1",
+      "topic_id": "TH-VI-0003"
     }
   ],
   "intents": {
@@ -9291,7 +9305,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773361.352815,
+      "fence": "994936c050c842fc8b5ddb597b5961c7",
+      "heartbeat_at": "2026-10-23T16:06:01.352790+00:00",
+      "language": "vi",
+      "session": "sess-b4",
+      "slot": "W1",
+      "topic_id": "TH-VI-0003"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -13483,6 +13508,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "thuê xe theo ngày hay theo tuần",
       "proposed_title": "Ở Hà Nội khoảng một tuần: thuê xe theo ngày hay theo tuần thì tính thế nào",
@@ -13495,7 +13521,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0003",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15417,5 +15443,5 @@
       ]
     }
   },
-  "version": 822
+  "version": 823
 }
