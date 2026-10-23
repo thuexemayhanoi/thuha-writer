@@ -37,6 +37,12 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   and every READY draft whose policy or article hash is stale. Score = raw automatic points / 80 * 100; threshold 85.
   Any hard failure blocks publication regardless of score. Vietnamese QA needs an adapter or authenticated inventory.
   Legacy review records neither gate QA nor add points; no synthetic attestation may replace them.
+- **QA never blames the article for data the site lacks.** An unusable inventory (stale, incomplete, public-only for Vietnamese)
+  makes `run_qa` refuse: nothing is evaluated, recorded or changed and `qa --pending` exits 2. A finished draft that would pass
+  as written once pages it already links to are live is `BLOCKED_DATA` (stays DRAFT_READY, no repair spent, not a pass, checked
+  again every run, passes by itself). Real faults, typo links, too few links, an image not chosen and a score that stays below 85
+  go to repair. `precheck` uses the same classifier (`src/thuha/datawait.py`); `submit` refuses an empty `featured_media` unless
+  the draft is stored with `--waiting-for FEATURED_MEDIA`.
 - **PUBLISHED means WordPress said so.** The intent becomes PUBLISHED when WordPress returns a valid ID, status `publish` and
   the planned permalink for the post this intent created. Stored-content differences (adapter read-back) are recorded in the
   receipt and raise an alert that stops *new* posts until a person acknowledges it. The public-page crawl is a separate step
@@ -51,7 +57,8 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
 - **A draft may wait for data, never fake it.** A finished text that lacks an image with Vietnamese alt text, live same-language links or an
   authoritative inventory is stored with `submit --waiting-for` as `WAITING_DATA`: never READY, never QA-passed, no media ID, source,
   permalink or check result invented, shared English alt text never edited to help it pass. `recheck-data` (credentialed inventory only)
-  clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`.
+  clears a wait; completing the draft then goes through automatic QA. Drafts are exported to `drafts/`. Revising or finishing a
+  stored `WAITING_DATA` draft is not a repair, and `promote` accepts it (any other replaced draft must have spent one).
 
 ## Language contract (enforced in code; do not weaken)
 

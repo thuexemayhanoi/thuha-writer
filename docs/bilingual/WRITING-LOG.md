@@ -4,6 +4,9 @@ Nhật ký này ghi từng quyết định của phiên viết: chủ đề nào
 thái nào. **Matrix là kế hoạch, bản thảo không phải bài đã xuất bản**: không dòng nào dưới đây là bài đã đăng. Sổ cái
 (`data/state/factory.json` + `data/documents/`) là nguồn chính; `drafts/` là bản đọc được, sinh bằng `python3 scripts/export_drafts.py`.
 
+**Về chữ "review" trong nhật ký này:** các vòng "review biên tập" dưới đây là những lần đọc soát chất lượng tôi nhờ chạy *trong lúc viết* (tìm lỗi số học, lặp ý, giọng văn,
+bài trùng ý). Chúng không phải cổng QA hay xuất bản, không ghi vào sổ cái, không cộng điểm và không là điều kiện của bước nào: bài đi thẳng từ writer tới QA tự động theo yêu cầu của chủ website ngày 23/10.
+
 Nguồn duy nhất đọc được trong môi trường viết này là tệp thông tin do chủ cửa hàng cung cấp (`config/business-facts.json`), được chụp thành
 bằng chứng "first-party" có nhãn (`source --repository-file`). Mọi trang web bên ngoài (luật, nhà sản xuất, địa điểm, giao thông) không đọc
 được từ container này (chỉ `api.github.com` tới được; WebFetch không phân giải được tên miền; Firecrawl hết tín dụng), nên **không có nguồn

@@ -294,6 +294,42 @@ class RoundsTests(unittest.TestCase):
         self.assertIn('QA', ' '.join(verdict['reasons']))
         self.assertIn('LEDGER_PROMOTION', ' '.join(verdict['reasons']))
 
+    def store_as_waiting(self, tid='TH-000003'):
+        def store(state):  # what `submit --waiting-for` leaves behind
+            state['topics'][tid]['status'] = 'WAITING_DATA'
+            state['topics'][tid]['waiting_for'] = ['FEATURED_MEDIA']
+            event(state, 'SUBMISSION', topic_id=tid, article_sha=state['submissions'][tid]['article_sha'], waiting_for=['FEATURED_MEDIA'])
+        self.session.mutate(store)
+
+    def replace_draft(self, text, status, tid='TH-000003'):
+        finished = self.session.put_document({'article': text})
+
+        def replace(state):  # the submission changes; repair_count does not
+            state['submissions'][tid]['article_sha'] = finished
+            state['topics'][tid]['status'] = status
+            state['topics'][tid].pop('waiting_for', None)
+            event(state, 'SUBMISSION', topic_id=tid, article_sha=finished)
+        self.session.mutate(replace)
+        return finished
+
+    def test_a_waiting_draft_that_a_later_session_finishes_is_handed_over_without_a_repair(self):
+        self.store_as_waiting()
+        self.assertEqual(self.promote()['status'], 'FAST_FORWARD')  # the shared ledger now holds a draft that waits for data
+        ledger.sync(self.session, self.remote, apply=True)
+        finished = self.replace_draft('finished after the data arrived', 'DRAFT_READY')
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'FAST_FORWARD', verdict)  # finishing a stored draft is a completion, not a repair
+        self.assertTrue(self.promote()['applied'])
+        self.assertEqual(self.remote.read()['submissions']['TH-000003']['article_sha'], finished)
+
+    def test_a_draft_that_was_not_waiting_still_cannot_be_replaced_without_a_repair(self):
+        self.promote()  # TH-000003 is DRAFT_READY in the shared ledger
+        ledger.sync(self.session, self.remote, apply=True)
+        self.replace_draft('replaced without consuming a repair', 'DRAFT_READY')
+        verdict = ledger.plan(self.remote.raw()[0], self.session.raw()[0])
+        self.assertEqual(verdict['status'], 'INCONSISTENT')
+        self.assertIn('Submission replaced without a repair', ' '.join(verdict['reasons']))
+
     def test_a_review_with_no_event_cannot_be_silently_dropped(self):
         self.promote()
         ledger.sync(self.session, self.remote, apply=True)

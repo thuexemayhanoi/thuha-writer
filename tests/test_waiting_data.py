@@ -472,6 +472,17 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotIn('recheck-data', text[:text.index('  protected-publish:')])  # the job without WordPress access never writes it
 
 
+class QualityWorkflowTests(unittest.TestCase):
+    def test_a_pull_request_shows_the_hand_over_plan_and_never_applies_it(self):
+        text = (ROOT / '.github/workflows/quality.yml').read_text(encoding='utf-8')
+        step = text[text.index('Hand-over plan for this pull request'):text.index('Read authoritative remote state')]
+        self.assertIn("github.event_name == 'pull_request'", step)
+        self.assertIn('head.repo.full_name == github.repository', step)  # a fork has no token
+        self.assertIn('thuha.cli --remote promote >', step)
+        self.assertNotIn('--apply', text)  # no step of the quality workflow writes the shared ledger
+        self.assertNotIn('contents: write', text)
+
+
 class CommittedDraftsTests(unittest.TestCase):
     def test_the_committed_drafts_folder_is_exactly_what_the_committed_ledger_exports(self):
         """drafts/ is derived; a ledger change without `python3 scripts/export_drafts.py` fails here, like the matrices do."""

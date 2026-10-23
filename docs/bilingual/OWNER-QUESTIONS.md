@@ -18,6 +18,7 @@ Không cần cài đặt hay chạy lệnh gì: chỉ cần trả lời bằng c
 | 8 | Cách thanh toán nào được nhận (tiền mặt, chuyển khoản, quét mã)? Tên chủ tài khoản nhận tiền là gì, kênh liên hệ chính thức nào ngoài số điện thoại (Zalo, Facebook, website)? | TH-VI-0009, 0043, 0016, 0097 |
 | 9 | Xác nhận khoảng giá tham khảo: với xe số, giá một tháng (1.000.000-1.200.000 đồng) thấp hơn hai tuần (1.400.000-1.600.000 đồng); với xe ga, giá tuần tối đa 1.000.000 đồng so với giá ngày 150.000-200.000 đồng. Đó là đúng ý hay có nhầm lẫn khi nhập? | TH-VI-0019, 0058, 0016 (các bài đang dùng đúng các con số này) |
 | 10 | Thuê tháng: trả một lần hay chia kỳ? Bảo dưỡng giữa kỳ do ai lo, có xe thay thế không? Người thuê và người lái có phải là một người không, cần mang giấy tờ gì? | TH-VI-0063, 0217, 0058, các bài thuê tháng |
+| 11 | Trang hoặc bài **tiếng Việt** nào đã đăng và mở được (ví dụ trang chủ `/vi/`, trang dịch vụ thuê xe, trang giới thiệu)? QA yêu cầu mỗi bài có ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống (trang chuyên mục không tính), nên bài VI đầu tiên cần một trang như vậy. | tất cả bài VI (bảy bản thảo hiện chỉ liên kết tới trang chuyên mục) |
 
 Khi có câu trả lời, nơi ghi đúng là `config/business-facts.json` (một thay đổi cần được xem xét như mọi thay đổi cấu hình). **Lưu ý:** bằng chứng first-party của các bản thảo hiện tại gắn
 với bản ghi hiện có của tệp đó; khi tệp đổi, bằng chứng cũ được coi là cũ và các bản thảo phải được viết lại dựa trên câu trả lời thật (đó chính là mục đích: chuyển từ

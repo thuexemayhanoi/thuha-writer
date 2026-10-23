@@ -10,7 +10,7 @@ not a claim of independent factual or native-language judgment. No reviewer iden
 The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
 need verification before that can be reported as live. No WordPress publication is claimed by this code change.
 
-The nine English drafts, their sources, the two reviews and the whole history written by the V5 writer session are merged
+The nine English drafts, their sources, the two historical reviews (kept as history; no review is required) and the whole history written by the V5 writer session are merged
 into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
 (`promote`) moves them into the ledger that GitHub Actions read (`factory-state`) once this branch is merged. From
 there the queue job runs QA and, only when go-live is enabled, the protected job publishes. See
@@ -37,9 +37,10 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Companion plugin `wordpress/thuha-native-vi-publisher` 1.0.0 + `dist/*.zip` | **Implemented, packaged, run against an offline WordPress simulation** |
 | Plugin installed on rentbikehanoi.com, `RBHVI_Language` called for real, Yoast verified | **NOT installed, NOT tested live** (`BLOCKED_ADAPTER_NOT_DEPLOYED`) |
 | Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
-| Vietnamese topics, drafts, reviews | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only, independently reviewed for content twice (not a ledger review; the second review advised 7 pages instead of 17 and the rest were merged or held), **not READY, no QA, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to, an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
+| Vietnamese topics and drafts | **18 topics admitted: 7 consolidated drafts stored as `WAITING_DATA`, 11 `HELD`** (`drafts/vi/`): complete text from first-party facts only; overlap checks while writing merged 17 pages into 7 and held the rest, **not READY, no QA, none published**. They wait for an image with Vietnamese alt text, live Vietnamese pages to link to (each draft links only to category archives for now, so a writer adds one live content link when finishing), an authoritative inventory, and the owner's answers ([questions](docs/bilingual/OWNER-QUESTIONS.md)). 482 Vietnamese rows remain plans |
 | Drafts that wait for data (`WAITING_DATA`, `recheck-data`, `drafts/`) | **Implemented, tested offline**; the credentialed publisher's audit clears a wait only when the inventory really holds the data |
-| English draft QA queue | Historical reviews for TH-000005 and TH-000006 are retained. All 9 drafts are eligible for automatic QA on a fresh inventory, including the 7 without a reviewer; a live writer lease is respected |
+| English draft QA queue | All 9 drafts are eligible for automatic QA on a fresh inventory (the historical reviews of TH-000005 and TH-000006 play no part); a live writer lease is respected. Run offline against the stale committed snapshot, QA refuses to evaluate and records nothing, so no draft is sent to repair for a missing audit |
+| QA outcomes | `PASS` -> READY; `FAIL` -> repair; `BLOCKED_DATA` (only linked pages are not live yet) stays a draft, spends no repair and passes by itself once they are live; an unusable inventory changes nothing and turns the run red |
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 
 Published counts in the repo are a snapshot (275 EN, 0 VI at 2026-10-22). They are not a live counter:
@@ -66,6 +67,10 @@ protected job (only if release.json is fully enabled; environment thuha-producti
                             2 publish READY topics, Vietnamese first, inside the release caps and the 500-per-language ceiling
                             3 public-page checks that are due (warnings, back-off, never block)
 ```
+
+`qa --pending` evaluates every completed draft (no reviewer). A stale, incomplete or public-only inventory changes nothing and exits 2;
+a draft whose only gap is pages it links to that are planned but not live is `BLOCKED_DATA` (still a draft, no repair spent, checked
+again every run); genuine faults go to repair. [Details](docs/OPERATIONS.md#writers-and-automatic-qa).
 
 A post is recorded as **PUBLISHED** the moment WordPress answers with a valid ID, status `publish` and the planned
 permalink for the intent that created it. What WordPress stored (body, title, SEO fields, category, language marker) is
@@ -98,7 +103,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 ## Commands
 
 ```
-PYTHONPATH=src python3 -m unittest discover -s tests -v     # 327 offline tests (the PHP harness runs if php exists)
+PYTHONPATH=src python3 -m unittest discover -s tests -v     # ~400 offline tests (the PHP harness runs if php exists)
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
 PYTHONPATH=src python3 -m thuha.cli --remote promote        # PLAN of the hand-over; add --apply to perform it (queue job only)
 PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: bring the session ledger up to the shared one first

@@ -26,6 +26,29 @@ Xuất lại draft/matrix/gói không đổi nội dung (export có đường d�
 Đã đọc danh sách plugin WordPress qua kết nối ngày 23/10: chưa có companion publisher adapter;
 không có thao tác cài đặt, viết bài hay thay theme trong bản sửa. CI là nơi chạy PHP harness trước khi đưa code vào nhánh chạy.
 
+## Phiên 23/10/2026 (lần 4): kiểm toán đường đi writer → QA → chuyển sổ cái → publisher
+
+Mục tiêu: tìm chỗ bài hoàn chỉnh vẫn bị chặn hoặc bị đẩy sai chỗ khi **không còn reviewer**, và sửa tận gốc (test trước, không nới ngưỡng).
+
+| Phát hiện | Tác động thật | Sửa |
+|---|---|---|
+| `run_qa` biến mọi FAIL thành `NEEDS_REPAIR`, kể cả khi kho tồn quá cũ/thiếu (audit bị bỏ qua, chạy ngoại tuyến) | Mọi bản thảo bị đẩy về sửa vì điều không writer nào sửa được, tốn lượt sửa rồi dồn vào `NEEDS_REVIEW` (ngõ cụt, nay không còn reviewer). Chạy thử trên bản sao sổ cái: 9/9 bản EN thành FAIL 62,5 chỉ vì snapshot không có media/kiểm tra live và đã cũ | `run_qa` kiểm tra kho trước, không đánh giá/ghi gì (`InventoryUnusable`); `qa --pending` thoát mã 2 (run đỏ, nhìn thấy) |
+| Bài chỉ thiếu trang đích đã lên kế hoạch nhưng chưa sống bị coi là lỗi bài | Writer bị bắt "sửa" thứ không sửa được | Trạng thái QA `BLOCKED_DATA`: vẫn DRAFT_READY, không tốn lượt sửa, không phải QA đạt, ghi một lần rồi kiểm lại mỗi lần chạy không thêm nhiễu sổ cái, tự đạt khi trang đích sống |
+| `precheck` và QA phân loại "thiếu dữ liệu" khác nhau và quá lỏng | Bài thiếu liên kết bị dán nhãn chờ dữ liệu, chờ vô hạn | Một bộ phân loại chung `src/thuha/datawait.py`; liên kết sai/quá ít, ảnh chưa chọn dù có ảnh, điểm vẫn dưới 85 dù đủ dữ liệu đều là lỗi bài |
+| **7 bản VI chỉ liên kết tới trang chuyên mục** | QA cần ≥1 liên kết tới bài/trang nội dung đang sống; trang chuyên mục không tính, nên chưa bản nào qua được ngay cả khi có dữ liệu | Ghi rõ: khi hoàn tất, writer phải thêm một liên kết tới nội dung VI đang sống (xem câu hỏi mới cho chủ website bên dưới) |
+| `promote` từ chối bản thảo `WAITING_DATA` được hoàn tất ở phiên sau ("Submission replaced without a repair") | Sau lần chuyển đầu, mọi bản VI hoàn tất ở phiên sau sẽ kẹt trên nhánh (không nhận bản thảo sau push) | `continuity` chấp nhận thay bản đang `WAITING_DATA` không tăng lượt sửa; mọi trường hợp khác vẫn bị từ chối (test cả hai chiều) |
+| `submit` nhận bản không có ảnh mà không khai báo chờ | Bản đó chỉ có thể rơi vào sửa ở QA | `submit` từ chối `featured_media` rỗng trừ khi `--waiting-for FEATURED_MEDIA` |
+| PR không cho thấy sổ cái có còn chuyển được không | Chỉ biết sau khi merge | Bước `quality` của PR (cùng repo) in kế hoạch hand-over chỉ-đọc vào Step Summary |
+| Tài liệu vận hành còn mô tả bước review (`OPERATIONS.md`, README, INDEX bản thảo) | Gây hiểu nhầm bài phải chờ review | Viết lại theo đường QA tự động; bỏ cột Review khỏi `drafts/INDEX.md` |
+
+**Kế hoạch chuyển sổ cái với dữ liệu thật** (đọc chỉ-đọc `factory-state` ngày 23/10/2026): sổ cái dùng chung là schema 4, phiên bản 5, 3 sự kiện, 2 chủ đề EN `PLANNED`; sổ cái phiên
+trong nhánh có 191 sự kiện, bắt đầu bằng đúng 3 sự kiện đó → `ledger.plan` = **FAST_FORWARD**. Sau khi owner merge, job `queue` chuyển được toàn bộ bản thảo. Đây là kết quả tính ngoại tuyến, chưa phải lần `promote --apply` thật.
+
+**Câu hỏi mới cho chủ website (thêm vào [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)):** trang tiếng Việt nào (ví dụ trang chủ `/vi/` hay trang dịch vụ thuê xe) đã đăng và có `public_check` 200? Bài VI đầu tiên cần ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống.
+
+**Tiếp tục:** `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply` (trước khi viết); `python3 -m thuha.cli --git-branch cycle`;
+`python3 -m thuha.cli --git-branch precheck --topic-id ID --file article.json` (0 đạt, 1 sửa bài, 3 chỉ thiếu dữ liệu); `qa --pending` chỉ có nghĩa với inventory còn mới (audit trước).
+
 Các mục dưới là lịch sử trước yêu cầu mới; mọi câu "chờ review độc lập" dưới đây đã được thay thế.
 
 Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ; ngày 23/10 đã gộp thêm nhánh phiên V5).
@@ -39,9 +62,9 @@ Không có pull request nào được tạo; `main` không bị đụng; product
 |---|---|---|
 | Đã xuất bản trên site (ảnh chụp 22/10) | 0 | 275 |
 | Bản thảo đã lưu trong sổ cái | **7** `WAITING_DATA` (đã gộp từ 17) + 11 chủ đề `HELD` (bản đã lưu giữ nguyên) | 9 (từ phiên V5, giữ nguyên) |
-| Đã có review độc lập ghi trong sổ cái | 0 | 2 |
+| Review cũ ghi trong sổ cái (lịch sử, không chặn và không cộng điểm) | 0 | 2 |
 | Qua QA | **0** | 2 (QA chạy trên inventory cũ, phải chạy lại với inventory mới) |
-| Chờ review | 7 chưa thể (còn thiếu ảnh/liên kết/inventory) | 7 |
+| Đang chờ phán quyết QA tự động (cần inventory mới; QA bị chốt chặn nếu kho cũ) | 0 (7 bản còn thiếu dữ liệu nên chưa vào QA) | 7 |
 | Chờ dữ liệu (ảnh alt tiếng Việt, liên kết nội bộ đã sống, inventory adapter) | 7 | 0 |
 | Biên nhận xuất bản | 0 | 0 |
 
@@ -49,15 +72,15 @@ Còn thiếu để đạt 500: VI 500, EN 225 (57 chủ đề EN đã vào sổ 
 
 **Việc đã làm.** (1) Thêm cơ chế lưu bản thảo chờ dữ liệu (`WAITING_DATA`, `submit --waiting-for`, `recheck-data`, `claim --revise`, `hold`/`unhold`, xuất `drafts/`), bằng chứng
 first-party có nhãn, inventory dùng cho lập kế hoạch (ảnh chụp tối đa 7 ngày, QA vẫn 6 giờ), tất cả có test trước. (2) Viết 18 bản thảo VI từ thông tin chủ cửa hàng cung cấp, mỗi chủ đề qua kiểm
-ý định độc lập (3 trong 20 bị loại vì trùng ý), mỗi bản qua precheck (không lỗi nội dung; chỉ còn ba mục chờ dữ liệu) và qua review biên tập độc lập ba lần. Lần đầu tìm ra 2 lỗi số học và nhiều chỗ lặp/giọng văn trong chính bản thảo của tôi;
-lần hai khuyên xuất bản 7 trang thay vì 17 (cùng một khung, chồng lấn ý). Tôi gộp còn **7 bản** và giữ 11 chủ đề ở `HELD`; lần ba xác nhận giữ cả bảy, tìm thêm 1 lỗi chặn (đã sửa). Chi tiết: [WRITING-LOG.md](WRITING-LOG.md).
+ý định độc lập (3 trong 20 bị loại vì trùng ý), mỗi bản qua precheck (không lỗi nội dung; chỉ còn ba mục chờ dữ liệu) và ba vòng đọc soát biên tập khi viết (công cụ chất lượng của tôi, không phải cổng QA hay xuất bản). Vòng đầu tìm ra 2 lỗi số học và nhiều chỗ lặp/giọng văn trong chính bản thảo của tôi;
+vòng hai khuyên 7 trang thay vì 17 (cùng một khung, chồng lấn ý). Tôi gộp còn **7 bản** và giữ 11 chủ đề ở `HELD`; vòng ba xác nhận giữ cả bảy, tìm thêm 1 lỗi chặn (đã sửa). Chi tiết: [WRITING-LOG.md](WRITING-LOG.md).
 
 **Việc chưa làm được và vì sao (nói thẳng).**
 - *Không có nguồn ngoài nào được xác minh.* Từ container này chỉ `api.github.com` tới được; WebFetch không phân giải được tên miền, Firecrawl hết tín dụng, WebSearch chỉ trả tóm tắt (không phải bằng chứng). Nên mọi
-  chủ đề cần luật, nhà sản xuất, địa điểm, giao thông, thời tiết vẫn là `NEEDS_SOURCE`; bảy bản EN còn lại vẫn cần reviewer mở nguồn thật.
-- *Không viết tiếp hàng loạt bài "hỏi cửa hàng".* Review biên tập chỉ ra các bài cùng một khung và chỉ là danh sách câu hỏi vì chủ cửa hàng chưa trả lời chúng; thêm vài chục bài cùng khung sẽ giống nội dung sản xuất hàng loạt.
+  chủ đề cần luật, nhà sản xuất, địa điểm, giao thông, thời tiết vẫn là `NEEDS_SOURCE`. Bảy bản EN không có review lịch sử, nhưng điều đó không còn chặn QA; nguồn của chúng là bằng chứng đã chụp bởi phiên V5.
+- *Không viết tiếp hàng loạt bài "hỏi cửa hàng".* Đọc soát biên tập chỉ ra các bài cùng một khung và chỉ là danh sách câu hỏi vì chủ cửa hàng chưa trả lời chúng; thêm vài chục bài cùng khung sẽ giống nội dung sản xuất hàng loạt.
   Việc mở khóa là [những câu chỉ chủ cửa hàng trả lời được](OWNER-QUESTIONS.md).
-- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần: ảnh có alt tiếng Việt trong thư viện media, trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi review độc lập và QA.
+- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần: ảnh có alt tiếng Việt trong thư viện media, trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi QA tự động.
 
 **Việc phải xin quyết định của chủ cửa hàng:** (a) giọng văn thống nhất cho cả loạt bài (nay là trung tính, "giá tham khảo của Thuê xe máy Nguyễn Hà", "mỗi cửa hàng có cách làm riêng"); (b) câu trả lời cho
 [10 câu hỏi](OWNER-QUESTIONS.md); (c) ảnh có alt tiếng Việt.

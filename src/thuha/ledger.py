@@ -124,7 +124,9 @@ def continuity(live, handoff, promote=True):
                 problems.append('Topic field changed: ' + key + '.' + field)
     for key, value in live['submissions'].items():
         new = handoff['submissions'].get(key)
-        if not new or (new['article_sha'] != value['article_sha'] and new.get('repair_count', 0) <= value.get('repair_count', 0)):
+        # A draft stored while it waits for data was never submitted for QA: revising or finishing it is not a repair.
+        waiting = live['topics'].get(key, {}).get('status') == 'WAITING_DATA'
+        if not new or (new['article_sha'] != value['article_sha'] and new.get('repair_count', 0) <= value.get('repair_count', 0) and not waiting):
             problems.append('Submission replaced without a repair: ' + key)
     for key, value in live['receipts'].items():
         if handoff['receipts'].get(key) != value:

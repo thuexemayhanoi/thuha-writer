@@ -43,6 +43,30 @@ jobs:
           python3 -m thuha.cli publisher --mode dry-run > artifacts-dry-run.json
           python3 -m thuha.cli --output artifacts report
           cp artifacts-dry-run.json artifacts/dry-run.json
+      - name: Hand-over plan for this pull request (read-only; nothing is written to the shared ledger)
+        # Same-repository pull requests only: a fork has no token. Shows before the merge whether the session ledger in this
+        # branch can still be handed over (FAST_FORWARD) or has diverged from the shared one (sync the branch first).
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        continue-on-error: true
+        env:
+          THUHA_GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m thuha.cli --remote promote > artifacts/promotion-plan.json || true
+          python3 - <<'PY'
+          import json, os
+          try:
+              plan = json.load(open('artifacts/promotion-plan.json', encoding='utf-8'))
+          except (OSError, ValueError):
+              plan = {'status': 'UNAVAILABLE', 'reasons': ['The plan could not be read; nothing was written.']}
+          status = plan.get('status')
+          line = 'Session ledger hand-over plan: %s (session v%s, shared v%s)' % (status, plan.get('handoff_version'), plan.get('live_version'))
+          reasons = plan.get('reasons') or ([plan['error']] if plan.get('error') else [])
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              out.write('### ' + line + '\n' + ''.join('- ' + r + '\n' for r in reasons))
+          print(line)
+          if status not in ('FAST_FORWARD', 'ALREADY_INCLUDED'):
+              print('::warning title=Session ledger cannot be handed over yet::' + line)
+          PY
       - name: Read authoritative remote state and dry-run (trusted main push only)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
