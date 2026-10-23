@@ -1,4 +1,4 @@
-> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. Live publishing stays separately gated until WordPress adapter, Repository Secrets and pilot are verified. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
+> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
 
 # ThuHa Writer
 
@@ -6,14 +6,14 @@ Owner-confirmed extension fee (23 October 2026): **20,000 VND/hour; more than 6 
 See `config/business-facts.json extension_policy` and [the confirmation record](docs/OWNER-EXTENSION-FEE-2026-10-23.md).
 https://rentbikehanoi.com
 
-**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=75 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**
+**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=75 -> immediate guarded publisher event. The separate owner-approved release is now enabled; verify credentials, adapter and collision safeguards before reporting any WordPress publication.**
 
 **Owner update, 23 October 2026: no independent AI article review.** Completed drafts go straight to automatic
 QA (>=75/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
 The 80 automatic points are normalized to 100; a review adds no points. This is technical/evidence screening,
 not a claim of independent factual or native-language judgment. No reviewer identity is needed to move a draft forward.
 The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
-need verification before that can be reported as live. No WordPress publication is claimed by this code change.
+must be verified through GitHub Actions and the `factory-state` publication receipts before it can be reported as live. No WordPress publication is claimed by this QA change alone.
 
 The nine English drafts, their sources, the two historical reviews (kept as history; no review is required) and the whole history written by the V5 writer session are merged
 into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
@@ -50,8 +50,7 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 
 Published counts in the repo are a snapshot (275 EN, 0 VI at 2026-10-22). They are not a live counter:
-the publisher recounts both languages through the adapter before every reservation. **Nothing is published by this
-repository today and nothing will be until the owner enables the release.**
+the publisher recounts both languages through the adapter before every reservation. **The owner enabled the release separately on 23/10/2026. This documentation is not evidence of a published post; consult real WordPress readback and `factory-state` receipts.**
 
 Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 [the Claude instruction](docs/bilingual/CLAUDE-PROMPT.md), [the adapter guide](docs/bilingual/ADAPTER.md),
