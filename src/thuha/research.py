@@ -1,7 +1,8 @@
 """Source-backed admission; refill requests never pretend to be researched prose."""
-import re
-from .common import SITE, ROOT, age, digest, now, norm, urlkey, category_path, validate_inventory
-from .http import HTTP, safe_public_url
+from .common import ROOT, age, digest, now, norm, urlkey, category_path, validate_inventory
+from .http import HTTP, safe_public_url, safe_url_shape
+from .language import LANGUAGES, TOPIC_ID, check, post_url, split_url, url_language, targets as language_targets
+from .quota import effective, published, topics_needed
 from .store import event
 
 
@@ -17,37 +18,118 @@ def capture_source(store,url):
     return {'document':store.put_document(snapshot),'url':url}
 
 
+EXTERNAL_FETCHERS=('parallel-web-fetch','claude-webfetch','github-actions-runner')
+
+
+def capture_external_source(store,url,record,max_record_age=86400):
+    """Record evidence fetched by an authorized external fetcher.
+
+    The writer container may be denied direct egress to research origins. A
+    fetcher such as the Parallel web_fetch tool performs the real HTTP request;
+    its result is saved as a record and converted into a source snapshot here.
+    The snapshot is labelled with its capture method; nothing is inferred from
+    an empty, failed or mismatched record and no content verdict is fabricated.
+    """
+    safe_url_shape(url) # The external fetcher resolved the host; this container may have no DNS.
+    if record.get('url')!=url:raise ValueError('External fetch record is for a different URL')
+    if record.get('fetcher') not in EXTERNAL_FETCHERS:raise ValueError('Unknown external fetcher')
+    if record.get('status')!='ok' or record.get('error'):raise ValueError('External fetch did not succeed; mark the source blocked')
+    content=str(record.get('content') or '')
+    if len(content.split())<40:raise ValueError('External fetch content too thin to count as evidence')
+    if not 0<=age(record['fetched_at'])<=max_record_age:raise ValueError('External fetch record is stale or future-dated')
+    snapshot={'url':url,'checked_at':now(),'http_status':200,'response_sha256':digest(content.encode()),
+              'excerpt':' '.join(content.split()[:20]),'page_title':str(record.get('title') or ''),
+              'content_type':'text/markdown; external fetch','capture_method':'external-fetcher',
+              'fetcher':record['fetcher'],'fetched_at':record['fetched_at'],
+              'http_status_basis':'successful external fetch returned document content'}
+    return {'document':store.put_document(snapshot),'url':url,'capture_method':'external-fetcher'}
+
+
+# First-party evidence: facts the owner supplied and the repository keeps. Nothing else is read this way, so a
+# repository file can never stand in for a captured external page.
+FIRST_PARTY_FILES=('config/business-facts.json',)
+REPOSITORY_SCHEME='repo://'
+
+
+def capture_repository_file(store,path):
+    """Record the owner's business-facts file as labelled first-party evidence (an excerpt, never the whole file).
+
+    The evidence carries the file's digest, so it goes stale the moment the file changes; QA and intake refuse it then.
+    It supports statements about the business itself and nothing else: it is no official source for a legal claim.
+    """
+    if path not in FIRST_PARTY_FILES:raise ValueError('Only the owner facts file can be captured as first-party evidence')
+    data=(ROOT/path).read_bytes()
+    words=data.decode('utf-8').split()
+    snapshot={'url':REPOSITORY_SCHEME+path,'checked_at':now(),'http_status':200,'response_sha256':digest(data),'file_sha256':digest(data),
+              'excerpt':' '.join(words[:20]),'page_title':path,'content_type':'application/json; repository file',
+              'capture_method':'repository-file','http_status_basis':'the repository file was read; there is no HTTP request'}
+    return {'document':store.put_document(snapshot),'url':snapshot['url'],'capture_method':'repository-file'}
+
+
+def evidence_current(evidence):
+    """A repository-file capture is current only while the file still has the captured digest; web captures have none."""
+    if evidence.get('capture_method')!='repository-file':return True
+    path=str(evidence.get('url',''))[len(REPOSITORY_SCHEME):]
+    if not str(evidence.get('url','')).startswith(REPOSITORY_SCHEME) or path not in FIRST_PARTY_FILES:return False
+    return digest((ROOT/path).read_bytes())==evidence.get('file_sha256')
+
+
+def item_language(item):
+    """Language of an inventory item or queued topic; URL namespace when untagged."""
+    if item.get('language') in LANGUAGES:
+        return item['language']
+    for key in ('url','canonical','proposed_url'):
+        if item.get(key):
+            try:return url_language(item[key]) or 'en'
+            except ValueError:continue
+    return 'en'
+
+
 def collisions(topic,inv,queue):
+    """Duplicates by URL/slug across both languages; intent and title only within one language."""
     hits=[]
+    lang=topic['language']
+    slug=split_url(topic['proposed_url'])[1]
     for old in inv['items']+list(queue):
         sameurl=any(urlkey(x)==urlkey(topic['proposed_url']) for x in [old.get('url'),old.get('canonical'),old.get('proposed_url')] if x)
-        same_slug=bool(old.get('slug') and old['slug']==topic['proposed_url'].removeprefix(SITE+'/').rstrip('/'))
-        exact_intent=bool(old.get('search_intent') not in (None,'UNREVIEWED') and norm(old['search_intent'])==norm(topic['search_intent']))
+        # A WordPress post slug is unique across languages even when /vi/ keeps the URLs apart.
+        same_slug=bool(old.get('slug') and old['slug']==slug)
+        if not same_slug and old.get('proposed_url'):
+            try:same_slug=split_url(old['proposed_url'])[1]==slug
+            except ValueError:pass
+        same_language=item_language(old)==lang
+        exact_intent=bool(same_language and old.get('search_intent') not in (None,'UNREVIEWED') and norm(old['search_intent'])==norm(topic['search_intent']))
         a=set(norm(topic['proposed_title']).split());b=set(norm(old.get('title',old.get('proposed_title',''))).split())
-        similar=len(a&b)/max(1,len(a|b))>=.72
+        similar=bool(same_language and len(a&b)/max(1,len(a|b))>=.72)
         if sameurl or same_slug or exact_intent or similar:
             hits.append({'id':old.get('id',old.get('topic_id')),'url':old.get('url',old.get('proposed_url')),
                          'reason':'URL' if sameurl else 'SLUG' if same_slug else 'INTENT' if exact_intent else 'TITLE_REVIEW'})
     return hits
 
 
-def validate_candidate(candidate,inv,queue,store,max_age=2592000):
-    validate_inventory(inv)
-    required=['topic_id','primary_keyword','search_intent','proposed_title','category_id','category_path',
-              'cluster','proposed_url','sources']
+def validate_candidate(candidate,inv,queue,store,max_age=2592000,inventory_max_age=None):
+    validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
+    required=['topic_id','language','primary_keyword','search_intent','proposed_title','category_id','category_path',
+              'cluster','proposed_url','sources'] # the topic intent verdict is optional; collisions are checked automatically
     if any(not candidate.get(k) for k in required):raise ValueError('Incomplete topic contract')
-    if not re.fullmatch(r'TH-\d{6}',candidate['topic_id']):raise ValueError('Invalid topic ID')
+    lang=check(candidate['language'])
+    match=TOPIC_ID.fullmatch(candidate['topic_id'])
+    if not match or match.group(1).lower()!=lang:raise ValueError('Topic ID must be TH-VI-#### or TH-EN-#### and match the language')
     if category_path(candidate['category_id'],inv['categories'])!=candidate['category_path']:
         raise ValueError('Category ancestry must match live taxonomy exactly')
-    slug=candidate['proposed_url'].removeprefix(SITE+'/').rstrip('/')
-    if candidate['proposed_url']!=SITE+'/'+slug+'/' or not re.fullmatch('[a-z0-9]+(?:-[a-z0-9]+)*',slug):
-        raise ValueError('Proposed URL must be a clean English slug on the exact site')
+    by_id={c['id']:c for c in inv['categories']}
+    if any(by_id[i].get('language')!=lang for i in candidate['category_path']):
+        raise ValueError('Every category in the path must be verified as '+lang+'; a category of another language is not a substitute')
+    url_lang,slug=split_url(candidate['proposed_url'])
+    if url_lang!=lang or candidate['proposed_url']!=post_url(lang,slug):
+        raise ValueError('Proposed URL must be a clean slug inside the '+lang+' URL namespace of the exact site')
     sources=candidate['sources']
     if not 1<=len(sources)<=10:raise ValueError('Require bounded primary-source evidence')
     for ref in sources:
         evidence=store.get_document(ref['document'])
         if evidence.get('url')!=ref['url'] or evidence.get('http_status')!=200 or not 0<=age(evidence['checked_at'])<=max_age:
             raise ValueError('Source capture missing, stale or unsuccessful')
+        if not evidence_current(evidence):raise ValueError('First-party source is stale: the repository file changed after it was captured')
         if not ref.get('supports') or len(ref['supports'])<20:raise ValueError('Explain which claim the source supports')
     # Keep the existing automated deduplication and independently captured
     # sources, but do not wait for another AI/human intent reviewer.
@@ -61,39 +143,57 @@ def validate_candidate(candidate,inv,queue,store,max_age=2592000):
     return True
 
 
-def intake(store,candidates,inv,batch_max=100):
+def intake(store,candidates,inv,batch_max=100,targets=None,inventory_max_age=None):
     if not 1<=len(candidates)<=batch_max:raise ValueError('Research batch size out of range')
+    targets=targets or language_targets()
+    inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
     def transaction(state):
-        if len(state['topics'])+len(candidates)>2000:raise ValueError('Topic capacity reached')
+        counts=effective(state,inventory_counts,live_ids) # plus factory posts published since the inventory was read
+        added={lang:sum(c.get('language')==lang for c in candidates) for lang in LANGUAGES}
+        for lang,n in added.items():
+            if n>topics_needed(state,counts,targets,lang):raise ValueError('Topic capacity reached for '+lang+' (target minus live posts minus open topics)')
         admitted=[]
         for candidate in candidates:
             tid=candidate['topic_id']
             if tid in state['topics']:raise ValueError('Topic ID already exists')
-            validate_candidate(candidate,inv,state['topics'].values(),store)
+            validate_candidate(candidate,inv,state['topics'].values(),store,inventory_max_age=inventory_max_age)
             state['topics'][tid]={**candidate,'status':'PLANNED','admitted_at':now()}
             admitted.append(tid)
         for request in state['research_requests'].values():
-            if request['status']=='AWAITING_EXTERNAL_RESEARCH':
-                request.update(status='FULFILLED',admitted_topic_ids=admitted,completed_at=now())
+            ids=[t for t in admitted if state['topics'][t]['language']==request.get('language')]
+            if request['status']=='AWAITING_EXTERNAL_RESEARCH' and ids:
+                request.update(status='FULFILLED',admitted_topic_ids=ids,completed_at=now())
         event(state,'RESEARCH_INTAKE',topic_ids=admitted)
         return admitted
     return store.mutate(transaction)
 
 
-def refill(store,inv,below=30,batch_max=100):
-    validate_inventory(inv)
+def refill(store,inv,below=30,batch_max=100,targets=None,inventory_max_age=None):
+    """One outstanding research request at a time, Vietnamese before English.
+
+    English is asked for only when Vietnamese needs nothing more (its open topics
+    already cover the ceiling or it holds enough PLANNED topics).
+    """
+    validate_inventory(inv,**({} if inventory_max_age is None else {'max_age':inventory_max_age}))
+    targets=targets or language_targets()
+    inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
     def transaction(state):
-        planned=sum(x['status']=='PLANNED' for x in state['topics'].values())
-        if planned>=below:return {'needed':False,'planned':planned}
-        outstanding=[r for r in state['research_requests'].values() if r['status']=='AWAITING_EXTERNAL_RESEARCH']
-        if outstanding:return outstanding[0]
-        queued=sum(x['status']!='VERIFIED' for x in state['topics'].values())
-        capacity=min(batch_max,2000-len(state['topics']),max(0,2000-inv['counts']['posts']-queued))
-        if capacity<=0:return {'needed':False,'reason':'CAPACITY'}
-        request={'request_id':'research-'+digest([digest(inv),len(state['topics'])])[:16],
-                 'created_at':now(),'status':'AWAITING_EXTERNAL_RESEARCH','maximum_topics':capacity,
-                 'inventory_sha256':digest(inv),'planned':planned,'runtime':'External authorized AI session required'}
-        state['research_requests'][request['request_id']]=request
-        event(state,'REFILL_REQUEST',request_id=request['request_id'])
-        return request
+        counts=effective(state,inventory_counts,live_ids)
+        reasons={}
+        # Priority order decides which language is served; an outstanding English request (for example one
+        # migrated from schema 4) must not stop a Vietnamese request from being opened first.
+        for lang in LANGUAGES:
+            waiting=[r for r in state['research_requests'].values() if r['status']=='AWAITING_EXTERNAL_RESEARCH' and r.get('language')==lang]
+            if waiting:return waiting[0]
+            planned=sum(x['status']=='PLANNED' and x['language']==lang for x in state['topics'].values())
+            if planned>=below:reasons[lang]={'needed':False,'planned':planned};continue
+            capacity=min(batch_max,topics_needed(state,counts,targets,lang))
+            if capacity<=0:reasons[lang]={'needed':False,'reason':'CAPACITY','planned':planned};continue
+            request={'request_id':'research-'+lang+'-'+digest([digest(inv),lang,len(state['topics'])])[:16],
+                     'language':lang,'created_at':now(),'status':'AWAITING_EXTERNAL_RESEARCH','maximum_topics':capacity,
+                     'inventory_sha256':digest(inv),'planned':planned,'runtime':'External authorized AI session required'}
+            state['research_requests'][request['request_id']]=request
+            event(state,'REFILL_REQUEST',request_id=request['request_id'],language=lang)
+            return request
+        return {'needed':False,'languages':reasons}
     return store.mutate(transaction)

@@ -1,0 +1,21 @@
+{
+  "note": "Cặp dòng có chủ đề (phần trước dấu hai chấm) giống nhau nhưng được đánh giá là khác ý định. Đây là phán đoán của tác giả, chưa có reviewer độc lập; matrix.validate chặn mọi cặp giống nhau khác chưa có trong danh sách này.",
+  "pairs": [
+    {
+      "a": "chia-tien-thue-xe-may-xang-gui-xe-cho-nhom-ban",
+      "b": "nhom-ban-di-nhieu-xe-thue-cung-loai-xe-ga",
+      "verdict": "DISTINCT",
+      "reason": "Cùng nhân vật (nhóm bạn đi nhiều xe) nhưng quyết định khác: chia tiền thuê, xăng, gửi xe (152) so với chọn cùng loại xe ga để đi đều tay (156).",
+      "reviewer": "author, offline",
+      "independent_review": "PENDING"
+    },
+    {
+      "a": "hoa-don-tien-xang-khi-thue-xe-di-cong-tac",
+      "b": "di-cong-tac-ha-noi-mot-ngay-thue-xe-tranh-thu-ghe-mot-diem-giua-hai-cuoc-hop",
+      "verdict": "DISTINCT",
+      "reason": "Cùng tình huống đi công tác nhưng khác quyết định: xin hóa đơn tiền xăng để thanh toán (159) so với xếp tuyến và giờ giữa các cuộc họp (166).",
+      "reviewer": "author, offline",
+      "independent_review": "PENDING"
+    }
+  ]
+}

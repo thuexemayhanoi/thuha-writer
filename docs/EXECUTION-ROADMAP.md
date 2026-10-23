@@ -1,5 +1,7 @@
 # ThuHa Writer — Incremental Execution Roadmap
 
+> **HISTORICAL — English-only, 2,000-post era.** The "2,000 English articles" target below is superseded by 500 English + 500 Vietnamese published posts (see README).
+
 V4 checkpoint (21 October 2026): technical inventory and core implementation are
 complete and tested; two source-backed topics are seeded on factory-state.
 Publisher is OFF. See `V4-DELIVERY.md` for measured results and remaining go-live

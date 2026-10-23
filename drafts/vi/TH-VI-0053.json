@@ -1,0 +1,59 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Đặt cọc thuê hai xe máy cùng lúc thì tính thế nào? Dù bạn đi một mình với hai xe hay hai người cùng đi, việc thuê hai xe nảy ra những câu hỏi mà thuê một xe không có: cọc tính riêng từng xe hay gộp chung, nếu một người trả xe trước thì phần cọc của xe đó ra sao, và ai đứng tên. Bài này trình bày theo kiểu hỏi đáp: các câu cần chốt trước khi thuê hai xe, một ví dụ bằng chữ cái để thấy vì sao cách tính quan trọng, và cách ghi riêng từng xe. Mỗi cửa hàng có cách xử lý khoản cọc khi thuê nhiều xe riêng, nên bài chỉ giúp bạn biết hỏi gì.</p>\n\n<h2>Hai tình huống thường gặp</h2>\n<ul>\n<li><strong>Một người thuê hai xe:</strong> bạn đi cùng gia đình hoặc nhóm bạn, một người đứng ra làm thủ tục cho cả hai xe.</li>\n<li><strong>Hai người cùng đi, mỗi người một xe:</strong> mỗi người làm thủ tục riêng hoặc một người đứng tên chung.</li>\n</ul>\n<p>Cả hai tình huống dẫn đến cùng một nhóm câu hỏi, nhưng câu trả lời có thể khác nhau tùy việc ai đứng tên và ai thanh toán.</p>\n\n<h2>Hỏi đáp: những điều cần thống nhất</h2>\n<h3>Cọc tính riêng cho từng xe hay gộp thành một khoản?</h3>\n<p>Đây là câu quyết định nhiều thứ phía sau. Nếu cọc tách riêng, mỗi xe có số phận riêng khi trả xe. Nếu gộp, phần cọc thường chỉ rõ ràng khi cả hai xe đã được trả.</p>\n<h3>Ai đứng tên và ai chịu trách nhiệm cho xe nào?</h3>\n<p>Hãy hỏi tên ghi một người hay hai người, và mỗi người chịu trách nhiệm cho xe của mình hay chung cho cả hai.</p>\n<h3>Nếu một xe trả sớm, tiền thuê và cọc của xe đó được xử lý thế nào?</h3>\n<p>Câu hỏi này gắn với cách tính cọc ở trên: cọc tách riêng có thể xử lý riêng cho xe đã trả, cọc gộp có thể chờ xe còn lại.</p>\n<h3>Nếu một xe hỏng, khoản đền bù trừ vào đâu?</h3>\n<p>Hãy hỏi khoản đền bù trừ vào phần cọc của xe đó hay vào khoản chung (nếu có đặt cọc).</p>\n<h3>Hai xe thanh toán một lần hay riêng từng xe?</h3>\n<p>Nếu có biên nhận, hãy hỏi biên nhận ghi theo từng xe hay chung cho cả hai.</p>\n\n<h2>Ví dụ bằng chữ cái để thấy vì sao cách tính quan trọng</h2>\n<p>Gọi khoản cọc cho mỗi xe là K. Bạn thuê hai xe: xe một trả sau ba ngày, xe hai trả sau mười ngày.</p>\n<table>\n<thead><tr><th>Cách tính cọc</th><th>Khi xe một được trả</th><th>Điều cần hỏi</th></tr></thead>\n<tbody>\n<tr><td>Riêng từng xe (hai khoản K)</td><td>K của xe một được xử lý riêng; K của xe hai vẫn giữ.</td><td>Xe một có được hoàn K ngay khi trả không?</td></tr>\n<tr><td>Gộp chung (một khoản)</td><td>Khoản chung vẫn giữ nguyên vì xe hai chưa trả.</td><td>Khoản gộp có chia lại không, khi nào được hoàn từng phần?</td></tr>\n</tbody>\n</table>\n<p>Nếu cọc gộp chung và chỉ hoàn khi cả hai xe đã trả, bạn chưa nhận lại gì sau ngày thứ ba. Nếu cọc tách riêng, xe một có thể được xử lý ngay. Cả hai cách đều có thể hợp lý; điều quan trọng là biết trước cách nào áp dụng, vì thời điểm nhận lại tiền có thể ảnh hưởng đến kế hoạch của bạn.</p>\n\n<h2>Ghi riêng cho từng xe</h2>\n<ul>\n<li>Chụp ảnh từng xe riêng: biển số, bốn phía, gương, đèn, đồng hồ và mức xăng.</li>\n<li>Nếu hai người đi riêng, ghi tên người sử dụng thực tế của từng xe.</li>\n<li>Nhờ cửa hàng ghi rõ cách tính cọc (trên phiếu thuê nếu có, hoặc bằng tin nhắn).</li>\n<li>Khi một xe được trả, nếu có đưa cọc, xin biên nhận riêng cho xe đó.</li>\n</ul>\n\n<h2>Khi hai người cùng đi nhưng một người làm thủ tục</h2>\n<p>Giả sử bạn thanh toán cho cả hai xe nhưng bạn bè sẽ mang một chiếc đi trả. Hãy hỏi trước: người mang xe đến trả có cần có mặt người đứng tên không, khoản được hoàn trả cho ai, và biên nhận lúc trả ghi tên ai. Nói rõ ngay từ đầu để người đi cùng biết mình cần mang gì và nói gì khi đến cửa hàng.</p>\n\n<h2>Câu hỏi thường gặp</h2>\n<h3>Nếu một xe gặp sự cố, xe còn lại có thuê tiếp bình thường không?</h3>\n<p>Hãy hỏi trước. Một số thỏa thuận coi hai xe là hai hợp đồng riêng, một số coi là một hợp đồng chung; mỗi cách dẫn đến cách xử lý khác nhau khi một xe cần dừng lại.</p>\n<h3>Thuê hai xe có làm thay đổi cách tính ngày thuê không?</h3>\n<p>Không nên mặc định. Hãy xác nhận số ngày và giá của từng xe trong cùng một tin nhắn, kèm tổng số tiền cho cả hai.</p>\n\n<h2>Mẫu tin nhắn xác nhận</h2>\n<p>\"Tôi thuê hai xe từ ngày ... đến ..., xe thứ nhất dự kiến trả ngày ..., xe thứ hai ngày ... Xin xác nhận giúp tôi: khoản cọc tính riêng từng xe hay gộp chung, nếu trả một xe trước thì phần cọc và tiền thuê của xe đó được xử lý thế nào, và biên nhận ghi theo từng xe hay chung.\"</p>\n\n<h2>Hỏi cửa hàng về thuê hai xe</h2>\n<p>Bạn có thể gọi Thuê xe máy Nguyễn Hà theo số <a href=\"tel:+84334699969\">0334 699 969</a> (mở cửa 09:00 đến 21:00 mỗi ngày), hoặc đến cửa hàng ở Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm). Xem thêm trong chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/thu-tuc-va-dat-coc/\">Thủ tục và đặt cọc</a> và <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/huong-dan-thue-xe/\">Hướng dẫn thuê xe</a>.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/thue-hai-xe-cung-luc-coc-tinh-theo-tung-xe-hay-gop-chung/",
+    "category_id": 153,
+    "featured_media": null,
+    "focus_keyword": "đặt cọc thuê hai xe máy cùng lúc",
+    "language": "vi",
+    "meta_description": "Đặt cọc thuê hai xe máy cùng lúc tính riêng hay gộp? Trả một xe trước thì phần cọc xử lý ra sao? Hỏi đáp, ví dụ bằng chữ cái và cách ghi riêng từng xe.",
+    "seo_title": "Đặt cọc thuê hai xe máy cùng lúc: tính từng xe hay gộp chung",
+    "session": "w4-20261023-r0053",
+    "source_commit": "0ee208b9f6fa6bf5a75ecd4a8d3ed85900a93640",
+    "sources": [
+      {
+        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Thuê hai xe cùng lúc: cọc tính theo từng xe hay gộp chung, trả một xe trước thì phần cọc xử lý ra sao",
+    "topic_id": "TH-VI-0053"
+  },
+  "article_sha": "4c2ae086a530df7b141c2c3ae16a9ebc3435604caf91ff2f837b8c68e4fb3318",
+  "category_id": 153,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/thue-hai-xe-cung-luc-coc-tinh-theo-tung-xe-hay-gop-chung/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+  ],
+  "source_evidence": {
+    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "HELD",
+  "submitted_at": "2026-10-23T07:57:36.439136+00:00",
+  "topic_id": "TH-VI-0053",
+  "waiting_for": [
+    "AUTHORITATIVE_INVENTORY",
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

@@ -1,5 +1,7 @@
 # ThuHa Writer V4 delivery checkpoint — 21 October 2026
 
+> **HISTORICAL — English-only, 2,000-post era.** Superseded by the bilingual 500 + 500 goal; kept as the record of the 21 October 2026 checkpoint. See `docs/bilingual/IMPLEMENTATION-STATUS.md` for current status.
+
 ## Verified implementation
 
 Independently written stdlib modules cover complete read-only inventory,

@@ -2,9 +2,9 @@ name: ThuHa V4 quality
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**', 'data/state/**', 'data/documents/**']
   pull_request:
-    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**']
+    paths: ['src/**', 'tests/**', 'config/**', '.github/**', 'scripts/**', 'wordpress/**', 'dist/**', 'data/bilingual/**', 'data/state/**', 'data/documents/**']
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,8 +22,17 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, official ref checked 2026-10-21
         with:
           persist-credentials: false
+      - name: PHP adapter plugin harness (offline WordPress simulation; not a live test)
+        run: |
+          php -v
+          for f in $(find wordpress -name '*.php'); do php -l "$f"; done
+          php tests/php/run.php
       - name: Unit, integration and regression tests (no WordPress writes)
         run: python3 -m unittest discover -s tests -v
+      - name: Matrices (500 VI, 275 EN protected + 225 EN new) and adapter package integrity
+        run: |
+          python3 -m thuha.cli matrix validate
+          python3 -m thuha.cli package
       - name: Python and policy validation
         run: |
           python3 -m compileall -q src tests
@@ -34,6 +43,30 @@ jobs:
           python3 -m thuha.cli publisher --mode dry-run > artifacts-dry-run.json
           python3 -m thuha.cli --output artifacts report
           cp artifacts-dry-run.json artifacts/dry-run.json
+      - name: Hand-over plan for this pull request (read-only; nothing is written to the shared ledger)
+        # Same-repository pull requests only: a fork has no token. Shows before the merge whether the session ledger in this
+        # branch can still be handed over (FAST_FORWARD) or has diverged from the shared one (sync the branch first).
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        continue-on-error: true
+        env:
+          THUHA_GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python3 -m thuha.cli --remote promote > artifacts/promotion-plan.json || true
+          python3 - <<'PY'
+          import json, os
+          try:
+              plan = json.load(open('artifacts/promotion-plan.json', encoding='utf-8'))
+          except (OSError, ValueError):
+              plan = {'status': 'UNAVAILABLE', 'reasons': ['The plan could not be read; nothing was written.']}
+          status = plan.get('status')
+          line = 'Session ledger hand-over plan: %s (session v%s, shared v%s)' % (status, plan.get('handoff_version'), plan.get('live_version'))
+          reasons = plan.get('reasons') or ([plan['error']] if plan.get('error') else [])
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              out.write('### ' + line + '\n' + ''.join('- ' + r + '\n' for r in reasons))
+          print(line)
+          if status not in ('FAST_FORWARD', 'ALREADY_INCLUDED'):
+              print('::warning title=Session ledger cannot be handed over yet::' + line)
+          PY
       - name: Read authoritative remote state and dry-run (trusted main push only)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
@@ -41,6 +74,7 @@ jobs:
         run: |
           python3 -m thuha.cli --remote --output artifacts/live-factory health
           python3 -m thuha.cli --remote publisher --mode dry-run > artifacts/live-factory/publisher-dry-run.json
+          python3 -m thuha.cli --remote promote > artifacts/live-factory/promotion-plan.json || true # a plan only; nothing is written
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: quality-evidence-${{ github.sha }}

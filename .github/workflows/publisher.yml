@@ -5,8 +5,11 @@ on:
       mode:
         type: choice
         default: dry-run
-        options: [dry-run, production, reconcile, verify]
+        options: [dry-run, production, reconcile, verify, acknowledge]
       topic_id:
+        type: string
+        default: ''
+      note:
         type: string
         default: ''
 permissions:
@@ -45,18 +48,26 @@ jobs:
       THUHA_GO_LIVE_APPROVAL: ${{ vars.THUHA_GO_LIVE_APPROVAL }}
       MODE: ${{ inputs.mode }}
       TOPIC_ID: ${{ inputs.topic_id }}
+      NOTE: ${{ inputs.note }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
       - name: Presence checks only (no credential values)
         run: python3 -m thuha.cli credentials
-      - name: Single-topic guarded publisher / read-only reconciliation
+      - name: Single-topic guarded publisher / read-only reconciliation / public-page check / alert acknowledgement
         shell: bash
         run: |
           set -euo pipefail
-          [[ "$TOPIC_ID" =~ ^TH-[0-9]{6}$ ]] || exit 1
-          python3 -m thuha.cli --remote publisher --mode "$MODE" --topic-id "$TOPIC_ID"
+          if [[ -n "$TOPIC_ID" ]]; then
+            [[ "$TOPIC_ID" =~ ^TH-(VI|EN)-[0-9]{4}$ || "$TOPIC_ID" =~ ^TH-[0-9]{6}$ ]] || exit 1
+          elif [[ "$MODE" == production || "$MODE" == acknowledge ]]; then
+            exit 1
+          fi
+          args=(--remote publisher --mode "$MODE")
+          [[ -n "$TOPIC_ID" ]] && args+=(--topic-id "$TOPIC_ID")
+          [[ "$MODE" == acknowledge ]] && args+=(--note "$NOTE")
+          python3 -m thuha.cli "${args[@]}"
       - name: Report actual receipts, never infer publication from job success
         if: always()
         run: python3 -m thuha.cli --remote --output artifacts report

@@ -33,7 +33,7 @@ class MemoryGitHub:
         if method=='PUT':
             if self.conflict and relative==GitStore.state_path:
                 self.conflict=False
-                other=copy.deepcopy(old);other['topics']['TH-OTHER']={'status':'PLANNED'};other['version']+=1
+                other=copy.deepcopy(old);other['topics']['TH-EN-9999']={'status':'PLANNED','language':'en'};other['version']+=1
                 self.files[relative]=other
             old=self.files.get(relative)
             if (old is not None and body.get('sha')!=digest(old)) or (old is None and body.get('sha')):raise GitError(409)
@@ -47,13 +47,13 @@ class RemoteTests(unittest.TestCase):
     def test_read_of_missing_state_does_not_create_anything(self):
         self.assertEqual(self.store.read()['version'],0);self.assertEqual(self.api.writes,0);self.assertFalse(self.api.branch)
     def test_remote_mutation_bootstraps_isolated_branch(self):
-        self.store.mutate(lambda s:s['topics'].update({'TH-000001':{'status':'PLANNED'}}))
-        self.assertTrue(self.api.branch);self.assertEqual(self.store.read()['topics']['TH-000001']['status'],'PLANNED')
+        self.store.mutate(lambda s:s['topics'].update({'TH-EN-0001':{'status':'PLANNED','language':'en'}}))
+        self.assertTrue(self.api.branch);self.assertEqual(self.store.read()['topics']['TH-EN-0001']['status'],'PLANNED')
     def test_cas_conflict_retries_without_losing_other_session(self):
-        self.store.mutate(lambda s:s['topics'].update({'TH-000001':{'status':'PLANNED'}}))
+        self.store.mutate(lambda s:s['topics'].update({'TH-EN-0001':{'status':'PLANNED','language':'en'}}))
         self.api.conflict=True
-        self.store.mutate(lambda s:s['topics'].update({'TH-000002':{'status':'PLANNED'}}))
-        self.assertEqual(set(self.store.read()['topics']),{'TH-000001','TH-000002','TH-OTHER'})
+        self.store.mutate(lambda s:s['topics'].update({'TH-EN-0002':{'status':'PLANNED','language':'en'}}))
+        self.assertEqual(set(self.store.read()['topics']),{'TH-EN-0001','TH-EN-0002','TH-EN-9999'})
     def test_content_addressed_remote_checkpoint_roundtrip(self):
         sha=self.store.put_document({'body':'Actual independent document bytes'})
         self.assertEqual(self.store.get_document(sha)['body'],'Actual independent document bytes')
@@ -66,12 +66,62 @@ class RemoteTests(unittest.TestCase):
         with self.assertRaises(ValueError):GitHub('dummy-fixture-token').request('GET','/repos/someone/other/contents/x')
 
 
+class MigrationTests(unittest.TestCase):
+    def legacy(self):
+        value=initial();value['schema']=4
+        value['topics']={'TH-000001':{'topic_id':'TH-000001','status':'PLANNED','proposed_url':'https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/'}}
+        value['research_requests']={'research-x':{'status':'FULFILLED','request_id':'research-x'}}
+        value['receipts']={'TH-000001':{'wp_id':1,'url':'u'}}
+        return value
+    def test_schema_four_publication_phases_get_their_schema_five_names(self):
+        from thuha.store import migrate
+        old=self.legacy()
+        old['topics']['TH-000001']['status']='VERIFIED'
+        old['intents']={'TH-000001':{'phase':'VERIFIED','article_sha':'a'*64,'wp_id':1},
+                        'TH-000002':{'phase':'VERIFY_PENDING','article_sha':'b'*64}}
+        old['topics']['TH-000002']={'topic_id':'TH-000002','status':'BLOCKED','proposed_url':'https://rentbikehanoi.com/another-guide/'}
+        value=migrate(copy.deepcopy(old));validate(value)
+        self.assertEqual((value['intents']['TH-000001']['phase'],value['topics']['TH-000001']['status']),('PUBLISHED','PUBLISHED'))
+        self.assertEqual(value['intents']['TH-000002']['phase'],'NEEDS_RECONCILIATION') # still unresolved, still counted
+        self.assertEqual(value['receipts'],old['receipts'])
+    def test_schema_four_state_becomes_english_schema_five_without_touching_receipts(self):
+        from thuha.store import migrate
+        old=self.legacy();value=migrate(copy.deepcopy(old));validate(value)
+        self.assertEqual(value['schema'],5);self.assertEqual(value['topics']['TH-000001']['language'],'en')
+        self.assertEqual(value['receipts'],old['receipts']);self.assertEqual(value['events'][-1]['action'],'SCHEMA_MIGRATION')
+    def test_migration_is_idempotent(self):
+        from thuha.store import migrate
+        value=migrate(self.legacy());again=migrate(copy.deepcopy(value));self.assertEqual(value,again)
+    def test_local_store_reads_and_rewrites_a_legacy_file_as_schema_five(self):
+        from thuha.common import save
+        with tempfile.TemporaryDirectory() as temp:
+            save(Path(temp)/'state.json',self.legacy())
+            store=LocalStore(temp);self.assertEqual(store.read()['schema'],5)
+            store.mutate(lambda s:s['controls'].update(paused=True))
+            self.assertEqual(json.loads((Path(temp)/'state.json').read_text())['schema'],5)
+    def test_remote_state_is_migrated_on_first_mutation(self):
+        api=MemoryGitHub();api.files[GitStore.state_path]=self.legacy();api.branch=True
+        store=GitStore(api);store.mutate(lambda s:s['controls'].update(paused=True))
+        self.assertEqual(api.files[GitStore.state_path]['schema'],5)
+        self.assertEqual(api.files[GitStore.state_path]['topics']['TH-000001']['language'],'en')
+    def test_language_url_and_id_must_agree(self):
+        value=initial();value['topics']['TH-VI-0001']={'language':'en','status':'PLANNED'}
+        with self.assertRaises(ValueError):validate(value)
+        value['topics']['TH-VI-0001']={'language':'vi','status':'PLANNED','proposed_url':'https://rentbikehanoi.com/khong-co-vi/'}
+        with self.assertRaises(ValueError):validate(value)
+    def test_two_topics_cannot_share_one_wordpress_slug_across_languages(self):
+        value=initial()
+        value['topics']['TH-EN-0001']={'language':'en','status':'PLANNED','proposed_url':'https://rentbikehanoi.com/dat-coc/'}
+        value['topics']['TH-VI-0001']={'language':'vi','status':'PLANNED','proposed_url':'https://rentbikehanoi.com/vi/dat-coc/'}
+        with self.assertRaises(ValueError):validate(value)
+
+
 class RecoveryTests(unittest.TestCase):
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.store=LocalStore(self.temp.name)
-        self.store.mutate(lambda s:s['topics'].update({'TH-000001':{'topic_id':'TH-000001','status':'PLANNED'}}))
+        self.store.mutate(lambda s:s['topics'].update({'TH-EN-0001':{'topic_id':'TH-EN-0001','language':'en','status':'PLANNED'}}))
         self.lease=claim(self.store,'session-fixture','agent-fixture')
-        self.article={'topic_id':'TH-000001','agent_id':'agent-fixture','session':'session-fixture','body_html':'<p>first draft</p>'}
+        self.article={'topic_id':'TH-EN-0001','agent_id':'agent-fixture','session':'session-fixture','language':'en-US','body_html':'<p>first draft</p>','featured_media':50}
     def send(self):return submit(self.store,self.lease['slot'],self.lease['session'],self.lease['fence'],self.article,max_repairs=2)
     def test_identical_submission_does_not_consume_repair(self):
         a=self.send();b=self.send();self.assertEqual(a['repair_count'],b['repair_count'])
@@ -79,7 +129,7 @@ class RecoveryTests(unittest.TestCase):
         self.send()
         for i in range(3):self.article['body_html']='<p>revision '+str(i)+'</p>';result=self.send()
         self.assertEqual(result['status'],'NEEDS_REVIEW')
-        state=self.store.read();sha=state['topics']['TH-000001']['held_article_sha']
+        state=self.store.read();sha=state['topics']['TH-EN-0001']['held_article_sha']
         self.assertEqual(self.store.get_document(sha),self.article)
         self.assertEqual(state['leases'],{})
         with self.assertRaises(ValueError):self.send()
@@ -106,19 +156,19 @@ class SecurityTests(unittest.TestCase):
             class API:
                 def request(self,*args):raise GitError(403)
             store.api=API()
-            inv={'captured_at':now(),'counts':{'posts':0,'pages':0,'live_verified_posts':0},'complete':True}
+            inv={'captured_at':now(),'language_source':'adapter','counts':{'posts':0,'pages':0,'live_verified_posts':0,'posts_by_language':{'vi':0,'en':0}},'complete':True}
             value=report(store,inv,load(ROOT/'config/release.json'))
             self.assertEqual(value['github_actions']['status'],'UNKNOWN');self.assertEqual(value['github_actions']['runs'],[])
     def test_qa_batch_continues_after_one_contract_failure(self):
         output=io.StringIO()
         with tempfile.TemporaryDirectory() as temp:
             store=LocalStore(temp)
-            store.mutate(lambda s:s['topics'].update({'TH-000001':{'status':'DRAFT_READY'},'TH-000002':{'status':'DRAFT_READY'}}))
+            store.mutate(lambda s:s['topics'].update({'TH-EN-0001':{'status':'DRAFT_READY','language':'en'},'TH-EN-0002':{'status':'DRAFT_READY','language':'en'}}))
             inv=Path(temp)/'inventory.json';inv.write_text('{}')
             with patch('thuha.quality.run_qa',side_effect=[ValueError('isolated broken topic'),{'status':'PASS'}]) as mock,patch('sys.stdout',output):
                 code=main(['--state-dir',temp,'--inventory',str(inv),'qa'])
             self.assertEqual(mock.call_count,2);self.assertEqual(code,1)
-            self.assertEqual(json.loads(output.getvalue())['results']['TH-000002']['status'],'PASS')
+            self.assertEqual(json.loads(output.getvalue())['results']['TH-EN-0002']['status'],'PASS')
     def test_github_dispatch_http_204_is_success(self):
         class EmptyResponse:
             def __enter__(self):return self

@@ -1,8 +1,10 @@
 """Bounded GET retries; WordPress POST is create-only and NEVER retried."""
 import base64
+import http.client
 import ipaddress
 import json
 import os
+import re
 import socket
 import time
 import urllib.error
@@ -10,15 +12,29 @@ import urllib.request
 from urllib.parse import urlsplit, urlencode
 from .common import SITE
 
+ADAPTER_BASE = SITE + '/wp-json/thuha-writer/v1'
+ADAPTER_CREATE_URL = ADAPTER_BASE + '/posts'
+
 
 class NetworkError(RuntimeError):
-    pass
+    def __init__(self, message, status=None, code=None, not_sent=False):
+        super().__init__(message)
+        self.status = status
+        self.code = code  # machine code from a JSON error answer (letters/underscores only); never the body text
+        self.not_sent = not_sent  # True only when no byte of the request can have reached the server
 
 
-def safe_public_url(url):
+def safe_url_shape(url):
+    """Structural check only: HTTPS, a hostname, no credentials, default port."""
     p = urlsplit(url)
     if p.scheme != 'https' or not p.hostname or p.username or p.password or p.port not in (None, 443):
         raise ValueError('Unsafe source URL')
+    return url
+
+
+def safe_public_url(url):
+    safe_url_shape(url)
+    p = urlsplit(url)
     # These two fixed, user-authorized service origins are resolved by the
     # environment's egress proxy when local DNS is intentionally unavailable.
     # Arbitrary research URLs retain the strict public-address check below.
@@ -30,6 +46,26 @@ def safe_public_url(url):
     if not addresses or any(not ipaddress.ip_address(x[4][0]).is_global for x in addresses):
         raise ValueError('Source resolves to a non-public address')
     return url
+
+
+def never_connected(exc):
+    """True only for failures that can happen only before any request byte is sent: the name does not resolve or the
+    connection is refused.
+
+    A time-out, a reset, a dropped connection or an unreachable-network error may come after the server received the
+    request (an ICMP error can arrive on a connection that is already open), so they are not here.
+    """
+    reason = getattr(exc, 'reason', exc)
+    return isinstance(reason, (socket.gaierror, ConnectionRefusedError))
+
+
+def error_code(exc):
+    """The `code` field of a WordPress JSON error, or None; the rest of the body is discarded."""
+    try:
+        value = json.loads(exc.read(4096)).get('code')
+    except (ValueError, OSError, AttributeError):
+        return None
+    return value if isinstance(value, str) and re.fullmatch(r'[a-z_]{3,60}', value) else None
 
 
 class Redirects(urllib.request.HTTPRedirectHandler):
@@ -50,9 +86,10 @@ class HTTP:
 
     def request(self, url, *, method='GET', body=None, auth=False):
         safe_public_url(url)
-        if method != 'GET' and not (method == 'POST' and self.allow_write and
-                                   url == SITE + '/wp-json/wp/v2/posts'):
-            raise ValueError('Only explicitly enabled create-post writes are supported')
+        # The only write is one create-only POST to the companion adapter; core
+        # /wp/v2/posts is never written because it cannot attach the VI marker first.
+        if method != 'GET' and not (method == 'POST' and self.allow_write and url == ADAPTER_CREATE_URL):
+            raise ValueError('Only explicitly enabled adapter create-post writes are supported')
         headers = {'User-Agent': 'ThuHa-Writer/4 read-only-audit', 'Accept-Encoding': 'identity'}
         if auth:
             if not url.startswith(SITE + '/wp-json/'):
@@ -76,12 +113,12 @@ class HTTP:
                 if method == 'GET' and exc.code in (429, 500, 502, 503, 504) and attempt < 2:
                     time.sleep(min(5, 1 + attempt))
                     continue
-                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path) from None
-            except (OSError, TimeoutError) as exc:
+                raise NetworkError('HTTP '+str(exc.code)+' for '+urlsplit(url).path, exc.code, error_code(exc)) from None
+            except (OSError, TimeoutError, http.client.HTTPException) as exc:
                 if method == 'GET' and attempt < 2:
                     time.sleep(1+attempt)
                     continue
-                raise NetworkError('Network failure; outcome may be unknown for POST') from None
+                raise NetworkError('Network failure; outcome may be unknown for POST', not_sent=never_connected(exc)) from None
 
 
 class WordPress:
@@ -117,20 +154,3 @@ class WordPress:
         data, headers, status = self.http.request(url)
         return data.decode('utf-8'), headers, status
 
-    def create(self, body):
-        data, _, _ = self.http.request(SITE+'/wp-json/wp/v2/posts', method='POST', body=body, auth=True)
-        return json.loads(data)
-
-    def preflight(self):
-        user,_ = self.get('users/me',auth=True,context='edit')
-        raw,_,_=self.http.request(SITE+'/wp-json/wp/v2',auth=True)
-        routes=json.loads(raw).get('routes',{})
-        endpoints=routes.get('/wp/v2/posts',{}).get('endpoints',[])
-        properties={}
-        for endpoint in endpoints:
-            if 'POST' in endpoint.get('methods',[]):
-                properties=endpoint.get('args',{}).get('meta',{}).get('properties',{})
-        fields={'_yoast_wpseo_title','_yoast_wpseo_metadesc','_yoast_wpseo_focuskw'}
-        if not user.get('capabilities',{}).get('publish_posts') or not fields<=set(properties):
-            raise ValueError('Publishing capability or registered Yoast REST meta fields not verified')
-        return {'publish_posts':True,'registered_yoast_meta':sorted(fields)}

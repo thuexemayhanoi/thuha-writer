@@ -1,0 +1,132 @@
+{
+  "agent_id": "claude-writer-W7",
+  "article": {
+    "agent_id": "claude-writer-W7",
+    "body_html": "<p>Short answer: it depends on two numbers printed in the manufacturer's specification, not on the word \"scooter\". Under Vietnam's Road Traffic Order and Safety Law (Law 36/2024/QH15, in force since 1 January 2025), an electric two-wheeler is treated as a low-power moped (<em>xe gắn máy</em>) only when its design speed is no more than 50 km/h and its electric motor is rated at no more than 4 kW. Anything faster or more powerful is a motorcycle (<em>xe mô tô</em>), and motorcycles need a licence: class A1 covers electric motors up to 11 kW, and class A covers anything above 11 kW. If you have been searching for an electric scooter licence Vietnam kW threshold, those are the three figures to remember: 4 kW and 50 km/h for the no-licence class, 11 kW for the A1 ceiling. The rest of this guide explains where the rules come from, how the old A1/A2 scheme changed, and where the electric models most often seen in Hanoi actually sit.</p>\n\n<h2>The two legal categories: moped versus motorcycle</h2>\n\n<p>Everything starts with vehicle classification, not with the licence. The Ministry of Public Security, answering a parent's question on its official Q&amp;A portal, quotes point g, clause 1, Article 34 of the law word for word. A <em>xe gắn máy</em> is a two- or three-wheeled motor vehicle designed for road use with a design speed not greater than 50 km/h; if it has a combustion engine, the displacement (or equivalent) is not greater than 50 cm³, and if it is driven by an electric motor, the motor power is not greater than 4 kW. Motorised bicycles (<em>xe đạp máy</em>) are excluded from the definition. You can read the answer on the <a href=\"https://mps.gov.vn/hoi-dap/chi-tiet-cau-hoi/d3a2d680-8513-4280-8d9e-85c7645f7630?page=/\">Ministry of Public Security Q&amp;A page</a>.</p>\n\n<p>Two things in that wording matter for electric riders. First, the speed limit and the power limit are both part of the definition, so a scooter with a small 2 kW motor that is nonetheless built to reach 70 km/h is not a moped. Second, the 4 kW figure is the dividing line between the moped class and the motorcycle class, while a different figure, 11 kW, divides licence classes A1 and A within the motorcycle class. People often mix up the two numbers.</p>\n\n<p>The same ministry answer sets out who may ride a moped. Clause 4 of Article 56 requires the rider to understand road traffic rules, have the skills to control the vehicle, and meet the age and health conditions in Article 59; point a of clause 1 of Article 59 states that a person aged 16 or over may ride a <em>xe gắn máy</em>. The answer lists those conditions without attaching any licence class to them, which is why the moped class is commonly described as the no-licence class. The licence classes themselves, covered next, are defined for motorcycles.</p>\n\n<h2>Licence classes from 1 January 2025: A1, A and B1</h2>\n\n<p>The Nghe An Province Public Administration Service Centre republished the government's summary of the new licence classes, and it is one of the clearest official statements of the thresholds. According to the <a href=\"https://hcc.nghean.gov.vn/tin-tong-hop/tu-1-1-2025-co-nhung-hang-giay-phep-lai-xe-nao-2091.html\">Nghe An summary of licence classes under Law 36/2024/QH15</a>, the two-wheel classes are:</p>\n\n<ul>\n<li><strong>Class A1</strong>: two-wheeled motorcycles with an engine up to 125 cm³ or an electric motor power up to 11 kW.</li>\n<li><strong>Class A</strong>: two-wheeled motorcycles with an engine over 125 cm³ or an electric motor power over 11 kW, plus everything covered by A1.</li>\n<li><strong>Class B1</strong>: three-wheeled motorcycles, plus everything covered by A1.</li>\n</ul>\n\n<p>For an electric rider the practical reading is simple. Below 4 kW and at or below 50 km/h design speed, the vehicle is a moped. From the point where either number is exceeded, up to 11 kW, you need A1 (or A or B1, since both include the A1 vehicles). Above 11 kW you need class A. As the VinFast model table later in this guide shows, 11 kW is far above the output of ordinary commuter scooters, so for almost every electric scooter sold or rented in Hanoi the realistic question is \"moped or A1\", not \"A1 or A\".</p>\n\n<h3>What changed from the old A1/A2 scheme</h3>\n\n<p>A commune-level government page in Nghe An, published to explain the 14 traffic changes that took effect on 1 January 2025, compares the two systems side by side. Under the 2008 Road Traffic Law the motorcycle classes were defined only by engine size: A1 covered 50 cm³ to under 175 cm³ and A2 covered 175 cm³ and above, with no mention of electric motors at all. The 2024 law increased the number of licence classes to 15 and wrote electric motor power into the two-wheel classes for the first time, which is the main reason the kW thresholds now matter. The page also confirms that the motorcycle classes A1, A and B1 are issued without an expiry date, as the old A1, A2 and A3 were. See the <a href=\"https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307\">Bach Ngoc commune page on the 14 new traffic rules</a> for the full comparison table.</p>\n\n<p>If you hold a Vietnamese licence issued before 2025, the class printed on it belongs to the old scheme, and the comparison table on that page is the quickest way to see which new class it corresponds to. The transitional details for older cards are not covered here; check the class and any restriction noted on your own licence rather than assuming.</p>\n\n<h2>Where common electric models sit</h2>\n\n<p>Thresholds are abstract until you put real scooters against them. VinFast, the largest domestic maker, publishes a guidance page that lists the maximum speed and maximum motor power of its models and states which ones it considers to need an A1 licence. The figures from the <a href=\"https://vinfastauto.com/vn_vi/di-xe-may-dien-co-can-bang-lai-khong\">VinFast page on whether electric scooters need a licence</a> are:</p>\n\n<ul>\n<li><strong>Evo200 Lite</strong>: 49 km/h, 2,450 W maximum power, listed as not needing a licence.</li>\n<li><strong>Evo200</strong>: 70 km/h, 2,500 W maximum power, listed as needing A1.</li>\n<li><strong>Feliz S</strong> and <strong>Klara S (2022)</strong>: 78 km/h, 3,000 W, A1.</li>\n<li><strong>Vento S</strong>: 89 km/h, 5,200 W, A1.</li>\n<li><strong>Theon S</strong>: 99 km/h, 7,100 W, A1.</li>\n</ul>\n\n<p>The Evo200 and Evo200 Lite pair is the most instructive line in that table. Their maximum motor outputs differ by only 50 W and both are comfortably under 4 kW, yet VinFast places one in the no-licence column and the other in the A1 column. The difference is the design speed: the Lite is capped at 49 km/h, inside the moped definition, while the standard Evo200 is built for 70 km/h, outside it. That is exactly the \"both conditions\" logic in Article 34 described above. VinFast's page also notes that the Vento S and Theon S exceed 4 kW on power alone, so they would be motorcycles even if they were slower.</p>\n\n<p>One caveat on that page: it was written before the 2024 law and cites the earlier decree and the 2008 law for its definitions, including the old A1 band of 50 cm³ to under 175 cm³. The numeric thresholds it uses for electric scooters, 4 kW and 50 km/h, are the same ones the Ministry of Public Security now quotes from Article 34, so the model classification still holds, but the licence-class descriptions in its FAQ section reflect the old scheme.</p>\n\n<h3>Rated power versus maximum power</h3>\n\n<p>Specification sheets quote more than one power figure, and the number you compare against the law changes the answer. VinFast's own Evo200 specification page lists a rated power (<em>công suất danh định</em>) of 1,500 W for its rear in-hub motor, a maximum speed of 70 km/h with a 65 kg rider, 0 to 50 km/h in 14 seconds, an IP67 water-resistance rating and a 3.5 kWh LFP battery good for 203 km at a steady 30 km/h. Its guidance page, as shown above, quotes 2,500 W as the maximum power for the same scooter. See the <a href=\"https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200\">VinFast Evo200 specification page</a> for the full table, which also gives a 100 kg kerb weight including battery, a 130 kg load rating, a 750 mm seat height and roughly 10 hours for a full charge with the standard 400 W charger (about 4 hours with the optional 1,000 W unit).</p>\n\n<p>For the Evo200 the distinction does not change the outcome, because both 1.5 kW and 2.5 kW are under 4 kW and the 70 km/h design speed decides the matter anyway. For a scooter whose maximum output sits close to 4 kW, however, it can matter, and the law as quoted by the ministry refers to \"the power of the motor\" without saying which figure it means. If a rental scooter's sheet shows a maximum figure near or above 4 kW, treat it as a motorcycle and bring an A1-equivalent licence rather than relying on the lower rated number.</p>\n\n<h2>What this means for a visitor renting in Hanoi</h2>\n\n<p>Most international visitors do not hold a Vietnamese licence, so the practical question is whether the licence they do hold is recognised, and for which class. That is a separate topic with its own rules; our guide on <a href=\"https://rentbikehanoi.com/do-you-need-a-motorcycle-license-to-ride-in-vietnam/\">whether you need a motorcycle licence to ride in Vietnam</a> covers the general position, and the companion piece on <a href=\"https://rentbikehanoi.com/can-an-international-motorcycle-license-be-used-in-vietnam/\">using an International Driving Permit in Vietnam</a> deals with the permit itself. What this article adds is the vehicle side: before you worry about your paperwork, find out which legal class the scooter you are offered falls into.</p>\n\n<p>Three questions settle it at the counter:</p>\n\n<ul>\n<li><strong>What is the design maximum speed?</strong> If the manufacturer states more than 50 km/h, the scooter is a motorcycle regardless of power.</li>\n<li><strong>What is the motor's maximum power?</strong> Over 4 kW is a motorcycle; over 11 kW moves it from A1 to class A, though that is rare for a commuter scooter.</li>\n<li><strong>Which exact model and version is it?</strong> As the Evo200 and Evo200 Lite show, a \"Lite\" or \"student\" version can sit in a different legal class from the standard version with the same name.</li>\n</ul>\n\n<p>Thuê xe máy Nguyễn Hà (hotline 0334 699 969, Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội, open 09:00–21:00 daily) can tell you the model and version of any electric scooter in its fleet before you book, so you can check the figures against the thresholds above. If you are weighing an electric scooter against a petrol automatic for a longer stay, the <a href=\"https://rentbikehanoi.com/how-to-rent-an-electric-scooter-in-hanoi-step-by-step-guide/\">step-by-step guide to renting an electric scooter in Hanoi</a> walks through the booking and handover, and the <a href=\"https://rentbikehanoi.com/electric-or-petrol-for-a-hanoi-commute-a-charging-access-worksheet/\">charging-access worksheet for a Hanoi commute</a> helps you decide whether you can realistically charge where you stay.</p>\n\n<p>One more point worth stating plainly: a moped-class scooter is not a loophole for riding without any preparation. The ministry's answer makes knowledge of the traffic rules and the skill to control the vehicle explicit conditions for moped riders, alongside the age and health requirements. A 49 km/h scooter in Hanoi traffic still needs a helmet, a careful rider and a clear head.</p>\n\n<h2>Frequently asked questions</h2>\n\n<h3>Is 4 kW the limit for riding an electric scooter without a licence in Vietnam?</h3>\n<p>It is one of two limits. Under Article 34 of Law 36/2024/QH15, as quoted by the Ministry of Public Security, an electric two-wheeler is a moped only if its motor power is not greater than 4 kW and its design speed is not greater than 50 km/h. Exceed either and it is a motorcycle, which requires at least a class A1 licence.</p>\n\n<h3>Does the 11 kW figure mean I need class A for a normal electric scooter?</h3>\n<p>No. Class A1 covers electric motors up to 11 kW, and class A only applies above that. Every model in VinFast's published table, including the 7,100 W Theon S, is listed as an A1 scooter. Class A becomes relevant for high-performance electric motorcycles, not commuter scooters.</p>\n\n<h3>Why does the VinFast Evo200 need an A1 licence if its motor is only 1.5 kW rated?</h3>\n<p>Because its design speed is 70 km/h, which is above the 50 km/h ceiling for the moped class. Power and speed are both conditions. The speed-limited Evo200 Lite, at 49 km/h and 2,450 W, is the version VinFast lists as not needing a licence.</p>\n\n<h3>How old do you have to be to ride a moped-class electric scooter?</h3>\n<p>The ministry's answer quotes point a of clause 1 of Article 59: a person aged 16 or over may ride a <em>xe gắn máy</em>, provided they also meet the knowledge, skill and health conditions in Article 56.</p>\n\n<h3>Does a Vietnamese A1 licence expire?</h3>\n<p>According to the Bach Ngoc commune summary of the 2024 law, the motorcycle classes A1, A and B1 are issued without an expiry date, as the old A1, A2 and A3 classes were. The dated validity periods apply to car and truck classes.</p>\n",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+    "category_id": 144,
+    "featured_media": 662,
+    "focus_keyword": "electric scooter licence vietnam kw",
+    "language": "en-US",
+    "meta_description": "Which electric scooters need an A1 or A licence in Vietnam? The 4 kW and 50 km/h moped limits, the 11 kW A1 ceiling, and where VinFast Evo200 models sit under Law 36/2024.",
+    "seo_title": "Electric Scooter Licence in Vietnam: kW Thresholds Under the 2024 Law",
+    "session": "w7-20261023-c1",
+    "source_commit": "3ad4116554dcecb3b6c2bf167d07a6aecd9895bc",
+    "sources": [
+      {
+        "document": "786380462d2c58c29109f7cb0477d2ead9a33a074ad3a1a6724de7eb17023592",
+        "supports": "Comparison of old (2008 law: A1 50-<175 cm3, A2 175+) and new (2024 law: A1 up to 125 cm3 or 11 kW, A over 125 cm3 or 11 kW, B1 three-wheel) licence classes; 15 classes; A1/A/B1 without expiry.",
+        "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+      },
+      {
+        "document": "e724aab929ad8d4e116343d7b5559fb7a994fbbdff459cd378535fb601ce4fd8",
+        "supports": "Evo200 rated power 1,500 W, in-hub rear motor, 70 km/h max speed, 0-50 km/h in 14 s, IP67, 3.5 kWh LFP battery, 203 km range at 30 km/h, charge times, 100 kg weight, 130 kg load, 750 mm seat height.",
+        "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+      },
+      {
+        "document": "8f1f92283e696c4a867723ebfa54d99316bb3384ad21720eb263df09d4901710",
+        "supports": "Ministry of Public Security quotes Article 34(1)(g) definition of xe gan may (design speed <= 50 km/h, <= 50 cm3 or electric motor <= 4 kW), Article 56(4) rider conditions and Article 59(1)(a) age 16.",
+        "url": "https://mps.gov.vn/hoi-dap/chi-tiet-cau-hoi/d3a2d680-8513-4280-8d9e-85c7645f7630?page=/"
+      },
+      {
+        "document": "a28af6704dccb0b63a14ff9597fd83b522ed7a8989a30578442cdc9698675a07",
+        "supports": "Official summary (source Chinhphu.vn) of Law 36/2024/QH15 licence classes effective 1 Jan 2025: A1 up to 125 cm3 or 11 kW; A over 125 cm3 or over 11 kW; B1 three-wheel.",
+        "url": "https://hcc.nghean.gov.vn/tin-tong-hop/tu-1-1-2025-co-nhung-hang-giay-phep-lai-xe-nao-2091.html"
+      },
+      {
+        "document": "2366a3067fda06bad118138baa418f6950884165f3626f899b73fff81d4a5b66",
+        "supports": "VinFast table of max speed, max power and licence need per model: Evo200 Lite 49 km/h 2,450 W no licence; Evo200 70 km/h 2,500 W A1; Feliz S, Klara S 78 km/h 3,000 W; Vento S 89 km/h 5,200 W; Theon S 99 km/h 7,100 W; page cites older Decree 100/2019 and 2008 law.",
+        "url": "https://vinfastauto.com/vn_vi/di-xe-may-dien-co-can-bang-lai-khong"
+      }
+    ],
+    "title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
+    "topic_id": "TH-000007"
+  },
+  "article_sha": "1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f",
+  "category_id": 144,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "786380462d2c58c29109f7cb0477d2ead9a33a074ad3a1a6724de7eb17023592",
+    "e724aab929ad8d4e116343d7b5559fb7a994fbbdff459cd378535fb601ce4fd8",
+    "8f1f92283e696c4a867723ebfa54d99316bb3384ad21720eb263df09d4901710",
+    "a28af6704dccb0b63a14ff9597fd83b522ed7a8989a30578442cdc9698675a07",
+    "2366a3067fda06bad118138baa418f6950884165f3626f899b73fff81d4a5b66"
+  ],
+  "source_evidence": {
+    "2366a3067fda06bad118138baa418f6950884165f3626f899b73fff81d4a5b66": {
+      "capture_method": "external-fetcher",
+      "checked_at": "2026-10-23T02:14:02.922902+00:00",
+      "content_type": "text/markdown; external fetch",
+      "excerpt": "# Đi xe máy điện có cần bằng lái không? ## **1. Đi xe máy điện có cần bằng lái",
+      "fetched_at": "2026-10-23T02:13:59+00:00",
+      "fetcher": "parallel-web-fetch",
+      "http_status": 200,
+      "http_status_basis": "successful external fetch returned document content",
+      "page_title": "Đi xe máy điện có cần bằng lái không? | VinFast",
+      "response_sha256": "5a8931fdd620b3e39ef81421a77e6265d47587b19f1ea5b84007711396e32714",
+      "url": "https://vinfastauto.com/vn_vi/di-xe-may-dien-co-can-bang-lai-khong"
+    },
+    "786380462d2c58c29109f7cb0477d2ead9a33a074ad3a1a6724de7eb17023592": {
+      "capture_method": "external-fetcher",
+      "checked_at": "2026-10-23T02:06:17.936486+00:00",
+      "content_type": "text/markdown; external fetch",
+      "excerpt": "|**ĐĂNG NHẬP** | image banner | * Trang chủ * An toàn giao thông 19/05/2026 14 quy định mới về",
+      "fetched_at": "2026-10-23T01:51:08+00:00",
+      "fetcher": "parallel-web-fetch",
+      "http_status": 200,
+      "http_status_basis": "successful external fetch returned document content",
+      "page_title": "14 quy định mới về giao thông áp dụng từ 01/01/2025",
+      "response_sha256": "2421cb3854cfb40c4134d895e3bc884beeea7bb45353ee4634792e0a613159ae",
+      "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+    },
+    "8f1f92283e696c4a867723ebfa54d99316bb3384ad21720eb263df09d4901710": {
+      "capture_method": "external-fetcher",
+      "checked_at": "2026-10-23T02:13:59.314063+00:00",
+      "content_type": "text/markdown; external fetch",
+      "excerpt": "# Khi con tôi 16 tuổi điều khiển xe gắn máy có dung tích 50 cm3 đi học và xảy",
+      "fetched_at": "2026-10-23T02:13:59+00:00",
+      "fetcher": "parallel-web-fetch",
+      "http_status": 200,
+      "http_status_basis": "successful external fetch returned document content",
+      "page_title": "Khi con tôi 16 tuổi điều khiển xe gắn máy có dung tích 50 cm3 đi học và xảy ra va chạm nhẹ thì trách nhiệm có thuộc về tôi hay không?",
+      "response_sha256": "a74467d84237bafa543a77c85ebca49b1c1589dd13e5c24b84d29413546f3802",
+      "url": "https://mps.gov.vn/hoi-dap/chi-tiet-cau-hoi/d3a2d680-8513-4280-8d9e-85c7645f7630?page=/"
+    },
+    "a28af6704dccb0b63a14ff9597fd83b522ed7a8989a30578442cdc9698675a07": {
+      "capture_method": "external-fetcher",
+      "checked_at": "2026-10-23T02:14:01.108338+00:00",
+      "content_type": "text/markdown; external fetch",
+      "excerpt": "# Từ 1/1/2025, có những hạng Giấy phép lái xe nào? Luật Trật tự, an toàn giao thông đường bộ",
+      "fetched_at": "2026-10-23T02:13:59+00:00",
+      "fetcher": "parallel-web-fetch",
+      "http_status": 200,
+      "http_status_basis": "successful external fetch returned document content",
+      "page_title": "Từ 1/1/2025, có những hạng Giấy phép lái xe nào?",
+      "response_sha256": "0ac639bd66e7589e0b17d9043f0c4b88791b6f140badf970ab2f434c77c5bba7",
+      "url": "https://hcc.nghean.gov.vn/tin-tong-hop/tu-1-1-2025-co-nhung-hang-giay-phep-lai-xe-nao-2091.html"
+    },
+    "e724aab929ad8d4e116343d7b5559fb7a994fbbdff459cd378535fb601ce4fd8": {
+      "capture_method": "external-fetcher",
+      "checked_at": "2026-10-23T02:06:19.675250+00:00",
+      "content_type": "text/markdown; external fetch",
+      "excerpt": "Đăng nhập / Đăng ký 1. [Trang chủ](https://vinfastauto.com/vn_vi) 2. [Tin tức](https://vinfastauto.com/vn_vi/tin-tuc) 3. [Xe máy điện](https://vinfastauto.com/vn_vi/tin-tuc/xe-may-dien) ... # Thông số kỹ",
+      "fetched_at": "2026-10-23T01:51:08+00:00",
+      "fetcher": "parallel-web-fetch",
+      "http_status": 200,
+      "http_status_basis": "successful external fetch returned document content",
+      "page_title": "Thông số kỹ thuật xe điện VinFast Evo200 - Mẫu xe điện mới nhiều cải tiến và tính năng thông minh",
+      "response_sha256": "b57486a0b2c07dd2402f96e1ee78bfa5c9c6d77fc27e79a9b4a5efea0e3d41fa",
+      "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+    }
+  },
+  "status": "DRAFT_READY",
+  "submitted_at": "2026-10-23T02:16:28.309041+00:00",
+  "topic_id": "TH-000007",
+  "waiting_for": []
+}

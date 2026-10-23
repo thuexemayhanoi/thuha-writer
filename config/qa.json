@@ -5,8 +5,17 @@
   "maximum_repairs": 3,
   "inventory_max_age_seconds": 21600,
   "research_max_age_seconds": 2592000,
-  "trusted_reviewers": [],
+  "trusted_reviewers": ["claude-editorial-reviewer"],
+  "reviewer_roster_note": "Legacy optional review attribution only. No reviewer or attestation is required for QA or publishing.",
   "semantic_review_required": false,
-  "threshold_status": "Enforced automated QA >=85; no AI/human review gate; hard failures override score",
-  "hard_fail_overrides_score": true
+  "review_mode": "automated",
+  "score_basis": "Automatic raw score out of 80 normalized to 100; reviews add no points; any hard failure blocks publication",
+  "threshold_status": "Owner requested automatic QA >=85 then publish, 2026-10-23",
+  "hard_fail_overrides_score": true,
+  "minimum_internal_content_links": 1,
+  "substantial_length": {
+    "en": 700,
+    "vi": 950
+  },
+  "language_screens": "deterministic diacritic/function-word screens; no independent native-language review claimed or required"
 }

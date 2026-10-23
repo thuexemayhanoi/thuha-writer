@@ -7,6 +7,15 @@
     "semantic_factual_review": "PENDING",
     "status": "FULL_TECHNICAL_INVENTORY_COMPLETE"
   },
+  "bilingual": {
+    "adapter": {
+      "contract": "thuha-writer/1",
+      "plugin": "thuha-native-vi-publisher",
+      "status": "IMPLEMENTED_NOT_DEPLOYED_NOT_LIVE_TESTED"
+    },
+    "native_plugin": "rentbikehanoi-native-vi 1.0.0 (existing on website)",
+    "sitemap_pairs_only": false
+  },
   "business": {
     "address": "Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần Bến xe Gia Lâm)",
     "hours": "09:00–21:00 daily",
@@ -15,19 +24,35 @@
     "pricing": "Only owner-approved reference prices; confirm before booking"
   },
   "goal": {
+    "baseline_snapshot": {
+      "authoritative": false,
+      "captured_at": "2026-10-22T18:45:39Z",
+      "en": 275,
+      "vi": 0
+    },
     "baseline_source": "live-wordpress-reconciliation",
+    "counting": "Distinct published post IDs by native language, existing posts included; pages, drafts and trash excluded; reconcile live before every reservation",
     "historical_counts_are_authoritative": false,
-    "verified_published_posts": 2000
+    "priority": [
+      "vi",
+      "en"
+    ],
+    "targets": {
+      "en": 500,
+      "vi": 500
+    }
   },
   "project": "thuha-writer",
   "publishing": {
     "allow_blind_retry": false,
     "allow_category_creation": false,
+    "allow_core_posts_write": false,
     "allow_existing_url_changes": false,
     "enabled": false,
     "owner_release_required": true,
     "require_live_taxonomy_match": true,
-    "require_receipt_and_readback": true
+    "require_receipt_and_readback": true,
+    "write_path": "companion-adapter-only"
   },
   "quality": {
     "hard_fail_overrides_score": true,
@@ -41,13 +66,28 @@
   },
   "schema_version": 1,
   "site": {
-    "language": "en-US",
+    "languages": {
+      "en": {
+        "locale": "en-US",
+        "role": "existing site root, protected",
+        "url_prefix": ""
+      },
+      "vi": {
+        "locale": "vi",
+        "role": "native Vietnamese namespace",
+        "url_prefix": "vi/"
+      }
+    },
     "read_only_audit": true,
     "url": "https://rentbikehanoi.com"
   },
   "writers": {
     "automatic_ai_generation": false,
     "external_ai_runtime_required": true,
+    "languages": [
+      "vi",
+      "en"
+    ],
     "slots": [
       "W1",
       "W2",

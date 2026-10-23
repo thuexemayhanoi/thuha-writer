@@ -1,0 +1,3157 @@
+{
+  "source_repository": "thuexemayhanoi/wp-aiwriter",
+  "source_commit": "c7c3f2e393d897a8986bf2a12bbefc2234b0c565",
+  "source_file": "en/topics.json",
+  "status": "IDEAS_ONLY_NOT_APPROVED_NOT_PUBLISHED",
+  "do_not_import": "Source category IDs, slugs, URLs, ledger, prose and business facts are not target configuration.",
+  "ideas": [
+    {
+      "reference_key": "wpai-en-1",
+      "title": "Can Tourists Ride a Motorbike in Vietnam? Licence Rules",
+      "intent": "informational: whether a foreign visitor can legally ride, which licence and IDP count, what happens without one",
+      "keywords": [
+        "vietnam motorbike license foreigner",
+        "international driving permit vietnam motorbike",
+        "ride scooter vietnam legally"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-2",
+      "title": "Honda Vision vs Air Blade: Which Scooter to Rent in Hanoi?",
+      "intent": "commercial investigation: choosing between the two most common automatic scooters for a Hanoi rental",
+      "keywords": [
+        "honda vision rental hanoi",
+        "air blade rental hanoi",
+        "best scooter to rent in hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-3",
+      "title": "Hanoi to Ninh Binh by Motorbike: Route, Time and Road Tips",
+      "intent": "informational: planning a self-ride from Hanoi to Ninh Binh (Tam Coc, Trang An), which roads allow motorbikes, time and fuel",
+      "keywords": [
+        "hanoi to ninh binh motorbike",
+        "ride to tam coc from hanoi",
+        "ninh binh by scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-4",
+      "title": "Helmet Rules in Vietnam: What Riders and Passengers Must Wear",
+      "intent": "informational: helmet law, fines, what counts as a proper helmet, children and passengers",
+      "keywords": [
+        "vietnam helmet law",
+        "helmet fine vietnam",
+        "motorbike helmet rules hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-5",
+      "title": "How a Motorbike Rental Deposit Works in Hanoi (and How to Get It Back)",
+      "intent": "informational: deposit amounts, what documents are kept, refund conditions, damage handling",
+      "keywords": [
+        "motorbike rental deposit hanoi",
+        "passport deposit scooter rental vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-6",
+      "title": "Manual, Semi-Automatic or Automatic: Which Motorbike Type Suits You in Hanoi?",
+      "intent": "commercial investigation: choosing a transmission type for Hanoi traffic and trips",
+      "keywords": [
+        "semi automatic motorbike vietnam",
+        "manual vs automatic scooter hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-7",
+      "title": "Renting a 50cc Scooter in Hanoi: Who It Suits and What the Rules Say",
+      "intent": "informational: 50cc mopeds, licence situation, speed and limits, who should choose one",
+      "keywords": [
+        "50cc scooter rental hanoi",
+        "no license scooter vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-8",
+      "title": "Renting an Electric Scooter in Hanoi: Range, Charging and What to Expect",
+      "intent": "informational: electric scooter and e-bike rentals, range per charge, charging at the hotel, limits",
+      "keywords": [
+        "electric scooter rental hanoi",
+        "vinfast scooter rent hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-9",
+      "title": "Riding in Hanoi's Old Quarter: Streets, Parking and When to Walk Instead",
+      "intent": "informational: navigating the Old Quarter by motorbike, walking streets at weekends, parking",
+      "keywords": [
+        "old quarter hanoi motorbike",
+        "hanoi old quarter parking scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-10",
+      "title": "Long Bien and the Red River: An Easy First Ride Out of Central Hanoi",
+      "intent": "informational: a short, low-stress route across Long Bien Bridge and along the Red River for first-day riders",
+      "keywords": [
+        "long bien bridge motorbike",
+        "easy ride hanoi beginners"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-11",
+      "title": "Hanoi to Ha Long Bay by Motorbike: Is It Worth It and How to Do It Safely",
+      "intent": "informational: distance, roads that allow motorbikes, time, alternatives",
+      "keywords": [
+        "hanoi to halong motorbike",
+        "ride to ha long bay"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-12",
+      "title": "Hanoi to Mai Chau by Motorbike: A Two-Day Ride Through the Hills",
+      "intent": "informational: route, passes, fuel stops, overnight planning",
+      "keywords": [
+        "hanoi mai chau motorbike",
+        "mai chau road trip"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-13",
+      "title": "Traffic Fines in Vietnam That Catch Foreign Riders Out",
+      "intent": "informational: the most common fines (licence, helmet, red light, alcohol, pavement riding), amounts, what to do when stopped",
+      "keywords": [
+        "vietnam traffic fines motorbike",
+        "police stop foreigner motorbike vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-14",
+      "title": "Drink-Driving Rules for Motorbike Riders in Vietnam",
+      "intent": "informational: zero-tolerance alcohol limit, penalties, licence points, practical advice",
+      "keywords": [
+        "vietnam drink driving motorbike",
+        "alcohol limit vietnam scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-15",
+      "title": "What to Check Before You Ride Off: A 10-Minute Rental Scooter Inspection",
+      "intent": "informational: brakes, tyres, lights, horn, mirrors, fuel level, photos for the handover",
+      "keywords": [
+        "check rental motorbike vietnam",
+        "scooter inspection before renting"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-16",
+      "title": "Fuel in Hanoi: Petrol Stations, Prices and Filling Up a Rental Scooter",
+      "intent": "informational: how fuel is sold, octane choice, paying, how far a tank goes",
+      "keywords": [
+        "petrol station hanoi scooter",
+        "fuel vietnam motorbike rental"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-17",
+      "title": "Parking a Motorbike in Hanoi: Guarded Lots, Tickets and Towing",
+      "intent": "informational: where to park, typical fees, pavement parking rules, towing",
+      "keywords": [
+        "motorbike parking hanoi",
+        "scooter parking fee hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-18",
+      "title": "Honda Wave vs Yamaha Sirius: Choosing a Manual Bike for Hanoi and Beyond",
+      "intent": "commercial investigation: the two most common semi-automatic rental bikes compared",
+      "keywords": [
+        "honda wave rental hanoi",
+        "yamaha sirius rental vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-19",
+      "title": "Honda Lead and Vision for Two Riders: Carrying a Passenger and Luggage",
+      "intent": "informational: which scooters carry two adults and bags comfortably, weight and storage",
+      "keywords": [
+        "scooter two people luggage hanoi",
+        "honda lead rental hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-20",
+      "title": "Riding in Hanoi Rain: Season, Gear and the Streets That Flood",
+      "intent": "informational: rainy season timing, ponchos, braking distances, flooded streets",
+      "keywords": [
+        "hanoi rainy season motorbike",
+        "riding scooter rain vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-21",
+      "title": "Tay Ho (West Lake) by Scooter: Lakeside Loop, Cafes and Quiet Streets",
+      "intent": "informational: the West Lake loop, where to stop, parking, timing",
+      "keywords": [
+        "west lake loop motorbike",
+        "tay ho scooter ride"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-22",
+      "title": "Ba Dinh by Motorbike: Mausoleum Area, One-Way Streets and Parking",
+      "intent": "informational: visiting Ba Dinh sights with a rental scooter, restricted streets, parking",
+      "keywords": [
+        "ba dinh motorbike parking",
+        "ho chi minh mausoleum scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-23",
+      "title": "Hanoi to Tam Dao by Motorbike: The Closest Mountain Ride to the City",
+      "intent": "informational: route, the hill road, weather, time",
+      "keywords": [
+        "tam dao motorbike",
+        "hanoi tam dao scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-24",
+      "title": "Hanoi to Ba Vi National Park by Motorbike",
+      "intent": "informational: route, park entry, the summit road",
+      "keywords": [
+        "ba vi motorbike",
+        "hanoi ba vi day trip scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-25",
+      "title": "Hanoi to Ha Giang: Should You Ride From Hanoi or Rent in Ha Giang?",
+      "intent": "informational: distance, options, what a long ride involves, bus-and-rent alternative",
+      "keywords": [
+        "hanoi to ha giang motorbike",
+        "ha giang loop from hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-26",
+      "title": "Crossing Hanoi Intersections: How Traffic Actually Flows and How to Merge",
+      "intent": "informational: unwritten rules, turning left, roundabouts, horn use",
+      "keywords": [
+        "hanoi traffic how to ride",
+        "hanoi intersection scooter tips"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-27",
+      "title": "Hanoi Motorbike Rental Contract: What the Clauses Mean",
+      "intent": "informational: contract terms, damage, theft, late return, early return",
+      "keywords": [
+        "motorbike rental contract vietnam",
+        "scooter rental terms hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-28",
+      "title": "Lost Keys, Flat Tyres and Breakdowns: What to Do With a Rental Bike in Hanoi",
+      "intent": "informational: roadside repair shops, calling the shop, costs",
+      "keywords": [
+        "motorbike breakdown hanoi",
+        "flat tyre scooter vietnam repair"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-29",
+      "title": "Honda Air Blade 160 vs 125: Does the Bigger Engine Matter in Hanoi?",
+      "intent": "commercial investigation: engine size, licence implications, fuel and city use",
+      "keywords": [
+        "air blade 160 rental",
+        "air blade 125 vs 160"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-30",
+      "title": "Honda SH for Rent in Hanoi: Is the Premium Scooter Worth It?",
+      "intent": "commercial investigation: SH comfort, size, parking, licence class",
+      "keywords": [
+        "honda sh rental hanoi",
+        "rent sh 150 hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-31",
+      "title": "Weekly and Monthly Motorbike Rental in Hanoi: What Long-Term Renters Should Ask",
+      "intent": "informational: long-term rental terms, maintenance, delivery, swaps",
+      "keywords": [
+        "monthly motorbike rental hanoi",
+        "long term scooter rental hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-32",
+      "title": "Can You Take a Hanoi Rental Motorbike Out of the City?",
+      "intent": "informational: shop policies, distance, registration papers, what to carry",
+      "keywords": [
+        "rental motorbike leave hanoi",
+        "road trip rental scooter vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-33",
+      "title": "Riding at Night in Hanoi: Lights, Visibility and the Streets to Avoid",
+      "intent": "informational: night riding risks, lighting, drunk drivers, trucks",
+      "keywords": [
+        "hanoi night riding scooter",
+        "motorbike night safety vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-34",
+      "title": "Hanoi's Ring Roads and Highways: Which Ones Allow Motorbikes",
+      "intent": "informational: expressways that ban motorbikes, which roads to use instead, signs",
+      "keywords": [
+        "motorbikes expressway vietnam banned",
+        "hanoi highway scooter allowed"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-35",
+      "title": "Child Passengers on a Motorbike in Vietnam: Rules and Safer Choices",
+      "intent": "informational: helmet rules for children, how many passengers, safer options",
+      "keywords": [
+        "child helmet vietnam motorbike",
+        "kids scooter vietnam rules"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-36",
+      "title": "Travel Insurance and Motorbike Rentals: What Usually Isn't Covered",
+      "intent": "informational: typical exclusions (licence, engine size, helmets), what to check in a policy",
+      "keywords": [
+        "travel insurance motorbike vietnam",
+        "scooter accident insurance cover vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-37",
+      "title": "Electric Bikes in Hanoi: Rules, Speed Limits and Where You Can Ride",
+      "intent": "informational: e-bike classification, helmets, age, lanes",
+      "keywords": [
+        "electric bike rules vietnam",
+        "e-bike hanoi rental rules"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-38",
+      "title": "Charging an Electric Scooter in Hanoi: Hotels, Swap Stations and Timing",
+      "intent": "informational: charging options, time, safety",
+      "keywords": [
+        "charge electric scooter hanoi",
+        "vinfast charging hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-39",
+      "title": "Hanoi to Ninh Binh and Back in One Day: A Realistic Motorbike Itinerary",
+      "intent": "informational: hour-by-hour plan for a day trip (Hoa Lu, Trang An, Tam Coc) by motorbike",
+      "keywords": [
+        "ninh binh day trip motorbike",
+        "tam coc one day from hanoi scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-40",
+      "title": "Gia Lam and the East Bank: Quiet Roads, Craft Villages and Bat Trang by Scooter",
+      "intent": "informational: a half-day ride to Bat Trang pottery village and the dyke roads",
+      "keywords": [
+        "bat trang by motorbike",
+        "gia lam scooter ride"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-41",
+      "title": "What Documents to Carry When Riding in Vietnam",
+      "intent": "informational: licence, IDP, passport copy, registration card, insurance certificate",
+      "keywords": [
+        "documents motorbike vietnam police",
+        "registration card rental bike vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-42",
+      "title": "Speed Limits for Motorbikes in Vietnam: City, Rural and Expressway Rules",
+      "intent": "informational: speed limits by road type, signs, fines",
+      "keywords": [
+        "vietnam motorbike speed limit",
+        "speed limit hanoi scooter"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-43",
+      "title": "Lane Rules in Vietnam: Where Motorbikes Belong on Multi-Lane Roads",
+      "intent": "informational: lane discipline, left turns, bus lanes, fines",
+      "keywords": [
+        "motorbike lane rules vietnam",
+        "wrong lane fine vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-44",
+      "title": "How to Pay for Fuel, Parking and Tolls as a Visitor in Hanoi",
+      "intent": "informational: cash vs QR payments, small change, toll roads and motorbikes",
+      "keywords": [
+        "pay petrol vietnam cash qr",
+        "parking fee hanoi pay"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-45",
+      "title": "Honda Winner X and Yamaha Exciter: Manual Bikes for Riders Who Want Gears",
+      "intent": "commercial investigation: clutch bikes, who they suit, licence class",
+      "keywords": [
+        "winner x rental hanoi",
+        "exciter rental vietnam"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-46",
+      "title": "Semi-Automatic Bikes Explained: How to Ride a Honda Wave Without a Clutch",
+      "intent": "informational: gear pattern, starting, stopping, hill starts",
+      "keywords": [
+        "how to ride semi automatic motorbike",
+        "honda wave gears explained"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-47",
+      "title": "Hanoi Street Food by Scooter: A Loop That Avoids the Worst Traffic",
+      "intent": "informational: a food-stop loop through quieter districts, parking at each stop",
+      "keywords": [
+        "hanoi food tour scooter self guided",
+        "street food hanoi by motorbike"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-48",
+      "title": "Returning Your Rental Motorbike in Hanoi: Fuel, Damage Checks and Deposits",
+      "intent": "informational: handover, photos, late and early returns, deposit refund",
+      "keywords": [
+        "return rental scooter hanoi",
+        "late return fee motorbike hanoi"
+      ]
+    },
+    {
+      "reference_key": "wpai-en-49",
+      "title": "How to Check a Semi-Automatic Motorbike Before Renting in Hanoi",
+      "intent": "English-language editorial topic: How to Check a Semi-Automatic Motorbike Before Renting in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-50",
+      "title": "Honda Wave Gears: Starting, Shifting and Stopping Smoothly",
+      "intent": "English-language editorial topic: Honda Wave Gears: Starting, Shifting and Stopping Smoothly",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-51",
+      "title": "Yamaha Sirius Controls Explained for First-Time Renters",
+      "intent": "English-language editorial topic: Yamaha Sirius Controls Explained for First-Time Renters",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-52",
+      "title": "Choosing a Manual Motorbike for a Week-Long Hanoi Rental",
+      "intent": "English-language editorial topic: Choosing a Manual Motorbike for a Week-Long Hanoi Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-53",
+      "title": "When a Semi-Automatic Bike Is Easier Than an Automatic Scooter",
+      "intent": "English-language editorial topic: When a Semi-Automatic Bike Is Easier Than an Automatic Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-54",
+      "title": "Can a New Rider Learn Semi-Automatic Shifting in Hanoi Traffic?",
+      "intent": "English-language editorial topic: Can a New Rider Learn Semi-Automatic Shifting in Hanoi Traffic?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-55",
+      "title": "Manual Motorbike Rental for Solo Travellers with a Backpack",
+      "intent": "English-language editorial topic: Manual Motorbike Rental for Solo Travellers with a Backpack",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-56",
+      "title": "How Much Luggage Can You Safely Carry on a Honda Wave?",
+      "intent": "English-language editorial topic: How Much Luggage Can You Safely Carry on a Honda Wave?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-57",
+      "title": "Riding a Manual Motorbike with a Passenger in Hanoi",
+      "intent": "English-language editorial topic: Riding a Manual Motorbike with a Passenger in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-58",
+      "title": "Manual Bike Brakes: What to Test Before Leaving the Rental Shop",
+      "intent": "English-language editorial topic: Manual Bike Brakes: What to Test Before Leaving the Rental Shop",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-59",
+      "title": "Honda Wave vs Honda Blade for City Commuting",
+      "intent": "English-language editorial topic: Honda Wave vs Honda Blade for City Commuting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-60",
+      "title": "Yamaha Sirius vs Honda Blade for Longer Trips",
+      "intent": "English-language editorial topic: Yamaha Sirius vs Honda Blade for Longer Trips",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-61",
+      "title": "How to Handle Stop-and-Go Traffic on a Semi-Automatic Bike",
+      "intent": "English-language editorial topic: How to Handle Stop-and-Go Traffic on a Semi-Automatic Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-62",
+      "title": "Shifting Gears on Hills Without Straining a Rental Motorbike",
+      "intent": "English-language editorial topic: Shifting Gears on Hills Without Straining a Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-63",
+      "title": "How to Start a Semi-Automatic Bike on an Incline",
+      "intent": "English-language editorial topic: How to Start a Semi-Automatic Bike on an Incline",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-64",
+      "title": "Engine Braking on a Semi-Automatic Motorcycle",
+      "intent": "English-language editorial topic: Engine Braking on a Semi-Automatic Motorcycle",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-65",
+      "title": "Downshifting Safely Before Corners on a Small Motorbike",
+      "intent": "English-language editorial topic: Downshifting Safely Before Corners on a Small Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-66",
+      "title": "What a Slipping Gear Feels Like on a Rented Motorbike",
+      "intent": "English-language editorial topic: What a Slipping Gear Feels Like on a Rented Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-67",
+      "title": "Recognising Chain Noise on a Honda Wave or Yamaha Sirius",
+      "intent": "English-language editorial topic: Recognising Chain Noise on a Honda Wave or Yamaha Sirius",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-68",
+      "title": "Checking Chain Tension Before a Longer Ride",
+      "intent": "English-language editorial topic: Checking Chain Tension Before a Longer Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-69",
+      "title": "What to Do If a Rental Motorbike Will Not Shift Gears",
+      "intent": "English-language editorial topic: What to Do If a Rental Motorbike Will Not Shift Gears",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-70",
+      "title": "Why a Manual Motorbike Might Stall at a Junction",
+      "intent": "English-language editorial topic: Why a Manual Motorbike Might Stall at a Junction",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-71",
+      "title": "Riding a Semi-Automatic Bike in Heavy Hanoi Rain",
+      "intent": "English-language editorial topic: Riding a Semi-Automatic Bike in Heavy Hanoi Rain",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-72",
+      "title": "Choosing Tyres for a Manual Bike Rental in Wet Weather",
+      "intent": "English-language editorial topic: Choosing Tyres for a Manual Bike Rental in Wet Weather",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-73",
+      "title": "Honda Wave Fuel Economy: How to Estimate a Trip Budget",
+      "intent": "English-language editorial topic: Honda Wave Fuel Economy: How to Estimate a Trip Budget",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-74",
+      "title": "How to Use the Kick Starter on an Older Rental Motorbike",
+      "intent": "English-language editorial topic: How to Use the Kick Starter on an Older Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-75",
+      "title": "What to Check on a Manual Bike's Electric Starter",
+      "intent": "English-language editorial topic: What to Check on a Manual Bike's Electric Starter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-76",
+      "title": "Semi-Automatic Motorbike Dashboard Lights Explained",
+      "intent": "English-language editorial topic: Semi-Automatic Motorbike Dashboard Lights Explained",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-77",
+      "title": "Understanding Neutral on a Honda Wave",
+      "intent": "English-language editorial topic: Understanding Neutral on a Honda Wave",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-78",
+      "title": "Safely Parking a Semi-Automatic Motorbike on a Slope",
+      "intent": "English-language editorial topic: Safely Parking a Semi-Automatic Motorbike on a Slope",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-79",
+      "title": "Riding a Manual Motorbike Over Speed Bumps",
+      "intent": "English-language editorial topic: Riding a Manual Motorbike Over Speed Bumps",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-80",
+      "title": "What Makes a Small Manual Bike Feel Unstable?",
+      "intent": "English-language editorial topic: What Makes a Small Manual Bike Feel Unstable?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-81",
+      "title": "How to Adjust Mirrors on a Honda Wave Rental",
+      "intent": "English-language editorial topic: How to Adjust Mirrors on a Honda Wave Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-82",
+      "title": "Choosing a Helmet That Fits for a Manual Motorbike Journey",
+      "intent": "English-language editorial topic: Choosing a Helmet That Fits for a Manual Motorbike Journey",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-83",
+      "title": "Riding a Semi-Automatic Bike in Sandals: Practical Safety Risks",
+      "intent": "English-language editorial topic: Riding a Semi-Automatic Bike in Sandals: Practical Safety Risks",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-84",
+      "title": "Motorbike Footwear for Hanoi: Comfort versus Protection",
+      "intent": "English-language editorial topic: Motorbike Footwear for Hanoi: Comfort versus Protection",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-85",
+      "title": "When to Refuel a Manual Motorbike During a Day Trip",
+      "intent": "English-language editorial topic: When to Refuel a Manual Motorbike During a Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-86",
+      "title": "Manual Motorbike Rental for Two People: Size and Comfort",
+      "intent": "English-language editorial topic: Manual Motorbike Rental for Two People: Size and Comfort",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-87",
+      "title": "How to Plan Breaks on a Long Semi-Automatic Bike Ride",
+      "intent": "English-language editorial topic: How to Plan Breaks on a Long Semi-Automatic Bike Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-88",
+      "title": "Small-Engine Manual Bikes for Rural Roads near Hanoi",
+      "intent": "English-language editorial topic: Small-Engine Manual Bikes for Rural Roads near Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-89",
+      "title": "Manual Bikes and Steep Mountain Roads: When to Choose Another Vehicle",
+      "intent": "English-language editorial topic: Manual Bikes and Steep Mountain Roads: When to Choose Another Vehicle",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-90",
+      "title": "How to Read a Honda Wave Tyre Size and Pressure Label",
+      "intent": "English-language editorial topic: How to Read a Honda Wave Tyre Size and Pressure Label",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-91",
+      "title": "Riding a Manual Motorbike Through Standing Water",
+      "intent": "English-language editorial topic: Riding a Manual Motorbike Through Standing Water",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-92",
+      "title": "What to Do After Dropping a Rented Semi-Automatic Bike",
+      "intent": "English-language editorial topic: What to Do After Dropping a Rented Semi-Automatic Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-93",
+      "title": "Checking the Rear Brake on a Honda Wave",
+      "intent": "English-language editorial topic: Checking the Rear Brake on a Honda Wave",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-94",
+      "title": "Front Brake versus Rear Brake on Small Manual Motorbikes",
+      "intent": "English-language editorial topic: Front Brake versus Rear Brake on Small Manual Motorbikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-95",
+      "title": "How to Avoid Lurching When Changing Gears",
+      "intent": "English-language editorial topic: How to Avoid Lurching When Changing Gears",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-96",
+      "title": "Manual Motorbike Rental: Daily versus Monthly Use Cases",
+      "intent": "English-language editorial topic: Manual Motorbike Rental: Daily versus Monthly Use Cases",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-97",
+      "title": "What Counts as Normal Wear on a Rented Honda Wave?",
+      "intent": "English-language editorial topic: What Counts as Normal Wear on a Rented Honda Wave?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-98",
+      "title": "Questions to Ask About a High-Mileage Manual Rental Bike",
+      "intent": "English-language editorial topic: Questions to Ask About a High-Mileage Manual Rental Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-99",
+      "title": "How to Notice a Worn Chain and Sprocket Set",
+      "intent": "English-language editorial topic: How to Notice a Worn Chain and Sprocket Set",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-100",
+      "title": "Checking a Manual Bike's Lights Before Riding at Night",
+      "intent": "English-language editorial topic: Checking a Manual Bike's Lights Before Riding at Night",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-101",
+      "title": "A First-Day Practice Route for an Experienced Manual-Bike Rider",
+      "intent": "English-language editorial topic: A First-Day Practice Route for an Experienced Manual-Bike Rider",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-102",
+      "title": "Honda Wave Storage Options When Renting without a Top Box",
+      "intent": "English-language editorial topic: Honda Wave Storage Options When Renting without a Top Box",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-103",
+      "title": "Should You Rent a Manual Bike for Touring Outside Hanoi?",
+      "intent": "English-language editorial topic: Should You Rent a Manual Bike for Touring Outside Hanoi?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-104",
+      "title": "Checklist for Returning a Manual Bike after a Long Journey",
+      "intent": "English-language editorial topic: Checklist for Returning a Manual Bike after a Long Journey",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-105",
+      "title": "How to Compare Two Available Semi-Automatic Rental Bikes",
+      "intent": "English-language editorial topic: How to Compare Two Available Semi-Automatic Rental Bikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-106",
+      "title": "Honda Wave Controls for Riders Used to Automatic Scooters",
+      "intent": "English-language editorial topic: Honda Wave Controls for Riders Used to Automatic Scooters",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-107",
+      "title": "How to Carry a Raincoat and Helmet on a Small Manual Bike",
+      "intent": "English-language editorial topic: How to Carry a Raincoat and Helmet on a Small Manual Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-108",
+      "title": "Honda Vision Storage Space: What Fits Under the Seat?",
+      "intent": "English-language editorial topic: Honda Vision Storage Space: What Fits Under the Seat?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-109",
+      "title": "Honda Lead Storage for Helmets and Shopping Bags",
+      "intent": "English-language editorial topic: Honda Lead Storage for Helmets and Shopping Bags",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-110",
+      "title": "Honda Click vs Honda Vision for Short Hanoi Rentals",
+      "intent": "English-language editorial topic: Honda Click vs Honda Vision for Short Hanoi Rentals",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-111",
+      "title": "Yamaha Mio vs Honda Vision: Comfort and Handling",
+      "intent": "English-language editorial topic: Yamaha Mio vs Honda Vision: Comfort and Handling",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-112",
+      "title": "Honda Air Blade vs Honda Lead for Daily City Travel",
+      "intent": "English-language editorial topic: Honda Air Blade vs Honda Lead for Daily City Travel",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-113",
+      "title": "Choosing a Scooter for a Passenger and Two Backpacks",
+      "intent": "English-language editorial topic: Choosing a Scooter for a Passenger and Two Backpacks",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-114",
+      "title": "Automatic Scooter Rental for a First-Time Visitor to Hanoi",
+      "intent": "English-language editorial topic: Automatic Scooter Rental for a First-Time Visitor to Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-115",
+      "title": "How to Use a Scooter's Side Stand and Centre Stand",
+      "intent": "English-language editorial topic: How to Use a Scooter's Side Stand and Centre Stand",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-116",
+      "title": "Automatic Scooter Braking: Front and Rear Controls",
+      "intent": "English-language editorial topic: Automatic Scooter Braking: Front and Rear Controls",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-117",
+      "title": "How to Start an Automatic Scooter without Confusing the Switches",
+      "intent": "English-language editorial topic: How to Start an Automatic Scooter without Confusing the Switches",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-118",
+      "title": "How to Park a Larger Scooter on a Narrow Hanoi Street",
+      "intent": "English-language editorial topic: How to Park a Larger Scooter on a Narrow Hanoi Street",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-119",
+      "title": "Automatic Scooter Tyre Checks before a Daily Rental",
+      "intent": "English-language editorial topic: Automatic Scooter Tyre Checks before a Daily Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-120",
+      "title": "What Does a Worn Scooter Drive Belt Feel Like?",
+      "intent": "English-language editorial topic: What Does a Worn Scooter Drive Belt Feel Like?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-121",
+      "title": "Why an Automatic Scooter Hesitates When Pulling Away",
+      "intent": "English-language editorial topic: Why an Automatic Scooter Hesitates When Pulling Away",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-122",
+      "title": "How to Spot Uneven Scooter Brake Feel",
+      "intent": "English-language editorial topic: How to Spot Uneven Scooter Brake Feel",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-123",
+      "title": "Honda Vision Seat Height: What Shorter Riders Should Check",
+      "intent": "English-language editorial topic: Honda Vision Seat Height: What Shorter Riders Should Check",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-124",
+      "title": "Honda Air Blade Seat Height and Reach: A Rental Fit Test",
+      "intent": "English-language editorial topic: Honda Air Blade Seat Height and Reach: A Rental Fit Test",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-125",
+      "title": "Honda Lead vs Air Blade for Taller Riders",
+      "intent": "English-language editorial topic: Honda Lead vs Air Blade for Taller Riders",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-126",
+      "title": "Scooter Turning Radius in Hanoi Alleys",
+      "intent": "English-language editorial topic: Scooter Turning Radius in Hanoi Alleys",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-127",
+      "title": "How to Carry Shopping Safely on an Automatic Scooter",
+      "intent": "English-language editorial topic: How to Carry Shopping Safely on an Automatic Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-128",
+      "title": "Riding an Automatic Scooter on Hanoi's Slippery Pavement",
+      "intent": "English-language editorial topic: Riding an Automatic Scooter on Hanoi's Slippery Pavement",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-129",
+      "title": "Throttle Control in Congested Scooter Traffic",
+      "intent": "English-language editorial topic: Throttle Control in Congested Scooter Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-130",
+      "title": "What to Do When a Rental Scooter Will Not Start",
+      "intent": "English-language editorial topic: What to Do When a Rental Scooter Will Not Start",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-131",
+      "title": "Checking a Scooter's Fuel Gauge before a Longer Journey",
+      "intent": "English-language editorial topic: Checking a Scooter's Fuel Gauge before a Longer Journey",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-132",
+      "title": "Smart Key versus Traditional Key on Rental Scooters",
+      "intent": "English-language editorial topic: Smart Key versus Traditional Key on Rental Scooters",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-133",
+      "title": "What to Do If a Scooter Smart Key Battery Runs Low",
+      "intent": "English-language editorial topic: What to Do If a Scooter Smart Key Battery Runs Low",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-134",
+      "title": "Honda Vision versus Yamaha Mio for Lightweight Riding",
+      "intent": "English-language editorial topic: Honda Vision versus Yamaha Mio for Lightweight Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-135",
+      "title": "Comparing Scooters for a Daily Commute across the Red River",
+      "intent": "English-language editorial topic: Comparing Scooters for a Daily Commute across the Red River",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-136",
+      "title": "Choosing an Automatic Scooter for Weekly Use in Hanoi",
+      "intent": "English-language editorial topic: Choosing an Automatic Scooter for Weekly Use in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-137",
+      "title": "Scooter Comfort on Paved Roads versus Rough Lanes",
+      "intent": "English-language editorial topic: Scooter Comfort on Paved Roads versus Rough Lanes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-138",
+      "title": "Automatic Scooters and Steep Hills: What Riders Should Know",
+      "intent": "English-language editorial topic: Automatic Scooters and Steep Hills: What Riders Should Know",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-139",
+      "title": "Scooter Engine Braking on Downhill Roads",
+      "intent": "English-language editorial topic: Scooter Engine Braking on Downhill Roads",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-140",
+      "title": "When to Avoid a Long Mountain Route on an Automatic Scooter",
+      "intent": "English-language editorial topic: When to Avoid a Long Mountain Route on an Automatic Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-141",
+      "title": "How to Recognise Scooter Vibration that Needs Inspection",
+      "intent": "English-language editorial topic: How to Recognise Scooter Vibration that Needs Inspection",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-142",
+      "title": "Why a Scooter Pulls to One Side during a Test Ride",
+      "intent": "English-language editorial topic: Why a Scooter Pulls to One Side during a Test Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-143",
+      "title": "How to Check a Scooter's Horn and Turn Signals",
+      "intent": "English-language editorial topic: How to Check a Scooter's Horn and Turn Signals",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-144",
+      "title": "Choosing a Scooter with Space for a Passenger Helmet",
+      "intent": "English-language editorial topic: Choosing a Scooter with Space for a Passenger Helmet",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-145",
+      "title": "Riding an Automatic Scooter through a Narrow Market Lane",
+      "intent": "English-language editorial topic: Riding an Automatic Scooter through a Narrow Market Lane",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-146",
+      "title": "What to Check around a Scooter's Exhaust after a Ride",
+      "intent": "English-language editorial topic: What to Check around a Scooter's Exhaust after a Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-147",
+      "title": "Automatic Scooter Cooling: Signs of Overheating",
+      "intent": "English-language editorial topic: Automatic Scooter Cooling: Signs of Overheating",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-148",
+      "title": "How to Plan Fuel Stops on a Scooter Day Trip",
+      "intent": "English-language editorial topic: How to Plan Fuel Stops on a Scooter Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-149",
+      "title": "How to Secure a Backpack on an Automatic Scooter",
+      "intent": "English-language editorial topic: How to Secure a Backpack on an Automatic Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-150",
+      "title": "Protecting Items in a Scooter Under-Seat Compartment",
+      "intent": "English-language editorial topic: Protecting Items in a Scooter Under-Seat Compartment",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-151",
+      "title": "Honda Vision for Hanoi Sightseeing: Pros and Limits",
+      "intent": "English-language editorial topic: Honda Vision for Hanoi Sightseeing: Pros and Limits",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-152",
+      "title": "Honda Lead for Daily Errands: Practical Rental Checklist",
+      "intent": "English-language editorial topic: Honda Lead for Daily Errands: Practical Rental Checklist",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-153",
+      "title": "Honda Air Blade for Longer Rides: Comfort Trade-Offs",
+      "intent": "English-language editorial topic: Honda Air Blade for Longer Rides: Comfort Trade-Offs",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-154",
+      "title": "What a Premium Scooter Rental Actually Adds",
+      "intent": "English-language editorial topic: What a Premium Scooter Rental Actually Adds",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-155",
+      "title": "Comparing Two Used Scooters before Accepting a Rental",
+      "intent": "English-language editorial topic: Comparing Two Used Scooters before Accepting a Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-156",
+      "title": "Automatic Scooter Rental: Daily, Weekly or Monthly?",
+      "intent": "English-language editorial topic: Automatic Scooter Rental: Daily, Weekly or Monthly?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-157",
+      "title": "Can You Ride an Automatic Scooter with Large Luggage?",
+      "intent": "English-language editorial topic: Can You Ride an Automatic Scooter with Large Luggage?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-158",
+      "title": "How Scooter Wheel Size Affects Rough-Road Comfort",
+      "intent": "English-language editorial topic: How Scooter Wheel Size Affects Rough-Road Comfort",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-159",
+      "title": "What to Check if a Scooter Brake Squeals",
+      "intent": "English-language editorial topic: What to Check if a Scooter Brake Squeals",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-160",
+      "title": "Handling a Scooter Pillion Passenger in Slow Traffic",
+      "intent": "English-language editorial topic: Handling a Scooter Pillion Passenger in Slow Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-161",
+      "title": "How to Avoid Sudden Acceleration on an Automatic Scooter",
+      "intent": "English-language editorial topic: How to Avoid Sudden Acceleration on an Automatic Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-162",
+      "title": "Scooter Headlight Checks for Evening Rentals",
+      "intent": "English-language editorial topic: Scooter Headlight Checks for Evening Rentals",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-163",
+      "title": "What a Scooter's Dashboard Warning Lights Mean",
+      "intent": "English-language editorial topic: What a Scooter's Dashboard Warning Lights Mean",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-164",
+      "title": "Returning an Automatic Scooter: Fuel and Bodywork Checklist",
+      "intent": "English-language editorial topic: Returning an Automatic Scooter: Fuel and Bodywork Checklist",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-165",
+      "title": "Choosing Between a Newer and an Older Rental Scooter",
+      "intent": "English-language editorial topic: Choosing Between a Newer and an Older Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-166",
+      "title": "How to Transport a Helmet on a Scooter While Parked",
+      "intent": "English-language editorial topic: How to Transport a Helmet on a Scooter While Parked",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-167",
+      "title": "50cc Motorbike versus 125cc Scooter: Which Rental Fits Your Trip?",
+      "intent": "English-language editorial topic: 50cc Motorbike versus 125cc Scooter: Which Rental Fits Your Trip?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-168",
+      "title": "What Does Under 50cc Mean on a Vehicle Registration?",
+      "intent": "English-language editorial topic: What Does Under 50cc Mean on a Vehicle Registration?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-169",
+      "title": "How to Confirm a Rental Bike Is Legally in the Moped Class",
+      "intent": "English-language editorial topic: How to Confirm a Rental Bike Is Legally in the Moped Class",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-170",
+      "title": "Cub 50cc versus 50cc Automatic Scooter for City Riding",
+      "intent": "English-language editorial topic: Cub 50cc versus 50cc Automatic Scooter for City Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-171",
+      "title": "Choosing a 50cc Motorbike for Short Local Errands",
+      "intent": "English-language editorial topic: Choosing a 50cc Motorbike for Short Local Errands",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-172",
+      "title": "What a 50cc Scooter Can and Cannot Carry Comfortably",
+      "intent": "English-language editorial topic: What a 50cc Scooter Can and Cannot Carry Comfortably",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-173",
+      "title": "Are 50cc Scooters Suitable for Two Adults?",
+      "intent": "English-language editorial topic: Are 50cc Scooters Suitable for Two Adults?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-174",
+      "title": "Riding a 50cc Bike near Hanoi's Large Intersections",
+      "intent": "English-language editorial topic: Riding a 50cc Bike near Hanoi's Large Intersections",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-175",
+      "title": "How 50cc Scooters Accelerate in Heavy Traffic",
+      "intent": "English-language editorial topic: How 50cc Scooters Accelerate in Heavy Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-176",
+      "title": "Understanding the Speed Limits that Apply to Mopeds",
+      "intent": "English-language editorial topic: Understanding the Speed Limits that Apply to Mopeds",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-177",
+      "title": "Can a Tourist Rent a 50cc Bike without an IDP?",
+      "intent": "English-language editorial topic: Can a Tourist Rent a 50cc Bike without an IDP?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-178",
+      "title": "What Documents to Carry on an Under-50cc Rental",
+      "intent": "English-language editorial topic: What Documents to Carry on an Under-50cc Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-179",
+      "title": "Minimum Rider Age versus Rental Shop Age Requirements",
+      "intent": "English-language editorial topic: Minimum Rider Age versus Rental Shop Age Requirements",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-180",
+      "title": "Checking the Engine Capacity on a 50cc Rental",
+      "intent": "English-language editorial topic: Checking the Engine Capacity on a 50cc Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-181",
+      "title": "How to Spot a Modified 50cc Scooter before Renting",
+      "intent": "English-language editorial topic: How to Spot a Modified 50cc Scooter before Renting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-182",
+      "title": "50cc Motorbike Brakes: A Basic Rental Inspection",
+      "intent": "English-language editorial topic: 50cc Motorbike Brakes: A Basic Rental Inspection",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-183",
+      "title": "Tyre Checks on Lightweight 50cc Scooters",
+      "intent": "English-language editorial topic: Tyre Checks on Lightweight 50cc Scooters",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-184",
+      "title": "Cub 50cc Gears Explained for Beginners",
+      "intent": "English-language editorial topic: Cub 50cc Gears Explained for Beginners",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-185",
+      "title": "How to Start a Classic Cub 50cc Motorbike",
+      "intent": "English-language editorial topic: How to Start a Classic Cub 50cc Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-186",
+      "title": "Riding a Cub 50cc Smoothly in Stop-and-Go Traffic",
+      "intent": "English-language editorial topic: Riding a Cub 50cc Smoothly in Stop-and-Go Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-187",
+      "title": "50cc Automatic Scooter Throttle Control",
+      "intent": "English-language editorial topic: 50cc Automatic Scooter Throttle Control",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-188",
+      "title": "Parking a Lightweight 50cc Bike in Hanoi",
+      "intent": "English-language editorial topic: Parking a Lightweight 50cc Bike in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-189",
+      "title": "How Much Fuel to Budget for a 50cc Day Trip",
+      "intent": "English-language editorial topic: How Much Fuel to Budget for a 50cc Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-190",
+      "title": "50cc Scooter Rental by the Week: What to Ask",
+      "intent": "English-language editorial topic: 50cc Scooter Rental by the Week: What to Ask",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-191",
+      "title": "50cc Monthly Rental for Local Commuting",
+      "intent": "English-language editorial topic: 50cc Monthly Rental for Local Commuting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-192",
+      "title": "Comparing Old and New 50cc Bikes before Renting",
+      "intent": "English-language editorial topic: Comparing Old and New 50cc Bikes before Renting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-193",
+      "title": "Seat Height and Fit on Common 50cc Bike Styles",
+      "intent": "English-language editorial topic: Seat Height and Fit on Common 50cc Bike Styles",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-194",
+      "title": "Small Wheels on 50cc Scooters: Handling Potholes",
+      "intent": "English-language editorial topic: Small Wheels on 50cc Scooters: Handling Potholes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-195",
+      "title": "Moped Helmets: Fit Matters at Lower Speeds Too",
+      "intent": "English-language editorial topic: Moped Helmets: Fit Matters at Lower Speeds Too",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-196",
+      "title": "Riding a 50cc Bike in Rain and Poor Visibility",
+      "intent": "English-language editorial topic: Riding a 50cc Bike in Rain and Poor Visibility",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-197",
+      "title": "How to Plan Routes that Avoid Fast Traffic on a 50cc Bike",
+      "intent": "English-language editorial topic: How to Plan Routes that Avoid Fast Traffic on a 50cc Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-198",
+      "title": "Are 50cc Bikes Suitable for Steep Hills?",
+      "intent": "English-language editorial topic: Are 50cc Bikes Suitable for Steep Hills?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-199",
+      "title": "When a 50cc Bike Is Too Slow for a Planned Route",
+      "intent": "English-language editorial topic: When a 50cc Bike Is Too Slow for a Planned Route",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-200",
+      "title": "What to Do If a 50cc Rental Breaks Down",
+      "intent": "English-language editorial topic: What to Do If a 50cc Rental Breaks Down",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-201",
+      "title": "A 50cc Bike's Starter, Battery and Lights Checklist",
+      "intent": "English-language editorial topic: A 50cc Bike's Starter, Battery and Lights Checklist",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-202",
+      "title": "50cc Bike Registration Papers: What to Check",
+      "intent": "English-language editorial topic: 50cc Bike Registration Papers: What to Check",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-203",
+      "title": "Insurance Questions for Tourists Riding 50cc Bikes",
+      "intent": "English-language editorial topic: Insurance Questions for Tourists Riding 50cc Bikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-204",
+      "title": "Riding a 50cc Scooter with a Passenger: Safety Factors",
+      "intent": "English-language editorial topic: Riding a 50cc Scooter with a Passenger: Safety Factors",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-205",
+      "title": "How to Carry a Backpack on a Cub 50cc",
+      "intent": "English-language editorial topic: How to Carry a Backpack on a Cub 50cc",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-206",
+      "title": "How to Secure a 50cc Motorbike Overnight",
+      "intent": "English-language editorial topic: How to Secure a 50cc Motorbike Overnight",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-207",
+      "title": "50cc Rental for a Short Visit to Long Bien",
+      "intent": "English-language editorial topic: 50cc Rental for a Short Visit to Long Bien",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-208",
+      "title": "50cc Bike versus Electric Bicycle for New Riders",
+      "intent": "English-language editorial topic: 50cc Bike versus Electric Bicycle for New Riders",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-209",
+      "title": "50cc Petrol Bike versus Electric Moped: What Changes?",
+      "intent": "English-language editorial topic: 50cc Petrol Bike versus Electric Moped: What Changes?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-210",
+      "title": "How to Check a 50cc Bike's Mirrors and Horn",
+      "intent": "English-language editorial topic: How to Check a 50cc Bike's Mirrors and Horn",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-211",
+      "title": "Road Signs 50cc Riders Should Recognise in Hanoi",
+      "intent": "English-language editorial topic: Road Signs 50cc Riders Should Recognise in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-212",
+      "title": "Riding a 50cc Moped through Narrow Residential Streets",
+      "intent": "English-language editorial topic: Riding a 50cc Moped through Narrow Residential Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-213",
+      "title": "Why a 50cc Bike May Struggle on an Open Road",
+      "intent": "English-language editorial topic: Why a 50cc Bike May Struggle on an Open Road",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-214",
+      "title": "How to Estimate Travel Time Conservatively on a 50cc Moped",
+      "intent": "English-language editorial topic: How to Estimate Travel Time Conservatively on a 50cc Moped",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-215",
+      "title": "Returning a Cub 50cc: Condition and Fuel Checklist",
+      "intent": "English-language editorial topic: Returning a Cub 50cc: Condition and Fuel Checklist",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-216",
+      "title": "What a 50cc Rental Deposit Usually Covers",
+      "intent": "English-language editorial topic: What a 50cc Rental Deposit Usually Covers",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-217",
+      "title": "Choosing a 50cc Bike with a Comfortable Riding Position",
+      "intent": "English-language editorial topic: Choosing a 50cc Bike with a Comfortable Riding Position",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-218",
+      "title": "What to Do after a Minor Fall on a 50cc Scooter",
+      "intent": "English-language editorial topic: What to Do after a Minor Fall on a 50cc Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-219",
+      "title": "50cc Motorbike Rental for University Neighbourhoods",
+      "intent": "English-language editorial topic: 50cc Motorbike Rental for University Neighbourhoods",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-220",
+      "title": "The Difference between a Moped and an Electric Bicycle",
+      "intent": "English-language editorial topic: The Difference between a Moped and an Electric Bicycle",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-221",
+      "title": "When to Choose Walking or Public Transport over a 50cc Rental",
+      "intent": "English-language editorial topic: When to Choose Walking or Public Transport over a 50cc Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-222",
+      "title": "How to Photograph a 50cc Bike's Condition at Pickup",
+      "intent": "English-language editorial topic: How to Photograph a 50cc Bike's Condition at Pickup",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-223",
+      "title": "What Questions to Ask before Booking a 50cc Scooter",
+      "intent": "English-language editorial topic: What Questions to Ask before Booking a 50cc Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-224",
+      "title": "How to Check a 50cc Bike's Headlight for Night Riding",
+      "intent": "English-language editorial topic: How to Check a 50cc Bike's Headlight for Night Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-225",
+      "title": "What to Bring for a Full Day on a 50cc Moped",
+      "intent": "English-language editorial topic: What to Bring for a Full Day on a 50cc Moped",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-226",
+      "title": "Electric Bicycle versus Electric Scooter Rental in Hanoi",
+      "intent": "English-language editorial topic: Electric Bicycle versus Electric Scooter Rental in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-227",
+      "title": "How to Estimate Electric Scooter Range before a Day Trip",
+      "intent": "English-language editorial topic: How to Estimate Electric Scooter Range before a Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-228",
+      "title": "What Affects Battery Range in Hanoi Stop-and-Go Traffic",
+      "intent": "English-language editorial topic: What Affects Battery Range in Hanoi Stop-and-Go Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-229",
+      "title": "Electric Scooter Charging Options for Hotel Guests",
+      "intent": "English-language editorial topic: Electric Scooter Charging Options for Hotel Guests",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-230",
+      "title": "How to Ask a Hotel about Safe Electric Bike Charging",
+      "intent": "English-language editorial topic: How to Ask a Hotel about Safe Electric Bike Charging",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-231",
+      "title": "Battery Swapping versus Plug-In Charging for Renters",
+      "intent": "English-language editorial topic: Battery Swapping versus Plug-In Charging for Renters",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-232",
+      "title": "Electric Motorbike Charging Safety in the Rain",
+      "intent": "English-language editorial topic: Electric Motorbike Charging Safety in the Rain",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-233",
+      "title": "What to Do When a Rental EV Battery Is Almost Empty",
+      "intent": "English-language editorial topic: What to Do When a Rental EV Battery Is Almost Empty",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-234",
+      "title": "Electric Scooter Rental for a Week: Charging Logistics",
+      "intent": "English-language editorial topic: Electric Scooter Rental for a Week: Charging Logistics",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-235",
+      "title": "Electric Bike Monthly Rental: Questions before Signing",
+      "intent": "English-language editorial topic: Electric Bike Monthly Rental: Questions before Signing",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-236",
+      "title": "How to Read an Electric Scooter Battery Indicator",
+      "intent": "English-language editorial topic: How to Read an Electric Scooter Battery Indicator",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-237",
+      "title": "What to Check on an Electric Bike Charging Cable",
+      "intent": "English-language editorial topic: What to Check on an Electric Bike Charging Cable",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-238",
+      "title": "Recognising a Damaged Electric Scooter Charging Plug",
+      "intent": "English-language editorial topic: Recognising a Damaged Electric Scooter Charging Plug",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-239",
+      "title": "Charging a Rental Electric Scooter Overnight: Safety Questions",
+      "intent": "English-language editorial topic: Charging a Rental Electric Scooter Overnight: Safety Questions",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-240",
+      "title": "Electric Scooter Range with a Passenger and Luggage",
+      "intent": "English-language editorial topic: Electric Scooter Range with a Passenger and Luggage",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-241",
+      "title": "How Hills Affect Electric Motorbike Range",
+      "intent": "English-language editorial topic: How Hills Affect Electric Motorbike Range",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-242",
+      "title": "Electric Bicycle Pedal Assist versus Throttle Control",
+      "intent": "English-language editorial topic: Electric Bicycle Pedal Assist versus Throttle Control",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-243",
+      "title": "How to Compare Electric Scooters by Battery Size",
+      "intent": "English-language editorial topic: How to Compare Electric Scooters by Battery Size",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-244",
+      "title": "Electric Bike versus Petrol Scooter for a Daily Commute",
+      "intent": "English-language editorial topic: Electric Bike versus Petrol Scooter for a Daily Commute",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-245",
+      "title": "What to Do If an Electric Scooter Stops Powering On",
+      "intent": "English-language editorial topic: What to Do If an Electric Scooter Stops Powering On",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-246",
+      "title": "An Electric Bike Pickup Inspection Checklist",
+      "intent": "English-language editorial topic: An Electric Bike Pickup Inspection Checklist",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-247",
+      "title": "Electric Scooter Brake Checks before Leaving the Shop",
+      "intent": "English-language editorial topic: Electric Scooter Brake Checks before Leaving the Shop",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-248",
+      "title": "Checking Tyres on an Electric Moped Rental",
+      "intent": "English-language editorial topic: Checking Tyres on an Electric Moped Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-249",
+      "title": "How to Park and Lock a Rental Electric Bicycle",
+      "intent": "English-language editorial topic: How to Park and Lock a Rental Electric Bicycle",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-250",
+      "title": "Electric Scooter Theft Prevention in Hanoi",
+      "intent": "English-language editorial topic: Electric Scooter Theft Prevention in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-251",
+      "title": "Electric Motorbike Weight and Low-Speed Handling",
+      "intent": "English-language editorial topic: Electric Motorbike Weight and Low-Speed Handling",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-252",
+      "title": "Electric Scooter Water Resistance: What Renters Must Check",
+      "intent": "English-language editorial topic: Electric Scooter Water Resistance: What Renters Must Check",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-253",
+      "title": "How to Plan a Charging Stop on a Longer Electric Ride",
+      "intent": "English-language editorial topic: How to Plan a Charging Stop on a Longer Electric Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-254",
+      "title": "Electric Scooter Rentals for Short Errands in Hanoi",
+      "intent": "English-language editorial topic: Electric Scooter Rentals for Short Errands in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-255",
+      "title": "Do You Need a Licence for Your Specific Electric Vehicle?",
+      "intent": "English-language editorial topic: Do You Need a Licence for Your Specific Electric Vehicle?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-256",
+      "title": "Electric Motorbike Power Ratings and Licence Categories",
+      "intent": "English-language editorial topic: Electric Motorbike Power Ratings and Licence Categories",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-257",
+      "title": "Helmet Rules for Different Electric Two-Wheeler Classes",
+      "intent": "English-language editorial topic: Helmet Rules for Different Electric Two-Wheeler Classes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-258",
+      "title": "Can an Electric Bicycle Carry a Passenger Legally?",
+      "intent": "English-language editorial topic: Can an Electric Bicycle Carry a Passenger Legally?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-259",
+      "title": "Electric Scooter Speed Settings Explained",
+      "intent": "English-language editorial topic: Electric Scooter Speed Settings Explained",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-260",
+      "title": "How to Use Regenerative Braking on a Rental EV",
+      "intent": "English-language editorial topic: How to Use Regenerative Braking on a Rental EV",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-261",
+      "title": "Checking a Rental Electric Scooter's Display Warnings",
+      "intent": "English-language editorial topic: Checking a Rental Electric Scooter's Display Warnings",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-262",
+      "title": "What to Do If an Electric Vehicle Gets Wet in Heavy Rain",
+      "intent": "English-language editorial topic: What to Do If an Electric Vehicle Gets Wet in Heavy Rain",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-263",
+      "title": "Electric Scooter Battery Health: Questions to Ask the Shop",
+      "intent": "English-language editorial topic: Electric Scooter Battery Health: Questions to Ask the Shop",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-264",
+      "title": "Can You Charge a Rental EV from an Ordinary Socket?",
+      "intent": "English-language editorial topic: Can You Charge a Rental EV from an Ordinary Socket?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-265",
+      "title": "Who Pays for Electricity on a Long-Term Electric Rental?",
+      "intent": "English-language editorial topic: Who Pays for Electricity on a Long-Term Electric Rental?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-266",
+      "title": "Electric Bike Range versus Real Riding Conditions",
+      "intent": "English-language editorial topic: Electric Bike Range versus Real Riding Conditions",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-267",
+      "title": "Electric Scooter Storage during an Extended Rental",
+      "intent": "English-language editorial topic: Electric Scooter Storage during an Extended Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-268",
+      "title": "Electric Bicycle Rental for Travellers Who Do Not Ride Motorbikes",
+      "intent": "English-language editorial topic: Electric Bicycle Rental for Travellers Who Do Not Ride Motorbikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-269",
+      "title": "Electric Bike versus 50cc Scooter for Visitors without a Licence",
+      "intent": "English-language editorial topic: Electric Bike versus 50cc Scooter for Visitors without a Licence",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-270",
+      "title": "Charging Etiquette in Shared Accommodation",
+      "intent": "English-language editorial topic: Charging Etiquette in Shared Accommodation",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-271",
+      "title": "Electric Scooter Rider Comfort on Uneven Hanoi Streets",
+      "intent": "English-language editorial topic: Electric Scooter Rider Comfort on Uneven Hanoi Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-272",
+      "title": "How to Handle an Electric Scooter with a Dead Display",
+      "intent": "English-language editorial topic: How to Handle an Electric Scooter with a Dead Display",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-273",
+      "title": "Understanding Battery Percentage versus Estimated Range",
+      "intent": "English-language editorial topic: Understanding Battery Percentage versus Estimated Range",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-274",
+      "title": "Electric Scooter Rental: How Pickup Battery Level Is Recorded",
+      "intent": "English-language editorial topic: Electric Scooter Rental: How Pickup Battery Level Is Recorded",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-275",
+      "title": "What to Check before Returning an Electric Scooter",
+      "intent": "English-language editorial topic: What to Check before Returning an Electric Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-276",
+      "title": "How to Avoid Leaving a Rental EV Plugged in Unsafely",
+      "intent": "English-language editorial topic: How to Avoid Leaving a Rental EV Plugged in Unsafely",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-277",
+      "title": "Planning an Electric Bike Day around Hanoi's West Lake",
+      "intent": "English-language editorial topic: Planning an Electric Bike Day around Hanoi's West Lake",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-278",
+      "title": "What an Electric Scooter Rental Contract Says about Batteries",
+      "intent": "English-language editorial topic: What an Electric Scooter Rental Contract Says about Batteries",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-279",
+      "title": "Choosing between Electric and Petrol Vehicles in Hot Weather",
+      "intent": "English-language editorial topic: Choosing between Electric and Petrol Vehicles in Hot Weather",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-280",
+      "title": "Electric Bike Luggage Limits and Safe Storage",
+      "intent": "English-language editorial topic: Electric Bike Luggage Limits and Safe Storage",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-281",
+      "title": "What Happens if a Rental Scooter Charger Goes Missing?",
+      "intent": "English-language editorial topic: What Happens if a Rental Scooter Charger Goes Missing?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-282",
+      "title": "Electric Moped Mirrors, Lights and Horn: A Quick Test",
+      "intent": "English-language editorial topic: Electric Moped Mirrors, Lights and Horn: A Quick Test",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-283",
+      "title": "How to Confirm an Electric Vehicle's Registration Class",
+      "intent": "English-language editorial topic: How to Confirm an Electric Vehicle's Registration Class",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-284",
+      "title": "Are Shared Charging Stations Suitable for Rental Bikes?",
+      "intent": "English-language editorial topic: Are Shared Charging Stations Suitable for Rental Bikes?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-285",
+      "title": "Where to Park a Scooter near Hoan Kiem Lake",
+      "intent": "English-language editorial topic: Where to Park a Scooter near Hoan Kiem Lake",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-286",
+      "title": "Visiting Hanoi Train Street: Why Parking and Access Rules Matter",
+      "intent": "English-language editorial topic: Visiting Hanoi Train Street: Why Parking and Access Rules Matter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-287",
+      "title": "Truc Bach by Scooter: Cafes and Small-Street Navigation",
+      "intent": "English-language editorial topic: Truc Bach by Scooter: Cafes and Small-Street Navigation",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-288",
+      "title": "Getting Around Dong Da on a Rented Motorbike",
+      "intent": "English-language editorial topic: Getting Around Dong Da on a Rented Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-289",
+      "title": "Cau Giay by Scooter: Office District Traffic and Parking",
+      "intent": "English-language editorial topic: Cau Giay by Scooter: Office District Traffic and Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-290",
+      "title": "Hai Ba Trung on Two Wheels: Markets, Museums and Parking",
+      "intent": "English-language editorial topic: Hai Ba Trung on Two Wheels: Markets, Museums and Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-291",
+      "title": "Hoang Mai by Motorbike: Practical Tips for Visitors",
+      "intent": "English-language editorial topic: Hoang Mai by Motorbike: Practical Tips for Visitors",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-292",
+      "title": "Thanh Xuan by Scooter: Larger Roads and Local Streets",
+      "intent": "English-language editorial topic: Thanh Xuan by Scooter: Larger Roads and Local Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-293",
+      "title": "Nam Tu Liem by Scooter: Stadiums, Events and Parking",
+      "intent": "English-language editorial topic: Nam Tu Liem by Scooter: Stadiums, Events and Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-294",
+      "title": "Bac Tu Liem by Scooter: Universities and Residential Roads",
+      "intent": "English-language editorial topic: Bac Tu Liem by Scooter: Universities and Residential Roads",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-295",
+      "title": "Exploring Yen So Park by Motorbike",
+      "intent": "English-language editorial topic: Exploring Yen So Park by Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-296",
+      "title": "Hanoi Botanical Garden by Scooter: Access and Parking Choices",
+      "intent": "English-language editorial topic: Hanoi Botanical Garden by Scooter: Access and Parking Choices",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-297",
+      "title": "Motorbike Parking near the Temple of Literature",
+      "intent": "English-language editorial topic: Motorbike Parking near the Temple of Literature",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-298",
+      "title": "Visiting the Vietnam Museum of Ethnology by Scooter",
+      "intent": "English-language editorial topic: Visiting the Vietnam Museum of Ethnology by Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-299",
+      "title": "How to Ride to the Imperial Citadel of Thang Long",
+      "intent": "English-language editorial topic: How to Ride to the Imperial Citadel of Thang Long",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-300",
+      "title": "Finding Parking near Hoa Lo Prison Museum",
+      "intent": "English-language editorial topic: Finding Parking near Hoa Lo Prison Museum",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-301",
+      "title": "Getting to the Hanoi Opera House by Rental Scooter",
+      "intent": "English-language editorial topic: Getting to the Hanoi Opera House by Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-302",
+      "title": "How to Visit Long Bien Market without Blocking Deliveries",
+      "intent": "English-language editorial topic: How to Visit Long Bien Market without Blocking Deliveries",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-303",
+      "title": "Dong Xuan Market by Motorbike: Timing and Parking",
+      "intent": "English-language editorial topic: Dong Xuan Market by Motorbike: Timing and Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-304",
+      "title": "Hang Ma Street by Scooter during Festival Season",
+      "intent": "English-language editorial topic: Hang Ma Street by Scooter during Festival Season",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-305",
+      "title": "How to Reach the Water Puppet Theatre with a Rental Bike",
+      "intent": "English-language editorial topic: How to Reach the Water Puppet Theatre with a Rental Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-306",
+      "title": "West Lake Pagodas by Scooter: Respectful Parking and Visits",
+      "intent": "English-language editorial topic: West Lake Pagodas by Scooter: Respectful Parking and Visits",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-307",
+      "title": "Tran Quoc Pagoda: Scooter Access and Visitor Etiquette",
+      "intent": "English-language editorial topic: Tran Quoc Pagoda: Scooter Access and Visitor Etiquette",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-308",
+      "title": "Quan Thanh Temple by Motorbike: Where to Leave the Bike",
+      "intent": "English-language editorial topic: Quan Thanh Temple by Motorbike: Where to Leave the Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-309",
+      "title": "Nhat Tan Bridge Approaches: What Motorbike Riders Should Check",
+      "intent": "English-language editorial topic: Nhat Tan Bridge Approaches: What Motorbike Riders Should Check",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-310",
+      "title": "Long Bien Bridge Area: Where a Scooter Can Legally Travel",
+      "intent": "English-language editorial topic: Long Bien Bridge Area: Where a Scooter Can Legally Travel",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-311",
+      "title": "Riding near the Red River Dykes in Long Bien",
+      "intent": "English-language editorial topic: Riding near the Red River Dykes in Long Bien",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-312",
+      "title": "Bat Trang Pottery Village: Parking and Local Streets",
+      "intent": "English-language editorial topic: Bat Trang Pottery Village: Parking and Local Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-313",
+      "title": "Co Loa Citadel from Long Bien: A Short Cultural Ride",
+      "intent": "English-language editorial topic: Co Loa Citadel from Long Bien: A Short Cultural Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-314",
+      "title": "Duong Lam Ancient Village by Scooter: Respecting Pedestrian Lanes",
+      "intent": "English-language editorial topic: Duong Lam Ancient Village by Scooter: Respecting Pedestrian Lanes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-315",
+      "title": "Exploring Hanoi's French Quarter on a Scooter",
+      "intent": "English-language editorial topic: Exploring Hanoi's French Quarter on a Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-316",
+      "title": "Hanoi Museum by Scooter: Planning a Visit",
+      "intent": "English-language editorial topic: Hanoi Museum by Scooter: Planning a Visit",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-317",
+      "title": "Vietnamese Women's Museum by Motorbike: Parking Options",
+      "intent": "English-language editorial topic: Vietnamese Women's Museum by Motorbike: Parking Options",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-318",
+      "title": "Vietnam National Museum of History by Rental Scooter",
+      "intent": "English-language editorial topic: Vietnam National Museum of History by Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-319",
+      "title": "Visiting the Ho Chi Minh Mausoleum Area: Scooter Restrictions",
+      "intent": "English-language editorial topic: Visiting the Ho Chi Minh Mausoleum Area: Scooter Restrictions",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-320",
+      "title": "One-Way Street Patterns around Hoan Kiem",
+      "intent": "English-language editorial topic: One-Way Street Patterns around Hoan Kiem",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-321",
+      "title": "Hanoi Weekend Walking Streets: Where to Leave Your Scooter",
+      "intent": "English-language editorial topic: Hanoi Weekend Walking Streets: Where to Leave Your Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-322",
+      "title": "Motorbike Parking near Hanoi Railway Station",
+      "intent": "English-language editorial topic: Motorbike Parking near Hanoi Railway Station",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-323",
+      "title": "Arriving at Gia Lam Bus Station with a Rental Scooter",
+      "intent": "English-language editorial topic: Arriving at Gia Lam Bus Station with a Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-324",
+      "title": "Scooter Access to Long Bien's Residential Alleys",
+      "intent": "English-language editorial topic: Scooter Access to Long Bien's Residential Alleys",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-325",
+      "title": "Parking a Motorbike near West Lake Restaurants",
+      "intent": "English-language editorial topic: Parking a Motorbike near West Lake Restaurants",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-326",
+      "title": "West Lake Sunset by Scooter without Blocking the Waterfront",
+      "intent": "English-language editorial topic: West Lake Sunset by Scooter without Blocking the Waterfront",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-327",
+      "title": "Riding through Hanoi University Neighbourhoods",
+      "intent": "English-language editorial topic: Riding through Hanoi University Neighbourhoods",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-328",
+      "title": "Visiting Hanoi's Flower Markets by Scooter",
+      "intent": "English-language editorial topic: Visiting Hanoi's Flower Markets by Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-329",
+      "title": "How to Handle Parking near Major Hanoi Hospitals",
+      "intent": "English-language editorial topic: How to Handle Parking near Major Hanoi Hospitals",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-330",
+      "title": "Hanoi Shopping Centres by Scooter: Ticketed Parking Basics",
+      "intent": "English-language editorial topic: Hanoi Shopping Centres by Scooter: Ticketed Parking Basics",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-331",
+      "title": "Hanoi's Traditional Markets versus Supermarkets for Scooter Parking",
+      "intent": "English-language editorial topic: Hanoi's Traditional Markets versus Supermarkets for Scooter Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-332",
+      "title": "A Museum Day in Hanoi: Scooter or Taxi between Stops?",
+      "intent": "English-language editorial topic: A Museum Day in Hanoi: Scooter or Taxi between Stops?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-333",
+      "title": "How to Plan a Scooter Visit to Phung Hung Mural Street",
+      "intent": "English-language editorial topic: How to Plan a Scooter Visit to Phung Hung Mural Street",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-334",
+      "title": "Exploring the Ceramic Mosaic Mural along the Red River",
+      "intent": "English-language editorial topic: Exploring the Ceramic Mosaic Mural along the Red River",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-335",
+      "title": "Hanoi Rainy-Day Sightseeing: When to Leave the Bike Parked",
+      "intent": "English-language editorial topic: Hanoi Rainy-Day Sightseeing: When to Leave the Bike Parked",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-336",
+      "title": "Choosing between a Scooter and the Metro in Central Hanoi",
+      "intent": "English-language editorial topic: Choosing between a Scooter and the Metro in Central Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-337",
+      "title": "How to Find Legitimate Guarded Parking near Tourist Sights",
+      "intent": "English-language editorial topic: How to Find Legitimate Guarded Parking near Tourist Sights",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-338",
+      "title": "Riding through Hanoi during Large Cultural Events",
+      "intent": "English-language editorial topic: Riding through Hanoi during Large Cultural Events",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-339",
+      "title": "Hanoi to Bac Ninh by Motorbike: Cultural Stops and Road Planning",
+      "intent": "English-language editorial topic: Hanoi to Bac Ninh by Motorbike: Cultural Stops and Road Planning",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-340",
+      "title": "Hanoi to Soc Son by Scooter: Forest Stops and Traffic Checks",
+      "intent": "English-language editorial topic: Hanoi to Soc Son by Scooter: Forest Stops and Traffic Checks",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-341",
+      "title": "Hanoi to Co Loa and Back: An Easy History Day",
+      "intent": "English-language editorial topic: Hanoi to Co Loa and Back: An Easy History Day",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-342",
+      "title": "A Bat Trang Pottery Day Trip on a Rental Scooter",
+      "intent": "English-language editorial topic: A Bat Trang Pottery Day Trip on a Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-343",
+      "title": "Hanoi to Duong Lam Ancient Village by Motorbike",
+      "intent": "English-language editorial topic: Hanoi to Duong Lam Ancient Village by Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-344",
+      "title": "Hanoi to Son Tay on Two Wheels: A Leisurely Day Plan",
+      "intent": "English-language editorial topic: Hanoi to Son Tay on Two Wheels: A Leisurely Day Plan",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-345",
+      "title": "West Lake to Long Bien: An Urban Scenic Route",
+      "intent": "English-language editorial topic: West Lake to Long Bien: An Urban Scenic Route",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-346",
+      "title": "Hanoi to Ecopark by Scooter: Roads and Parking",
+      "intent": "English-language editorial topic: Hanoi to Ecopark by Scooter: Roads and Parking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-347",
+      "title": "Hanoi to Hung Yen by Motorbike: What to Plan",
+      "intent": "English-language editorial topic: Hanoi to Hung Yen by Motorbike: What to Plan",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-348",
+      "title": "Hanoi to Thai Nguyen by Motorbike: Road Choices",
+      "intent": "English-language editorial topic: Hanoi to Thai Nguyen by Motorbike: Road Choices",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-349",
+      "title": "Hanoi to Pho Yen by Scooter: Is It a Sensible Ride?",
+      "intent": "English-language editorial topic: Hanoi to Pho Yen by Scooter: Is It a Sensible Ride?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-350",
+      "title": "Hanoi to Hoa Binh City by Motorbike: Rider Preparation",
+      "intent": "English-language editorial topic: Hanoi to Hoa Binh City by Motorbike: Rider Preparation",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-351",
+      "title": "Hanoi to Kim Boi by Motorcycle: Hot Springs and Road Conditions",
+      "intent": "English-language editorial topic: Hanoi to Kim Boi by Motorcycle: Hot Springs and Road Conditions",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-352",
+      "title": "Hanoi to Xuan Mai: A Short Out-of-City Ride",
+      "intent": "English-language editorial topic: Hanoi to Xuan Mai: A Short Out-of-City Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-353",
+      "title": "Hanoi to Chi Linh by Motorbike: Temples and Forest Roads",
+      "intent": "English-language editorial topic: Hanoi to Chi Linh by Motorbike: Temples and Forest Roads",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-354",
+      "title": "Hanoi to Con Son and Kiep Bac on a Motorcycle",
+      "intent": "English-language editorial topic: Hanoi to Con Son and Kiep Bac on a Motorcycle",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-355",
+      "title": "Hanoi to Hai Duong by Scooter: Is the Trip Worth It?",
+      "intent": "English-language editorial topic: Hanoi to Hai Duong by Scooter: Is the Trip Worth It?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-356",
+      "title": "Hanoi to Hai Phong on a Motorbike: Route Safety",
+      "intent": "English-language editorial topic: Hanoi to Hai Phong on a Motorbike: Route Safety",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-357",
+      "title": "Can You Reach Cat Ba from Hanoi with a Rental Motorbike?",
+      "intent": "English-language editorial topic: Can You Reach Cat Ba from Hanoi with a Rental Motorbike?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-358",
+      "title": "Hanoi to Cuc Phuong National Park by Motorbike",
+      "intent": "English-language editorial topic: Hanoi to Cuc Phuong National Park by Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-359",
+      "title": "Hanoi to Trang An by Scooter: Parking and Visitor Logistics",
+      "intent": "English-language editorial topic: Hanoi to Trang An by Scooter: Parking and Visitor Logistics",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-360",
+      "title": "Hanoi to Tam Coc by Motorbike: Exploring after Arrival",
+      "intent": "English-language editorial topic: Hanoi to Tam Coc by Motorbike: Exploring after Arrival",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-361",
+      "title": "Hanoi to Van Long Nature Reserve on Two Wheels",
+      "intent": "English-language editorial topic: Hanoi to Van Long Nature Reserve on Two Wheels",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-362",
+      "title": "Hanoi to Phat Diem Cathedral by Scooter: A Longer Day Plan",
+      "intent": "English-language editorial topic: Hanoi to Phat Diem Cathedral by Scooter: A Longer Day Plan",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-363",
+      "title": "Hanoi to Bich Dong Pagoda by Motorbike",
+      "intent": "English-language editorial topic: Hanoi to Bich Dong Pagoda by Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-364",
+      "title": "Hanoi to Perfume Pagoda: Motorbike and Boat Transfer",
+      "intent": "English-language editorial topic: Hanoi to Perfume Pagoda: Motorbike and Boat Transfer",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-365",
+      "title": "Hanoi to Dong Mo Lake by Scooter",
+      "intent": "English-language editorial topic: Hanoi to Dong Mo Lake by Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-366",
+      "title": "Hanoi to the Ba Vi Foothills: A Gentle Alternative to Mountain Riding",
+      "intent": "English-language editorial topic: Hanoi to the Ba Vi Foothills: A Gentle Alternative to Mountain Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-367",
+      "title": "How to Plan a Two-Day Scooter Trip from Hanoi",
+      "intent": "English-language editorial topic: How to Plan a Two-Day Scooter Trip from Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-368",
+      "title": "How to Plan a Three-Day Motorbike Loop Returning to Hanoi",
+      "intent": "English-language editorial topic: How to Plan a Three-Day Motorbike Loop Returning to Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-369",
+      "title": "A First Countryside Ride from Hanoi for Experienced Tourists",
+      "intent": "English-language editorial topic: A First Countryside Ride from Hanoi for Experienced Tourists",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-370",
+      "title": "Motorbike Route Planning around Hanoi's Restricted Roads",
+      "intent": "English-language editorial topic: Motorbike Route Planning around Hanoi's Restricted Roads",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-371",
+      "title": "How to Check if a Navigation App Suggests an Expressway",
+      "intent": "English-language editorial topic: How to Check if a Navigation App Suggests an Expressway",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-372",
+      "title": "Motorbike-Friendly Alternatives to Highway Routes near Hanoi",
+      "intent": "English-language editorial topic: Motorbike-Friendly Alternatives to Highway Routes near Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-373",
+      "title": "What to Check before Crossing Major Hanoi Bridges",
+      "intent": "English-language editorial topic: What to Check before Crossing Major Hanoi Bridges",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-374",
+      "title": "Planning Fuel Stops between Hanoi and Rural Destinations",
+      "intent": "English-language editorial topic: Planning Fuel Stops between Hanoi and Rural Destinations",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-375",
+      "title": "Choosing Safe Turnaround Points on a Long Day Ride",
+      "intent": "English-language editorial topic: Choosing Safe Turnaround Points on a Long Day Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-376",
+      "title": "How to Plan a Scooter Route with Limited Daylight",
+      "intent": "English-language editorial topic: How to Plan a Scooter Route with Limited Daylight",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-377",
+      "title": "Motorbike Day Trips during Hanoi's Hot Season",
+      "intent": "English-language editorial topic: Motorbike Day Trips during Hanoi's Hot Season",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-378",
+      "title": "Rainy-Season Routes from Hanoi: When to Postpone",
+      "intent": "English-language editorial topic: Rainy-Season Routes from Hanoi: When to Postpone",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-379",
+      "title": "Avoiding Night Riding on a Hanoi Return Trip",
+      "intent": "English-language editorial topic: Avoiding Night Riding on a Hanoi Return Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-380",
+      "title": "Planning a Route with a Passenger and Luggage",
+      "intent": "English-language editorial topic: Planning a Route with a Passenger and Luggage",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-381",
+      "title": "How to Use Offline Maps for Countryside Rides near Hanoi",
+      "intent": "English-language editorial topic: How to Use Offline Maps for Countryside Rides near Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-382",
+      "title": "A Long Bien to Gia Lam Half-Day Scooter Itinerary",
+      "intent": "English-language editorial topic: A Long Bien to Gia Lam Half-Day Scooter Itinerary",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-383",
+      "title": "How to Combine Co Loa and Bat Trang without Rushing",
+      "intent": "English-language editorial topic: How to Combine Co Loa and Bat Trang without Rushing",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-384",
+      "title": "A Quiet Morning Route around Hanoi's Eastern Outskirts",
+      "intent": "English-language editorial topic: A Quiet Morning Route around Hanoi's Eastern Outskirts",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-385",
+      "title": "How to Compare a Northbound and Southbound Day Trip",
+      "intent": "English-language editorial topic: How to Compare a Northbound and Southbound Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-386",
+      "title": "When an Intercity Bus Is Safer than a Rental Motorbike",
+      "intent": "English-language editorial topic: When an Intercity Bus Is Safer than a Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-387",
+      "title": "How to Plan a Motorbike Trip with Limited Fuel Range",
+      "intent": "English-language editorial topic: How to Plan a Motorbike Trip with Limited Fuel Range",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-388",
+      "title": "Riding beyond Hanoi: Rental Permission and Contract Limits",
+      "intent": "English-language editorial topic: Riding beyond Hanoi: Rental Permission and Contract Limits",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-389",
+      "title": "What to Check at a Ferry Crossing on a Motorbike Route",
+      "intent": "English-language editorial topic: What to Check at a Ferry Crossing on a Motorbike Route",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-390",
+      "title": "Motorbike Navigation near Hanoi: Toll Roads and Detours",
+      "intent": "English-language editorial topic: Motorbike Navigation near Hanoi: Toll Roads and Detours",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-391",
+      "title": "A Two-Day Hanoi to Ninh Binh Ride with Time for Sightseeing",
+      "intent": "English-language editorial topic: A Two-Day Hanoi to Ninh Binh Ride with Time for Sightseeing",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-392",
+      "title": "Returning to Hanoi from the Countryside in Afternoon Traffic",
+      "intent": "English-language editorial topic: Returning to Hanoi from the Countryside in Afternoon Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-393",
+      "title": "How to Book a Hanoi Motorbike Rental on WhatsApp",
+      "intent": "English-language editorial topic: How to Book a Hanoi Motorbike Rental on WhatsApp",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-394",
+      "title": "Questions to Ask before Reserving a Rental Scooter",
+      "intent": "English-language editorial topic: Questions to Ask before Reserving a Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-395",
+      "title": "What to Send the Rental Shop before Pickup",
+      "intent": "English-language editorial topic: What to Send the Rental Shop before Pickup",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-396",
+      "title": "How a 24-Hour Rental Day Is Counted in Hanoi",
+      "intent": "English-language editorial topic: How a 24-Hour Rental Day Is Counted in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-397",
+      "title": "Comparing Daily and Weekly Motorbike Rental Packages",
+      "intent": "English-language editorial topic: Comparing Daily and Weekly Motorbike Rental Packages",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-398",
+      "title": "Comparing Weekly and Monthly Rental Terms",
+      "intent": "English-language editorial topic: Comparing Weekly and Monthly Rental Terms",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-399",
+      "title": "Understanding the Difference between Rent and Deposit",
+      "intent": "English-language editorial topic: Understanding the Difference between Rent and Deposit",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-400",
+      "title": "How to Photograph a Rental Motorbike before Handover",
+      "intent": "English-language editorial topic: How to Photograph a Rental Motorbike before Handover",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-401",
+      "title": "What a Motorbike Handover Checklist Should Include",
+      "intent": "English-language editorial topic: What a Motorbike Handover Checklist Should Include",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-402",
+      "title": "Reading a Motorbike Rental Agreement in English",
+      "intent": "English-language editorial topic: Reading a Motorbike Rental Agreement in English",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-403",
+      "title": "What to Ask about Damage Liability before Renting",
+      "intent": "English-language editorial topic: What to Ask about Damage Liability before Renting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-404",
+      "title": "How to Check the Rental Shop's Opening Hours and Pickup Location",
+      "intent": "English-language editorial topic: How to Check the Rental Shop's Opening Hours and Pickup Location",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-405",
+      "title": "Motorbike Rental with Hotel Pickup: Questions before Booking",
+      "intent": "English-language editorial topic: Motorbike Rental with Hotel Pickup: Questions before Booking",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-406",
+      "title": "Why Delivery Terms Differ by Rental Length",
+      "intent": "English-language editorial topic: Why Delivery Terms Differ by Rental Length",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-407",
+      "title": "How to Confirm the Exact Model You Will Receive",
+      "intent": "English-language editorial topic: How to Confirm the Exact Model You Will Receive",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-408",
+      "title": "When to Choose a 50cc Bike instead of a Larger Scooter",
+      "intent": "English-language editorial topic: When to Choose a 50cc Bike instead of a Larger Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-409",
+      "title": "Choosing a Rental Period when Your Travel Plans May Change",
+      "intent": "English-language editorial topic: Choosing a Rental Period when Your Travel Plans May Change",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-410",
+      "title": "How to Ask for an Extension on a Motorbike Rental",
+      "intent": "English-language editorial topic: How to Ask for an Extension on a Motorbike Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-411",
+      "title": "Planning an Early Morning Departure with Shop Opening Hours",
+      "intent": "English-language editorial topic: Planning an Early Morning Departure with Shop Opening Hours",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-412",
+      "title": "What to Do if Your Return Time Changes",
+      "intent": "English-language editorial topic: What to Do if Your Return Time Changes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-413",
+      "title": "Late Rental Returns: How to Calculate the Possible Charge",
+      "intent": "English-language editorial topic: Late Rental Returns: How to Calculate the Possible Charge",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-414",
+      "title": "How to Record the Fuel Level at Handover",
+      "intent": "English-language editorial topic: How to Record the Fuel Level at Handover",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-415",
+      "title": "How to Document Existing Scratches on a Rental Bike",
+      "intent": "English-language editorial topic: How to Document Existing Scratches on a Rental Bike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-416",
+      "title": "What to Do if a Helmet Does Not Fit at Pickup",
+      "intent": "English-language editorial topic: What to Do if a Helmet Does Not Fit at Pickup",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-417",
+      "title": "Requesting a Replacement Bike after Finding a Safety Defect",
+      "intent": "English-language editorial topic: Requesting a Replacement Bike after Finding a Safety Defect",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-418",
+      "title": "Understanding a Rental Contract's Theft Clause",
+      "intent": "English-language editorial topic: Understanding a Rental Contract's Theft Clause",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-419",
+      "title": "What to Do if Your Rental Motorbike Is Stolen",
+      "intent": "English-language editorial topic: What to Do if Your Rental Motorbike Is Stolen",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-420",
+      "title": "Lost Rental Bike Keys: Reporting and Replacement Steps",
+      "intent": "English-language editorial topic: Lost Rental Bike Keys: Reporting and Replacement Steps",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-421",
+      "title": "Punctured Tyre during a Rental: Who to Contact",
+      "intent": "English-language editorial topic: Punctured Tyre during a Rental: Who to Contact",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-422",
+      "title": "How to Report a Mechanical Problem to the Rental Shop",
+      "intent": "English-language editorial topic: How to Report a Mechanical Problem to the Rental Shop",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-423",
+      "title": "How to Keep Receipts for Repairs on a Rental Motorbike",
+      "intent": "English-language editorial topic: How to Keep Receipts for Repairs on a Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-424",
+      "title": "When a Rental Motorbike Needs to Be Collected",
+      "intent": "English-language editorial topic: When a Rental Motorbike Needs to Be Collected",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-425",
+      "title": "What to Do after a Minor Collision on a Rental Scooter",
+      "intent": "English-language editorial topic: What to Do after a Minor Collision on a Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-426",
+      "title": "What to Do after a Serious Accident on a Rental Motorbike",
+      "intent": "English-language editorial topic: What to Do after a Serious Accident on a Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-427",
+      "title": "Rental Motorbike Insurance versus Personal Travel Insurance",
+      "intent": "English-language editorial topic: Rental Motorbike Insurance versus Personal Travel Insurance",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-428",
+      "title": "How to Check Whether a Rental Allows an Out-of-City Trip",
+      "intent": "English-language editorial topic: How to Check Whether a Rental Allows an Out-of-City Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-429",
+      "title": "Who Is Responsible for Parking and Traffic Fines?",
+      "intent": "English-language editorial topic: Who Is Responsible for Parking and Traffic Fines?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-430",
+      "title": "How to Keep Your Passport Safe during a Scooter Rental",
+      "intent": "English-language editorial topic: How to Keep Your Passport Safe during a Scooter Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-431",
+      "title": "What Identity Documents a Rental Shop May Ask to See",
+      "intent": "English-language editorial topic: What Identity Documents a Rental Shop May Ask to See",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-432",
+      "title": "What to Do if the Rental Shop Is Closed When You Arrive",
+      "intent": "English-language editorial topic: What to Do if the Rental Shop Is Closed When You Arrive",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-433",
+      "title": "How to Plan a Rental Pickup from Gia Lam Bus Station",
+      "intent": "English-language editorial topic: How to Plan a Rental Pickup from Gia Lam Bus Station",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-434",
+      "title": "Comparing Two Rental Quotes for the Same Motorbike Class",
+      "intent": "English-language editorial topic: Comparing Two Rental Quotes for the Same Motorbike Class",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-435",
+      "title": "Why a Low Advertised Rental Price May Not Be the Final Price",
+      "intent": "English-language editorial topic: Why a Low Advertised Rental Price May Not Be the Final Price",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-436",
+      "title": "How to Confirm Payment Methods before Pickup",
+      "intent": "English-language editorial topic: How to Confirm Payment Methods before Pickup",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-437",
+      "title": "What Should Be Written on a Rental Payment Receipt?",
+      "intent": "English-language editorial topic: What Should Be Written on a Rental Payment Receipt?",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-438",
+      "title": "Extending a Monthly Motorbike Rental: Contract Questions",
+      "intent": "English-language editorial topic: Extending a Monthly Motorbike Rental: Contract Questions",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-439",
+      "title": "How to Check Deposit Return Conditions before Signing",
+      "intent": "English-language editorial topic: How to Check Deposit Return Conditions before Signing",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-440",
+      "title": "When a Rental Motorbike Can Be Exchanged for Another",
+      "intent": "English-language editorial topic: When a Rental Motorbike Can Be Exchanged for Another",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-441",
+      "title": "What to Do if the Bike You Reserved Is Unavailable",
+      "intent": "English-language editorial topic: What to Do if the Bike You Reserved Is Unavailable",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-442",
+      "title": "How to Report Damage That Appears during Your Rental",
+      "intent": "English-language editorial topic: How to Report Damage That Appears during Your Rental",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-443",
+      "title": "What to Photograph When Returning a Rental Scooter",
+      "intent": "English-language editorial topic: What to Photograph When Returning a Rental Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-444",
+      "title": "What Happens at the Final Motorbike Return Inspection",
+      "intent": "English-language editorial topic: What Happens at the Final Motorbike Return Inspection",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-445",
+      "title": "How to Avoid Missing Your Agreed Return Time",
+      "intent": "English-language editorial topic: How to Avoid Missing Your Agreed Return Time",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-446",
+      "title": "Rented Motorbike Accessories: Helmet, Mirrors and Phone Holder",
+      "intent": "English-language editorial topic: Rented Motorbike Accessories: Helmet, Mirrors and Phone Holder",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-447",
+      "title": "Understanding Common Motorbike Road Signs in Vietnam",
+      "intent": "English-language editorial topic: Understanding Common Motorbike Road Signs in Vietnam",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-448",
+      "title": "How to Read Motorbike Lane Markings in Hanoi",
+      "intent": "English-language editorial topic: How to Read Motorbike Lane Markings in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-449",
+      "title": "What Different Traffic-Light Arrows Mean for Riders",
+      "intent": "English-language editorial topic: What Different Traffic-Light Arrows Mean for Riders",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-450",
+      "title": "Safe Right Turns at Busy Hanoi Intersections",
+      "intent": "English-language editorial topic: Safe Right Turns at Busy Hanoi Intersections",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-451",
+      "title": "Left Turns across Multi-Lane Roads on a Motorbike",
+      "intent": "English-language editorial topic: Left Turns across Multi-Lane Roads on a Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-452",
+      "title": "How to Ride through a Hanoi Roundabout",
+      "intent": "English-language editorial topic: How to Ride through a Hanoi Roundabout",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-453",
+      "title": "Sharing the Road with Buses while Riding a Scooter",
+      "intent": "English-language editorial topic: Sharing the Road with Buses while Riding a Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-454",
+      "title": "Passing Parked Cars without Entering Oncoming Traffic",
+      "intent": "English-language editorial topic: Passing Parked Cars without Entering Oncoming Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-455",
+      "title": "Opening Car Doors: A Hazard for Scooter Riders",
+      "intent": "English-language editorial topic: Opening Car Doors: A Hazard for Scooter Riders",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-456",
+      "title": "How to Follow a Safe Distance in Hanoi Traffic",
+      "intent": "English-language editorial topic: How to Follow a Safe Distance in Hanoi Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-457",
+      "title": "Braking Safely on Wet Road Markings",
+      "intent": "English-language editorial topic: Braking Safely on Wet Road Markings",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-458",
+      "title": "Dealing with Potholes on a Rental Motorbike",
+      "intent": "English-language editorial topic: Dealing with Potholes on a Rental Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-459",
+      "title": "Riding on Bridges during Strong Winds",
+      "intent": "English-language editorial topic: Riding on Bridges during Strong Winds",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-460",
+      "title": "Safe Scooter Riding when Visibility Drops in Rain",
+      "intent": "English-language editorial topic: Safe Scooter Riding when Visibility Drops in Rain",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-461",
+      "title": "What to Do during a Sudden Hanoi Thunderstorm",
+      "intent": "English-language editorial topic: What to Do during a Sudden Hanoi Thunderstorm",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-462",
+      "title": "How to Ride after Dark with Limited Street Lighting",
+      "intent": "English-language editorial topic: How to Ride after Dark with Limited Street Lighting",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-463",
+      "title": "Why Motorbike Headlight Alignment Matters at Night",
+      "intent": "English-language editorial topic: Why Motorbike Headlight Alignment Matters at Night",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-464",
+      "title": "Checking Mirrors and Blind Spots before Changing Lanes",
+      "intent": "English-language editorial topic: Checking Mirrors and Blind Spots before Changing Lanes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-465",
+      "title": "Signalling Turns while Keeping Control of a Scooter",
+      "intent": "English-language editorial topic: Signalling Turns while Keeping Control of a Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-466",
+      "title": "How to Ride beside Heavy Trucks in Hanoi",
+      "intent": "English-language editorial topic: How to Ride beside Heavy Trucks in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-467",
+      "title": "Safe Overtaking Decisions on Two-Wheel Vehicles",
+      "intent": "English-language editorial topic: Safe Overtaking Decisions on Two-Wheel Vehicles",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-468",
+      "title": "Where to Stop Safely after a Motorbike Breaks Down",
+      "intent": "English-language editorial topic: Where to Stop Safely after a Motorbike Breaks Down",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-469",
+      "title": "Emergency Numbers and Accident Reporting in Vietnam",
+      "intent": "English-language editorial topic: Emergency Numbers and Accident Reporting in Vietnam",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-470",
+      "title": "What to Do if a Traffic Officer Stops Your Motorbike",
+      "intent": "English-language editorial topic: What to Do if a Traffic Officer Stops Your Motorbike",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-471",
+      "title": "How to Verify the Current Fine for a Traffic Offence",
+      "intent": "English-language editorial topic: How to Verify the Current Fine for a Traffic Offence",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-472",
+      "title": "How to Check Which Roads Restrict Motorbikes",
+      "intent": "English-language editorial topic: How to Check Which Roads Restrict Motorbikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-473",
+      "title": "Understanding Prohibited Vehicle Symbols on Vietnamese Signs",
+      "intent": "English-language editorial topic: Understanding Prohibited Vehicle Symbols on Vietnamese Signs",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-474",
+      "title": "School-Zone Riding: Children and Sudden Pedestrian Movements",
+      "intent": "English-language editorial topic: School-Zone Riding: Children and Sudden Pedestrian Movements",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-475",
+      "title": "How to Ride near Construction Sites and Temporary Barriers",
+      "intent": "English-language editorial topic: How to Ride near Construction Sites and Temporary Barriers",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-476",
+      "title": "Motorbike Safety at Railway Crossings in Hanoi",
+      "intent": "English-language editorial topic: Motorbike Safety at Railway Crossings in Hanoi",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-477",
+      "title": "How to Avoid Riding on Footpaths and Pedestrian Streets",
+      "intent": "English-language editorial topic: How to Avoid Riding on Footpaths and Pedestrian Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-478",
+      "title": "Scooter Phone Mounts: Safer Navigation without Distraction",
+      "intent": "English-language editorial topic: Scooter Phone Mounts: Safer Navigation without Distraction",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-479",
+      "title": "When to Stop and Check a Map instead of Looking Down",
+      "intent": "English-language editorial topic: When to Stop and Check a Map instead of Looking Down",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-480",
+      "title": "Using a Rain Poncho without Obscuring Lights or Wheels",
+      "intent": "English-language editorial topic: Using a Rain Poncho without Obscuring Lights or Wheels",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-481",
+      "title": "Why Loose Scarves and Bags Are Dangerous on Motorbikes",
+      "intent": "English-language editorial topic: Why Loose Scarves and Bags Are Dangerous on Motorbikes",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-482",
+      "title": "Riding with a Passenger: Balance and Communication",
+      "intent": "English-language editorial topic: Riding with a Passenger: Balance and Communication",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-483",
+      "title": "Children on Scooters: What to Verify before Riding",
+      "intent": "English-language editorial topic: Children on Scooters: What to Verify before Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-484",
+      "title": "How to Fit and Fasten a Motorbike Helmet Properly",
+      "intent": "English-language editorial topic: How to Fit and Fasten a Motorbike Helmet Properly",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-485",
+      "title": "What to Check if a Helmet Has Been Dropped",
+      "intent": "English-language editorial topic: What to Check if a Helmet Has Been Dropped",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-486",
+      "title": "Basic Protective Clothing for Short Scooter Trips",
+      "intent": "English-language editorial topic: Basic Protective Clothing for Short Scooter Trips",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-487",
+      "title": "What to Do if You Feel Fatigued on a Long Ride",
+      "intent": "English-language editorial topic: What to Do if You Feel Fatigued on a Long Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-488",
+      "title": "Heat and Dehydration on a Motorbike Day Trip",
+      "intent": "English-language editorial topic: Heat and Dehydration on a Motorbike Day Trip",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-489",
+      "title": "Avoiding Alcohol and Impairment before Riding",
+      "intent": "English-language editorial topic: Avoiding Alcohol and Impairment before Riding",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-490",
+      "title": "Medicines and Drowsiness: When Not to Ride a Scooter",
+      "intent": "English-language editorial topic: Medicines and Drowsiness: When Not to Ride a Scooter",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-491",
+      "title": "How to Ride Defensively around Pedestrians",
+      "intent": "English-language editorial topic: How to Ride Defensively around Pedestrians",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-492",
+      "title": "Safe Parking on Sloped or Uneven Streets",
+      "intent": "English-language editorial topic: Safe Parking on Sloped or Uneven Streets",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-493",
+      "title": "How to Prevent Your Scooter from Rolling while Parked",
+      "intent": "English-language editorial topic: How to Prevent Your Scooter from Rolling while Parked",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-494",
+      "title": "Motorbike Safety at Petrol Station Entrances",
+      "intent": "English-language editorial topic: Motorbike Safety at Petrol Station Entrances",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-495",
+      "title": "How to Navigate an Unfamiliar Intersection without Panic",
+      "intent": "English-language editorial topic: How to Navigate an Unfamiliar Intersection without Panic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-496",
+      "title": "Why Sudden U-Turns Are Risky in City Traffic",
+      "intent": "English-language editorial topic: Why Sudden U-Turns Are Risky in City Traffic",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-497",
+      "title": "Using Engine Braking without Losing Traction",
+      "intent": "English-language editorial topic: Using Engine Braking without Losing Traction",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-498",
+      "title": "What to Do if Your Tyre Loses Air during a Ride",
+      "intent": "English-language editorial topic: What to Do if Your Tyre Loses Air during a Ride",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-499",
+      "title": "Checking Motorbike Brake Lights and Indicators Daily",
+      "intent": "English-language editorial topic: Checking Motorbike Brake Lights and Indicators Daily",
+      "keywords": []
+    },
+    {
+      "reference_key": "wpai-en-500",
+      "title": "Should You Ride when Heavy Rain Floods a Road?",
+      "intent": "English-language editorial topic: Should You Ride when Heavy Rain Floods a Road?",
+      "keywords": []
+    }
+  ]
+}

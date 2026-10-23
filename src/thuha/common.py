@@ -25,6 +25,11 @@ def age(stamp):
     return (dt.datetime.now(dt.timezone.utc) - parsed).total_seconds()
 
 
+def fresh(stamp, max_age):
+    """Younger than `max_age` seconds and not dated in the future."""
+    return 0 <= age(stamp) < max_age
+
+
 def canonical_json(value):
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(',', ':')).encode()
 
@@ -59,9 +64,14 @@ def save(path, value):
             os.unlink(temp)
 
 
+def fold(text):
+    """Strip diacritics; unlike bare NFKD this keeps the Vietnamese đ as d."""
+    text = str(text).replace('đ', 'd').replace('Đ', 'D')
+    return unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode()
+
+
 def norm(text):
-    text = unicodedata.normalize('NFKD', str(text)).encode('ascii', 'ignore').decode().lower()
-    return ' '.join(re.findall(r'[a-z0-9]+', text))
+    return ' '.join(re.findall(r'[a-z0-9]+', fold(text).lower()))
 
 
 def urlkey(url):

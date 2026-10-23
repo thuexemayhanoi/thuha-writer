@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "note": "Shared writing templates and advisory lint settings used by `pack`, `build`, `precheck` and `next`. Nothing here changes QA: the threshold, the points and every hard failure stay in config/qa.json and src/thuha/quality.py. A lint is a warning with a way to fix it, never a score.",
+  "metadata": {
+    "seo_title": {
+      "min": 35,
+      "max": 75
+    },
+    "meta_description": {
+      "min": 110,
+      "max": 180,
+      "recommended_max": 155
+    }
+  },
+  "headings": {
+    "recommended_min_h2": 3
+  },
+  "anchors": {
+    "min_words": 2,
+    "generic": {
+      "vi": [
+        "tại đây",
+        "ở đây",
+        "xem thêm",
+        "bấm vào đây",
+        "nhấn vào đây",
+        "click",
+        "link",
+        "đường dẫn"
+      ],
+      "en": [
+        "here",
+        "click here",
+        "read more",
+        "this link",
+        "link",
+        "more"
+      ]
+    }
+  },
+  "similarity": {
+    "shingle": {
+      "vi": 5,
+      "en": 4
+    },
+    "paragraph_threshold": 0.6,
+    "shared_words_fix_ratio": 0.2,
+    "shared_words_consider_ratio": 0.1,
+    "outline_threshold": 0.7,
+    "min_outline_headings": 3,
+    "compare_limit": 40,
+    "note": "A paragraph that mostly states the shop's name, address, hours or phone is left out of the comparison: every article may carry the same contact line."
+  },
+  "padding": {
+    "repeated_sentence_max": 1,
+    "repeated_shingle_ratio": 0.06,
+    "shingle": 6
+  },
+  "length": {
+    "long_paragraph_words": 140
+  },
+  "leakage": {
+    "vi": [
+      "do chủ cửa hàng cung cấp",
+      "chủ cửa hàng cung cấp",
+      "theo thông tin được cung cấp",
+      "theo thông tin cửa hàng cung cấp",
+      "chưa có trong thông tin",
+      "chưa có thông tin xác nhận",
+      "trong thông tin của bài",
+      "tôi là mô hình",
+      "là một mô hình ngôn ngữ",
+      "trí tuệ nhân tạo"
+    ],
+    "en": [
+      "provided by the shop owner",
+      "supplied by the shop owner",
+      "according to the information provided",
+      "not in the information",
+      "as an ai",
+      "language model",
+      "artificial intelligence"
+    ]
+  },
+  "markdown_residue": "(?m)(\\*\\*[^*\\n]+\\*\\*|^#{1,6}\\s|^```|^\\s*[-*]\\s+\\S|\\[[^\\]\\n]+\\]\\([^)\\n]+\\))",
+  "readiness": {
+    "first_party_kinds": [
+      "first_party_facts",
+      "editorial_only"
+    ],
+    "overlap_threshold": 0.5,
+    "policy_keywords": {
+      "deposit procedure": [
+        "cọc",
+        "đặt cọc",
+        "deposit"
+      ],
+      "deposit refunds": [
+        "hoàn cọc",
+        "trả lại cọc",
+        "nhận lại cọc",
+        "refund"
+      ],
+      "delivery": [
+        "giao xe",
+        "giao nhận",
+        "tận nơi",
+        "delivery"
+      ],
+      "extension charges": [
+        "gia hạn",
+        "extension",
+        "kéo dài"
+      ]
+    }
+  },
+  "disclaimer": {
+    "vi": "Đây là giá tham khảo; hãy xác nhận lại xe và mức giá khi đặt xe.",
+    "en": "These are reference prices; confirm the bike and the rate before booking."
+  },
+  "contact": {
+    "vi": "{name} mở cửa từ {hours_vi} mỗi ngày tại {address}. Số điện thoại: {phone_link}.",
+    "en": "{name} is open {hours_en} daily at {address}. Phone: {phone_link}."
+  },
+  "money": {
+    "vi_units": "đồng|đ|vnd|vnđ|₫",
+    "note": "Only amounts written with a currency unit are read as prices, so phone numbers and years are never taken for money."
+  },
+  "hints": {
+    "Complete inventory for the exact production site is required": {
+      "where": "kho tồn (inventory)",
+      "fix": "Chạy audit để có inventory đầy đủ của đúng site; bản thảo vẫn có thể được lưu (chờ AUTHORITATIVE_INVENTORY)."
+    },
+    "Inventory is stale or future-dated": {
+      "where": "kho tồn (inventory)",
+      "fix": "Kho tồn quá 6 giờ hoặc ghi ngày tương lai: cần audit mới; không chỉnh ngày. Bản thảo có thể được lưu và QA sẽ chạy khi có kho mới."
+    },
+    "SUBMISSION_HASH_MISMATCH": {
+      "where": "bản đã nộp",
+      "fix": "Nội dung đã đổi sau khi nộp: nộp lại bản mới (tính một lượt sửa) hoặc dùng đúng bản đã nộp."
+    },
+    "PROVENANCE_*": {
+      "where": "topic_id/session/agent_id của bài",
+      "fix": "Khớp đúng với lease đang giữ: dùng `build`, nó lấy session và agent từ lease."
+    },
+    "ARTICLE_LANGUAGE_MISMATCH": {
+      "where": "trường language",
+      "fix": "Dùng giá trị article_language_value của bộ dữ liệu: `vi` cho TH-VI, `en-US` cho TH-EN."
+    },
+    "CANONICAL_MISMATCH": {
+      "where": "trường canonical",
+      "fix": "Dùng đúng proposed_url của topic; không đổi slug."
+    },
+    "TAXONOMY_MISMATCH": {
+      "where": "category_id",
+      "fix": "Dùng đúng category_id của topic; chuỗi cha-con phải khớp danh mục thật."
+    },
+    "TAXONOMY_UNKNOWN": {
+      "where": "category_id",
+      "fix": "Danh mục không có trong inventory: kiểm tra category_path của topic, không tự tạo danh mục."
+    },
+    "CATEGORY_LANGUAGE_MISMATCH": {
+      "where": "danh mục",
+      "fix": "Mọi danh mục trong chuỗi phải thuộc đúng ngôn ngữ của bài."
+    },
+    "DUPLICATE_OR_CANNIBALIZATION": {
+      "where": "topic",
+      "fix": "Topic trùng ý định với bài đã có: đổi hướng hoặc giữ (HELD); không viết thêm bản trùng."
+    },
+    "ARTICLE_BODY_MISSING": {
+      "where": "body_html",
+      "fix": "Thân bài rỗng hoặc không có thẻ <p>: viết nội dung bằng HTML."
+    },
+    "UNSAFE_OR_DUPLICATE_SCHEMA_HTML": {
+      "where": "body_html",
+      "fix": "Chỉ dùng thẻ và thuộc tính trong danh sách cho phép, viết thường, dấu nháy kép, không comment/script/style; chạy `pack` để xem danh sách."
+    },
+    "RESERVED_PROVENANCE_MARKER": {
+      "where": "body_html",
+      "fix": "Xóa chuỗi `<!-- thuha:`; dấu nhận diện chỉ do publisher thêm."
+    },
+    "BODY_H1_DUPLICATES_TEMPLATE": {
+      "where": "body_html",
+      "fix": "Bỏ <h1> trong thân bài; tiêu đề trang là title."
+    },
+    "UNSAFE_LINK": {
+      "where": "liên kết trong thân bài",
+      "fix": "Chỉ dùng https (hoặc tel:/mailto:), không kèm tài khoản/mật khẩu."
+    },
+    "CROSS_LANGUAGE_BODY_LINK": {
+      "where": "liên kết nội bộ",
+      "fix": "Chỉ liên kết tới trang cùng ngôn ngữ của bài; dùng danh sách internal_links của `pack`."
+    },
+    "INTERNAL_LINK_NOT_LIVE_VERIFIED": {
+      "where": "liên kết nội bộ",
+      "fix": "Liên kết tới trang chưa được xác minh sống: dùng trang trong danh sách `live` của `pack`; nếu chủ ý trỏ tới bài đã lên kế hoạch thì lưu với --waiting-for INTERNAL_LINKS."
+    },
+    "INSUFFICIENT_REAL_INTERNAL_LINKS": {
+      "where": "liên kết nội bộ",
+      "fix": "Cần ít nhất 2 liên kết nội bộ cùng ngôn ngữ, trong đó có 1 tới bài/trang nội dung đang sống (trang chuyên mục không tính là nội dung)."
+    },
+    "FEATURED_MEDIA_OR_ALT_NOT_VERIFIED": {
+      "where": "featured_media",
+      "fix": "Chọn id trong danh sách media của `pack` (alt đúng ngôn ngữ); nếu không có ảnh nào thì để null và lưu với --waiting-for FEATURED_MEDIA. Không tự đặt id."
+    },
+    "FEATURED_ALT_*": {
+      "where": "alt của ảnh đại diện",
+      "fix": "Alt của ảnh phải viết đúng ngôn ngữ của bài; chọn ảnh khác, không sửa alt tiếng Anh dùng chung."
+    },
+    "BODY_IMAGE_ALT_MISSING": {
+      "where": "<img> trong thân bài",
+      "fix": "Mỗi <img> cần alt không rỗng đúng ngôn ngữ của bài."
+    },
+    "BODY_IMAGE_ALT_*": {
+      "where": "alt của <img> trong thân bài",
+      "fix": "Alt phải đúng ngôn ngữ của bài."
+    },
+    "RESEARCH_EVIDENCE_MISSING": {
+      "where": "sources",
+      "fix": "Thêm nguồn đã chụp: dùng nguồn của topic trong `pack` (đã điền sẵn trong khung)."
+    },
+    "SOURCE_STALE_OR_UNVERIFIED": {
+      "where": "sources",
+      "fix": "Bằng chứng quá 30 ngày, không phải HTTP 200 hoặc tệp first-party đã đổi: chụp lại nguồn (source --repository-file hoặc --external-fetch), không sửa ngày."
+    },
+    "SOURCE_SUPPORT_UNSPECIFIED": {
+      "where": "sources[].supports",
+      "fix": "Ghi rõ nguồn chứng minh điều gì (từ 20 ký tự)."
+    },
+    "SOURCE_SNAPSHOT_MISSING": {
+      "where": "sources[].document",
+      "fix": "Tài liệu bằng chứng không có trong sổ cái: dùng đúng mã document của nguồn đã chụp."
+    },
+    "REGULATED_CLAIM_NEEDS_OFFICIAL_SOURCE": {
+      "where": "nội dung về luật/giấy phép/bằng lái/mức phạt/visa/đăng kiểm",
+      "fix": "Cần nguồn có tên miền .gov.vn/.gov/.gov.uk/.gouv.fr; nếu chưa có thì bỏ phần đó, không dựa vào trí nhớ."
+    },
+    "UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM": {
+      "where": "cụm như 'không cọc', 'hoàn tiền', 'tôi đã chạy thử'",
+      "fix": "Bỏ lời hứa hoặc trải nghiệm chưa xác thực; đưa thành câu hỏi nên hỏi cửa hàng."
+    },
+    "UNAPPROVED_BUSINESS_POLICY": {
+      "where": "business_claims",
+      "fix": "Chỉ khai báo kind=reference_price."
+    },
+    "UNAPPROVED_PRICE": {
+      "where": "business_claims",
+      "fix": "Giá phải nằm trong khoảng giá tham khảo của loại xe/kỳ thuê (xem `pack`); xe điện không có giá ngày."
+    },
+    "REFERENCE_PRICE_DISCLAIMER_MISSING": {
+      "where": "thân bài",
+      "fix": "Thêm câu 'giá tham khảo' kèm nhắc xác nhận lại trước khi đặt (câu mẫu trong `pack`)."
+    },
+    "CONTENT_OVERLAP_REVIEW": {
+      "where": "thân bài",
+      "fix": "Nội dung trùng quá 75% với bài đang đăng cùng ngôn ngữ: viết lại theo ý định riêng."
+    },
+    "FOCUS_KEYWORD_MISSING": {
+      "where": "focus_keyword",
+      "fix": "Điền từ khóa chính của topic."
+    },
+    "FOCUS_KEYWORD_HAS_QUOTES": {
+      "where": "focus_keyword",
+      "fix": "Bỏ dấu nháy khỏi từ khóa."
+    },
+    "*_NOT_CANONICAL_PLAIN_TEXT": {
+      "where": "title/seo_title/meta_description/focus_keyword",
+      "fix": "Văn bản thuần: không thẻ HTML, không khoảng trắng thừa hoặc xuống dòng."
+    },
+    "BODY_*": {
+      "where": "thân bài",
+      "fix": "Thân bài phải đọc đúng ngôn ngữ của bài (tiếng Việt có dấu, không lẫn tiếng Anh)."
+    },
+    "TITLE_*": {
+      "where": "title",
+      "fix": "Tiêu đề phải đúng ngôn ngữ của bài."
+    },
+    "SEO_TITLE_*": {
+      "where": "seo_title",
+      "fix": "SEO title phải đúng ngôn ngữ của bài."
+    },
+    "META_DESCRIPTION_*": {
+      "where": "meta_description",
+      "fix": "Meta description phải đúng ngôn ngữ của bài."
+    },
+    "FOCUS_KEYWORD_*": {
+      "where": "focus_keyword",
+      "fix": "Từ khóa phải đúng ngôn ngữ của bài."
+    },
+    "INTERNAL_LINK_TARGET_UNKNOWN": {
+      "where": "liên kết nội bộ",
+      "fix": "Liên kết trỏ tới địa chỉ không có trong inventory, danh mục hay kế hoạch: sửa lỗi gõ; không đoán slug trang chưa biết."
+    },
+    "ARTICLE_FIELDS_MISSING": {
+      "where": "article.json",
+      "fix": "Thiếu trường bắt buộc: dùng `build` để dựng đủ trường."
+    },
+    "SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA": {
+      "where": "điểm tự động",
+      "fix": "Dù có đủ dữ liệu bài vẫn dưới 85: thiếu h2, độ dài, độ dài seo_title/meta_description; sửa nội dung, không độn chữ."
+    }
+  },
+  "prices": {
+    "shop_markers": {
+      "vi": [
+        "thuê xe máy nguyễn hà",
+        "nguyễn hà",
+        "cửa hàng",
+        "tiệm",
+        "chúng tôi",
+        "giá tham khảo"
+      ],
+      "en": [
+        "thuê xe máy nguyễn hà",
+        "nguyen ha",
+        "rental shop",
+        "the shop",
+        "our shop",
+        "reference price",
+        " we ",
+        " our "
+      ]
+    },
+    "price_phrases": {
+      "vi": [
+        "giá thuê",
+        "bảng giá",
+        "giá ngày",
+        "giá tuần",
+        "giá tháng",
+        "một ngày",
+        "một tuần",
+        "một tháng",
+        "mỗi ngày",
+        "mỗi tuần",
+        "mỗi tháng",
+        "/ngày",
+        "/tuần",
+        "/tháng",
+        "tiền thuê",
+        "phí thuê"
+      ],
+      "en": [
+        "rental price",
+        "rental rate",
+        "rental fee",
+        "price list",
+        "per day",
+        "per week",
+        "per month",
+        "a day",
+        "a week",
+        "a month",
+        "daily rate",
+        "weekly rate",
+        "monthly rate"
+      ]
+    },
+    "hypothetical_markers": {
+      "vi": [
+        "ví dụ",
+        "giả sử",
+        "minh họa",
+        "ước tính",
+        "chẳng hạn"
+      ],
+      "en": [
+        "for example",
+        "for instance",
+        "example",
+        "illustrat",
+        "hypothetical",
+        "suppose",
+        "assume"
+      ]
+    },
+    "note": "A price is judged only where a sentence presents it as the shop's (the shop is named, or the sentence talks of a rental price per day, week or month). Fines, fees and premiums from official sources, and the arithmetic of a worked example, are not shop prices even when a number happens to equal one."
+  }
+}

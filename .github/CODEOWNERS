@@ -3,3 +3,11 @@
 /config/ @thuexemayhanoi
 /.github/ @thuexemayhanoi
 /tests/ @thuexemayhanoi
+# The plugin installed on the live site, its ZIP and the editorial matrices change what is published.
+/wordpress/ @thuexemayhanoi
+/dist/ @thuexemayhanoi
+/scripts/ @thuexemayhanoi
+/data/bilingual/ @thuexemayhanoi
+# The session ledger and documents committed here are what the queue job hands over to the shared ledger: review them like code.
+/data/state/ @thuexemayhanoi
+/data/documents/ @thuexemayhanoi

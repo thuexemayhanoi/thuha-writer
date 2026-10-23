@@ -1,7 +1,16 @@
 name: ThuHa QA to guarded queue publisher
-# Adapted from wp-aiwriter: successful push QA -> preflight -> guarded queue drain.
-# Event-driven QA PASS -> publisher immediately; hourly cron is recovery fallback.
-# No AI review gate. Production still requires real credentials and explicit release.
+# Adapted from wp-aiwriter: successful push QA -> hand-over -> QA -> guarded queue drain.
+# Event-driven: a writer's QA PASS dispatches `thuha-qa-ready` and the queue is drained immediately; the hourly cron is
+# the recovery fallback, not a queue delay. No AI model runs here and there is no AI review gate.
+# Default release is OFF (no language enabled); no secret, WordPress or site write before the gate.
+# Writes go only through the companion adapter plugin, Vietnamese first, 500 posts per language.
+#
+#   preflight        read-only: tests, validation, dry-run, release gate
+#   queue            no WordPress secret: hand the session ledger over to the shared ledger (fast-forward only,
+#                    never overwrites), refresh a stale public inventory, QA all completed English drafts
+#   protected-publish  only when the release gate is open, inside the protected environment: adapter preflight,
+#                    authenticated inventory, automatic QA of every completed draft (no AI reviewer), then the drain (reconcile -> publish ->
+#                    public-page checks). A halted drain makes the run red; public-page warnings never do.
 on:
   repository_dispatch:
     types: [thuha-qa-ready]
@@ -62,7 +71,8 @@ jobs:
           valid = bool(
               release.get('enabled') and release.get('approved') and
               not release.get('paused') and not release.get('emergency_stop') and
-              release.get('approval_ref') and release.get('cross_publisher_coordination_verified')
+              release.get('approval_ref') and release.get('cross_publisher_coordination_verified') and
+              release.get('languages_enabled')
           )
           if os.environ['EVENT_NAME'] == 'workflow_dispatch' and os.environ.get('MANUAL_LIVE') != 'true':
               valid = False
@@ -70,9 +80,53 @@ jobs:
               out.write('may_publish=' + str(valid).lower() + '\n')
           print('Protected publication eligible:', valid, '(no WordPress writes in preflight)')
           PY
-  protected-publish:
+  queue:
     needs: preflight
-    if: needs.preflight.outputs.may_publish == 'true'
+    # Runs whether or not go-live is open: drafts reach the queue the publisher reads even while production is OFF.
+    # A manual run without `live` is the read-only preview and writes nothing, so this job is skipped for it.
+    if: ${{ !cancelled() && needs.preflight.result == 'success' && (github.event_name != 'workflow_dispatch' || inputs.live) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Hand the session ledger over to the shared ledger (fast-forward only, idempotent, never overwrites)
+        id: promote
+        continue-on-error: true # a refused hand-over must not stop the steps below; it fails the run at the end instead
+        run: python3 -m thuha.cli --remote promote --apply
+      - name: Refresh the public inventory when the stored one is older than five hours
+        continue-on-error: true # one page that does not answer must not stop QA of what is already in the queue
+        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit --max-age 18000
+      - name: Automatic QA of completed English drafts (Vietnamese QA needs authenticated inventory)
+        continue-on-error: true
+        run: python3 -m thuha.cli --remote qa --pending --language en
+      - name: Report
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts report
+      - name: Fail the run visibly when the hand-over was refused
+        if: ${{ always() && steps.promote.outcome == 'failure' }}
+        run: |
+          echo "The session ledger could not be handed over (diverged, inconsistent, blocked or invalid): see the promote step." >&2
+          exit 1
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: thuha-queue-${{ github.run_id }}
+          path: artifacts/
+          if-no-files-found: ignore
+          retention-days: 14
+  protected-publish:
+    needs: [preflight, queue]
+    # A failed hand-over (for instance a diverged session ledger) must not stop the queue that is already in place.
+    if: ${{ !cancelled() && needs.preflight.outputs.may_publish == 'true' }}
     environment: thuha-production
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -96,6 +150,17 @@ jobs:
           python3 -m unittest discover -s tests -v
           python3 -m thuha.cli validate
           python3 -m thuha.cli credentials
+      - name: Adapter preflight (read-only; BLOCKED_ADAPTER_NOT_DEPLOYED until the plugin answers)
+        run: python3 -m thuha.cli --remote adapter-preflight
+      - name: Authenticated inventory of both languages (the public collection can hide Vietnamese posts)
+        continue-on-error: true # the drain re-reads the inventory itself; a page that does not answer must not stop publication
+        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit
+      - name: Clear the waits that the authenticated inventory now satisfies (drafts stay unfinished; nothing becomes READY)
+        continue-on-error: true
+        run: python3 -m thuha.cli --remote recheck-data
+      - name: Automatic QA of every completed draft (no independent AI reviewer gate)
+        continue-on-error: true
+        run: python3 -m thuha.cli --remote qa --pending
       - name: Drain only QA-ready articles inside approved release and daily caps
         run: python3 -m thuha.cli --remote --output artifacts publisher --mode drain
       - name: Preserve verifiable receipts and blockers
