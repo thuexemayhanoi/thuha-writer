@@ -2433,6 +2433,21 @@
         "TH-VI-0487",
         "TH-VI-0491"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T12:08:22.413221+00:00",
+      "previous": "c05e7ab47dd30d43b07ddf78bbf71dc3e07d8970aeab95c9a217cbc488fc10ee",
+      "sha256": "55b6dd3260cae418bf37f61a45e4ed2dff11d8ad284ddf210486a168d312a601",
+      "topic_ids": [
+        "TH-EN-0005",
+        "TH-EN-0012",
+        "TH-EN-0065",
+        "TH-EN-0125",
+        "TH-EN-0139",
+        "TH-EN-0140",
+        "TH-EN-0141"
+      ]
     }
   ],
   "intents": {},
@@ -4833,6 +4848,181 @@
       "status": "PLANNED",
       "topic_id": "TH-000061"
     },
+    "TH-EN-0005": {
+      "admitted_at": "2026-10-23T12:08:22.355566+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "ride hailing versus rental bike for a week hanoi",
+      "proposed_title": "Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi?",
+      "proposed_url": "https://rentbikehanoi.com/ride-hailing-or-rental-bike-hanoi-trip-count-worksheet/",
+      "search_intent": "A visitor planning a week in Hanoi wants a worksheet that turns planned outings into a trip count, so ride-hailing can be compared fairly against keeping a bike, including parking, fuel and the days the bike would sit idle.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0005"
+    },
+    "TH-EN-0012": {
+      "admitted_at": "2026-10-23T12:08:22.364867+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "start motorbike rental on arrival day or next day hanoi",
+      "proposed_title": "Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent",
+      "proposed_url": "https://rentbikehanoi.com/start-rental-on-arrival-day-or-day-two-jet-lag-hanoi/",
+      "search_intent": "A traveller landing in the afternoon after a long-haul flight is deciding whether to collect a bike straight away or start the booking the next morning, balancing tiredness, unfamiliar traffic, daylight and an extra day's cost.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0012"
+    },
+    "TH-EN-0065": {
+      "admitted_at": "2026-10-23T12:08:22.373485+00:00",
+      "category_id": 142,
+      "category_path": [
+        39,
+        60,
+        127,
+        142
+      ],
+      "cluster": "motorbike-reviews-comparisons",
+      "language": "en",
+      "primary_keyword": "xe so xe con tay xe ga meaning",
+      "proposed_title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
+      "proposed_url": "https://rentbikehanoi.com/xe-so-xe-con-xe-ga-vietnamese-motorbike-terms-decoded/",
+      "search_intent": "A visitor reading local listings or messages meets xe so, xe con tay and xe ga and cannot tell which is clutchless, which has a clutch lever and which is automatic, so wants a plain decoder.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0065"
+    },
+    "TH-EN-0125": {
+      "admitted_at": "2026-10-23T12:08:22.382465+00:00",
+      "category_id": 134,
+      "category_path": [
+        39,
+        60,
+        115,
+        134
+      ],
+      "cluster": "parking-weather-breakdowns",
+      "language": "en",
+      "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
+      "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
+      "proposed_url": "https://rentbikehanoi.com/explain-motorbike-breakdown-without-vietnamese/",
+      "search_intent": "A traveller who cannot speak Vietnamese needs to describe a fault and a location to the rental shop and to a passer-by or mechanic, using photos, translation tools and short written phrases.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0125"
+    },
+    "TH-EN-0139": {
+      "admitted_at": "2026-10-23T12:08:22.392065+00:00",
+      "category_id": 145,
+      "category_path": [
+        39,
+        60,
+        128,
+        145
+      ],
+      "cluster": "road-rules-riding-safety",
+      "language": "en",
+      "primary_keyword": "not ridden motorbike in years hanoi rent",
+      "proposed_title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
+      "proposed_url": "https://rentbikehanoi.com/rusty-rider-decide-whether-to-rent-motorbike-hanoi-years-away/",
+      "search_intent": "A visitor who last rode a motorbike years ago, or only as a teenager, wants criteria for deciding whether to rent, start with a practice period, or choose another way to get around.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0139"
+    },
+    "TH-EN-0140": {
+      "admitted_at": "2026-10-23T12:08:22.403104+00:00",
+      "category_id": 145,
+      "category_path": [
+        39,
+        60,
+        128,
+        145
+      ],
+      "cluster": "road-rules-riding-safety",
+      "language": "en",
+      "primary_keyword": "group motorbike ride hanoi stay together",
+      "proposed_title": "Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider",
+      "proposed_url": "https://rentbikehanoi.com/group-riding-through-hanoi-meeting-points-spacing-lost-rider/",
+      "search_intent": "Friends riding several scooters need a shared plan for staying together without tailgating: agreed meeting points, who leads, shared map pins and what to do when someone is separated.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0140"
+    },
+    "TH-EN-0141": {
+      "admitted_at": "2026-10-23T12:08:22.413193+00:00",
+      "category_id": 145,
+      "category_path": [
+        39,
+        60,
+        128,
+        145
+      ],
+      "cluster": "road-rules-riding-safety",
+      "language": "en",
+      "primary_keyword": "following distance motorbike hanoi stop go traffic",
+      "proposed_title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
+      "proposed_url": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
+      "search_intent": "A rider used to wide gaps at home sees space ahead filled at once in dense traffic, and needs a method for judging braking space, watching front wheels and looking two vehicles ahead.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0141"
+    },
     "TH-VI-0004": {
       "admitted_at": "2026-10-23T07:26:56.973717+00:00",
       "category_id": 152,
@@ -5962,5 +6152,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 314
+  "version": 315
 }
