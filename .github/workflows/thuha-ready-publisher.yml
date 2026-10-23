@@ -2,13 +2,13 @@ name: ThuHa QA to guarded queue publisher
 # Adapted from wp-aiwriter: successful push QA -> hand-over -> QA -> guarded queue drain.
 # Event-driven: a writer's QA PASS dispatches `thuha-qa-ready` and the queue is drained immediately; the hourly cron is
 # the recovery fallback, not a queue delay. No AI model runs here and there is no AI review gate.
-# Default release is OFF (no language enabled); no secret, WordPress or site write before the gate.
+# Default release is OFF (no language enabled); WordPress credentials come from repository Secrets only in the publish job.
 # Writes go only through the companion adapter plugin, Vietnamese first, 500 posts per language.
 #
 #   preflight        read-only: tests, validation, dry-run, release gate
 #   queue            no WordPress secret: hand the session ledger over to the shared ledger (fast-forward only,
 #                    never overwrites), refresh a stale public inventory, QA all completed English drafts
-#   protected-publish  only when the release gate is open, inside the protected environment: adapter preflight,
+#   protected-publish  only when the release gate is open, using repository Secrets: adapter preflight,
 #                    authenticated inventory, automatic QA of every completed draft (no AI reviewer), then the drain (reconcile -> publish ->
 #                    public-page checks). A halted drain makes the run red; public-page warnings never do.
 on:
@@ -59,7 +59,7 @@ jobs:
           python3 -m thuha.cli validate
       - name: Publisher read-only preview
         run: python3 -m thuha.cli --remote publisher --mode dry-run
-      - name: Enforce independently approved release gate
+      - name: Enforce repository release gate
         id: gate
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -127,7 +127,6 @@ jobs:
     needs: [preflight, queue]
     # A failed hand-over (for instance a diverged session ledger) must not stop the queue that is already in place.
     if: ${{ !cancelled() && needs.preflight.outputs.may_publish == 'true' }}
-    environment: thuha-production
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     permissions:
@@ -139,7 +138,6 @@ jobs:
       THUHA_GITHUB_SECURITY_TOKEN: ${{ secrets.THUHA_GITHUB_SECURITY_TOKEN }}
       THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
       THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
-      THUHA_GO_LIVE_APPROVAL: ${{ vars.THUHA_GO_LIVE_APPROVAL }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
