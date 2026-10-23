@@ -1,3 +1,5 @@
+> **OWNER POLICY UPDATE — 23/10/2026:** For `rentbikehanoi.com` and `thuexemayhanoi/thuha-writer` only, automatic QA **>=75/100 PASS**, **<75 FAIL**; any hard failure still blocks. Follow `/wp-aiwriter`'s event-driven architecture, NOT its score (76), URLs, credentials, taxonomy or ledger. Both VI and EN use `config/qa.json`. On a policy change, previously READY drafts must pass fresh QA before publisher. PASS moves to existing queue without human article review, but actual WordPress publish still requires configured repository Secrets, native adapter, verified live inventory, release authorization and two-post pilot. See `docs/AUTO-QA85-PUBLISHER.md` (legacy filename). This paragraph overrides every old QA85 mention below.
+
 # ThuHa Writer: instructions for AI sessions
 
 ## Current owner brief — 2026-10-23 UTC
@@ -8,7 +10,7 @@ Use `config/business-facts.json extension_policy`; this is confirmed, not an unk
 use 30,000 VND/hour or invent another threshold. Before submitting affected drafts, recapture first-party evidence from
 the updated facts file and reference the new immutable snapshot; do not rewrite old documents, QA reports or receipts.
 Latest owner instruction (23 October): **remove the independent AI article-review gate**.
-The active route is writer -> automatic QA >=85/100 + duplicates + correct category/language -> publisher.
+The active route is writer -> automatic QA >=75/100 + duplicates + correct category/language -> publisher.
 Completed drafts go straight to QA; never wait for or fabricate a reviewer. Historical reviews stay immutable.
 Hard failures, evidence, real media/links, release configuration, credentials and idempotency still apply.
 The owner has requested automatic publication; do not ask for the same content-review approval again.
@@ -38,13 +40,13 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   ledger starts from the shared one; hand-over works repeatedly (sync, work, promote). The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
   ledger from a session.
 - **Automatic QA before publication; no independent AI review gate.** `qa --pending` evaluates every DRAFT_READY submission
-  and every READY draft whose policy or article hash is stale. Score = raw automatic points / 80 * 100; threshold 85.
+  and every READY draft whose policy or article hash is stale. Score = raw automatic points / 80 * 100; threshold 75 (inclusive).
   Any hard failure blocks publication regardless of score. Vietnamese QA needs an adapter or authenticated inventory.
   Legacy review records neither gate QA nor add points; no synthetic attestation may replace them.
 - **QA never blames the article for data the site lacks.** An unusable inventory (stale, incomplete, public-only for Vietnamese)
   makes `run_qa` refuse: nothing is evaluated, recorded or changed and `qa --pending` exits 2. A finished draft that would pass
   as written once pages it already links to are live is `BLOCKED_DATA` (stays DRAFT_READY, frees its writer slot, no repair spent,
-  not a pass, checked again every run, passes by itself; `claim --revise` lets a writer re-point its links, not a repair). Real faults, typo links, too few links, an image not chosen and a score that stays below 85
+  not a pass, checked again every run, passes by itself; `claim --revise` lets a writer re-point its links, not a repair). Real faults, typo links, too few links, an image not chosen and a score that stays below 75
   go to repair. `precheck` uses the same classifier (`src/thuha/datawait.py`); `submit` refuses an empty `featured_media` unless
   the draft is stored with `--waiting-for FEATURED_MEDIA`.
 - **Event-driven, with the hourly run as fallback.** On the shared ledger `submit` evaluates a completed draft at once and a pass
