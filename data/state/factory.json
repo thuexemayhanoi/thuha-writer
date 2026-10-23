@@ -5280,6 +5280,18 @@
       "sha256": "2f1dd5c9b535bc6294a53805884766f18edc3f32492b294cfb749bfbf0a4418c",
       "slot": "W1",
       "topic_id": "TH-VI-0018"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "6550e692aa24493ef6c14e19597efb11791d9d81a66eb83d5f0fdb64f5297a91",
+      "at": "2026-10-23T14:58:54.367991+00:00",
+      "previous": "2f1dd5c9b535bc6294a53805884766f18edc3f32492b294cfb749bfbf0a4418c",
+      "sha256": "3c3c254426ff2f50d50b678fff866faedd46d0b1c8cc7c005d6866a3b79f6d2d",
+      "topic_id": "TH-VI-0018",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8255,18 +8267,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792769329.890867,
-      "fence": "c830ed60b83647c8acdb32e4dcd321e6",
-      "heartbeat_at": "2026-10-23T14:58:49.890849+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0018"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -8917,13 +8918,13 @@
     },
     "TH-VI-0018": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "c730899621423bbefb8925eb38080c5f157b6457dacf46a6eb0079e5171370f9",
+      "article_sha": "6550e692aa24493ef6c14e19597efb11791d9d81a66eb83d5f0fdb64f5297a91",
       "commit": "e8abd7e0464aa97ca520d891cadfc05da3a8e000",
-      "fence": "802724f5d9a342c4aee9dfc2d6275dfa",
+      "fence": "c830ed60b83647c8acdb32e4dcd321e6",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:55.493598+00:00"
+      "submitted_at": "2026-10-23T14:58:54.367965+00:00"
     },
     "TH-VI-0019": {
       "agent_id": "claude-writer-W1",
@@ -12007,7 +12008,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi hai người thuê một xe hay hai xe",
       "proposed_title": "Đi cặp đôi: thuê một xe hay hai xe, cân nhắc chi phí, gửi xe và sức lái",
@@ -12020,7 +12020,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0018",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13244,5 +13244,5 @@
       ]
     }
   },
-  "version": 704
+  "version": 705
 }
