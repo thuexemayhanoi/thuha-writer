@@ -5188,6 +5188,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:58:22.424749+00:00",
+      "expires_at": 1792769302.42474,
+      "fence": "79d8d33b8c8a47548ce8eb4d0d3e7b3b",
+      "heartbeat_at": "2026-10-23T14:58:22.424720+00:00",
+      "language": "vi",
+      "previous": "75fbddb7a70a05d0cdb6b7441b466f9e8cd55cc5d3518aeb763a045961e40283",
+      "session": "sess-b3",
+      "sha256": "ccfe881ca9c8cac83a03ab50ebdb5875e7c94710dc4f6b6129e0fdead81fc900",
+      "slot": "W1",
+      "topic_id": "TH-VI-0151"
     }
   ],
   "intents": {
@@ -8163,7 +8177,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792769302.42474,
+      "fence": "79d8d33b8c8a47548ce8eb4d0d3e7b3b",
+      "heartbeat_at": "2026-10-23T14:58:22.424720+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0151"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -12697,6 +12722,7 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "người lớn tuổi quen xe số có nên đổi sang xe ga",
       "proposed_title": "Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi?",
@@ -12709,7 +12735,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0151",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13140,5 +13166,5 @@
       ]
     }
   },
-  "version": 694
+  "version": 695
 }
