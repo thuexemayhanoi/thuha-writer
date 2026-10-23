@@ -465,9 +465,9 @@
   "leases": {
     "W2": {
       "agent_id": "claude-writer-R2",
-      "expires_at": 1792723645.162509,
+      "expires_at": 1792723747.705592,
       "fence": "8f291e255d484d19a1b75e1391b73ce2",
-      "heartbeat_at": "2026-10-23T02:17:25.162483+00:00",
+      "heartbeat_at": "2026-10-23T02:19:07.705572+00:00",
       "session": "r2-20261023-a1",
       "slot": "W2",
       "topic_id": "TH-000002"
@@ -2640,5 +2640,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 94
+  "version": 95
 }
