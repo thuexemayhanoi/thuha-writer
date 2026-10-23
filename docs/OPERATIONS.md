@@ -55,6 +55,11 @@ python3 -m thuha.cli --git-branch submit --slot W1 --session SESSION --fence FEN
 python3 -m thuha.cli --remote qa --pending            # every completed draft, and READY drafts whose QA predates the policy or the text
 ```
 
+On the shared ledger (`--remote`) `submit` evaluates a completed draft at once and dispatches the queue on a pass; an expired
+inventory is first replaced by a fresh public read (GET only; if the site cannot be reached the old one is kept and QA refuses it,
+recording nothing). Topic admission needs no reviewer: `admit` / `intake` check collisions automatically, a verdict a researcher
+supplies only blocks when it is negative or was made on a stale inventory.
+
 An actual authorized AI session must do the research and writing; Actions never generate prose. Capture real
 public source evidence with `source --url URL` (or `--external-fetch` from an authorized fetcher); if DNS, HTTP
 or permissions fail, mark the source blocked — never invent a capture. Intake accepts at most 100 candidates and
@@ -177,7 +182,9 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
 * `quality` — tests, matrices, plugin package, validation, dry-run; on `main` and on same-repository pull requests it
   also reads the real ledger and prints the promotion plan (read-only; a pull request shows `FAST_FORWARD` or the reason
   it cannot be handed over before anyone merges). Triggered by code, config, matrix **and ledger** changes.
-* `thuha-ready-publisher` — after a successful quality run on `main`, hourly, or by hand. A manual run without `live` is the
+* `thuha-ready-publisher` — after a successful quality run on `main`, **when a writer's QA pass dispatches `thuha-qa-ready`**
+  (`submit` and `qa` on the shared ledger do it; a session ledger in a branch and a draft stored with `--waiting-for` never do),
+  hourly as the recovery fallback, or by hand. A manual run without `live` is the
   read-only preview: it runs `preflight` only and writes nothing (the `queue` job is skipped). Jobs: `preflight`
   (read-only, evaluates the release gate); `queue` (no WordPress secret: `promote --apply`, `audit --max-age 18000`,
   `qa --pending --language en`; each step carries on if the one before failed, and a refused hand-over fails the run at the

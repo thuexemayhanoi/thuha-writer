@@ -43,6 +43,11 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   not a pass, checked again every run, passes by itself; `claim --revise` lets a writer re-point its links, not a repair). Real faults, typo links, too few links, an image not chosen and a score that stays below 85
   go to repair. `precheck` uses the same classifier (`src/thuha/datawait.py`); `submit` refuses an empty `featured_media` unless
   the draft is stored with `--waiting-for FEATURED_MEDIA`.
+- **Event-driven, with the hourly run as fallback.** On the shared ledger `submit` evaluates a completed draft at once and a pass
+  dispatches `thuha-qa-ready`; a `WAITING_DATA` draft, a draft over its repair limit and a session ledger in a branch never do. An
+  expired inventory is refreshed from the public site (GET only) before a write-capable command; if the site cannot be reached QA
+  refuses the old one and records nothing. Topic admission needs no reviewer (a negative verdict or a stale-inventory claim still
+  blocks). The publisher checks that it runs from `main` and that the `main` and `factory-state` refs exist (owner change, 23 October).
 - **PUBLISHED means WordPress said so.** The intent becomes PUBLISHED when WordPress returns a valid ID, status `publish` and
   the planned permalink for the post this intent created. Stored-content differences (adapter read-back) are recorded in the
   receipt and raise an alert that stops *new* posts until a person acknowledges it. The public-page crawl is a separate step

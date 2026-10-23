@@ -44,6 +44,12 @@ Mục tiêu: tìm chỗ bài hoàn chỉnh vẫn bị chặn hoặc bị đẩy 
 **Kế hoạch chuyển sổ cái với dữ liệu thật** (đọc chỉ-đọc `factory-state` ngày 23/10/2026): sổ cái dùng chung là schema 4, phiên bản 5, 3 sự kiện, 2 chủ đề EN `PLANNED`; sổ cái phiên
 trong nhánh có 191 sự kiện, bắt đầu bằng đúng 3 sự kiện đó → `ledger.plan` = **FAST_FORWARD**. Sau khi owner merge, job `queue` chuyển được toàn bộ bản thảo. Đây là kết quả tính ngoại tuyến, chưa phải lần `promote --apply` thật.
 
+**Tích hợp `main` (PR #4 và #5 của owner, 17:37–17:41 ngày 23/10, mới hơn commit 82191249).** PR #3 bị `dirty` (xung đột) nên CI không chạy cho các commit mới; đã `git merge origin/main` (không rebase, không force-push) và giữ cả hai bên:
+sự kiện `thuha-qa-ready` sau khi QA đạt, `submit` chạy QA ngay cho bản hoàn chỉnh, làm mới inventory công khai (chỉ GET) khi hết hạn, `intent_review` thành tùy chọn khi nhập chủ đề (verdict phủ định vẫn chặn), `verify_security` chỉ kiểm tra ref `main`/`factory-state`
+và chạy từ `main`, khoảng cách giữa hai bài đăng bằng 0. Các chỗ phải chọn: thang điểm giữ **80 → 100** (quy đổi hiện có theo yêu cầu của anh; không thêm điểm H2 của `main` để ngưỡng 85 chỉ có một nghĩa); `semantic_review='not-required'` như `main`;
+`submit --waiting-for` không QA và không phát sự kiện; sổ cái phiên trong nhánh không bao giờ phát sự kiện; làm mới inventory thất bại (không có mạng) thì giữ inventory cũ để QA từ chối rõ ràng thay vì làm hỏng `submit`.
+Có 11 test mới cho phần ghép và đã kiểm bằng đột biến mã. Toàn bộ 427 test đạt trên cây đã merge.
+
 **Câu hỏi mới cho chủ website (thêm vào [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)):** trang tiếng Việt nào (ví dụ trang chủ `/vi/` hay trang dịch vụ thuê xe) đã đăng và có `public_check` 200? Bài VI đầu tiên cần ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống.
 
 **Tiếp tục:** `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply` (trước khi viết); `python3 -m thuha.cli --git-branch cycle`;
