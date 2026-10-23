@@ -50,6 +50,15 @@ và chạy từ `main`, khoảng cách giữa hai bài đăng bằng 0. Các ch�
 `submit --waiting-for` không QA và không phát sự kiện; sổ cái phiên trong nhánh không bao giờ phát sự kiện; làm mới inventory thất bại (không có mạng) thì giữ inventory cũ để QA từ chối rõ ràng thay vì làm hỏng `submit`.
 Có 11 test mới cho phần ghép và đã kiểm bằng đột biến mã. Toàn bộ 427 test đạt trên cây đã merge.
 
+**Checkpoint cuối phiên (23/10/2026).** Nhánh `feature/bilingual-500-workflow` ở `ad1dde0`; PR #3 `mergeable_state: clean` trên `main` = `ffe45d6`; CI `quality` xanh cho `f77c933` (run 15) và `ad1dde0` (run 16), gồm bước kế hoạch hand-over
+chạy thật: **FAST_FORWARD (phiên v313, dùng chung v5)**. 427 test đạt cục bộ, `thuha.cli validate` PASS, bộ PHP đạt, sổ cái (`data/state`, `data/documents`) và `data/bilingual` không bị sửa.
+Số liệu sổ cái: EN 57 chủ đề (9 bản thảo: 7 `DRAFT_READY`, 2 `READY` cũ; 48 `PLANNED`), VI 18 chủ đề (7 `WAITING_DATA`, 11 `HELD`; cả 18 có bản thảo lưu); bản ghi QA: 2 PASS cũ (TH-000005/6, dưới policy cũ, phải chạy lại) + 2 FAIL cũ của V5; **biên nhận WordPress: 0**, intent: 0.
+**Không viết thêm bài trong phiên này, và đây là lý do chính xác:** các chủ đề còn lại cần nguồn ngoài mà môi trường chặn (chính sách mạng chỉ cho `api.github.com`; mọi miền khác trả 403 ở CONNECT; Firecrawl hết tín dụng; bằng chứng V5 chỉ lưu 20 từ trích mỗi nguồn nên không đủ để viết bài thực chất mà không bịa),
+hoặc cần câu trả lời của chủ cửa hàng ([OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)); các bản nháp còn lại của tôi cùng một khung "hỏi cửa hàng" nên không lưu.
+**Điều đang chặn xuất bản thật (theo thứ tự):** (1) plugin adapter chưa cài và `adapter-preflight` chưa chạy; (2) cấu hình chạy thật: `config/release.json` vẫn OFF, secrets/biến trong environment `thuha-production`, người duyệt của environment (nếu còn) làm bài phải chờ người;
+(3) chưa có inventory từ adapter còn mới; (4) chưa có ảnh alt tiếng Việt và chưa có trang/bài tiếng Việt đang sống để liên kết (Q11) nên chưa bài VI nào qua QA; (5) merge PR #3 để job `queue` chuyển sổ cái và chạy QA EN.
+**Để mở khóa việc viết:** chủ website đổi *Network access* của môi trường (menu môi trường trong thanh tiêu đề phiên → Edit) sang mức rộng hơn hoặc thêm các miền nguồn vào *Allowed domains* (ví dụ `baotanghochiminh.vn`, `vietnam.travel`, `chinhphu.vn`, `nchmf.gov.vn`, `metrohanoi.vn`, `noibaiairport.vn`, các trang xe Honda/Yamaha/VinFast, `rentbikehanoi.com` để kiểm trang đã sống) hoặc nạp thêm tín dụng Firecrawl; rồi `matrix next` → chụp nguồn → `admit` → viết.
+
 **Câu hỏi mới cho chủ website (thêm vào [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)):** trang tiếng Việt nào (ví dụ trang chủ `/vi/` hay trang dịch vụ thuê xe) đã đăng và có `public_check` 200? Bài VI đầu tiên cần ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống.
 
 **Tiếp tục:** `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply` (trước khi viết); `python3 -m thuha.cli --git-branch cycle`;
