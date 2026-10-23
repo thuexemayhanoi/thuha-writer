@@ -440,6 +440,8 @@
       "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
       "proposed_title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
       "proposed_url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+      "repair_notes": "Reviewer claude-editorial-reviewer rejected article_sha 4b92c14c... on 2026-10-23. Fix: (1) FAQ says the mausoleum is 'the marble building' - no source; the exterior is granite - drop the material or source it. (2) 'Expect attended parking and keep the ticket you are given' is an unsourced firsthand claim - hedge or remove. (3) 'bag and camera rules apply at least around the mausoleum' infers a policy from deposit counters - either register the board's visiting-regulations page as a source and quote it, or say only that deposit counters exist. Everything else was verified against the four listed sources.",
+      "repair_notes_at": "2026-10-23T02:13:41.311837+00:00",
       "research_scope": "Entity and source validation; no ticket price, opening hour or access policy is asserted by the topic record.",
       "search_intent": "Understand the Ho Chi Minh Museum exhibition and distinguish a museum visit from the mausoleum",
       "sources": [
@@ -470,6 +472,8 @@
       "primary_keyword": "Hanoi ceramic mosaic mural walk",
       "proposed_title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
       "proposed_url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+      "repair_notes": "Reviewer claude-editorial-reviewer rejected article_sha 0424d20d... on 2026-10-23. The only registered source is vietnam.travel; three further captures now exist in the store (Wikipedia Hanoi_Ceramic_Mosaic_Mural doc ec44833e2ebc..., DTiNews 2020 removal doc 14ab9ceaecf5..., DTiNews 2019 expansion doc 05d705741289...) - add them to the article's sources and base geography on them. Fix: (1) the mural is on the dyke wall beside the streets (Au Co, Nghi Tam, Yen Phu, Tran Nhat Duat, Tran Quang Khai, Tran Khanh Du) at the inland foot of the dyke, not on top of it; (2) the wall is on the RIVER side of the carriageway, so the 'walk with traffic on your side to face the wall' instruction is reversed; (3) the mural continues south of Long Bien along Tran Quang Khai and Tran Khanh Du, so the Old Quarter/Long Bien stretch is not the southern end; (4) 'longer, less visited, more open' and 'road works changed parts of the dyke' need sourcing (600 m removed on Au Co in 2020 per DTiNews) or removal; (5) 'small inscribed tiles naming an artist...' unsourced - remove or source; (6) children's and foreign artists' panels are supported by DTiNews/Wikipedia - register them; (7) hedge unsourced street-level claims about scarce parking, narrow pavement and commuting traffic; (8) Guinness certified the LARGEST ceramic mosaic (3,850 linear m, 2010) and 'over six kilometres' predates the 2020 removal - attribute precisely; (9) alt text of image 323 is 'Hanoi Old Quarter' - keep only if no better option (there is none in the catalogue).",
+      "repair_notes_at": "2026-10-23T02:13:41.311863+00:00",
       "research_scope": "Entity and source validation; no ticket price, opening hour or access policy is asserted by the topic record.",
       "search_intent": "Plan a focused visit to the ceramic mosaic mural as public art rather than a general architecture photo route",
       "sources": [
@@ -2322,5 +2326,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 36
+  "version": 37
 }
