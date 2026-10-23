@@ -127,7 +127,7 @@ business identity. The source topic exports here are **candidate ideas**, not
 approved articles, current facts, existing target posts or publish receipts.
 
 Implementation and offline checks are authorized now, including the owner's removal of the AI reviewer gate.
-The existing production publisher remains OFF while operational prerequisites are unverified.
+The owner enabled auto-scale separately on 23/10/2026; this QA75 branch does not modify that release. Real publishing requires adapter access and verified WordPress receipts.
 Do not bypass credentials or repository protections, invent a verified preflight, or merge/deploy as part of a status check.
 Make the implementation and installable adapter concrete and report deployment needs truthfully. Do not ask the nontechnical owner to
 register crawlers or run terminal commands to unblock offline work.
