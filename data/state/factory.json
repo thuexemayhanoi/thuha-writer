@@ -4175,6 +4175,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:52:10.026899+00:00",
+      "expires_at": 1792768930.026891,
+      "fence": "2c5061197ab7473a9e8770160e38e1a2",
+      "heartbeat_at": "2026-10-23T14:52:10.026874+00:00",
+      "language": "vi",
+      "previous": "f9b5f2f36425ced03f76bc1e4801cc512119aa7f8e6c4f0e0074c088dc2b2ae5",
+      "session": "sess-b3r",
+      "sha256": "1054d8fbc4e5ac43a206e6bff8c28ee4e086791567b49b68fac6441cf869a704",
+      "slot": "W1",
+      "topic_id": "TH-VI-0134"
     }
   ],
   "intents": {
@@ -7150,7 +7164,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792768930.026891,
+      "fence": "2c5061197ab7473a9e8770160e38e1a2",
+      "heartbeat_at": "2026-10-23T14:52:10.026874+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0134"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11366,6 +11391,7 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chưa biết lái xe côn tay có nên thuê không",
       "proposed_title": "Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe",
@@ -11378,7 +11404,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0134",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -11872,5 +11898,5 @@
       ]
     }
   },
-  "version": 576
+  "version": 577
 }
