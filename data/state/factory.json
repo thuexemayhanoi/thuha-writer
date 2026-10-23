@@ -572,11 +572,33 @@
       "sha256": "9fb0da084889be297b05b639a1d1ded873e5b79f847d7d47e362a7a439bf7ec8",
       "slot": "W1",
       "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:30:52.319828+00:00",
+      "expires_at": 1792724452.319819,
+      "fence": "eb4a00a82d294ae6831555f5debafc78",
+      "heartbeat_at": "2026-10-23T02:30:52.319798+00:00",
+      "previous": "9fb0da084889be297b05b639a1d1ded873e5b79f847d7d47e362a7a439bf7ec8",
+      "session": "r1-20261023-a1",
+      "sha256": "e39fe4d49fd6b41485c64569a2fe472dfe12986aafd81bd424dcf2c3bac1acda",
+      "slot": "W1",
+      "topic_id": "TH-000014"
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
   "leases": {
+    "W1": {
+      "agent_id": "claude-writer-R1",
+      "expires_at": 1792724452.319819,
+      "fence": "eb4a00a82d294ae6831555f5debafc78",
+      "heartbeat_at": "2026-10-23T02:30:52.319798+00:00",
+      "session": "r1-20261023-a1",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
     "W2": {
       "agent_id": "claude-writer-R2",
       "expires_at": 1792723747.705592,
@@ -1323,7 +1345,7 @@
           "url": "https://nchmf.gov.vn/KttvSiteE/"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000014"
     },
     "TH-000015": {
@@ -2759,5 +2781,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 119
+  "version": 120
 }
