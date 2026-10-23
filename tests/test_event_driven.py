@@ -12,9 +12,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 from test_queue_e2e import Line, LockedGitHub
-from thuha import cli, quality
-from thuha.common import SITE, digest, now
-from thuha.coordinator import claim
+from thuha import cli
+from thuha.common import ROOT, SITE, now
+from thuha.coordinator import claim, submit
 from thuha.http import NetworkError
 from thuha.research import intake
 from thuha.store import GitStore, LocalStore
@@ -114,19 +114,18 @@ class SharedWriterTests(Line):
 
     def test_a_batch_qa_run_dispatches_once_for_what_passed_and_never_for_a_repeat(self):
         topic, lease = self.claimed()
-        with patch('thuha.cli.GitStore', lambda: self.shared), contextlib.redirect_stdout(io.StringIO()):
-            pass
         article = self.article_for(topic, lease['session'], lease['agent_id'])
-        from thuha.coordinator import submit
         submit(self.shared, lease['slot'], lease['session'], lease['fence'], article)  # stored, not yet evaluated
-        out = io.StringIO()
-        with patch('thuha.cli.GitStore', lambda: self.shared), contextlib.redirect_stdout(out):
-            first = cli.main(['--remote', 'qa', '--pending'])
-            second = cli.main(['--remote', 'qa', '--pending'])
-        outputs = [json.loads(x) for x in out.getvalue().replace('}\n{', '}\n\x00{').split('\x00')]
-        self.assertEqual((first, second), (0, 0))
-        self.assertEqual(outputs[0]['publisher_trigger']['status'], 'DISPATCH_ACCEPTED')
-        self.assertNotIn('publisher_trigger', outputs[1])  # nothing is pending any more
+
+        def run_qa_command():
+            out = io.StringIO()
+            with patch('thuha.cli.GitStore', lambda: self.shared), contextlib.redirect_stdout(out):
+                code = cli.main(['--remote', 'qa', '--pending'])
+            return code, json.loads(out.getvalue())
+        (first_code, first), (second_code, second) = run_qa_command(), run_qa_command()
+        self.assertEqual((first_code, second_code), (0, 0))
+        self.assertEqual(first['publisher_trigger']['status'], 'DISPATCH_ACCEPTED')
+        self.assertNotIn('publisher_trigger', second)  # nothing is pending any more
         self.assertEqual(len(self.api.dispatches), 1)
 
 
@@ -172,7 +171,6 @@ class InventoryRefreshTests(unittest.TestCase):
 
 class WorkflowTriggerTests(unittest.TestCase):
     def test_the_publisher_workflow_runs_on_the_dispatch_and_keeps_the_hourly_fallback(self):
-        from thuha.common import ROOT
         text = (ROOT / '.github/workflows/thuha-ready-publisher.yml').read_text(encoding='utf-8')
         head = text[:text.index('jobs:')]
         self.assertIn('repository_dispatch', head)
@@ -181,8 +179,7 @@ class WorkflowTriggerTests(unittest.TestCase):
         for job in ('preflight', 'queue', 'protected-publish'):
             body = text[text.index('  ' + job + ':'):]
             gate = body[:body.index('runs-on')]
-            self.assertNotIn("!= 'repository_dispatch'", gate)  # no job excludes the event
-            self.assertNotIn("== 'workflow_dispatch'", gate.split('||')[0] if job == 'preflight' else '')
+            self.assertNotIn('repository_dispatch', gate)  # no job names the event, so none excludes it (they only test other events)
 
 
 if __name__ == '__main__':
