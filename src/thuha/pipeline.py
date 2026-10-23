@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from .coordinator import timestamp, claim_order
 from .http import NetworkError
 from .language import LANGUAGES
-from .publisher import PublishBlocked, release_guard, open_alerts, quota_unresolved
+from .publisher import PublishBlocked, release_guard, release_intent_cap, open_alerts, quota_unresolved
 from .quota import LanguageComplete, CLOSED_PHASES
 from .store import event
 
@@ -55,7 +55,7 @@ def remaining_budget(state, release, day=None):
     day = day or datetime.now(timezone.utc).date().isoformat()
     intents = {k: v for k, v in state.get('intents', {}).items() if v.get('phase') not in CLOSED_PHASES}
     pending = quota_unresolved(state)
-    cap = release['pilot_max_posts'] if release.get('stage', 'pilot') == 'pilot' else release['approved_capacity']
+    cap = release_intent_cap(release, state)
     daily = sum(v.get('reserved_at', '')[:10] == day for v in intents.values())
     return {
         'remaining': max(0, min(cap - len(intents), release['maximum_daily_posts'] - daily)),
@@ -133,13 +133,12 @@ def drain(publisher, sleep=time.sleep):
         if quota_unresolved(state):
             return halt('Unresolved publication outcome(s): ' + ', '.join(quota_unresolved(state)) + '. Reconcile; the POST is never repeated')
     enabled = set(release.get('languages_enabled', []))
-    window = remaining_budget(state, release)
     candidates = sorted((k for k, v in state.get('topics', {}).items()
                          if v.get('status') == 'READY' and v.get('language') in enabled),
                         key=lambda k: claim_order({**state['topics'][k], 'topic_id': k}))
     full = set()
     for topic_id in candidates:
-        if len(summary['published']) >= window['remaining']:
+        if remaining_budget(publisher.store.read(), publisher.release_loader())['remaining'] <= 0:
             break
         release = publisher.release_loader()
         release_guard(release, publisher.store)
