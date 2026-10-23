@@ -12,6 +12,8 @@ Authorized Claude/ChatGPT writer(s), W1/W2/W3 (or other available slots)
   → one POST + durable intent + WordPress readback + verified receipt
 ```
 
+- Topic intake also runs **without a separate intent reviewer**: primary-source capture, exact live taxonomy, URL/slug/intent/title collision checks and declared negative verdict protection stay mandatory.
+- If the 6-hour WordPress inventory expires, a write-capable CLI operation automatically fetches a new **read-only live WordPress inventory** and stores its snapshot before QA/claim/intake. No scheduled audit or guessed inventory bypass is needed. Read-only preflight remains read-only.
 - **No AI or human article-review gate.** `config/qa.json` keeps **score_threshold=85**, all existing technical/content/source/taxonomy/duplicate and safety hard failures. The review score is replaced by a measured H2 structure score, never a fake review.
 - **No timed publication waiting.** `minimum_post_interval_seconds=0`, but queue serialization, release stage, daily capacity and WordPress/REST limits remain. The hourly cron is a recovery fallback, **not** the primary trigger.
 - Each writer must be a **real authorized external AI session**. GitHub Actions never invents prose, fake heartbeats, references, publications or QA.

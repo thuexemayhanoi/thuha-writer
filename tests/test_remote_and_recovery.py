@@ -11,7 +11,7 @@ from thuha.common import REPO,canonical_json,digest,load,ROOT,now
 from thuha.store import GitStore,GitError,LocalStore,initial,event,validate,GitHub
 from thuha.coordinator import claim,submit,heartbeat
 from thuha.publisher import verify_security
-from thuha.cli import main
+from thuha.cli import main, inventory_for
 from thuha.dashboard import report
 
 
@@ -148,6 +148,32 @@ class SecurityTests(unittest.TestCase):
         class API:
             def request(self,*args):return {}
         with self.assertRaises(ValueError):verify_security(API())
+    def test_expired_remote_inventory_refreshes_from_wordpress_get(self):
+        from thuha.common import SITE
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp)
+            store.durable_remote=True
+            stale={'site':SITE,'captured_at':'2020-01-01T00:00:00+00:00','complete':True,'errors':[]}
+            fresh={'site':SITE,'captured_at':now(),'complete':True,'errors':[],
+                   'items':[],'categories':[],'counts':{'posts':0,'pages':0,'live_verified_posts':0}}
+            path=Path(temp)/'inventory.json'
+            path.write_text(json.dumps(stale))
+            with patch('thuha.cli.audit.inventory',return_value=fresh) as fetch:
+                out=inventory_for(store,path,21600)
+            self.assertEqual(out,fresh)
+            self.assertEqual(fetch.call_count,1)
+            self.assertEqual(store.get_document(store.read()['inventory_document']),fresh)
+    def test_fresh_inventory_does_not_make_external_requests(self):
+        from thuha.common import SITE
+        with tempfile.TemporaryDirectory() as temp:
+            store=LocalStore(temp)
+            store.durable_remote=True
+            fresh={'site':SITE,'captured_at':now(),'complete':True,'errors':[]}
+            path=Path(temp)/'inventory.json'
+            path.write_text(json.dumps(fresh))
+            with patch('thuha.cli.audit.inventory') as fetch:
+                self.assertEqual(inventory_for(store,path,21600),fresh)
+            fetch.assert_not_called()
     def test_credential_presence_command_never_prints_secret_values(self):
         output=io.StringIO()
         with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,THUHA_WP_USER='private-fixture-user',THUHA_WP_APPLICATION_PASSWORD='private-fixture-password'),patch('sys.stdout',output):

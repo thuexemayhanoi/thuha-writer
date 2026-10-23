@@ -32,9 +32,24 @@ def dispatch_qa_ready(store, topic_ids):
                 'reason':type(exc).__name__}
 
 
-def inventory_for(store,path):
+def inventory_for(store,path,max_age=None):
+    """Refresh expired live WordPress evidence for write-capable operations.
+
+    This uses public GET requests only. Read-only health/dry-run workflows
+    deliberately pass max_age=None and do not mutate durable remote state.
+    """
     state=store.read()
-    return store.get_document(state['inventory_document']) if state.get('inventory_document') else load(path)
+    snapshot=store.get_document(state['inventory_document']) if state.get('inventory_document') else load(path)
+    if max_age is not None and getattr(store,'durable_remote',False):
+        try:
+            validate_inventory(snapshot,max_age)
+        except ValueError:
+            fresh=audit.inventory() # live public GET; never a WordPress POST
+            validate_inventory(fresh,max_age)
+            document=store.put_document(fresh)
+            store.mutate(lambda st:st.update(inventory_document=document))
+            return fresh
+    return snapshot
 
 
 def main(argv=None):
@@ -88,7 +103,7 @@ def main(argv=None):
     elif args.command in ('coordinator','recovery'):
         result={'expired_slots':store.mutate(coordinator.recover),'ai_runtime':'External session required; no AI launched'}
     elif args.command=='claim':
-        inv=inventory_for(store,args.inventory);validate_inventory(inv)
+        inv=inventory_for(store,args.inventory,policy['inventory_max_age_seconds']);validate_inventory(inv)
         research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'])
         result=coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'])
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
@@ -97,7 +112,7 @@ def main(argv=None):
         result={'submission':coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])}
         if result['submission'].get('status')!='NEEDS_REVIEW':
             topic_id=store.read()['leases'][args.slot]['topic_id']
-            inv=inventory_for(store,args.inventory)
+            inv=inventory_for(store,args.inventory,policy['inventory_max_age_seconds'])
             qa=quality.run_qa(store,topic_id,inv,policy,facts)
             result['qa']=qa
             if qa['status']=='PASS':
@@ -113,8 +128,8 @@ def main(argv=None):
                 'qa':store.get_document(state['qa'][args.topic_id]['report_sha']) if args.topic_id in state['qa'] else None,
                 'leases':[v for v in state['leases'].values() if v['topic_id']==args.topic_id]}
     elif args.command=='brief':result=pipeline.brief(store.read(),args.limit)
-    elif args.command=='intake':result={'admitted':research.intake(store,load(args.file),inventory_for(store,args.inventory),factory['refill_batch_max'])}
-    elif args.command=='refill':result=research.refill(store,inventory_for(store,args.inventory),factory['refill_below'],factory['refill_batch_max'])
+    elif args.command=='intake':result={'admitted':research.intake(store,load(args.file),inventory_for(store,args.inventory,policy['inventory_max_age_seconds']),factory['refill_batch_max'])}
+    elif args.command=='refill':result=research.refill(store,inventory_for(store,args.inventory,policy['inventory_max_age_seconds']),factory['refill_below'],factory['refill_batch_max'])
     elif args.command=='review':
         value=load(args.file)
         # Setting a string ID is attribution, not authentication; enforced GitHub
@@ -126,7 +141,7 @@ def main(argv=None):
         store.mutate(lambda s:s.setdefault('reviews',{}).update({args.topic_id:document}))
         result={'review_document':document}
     elif args.command=='qa':
-        inv=inventory_for(store,args.inventory)
+        inv=inventory_for(store,args.inventory,policy['inventory_max_age_seconds'])
         ids=[args.topic_id] if args.topic_id else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
         result={'results':{}}
         passed=[]
@@ -141,7 +156,7 @@ def main(argv=None):
                 exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)
         if passed:result['publisher_trigger']=dispatch_qa_ready(store,passed)
     elif args.command=='publisher':
-        pub=Publisher(store,WordPress(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
+        pub=Publisher(store,WordPress(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory,policy['inventory_max_age_seconds'] if args.mode in ('production','drain') else None),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()
         elif args.mode=='drain':result=pipeline.drain(pub)
         elif args.mode=='production':

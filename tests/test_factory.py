@@ -110,6 +110,16 @@ class CoordinationTests(Fixture):
 
 class ResearchTests(Fixture):
     def test_valid_admission(self):self.assertEqual(intake(self.store,[self.candidate()],self.inv),['TH-000001'])
+    def test_source_backed_topic_does_not_need_ai_intent_reviewer(self):
+        topic=self.candidate()
+        topic.pop('intent_review')
+        self.assertEqual(intake(self.store,[topic],self.inv),['TH-000001'])
+    def test_non_distinct_topic_verdict_cannot_be_auto_approved(self):
+        topic=self.candidate()
+        topic['intent_review']={'verdict':'MERGE'}
+        with self.assertRaises(ValueError):
+            intake(self.store,[topic],self.inv)
+
     def test_wrong_parent_blocks_intake(self):
         c=self.candidate();c['category_path']=[20]
         with self.assertRaises(ValueError):intake(self.store,[c],self.inv)
