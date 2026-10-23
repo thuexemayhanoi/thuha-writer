@@ -6628,6 +6628,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:08:12.659015+00:00",
+      "expires_at": 1792773492.659007,
+      "fence": "deeebbfbfc474c23901f4507946d0e7b",
+      "heartbeat_at": "2026-10-23T16:08:12.658986+00:00",
+      "language": "vi",
+      "previous": "7efa9f4c8bf3a3a2468e228fffe53f68ca920057cf0bbef6bf1d353097850852",
+      "session": "sess-b3",
+      "sha256": "df30fd5b80a0c7f1b16bdf3a591cceaf66fc6032ab8065fb57c97220d9794d13",
+      "slot": "W1",
+      "topic_id": "TH-VI-0491"
     }
   ],
   "intents": {
@@ -9603,7 +9617,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773492.659007,
+      "fence": "deeebbfbfc474c23901f4507946d0e7b",
+      "heartbeat_at": "2026-10-23T16:08:12.658986+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0491"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -15710,6 +15735,7 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "điện thoại hết pin giữa đường khi đi xe máy",
       "proposed_title": "Điện thoại hết pin giữa chuyến đi xa: ghi sẵn ra giấy số liên lạc và địa chỉ để không bị lạc",
@@ -15722,12 +15748,12 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0491",
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
     }
   },
-  "version": 858
+  "version": 859
 }
