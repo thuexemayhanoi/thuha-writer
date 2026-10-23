@@ -4744,6 +4744,15 @@
       "sha256": "6c4f84545713ffcbb2744e1bd888ca34611f369475a07ee5facb9a6463a7dd21",
       "slot": "W1",
       "topic_id": "TH-EN-0139"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "at": "2026-10-23T14:55:23.193918+00:00",
+      "previous": "6c4f84545713ffcbb2744e1bd888ca34611f369475a07ee5facb9a6463a7dd21",
+      "sha256": "c50445a2d81d0d963c7ff71a3131765ad9f8447bae9c6d5df49090cea872e82a",
+      "topic_id": "TH-EN-0139"
     }
   ],
   "intents": {
@@ -8236,13 +8245,13 @@
     },
     "TH-EN-0139": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "9a230d84fa6a79cc37d389cbfb493697cfe8566597244baab048a2c2e6e0ee99",
-      "commit": "b0aeb1b03fad97ade6f2cf68581a6e231d9b8329",
-      "fence": "549836a9a15e427aaed60f9cab2b499f",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "commit": "d77e66a9e2bf0bc0897551dc60067a8d80aeaa27",
+      "fence": "3ee3796cfcd6422abad75704eff742f4",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:24.243127+00:00"
+      "submitted_at": "2026-10-23T14:55:23.193897+00:00"
     },
     "TH-EN-0140": {
       "agent_id": "claude-writer-W2",
@@ -11076,7 +11085,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "not ridden motorbike in years hanoi rent",
       "proposed_title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
@@ -11089,9 +11097,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0139",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0139"
     },
     "TH-EN-0140": {
       "admitted_at": "2026-10-23T12:08:22.403104+00:00",
@@ -12680,5 +12687,5 @@
       ]
     }
   },
-  "version": 640
+  "version": 641
 }
