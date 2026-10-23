@@ -4186,6 +4186,15 @@
       "sha256": "2f76e0fb0da91a6fa09c791bd3012186ece67a0c3bbeba3fcf61912869910fbb",
       "slot": "W1",
       "topic_id": "TH-EN-0141"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "60e266430382cab8e1ec184b2496cfb6f219f51aeabe913ec671b93566878b39",
+      "at": "2026-10-23T13:59:09.385035+00:00",
+      "previous": "2f76e0fb0da91a6fa09c791bd3012186ece67a0c3bbeba3fcf61912869910fbb",
+      "sha256": "7d8304b7c2b3875fb3d06e4e2f424daaadb7ce1784747d40a8619831ecb6e3f7",
+      "topic_id": "TH-EN-0141"
     }
   ],
   "intents": {},
@@ -4636,13 +4645,13 @@
     },
     "TH-EN-0141": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "2a7ad8786dc49aabdc77b0c4c121301b942fc27fbe5e2d5fa7191505efbd2319",
-      "commit": "4ffa0a18abb0424c03b50663459b47bef39bcad5",
-      "fence": "4bd1e97884ac44ed843c0af3f5be4539",
+      "article_sha": "60e266430382cab8e1ec184b2496cfb6f219f51aeabe913ec671b93566878b39",
+      "commit": "cd67ccda9c7697a01bc5b2ec1d3f69e8d5c4e2bf",
+      "fence": "b6203cc6b3e44683b886fb2d6a780809",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:42.716940+00:00"
+      "submitted_at": "2026-10-23T13:59:09.385011+00:00"
     },
     "TH-VI-0003": {
       "agent_id": "claude-writer-W1",
@@ -7318,7 +7327,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "following distance motorbike hanoi stop go traffic",
       "proposed_title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
@@ -7331,12 +7339,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0141",
-      "waiting_for": [
-        "FEATURED_MEDIA",
-        "INTERNAL_LINKS"
-      ]
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0141"
     },
     "TH-VI-0003": {
       "admitted_at": "2026-10-23T12:36:45.338809+00:00",
@@ -8908,5 +8912,5 @@
       ]
     }
   },
-  "version": 543
+  "version": 544
 }
