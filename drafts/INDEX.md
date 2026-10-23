@@ -4,24 +4,38 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 
 | Topic | Language | Status | Waiting for | QA | Units | Title |
 |---|---|---|---|---|---|---|
-| [TH-VI-0004](vi/TH-VI-0004.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 970 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
+| [TH-VI-0004](vi/TH-VI-0004.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1024 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
 | [TH-VI-0006](vi/TH-VI-0006.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1006 | Trả xe sớm hơn dự kiến: có được tính lại số ngày không và nên hỏi trước điều gì |
-| [TH-VI-0011](vi/TH-VI-0011.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1011 | Xước nhẹ, gãy gương, mất chìa: hỏi rõ cách tính đền bù trước khi nhận xe |
+| [TH-VI-0011](vi/TH-VI-0011.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1011 | Xước nhẹ, gãy gương, mất chìa: hỏi rõ cách tính đền bù trước khi nhận xe |
 | [TH-VI-0014](vi/TH-VI-0014.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 986 | Phụ phí khi thuê xe máy: danh sách câu hỏi để hỏi từng mục trước khi đặt |
-| [TH-VI-0016](vi/TH-VI-0016.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1033 | Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực |
-| [TH-VI-0019](vi/TH-VI-0019.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1551 | Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không |
+| [TH-VI-0016](vi/TH-VI-0016.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1033 | Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực |
+| [TH-VI-0018](vi/TH-VI-0018.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1081 | Đi cặp đôi: thuê một xe hay hai xe, cân nhắc chi phí, gửi xe và sức lái |
+| [TH-VI-0019](vi/TH-VI-0019.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1602 | Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không |
+| [TH-VI-0022](vi/TH-VI-0022.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1012 | Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy |
 | [TH-VI-0024](vi/TH-VI-0024.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1014 | Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không |
-| [TH-VI-0033](vi/TH-VI-0033.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1096 | Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản |
+| [TH-VI-0033](vi/TH-VI-0033.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1096 | Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản |
 | [TH-VI-0035](vi/TH-VI-0035.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1015 | Khi nào nhận lại tiền cọc: hỏi rõ thời điểm và cách hoàn trước khi chuyển tiền |
 | [TH-VI-0043](vi/TH-VI-0043.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 986 | Đặt cọc trước qua nhóm Facebook hay Zalo: dấu hiệu cần dừng lại và cách kiểm tra cửa hàng thật |
 | [TH-VI-0053](vi/TH-VI-0053.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 942 | Thuê hai xe cùng lúc: cọc tính theo từng xe hay gộp chung, trả một xe trước thì phần cọc xử lý ra sao |
-| [TH-VI-0058](vi/TH-VI-0058.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1156 | Tân sinh viên lên Hà Nội: thuê xe máy theo tháng khi chưa quyết định mua xe |
+| [TH-VI-0058](vi/TH-VI-0058.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1156 | Tân sinh viên lên Hà Nội: thuê xe máy theo tháng khi chưa quyết định mua xe |
 | [TH-VI-0063](vi/TH-VI-0063.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 859 | Trả tiền thuê xe theo tuần hay theo tháng: lịch thanh toán và khoản cần chuẩn bị ngày đầu |
 | [TH-VI-0089](vi/TH-VI-0089.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 782 | Nhận xe còn bao nhiêu xăng, trả xe cần bao nhiêu: thống nhất mức xăng từ đầu |
-| [TH-VI-0093](vi/TH-VI-0093.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 998 | Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao |
+| [TH-VI-0093](vi/TH-VI-0093.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1265 | Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao |
 | [TH-VI-0095](vi/TH-VI-0095.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 892 | Kết thúc kỳ thuê tháng: lịch trả xe, kiểm tra cuối kỳ và nhận lại cọc |
 | [TH-VI-0101](vi/TH-VI-0101.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 914 | Trả xe sau giờ cửa hàng đóng cửa vì tăng ca hoặc chuyến về muộn: hỏi trước chìa khóa để đâu và ai xác nhận hiện trạng xe |
+| [TH-VI-0134](vi/TH-VI-0134.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1229 | Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe |
+| [TH-VI-0146](vi/TH-VI-0146.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1287 | Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân |
+| [TH-VI-0151](vi/TH-VI-0151.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1166 | Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi? |
+| [TH-VI-0158](vi/TH-VI-0158.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1208 | Chở người ngồi sau bằng xe số: sang số thế nào để người ngồi sau không bị gật đầu hay dồn vào lưng bạn |
 | [TH-VI-0217](vi/TH-VI-0217.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 804 | Hỏi lịch sử bảo dưỡng của chiếc xe sắp thuê: tem thay nhớt, sổ bảo hành và lần kiểm tra gần nhất |
+| [TH-VI-0267](vi/TH-VI-0267.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1093 | Đi làm bằng xe thuê tháng khi mặc đồ công sở: cất áo khoác, giày thay và áo mưa thế nào cho gọn |
+| [TH-VI-0268](vi/TH-VI-0268.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1180 | Mặc váy, áo dài hoặc quần ống rộng đi xe máy: tránh vướng bánh sau, xích và chân người ngồi sau |
+| [TH-VI-0359](vi/TH-VI-0359.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1247 | Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông |
+| [TH-VI-0371](vi/TH-VI-0371.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1339 | Vào cua gắt trên đường đê hoặc đường ngoại thành: giảm tốc trước cua, nhìn xa và không phanh gấp giữa cua |
+| [TH-VI-0459](vi/TH-VI-0459.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1227 | Đi chơi trong ngày bằng nhiều xe: thứ tự chạy, điểm dừng chung và cách không bị lạc nhau |
+| [TH-VI-0484](vi/TH-VI-0484.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1286 | Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào |
+| [TH-VI-0487](vi/TH-VI-0487.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1171 | Chỉ có một ngày nghỉ mà muốn đi ba nơi: bỏ bớt điểm nào để chuyến đi không thành cuộc chạy đua |
+| [TH-VI-0491](vi/TH-VI-0491.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1262 | Điện thoại hết pin giữa chuyến đi xa: ghi sẵn ra giấy số liên lạc và địa chỉ để không bị lạc |
 | [TH-000001](en/TH-000001.json) | en | DRAFT_READY | — | FAIL | 2484 | Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit |
 | [TH-000002](en/TH-000002.json) | en | DRAFT_READY | — | FAIL | 2187 | The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk |
 | [TH-000003](en/TH-000003.json) | en | DRAFT_READY | — | not run | 2097 | Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules |
@@ -31,3 +45,10 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-000007](en/TH-000007.json) | en | DRAFT_READY | — | not run | 2190 | Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law |
 | [TH-000008](en/TH-000008.json) | en | DRAFT_READY | — | not run | 2343 | Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check |
 | [TH-000009](en/TH-000009.json) | en | DRAFT_READY | — | not run | 2269 | Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates |
+| [TH-EN-0005](en/TH-EN-0005.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1037 | Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi? |
+| [TH-EN-0012](en/TH-EN-0012.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 815 | Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent |
+| [TH-EN-0065](en/TH-EN-0065.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1021 | Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings |
+| [TH-EN-0125](en/TH-EN-0125.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 851 | Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts |
+| [TH-EN-0139](en/TH-EN-0139.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1166 | Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding |
+| [TH-EN-0140](en/TH-EN-0140.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1122 | Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider |
+| [TH-EN-0141](en/TH-EN-0141.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 924 | Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In |

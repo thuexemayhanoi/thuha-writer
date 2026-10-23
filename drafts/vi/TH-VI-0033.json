@@ -11,19 +11,19 @@
     "language": "vi",
     "meta_description": "Cọc giữ chỗ và cọc nhận xe khác nhau thế nào? Cách phân biệt, bảng số tiền cần chuẩn bị ở mỗi thời điểm, cách nhận lại cọc và vài điều khi thuê hai xe.",
     "seo_title": "Cọc giữ chỗ và cọc nhận xe khác nhau thế nào? Hỏi rõ từng khoản",
-    "session": "w7-20261023-r0033",
-    "source_commit": "e3210b598da668031a92667d04ae39728d8232b7",
+    "session": "sess-rev1",
+    "source_commit": "7aff363ea817f0ab09f9376febf2271b533fc18c",
     "sources": [
       {
-        "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
-        "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; không có chính sách giao xe, cọc hay hoàn cọc trong tệp.",
         "url": "repo://config/business-facts.json"
       }
     ],
     "title": "Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản",
     "topic_id": "TH-VI-0033"
   },
-  "article_sha": "00072245b422d2d7b872841b66c92a45a020d67a33c6d15c3c1ca9dd81da52f1",
+  "article_sha": "3c8139c3cfefddd080303d32150b204e25354ed1b253fc008e2d4b7d313bd681",
   "category_id": 153,
   "language": "vi",
   "legacy_review_on_record": false,
@@ -32,27 +32,26 @@
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
-    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
   ],
   "source_evidence": {
-    "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
       "capture_method": "repository-file",
-      "checked_at": "2026-10-23T07:16:09.633142+00:00",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
       "content_type": "application/json; repository file",
       "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
-      "file_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
       "http_status": 200,
       "http_status_basis": "the repository file was read; there is no HTTP request",
       "page_title": "config/business-facts.json",
-      "response_sha256": "d7092f0d5a385a159db0237241c5c88b1be7b6c64b61fe9e252562601b0ce069",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
       "url": "repo://config/business-facts.json"
     }
   },
   "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T08:34:44.866702+00:00",
+  "submitted_at": "2026-10-23T12:18:29.162237+00:00",
   "topic_id": "TH-VI-0033",
   "waiting_for": [
-    "AUTHORITATIVE_INVENTORY",
     "FEATURED_MEDIA",
     "INTERNAL_LINKS"
   ]
