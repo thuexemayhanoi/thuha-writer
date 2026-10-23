@@ -5604,6 +5604,22 @@
         "TH-EN-0035",
         "TH-EN-0013"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T15:30:03.341380+00:00",
+      "previous": "3afe17ff725b52779cb4e65bec18e394dfb6cf35dcd3de2a26ca61bdf90c8a9f",
+      "sha256": "894d412c55b450a5420744e1b2c8bca9fd78792d6f29ed6dd427c3acd2735b0f",
+      "topic_ids": [
+        "TH-VI-0250",
+        "TH-VI-0251",
+        "TH-VI-0247",
+        "TH-VI-0373",
+        "TH-VI-0072",
+        "TH-VI-0087",
+        "TH-VI-0100",
+        "TH-VI-0105"
+      ]
     }
   ],
   "intents": {
@@ -13369,6 +13385,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0072": {
+      "admitted_at": "2026-10-23T15:30:03.294593+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "về quê giữa kỳ thuê xe máy tháng",
+      "proposed_title": "Về quê một tuần giữa kỳ thuê tháng: để xe lại, trả tạm hay giữ nguyên hợp đồng",
+      "proposed_url": "https://rentbikehanoi.com/vi/ve-que-mot-tuan-giua-ky-thue-thang-de-xe-lai-tra-tam-hay-giu-nguyen/",
+      "search_intent": "Người thuê tháng sắp về quê nghỉ lễ hoặc ăn Tết một tuần, băn khoăn nên để xe ở đâu, có thể tạm trả rồi thuê lại hay giữ nguyên hợp đồng, và cần hỏi cửa hàng gì về tính tiền và gửi xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0072"
+    },
     "TH-VI-0086": {
       "admitted_at": "2026-10-23T15:15:19.785642+00:00",
       "category_id": 155,
@@ -13392,6 +13432,30 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0086"
+    },
+    "TH-VI-0087": {
+      "admitted_at": "2026-10-23T15:30:03.310489+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê chiều hôm trước để đi sớm",
+      "proposed_title": "Nhận xe chiều hôm trước để đi từ tinh mơ: để xe qua đêm ở đâu và nhận thế nào cho kịp",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-chieu-hom-truoc-de-di-tu-tinh-mo-de-xe-qua-dem-o-dau/",
+      "search_intent": "Người định xuất phát lúc năm sáu giờ sáng để đi xa muốn nhận xe từ chiều hôm trước vì cửa hàng chưa mở, cần cân nhắc chỗ để xe qua đêm, kiểm tra xe ban ngày và hỏi cửa hàng cách sắp xếp.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0087"
     },
     "TH-VI-0088": {
       "admitted_at": "2026-10-23T15:15:19.798347+00:00",
@@ -13574,6 +13638,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0100": {
+      "admitted_at": "2026-10-23T15:30:03.325634+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "kéo vali đến nhận xe thuê gửi hành lý ở đâu",
+      "proposed_title": "Kéo vali đến nhận xe thuê: hỏi chỗ gửi đồ và cách xếp hành lý lên xe ngay tại cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/keo-vali-den-nhan-xe-thue-hoi-cho-gui-do-va-cach-xep-hanh-ly/",
+      "search_intent": "Người vừa xuống tàu hoặc xe khách, còn vali và túi lớn, đến nhận xe và cần biết hỏi cửa hàng về chỗ gửi đồ tạm, cách xếp hành lý lên xe cho an toàn trước khi đi tiếp, thay vì loay hoay ngoài ngõ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0100"
+    },
     "TH-VI-0101": {
       "admitted_at": "2026-10-23T07:53:32.008938+00:00",
       "category_id": 155,
@@ -13619,6 +13707,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0105": {
+      "admitted_at": "2026-10-23T15:30:03.341333+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "đến nhận xe thuê nhưng xe chưa sẵn sàng",
+      "proposed_title": "Đến đúng giờ hẹn nhưng xe chưa về hoặc chưa kiểm xong: chờ bao lâu là hợp lý và giờ thuê tính từ lúc nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/den-dung-gio-hen-nhung-xe-chua-ve-hoac-chua-kiem-xong-cho-bao-lau/",
+      "search_intent": "Người đã hẹn giờ nhận xe, tới nơi thấy xe chưa được trả về hoặc còn đang kiểm tra; cần hỏi nhân viên về thời gian chờ, giờ bắt đầu tính thuê, phương án xe thay thế hoặc dời giờ, và nhắn lại điều gì để hai bên cùng nhớ đúng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0105"
     },
     "TH-VI-0121": {
       "admitted_at": "2026-10-23T13:00:04.418980+00:00",
@@ -13984,6 +14096,30 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0246"
     },
+    "TH-VI-0247": {
+      "admitted_at": "2026-10-23T15:30:03.260506+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê thủng lốp ai chịu chi phí vá lốp",
+      "proposed_title": "Xe thuê thủng lốp giữa đường: vá tạm ở tiệm gần nhất hay chờ cửa hàng, và chi phí ai chịu",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-thung-lop-giua-duong-va-tam-hay-cho-cua-hang/",
+      "search_intent": "Người thuê bị đinh đâm thủng lốp ở nơi có tiệm vá gần, cân nhắc nhờ vá ngay hay chờ cửa hàng hướng dẫn, cần biết hỏi gì về chi phí, biên lai và việc thay lốp mới nếu thợ nói không vá được.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0247"
+    },
     "TH-VI-0248": {
       "admitted_at": "2026-10-23T15:15:19.730294+00:00",
       "category_id": 161,
@@ -14007,6 +14143,54 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0248"
+    },
+    "TH-VI-0250": {
+      "admitted_at": "2026-10-23T15:30:03.228466+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê bị trầy xước nhẹ báo cửa hàng lúc nào",
+      "proposed_title": "Xe thuê bị trầy xước nhẹ khi dắt vào ngõ hẹp: báo cửa hàng ngay hay đợi đến lúc trả xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-tray-xuoc-nhe-trong-ngo-hep-bao-ngay-hay-doi-luc-tra/",
+      "search_intent": "Người thuê dắt xe vào ngõ nhỏ chợt quệt vào tường, để lại vết xước ở yếm hoặc tay lái, phân vân giữa báo ngay và đợi lúc trả xe, cần biết cách báo sớm kèm ảnh và hỏi cửa hàng cách xác nhận mức độ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0250"
+    },
+    "TH-VI-0251": {
+      "admitted_at": "2026-10-23T15:30:03.246732+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "tự ngã xe máy thuê trên đường trơn báo cửa hàng",
+      "proposed_title": "Tự trượt ngã khi đang chạy xe thuê, không va vào ai: lo cho người trước, rồi mới ghi nhận xe và báo cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/tu-truot-nga-khi-chay-xe-thue-lo-cho-nguoi-truoc-roi-bao-cua-hang/",
+      "search_intent": "Người thuê một mình trượt bánh và ngã trên mặt đường ướt, không có xe hay người nào khác dính vào; cần biết thứ tự việc phải làm khi còn đau, xe nằm giữa đường và chưa rõ nên chạy tiếp hay gọi cửa hàng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0251"
     },
     "TH-VI-0263": {
       "admitted_at": "2026-10-23T13:00:04.430804+00:00",
@@ -14142,6 +14326,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0373": {
+      "admitted_at": "2026-10-23T15:30:03.276564+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "dặn người ngồi sau khi chở xe máy phanh vào cua",
+      "proposed_title": "Chở người ngồi sau chưa quen xe máy: dặn trước điều gì khi phanh, vào cua và lên xuống để xe không mất thăng bằng",
+      "proposed_url": "https://rentbikehanoi.com/vi/dan-nguoi-ngoi-sau-chua-quen-xe-may-khi-phanh-vao-cua-len-xuong/",
+      "search_intent": "Người thuê xe chở bạn hoặc người nhà chưa quen ngồi sau, hay nghiêng ngược lúc vào cua hoặc ôm chặt khi phanh; cần biết nên dặn những gì trước khi chạy và thống nhất tín hiệu đơn giản để hai người phối hợp.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0373"
     },
     "TH-VI-0445": {
       "admitted_at": "2026-10-23T13:00:04.441257+00:00",
@@ -14279,5 +14487,5 @@
       ]
     }
   },
-  "version": 740
+  "version": 741
 }
