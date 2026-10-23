@@ -2198,6 +2198,15 @@
       "reason": "Merged after the second independent editorial review: the fuel and battery record now lives in the hand-over checklist of TH-VI-0011.",
       "sha256": "18b18ff43ad36d57c819ac673e542a57b728aa7c5a69e2a135afca3118aa7948",
       "topic_id": "TH-VI-0089"
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:43.729755+00:00",
+      "previous": "18b18ff43ad36d57c819ac673e542a57b728aa7c5a69e2a135afca3118aa7948",
+      "previous_status": "WAITING_DATA",
+      "reason": "Merged after the second independent editorial review: return after closing time now lives in TH-VI-0093 (same situation: arriving later than agreed).",
+      "sha256": "0b385b75b47da4e0326144e5af7d9af9def8a9bd8f8f497a1fbe4903bdd690a2",
+      "topic_id": "TH-VI-0101"
     }
   ],
   "intents": {},
@@ -5275,6 +5284,11 @@
         155
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T08:19:43.729731+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Merged after the second independent editorial review: return after closing time now lives in TH-VI-0093 (same situation: arriving later than agreed)."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -5299,7 +5313,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0101",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5349,5 +5363,5 @@
       ]
     }
   },
-  "version": 290
+  "version": 291
 }
