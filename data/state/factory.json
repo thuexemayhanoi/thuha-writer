@@ -7176,6 +7176,22 @@
         "TH-EN-0128",
         "TH-EN-0022"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T16:38:47.718358+00:00",
+      "previous": "ce64499571305abbc0edaf6907e3c238a7edb4b2b97156d79edc71415486224d",
+      "sha256": "415eb014128bbdb316c0d5d8e0952ce4d4a840577c8d424cb9ba6b8b625d7950",
+      "topic_ids": [
+        "TH-VI-0005",
+        "TH-VI-0007",
+        "TH-VI-0012",
+        "TH-VI-0021",
+        "TH-VI-0025",
+        "TH-VI-0054",
+        "TH-VI-0094",
+        "TH-VI-0139"
+      ]
     }
   ],
   "intents": {
@@ -10634,6 +10650,17 @@
       "status": "FULFILLED"
     },
     "research-vi-b9db1237c27c80a7": {
+      "admitted_topic_ids": [
+        "TH-VI-0005",
+        "TH-VI-0007",
+        "TH-VI-0012",
+        "TH-VI-0021",
+        "TH-VI-0025",
+        "TH-VI-0054",
+        "TH-VI-0094",
+        "TH-VI-0139"
+      ],
+      "completed_at": "2026-10-23T16:38:47.718346+00:00",
       "created_at": "2026-10-23T15:40:17.261364+00:00",
       "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
       "language": "vi",
@@ -10641,7 +10668,7 @@
       "planned": 16,
       "request_id": "research-vi-b9db1237c27c80a7",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-d08b8dd5e031330b": {
       "admitted_topic_ids": [
@@ -14800,6 +14827,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0005": {
+      "admitted_at": "2026-10-23T16:38:47.572528+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy theo buổi hay theo giờ",
+      "proposed_title": "Chỉ cần xe vài tiếng hay một buổi: hỏi cửa hàng có gói ngắn hơn một ngày không",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-theo-buoi-hay-theo-gio-nen-hoi-gi/",
+      "search_intent": "Người cần xe một buổi sáng để giải quyết giấy tờ hoặc gặp khách rồi trả luôn, muốn biết nên hỏi gì về thuê nửa ngày, theo buổi hoặc theo giờ thay vì mặc định thuê trọn ngày.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0005"
+    },
     "TH-VI-0006": {
       "admitted_at": "2026-10-23T07:26:56.982134+00:00",
       "category_id": 152,
@@ -14845,6 +14896,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0007": {
+      "admitted_at": "2026-10-23T16:38:47.587219+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy dịp nghỉ lễ dài ngày",
+      "proposed_title": "Thuê xe dịp nghỉ lễ dài ngày: hỏi gì về báo giá và nên chốt xe sớm đến mức nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-dip-nghi-le-dai-ngay-hoi-gi-ve-bao-gia/",
+      "search_intent": "Nhóm bạn định đi chơi Hà Nội dịp nghỉ lễ 30/4 hoặc 2/9, lo đông khách nên muốn biết cần xác nhận gì về báo giá, số xe còn lại và hạn chốt trước khi chuyển tiền cho cửa hàng.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0007"
     },
     "TH-VI-0008": {
       "admitted_at": "2026-10-23T12:36:45.388359+00:00",
@@ -14938,6 +15013,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0012": {
+      "admitted_at": "2026-10-23T16:38:47.604414+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "hỏi ưu đãi khi thuê xe nhiều ngày",
+      "proposed_title": "Thuê nhiều ngày hoặc nhiều xe: hỏi ưu đãi sao cho lịch sự và rõ ràng",
+      "proposed_url": "https://rentbikehanoi.com/vi/hoi-uu-dai-khi-thue-nhieu-ngay-hoac-nhieu-xe/",
+      "search_intent": "Khách định thuê hai xe cả tuần muốn hỏi cửa hàng về ưu đãi theo thời gian hay số lượng nhưng ngại mặc cả, cần cách nhắn rõ nhu cầu và ghi lại những gì hai bên đã thống nhất.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0012"
     },
     "TH-VI-0013": {
       "admitted_at": "2026-10-23T12:36:45.318885+00:00",
@@ -15144,6 +15243,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0021": {
+      "admitted_at": "2026-10-23T16:38:47.625527+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nên đặt xe máy trước bao lâu",
+      "proposed_title": "Chốt xe trước vài tuần hay đến nơi mới hỏi: mỗi kiểu chuyến đi hợp cách nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/nen-dat-xe-may-truoc-bao-lau-hay-hoi-sat-ngay/",
+      "search_intent": "Người lên kế hoạch đi Hà Nội trong tháng tới băn khoăn nên chốt xe sớm hay đợi sát ngày, nhất là khi chưa chắc lịch tàu hoặc xe khách, và cần biết tình huống nào nên đặt trước.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0021"
+    },
     "TH-VI-0022": {
       "admitted_at": "2026-10-23T11:56:51.636611+00:00",
       "category_id": 152,
@@ -15216,6 +15339,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0025": {
+      "admitted_at": "2026-10-23T16:38:47.658537+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê thêm xe thứ hai giữa chuyến đi",
+      "proposed_title": "Bạn đi cùng đến Hà Nội sau vài ngày: thuê thêm xe thứ hai giữa chuyến thì tính ngày thuê và ngân sách ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/ban-di-cung-den-ha-noi-sau-vai-ngay-thue-them-xe-thu-hai-giua-chuyen/",
+      "search_intent": "Nhóm hoặc gia đình đã thuê một xe, mấy ngày sau có người ra Hà Nội muộn hơn và cần xe riêng; cần biết hỏi cửa hàng về ngày bắt đầu và ngày kết thúc của xe thứ hai, có xếp chung kỳ thuê với xe đầu không và cách ghi lại thỏa thuận mới.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0025"
     },
     "TH-VI-0026": {
       "admitted_at": "2026-10-23T12:36:45.349250+00:00",
@@ -15420,6 +15567,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0054": {
+      "admitted_at": "2026-10-23T16:38:47.680335+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "số người thân liên hệ khẩn cấp khi thuê xe máy",
+      "proposed_title": "Cửa hàng xin số người thân làm liên hệ khẩn cấp: nên cho số của ai và dặn họ điều gì trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/cua-hang-xin-so-nguoi-than-lam-lien-he-khan-cap-khi-thue-xe/",
+      "search_intent": "Người thuê được cửa hàng hỏi thêm số điện thoại của người thân và băn khoăn nên chọn ai, cần nói trước gì với họ, cửa hàng dùng số đó vào lúc nào và có thể hỏi về việc lưu trữ số điện thoại ra sao.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0054"
     },
     "TH-VI-0058": {
       "admitted_at": "2026-10-23T07:26:57.054356+00:00",
@@ -15779,6 +15950,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0094": {
+      "admitted_at": "2026-10-23T16:38:47.703450+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "trả xe thuê bị bám bùn có phải rửa không",
+      "proposed_title": "Trả xe bám đầy bùn sau chuyến đi mưa: nên rửa trước khi trả hay để cửa hàng xử lý",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-bam-day-bun-sau-chuyen-di-mua-rua-truoc-hay-de-cua-hang/",
+      "search_intent": "Sau chuyến đi ngoại thành gặp mưa, xe dính nhiều bùn đất, người thuê phân vân tự rửa trước khi trả hay để nguyên, cần hỏi cửa hàng quy ước vệ sinh và cách chụp ảnh tình trạng xe trước khi rửa.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0094"
+    },
     "TH-VI-0095": {
       "admitted_at": "2026-10-23T07:53:31.997747+00:00",
       "category_id": 155,
@@ -16005,6 +16200,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0139": {
+      "admitted_at": "2026-10-23T16:38:47.718311+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "đi làm hằng ngày nên chọn xe số hay xe ga",
+      "proposed_title": "Đi làm hằng ngày qua nhiều đèn đỏ: xe số hay xe ga ít mệt tay và mệt chân hơn",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-lam-hang-ngay-qua-nhieu-den-do-xe-so-hay-xe-ga/",
+      "search_intent": "Người đi làm mỗi sáng qua nhiều giao lộ đông, cân nhắc thuê xe số hay xe ga, cần so độ mệt của chân trái, độ dễ luồn ngõ với tiện lợi của xe ga để quyết định trước khi thuê theo tuần.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0139"
     },
     "TH-VI-0140": {
       "admitted_at": "2026-10-23T12:36:45.368297+00:00",
@@ -16701,5 +16920,5 @@
       ]
     }
   },
-  "version": 920
+  "version": 921
 }
