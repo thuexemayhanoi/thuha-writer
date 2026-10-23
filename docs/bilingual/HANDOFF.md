@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
+
 > **CẬP NHẬT HIỆN HÀNH 23/10/2026:** Đây là **hồ sơ bàn giao giai đoạn cũ**, không phải lệnh triển khai lại toàn bộ plugin, cấu trúc category hay bật Publisher. Hãy đọc [AGENTS.md](../../AGENTS.md) và [prompt Claude hiện hành](CLAUDE-PROMPT.md). Repo chỉ có một chính sách QA >=75 và không bắt reviewer; release đã được owner bật `auto-scale` (50/ngày) và shared ledger v448 đã có 9 EN PUBLISHED receipts. Không suy từ biên nhận EN rằng bài VI đã sẵn sàng. Số 275 EN/0 VI và câu “chưa bật publisher” dưới đây chỉ là snapshot lịch sử ngày 22/10.
 
 # Bàn giao workflow hai ngôn ngữ — rentbikehanoi.com
@@ -102,7 +104,7 @@ publisher, thay vì tin query public luôn trả đủ. Endpoint mới phải c�
 test thiếu quyền/sai ngôn ngữ và readback đầy đủ; chưa deploy phải báo PENDING.
 
 Nội dung mới dùng canonical tự trỏ về URL ngôn ngữ của mình, title/meta/H1/
-ảnh alt/internal links cùng ngôn ngữ. Chỉ tạo hreflang cặp tương đương hai chiều
+ảnh tùy chọn/internal links cùng ngôn ngữ. Chỉ tạo hreflang cặp tương đương hai chiều
 đã tồn tại; không ghép bài khác ý định chỉ vì đủ số. Không cài plugin dịch ngoài,
 không gọi AI/translation API. WordPress REST có xác thực của publisher là cơ
 chế xuất bản hiện có, không phải dịch vụ AI trả phí.

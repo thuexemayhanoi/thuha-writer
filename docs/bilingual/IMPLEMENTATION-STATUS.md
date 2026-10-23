@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
+
 ## Verified current checkpoint — 23/10/2026 (use over historic notes below)
 
 - Exact scope: `thuexemayhanoi/thuha-writer` / `https://rentbikehanoi.com`.
@@ -17,7 +19,7 @@
 Theo yêu cầu mới của chủ website, bài hoàn chỉnh đi thẳng từ writer -> QA >=75/100,
 kiểm tra trùng + danh mục/ngôn ngữ -> publisher. Không chờ AI reviewer và không cần
 `review.json`/`THUHA_REVIEWER_ID`. Điểm tự động gốc tối đa 80 được quy đổi về 100;
-review không cộng điểm. Mọi hard fail, nguồn, ảnh/alt, link thật, quota và chống đăng trùng vẫn giữ.
+review không cộng điểm. Mọi hard fail ngoài ảnh/alt (đã bỏ), nguồn, link thật, quota và chống đăng trùng vẫn giữ.
 `precheck` trả `would_pass_qa`, `hard_fails` và điểm thật; điểm thấp trả lỗi kể cả khi không có hard fail.
 
 `qa --pending` nhận tất cả DRAFT_READY, chạy lại READY khi policy/hash cũ, loại WAITING_DATA/HELD.
@@ -49,7 +51,7 @@ Mục tiêu: tìm chỗ bài hoàn chỉnh vẫn bị chặn hoặc bị đẩy 
 | `precheck` và QA phân loại "thiếu dữ liệu" khác nhau và quá lỏng | Bài thiếu liên kết bị dán nhãn chờ dữ liệu, chờ vô hạn | Một bộ phân loại chung `src/thuha/datawait.py`; liên kết sai/quá ít, ảnh chưa chọn dù có ảnh, điểm vẫn dưới 85 dù đủ dữ liệu đều là lỗi bài |
 | **7 bản VI chỉ liên kết tới trang chuyên mục** | QA cần ≥1 liên kết tới bài/trang nội dung đang sống; trang chuyên mục không tính, nên chưa bản nào qua được ngay cả khi có dữ liệu | Ghi rõ: khi hoàn tất, writer phải thêm một liên kết tới nội dung VI đang sống (xem câu hỏi mới cho chủ website bên dưới) |
 | `promote` từ chối bản thảo `WAITING_DATA` được hoàn tất ở phiên sau ("Submission replaced without a repair") | Sau lần chuyển đầu, mọi bản VI hoàn tất ở phiên sau sẽ kẹt trên nhánh (không nhận bản thảo sau push) | `continuity` chấp nhận thay bản đang `WAITING_DATA` không tăng lượt sửa; mọi trường hợp khác vẫn bị từ chối (test cả hai chiều) |
-| `submit` nhận bản không có ảnh mà không khai báo chờ | Bản đó chỉ có thể rơi vào sửa ở QA | `submit` từ chối `featured_media` rỗng trừ khi `--waiting-for FEATURED_MEDIA` |
+| `submit` nhận bản không có ảnh mà không khai báo chờ | Bản đó chỉ có thể rơi vào sửa ở QA | **Đã thay đổi:** `submit` cho phép `featured_media` null và không yêu cầu chờ ảnh |
 | PR không cho thấy sổ cái có còn chuyển được không | Chỉ biết sau khi merge | Bước `quality` của PR (cùng repo) in kế hoạch hand-over chỉ-đọc vào Step Summary |
 | Tài liệu vận hành còn mô tả bước review (`OPERATIONS.md`, README, INDEX bản thảo) | Gây hiểu nhầm bài phải chờ review | Viết lại theo đường QA tự động; bỏ cột Review khỏi `drafts/INDEX.md` |
 

@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](MEDIA-OPTIONAL-POLICY.md).
+
 # V5 writer brief — reusable writer steps (read AGENTS.md first)
 
 > **Current 23/10/2026 override:** `AGENTS.md` and `config/qa.json` control the live workflow: QA >=75 and zero hard failures, automatic publishing already enabled within release caps. A writer can select eligible English if Vietnamese lacks verified media/links/source. Do not reuse hardcoded session IDs or assume all sessions have the same network/tools.
@@ -38,9 +40,7 @@ Vietnamese posts **including existing live posts**. Vietnamese is prioritized wh
    language (the kit's `article_language_value`: "vi" for a TH-VI topic, "en-US" otherwise), title, body_html, seo_title (35–75 chars),
    meta_description (110–180 chars), focus_keyword (the topic's primary
    keyword), canonical (the topic's proposed_url), category_id (the topic's),
-   featured_media (an id from the kit's featured_media_options whose alt text
-   fits; if the kit lists `NEEDS_MEDIA` under `blockers`, write the article anyway, leave `featured_media` null and store it as
-   a draft that waits for data, step 7: it cannot pass QA until an image with alt text in that language exists, and nothing may be invented), sources (list of {url, document, supports}; include the topic's own
+   featured_media (optional: null if no verified image ID; no WordPress media/alt lookup, no image wait), sources (list of {url, document, supports}; include the topic's own
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
 6. `python3 -m thuha.cli --git-branch build --topic-id <TOPIC> --body body.html --meta meta.json` composes `article.json` from the pack
@@ -51,7 +51,7 @@ Vietnamese posts **including existing live posts**. Vietnamese is prioritized wh
    The check changes nothing, so repeat it as often as you need; do not submit a draft you know will fail. No independent AI review is required. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
    `submit` runs the same check again and refuses (nothing stored, no repair spent) a draft that is known to fail. If `precheck` exits 3 (only
-   data is missing: `data_waits` lists `FEATURED_MEDIA`, `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and `content_fails` is empty), add
+   data is missing: `data_waits` lists `INTERNAL_LINKS` and/or `AUTHORITATIVE_INVENTORY`, and `content_fails` is empty), add
    `--waiting-for auto` (or name exactly the codes in `submit_waiting_for`). The draft is stored as `WAITING_DATA`: never READY, no QA, the
    slot is freed, and it is claimed again only after `recheck-data` shows the data exists. If `content_fails` is not empty, fix the prose first.
    Record the returned article_sha, then free the slot for the next writer:
