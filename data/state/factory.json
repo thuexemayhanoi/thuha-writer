@@ -2171,6 +2171,15 @@
       "reason": "Merged after the second independent editorial review: the week-versus-month comparison and the instalment point now live in TH-VI-0019.",
       "sha256": "0708ff13c6fc87a7db959415b5e62d19ec29d7ae79ef5fd9b4f736958074a9d8",
       "topic_id": "TH-VI-0063"
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:37.429839+00:00",
+      "previous": "0708ff13c6fc87a7db959415b5e62d19ec29d7ae79ef5fd9b4f736958074a9d8",
+      "previous_status": "WAITING_DATA",
+      "reason": "Merged after the second independent editorial review: refund timing, means and deductions now live in TH-VI-0033, the single deposit page.",
+      "sha256": "a66fafdbe70a3f6d12af2c01c83463d0f3b05cf4b7088678b136debaca17471f",
+      "topic_id": "TH-VI-0035"
     }
   ],
   "intents": {},
@@ -4901,6 +4910,11 @@
         153
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T08:19:37.429800+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Merged after the second independent editorial review: refund timing, means and deductions now live in TH-VI-0033, the single deposit page."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -4925,7 +4939,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0035",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5307,5 +5321,5 @@
       ]
     }
   },
-  "version": 287
+  "version": 288
 }
