@@ -12,6 +12,25 @@ from .http import HTTP,WordPress,NetworkError
 from .publisher import Publisher
 from . import pipeline
 
+def dispatch_qa_ready(store, topic_ids):
+    """Signal a successful QA revision without waiting for cron or AI review.
+
+    The GitHub API returns 204 on acceptance; publication still remains
+    independently gated by live QA, WordPress readback and release controls.
+    """
+    if not getattr(store,'durable_remote',False) or not topic_ids:
+        return {'status':'LOCAL_ONLY','topics':topic_ids}
+    try:
+        store.api.request('POST','/repos/'+REPO+'/dispatches',{
+            'event_type':'thuha-qa-ready',
+            'client_payload':{'topic_ids':topic_ids[:10]}
+        })
+        return {'status':'DISPATCH_ACCEPTED','topics':topic_ids[:10]}
+    except (ValueError,OSError,RuntimeError) as exc:
+        # READY remains safely queued; the hourly workflow is a fallback.
+        return {'status':'DISPATCH_FAILED','topics':topic_ids[:10],
+                'reason':type(exc).__name__}
+
 
 def inventory_for(store,path):
     state=store.read()
@@ -74,7 +93,17 @@ def main(argv=None):
         result=coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'])
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
-    elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])
+    elif args.command=='submit':
+        result={'submission':coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])}
+        if result['submission'].get('status')!='NEEDS_REVIEW':
+            topic_id=store.read()['leases'][args.slot]['topic_id']
+            inv=inventory_for(store,args.inventory)
+            qa=quality.run_qa(store,topic_id,inv,policy,facts)
+            result['qa']=qa
+            if qa['status']=='PASS':
+                result['publisher_trigger']=dispatch_qa_ready(store,[topic_id])
+            else:
+                exit_code=1
     elif args.command=='source':result=research.capture_source(store,args.url)
     elif args.command=='resume':
         state=store.read();submission=state['submissions'].get(args.topic_id)
@@ -100,14 +129,17 @@ def main(argv=None):
         inv=inventory_for(store,args.inventory)
         ids=[args.topic_id] if args.topic_id else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
         result={'results':{}}
+        passed=[]
         for tid in ids:
             try:
                 value=quality.run_qa(store,tid,inv,policy,facts)
                 result['results'][tid]=value
-                if value['status']!='PASS':exit_code=max(exit_code,1)
+                if value['status']=='PASS':passed.append(tid)
+                else:exit_code=max(exit_code,1)
             except (ValueError,OSError,RuntimeError,KeyError) as exc:
                 result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError)) else 'STATE_OR_CONTRACT'}
                 exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)
+        if passed:result['publisher_trigger']=dispatch_qa_ready(store,passed)
     elif args.command=='publisher':
         pub=Publisher(store,WordPress(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()

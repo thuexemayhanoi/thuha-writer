@@ -9,7 +9,7 @@
   "approved_capacity": 2,
   "maximum_daily_posts": 2,
   "expansion_approval_ref": null,
-  "minimum_post_interval_seconds": 60,
+  "minimum_post_interval_seconds": 0,
   "environment": "thuha-production",
   "cross_publisher_coordination_verified": false
 }

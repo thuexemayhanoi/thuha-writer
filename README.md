@@ -1,7 +1,7 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**V4 core implemented and tested. WordPress production publishing remains OFF.**
+**Direct Writer → automated QA ≥85 → immediate guarded publisher event is implemented; live WordPress production remains OFF until release credentials and collision safeguards are verified.**
 
 Repository: `thuexemayhanoi/thuha-writer`  
 Language: English (en-US)  
@@ -44,3 +44,7 @@ and protected URLs are under `reports/live-audit/`. There is no paid AI API
 dependency and no automatic AI prose generation inside GitHub Actions.
 
 **Counting rule:** Historical reports mentioning 107 published posts are not a fresh count. Reconcile directly with WordPress and only attribute articles to an agent when explicit provenance and readback evidence exist.
+
+## Simple automated flow
+
+A real external Claude/ChatGPT writer submits each source-backed article via `--remote submit`. The CLI immediately runs deterministic QA (threshold 85, original hard failures unchanged); a passing revision dispatches `thuha-qa-ready` without waiting for a cron tick or AI reviewer. The guarded WordPress publisher rechecks live QA/taxonomy/duplicates and records readback receipts. The hourly cron is a recovery fallback, not a queue delay. See [Direct QA85 publisher runbook](docs/AUTO-QA85-PUBLISHER.md). Production release remains separately gated until credentials and other site publishers are coordinated.

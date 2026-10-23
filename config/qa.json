@@ -6,7 +6,7 @@
   "inventory_max_age_seconds": 21600,
   "research_max_age_seconds": 2592000,
   "trusted_reviewers": [],
-  "semantic_review_required": true,
-  "threshold_status": "development default; confirm at go-live",
+  "semantic_review_required": false,
+  "threshold_status": "Enforced automated QA >=85; no AI/human review gate; hard failures override score",
   "hard_fail_overrides_score": true
 }

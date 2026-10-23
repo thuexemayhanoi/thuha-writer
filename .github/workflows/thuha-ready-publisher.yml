@@ -1,7 +1,10 @@
 name: ThuHa QA to guarded queue publisher
 # Adapted from wp-aiwriter: successful push QA -> preflight -> guarded queue drain.
-# No AI model runs here. Default release is OFF; no secret, WordPress or site write on preflight.
+# Event-driven QA PASS -> publisher immediately; hourly cron is recovery fallback.
+# No AI review gate. Production still requires real credentials and explicit release.
 on:
+  repository_dispatch:
+    types: [thuha-qa-ready]
   workflow_run:
     workflows: ['ThuHa V4 quality']
     types: [completed]

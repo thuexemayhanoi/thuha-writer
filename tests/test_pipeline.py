@@ -2,6 +2,7 @@
 import unittest
 from unittest.mock import Mock
 from thuha.pipeline import brief, remaining_budget, drain
+from thuha.cli import dispatch_qa_ready
 
 
 class QueuePipelineTests(unittest.TestCase):
@@ -60,6 +61,30 @@ class QueuePipelineTests(unittest.TestCase):
         self.assertEqual(pub.publish.call_count, 2)
         self.assertEqual(result['remaining_ready_not_attempted'], 1)
         self.assertTrue(guard.called)
+
+
+class QADispatchTests(unittest.TestCase):
+    def test_remote_qa_pass_dispatches_without_waiting_for_cron(self):
+        store = Mock(durable_remote=True)
+        store.api.request.return_value = {}
+        status = dispatch_qa_ready(store, ['TH-000001'])
+        self.assertEqual(status['status'], 'DISPATCH_ACCEPTED')
+        store.api.request.assert_called_once_with(
+            'POST', '/repos/thuexemayhanoi/thuha-writer/dispatches',
+            {'event_type': 'thuha-qa-ready', 'client_payload': {'topic_ids': ['TH-000001']}}
+        )
+
+    def test_offline_qa_never_dispatches_or_publishes(self):
+        store = Mock(durable_remote=False)
+        self.assertEqual(dispatch_qa_ready(store, ['TH-000001'])['status'], 'LOCAL_ONLY')
+        store.api.request.assert_not_called()
+
+    def test_dispatch_failure_keeps_ready_for_fallback(self):
+        store = Mock(durable_remote=True)
+        store.api.request.side_effect = RuntimeError('transient failure')
+        result = dispatch_qa_ready(store, ['TH-000001'])
+        self.assertEqual(result['status'], 'DISPATCH_FAILED')
+        self.assertEqual(result['topics'], ['TH-000001'])
 
 
 if __name__ == '__main__':
