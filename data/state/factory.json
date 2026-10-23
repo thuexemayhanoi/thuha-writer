@@ -3392,22 +3392,24 @@
       "sha256": "ba7ab4aa507106e8d3ff0c0a57b3f2ebd6a00f078020dc5d9f5e3828dd08c4b9",
       "slot": "W1",
       "topic_id": "TH-VI-0022"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "f826aabc068497699fdcb4bd699ee4d07b0023a0c9c6e4f5fff83e9a8951960d",
+      "at": "2026-10-23T13:54:01.264292+00:00",
+      "previous": "ba7ab4aa507106e8d3ff0c0a57b3f2ebd6a00f078020dc5d9f5e3828dd08c4b9",
+      "sha256": "30b73c30e737ac5d16176e3add8c0ae5ee21a7a5069881a4c7e4ac471c5ddae0",
+      "topic_id": "TH-VI-0022",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765438.358928,
-      "fence": "06766802631f4b0aaa3f014d90780e5b",
-      "heartbeat_at": "2026-10-23T13:53:58.358910+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0022"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -3867,13 +3869,13 @@
     },
     "TH-VI-0022": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "3f794000b6e853e70f0a517c92ee584dd4261ae04d280b80f31f571859dda375",
-      "commit": "0741959348ef04a07fe15ec6a42b2db3b73d84f8",
-      "fence": "3a616060762646d29dd065992f2523d1",
+      "article_sha": "f826aabc068497699fdcb4bd699ee4d07b0023a0c9c6e4f5fff83e9a8951960d",
+      "commit": "5ce5943c847c3480bbcc39630a715d14cae83900",
+      "fence": "06766802631f4b0aaa3f014d90780e5b",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:34:04.259664+00:00"
+      "submitted_at": "2026-10-23T13:54:01.264270+00:00"
     },
     "TH-VI-0024": {
       "agent_id": "claude-writer-W1",
@@ -6717,7 +6719,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "gọi xe công nghệ hay thuê xe máy đi ít chặng",
       "proposed_title": "Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy",
@@ -6730,7 +6731,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0022",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7871,5 +7872,5 @@
       ]
     }
   },
-  "version": 482
+  "version": 483
 }
