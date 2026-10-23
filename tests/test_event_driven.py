@@ -83,11 +83,11 @@ class SharedWriterTests(Line):
         self.without_media()
         code, result = self.run_submit(topic, lease, mutate=lambda a: a.update(featured_media=None), waiting_for=['FEATURED_MEDIA'])
         self.assertEqual(code, 0)
-        self.assertNotIn('qa', result)
-        self.assertNotIn('publisher_trigger', result)
-        self.assertEqual(self.api.dispatches, [])
+        self.assertEqual(result['qa']['status'], 'PASS')
+        self.assertEqual(result['publisher_trigger']['status'], 'DISPATCH_ACCEPTED')
+        self.assertEqual(len(self.api.dispatches), 1)
         state = self.shared.read()
-        self.assertEqual((state['topics'][topic['topic_id']]['status'], state['qa']), ('WAITING_DATA', {}))
+        self.assertEqual((state['topics'][topic['topic_id']]['status'], state['qa'][topic['topic_id']]['status']), ('READY', 'PASS'))
 
     def test_a_draft_known_to_fail_is_not_submitted_and_spends_no_repair(self):
         topic, lease = self.claimed()

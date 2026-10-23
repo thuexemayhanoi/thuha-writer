@@ -284,6 +284,11 @@ class WaitingDataTests(WaitingHelpers):
         self.assertNotIn('FEATURED_MEDIA', result['data_waits'])
         self.assertNotIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
 
+def readiness_cleared(store, inv):
+    from thuha import coordinator
+    return store.mutate(lambda state: coordinator.clear_satisfied(state, inv))
+
+
 class EditorialHoldTests(WaitingHelpers):
     """A topic that should not be written (it overlaps another, or its draft adds nothing) is held, not deleted."""
 

@@ -127,12 +127,12 @@ class Thuha_Writer {
 			return Thuha_Contract::error( 'thuha_forbidden', 'The user cannot assign this category.', 403 );
 		}
 
-		// 3. Featured media is optional (0 means no image); chosen media must be readable.
+		// 3. Featured media must be an existing, readable attachment with alt text.
 		if ( $fields['featured_media'] > 0 ) {
 			$media = get_post( $fields['featured_media'] );
 			if ( ! $media || 'attachment' !== $media->post_type || ! current_user_can( 'read_post', $fields['featured_media'] )
-				|| false ) {
-				return Thuha_Contract::error( 'thuha_media_invalid', 'Featured media must be a readable attachment.', 422 );
+				|| '' === trim( (string) get_post_meta( $fields['featured_media'], '_wp_attachment_image_alt', true ) ) ) {
+				return Thuha_Contract::error( 'thuha_media_invalid', 'Featured media must be a readable attachment with alt text.', 422 );
 			}
 		}
 

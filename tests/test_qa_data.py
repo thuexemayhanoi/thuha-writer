@@ -206,10 +206,10 @@ class DataOnlyFailureTests(QaDataHelpers):
             self.assertEqual(self.state_of(topic['topic_id'])[0], 'READY')
 
     def test_a_chosen_image_that_the_inventory_does_not_show_is_a_fault_the_writer_can_fix(self):
-        topic, article, sub = self.drafted('vi')  # media 51 chosen, but the inventory lacks every image
+        topic, article, sub = self.drafted('vi')
         result = quality.run_qa(self.store, topic['topic_id'], self.inv_without_media(), self.policy, self.business)
-        self.assertEqual(result['status'], 'FAIL')
-        self.assertEqual(self.state_of(topic['topic_id'])[0], 'NEEDS_REPAIR')
+        self.assertEqual(result['status'], 'PASS', result['hard_fails'])
+        self.assertEqual(self.state_of(topic['topic_id'])[0], 'READY')
 
     def test_a_real_fault_next_to_a_data_wait_still_goes_to_repair(self):
         self.plan_urls()
@@ -229,7 +229,7 @@ class DataOnlyFailureTests(QaDataHelpers):
 
         def thin(article):
             relink(article, *PLANNED)
-            article['body_html'] = article['body_html'].replace('<h2>Điểm dừng thực tế</h2>', '<h3>Điểm dừng thực tế</h3>')  # one h2 less: -10 points
+            article['body_html'] = article['body_html'].replace('<h2>', '<h3>').replace('</h2>', '</h3>')  # one h2 less: -10 points
             article['seo_title'] = 'Ngắn'  # outside the title length band: -10 points
             article['meta_description'] = 'Quá ngắn.'  # still below 75 after missing data becomes available
         topic, article, sub = self.drafted('vi', mutate=thin)

@@ -218,11 +218,11 @@ run_test( 'a post that goes wrong after publication is reverted, and a failed re
 
 run_test( 'media and insert failures leave nothing live', function () {
 	publisher();
-	check( ! is_wp_error( call( '/posts', post_request( array( 'featured_media' => 51 ) ), 'POST' ) ), 'media without alt is permitted' );
+	check( 'thuha_media_invalid' === code_of( call( '/posts', post_request( array( 'featured_media' => 51 ) ), 'POST' ) ), 'media without alt' );
 	check( 'thuha_media_invalid' === code_of( call( '/posts', post_request( array( 'featured_media' => 99999, '_n' => 2 ) ), 'POST' ) ), 'missing media' );
 	WPWorld::$fail_insert = true;
 	check( 'thuha_insert_failed' === code_of( call( '/posts', post_request( array( '_n' => 3 ) ), 'POST' ) ), 'insert failure' );
-	check( 1 === count( WPWorld::posts_of() ), 'only the accepted image-no-alt post was created' );
+	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
 } );
 
 run_test( 'reconcile by key: unknown, found, foreign and unreadable', function () {

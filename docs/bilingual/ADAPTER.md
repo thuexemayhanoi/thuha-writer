@@ -54,7 +54,7 @@ không có trường ngôn ngữ đã kiểm chứng.
    Vector dùng chung `tests/fixtures/html-policy-vectors.json` chạy ở cả Python và PHP.
 4. Khóa đồng thời (`add_option` nguyên tử) theo khóa idempotency, rồi idempotency: cùng khóa + cùng payload → `200 idempotent_replay`
    và **không đổi gì**; cùng khóa khác payload → `409`; cùng topic khác khóa → `409`; đang có yêu cầu chạy → `409 thuha_in_progress`.
-5. Category và toàn bộ tổ tiên phải cùng ngôn ngữ; ảnh đại diện tùy chọn (0 nghĩa là không ảnh); nếu chọn ảnh thì phải có attachment đọc được, không cần alt; slug phải còn trống (slug bài
+5. Category và toàn bộ tổ tiên phải cùng ngôn ngữ; ảnh đại diện tùy chọn (0 nghĩa là không ảnh); nếu chọn ảnh thì plugin phiên bản đang đóng gói vẫn kiểm tra attachment đọc được và có alt; để null/0 để bỏ ảnh mà không cần tìm hoặc kiểm tra alt; slug phải còn trống (slug bài
    dùng chung một không gian giữa EN và VI, và không trùng trang).
 6. Tạo **bản nháp** mang marker sở hữu/idempotency. Mọi chuỗi đi qua `wp_slash` (lõi tự `unslash`, nếu không dấu `\` bị mất), rồi
    đọc lại tiêu đề và thân bài: khác bản đã review (ví dụ do kses) → `thuha_content_altered`, bài ở lại nháp.
