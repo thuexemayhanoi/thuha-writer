@@ -4881,6 +4881,15 @@
       "previous": "b2f137b8c8ad70e53cf5a578119632ecd8f174125704820e2703f799036ef748",
       "sha256": "88f42de0d883c4eb7743dd6307e1b62fc1f67685fb8124f8abde944552dd5814",
       "topic_id": "TH-EN-0005"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T14:56:13.720466+00:00",
+      "previous": "88f42de0d883c4eb7743dd6307e1b62fc1f67685fb8124f8abde944552dd5814",
+      "report_sha": "2bd79ff4c2c13809792f6707c9f5febae34bd3030d36e47e5902e5e797a5b05a",
+      "sha256": "c736af893969e8f77525d9098f1a2d8017ec2bc4591148d90b99f7c27780130b",
+      "status": "PASS",
+      "topic_id": "TH-EN-0005"
     }
   ],
   "intents": {
@@ -7856,18 +7865,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W2",
-      "expires_at": 1792769166.948373,
-      "fence": "9f226e86fce84168a035c719a887fb14",
-      "heartbeat_at": "2026-10-23T14:56:06.948350+00:00",
-      "language": "en",
-      "session": "sess-e1c",
-      "slot": "W1",
-      "topic_id": "TH-EN-0005"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7922,6 +7920,11 @@
     "TH-EN-0002": {
       "article_sha": "13a99c07a4d109139a40a34271a4bc367b3d1de8506cb0df4c34d3262c3ad6da",
       "report_sha": "444d36a26c73ac82e6e82824541ba7c81391a222a9d4f9f6b9904135c537b21a",
+      "status": "PASS"
+    },
+    "TH-EN-0005": {
+      "article_sha": "f086703d4576b020cb0ea7685e775439b26b27e8aa208ee94eb9dd29647962a3",
+      "report_sha": "2bd79ff4c2c13809792f6707c9f5febae34bd3030d36e47e5902e5e797a5b05a",
       "status": "PASS"
     },
     "TH-EN-0009": {
@@ -10916,7 +10919,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0005"
     },
     "TH-EN-0007": {
@@ -12831,5 +12834,5 @@
       ]
     }
   },
-  "version": 657
+  "version": 658
 }
