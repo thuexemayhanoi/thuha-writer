@@ -6356,6 +6356,18 @@
       "sha256": "f3d6733d83a2a7e561ef0c08e0fca5ef9aa2ab10f9f3bbdcdbe4a503f11095ca",
       "slot": "W1",
       "topic_id": "TH-VI-0026"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "328b67953906b279ae7a5c4f3cc7e455bfc12582ef382ba1ea235a7727f203d5",
+      "at": "2026-10-23T16:06:21.902313+00:00",
+      "previous": "f3d6733d83a2a7e561ef0c08e0fca5ef9aa2ab10f9f3bbdcdbe4a503f11095ca",
+      "sha256": "e0cd805e9e720bb7b1325f681f08f99faaaefaaafb82ec582e0e330f405aa566",
+      "topic_id": "TH-VI-0026",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9331,18 +9343,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773376.844916,
-      "fence": "5ca6e942261e4670b90bbe6b24348120",
-      "heartbeat_at": "2026-10-23T16:06:16.844896+00:00",
-      "language": "vi",
-      "session": "sess-b4",
-      "slot": "W1",
-      "topic_id": "TH-VI-0026"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10314,13 +10315,13 @@
     },
     "TH-VI-0026": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "3edeb78ce38cc1d0a462b820b342e966df3b8f570a33240f3f4a6c9a34115b86",
+      "article_sha": "328b67953906b279ae7a5c4f3cc7e455bfc12582ef382ba1ea235a7727f203d5",
       "commit": "7ef519ec58a1c73ef4ff0e0fc0c21993146152bc",
-      "fence": "d9c8bdf8f31e490c85c1aa6067a0baf3",
+      "fence": "5ca6e942261e4670b90bbe6b24348120",
       "repair_count": 0,
       "session": "sess-b4",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:53:01.981757+00:00"
+      "submitted_at": "2026-10-23T16:06:21.902286+00:00"
     },
     "TH-VI-0033": {
       "agent_id": "claude-writer-W1",
@@ -14017,7 +14018,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "xe số hay xe ga chi phí cả chuyến",
       "proposed_title": "Xe số hay xe ga cho một tuần ở Hà Nội: cộng tiền thuê, xăng và gửi xe thay vì chỉ so giá mỗi ngày",
@@ -14030,7 +14030,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0026",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15469,5 +15469,5 @@
       ]
     }
   },
-  "version": 826
+  "version": 827
 }
