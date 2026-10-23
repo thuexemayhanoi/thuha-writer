@@ -272,11 +272,10 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
 
 ## Go-live (a separate owner decision)
 
-The release lists `languages_enabled` (empty by default). Configure `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` as repository Actions Secrets. No GitHub Environment or `THUHA_GO_LIVE_APPROVAL` variable is required; never copy secrets between projects. Keep `main` review + the `quality`
+The release lists `languages_enabled` (historically empty by default, but the separate owner-approved `config/release.json` on 23/10/2026 **enables both `vi` and `en` with auto-scale capped at 50/day**). WordPress user and application password must be in repository Actions Secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD`. No GitHub Environment or `THUHA_GO_LIVE_APPROVAL` variable is required; never copy secrets between projects. Keep `main` review + the `quality`
 check required; restrict the `factory-state` writer to the Actions app and forbid force pushes. Verify the
 WordPress user and the registered Yoast REST fields. Coordinate any other tool publishing to the same site
-(`cross_publisher_coordination_verified`). Approve a real pilot reference and the editorial policy
-before enabling `config/release.json`. Unit tests do not prove these external controls exist.
+(`cross_publisher_coordination_verified`). The owner has already enabled the release following the original bounded pilot; new writer sessions must **not reopen manual reviewer/Environment approval**. Any future owner-directed change to release limits requires a separate decision. Unit tests do not prove external controls exist, and actual WordPress publish success is established by immutable receipts.
 
 Resource use: only read-only health and the hourly queue job run on a schedule; the expensive authenticated
 audit runs in the protected job. A stale inventory blocks work and is shown in the dashboard. No scheduled AI

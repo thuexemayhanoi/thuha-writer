@@ -12,8 +12,7 @@ V5 keeps every V4 gate and adds the pieces an authorized Claude session needs
 to act as the W1–W9 AI runtime: labelled external source evidence, a read-only
 writer kit, a non-mutating precheck that runs the production QA function, a
 source-backed admission helper and the cycle report. GitHub Actions still only
-orchestrates; production publishing is still OFF until the owner's separate
-release. The V5-era baseline was 85/100; the owner has now approved 75/100 with no relaxation of hard gates.
+orchestrates; **production was OFF at that historical V5 checkpoint**, but the owner subsequently enabled auto-scale (up to 50/day on 23/10/2026) and real WordPress receipts were recorded. The V5-era baseline was 85/100; current QA is 75/100 with no relaxation of hard gates.
 
 ## Execution boundary observed on 23 October 2026
 
@@ -43,8 +42,7 @@ release. The V5-era baseline was 85/100; the owner has now approved 75/100 with 
   on writes. The destination-repository path guard and CAS semantics are
   unchanged.
 - WordPress credentials, repository-level Actions Secrets, branch protection and the
-  release approval were not verified in that historical execution. The publisher stays BLOCKED; drafts that reach
-  READY wait in the queue for the owner's go-live and the main merge.
+  release approval were not verified **in that historical execution**. The publisher **was blocked then**; as of the current 23/10/2026 checkpoint, auto-scale is enabled and nine EN WordPress receipts have been recorded. Recheck present run and ledger status.
 
 ## Writer loop (one Claude agent per slot)
 

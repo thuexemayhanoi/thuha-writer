@@ -7,9 +7,7 @@ Nó tồn tại vì ba lý do trong brief: bài Việt cần dấu `rbhvi_langua
 khi xuất bản, REST public không đáng tin để đếm bài Việt, và `/wp/v2/posts` của core
 không có trường ngôn ngữ đã kiểm chứng.
 
-> **Trạng thái trung thực:** plugin đã viết, đóng gói và chạy thử trên **mô phỏng
-> WordPress** trong repo. Chưa cài lên website, chưa gọi `RBHVI_Language` thật,
-> chưa chạy với Yoast thật. Mọi thứ liên quan đến website thật là **PENDING**.
+> **Trạng thái khi tài liệu triển khai ban đầu được viết (lịch sử):** plugin đã viết, đóng gói và thử trên mô phỏng WordPress. Khi đó chưa xác minh triển khai trên website. **Cập nhật 23/10/2026:** workflow publisher hiện đã chạy thành công với **9 biên nhận xuất bản EN** trong shared ledger v448; điều này **chưa tự chứng minh luồng viết VI, ảnh alt VI hay internal links VI sẵn sàng**. Mọi đánh giá trạng thái live phải đọc lại kết quả adapter preflight/inventory và WordPress receipts, không dùng đoạn lịch sử này để khóa viết bài.
 
 ## Cài đặt (làm trong giao diện WordPress, không sửa tay hosting)
 
@@ -26,8 +24,7 @@ không có trường ngôn ngữ đã kiểm chứng.
 5. Publisher có thông tin xác thực chạy `python3 -m thuha.cli --remote adapter-preflight`.
    Chỉ khi lệnh này thành công, trạng thái adapter trong state mới là `VERIFIED`.
    Cho tới lúc đó dashboard báo `BLOCKED_ADAPTER_NOT_DEPLOYED`.
-6. Bật production là quyết định riêng (`config/release.json`, `languages_enabled`);
-   lần triển khai này **không** bật.
+6. **Lịch sử:** việc bật production vốn là một quyết định riêng. Chủ website đã bật `config/release.json` vào 23/10/2026 với `auto-scale` và giới hạn 50 bài/ngày; **không bật lại, không tạo vòng phê duyệt mới**. Cần đối chiếu cấu hình và biên nhận mới nhất.
 
 ## Hợp đồng REST (`/wp-json/thuha-writer/v1`, contract `thuha-writer/1`)
 

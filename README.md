@@ -2,6 +2,27 @@
 
 # ThuHa Writer
 
+## Current operational snapshot — 23 October 2026
+
+> **For current instructions read [AGENTS.md](AGENTS.md) first.** This live-operations snapshot is from the actual `factory-state` ledger version **448** and successful GitHub Actions runs on 23 October 2026. It is not a continuously updating counter. Recheck the ledger and WordPress readback before reporting new publications.
+
+| Area | Verified status at snapshot |
+|---|---|
+| Target website/repository | `rentbikehanoi.com` / `thuexemayhanoi/thuha-writer` only |
+| Auto QA | `config/qa.json`: both VI and EN **75–100 PASS** only when there are **no hard failures**; reviewer not required |
+| Publisher | Owner enabled `auto-scale`, cap **50/day**; GitHub queue/publisher run **successful** (not merely simulated) |
+| Shared `factory-state` | **9 EN PUBLISHED receipts**, 0 READY, 51 EN + 14 VI PLANNED |
+| Incomplete/held | 7 EN + 21 VI `WAITING_DATA`; 11 VI `HELD`; no active writer leases |
+| WordPress deployment | Publisher has recorded real WordPress receipts. Do **not** infer that the VI adapter/media/links are suitable for VI posts from EN receipts alone |
+| Writers | Real Claude/ChatGPT sessions do research/write; GitHub Actions never autonomously generates new article prose |
+
+**NEXT:** Writer can research/claim eligible EN or VI topics; VI has priority **when eligible**, not an all-VI-first hard lock. Resolve missing media with native-language alt, verified same-language internal content links, authoritative inventory and source evidence for waiting drafts. Preserve all holds and factual uncertainties. See [current Claude writer handoff](docs/bilingual/CLAUDE-PROMPT.md), [V5 writer how-to](docs/V5-WRITER-BRIEF.md), and [owner fact questions](docs/bilingual/OWNER-QUESTIONS.md).
+
+### Archived implementation and setup notes (not current status)
+
+The original milestone table below records earlier V4/V5 hand-over state. Statements such as *NOT yet in factory-state*, *adapter not installed*, *no posts published*, *QA85* or *production OFF* describe their historical checkpoints only. Current authorization comes from `config/release.json`; real publications are proven by `factory-state` receipts and WordPress readback. Historical counts (e.g., 275 EN/0 VI) are inventory snapshots, never the present live total.
+
+
 Owner-confirmed extension fee (23 October 2026): **20,000 VND/hour; more than 6 hours is charged as one rental day**.
 See `config/business-facts.json extension_policy` and [the confirmation record](docs/OWNER-EXTENSION-FEE-2026-10-23.md).
 https://rentbikehanoi.com
@@ -15,8 +36,8 @@ not a claim of independent factual or native-language judgment. No reviewer iden
 The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
 must be verified through GitHub Actions and the `factory-state` publication receipts before it can be reported as live. No WordPress publication is claimed by this QA change alone.
 
-The nine English drafts, their sources, the two historical reviews (kept as history; no review is required) and the whole history written by the V5 writer session are merged
-into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
+Historically, nine English drafts, their sources, two optional reviews and the V5 session history were merged
+into this repository (`data/state/factory.json` and `data/documents/`). A controlled, append-only hand-over
 (`promote`) moves them into the ledger that GitHub Actions read (`factory-state`) once this branch is merged. From
 there the queue job runs QA and, only when go-live is enabled, the protected job publishes. See
 [how a draft becomes a post](#from-draft-to-published-post) and [what must be set up once](#set-up-once-for-automatic-operation).
@@ -30,7 +51,7 @@ Owner goal: **500 published English blog posts in total and 500 published Vietna
 existing posts included, Vietnamese first.** Pages, drafts and trash never count. The old English-only
 2,000-post goal is superseded; documents that still mention it are labelled historical.
 
-## Where things stand (read this first)
+## Historical hand-over status table (superseded; see current snapshot above)
 
 | Area | State |
 |---|---|

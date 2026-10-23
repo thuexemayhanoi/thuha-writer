@@ -1,5 +1,7 @@
 # Những câu chỉ chủ cửa hàng trả lời được
 
+> **Lưu ý hiện hành (23/10/2026):** Đây chỉ là danh sách **dữ kiện kinh doanh chưa xác nhận** cho những bài có nói về các chính sách này, không phải danh sách yêu cầu duyệt hoặc khóa toàn bộ writer. Bài EN/VI khác có nguồn đáng tin và không tuyên bố chính sách chưa biết được tiếp tục theo `AGENTS.md`; QA hiện là **75 điểm trở lên và không hard-fail**. Người viết không được tự suy diễn câu trả lời. Tình trạng media/liên kết/inventory cần đối chiếu ledger mới nhất.
+
 Các bản thảo tiếng Việt hiện chỉ dựa vào thông tin chủ cửa hàng đã cung cấp (tên, địa chỉ, giờ mở cửa, số điện thoại, khoảng giá tham khảo). Phần lớn
 chủ đề còn lại là chuyện cửa hàng làm thế nào, và đó là điều tôi không được và không thể tự suy ra. Vì vậy các bài hiện là danh sách câu hỏi cho khách
 hàng đem đi hỏi chính cửa hàng. Nếu chủ cửa hàng trả lời được những câu dưới đây bằng vài chữ, mỗi câu mở khóa một nhóm bài có câu trả lời thật thay vì chỉ có câu hỏi.
@@ -21,8 +23,7 @@ Không cần cài đặt hay chạy lệnh gì: chỉ cần trả lời bằng c
 | 11 | *(Đã có câu trả lời, không cần chủ cửa hàng.)* Inventory của adapter ngày 23/10/2026 ghi **11 trang tĩnh tiếng Việt đã đăng** (HTTP 200); địa chỉ nằm trong `data/bilingual/static-pages.json`. Mọi bản thảo VI hiện liên kết tới một trang đó và tới chuyên mục. Còn thiếu đúng một thứ mà chỉ chủ website làm được, xem câu 12. | tất cả bài VI |
 | 12 | **Ảnh có alt tiếng Việt.** Thư viện hiện có 79 ảnh và không ảnh nào có alt tiếng Việt, nên không bài tiếng Việt nào qua được QA (quy tắc ảnh đại diện: alt phải cùng ngôn ngữ với bài, và alt tiếng Anh dùng chung không được sửa để lách). Chỉ cần thêm ít nhất một ảnh thật của cửa hàng hoặc xe, kèm alt tiếng Việt mô tả đúng ảnh (tải lên hoặc tạo bản ảnh riêng cho tiếng Việt trong thư viện), để 35 bản VI đã viết xong đi tiếp. Một ảnh dùng cho nhiều bài được. | 35 bản VI đang `WAITING_DATA` |
 
-Khi có câu trả lời, nơi ghi đúng là `config/business-facts.json` (một thay đổi cần được xem xét như mọi thay đổi cấu hình). **Lưu ý:** bằng chứng first-party của một bản thảo gắn
-với bản ghi của tệp đó lúc chụp; khi tệp đổi, bằng chứng cũ được coi là cũ và bản thảo phải chụp lại bằng chứng (`source --repository-file`) và được viết lại dựa trên câu trả lời thật (đó chính là mục đích: chuyển từ
-"hãy hỏi cửa hàng" sang "cửa hàng cho biết"). Điều đó đã xảy ra một lần: ngày 23/10/2026 chủ cửa hàng xác nhận phí gia hạn, tệp đổi, và bảy bản thảo đang chờ dữ liệu đã được chụp lại bằng chứng
-(ba bản trong số đó cũng được viết lại phần trả muộn và gia hạn); mười một bản đang giữ (`HELD`) vẫn trỏ tới bản chụp cũ vì chúng không được nộp. Không bài nào được xuất bản chỉ vì câu trả lời đã có: vẫn cần ảnh có alt tiếng Việt, liên kết nội bộ đã xác thực, inventory từ adapter,
-QA tự động >=75/100 (ngưỡng chủ website đặt ngày 23/10), không chờ AI review độc lập.
+Khi có câu trả lời, nơi ghi đúng là `config/business-facts.json` (một thay đổi cần được xem xét như mọi thay đổi cấu hình). **Lưu ý:** bằng chứng first-party của các bản thảo hiện tại gắn
+với bản ghi hiện có của tệp đó; khi tệp đổi, bằng chứng cũ được coi là cũ và các bản thảo phải được viết lại dựa trên câu trả lời thật (đó chính là mục đích: chuyển từ
+"hãy hỏi cửa hàng" sang "cửa hàng cho biết"). Không bài nào được xuất bản chỉ vì câu trả lời đã có: vẫn cần ảnh có alt tiếng Việt, liên kết nội bộ đã xác thực, inventory từ adapter,
+QA tự động >=75/100, không chờ AI review độc lập (yêu cầu chủ website ngày 23/10).

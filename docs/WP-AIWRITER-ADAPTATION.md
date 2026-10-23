@@ -1,3 +1,5 @@
+> **DO NOT USE AS A CURRENT WORKFLOW OR RELEASE CHECKLIST.** Archived 2,000-post/QA85/reviewer/Environment assumptions below are superseded as of 23/10/2026: **500 EN + 500 VI including existing posts; QA >=75 with all hard fails intact; no AI reviewer, no GitHub Environment; production release enabled auto-scale 50/day; 9 EN publish receipts verified in shared ledger v448.** Reference project `/wp-aiwriter` is read-only architectural inspiration; never import its account, API credentials, domain, state or author posts. For an active writer use [AGENTS.md](../AGENTS.md) and [the current Claude prompt](bilingual/CLAUDE-PROMPT.md). The historical body is kept for design provenance.
+
 # ThuHa Writer: safely adopted WP AIWriter execution pattern
 
 > **HISTORICAL — English-only, 2,000-post era.** This describes the English-only adaptation. The target site now serves English at the root and Vietnamese under `/vi/`; the reference blog's routing (Vietnamese at the root) is NOT carried over.

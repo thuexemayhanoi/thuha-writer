@@ -1,3 +1,5 @@
+> **HISTORICAL V4 DELIVERY RECORD (superseded, 23/10/2026).** This is an archived delivery snapshot. Its reviewer/Environment/go-live requirements have been replaced: QA >=75 with hard-fail protection, no independent AI reviewer or Environment, owner-enabled auto-scale 50/day; confirm publications through current `factory-state` receipts. Read [AGENTS.md](../AGENTS.md) before doing new work.
+
 # ThuHa Writer V4 delivery checkpoint — 21 October 2026
 
 > **HISTORICAL — English-only, 2,000-post era.** Superseded by the bilingual 500 + 500 goal; kept as the record of the 21 October 2026 checkpoint. See `docs/bilingual/IMPLEMENTATION-STATUS.md` for current status.

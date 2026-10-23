@@ -1,3 +1,5 @@
+> **HISTORICAL PROJECT ROADMAP — NOT THE CURRENT WRITER TASK LIST (23/10/2026).** The staged architecture below was written before the owner-enabled QA75 automatic publisher. It is retained for provenance only. Do not reintroduce independent reviewer gates, GitHub Environment approval or a second pilot. See [AGENTS.md](../AGENTS.md), [current Claude writer guide](bilingual/CLAUDE-PROMPT.md) and live `factory-state` receipts for operational status.
+
 # ThuHa Writer — Incremental Execution Roadmap
 
 > **HISTORICAL — English-only, 2,000-post era.** The "2,000 English articles" target below is superseded by 500 English + 500 Vietnamese published posts (see README).
