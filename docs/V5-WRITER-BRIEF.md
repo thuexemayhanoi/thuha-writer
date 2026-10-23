@@ -2,18 +2,18 @@
 
 You are one authorized Claude writer session for https://rentbikehanoi.com,
 operating inside the ThuHa Writer factory. Work from the repository root with
-`export PYTHONPATH=src`. Every state command takes `--remote`. The container
+`export PYTHONPATH=src`. Every state command takes `--git-branch` in this session (REST writes are closed by the proxy; `--remote` is for environments that can write factory-state). The container
 cannot reach any website except api.github.com: research with the Parallel
 `web_fetch`/`web_search` MCP tools (session_id
 `thuha-v5-factory-3la2u4-20261023-aaaaaaaa`, model_name `claude-fable-5-1`).
 
 ## Loop
 
-1. `python3 -m thuha.cli --remote claim --session <SESSION> --agent-id <AGENT>`
+1. `python3 -m thuha.cli --git-branch claim --session <SESSION> --agent-id <AGENT>`
    SESSION is `w<N>-<date>-<random>` (letters, digits, dashes, 4–80 chars),
    AGENT is `claude-writer-W<N>`. Save slot, fence, topic_id from the output.
    If it fails with "No admissible researched topic", stop and report.
-2. `python3 -m thuha.cli --remote kit --topic-id <TOPIC> > kit.json`. Read the
+2. `python3 -m thuha.cli --git-branch kit --topic-id <TOPIC> > kit.json`. Read the
    topic record, the category ancestry, the existing titles in the same
    category (do not duplicate them), the internal link targets, the media
    options and the rules.
@@ -22,11 +22,11 @@ cannot reach any website except api.github.com: research with the Parallel
    web_fetch to learn the facts. You may add up to three more sources: fetch
    the page, write a record file
    `{"url","fetcher":"parallel-web-fetch","status":"ok","fetched_at":"<ISO UTC +00:00>","title","content":"<verbatim excerpt text>"}`
-   and run `python3 -m thuha.cli --remote source --url <URL> --external-fetch <record.json>`;
+   and run `python3 -m thuha.cli --git-branch source --url <URL> --external-fetch <record.json>`;
    keep the returned `document` sha. Never fabricate a capture. If the article
    text mentions licences, permits, registration, law, visas or embassies, at
    least one source host must end in .gov.vn, .gov, .gov.uk or .gouv.fr.
-4. `python3 -m thuha.cli --remote heartbeat --slot <SLOT> --session <SESSION> --fence <FENCE>`
+4. `python3 -m thuha.cli --git-branch heartbeat --slot <SLOT> --session <SESSION> --fence <FENCE>`
    after research and again right before submit (lease is 30 minutes).
 5. Write `article.json` with exactly these fields:
    topic_id, session, agent_id, source_commit (current `git rev-parse HEAD`),
@@ -37,10 +37,10 @@ cannot reach any website except api.github.com: research with the Parallel
    fits), sources (list of {url, document, supports}; include the topic's own
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
-6. `python3 -m thuha.cli --remote precheck --topic-id <TOPIC> --file article.json`.
+6. `python3 -m thuha.cli --git-branch precheck --topic-id <TOPIC> --file article.json`.
    Fix every entry in `hard_fails_excluding_review` and re-run until it is empty
    and `would_pass_after_review` is true. Only then:
-7. `python3 -m thuha.cli --remote submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
+7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
    Record the returned article_sha. Do not resubmit unless QA later asks for a
    repair; each changed resubmission consumes one of three repairs.
 8. Report: topic_id, slot, article_sha, word count, sources used, any blocked

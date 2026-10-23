@@ -6,7 +6,7 @@ repository root with `export PYTHONPATH=src THUHA_REVIEWER_ID=claude-editorial-r
 
 For each topic you are given:
 
-1. `python3 -m thuha.cli --remote resume --topic-id <TOPIC> > resume.json`
+1. `python3 -m thuha.cli --git-branch resume --topic-id <TOPIC> > resume.json`
    Read `topic`, `submission.article_sha`, `draft` (the exact revision) and the
    captured source documents listed in `draft.sources`.
 2. Open every source URL with the Parallel `web_fetch` tool (session_id
@@ -25,8 +25,8 @@ For each topic you are given:
     "checked_at": "<ISO 8601 UTC with +00:00>", "checks": {"intent": true, "factual_accuracy": true,
     "english": true, "originality": true, "business_facts": true, "image_relevance": true},
     "notes": "<3–8 sentences: what you verified, against which sources, and any residual caveat>"}
-   then run `python3 -m thuha.cli --remote review --file review.json --topic-id <TOPIC>`
-   and `python3 -m thuha.cli --remote qa --topic-id <TOPIC>`.
+   then run `python3 -m thuha.cli --git-branch review --file review.json --topic-id <TOPIC>`
+   and `python3 -m thuha.cli --git-branch qa --topic-id <TOPIC>`.
 5. If rejecting, do not record a review. Report the topic_id, article_sha and
    a numbered list of specific defects with the sentence or claim at fault, so
    the writer can repair and resubmit.

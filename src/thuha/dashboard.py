@@ -10,7 +10,7 @@ def report(store,inv,release):
         counts.setdefault(status,0)
     verified=inv.get('counts',{}).get('live_verified_posts',0)
     result={'generated_at':now(),'wordpress_published':inv.get('counts',{}).get('posts'),
-       'state_backend':'github-factory-state' if store.durable_remote else 'local-offline-snapshot',
+       'state_backend':('git-branch:'+store.branch if hasattr(store,'root') else 'github-factory-state') if store.durable_remote else 'local-offline-snapshot',
        'wordpress_pages':inv.get('counts',{}).get('pages'),'inventory_complete':inv.get('complete',False),
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'remaining_to_2000_site_verified':max(0,2000-verified),'factory_verified_receipts':len(s['receipts']),

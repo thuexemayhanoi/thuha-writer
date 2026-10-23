@@ -6,7 +6,7 @@ import os
 import sys
 from pathlib import Path
 from .common import ROOT,REPO,digest,load,save,validate_inventory
-from .store import LocalStore,GitStore,event,validate
+from .store import LocalStore,GitStore,GitBranchStore,event,validate
 from . import audit,coordinator,research,quality,dashboard
 from .http import HTTP,WordPress,NetworkError
 from .publisher import Publisher
@@ -22,6 +22,7 @@ def inventory_for(store,path):
 def main(argv=None):
     p=argparse.ArgumentParser(description='ThuHa Writer V4; production is disabled until separately approved')
     p.add_argument('--remote',action='store_true',help='Use authoritative GitHub CAS; required across computers')
+    p.add_argument('--git-branch',action='store_true',help='Durable state via git commits/pushes on the current session branch (when REST writes are closed)')
     p.add_argument('--state-dir',default=str(ROOT/'.runtime'))
     p.add_argument('--inventory',default=str(ROOT/'reports/live-audit/inventory.json'))
     p.add_argument('--output',default=str(ROOT/'artifacts'))
@@ -45,7 +46,8 @@ def main(argv=None):
     q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain'],default='dry-run');q.add_argument('--topic-id')
     q=sub.add_parser('controls');q.add_argument('--pause',choices=['on','off']);q.add_argument('--emergency-stop',choices=['on','off'])
     args=p.parse_args(argv)
-    store=GitStore() if args.remote else LocalStore(args.state_dir)
+    if args.remote and args.git_branch:raise ValueError('Choose one state backend')
+    store=GitStore() if args.remote else GitBranchStore() if args.git_branch else LocalStore(args.state_dir)
     policy=load(ROOT/'config/qa.json');facts=load(ROOT/'config/business-facts.json');factory=load(ROOT/'config/factory.json')
     release=load(ROOT/'config/release.json')
     result={}

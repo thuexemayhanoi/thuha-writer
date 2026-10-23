@@ -104,6 +104,74 @@ class LocalStore:
         return value
 
 
+class GitBranchStore:
+    """Durable state through ordinary git commits and pushes on one branch.
+
+    Used when a session may push only to its designated branch and the GitHub
+    REST write endpoints are closed by the environment. The same paths as the
+    factory-state adapter are used (data/state/factory.json, data/documents/),
+    so a trusted Actions task can later promote the ledger to factory-state.
+    Every mutation is committed with an explicit pathspec, so unrelated working
+    tree changes are never swept into a checkpoint, and pushed before it is
+    reported durable; a rejected push is a CAS conflict: fetch, rebase, retry.
+    """
+    durable_remote=True
+    state_path='data/state/factory.json'
+
+    def __init__(self,root=None,branch=None,remote='origin',runner=None):
+        import subprocess
+        self.root=Path(root or ROOT);self.remote=remote
+        self._run=runner or (lambda args,**kw:subprocess.run(['git','-C',str(self.root)]+args,check=True,capture_output=True,text=True,**kw))
+        self.branch=branch or self._run(['rev-parse','--abbrev-ref','HEAD']).stdout.strip()
+        if self.branch in ('HEAD','main','master'):raise ValueError('Git branch store needs a non-default session branch')
+        self.lock=self.root/'.git'/'thuha-state.lock'
+
+    def read(self):
+        path=self.root/self.state_path
+        value=load(path) if path.exists() else initial()
+        validate(value);return value
+
+    def _commit_push(self,paths,message):
+        self._run(['add','--']+paths)
+        self._run(['commit','-q','-m',message,'--']+paths)
+        for attempt in range(5):
+            try:
+                self._run(['push','-q',self.remote,'HEAD:refs/heads/'+self.branch]);return
+            except Exception:
+                if attempt==4:raise RuntimeError('Checkpoint committed locally but push rejected; retry push before continuing')
+                self._run(['fetch','-q',self.remote,self.branch])
+                self._run(['rebase','-q',self.remote+'/'+self.branch])
+
+    def mutate(self,callback):
+        with self.lock.open('a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            state=self.read();old=copy.deepcopy(state)
+            result=callback(state)
+            validate(state,old);state['version']+=1
+            if len(canonical_json(state))>15_000_000:raise ValueError('Registry size guard reached; archive events before scaling')
+            save(self.root/self.state_path,state)
+            self._commit_push([self.state_path],'factory checkpoint v'+str(state['version'])+' [skip ci]')
+            return result
+
+    def put_document(self,value):
+        sha=digest(value);relative='data/documents/'+sha+'.json';path=self.root/relative
+        with self.lock.open('a') as lock:
+            fcntl.flock(lock,fcntl.LOCK_EX)
+            if path.exists():
+                if load(path)!=value:raise ValueError('Immutable document collision')
+                return sha
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_bytes(canonical_json(value))
+            self._commit_push([relative],'factory document '+sha[:12]+' [skip ci]')
+        return sha
+
+    def get_document(self,sha):
+        if not re.fullmatch('[a-f0-9]{64}',sha):raise ValueError('Invalid document address')
+        value=json.loads((self.root/'data/documents'/(sha+'.json')).read_bytes())
+        if digest(value)!=sha:raise ValueError('Document changed after checkpoint')
+        return value
+
+
 class GitHub:
     def __init__(self, token=None):
         # An authorized session may only hold the harness-provided GITHUB_TOKEN;
@@ -116,6 +184,7 @@ class GitHub:
             raise ValueError('GitHub access is confined to the destination repository')
         headers={'Authorization':'Bearer '+self.token,'Accept':'application/vnd.github+json',
                  'X-GitHub-Api-Version':'2022-11-28','User-Agent':'ThuHa-Writer/4'}
+        if body is not None:headers['Content-Type']='application/json' # GitHub returns 415 for form-encoded JSON bodies
         req=urllib.request.Request('https://api.github.com'+path,
                  None if body is None else canonical_json(body),headers,method=method)
         try:
