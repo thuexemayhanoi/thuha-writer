@@ -3271,6 +3271,17 @@
         "TH-VI-0263",
         "TH-VI-0445"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T13:00:07.133343+00:00",
+      "previous": "1c7f9f115019a43bd9ef253986c774c90bb7fe6af2044378ac3fa8726af6e5c2",
+      "sha256": "f6c3756b5d3b62dd10c494d7e909da425eb8815e5a2d74d20dc75ca47eb7aa43",
+      "topic_ids": [
+        "TH-EN-0001",
+        "TH-EN-0002",
+        "TH-EN-0009"
+      ]
     }
   ],
   "intents": {},
@@ -5921,6 +5932,56 @@
       "status": "PLANNED",
       "topic_id": "TH-000061"
     },
+    "TH-EN-0001": {
+      "admitted_at": "2026-10-23T13:00:07.114792+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rent scooter by the week or by the day hanoi",
+      "proposed_title": "A Six-Day Hanoi Stay: Should You Take a Weekly Rental or Pay Day by Day?",
+      "proposed_url": "https://rentbikehanoi.com/six-day-hanoi-stay-should-you-take-a-weekly-rental-or-pay-day-by-day/",
+      "search_intent": "A traveller staying six days in Hanoi cannot tell whether a weekly period or day-by-day booking suits them better, and wants a method for comparing the two using the shop's confirmed quote and the days they will really ride.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0001"
+    },
+    "TH-EN-0002": {
+      "admitted_at": "2026-10-23T13:00:07.124142+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "motorbike rental for two or three weeks hanoi",
+      "proposed_title": "Between a Week and a Month: Booking a Hanoi Rental for an Awkward Stay Length",
+      "proposed_url": "https://rentbikehanoi.com/two-or-three-week-hanoi-rental-weekly-blocks-or-monthly/",
+      "search_intent": "A visitor staying about three weeks cannot tell whether to chain weekly blocks or ask for a monthly period, and needs the questions that decide it, such as early return terms and what happens to unused days.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0002"
+    },
     "TH-EN-0005": {
       "admitted_at": "2026-10-23T12:08:22.355566+00:00",
       "category_id": 123,
@@ -5949,6 +6010,31 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-EN-0009": {
+      "admitted_at": "2026-10-23T13:00:07.133314+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "weekend only motorbike rental hanoi expat",
+      "proposed_title": "Weekend-Only Rides: Short Rentals Each Weekend or One Bike Held All Week?",
+      "proposed_url": "https://rentbikehanoi.com/weekend-only-rides-short-rentals-each-weekend-or-one-bike-held-all-week/",
+      "search_intent": "A Hanoi-based teacher who commutes by bus and wants a bike only on Saturdays and Sundays is deciding between short rentals each weekend and one longer booking that sits parked on weekdays.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0009"
     },
     "TH-EN-0012": {
       "admitted_at": "2026-10-23T12:08:22.364867+00:00",
@@ -7638,5 +7724,5 @@
       ]
     }
   },
-  "version": 401
+  "version": 402
 }
