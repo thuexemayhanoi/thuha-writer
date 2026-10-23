@@ -4268,11 +4268,36 @@
       "sha256": "d2f93fd349e9fa45ac2face7ada3007471775c457fb67f37be95024d0e9d90f0",
       "status": "PASS",
       "topic_id": "TH-EN-0005"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T13:59:37.176486+00:00",
+      "expires_at": 1792765777.176477,
+      "fence": "f33a97ac72534df594705efef210e603",
+      "heartbeat_at": "2026-10-23T13:59:37.176459+00:00",
+      "language": "en",
+      "previous": "d2f93fd349e9fa45ac2face7ada3007471775c457fb67f37be95024d0e9d90f0",
+      "session": "sess-e1c",
+      "sha256": "f59e21c95acebf2d1cb82aaff0160759bbbbe56b53e21cfe508087055f6744b1",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792765777.176477,
+      "fence": "f33a97ac72534df594705efef210e603",
+      "heartbeat_at": "2026-10-23T13:59:37.176459+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7317,6 +7342,7 @@
         134
       ],
       "cluster": "parking-weather-breakdowns",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
       "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
@@ -7329,7 +7355,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0125",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8981,5 +9007,5 @@
       ]
     }
   },
-  "version": 551
+  "version": 552
 }
