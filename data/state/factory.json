@@ -5176,6 +5176,18 @@
       "sha256": "9f747406e6ae4fcbcc34559b81eb663ab33ed60efaead61bc479eadf014a8575",
       "slot": "W1",
       "topic_id": "TH-VI-0158"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "6b628e4506c6c7bec9850fafc317cc0c3ba264b127d76c3219dda0c84826e645",
+      "at": "2026-10-23T14:58:17.819310+00:00",
+      "previous": "9f747406e6ae4fcbcc34559b81eb663ab33ed60efaead61bc479eadf014a8575",
+      "sha256": "75fbddb7a70a05d0cdb6b7441b466f9e8cd55cc5d3518aeb763a045961e40283",
+      "topic_id": "TH-VI-0158",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8151,18 +8163,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792769293.259407,
-      "fence": "6708f58a5c3343338e45e65da596447e",
-      "heartbeat_at": "2026-10-23T14:58:13.259386+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0158"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -9043,13 +9044,13 @@
     },
     "TH-VI-0158": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "5a68a94ec96cfab6d46c9d55ac8d424c05b469216ebd69806d0b894e9325c9da",
+      "article_sha": "6b628e4506c6c7bec9850fafc317cc0c3ba264b127d76c3219dda0c84826e645",
       "commit": "999323bb7e8d9fe64aad0fa0cbf571a3d86279ea",
-      "fence": "50b4a7051259411295f3d47fc957edf7",
+      "fence": "6708f58a5c3343338e45e65da596447e",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:32:42.511406+00:00"
+      "submitted_at": "2026-10-23T14:58:17.819286+00:00"
     },
     "TH-VI-0197": {
       "agent_id": "claude-writer-W1",
@@ -12723,7 +12724,6 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chở người ngồi sau xe số sang số êm",
       "proposed_title": "Chở người ngồi sau bằng xe số: sang số thế nào để người ngồi sau không bị gật đầu hay dồn vào lưng bạn",
@@ -12736,7 +12736,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0158",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13140,5 +13140,5 @@
       ]
     }
   },
-  "version": 692
+  "version": 693
 }
