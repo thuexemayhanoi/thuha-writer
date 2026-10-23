@@ -2688,23 +2688,24 @@
       "sha256": "a4a023edc4ed687bdb26e6c9f38697072f7e9c44dad76024fd81aea0ab5e95a9",
       "slot": "W1",
       "topic_id": "TH-VI-0359"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "7ed517de40aabdde9950be7c5eb2ae4e91100220559dea17c10f680433a49b40",
+      "at": "2026-10-23T12:32:15.200634+00:00",
+      "previous": "a4a023edc4ed687bdb26e6c9f38697072f7e9c44dad76024fd81aea0ab5e95a9",
+      "sha256": "2a9f766771e0a3843c1ebdfe0d76f876ccf68f925dc733e61bb60d290b79799c",
+      "topic_id": "TH-VI-0359",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792760530.622201,
-      "fence": "20992d807460441496bb8036cd0ceb54",
-      "heartbeat_at": "2026-10-23T12:32:10.622183+00:00",
-      "language": "vi",
-      "picked": true,
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0359"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -3146,6 +3147,16 @@
       "session": "w5-20261023-r0217",
       "slot": "W1",
       "submitted_at": "2026-10-23T07:59:40.772523+00:00"
+    },
+    "TH-VI-0359": {
+      "agent_id": "claude-writer-W1",
+      "article_sha": "7ed517de40aabdde9950be7c5eb2ae4e91100220559dea17c10f680433a49b40",
+      "commit": "37fe996c276146cd30227d73dea340de4f72cc55",
+      "fence": "20992d807460441496bb8036cd0ceb54",
+      "repair_count": 0,
+      "session": "sess-b3",
+      "slot": "W1",
+      "submitted_at": "2026-10-23T12:32:15.200610+00:00"
     },
     "TH-VI-0371": {
       "agent_id": "claude-writer-W1",
@@ -6293,8 +6304,12 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-VI-0359"
+      "status": "WAITING_DATA",
+      "topic_id": "TH-VI-0359",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     },
     "TH-VI-0371": {
       "admitted_at": "2026-10-23T11:56:51.733838+00:00",
@@ -6421,5 +6436,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 341
+  "version": 342
 }
