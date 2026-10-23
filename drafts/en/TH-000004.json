@@ -48,7 +48,10 @@
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
-  "qa": null,
+  "qa": {
+    "report_sha": "a3d8cfd0cb683b8c90aadc3fbd7f625f55aae84f03d0f392afd57a6e829adc4c",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -125,7 +128,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/nghi-dinh-so-238-2026-nd-cp-sua-doi-quy-dinh-xu-phat-vi-pham-giao-thong-duong-bo-tru-diem-phuc-hoi-diem-giay-phep-lai-xe-119260630142033452.htm"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:16:52.944291+00:00",
   "topic_id": "TH-000004",
   "waiting_for": []

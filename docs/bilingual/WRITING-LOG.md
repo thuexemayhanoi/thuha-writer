@@ -163,3 +163,14 @@ Cùng cách làm, cùng rà soát độc lập (chỉ đọc). Đã sửa các l
 
 Còn lại, nói thẳng: TH-EN-0001 trùng phương pháp với TH-VI-0003 và TH-EN-0002 chia một câu tính toán với TH-VI-0065 (cùng một quyết định của người thuê, hai thị trường đọc; đã đổi cách diễn đạt và thứ tự câu hỏi, không phải bản dịch, và không có cặp hreflang nào được lên kế hoạch);
 TH-EN-0001 và TH-EN-0009 cùng một "động cơ" tính toán nên không nên đăng liền nhau. Từ khóa chính tiếng Anh của ba bài EN là cụm của ma trận nên không xuất hiện nguyên văn trong tiêu đề (chỉ là gợi ý lint, QA không kiểm).
+
+## Mười bản EN hoàn tất bằng dữ liệu thật; khôi phục sổ cái phiên (23/10/2026, lần 5)
+
+Sau khi chủ website merge PR #3, job `queue` làm mới inventory công khai: thư viện có ảnh với alt tiếng Anh và các bài EN đang sống. Hai thứ làm cho các bản EN từng phải chờ trở thành **lỗi nội dung** thay vì "chờ dữ liệu":
+`submit --waiting-for FEATURED_MEDIA` bị từ chối (`FEATURED_MEDIA_OR_ALT_NOT_VERIFIED`: đã có ảnh, người viết phải chọn một ảnh trong danh sách của `pack`, không đặt ID), và `INTERNAL_LINKS` được xác minh.
+Mười bản EN (TH-EN-0139, 0140, 0141, 0065, 0005, 0125, 0012 của lô #1 và 0001, 0002, 0009 của lô #2) được hoàn tất bằng ảnh có sẵn (ID 662 "Motorbike rental in Hanoi with a scooter on a Hanoi street" và ID 76 "Motorbike rental in Hanoi with scooters and motorcycles"),
+`precheck` 100/100 không hard fail, rồi `submit`: QA tự động chạy ngay và cho **PASS 100/100 (80/80 điểm thô), `repair_count` 0** cho cả mười. Chín bản EN của V5 (cũng dùng ID 662 cho bảy bản) đã PASS ở job `queue` lúc 13:24 UTC.
+Nói thẳng: QA này chạy trên inventory công khai (`public-rest-unverified`, chụp 13:23 UTC), đạt không có nghĩa là đã đăng (release vẫn OFF) và job `queue` sẽ QA lại khi sổ cái được chuyển.
+
+Cùng lúc, sổ cái phiên bị lệch (53 sự kiện chưa chuyển so với 10 sự kiện chuyển giao và QA của sổ cái chung). Đã khôi phục bằng `sync --apply --discard-unpromoted`: 22 bản VI (8 bản sửa, 10 + 4 bản mới) được nộp lại từ chính tài liệu đã lưu, cùng địa chỉ bài, không tốn lượt sửa;
+ba bản EN của lô #2 không còn nộp lại được như bản chờ (xem trên) nên được hoàn tất kèm ảnh, và bảy bản EN của lô #1 cũng vậy, nên mười bản EN có địa chỉ bài mới (các bản chờ cũ vẫn còn trong tài liệu và lịch sử).

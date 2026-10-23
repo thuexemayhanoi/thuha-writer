@@ -43,13 +43,13 @@
     ],
     "canonical": "https://rentbikehanoi.com/ride-hailing-or-rental-bike-hanoi-trip-count-worksheet/",
     "category_id": 123,
-    "featured_media": null,
+    "featured_media": 662,
     "focus_keyword": "ride hailing versus rental bike for a week hanoi",
     "language": "en-US",
     "meta_description": "Count your trips before you choose: a worksheet to compare ride-hailing with a rental bike for a week in Hanoi, with fuel, parking and idle days included.",
     "seo_title": "Ride-Hailing or a Rental Bike for a Week in Hanoi?",
-    "session": "sess-e1",
-    "source_commit": "91002997aa6f461493f9101e38d1b9230782150f",
+    "session": "sess-e1c",
+    "source_commit": "fdc3cb87ce926a8a7560e8f2b3d85483f7292aac",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -65,12 +65,15 @@
     "title": "Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi?",
     "topic_id": "TH-EN-0005"
   },
-  "article_sha": "8a29533871e835587378f782e1a203bb8282c30b1d970a398a20f2ca78fb62a2",
+  "article_sha": "f086703d4576b020cb0ea7685e775439b26b27e8aa208ee94eb9dd29647962a3",
   "category_id": 123,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/ride-hailing-or-rental-bike-hanoi-trip-count-worksheet/",
-  "qa": null,
+  "qa": {
+    "report_sha": "42f8243e2ee080cb1b58fe6b3f2eccaa19456747926100bd33214f143f765771",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -91,11 +94,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:45:00.933347+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:59:30.927158+00:00",
   "topic_id": "TH-EN-0005",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

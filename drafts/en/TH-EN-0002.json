@@ -67,13 +67,13 @@
     ],
     "canonical": "https://rentbikehanoi.com/two-or-three-week-hanoi-rental-weekly-blocks-or-monthly/",
     "category_id": 123,
-    "featured_media": null,
+    "featured_media": 76,
     "focus_keyword": "motorbike rental for two or three weeks hanoi",
     "language": "en-US",
     "meta_description": "Staying two or three weeks? Compare weekly blocks with the monthly price, see why the month can cost less and which questions to ask before you book.",
     "seo_title": "Motorbike Rental for Two or Three Weeks in Hanoi: Week or Month?",
     "session": "sess-e2",
-    "source_commit": "293e9e9a45e242cc56b8125184eb640250339d04",
+    "source_commit": "50e548ee9fa8c38513bf7ed59df23d39e7ee05a4",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -89,12 +89,15 @@
     "title": "Between a Week and a Month: Booking a Hanoi Rental for an Awkward Stay Length",
     "topic_id": "TH-EN-0002"
   },
-  "article_sha": "3466cd89b0d69d42031ff6ff128299edf5eb05554b332a23ad93a58bb2f39725",
+  "article_sha": "13a99c07a4d109139a40a34271a4bc367b3d1de8506cb0df4c34d3262c3ad6da",
   "category_id": 123,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/two-or-three-week-hanoi-rental-weekly-blocks-or-monthly/",
-  "qa": null,
+  "qa": {
+    "report_sha": "38975b2aba108f70ec1687fcd43f635852fe561d52a132b81bf82fa68f42f069",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -115,11 +118,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T13:39:50.693014+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:58:15.040236+00:00",
   "topic_id": "TH-EN-0002",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

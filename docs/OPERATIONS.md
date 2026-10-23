@@ -41,8 +41,8 @@ with the shared one (refused while a writer holds a lease; the replaced ledger s
 document is deleted), and each listed draft is then submitted again, one `claim` (`--revise` for a draft that is `WAITING_DATA`,
 `--topic-id` otherwise) with the session and agent the listing names, then `submit --file data/documents/<article_sha>.json`.
 The same article document comes back with the same address and no repair is spent. This happened on 23 October 2026, when the
-owner merged PR #3 while a session was still writing and the queue promoted the ledger and wrote QA: 25 drafts were submitted
-again that way. Start every session with `sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
+owner merged PR #3 while a session was still writing and the queue promoted the ledger and wrote QA: 22 Vietnamese drafts were
+submitted again that way (three English drafts on the list were finished with an image instead, because the refreshed inventory no longer allowed them to wait for one). Start every session with `sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
 point to. A session ledger that holds state no event explains (a historical review recorded by older code, for instance) is
 reported `INCONSISTENT` instead of being silently called "already included". A pull request that changes the ledger shows
 this plan (`FAST_FORWARD`, `DIVERGED`, ...) in its `quality` run before anyone merges.

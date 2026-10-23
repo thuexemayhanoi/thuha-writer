@@ -55,7 +55,10 @@
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
-  "qa": null,
+  "qa": {
+    "report_sha": "62c3f33e8d0ee8267d7ac9973d3bd198f8bd36cee242c88285ed8aec4d20e164",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -132,7 +135,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/van-ban-hop-nhat-thong-tu-quy-dinh-ve-cap-thu-hoi-chung-nhan-dang-ky-xe-bien-so-xe-co-gioi-xe-may-chuyen-dung-119251114070809667.htm"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:17:40.727031+00:00",
   "topic_id": "TH-000009",
   "waiting_for": []

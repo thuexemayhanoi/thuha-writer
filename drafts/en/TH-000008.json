@@ -48,7 +48,10 @@
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
-  "qa": null,
+  "qa": {
+    "report_sha": "52c87f4ef691f8e775e4c3424465b98aa6712fad75c953745fc91ad9be4f2b94",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -125,7 +128,7 @@
       "url": "https://binhphuoc.gov.vn/vi/news/tin-tuc-su-kien-421/muc-xu-phat-voi-loi-khong-mang-hoac-khong-co-bao-hiem-xe-may-41127.html"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:15:38.698405+00:00",
   "topic_id": "TH-000008",
   "waiting_for": []

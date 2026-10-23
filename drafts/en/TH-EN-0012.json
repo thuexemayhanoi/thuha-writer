@@ -31,13 +31,13 @@
     ],
     "canonical": "https://rentbikehanoi.com/start-rental-on-arrival-day-or-day-two-jet-lag-hanoi/",
     "category_id": 123,
-    "featured_media": null,
+    "featured_media": 76,
     "focus_keyword": "start motorbike rental on arrival day or next day hanoi",
     "language": "en-US",
     "meta_description": "Collect your Hanoi rental bike on arrival day or start on day two? Weigh jet lag, daylight and a day's rent with four questions and a simple table.",
     "seo_title": "Rental Start Day in Hanoi: Arrival Day or Day Two?",
-    "session": "sess-e1",
-    "source_commit": "8b958b741623ff9f15c5c7657ee7cde2ca623d34",
+    "session": "sess-e1c",
+    "source_commit": "dda0461c6a3a925e6083fdeabc1f5842bbf21c76",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -53,12 +53,15 @@
     "title": "Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent",
     "topic_id": "TH-EN-0012"
   },
-  "article_sha": "45079901de45406fb5dff8f393480c8c65ea6c1471ede5de42afbce004c076af",
+  "article_sha": "0ef54e5c920f95084d14578c5b146f8907b5ea53f2335e8c2d09307a4d358f72",
   "category_id": 123,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/start-rental-on-arrival-day-or-day-two-jet-lag-hanoi/",
-  "qa": null,
+  "qa": {
+    "report_sha": "0d74a602f97be38b2d68c6cae8c8ee12b0eaac13e945382c84d689d1bde511d9",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -79,11 +82,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:45:18.710371+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:59:52.472505+00:00",
   "topic_id": "TH-EN-0012",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

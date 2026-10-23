@@ -6,13 +6,13 @@
     "business_claims": [],
     "canonical": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
     "category_id": 145,
-    "featured_media": null,
+    "featured_media": 662,
     "focus_keyword": "following distance motorbike hanoi stop go traffic",
     "language": "en-US",
     "meta_description": "How to judge following distance in stop-and-go Hanoi traffic: look two vehicles ahead, keep an exit, avoid blind spots and handle four common situations.",
     "seo_title": "Following Distance in Stop-and-Go Hanoi Traffic",
-    "session": "sess-e1",
-    "source_commit": "4ffa0a18abb0424c03b50663459b47bef39bcad5",
+    "session": "sess-e1c",
+    "source_commit": "cd67ccda9c7697a01bc5b2ec1d3f69e8d5c4e2bf",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -28,12 +28,15 @@
     "title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
     "topic_id": "TH-EN-0141"
   },
-  "article_sha": "2a7ad8786dc49aabdc77b0c4c121301b942fc27fbe5e2d5fa7191505efbd2319",
+  "article_sha": "60e266430382cab8e1ec184b2496cfb6f219f51aeabe913ec671b93566878b39",
   "category_id": 145,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
-  "qa": null,
+  "qa": {
+    "report_sha": "a9df702f8344477000beea1314e39a30625e392e1e59556429c6238bd0e4fa53",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,11 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:44:42.716940+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:59:09.385011+00:00",
   "topic_id": "TH-EN-0141",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

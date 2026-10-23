@@ -6,13 +6,13 @@
     "business_claims": [],
     "canonical": "https://rentbikehanoi.com/group-riding-through-hanoi-meeting-points-spacing-lost-rider/",
     "category_id": 145,
-    "featured_media": null,
+    "featured_media": 76,
     "focus_keyword": "group motorbike ride hanoi stay together",
     "language": "en-US",
     "meta_description": "Plan a group motorbike ride in Hanoi that stays together: roles, meeting points, spacing and what a rider who loses the group should do.",
     "seo_title": "Group Motorbike Ride in Hanoi: Stay Together Safely",
-    "session": "sess-e1",
-    "source_commit": "20bf018de51116275dbb40ef29714263b8a60d80",
+    "session": "sess-e1c",
+    "source_commit": "94f0b7fa141e8fe8bfdf4f830ee7a42862f8de16",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -28,12 +28,15 @@
     "title": "Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider",
     "topic_id": "TH-EN-0140"
   },
-  "article_sha": "3fc48ada3078b6b39a6aaae1bf2cd5920f01474fd4410cc896184597cb7b46da",
+  "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
   "category_id": 145,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/group-riding-through-hanoi-meeting-points-spacing-lost-rider/",
-  "qa": null,
+  "qa": {
+    "report_sha": "0db5741b736430d62bac59a61ea9de1caf454a642341fdf9e0ad1dd7df0451f0",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,11 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:44:33.683523+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:58:57.979051+00:00",
   "topic_id": "TH-EN-0140",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

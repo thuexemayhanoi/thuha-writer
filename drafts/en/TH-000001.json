@@ -44,8 +44,8 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
   "qa": {
-    "report_sha": "d21f54fa461ff9d43fe2debce59c8406cbcb4f0a8896a4dc29b8e3665675cc49",
-    "status": "FAIL"
+    "report_sha": "bd186ce63d5c45393592d9bd42ca6ac2e558f1dc5883e2322b3c6a62382affaa",
+    "status": "PASS"
   },
   "receipt": null,
   "repair_count": 1,
@@ -105,7 +105,7 @@
       "url": "https://baotanghochiminh.vn/gioi-thieu-chung-ve-trung-bay-thuong-xuyen-cua-bao-tang-ho-chi-minh.htm"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:18:58.553053+00:00",
   "topic_id": "TH-000001",
   "waiting_for": []

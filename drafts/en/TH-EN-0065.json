@@ -6,13 +6,13 @@
     "business_claims": [],
     "canonical": "https://rentbikehanoi.com/xe-so-xe-con-xe-ga-vietnamese-motorbike-terms-decoded/",
     "category_id": 142,
-    "featured_media": null,
+    "featured_media": 76,
     "focus_keyword": "xe so xe con tay xe ga meaning",
     "language": "en-US",
     "meta_description": "Xe số, xe côn tay and xe ga explained: what each means on a Hanoi rental listing, what your hands and feet do, who each suits and what to ask the shop.",
     "seo_title": "Xe Số, Xe Côn Tay and Xe Ga: What the Words Mean",
-    "session": "sess-e1",
-    "source_commit": "033a2df6ab722af5ed191fcaabaa1febb5c02369",
+    "session": "sess-e1c",
+    "source_commit": "2ec77eb2828548224cad7af251c4a6e896493d0d",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -28,12 +28,15 @@
     "title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
     "topic_id": "TH-EN-0065"
   },
-  "article_sha": "5d9bab52cf98a121f46850580bfbdf293cce4327d974fcd0aff0d37dfcfdd6b9",
+  "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
   "category_id": 142,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/xe-so-xe-con-xe-ga-vietnamese-motorbike-terms-decoded/",
-  "qa": null,
+  "qa": {
+    "report_sha": "4399cb2b74f989fa8b106a38b27723a6cb3024ea2257f995c39521653729a20c",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,11 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:44:52.241942+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:59:20.078463+00:00",
   "topic_id": "TH-EN-0065",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

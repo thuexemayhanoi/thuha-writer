@@ -29,8 +29,8 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
   "qa": {
-    "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
-    "status": "FAIL"
+    "report_sha": "0f0591c6e984a8ea0c59a48296df228aeec8b804dbe8e500edd476024514931f",
+    "status": "PASS"
   },
   "receipt": null,
   "repair_count": 0,
@@ -48,7 +48,7 @@
       "url": "https://vietnam.travel/things-to-do/hanoi-art-lovers"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:02:47.148607+00:00",
   "topic_id": "TH-000002",
   "waiting_for": []

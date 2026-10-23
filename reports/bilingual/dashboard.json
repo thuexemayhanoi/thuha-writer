@@ -12,18 +12,18 @@
     "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "45 draft(s) wait for data (FEATURED_MEDIA x45, INTERNAL_LINKS x45): TH-EN-0001, TH-EN-0002, TH-EN-0005, TH-EN-0009, TH-EN-0012, TH-EN-0065, TH-EN-0125, TH-EN-0139, TH-EN-0140, TH-EN-0141, TH-VI-0003, TH-VI-0004"
+    "35 draft(s) wait for data (FEATURED_MEDIA x35, INTERNAL_LINKS x35): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026, TH-VI-0033, TH-VI-0058"
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T13:44:21.872617+00:00",
+  "generated_at": "2026-10-23T14:01:38.935781+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 480,
+    "session_ledger_version": 557,
     "shared_ledger_version": 5,
     "status": "FAST_FORWARD"
   },
@@ -55,16 +55,16 @@
       "states": {
         "BLOCKED": 0,
         "CLAIMED": 0,
-        "DRAFT_READY": 7,
+        "DRAFT_READY": 0,
         "HELD": 0,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 48,
         "PUBLISHED": 0,
         "PUBLISHING": 0,
-        "READY": 2,
+        "READY": 19,
         "RESEARCH": 0,
-        "WAITING_DATA": 10
+        "WAITING_DATA": 0
       },
       "target": 500,
       "unresolved_intents": 0
@@ -72,18 +72,7 @@
     "vi": {
       "complete": false,
       "factory_published_receipts": 0,
-      "needs_source_or_research": [
-        {
-          "created_at": "2026-10-23T13:18:00.354813+00:00",
-          "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
-          "language": "vi",
-          "maximum_topics": 100,
-          "planned": 14,
-          "request_id": "research-vi-934c439f07bab8c9",
-          "runtime": "External authorized AI session required",
-          "status": "AWAITING_EXTERNAL_RESEARCH"
-        }
-      ],
+      "needs_source_or_research": [],
       "open_topics": 46,
       "over_target": false,
       "published_live": 0,
@@ -122,31 +111,27 @@
   "published_articles": [],
   "publisher_uncertain": [],
   "qa": {
-    "FAIL": 2,
-    "PASS": 2
+    "PASS": 19
   },
   "qa_blocked_data": {},
   "queue": {
     "en": {
-      "awaiting_qa": [
-        "TH-000001",
-        "TH-000002",
-        "TH-000003",
-        "TH-000004",
-        "TH-000007",
-        "TH-000008",
-        "TH-000009"
-      ],
+      "awaiting_qa": [],
       "held_or_unknown": [],
       "needs_repair": [],
       "published": [],
       "publishing": [],
       "qa_blocked_data": [],
       "qa_pass": [
+        "TH-000001",
+        "TH-000002",
+        "TH-000003",
+        "TH-000004",
         "TH-000005",
-        "TH-000006"
-      ],
-      "waiting_data": [
+        "TH-000006",
+        "TH-000007",
+        "TH-000008",
+        "TH-000009",
         "TH-EN-0001",
         "TH-EN-0002",
         "TH-EN-0005",
@@ -157,7 +142,8 @@
         "TH-EN-0139",
         "TH-EN-0140",
         "TH-EN-0141"
-      ]
+      ],
+      "waiting_data": []
     },
     "vi": {
       "awaiting_qa": [],
@@ -343,16 +329,6 @@
       "status": "FULFILLED"
     },
     {
-      "created_at": "2026-10-23T13:18:00.354813+00:00",
-      "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
-      "language": "vi",
-      "maximum_topics": 100,
-      "planned": 14,
-      "request_id": "research-vi-934c439f07bab8c9",
-      "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
-    },
-    {
       "admitted_topic_ids": [
         "TH-VI-0018",
         "TH-VI-0022",
@@ -444,62 +420,22 @@
   "states": {
     "BLOCKED": 0,
     "CLAIMED": 0,
-    "DRAFT_READY": 7,
+    "DRAFT_READY": 0,
     "HELD": 11,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
     "PLANNED": 48,
     "PUBLISHED": 0,
     "PUBLISHING": 0,
-    "READY": 2,
+    "READY": 19,
     "RESEARCH": 0,
-    "WAITING_DATA": 45
+    "WAITING_DATA": 35
   },
   "targets": {
     "en": 500,
     "vi": 500
   },
   "waiting_data": {
-    "TH-EN-0001": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0002": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0005": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0009": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0012": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0065": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0125": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0139": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0140": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-EN-0141": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
     "TH-VI-0003": [
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"

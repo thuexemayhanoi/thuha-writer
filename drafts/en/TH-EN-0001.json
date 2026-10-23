@@ -55,13 +55,13 @@
     ],
     "canonical": "https://rentbikehanoi.com/six-day-hanoi-stay-should-you-take-a-weekly-rental-or-pay-day-by-day/",
     "category_id": 123,
-    "featured_media": null,
+    "featured_media": 76,
     "focus_keyword": "rent scooter by the week or by the day hanoi",
     "language": "en-US",
     "meta_description": "Six days in Hanoi: rent by the week or by the day? Compare both quotes, count the days you will really ride and see which rate wins.",
     "seo_title": "Rent by the Week or by the Day for Six Days in Hanoi?",
     "session": "sess-e2",
-    "source_commit": "29b24cd7dbf9139cbfc85e5f15133693107d291b",
+    "source_commit": "02be56d96d04977b3a9291d29bcbc84dc976edad",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -77,12 +77,15 @@
     "title": "A Six-Day Hanoi Stay: Should You Take a Weekly Rental or Pay Day by Day?",
     "topic_id": "TH-EN-0001"
   },
-  "article_sha": "e6f4f8b95e67eea95deceb0982946c26d7b53fcf19e0208d78953d2f80167de2",
+  "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
   "category_id": 123,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/six-day-hanoi-stay-should-you-take-a-weekly-rental-or-pay-day-by-day/",
-  "qa": null,
+  "qa": {
+    "report_sha": "f4cebed3b3484154683c764c4327fbedb943ca98da14575862c337900010bce4",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -103,11 +106,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T13:39:41.697952+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:58:03.813916+00:00",
   "topic_id": "TH-EN-0001",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

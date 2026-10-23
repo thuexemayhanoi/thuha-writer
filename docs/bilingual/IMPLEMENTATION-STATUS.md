@@ -26,46 +26,53 @@ Xuất lại draft/matrix/gói không đổi nội dung (export có đường d�
 Đã đọc danh sách plugin WordPress qua kết nối ngày 23/10: chưa có companion publisher adapter;
 không có thao tác cài đặt, viết bài hay thay theme trong bản sửa. CI là nơi chạy PHP harness trước khi đưa code vào nhánh chạy.
 
-## Phiên 23/10/2026 (lần 5): viết bài từ dữ liệu có sẵn, chống vòng liên kết, rà soát độc lập từng lô
+## Phiên 23/10/2026 (lần 5): chủ website đã merge PR #3; viết bài từ dữ liệu có sẵn; chống vòng liên kết; khôi phục sổ cái phiên
 
-Yêu cầu của chủ website: viết → tự kiểm tra và sửa → QA ≥85/100 + chống trùng + đúng danh mục/ngôn ngữ → publisher. Giữ ngưỡng 85, cách tính điểm, trọng số và mọi hard fail; không thêm lại AI reviewer; không bịa giá, nguồn, ảnh, liên kết hay biên nhận; không merge, deploy hay đụng hosting.
+Yêu cầu của chủ website: viết → tự kiểm tra và sửa → QA ≥85/100 + chống trùng + đúng danh mục/ngôn ngữ → publisher. Giữ ngưỡng 85, cách tính điểm, trọng số và mọi hard fail; không thêm lại AI reviewer; không bịa giá, nguồn, ảnh, liên kết hay biên nhận; không merge, deploy hay đụng hosting; không reset hay force-push.
 Chủ website cũng xác nhận **phí gia hạn 20.000 đồng một giờ, quá 6 giờ tính một ngày thuê** (`config/business-facts.json`, 23/10): bằng chứng first-party của các bản VI cũ được chụp lại và ba bản được viết lại quanh mức phí đã xác nhận.
 
-**Đã làm (đều có commit trên nhánh này):**
+**Điều đã đổi bên ngoài phiên này (đọc trước).** Chủ website đã **merge PR #3 vào `main` lúc 13:05 UTC ngày 23/10** (head `0b0fb1d`, sổ cái phiên v402) và sau đó tự sửa `main`: đồng bộ `drafts/`, bỏ cổng GitHub Environment, thêm bước tự nâng sau hai bài thử.
+`config/release.json` trên `main` vẫn `enabled: false`, `paused: true`, `languages_enabled: []`: **chưa có bài nào được xuất bản**. Job `queue` đã chạy `promote --apply` (13:21, `LEDGER_PROMOTION` từ phiên v402), làm mới inventory công khai và chạy QA tự động cho chín bản EN của V5: **9 PASS** (13:24, `factory-state` v413).
+Nhánh này gộp `main` bằng một merge (`7fc2b03`; chỉ các tệp `drafts/` dẫn xuất xung đột và được dựng lại từ sổ cái), không rebase, không force-push. Phiên không tạo PR mới: PR #3 đã đóng, việc mở PR cho nhánh này là quyết định của chủ website.
 
-- Công cụ viết (`953508e`, `b9bb6d3`, `bb2183e`): `next`, `pack`, `build`, lint và gợi ý sửa, chốt chặn `submit`, `claim --topic-id` / `--revise`, xử lý bằng chứng first-party cũ, và (mới ở `bb2183e`) phát hiện **vòng liên kết giữa các bản chờ**.
-  Phát hiện khi diễn tập: QA coi liên kết tới trang chưa sống là lỗi cứng, nên các bản trỏ vòng quanh nhau không bao giờ qua được dù sau này có trang dịch vụ sống. `next` báo `planned_link_cycles`, `precheck`/`build` báo `planned_links` và `link_cycle`.
-  Chín liên kết ở tám bản đã lưu và sáu liên kết ở lô sau đã được cắt; hiện `planned_link_cycles: []`.
-- Năm lô, mỗi lô qua `pack` → `build` → `precheck` → **rà soát độc lập chỉ đọc** (tính lại mọi phép toán, chạy regex REGULATED/FIRSTHAND của QA, so chồng lấn) → sửa → `submit --waiting-for auto`: VI #3 (14), EN #1 (7), VI #4 (10), VI #5 (4), EN #2 (3) = **38 bản mới**.
+**Hệ quả và cách xử lý.** Sổ cái phiên (v480) đã lệch với `factory-state`: phiên có 53 sự kiện chưa chuyển, còn sổ cái chung có 10 sự kiện (chuyển giao + 9 QA) mà phiên chưa có, nên `promote` và `sync` đều từ chối (`DIVERGED`), đúng thiết kế.
+`38927ba`: `sync` liệt kê phần chưa chuyển (`unpromoted`), và `sync --apply --discard-unpromoted` (tường minh, không bao giờ tự động, từ chối khi còn lease) thay sổ cái phiên bằng sổ cái chung; không xóa tài liệu nào và sổ cái cũ vẫn nằm trong lịch sử nhánh.
+22 bản VI đã được nộp lại từ chính tài liệu đã lưu (cùng địa chỉ bài, `repair_count` 0); ba bản EN còn lại của danh sách `unpromoted` được hoàn tất kèm ảnh (xem ngay dưới). Kế hoạch `promote` tính ngoại tuyến từ bản sao `factory-state` v413 vừa lấy: **FAST_FORWARD** (phiên v557, 340 sự kiện). Chưa chạy thật; sổ cái chung có thể lại di chuyển trước lần merge sau.
+
+**Bản EN không còn phải chờ.** Inventory công khai mới có thư viện ảnh với alt tiếng Anh và các bài EN đang sống, nên 10 bản EN (lô EN #1 và #2) được hoàn tất bằng ảnh có sẵn trong thư viện (ID 662 và 76, đúng danh sách của `pack`, không đặt ID nào) và liên kết tới bài EN đang sống:
+`precheck` 100/100 không hard fail, `submit` chạy QA ngay: **10 PASS, 100/100 (80/80 điểm thô)**, `repair_count` 0. QA này chạy trên inventory công khai (nhãn `public-rest-unverified`, chụp 13:23 UTC); job `queue` sẽ QA lại khi chuyển sổ cái. **READY không có nghĩa là đã xuất bản.**
+Bản VI thì chưa thể: chưa có ảnh nào có alt tiếng Việt, chưa có trang/bài VI sống để liên kết, chưa có inventory từ adapter.
+
+**Đã làm (có commit):**
+
+- Công cụ viết (`953508e`, `b9bb6d3`, `bb2183e`): `next`, `pack`, `build`, lint và gợi ý sửa, chốt chặn `submit`, `claim --topic-id` / `--revise`, bằng chứng first-party cũ, và phát hiện **vòng liên kết giữa các bản chờ**
+  (QA coi liên kết tới trang chưa sống là lỗi cứng nên các bản trỏ vòng quanh nhau không bao giờ qua được; `next` báo `planned_link_cycles`, `precheck`/`build` báo `planned_links` và `link_cycle`; chín liên kết ở tám bản đã lưu và sáu liên kết ở lô sau đã được cắt, hiện `planned_link_cycles: []`).
+- Năm lô, mỗi lô qua `pack` → `build` → `precheck` → **rà soát độc lập chỉ đọc** (tính lại mọi phép toán, chạy regex REGULATED/FIRSTHAND của QA, so chồng lấn) → sửa → nộp: VI #3 (14), EN #1 (7), VI #4 (10), VI #5 (4), EN #2 (3) = **38 bản mới**.
   Các lỗi chặn mà rà soát tìm ra và đã sửa trước khi lưu (chính sách cửa hàng bị ngầm khẳng định, nội dung sức khỏe/an toàn không có nguồn, khẳng định số liệu mà chính bảng của bài không đỡ được, một lỗi an toàn khi vào cua) ghi ở [WRITING-LOG.md](WRITING-LOG.md).
-  Không bản nào dùng lượt sửa (`repair_count` 0).
 
-**Số liệu chính xác** (sổ cái phiên v480, `reports/bilingual/dashboard.md`; WordPress snapshot 275 EN + 0 VI không phải bộ đếm live):
+**Số liệu chính xác** (sổ cái phiên v557, 340 sự kiện; `reports/bilingual/dashboard.md`; WordPress snapshot 275 EN + 0 VI không phải bộ đếm live):
 
 | | VI | EN |
 |---|---|---|
 | Chủ đề trong sổ cái | 46 | 67 |
-| Bản thảo `WAITING_DATA` (thiếu ảnh có alt VI / liên kết sống) | **35** | **10** |
-| `DRAFT_READY` chờ QA trên inventory mới (V5) | 0 | 7 |
-| `READY` cũ (QA PASS dưới policy cũ, phải chạy lại) | 0 | 2 |
+| `WAITING_DATA` (thiếu ảnh có alt VI / liên kết sống VI) | **35** | 0 |
+| `READY`, QA PASS (chưa xuất bản) | 0 | **19** (9 của V5 + 10 mới) |
 | `HELD` (quyết định biên tập có ghi lý do: gộp vào bài khác) | 11 | 0 |
 | `PLANNED` (đã nhập, chưa viết) | 0 | 48 |
-| Qua QA dưới policy hiện tại | **0** | **0** |
 | Biên nhận xuất bản thật | **0** | **0** |
 
-Còn lại là kế hoạch: 454 dòng VI và 225 dòng EN chưa phải bài.
+Còn lại là kế hoạch: 454 dòng VI và 225 dòng EN chưa phải bài (EN: 19 bài READY sẽ cho 294 nếu cả 19 được đăng).
 
-**Điều đang chặn xuất bản thật (không đổi, theo thứ tự):** (1) plugin adapter chưa cài, `adapter-preflight` chưa chạy, `config/release.json` vẫn OFF; (2) chưa có inventory từ adapter còn mới; (3) chưa có ảnh với alt tiếng Việt;
-(4) 11 trang tĩnh VI đã tồn tại nhưng slug chưa nằm trong repo, nên các "gốc" của thứ tự liên kết (ví dụ TH-VI-0022, 0146, 0359) chưa có liên kết sống tới trang nội dung VI mà QA đòi; (5) PR #3 chưa merge nên job `queue` chưa chuyển sổ cái
-(kế hoạch `promote` hiện là **FAST_FORWARD**, `factory-state` vẫn ở lần ghi lúc 02:12 ngày 23/10). Mọi kiểm tra live ở trên là **PENDING**, không có biên nhận nào được dựng.
+**Điều đang chặn xuất bản thật (theo thứ tự):** (1) `config/release.json` trên `main` vẫn OFF và tạm dừng; plugin adapter chưa cài, `adapter-preflight` chưa chạy, `cross_publisher_coordination_verified` là false; (2) nhánh này chưa nằm trong `main`: cần chủ website mở và merge PR (hoặc yêu cầu tôi mở) để job `queue` chuyển sổ cái;
+(3) VI cần: ảnh với alt tiếng Việt, liên kết sống tới trang/bài VI (11 trang tĩnh VI đã tồn tại nhưng slug chưa nằm trong repo, nên các "gốc" của thứ tự liên kết như TH-VI-0022, 0146, 0359 chưa có liên kết sống mà QA đòi), inventory từ adapter. Mọi kiểm tra live ở trên là **PENDING**, không có biên nhận nào được dựng.
 
 **Tiếp tục từ đây (việc kế tiếp, theo thứ tự):**
 
-1. `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply` trước khi viết.
-2. Nếu người giữ quyền publisher đã có inventory thẩm quyền: `recheck-data`; với từng "gốc" của thứ tự liên kết, `claim --revise` rồi thêm liên kết dịch vụ VI theo `internal_link_plan` của dòng ma trận; `precheck`; `qa --pending`.
-3. Nếu chưa có: viết tiếp bằng `next --language vi`. Hiện `start_now` bằng 0; còn 10 chủ đề VI `ADMIT_FIRST` chỉ có `first_party_facts` (TH-VI-0001, 0005, 0007, 0009, 0010, 0012, 0017, 0020, 0021, 0025), phần lớn xoay quanh chính sách chưa xác nhận (gói ngắn, thanh toán, báo giá gồm gì, ưu đãi, xe hỏng) nên bài chỉ là "hỏi cửa hàng":
-   đọc [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) trước, và chỉ viết khi câu trả lời đã có hoặc khi bài thật sự có thứ để dạy. EN còn 10 chủ đề `ADMIT_FIRST` và 10 `READ_SOURCE_FIRST` cần nguồn ngoài (mạng chỉ cho `api.github.com`).
-4. Mỗi lô: viết → `precheck` → rà soát độc lập → sửa → `submit --waiting-for auto`; không nộp lô có vòng liên kết (`next` báo `planned_link_cycles`).
+1. `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply` trước khi viết. Nếu báo `DIVERGED`, xem [OPERATIONS.md](../OPERATIONS.md#two-ledgers-and-the-hand-over) (`unpromoted`, `--discard-unpromoted`, nộp lại).
+2. EN: viết tiếp chủ đề đủ dữ liệu (`next --language en`: còn 10 chủ đề `ADMIT_FIRST` chỉ có `first_party_facts`, và 10 `READ_SOURCE_FIRST` cần nguồn ngoài mà mạng chỉ cho `api.github.com`); bản đủ ảnh và liên kết sống đi thẳng tới QA, không cần chờ.
+3. VI: nếu người giữ quyền publisher đã có inventory thẩm quyền: `recheck-data`; với từng "gốc" của thứ tự liên kết, `claim --revise` rồi thêm liên kết dịch vụ VI theo `internal_link_plan`; `precheck`; `qa --pending`. Nếu chưa có: còn 10 chủ đề VI `ADMIT_FIRST` chỉ có `first_party_facts` (TH-VI-0001, 0005, 0007, 0009, 0010, 0012, 0017, 0020, 0021, 0025), xoay quanh chính sách chưa xác nhận;
+   đọc [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md) trước và chỉ viết khi bài thật sự có thứ để dạy.
+4. Mỗi lô: viết → `precheck` → rà soát độc lập → sửa → nộp; không nộp lô có vòng liên kết (`next` báo `planned_link_cycles`).
 
 ## Phiên 23/10/2026 (lần 4): kiểm toán đường đi writer → QA → chuyển sổ cái → publisher
 
@@ -306,17 +313,17 @@ Cập nhật ở cuối phiên: xem commit cuối của nhánh `feature/bilingua
 
 | Hạng mục | Kết quả |
 |---|---|
-| Python unittest | 517 test, tất cả OK (~45 giây) |
+| Python unittest | 523 test, tất cả OK (~50 giây) |
 | PHP harness (mô phỏng WordPress) | 25 tình huống đạt, 0 lỗi |
 | `thuha.cli validate` | PASS (goal 500/500, 2 matrix, gói adapter, chính sách QA) |
 | Matrix VI500 | 500 dòng mới, 0 vấn đề |
 | Matrix EN500 | 500 dòng = 275 bảo vệ + 57 đã vào sổ cái + 168 mới, 0 vấn đề |
 | ZIP plugin | `dist/thuha-native-vi-publisher-1.0.0.zip`, SHA-256 `08654741d0bd3c97757b877b67d47c28a9609314b3eaf38d1135555471c3dedb` |
 | Workflow YAML | đọc được (Ruby YAML) |
-| Bản thảo trong sổ cái / bài đã xuất bản bởi factory | VI 46 (35 `WAITING_DATA`, 11 `HELD`), EN 19 (10 `WAITING_DATA`, 7 `DRAFT_READY`, 2 `READY` cũ) / 0 |
+| Bản thảo trong sổ cái / bài đã xuất bản bởi factory | VI 46 (35 `WAITING_DATA`, 11 `HELD`), EN 19 (19 `READY`, QA PASS) / 0 |
 | `release.json` `languages_enabled` | `[]` (production vẫn tắt) |
 | Trạng thái adapter | `BLOCKED_ADAPTER_NOT_DEPLOYED` (chưa cài, chưa preflight) |
-| Sổ cái phiên → `factory-state` | `FAST_FORWARD` (phiên v480, dùng chung v5, `factory-state` chưa đổi từ 02:12 ngày 23/10); chưa chạy thật |
+| Sổ cái phiên → `factory-state` | `FAST_FORWARD` (phiên v557, dùng chung v413 sau lần chuyển và 9 QA lúc 13:21–13:24 ngày 23/10); chưa chạy thật |
 
 Commit cuối của nhánh là điểm dừng; số test có thể thay đổi nếu có commit sau mục này.
 

@@ -6,13 +6,13 @@
     "business_claims": [],
     "canonical": "https://rentbikehanoi.com/rusty-rider-decide-whether-to-rent-motorbike-hanoi-years-away/",
     "category_id": 145,
-    "featured_media": null,
+    "featured_media": 662,
     "focus_keyword": "not ridden motorbike in years hanoi rent",
     "language": "en-US",
     "meta_description": "Not ridden a motorbike in years? Answer three honest questions, follow a simple practice plan and learn the signs that mean wait before you rent in Hanoi.",
     "seo_title": "Rusty on a Motorbike? Decide Whether to Rent in Hanoi",
-    "session": "sess-e1",
-    "source_commit": "b0aeb1b03fad97ade6f2cf68581a6e231d9b8329",
+    "session": "sess-e1c",
+    "source_commit": "d77e66a9e2bf0bc0897551dc60067a8d80aeaa27",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -28,12 +28,15 @@
     "title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
     "topic_id": "TH-EN-0139"
   },
-  "article_sha": "9a230d84fa6a79cc37d389cbfb493697cfe8566597244baab048a2c2e6e0ee99",
+  "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
   "category_id": 145,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/rusty-rider-decide-whether-to-rent-motorbike-hanoi-years-away/",
-  "qa": null,
+  "qa": {
+    "report_sha": "47ed2d740bd02b7b901c38d17591dc229fae52528c53266be901f7b410f2e508",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,11 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:44:24.243127+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:58:45.605017+00:00",
   "topic_id": "TH-EN-0139",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

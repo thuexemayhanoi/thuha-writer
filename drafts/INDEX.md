@@ -50,22 +50,22 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0484](vi/TH-VI-0484.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1286 | Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào |
 | [TH-VI-0487](vi/TH-VI-0487.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1171 | Chỉ có một ngày nghỉ mà muốn đi ba nơi: bỏ bớt điểm nào để chuyến đi không thành cuộc chạy đua |
 | [TH-VI-0491](vi/TH-VI-0491.json) | vi | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1262 | Điện thoại hết pin giữa chuyến đi xa: ghi sẵn ra giấy số liên lạc và địa chỉ để không bị lạc |
-| [TH-000001](en/TH-000001.json) | en | DRAFT_READY | — | FAIL | 2484 | Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit |
-| [TH-000002](en/TH-000002.json) | en | DRAFT_READY | — | FAIL | 2187 | The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk |
-| [TH-000003](en/TH-000003.json) | en | DRAFT_READY | — | not run | 2097 | Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules |
-| [TH-000004](en/TH-000004.json) | en | DRAFT_READY | — | not run | 2330 | How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders |
+| [TH-000001](en/TH-000001.json) | en | READY | — | PASS | 2484 | Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit |
+| [TH-000002](en/TH-000002.json) | en | READY | — | PASS | 2187 | The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk |
+| [TH-000003](en/TH-000003.json) | en | READY | — | PASS | 2097 | Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules |
+| [TH-000004](en/TH-000004.json) | en | READY | — | PASS | 2330 | How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders |
 | [TH-000005](en/TH-000005.json) | en | READY | — | PASS | 2417 | Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists |
 | [TH-000006](en/TH-000006.json) | en | READY | — | PASS | 2072 | Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For |
-| [TH-000007](en/TH-000007.json) | en | DRAFT_READY | — | not run | 2190 | Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law |
-| [TH-000008](en/TH-000008.json) | en | DRAFT_READY | — | not run | 2343 | Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check |
-| [TH-000009](en/TH-000009.json) | en | DRAFT_READY | — | not run | 2269 | Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates |
-| [TH-EN-0001](en/TH-EN-0001.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1027 | A Six-Day Hanoi Stay: Should You Take a Weekly Rental or Pay Day by Day? |
-| [TH-EN-0002](en/TH-EN-0002.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1025 | Between a Week and a Month: Booking a Hanoi Rental for an Awkward Stay Length |
-| [TH-EN-0005](en/TH-EN-0005.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1037 | Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi? |
-| [TH-EN-0009](en/TH-EN-0009.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1063 | Weekend-Only Rides: Short Rentals Each Weekend or One Bike Held All Week? |
-| [TH-EN-0012](en/TH-EN-0012.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 815 | Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent |
-| [TH-EN-0065](en/TH-EN-0065.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1021 | Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings |
-| [TH-EN-0125](en/TH-EN-0125.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 851 | Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts |
-| [TH-EN-0139](en/TH-EN-0139.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1166 | Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding |
-| [TH-EN-0140](en/TH-EN-0140.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 1122 | Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider |
-| [TH-EN-0141](en/TH-EN-0141.json) | en | WAITING_DATA | FEATURED_MEDIA, INTERNAL_LINKS | not run | 924 | Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In |
+| [TH-000007](en/TH-000007.json) | en | READY | — | PASS | 2190 | Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law |
+| [TH-000008](en/TH-000008.json) | en | READY | — | PASS | 2343 | Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check |
+| [TH-000009](en/TH-000009.json) | en | READY | — | PASS | 2269 | Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates |
+| [TH-EN-0001](en/TH-EN-0001.json) | en | READY | — | PASS | 1027 | A Six-Day Hanoi Stay: Should You Take a Weekly Rental or Pay Day by Day? |
+| [TH-EN-0002](en/TH-EN-0002.json) | en | READY | — | PASS | 1025 | Between a Week and a Month: Booking a Hanoi Rental for an Awkward Stay Length |
+| [TH-EN-0005](en/TH-EN-0005.json) | en | READY | — | PASS | 1037 | Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi? |
+| [TH-EN-0009](en/TH-EN-0009.json) | en | READY | — | PASS | 1063 | Weekend-Only Rides: Short Rentals Each Weekend or One Bike Held All Week? |
+| [TH-EN-0012](en/TH-EN-0012.json) | en | READY | — | PASS | 815 | Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent |
+| [TH-EN-0065](en/TH-EN-0065.json) | en | READY | — | PASS | 1021 | Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings |
+| [TH-EN-0125](en/TH-EN-0125.json) | en | READY | — | PASS | 851 | Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts |
+| [TH-EN-0139](en/TH-EN-0139.json) | en | READY | — | PASS | 1166 | Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding |
+| [TH-EN-0140](en/TH-EN-0140.json) | en | READY | — | PASS | 1122 | Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider |
+| [TH-EN-0141](en/TH-EN-0141.json) | en | READY | — | PASS | 924 | Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In |

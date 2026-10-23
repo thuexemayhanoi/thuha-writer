@@ -43,13 +43,13 @@
     ],
     "canonical": "https://rentbikehanoi.com/weekend-only-rides-short-rentals-each-weekend-or-one-bike-held-all-week/",
     "category_id": 123,
-    "featured_media": null,
+    "featured_media": 662,
     "focus_keyword": "weekend only motorbike rental hanoi expat",
     "language": "en-US",
     "meta_description": "Only need a bike at weekends? Count your weekends, compare short rentals with one monthly booking and see what the price table leaves out.",
     "seo_title": "Weekend-Only Motorbike Rental in Hanoi: Short Rentals or a Month?",
     "session": "sess-e2",
-    "source_commit": "40744ff74797819c67cccaba5b43376d17247855",
+    "source_commit": "9a658b03074936c7307cdd9b1fade4ac1714d3b2",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -65,12 +65,15 @@
     "title": "Weekend-Only Rides: Short Rentals Each Weekend or One Bike Held All Week?",
     "topic_id": "TH-EN-0009"
   },
-  "article_sha": "788b5a0fd73d67817dad73b5d11cc5803387a68ee04159ec9b18c089529e499e",
+  "article_sha": "b5b2633dfeb203fbad5f7de51e7c3e4934a6c96f0f6d0d05a093a0c2a8882ffe",
   "category_id": 123,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/weekend-only-rides-short-rentals-each-weekend-or-one-bike-held-all-week/",
-  "qa": null,
+  "qa": {
+    "report_sha": "b6f164d79aff81262d323e87670e6b400cd25e4a30d06c76919cf90d8ccd381d",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -91,11 +94,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T13:39:59.741370+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:58:26.384789+00:00",
   "topic_id": "TH-EN-0009",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

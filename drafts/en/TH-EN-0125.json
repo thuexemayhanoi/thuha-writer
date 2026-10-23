@@ -6,13 +6,13 @@
     "business_claims": [],
     "canonical": "https://rentbikehanoi.com/explain-motorbike-breakdown-without-vietnamese/",
     "category_id": 134,
-    "featured_media": null,
+    "featured_media": 662,
     "focus_keyword": "explain motorbike breakdown to mechanic no vietnamese",
     "language": "en-US",
     "meta_description": "Explain a motorbike breakdown without Vietnamese: three photos, a location pin, a message to the shop and short phrases to show a mechanic or passer-by.",
     "seo_title": "Explain a Motorbike Breakdown Without Vietnamese",
-    "session": "sess-e1",
-    "source_commit": "904b4b17bc76536bae859e305eda92bf9082221d",
+    "session": "sess-e1c",
+    "source_commit": "42eab86d1174fd217289dac63b8fa44c7092c984",
     "sources": [
       {
         "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
@@ -28,12 +28,15 @@
     "title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
     "topic_id": "TH-EN-0125"
   },
-  "article_sha": "8404313e276621f3e17255b426db944af0257a069a69634ddf523c3781ebf916",
+  "article_sha": "05e8f888b1d719ec83002d05febb9cb6c7b00857a02046150a5ba58fae1f478e",
   "category_id": 134,
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/explain-motorbike-breakdown-without-vietnamese/",
-  "qa": null,
+  "qa": {
+    "report_sha": "dea1cd43a03e114bb5a3928ee1b6b7ba34d437b41b307d77b9592994e6653336",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,11 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T12:45:09.777918+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-23T13:59:41.802639+00:00",
   "topic_id": "TH-EN-0125",
-  "waiting_for": [
-    "FEATURED_MEDIA",
-    "INTERNAL_LINKS"
-  ]
+  "waiting_for": []
 }

@@ -48,7 +48,10 @@
   "language": "en",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
-  "qa": null,
+  "qa": {
+    "report_sha": "2af20ebe0adf6c4b9189ce5a367f3ea317ccd79203989add624a13f179845410",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -125,7 +128,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/tu-1-1-2025-co-nhung-hang-giay-phep-lai-xe-nao-119240812165630751.htm"
     }
   },
-  "status": "DRAFT_READY",
+  "status": "READY",
   "submitted_at": "2026-10-23T02:15:25.872275+00:00",
   "topic_id": "TH-000003",
   "waiting_for": []
