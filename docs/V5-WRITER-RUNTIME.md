@@ -16,8 +16,20 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
   from the session, and read back from `factory-state` as a content-addressed
   document. Research sources are fetched by an authorized external fetcher
   (the Parallel `web_fetch` tool) and recorded with `source --external-fetch`.
-- Remote state uses the harness `GITHUB_TOKEN` when `THUHA_GITHUB_TOKEN` is
-  absent. The destination-repository path guard and CAS semantics are unchanged.
+- The session's GitHub proxy allows REST reads but refuses every REST write
+  ("Write access to this GitHub API path is not permitted through this
+  proxy"), so the factory-state CAS adapter cannot be driven from here. The
+  `GitBranchStore` (`--git-branch`) keeps the same `data/state/factory.json`
+  and `data/documents/` paths but checkpoints through ordinary commits and
+  pushes on the designated session branch, with explicit pathspecs and
+  push-rejection CAS. The ledger was imported from `factory-state` at version
+  4 unchanged. Promotion back to `factory-state` is a trusted Actions step the
+  owner runs after merge; until then, workflows reading `factory-state` do
+  not see this session's drafts.
+- `GitHub` (REST adapter) falls back to the harness `GITHUB_TOKEN` when
+  `THUHA_GITHUB_TOKEN` is absent and now sends `Content-Type: application/json`
+  on writes. The destination-repository path guard and CAS semantics are
+  unchanged.
 - WordPress credentials, the protected environment, branch protection and the
   release approval are absent. The publisher stays BLOCKED; drafts that reach
   READY wait in the queue for the owner's go-live and the main merge.
@@ -26,13 +38,14 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
 
 ```
 export PYTHONPATH=src
-python3 -m thuha.cli --remote claim --session SESSION --agent-id claude-writer-WN
-python3 -m thuha.cli --remote kit --topic-id TH-00000N > kit.json
+STATE=--git-branch   # or --remote where factory-state REST writes are allowed
+python3 -m thuha.cli $STATE claim --session SESSION --agent-id claude-writer-WN
+python3 -m thuha.cli $STATE kit --topic-id TH-00000N > kit.json
 # research: web_fetch each source, write a fetch record, then
-python3 -m thuha.cli --remote source --url URL --external-fetch record.json
-python3 -m thuha.cli --remote heartbeat --slot WN --session SESSION --fence FENCE
-python3 -m thuha.cli --remote precheck --topic-id TH-00000N --file article.json
-python3 -m thuha.cli --remote submit --slot WN --session SESSION --fence FENCE --file article.json
+python3 -m thuha.cli $STATE source --url URL --external-fetch record.json
+python3 -m thuha.cli $STATE heartbeat --slot WN --session SESSION --fence FENCE
+python3 -m thuha.cli $STATE precheck --topic-id TH-00000N --file article.json
+python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --file article.json
 ```
 
 Rules the kit repeats and QA enforces: original English prose, two or more
