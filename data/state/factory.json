@@ -6160,6 +6160,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:04:59.879914+00:00",
+      "expires_at": 1792773299.879905,
+      "fence": "09a4990f7d0c4ba4a710c03ee4f7a9d8",
+      "heartbeat_at": "2026-10-23T16:04:59.879884+00:00",
+      "language": "vi",
+      "previous": "45bcc88568ec65fbe46efefdbfce2a7a73e5aa71e29dc5854e0dd8e58c2a294d",
+      "session": "sess-b3r",
+      "sha256": "9f2743d12edb39e73d373b24a1db1897f9ecca331d93fc3327c5320a8fce41fb",
+      "slot": "W1",
+      "topic_id": "TH-VI-0484"
     }
   ],
   "intents": {
@@ -9135,7 +9149,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773299.879905,
+      "fence": "09a4990f7d0c4ba4a710c03ee4f7a9d8",
+      "heartbeat_at": "2026-10-23T16:04:59.879884+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0484"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -15188,6 +15213,7 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chốt điểm đi chơi nhóm trên Zalo bằng xe máy",
       "proposed_title": "Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào",
@@ -15200,7 +15226,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0484",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15261,5 +15287,5 @@
       ]
     }
   },
-  "version": 804
+  "version": 805
 }
