@@ -70,7 +70,7 @@ Số liệu sổ cái: EN 57 chủ đề (9 bản thảo: 7 `DRAFT_READY`, 2 `RE
 **Không viết thêm bài trong phiên này, và đây là lý do chính xác:** các chủ đề còn lại cần nguồn ngoài mà môi trường chặn (chính sách mạng chỉ cho `api.github.com`; mọi miền khác trả 403 ở CONNECT; Firecrawl hết tín dụng; bằng chứng V5 chỉ lưu 20 từ trích mỗi nguồn nên không đủ để viết bài thực chất mà không bịa),
 hoặc cần câu trả lời của chủ cửa hàng ([OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)); các bản nháp còn lại của tôi cùng một khung "hỏi cửa hàng" nên không lưu.
 **Điều đang chặn xuất bản thật (theo thứ tự):** (1) plugin adapter chưa cài và `adapter-preflight` chưa chạy; (2) cấu hình chạy thật: `config/release.json` vẫn OFF, secrets/biến trong environment `thuha-production`, người duyệt của environment (nếu còn) làm bài phải chờ người;
-(3) chưa có inventory từ adapter còn mới; (4) chưa có ảnh alt tiếng Việt và chưa có trang/bài tiếng Việt đang sống để liên kết (Q11) nên chưa bài VI nào qua QA; (5) merge PR #3 để job `queue` chuyển sổ cái và chạy QA EN.
+(3) chưa có inventory từ adapter còn mới; (4) (checkpoint cũ) ảnh alt tiếng Việt còn thiếu nhưng điều kiện này đã bỏ; chưa có trang/bài tiếng Việt đang sống để liên kết (Q11) nên chưa bài VI nào qua QA; (5) merge PR #3 để job `queue` chuyển sổ cái và chạy QA EN.
 **Để mở khóa việc viết:** chủ website đổi *Network access* của môi trường (menu môi trường trong thanh tiêu đề phiên → Edit) sang mức rộng hơn hoặc thêm các miền nguồn vào *Allowed domains* (ví dụ `baotanghochiminh.vn`, `vietnam.travel`, `chinhphu.vn`, `nchmf.gov.vn`, `metrohanoi.vn`, `noibaiairport.vn`, các trang xe Honda/Yamaha/VinFast, `rentbikehanoi.com` để kiểm trang đã sống) hoặc nạp thêm tín dụng Firecrawl; rồi `matrix next` → chụp nguồn → `admit` → viết.
 
 **Câu hỏi mới cho chủ website (thêm vào [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)):** trang tiếng Việt nào (ví dụ trang chủ `/vi/` hay trang dịch vụ thuê xe) đã đăng và có `public_check` 200? Bài VI đầu tiên cần ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống.
@@ -109,7 +109,7 @@ vòng hai khuyên 7 trang thay vì 17 (cùng một khung, chồng lấn ý). Tô
   chủ đề cần luật, nhà sản xuất, địa điểm, giao thông, thời tiết vẫn là `NEEDS_SOURCE`. Bảy bản EN không có review lịch sử, nhưng điều đó không còn chặn QA; nguồn của chúng là bằng chứng đã chụp bởi phiên V5.
 - *Không viết tiếp hàng loạt bài "hỏi cửa hàng".* Đọc soát biên tập chỉ ra các bài cùng một khung và chỉ là danh sách câu hỏi vì chủ cửa hàng chưa trả lời chúng; thêm vài chục bài cùng khung sẽ giống nội dung sản xuất hàng loạt.
   Việc mở khóa là [những câu chỉ chủ cửa hàng trả lời được](OWNER-QUESTIONS.md).
-- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần: ảnh có alt tiếng Việt trong thư viện media, trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi QA tự động.
+- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần hiện tại: trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi QA tự động.
 
 **Việc phải xin quyết định của chủ cửa hàng:** (a) giọng văn thống nhất cho cả loạt bài (nay là trung tính, "giá tham khảo của Thuê xe máy Nguyễn Hà", "mỗi cửa hàng có cách làm riêng"); (b) câu trả lời cho
 [10 câu hỏi](OWNER-QUESTIONS.md); (c) ảnh có alt tiếng Việt.
@@ -146,7 +146,7 @@ từ chức năng tiếng Việt nên chặn nhầm TH-000003 (bài Anh trích t
 `native_language` và `no_machine_translation`.
 
 **Một lỗ hổng lộ ra từ việc kiểm tra media:** inventory trước đây chỉ liệt kê ảnh đại diện của bài đã có, nên một ảnh có alt tiếng Việt
-chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **chưa bài VI nào qua được QA**
+chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **tại checkpoint lịch sử chưa bài VI nào qua QA; ảnh/alt nay đã bỏ điều kiện**
 cho đến khi thư viện có ít nhất một ảnh như vậy (việc của người có quyền WordPress).
 
 ### Review độc lập lần hai (23/10) và cách xử lý
@@ -177,7 +177,7 @@ mà WordPress không bao giờ thấy chỉ được đóng sau một giờ; kho
 2. Bảo vệ nhánh: `main` cần 1 review + check `quality`; `factory-state` chỉ app GitHub Actions được ghi, cấm force push.
 3. Environment `thuha-production` có người duyệt, secrets `THUHA_WP_USER`, `THUHA_WP_APPLICATION_PASSWORD`, `THUHA_GITHUB_SECURITY_TOKEN`, biến `THUHA_GO_LIVE_APPROVAL`.
 4. Cài `dist/thuha-native-vi-publisher-1.0.0.zip`, chạy `adapter-preflight` (người/AI có quyền WordPress xem trước và triển khai).
-5. Thêm ảnh có alt tiếng Việt vào thư viện media.
+5. [LỊCH SỬ — ĐÃ BỎ] Ảnh/alt tiếng Việt không còn bắt buộc.
 6. Review độc lập bảy bản thảo EN (và các bản VI khi có). Danh tính reviewer chỉ là chuỗi tự khai (`claude-editorial-reviewer` trong `config/qa.json`), không phải xác thực: chủ sở hữu xác nhận hoặc thay roster và bảo vệ quyền ghi sổ cái trước khi tin cho production.
 7. Quyết định go-live: một thay đổi `config/release.json` đã được review (`enabled`, `approved`, `approval_ref`, `paused:false`, `cross_publisher_coordination_verified`, `languages_enabled`). Giai đoạn đầu tối đa 2 bài.
 

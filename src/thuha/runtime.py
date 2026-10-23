@@ -72,7 +72,7 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None,cfg=No
     # (an unfinished draft may wait for what it will be completed with; the automatic QA is stricter, see datawait.split).
     waits,faults=split(failures,article,topic,inv,state,policy,declared=True)
     potential=potential_score(result,waits)
-    if waits and not faults and potential<policy['score_threshold']:faults.append('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA')
+    if not faults and potential<policy['score_threshold']:faults.append('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA')
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
                   hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,content_fails=faults,potential_score=potential)
     result['would_pass_qa']=not failures and result['score']>=policy['score_threshold']

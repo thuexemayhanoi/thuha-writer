@@ -21,7 +21,7 @@ Vietnamese posts **including existing live posts**. Vietnamese is prioritized wh
    was picked). If it fails with "No admissible researched topic", stop and report.
 2. `python3 -m thuha.cli --git-branch pack --topic-id <TOPIC> --out pack.json` (read-only; `next` shows what can be written now).
    Read the topic record and intent, the category chain and canonical, the shop facts and reference prices, the saved
-   sources and the other topics' sources that fit, the live same-language links and archives, the images with alt text in the
+   sources and the other topics' sources that fit, the live same-language links and archives, optional image suggestions in the
    article's language, the existing titles in the same category (do not duplicate them), what the topic is expected to wait for,
    and the rules. Nothing in it is invented: what is missing is listed as missing. `kit` is the older, smaller handoff.
 3. Research. The topic's `sources` already carry captured evidence documents
@@ -65,7 +65,7 @@ Vietnamese posts **including existing live posts**. Vietnamese is prioritized wh
 ## Editorial bar
 
 - Vietnamese topics: native Vietnamese prose for a reader in Vietnam, at least 950 syllables (the QA floor; aim for 1,500–3,000),
-  Vietnamese title, meta, alt text and links only; regulated claims (giấy phép, bằng lái, mức phạt, visa, đăng kiểm…) need an
+  Vietnamese title, meta and links only; images optional; regulated claims (giấy phép, bằng lái, mức phạt, visa, đăng kiểm…) need an
   official `.gov.vn` source; prices only as `giá tham khảo` with a reminder to confirm before booking. The rest of this bar applies
   to both languages.
 - English topics: 1,200–2,500 words of original English for an international reader in Hanoi.

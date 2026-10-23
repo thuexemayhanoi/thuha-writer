@@ -67,8 +67,7 @@ python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --f
 Rules the kit repeats and QA enforces (the kit prints the Vietnamese version for a Vietnamese topic: native
 Vietnamese prose, same-language links and images, `giá tham khảo` for prices): original prose in the topic's language, two or more
 `<h2>`, no body `<h1>`, no script/style/meta/iframe/form, internal links only
-to live-verified URLs in the kit, featured media only from the kit's media with
-alt text, reference prices only as declared `business_claims` with a disclaimer
+to live-verified URLs in the kit, featured media optional (null allowed; never look up WordPress images or alt), reference prices only as declared `business_claims` with a disclaimer
 sentence, an official `.gov.vn`/`.gov`/`.gov.uk` source whenever the text
 mentions licences, permits, registration, law, visas or embassies, and never a
 "no deposit", refund, delivery-policy or firsthand-testing claim.

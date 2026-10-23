@@ -170,7 +170,7 @@ Create an original WordPress editorial factory, informed by architectural study 
 2. **Inventory-only tooling** — safely inspect all existing posts/pages/taxonomy and generate timestamped reproducible reports.
 3. **Topic research + intent mapping** — grounded source checks, deduplication, existing category matching, topic queue.
 4. **W1–W9 coordinator** — lease/heartbeat/atomic claim, durable checkpoints, source and submission receipts.
-5. **Quality gates** — factual validation, useful original writing in each language, metadata, image, links, taxonomy, intent, accessibility and QA.
+5. **Quality gates** — factual validation, useful original writing in each language, metadata, optional images, links, taxonomy, intent, accessibility and QA.
 6. **Publisher pilot** — owner-controlled enablement, small batches, isolated WordPress credentials, post-publish verification and recovery.
 7. **Controlled scale** — reach 500 published posts per language including existing posts, Vietnamese first, each language capped independently.
 
