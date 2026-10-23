@@ -1,15 +1,20 @@
-# GitHub security preflight
+# GitHub publisher access (no Environment setup)
 
-GitHub's built-in Actions token does not normally expose administration-read
-branch-protection endpoints. The publisher therefore accepts a separate
-`THUHA_GITHUB_SECURITY_TOKEN`, scoped only to this repository with the read
-permissions needed to inspect main/factory-state protection and the protected
-environment. It is used only for GET security checks; the state adapter retains
-its separate contents-write token. A missing or insufficient security reader
-blocks publication rather than turning an unknown control into PASS.
+The ThuHa publisher **does not use a GitHub Environment** or a separate
+`THUHA_GO_LIVE_APPROVAL` variable. There is no required-reviewer approval queue.
 
-Store a newly authorized credential in the protected thuha-production
-environment only during the separately approved go-live setup. Do not paste it
-in chat, commit it, or copy a secret from another repository. No security token
-has been created or configured by this implementation. Credentials-presence
-checks print booleans only. No API changes repository security settings.
+The publish job reads WordPress credentials from **repository-level GitHub Actions Secrets**:
+`THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD`. Do not paste credentials
+in chat or commit them. The normal GitHub Actions token reads the `main` and
+`factory-state` branch references and performs the audited ledger transactions.
+An optional separate read token may be provided as `THUHA_GITHUB_SECURITY_TOKEN`,
+but it is **not required** for the publisher's current branch-reference checks.
+
+`config/release.json` remains the source of the owner's explicit on/off decision.
+Keep `enabled=false`, `approved=false`, `paused=true` until WordPress
+credentials, adapter deployment and coordination with any other publisher are verified.
+The production job still runs fresh QA, checks credentials and adapter access,
+uses durable CAS and duplicate/idempotency checks, and is restricted to the
+initial two-post pilot. No setting may bypass these safeguards.
+
+No GitHub environment settings or Secrets are mutated by repository code.
