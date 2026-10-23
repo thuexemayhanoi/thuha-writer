@@ -149,13 +149,22 @@ class QualityTests(Fixture):
         lease=claim(self.store,'repair-session','another-writer')
         with self.assertRaises(ValueError):run_qa(self.store,topic['topic_id'],self.inv,self.policy,self.business)
         self.assertEqual(self.store.read()['leases'][lease['slot']]['fence'],lease['fence'])
-    def test_missing_independent_review_is_hard_fail(self):
+    def test_no_external_reviewer_required_but_qa85_kept(self):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
-        self.assertEqual(r['status'],'FAIL');self.assertIn('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED',r['hard_fails'])
-    def test_self_review_rejected(self):
-        t,a,s=self.ready();self.policy['trusted_reviewers']=['writer-fixture']
+        self.assertEqual(r['status'],'PASS',r)
+        self.assertGreaterEqual(r['score'],85)
+        self.assertEqual(r['threshold'],85)
+        self.assertEqual(r['semantic_review'],'not-required')
+    def test_fake_review_does_not_change_automated_qa_or_override_hard_fails(self):
+        t,a,s=self.ready()
         review={'reviewer_id':'writer-fixture','article_sha':digest(a),'checks':{k:True for k in REVIEW_CHECKS},'notes':'fake','checked_at':now()}
-        self.assertEqual(evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)['status'],'FAIL')
+        plain=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
+        with_fake=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
+        self.assertEqual((plain['score'],plain['hard_fails']),(with_fake['score'],with_fake['hard_fails']))
+        a['body_html']+='<script>alert(1)</script>'
+        forged=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
+        self.assertEqual(forged['status'],'FAIL')
+        self.assertIn('UNSAFE_OR_DUPLICATE_SCHEMA_HTML',forged['hard_fails'])
     def test_forged_report_does_not_authorize_changed_draft(self):
         t,a,s=self.ready();sha=self.store.read()['qa'][t['topic_id']]['report_sha']
         a['body_html']+='<p>tampered</p>'
