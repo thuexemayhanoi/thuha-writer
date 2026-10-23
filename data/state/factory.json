@@ -4730,6 +4730,20 @@
       "sha256": "91e6a70c0ac04fb0c2fb368bd7490cc69e15e29bb8dc34f69526492bb7d11f6f",
       "status": "PASS",
       "topic_id": "TH-EN-0009"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T14:55:20.709280+00:00",
+      "expires_at": 1792769120.70927,
+      "fence": "3ee3796cfcd6422abad75704eff742f4",
+      "heartbeat_at": "2026-10-23T14:55:20.709251+00:00",
+      "language": "en",
+      "previous": "91e6a70c0ac04fb0c2fb368bd7490cc69e15e29bb8dc34f69526492bb7d11f6f",
+      "session": "sess-e1c",
+      "sha256": "6c4f84545713ffcbb2744e1bd888ca34611f369475a07ee5facb9a6463a7dd21",
+      "slot": "W1",
+      "topic_id": "TH-EN-0139"
     }
   ],
   "intents": {
@@ -7705,7 +7719,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792769120.70927,
+      "fence": "3ee3796cfcd6422abad75704eff742f4",
+      "heartbeat_at": "2026-10-23T14:55:20.709251+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0139"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11051,6 +11076,7 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "not ridden motorbike in years hanoi rent",
       "proposed_title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
@@ -11063,7 +11089,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0139",
       "waiting_for": []
     },
@@ -12654,5 +12680,5 @@
       ]
     }
   },
-  "version": 639
+  "version": 640
 }
