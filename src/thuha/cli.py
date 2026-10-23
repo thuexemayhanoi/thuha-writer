@@ -57,7 +57,7 @@ def main(argv=None):
     sub.add_parser('coordinator');sub.add_parser('recovery');sub.add_parser('refill');sub.add_parser('credentials')
     sub.add_parser('quota');sub.add_parser('adapter-preflight');sub.add_parser('package')
     q=sub.add_parser('claim');q.add_argument('--session',required=True);q.add_argument('--agent-id',required=True);q.add_argument('--slot',default='auto')
-    q.add_argument('--revise',metavar='TOPIC_ID',help='Claim a stored WAITING_DATA draft to revise it while its data is still missing')
+    q.add_argument('--revise',metavar='TOPIC_ID',help='Claim a stored WAITING_DATA draft, or a finished one whose QA is BLOCKED_DATA, to revise it (not a repair)')
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':

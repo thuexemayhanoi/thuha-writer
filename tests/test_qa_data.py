@@ -142,6 +142,12 @@ class DataOnlyFailureTests(QaDataHelpers):
         self.assertEqual(record['policy_sha256'], __import__('thuha.common', fromlist=['digest']).digest(self.policy))
         self.assertEqual(self.store.get_document(record['report_sha'])['status'], 'BLOCKED_DATA')  # the stored report is truthful
 
+    def test_a_data_blocked_draft_frees_its_writers_slot_like_any_stored_draft(self):
+        topic, article, sub = self.planned_draft()
+        self.assertEqual(len(self.store.read()['leases']), 1)  # the writer still holds the slot after submitting
+        quality.run_qa(self.store, topic['topic_id'], self.inv, self.policy, self.business)
+        self.assertEqual(self.store.read()['leases'], {})
+
     def test_the_wait_is_not_a_pass_and_nothing_can_publish_it(self):
         topic, article, sub = self.planned_draft()
         tid = topic['topic_id']
@@ -263,6 +269,43 @@ class DataOnlyFailureTests(QaDataHelpers):
         self.assertEqual(report['queue']['vi']['awaiting_qa'], [])
         self.assertEqual(report['qa_blocked_data'], {topic['topic_id']: ['INTERNAL_LINKS']})
         self.assertTrue(any('cannot pass QA yet' in b for b in report['blockers']))
+
+
+class ReviseBlockedDraftTests(QaDataHelpers):
+    """A draft that waits for planned pages must not be stuck if those pages never go live: a writer can re-point its links."""
+
+    def blocked(self):
+        topic, article, sub = self.planned_draft()
+        quality.run_qa(self.store, topic['topic_id'], self.inv, self.policy, self.business)
+        return topic, article, sub
+
+    def test_a_data_blocked_draft_can_be_claimed_for_revision_and_the_revision_is_not_a_repair(self):
+        topic, article, sub = self.blocked()
+        tid = topic['topic_id']
+        lease = claim(self.store, 'session-fix', 'writer-fix', revise=tid)
+        self.assertEqual((lease['topic_id'], self.store.read()['topics'][tid]['status']), (tid, 'CLAIMED'))
+        fixed = dict(article, session='session-fix', agent_id='writer-fix')
+        fixed['body_html'] = fixed['body_html'].replace(PLANNED[0], LIVE_LINKS[0]).replace(PLANNED[1], LIVE_LINKS[1])  # live pages instead of planned ones
+        result = submit(self.store, lease['slot'], lease['session'], lease['fence'], fixed)
+        self.assertEqual(result['repair_count'], 0)
+        self.assertEqual(self.state_of(tid)[0], 'DRAFT_READY')
+        self.assertEqual(quality.pending_qa(self.store, self.policy), [tid])
+        self.assertEqual(quality.run_qa(self.store, tid, self.inv, self.policy, self.business)['status'], 'PASS')
+
+    def test_only_a_draft_that_really_waits_can_be_revised_this_way(self):
+        topic, article, sub = self.drafted('vi', 1)  # a plain DRAFT_READY draft: nothing is blocked, nothing waits
+        with self.assertRaisesRegex(ValueError, 'waits for data'):
+            claim(self.store, 'session-no', 'writer-no', revise=topic['topic_id'])
+
+    def test_a_lost_lease_leaves_the_draft_unfinished_and_claimable_not_ready(self):
+        topic, article, sub = self.blocked()
+        tid = topic['topic_id']
+        lease = claim(self.store, 'session-lost', 'writer-lost', revise=tid, ttl=-1)
+        from thuha.coordinator import recover
+        self.store.mutate(lambda s: recover(s))
+        status = self.store.read()['topics'][tid]
+        self.assertEqual((status['status'], status.get('waiting_for', [])), ('WAITING_DATA', []))
+        self.assertEqual(claim(self.store, 'session-again', 'writer-again')['topic_id'], tid)
 
 
 class CommandLineQaTests(QaDataHelpers):

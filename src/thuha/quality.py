@@ -192,6 +192,8 @@ def run_qa(store,topic_id,inv,policy,business):
             # READY meant "passed under the current policy"; a check that cannot be renewed no longer shows it. No repair is spent.
             state['qa'][topic_id]={'report_sha':report_sha,**record}
             if state['topics'][topic_id]['status'] in ('READY','NEEDS_REPAIR'):state['topics'][topic_id]['status']='DRAFT_READY'
+            # The draft is stored and complete: like a draft stored with --waiting-for, it frees its writer's slot.
+            state['leases']={s:l for s,l in state['leases'].items() if l['topic_id']!=topic_id}
             event(state,'QA',topic_id=topic_id,report_sha=report_sha,status='BLOCKED_DATA',waiting_for=record['waiting_for'])
             return result
         state['qa'][topic_id]={'report_sha':report_sha,'article_sha':sub['article_sha'],'status':result['status']}

@@ -4,6 +4,7 @@ import uuid
 from .common import ROOT, load, now, digest, validate_inventory
 from .language import LANGUAGES, locale, screen_alt
 from .policy import LIMITS
+from .datawait import qa_blocked
 from .quota import SOURCES, complete_languages
 from .research import item_language
 from .store import event
@@ -71,9 +72,11 @@ def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,r
         full=complete_languages(state,counts,targets) if counts is not None and targets is not None else set()
         busy={x['topic_id'] for x in state['leases'].values()}
         if revise:
-            # Revising a stored draft whose data is still missing; the ordinary order of claims is not bypassed for anything else.
+            # Revising a stored draft whose data is still missing, or a finished one whose QA waits for pages that are not live
+            # (its links may need re-pointing if those pages never come); the ordinary order of claims is not bypassed for anything else.
             candidate=state['topics'].get(revise)
-            if not candidate or candidate['status']!='WAITING_DATA' or candidate['topic_id'] in busy or candidate['language'] in full:
+            waits=bool(candidate) and (candidate['status']=='WAITING_DATA' or revise in qa_blocked(state))
+            if not waits or candidate['topic_id'] in busy or candidate['language'] in full:
                 raise ValueError('Only an unleased draft that waits for data can be revised this way')
         else:
             candidates=sorted((x for x in state['topics'].values() if claimable(x) and x['language'] not in full),key=claim_order)
@@ -81,7 +84,7 @@ def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,r
             if not candidate:raise ValueError('No admissible researched topic; external research required')
         lease={'slot':available,'session':session,'agent_id':agent_id,'topic_id':candidate['topic_id'],
                'language':candidate['language'],'fence':fence,'heartbeat_at':now(),'expires_at':timestamp()+ttl}
-        if candidate['status']=='WAITING_DATA':candidate['completion_pending']=True # the next submission completes the stored draft
+        if candidate['status']=='WAITING_DATA' or revise:candidate['completion_pending']=True # the next submission completes the stored draft
         state['leases'][available]=lease;candidate['status']='CLAIMED'
         event(state,'CLAIM',**lease)
         return lease

@@ -75,7 +75,7 @@ runs on the shared ledger for every completed draft. Historical review records n
 |---|---|---|---|
 | `PASS` | every check passed | READY, report stored | 0 |
 | `FAIL` | the article has a fault, or its score stays below 85 even with the data | NEEDS_REPAIR (a repair is spent when the writer resubmits changed text), or NEEDS_REVIEW after the repair limit | 0 (the failure is in the ledger) |
-| `BLOCKED_DATA` | only pages the draft already links to are planned but not live yet, and with them it would pass as written | stays DRAFT_READY (a READY draft whose check can no longer be renewed goes back to DRAFT_READY); no repair spent; not a pass; recorded once, then checked again by every run at no ledger cost | 0 (3 when one topic is asked for) |
+| `BLOCKED_DATA` | only pages the draft already links to are planned but not live yet, and with them it would pass as written | stays DRAFT_READY (a READY draft whose check can no longer be renewed goes back to DRAFT_READY); the writer's slot is freed; no repair spent; not a pass; recorded once, then checked again by every run at no ledger cost. If those pages never come, `claim --revise ID` lets a writer re-point the links (a completion, not a repair) | 0 (3 when one topic is asked for) |
 | `BLOCKED` / `INFRASTRUCTURE` | the inventory is stale, incomplete or public-only for Vietnamese, or the network failed | **nothing is evaluated, recorded or changed** | 2 (the run is red so a stale audit is noticed) |
 
 A failure that *can* mean "the data does not exist yet" counts as a wait only when no edit could clear it: a link that points
@@ -94,7 +94,7 @@ python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0004 --file article.
 python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for FEATURED_MEDIA INTERNAL_LINKS AUTHORITATIVE_INVENTORY
 python3 -m thuha.cli --remote recheck-data          # (protected job) clears only what the authenticated inventory really holds
 python3 scripts/export_drafts.py                    # drafts/<language>/<ID>.json + drafts/INDEX.md, derived from the ledger
-python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004   # edit a stored draft whose data is still missing
+python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004   # edit a stored draft whose data is still missing (or one whose QA is BLOCKED_DATA)
 ```
 
 `WAITING_DATA` is a stored state, never READY: `qa` refuses it, `qa --pending` skips it, the publisher cannot take it, it is not

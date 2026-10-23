@@ -39,8 +39,8 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   Legacy review records neither gate QA nor add points; no synthetic attestation may replace them.
 - **QA never blames the article for data the site lacks.** An unusable inventory (stale, incomplete, public-only for Vietnamese)
   makes `run_qa` refuse: nothing is evaluated, recorded or changed and `qa --pending` exits 2. A finished draft that would pass
-  as written once pages it already links to are live is `BLOCKED_DATA` (stays DRAFT_READY, no repair spent, not a pass, checked
-  again every run, passes by itself). Real faults, typo links, too few links, an image not chosen and a score that stays below 85
+  as written once pages it already links to are live is `BLOCKED_DATA` (stays DRAFT_READY, frees its writer slot, no repair spent,
+  not a pass, checked again every run, passes by itself; `claim --revise` lets a writer re-point its links, not a repair). Real faults, typo links, too few links, an image not chosen and a score that stays below 85
   go to repair. `precheck` uses the same classifier (`src/thuha/datawait.py`); `submit` refuses an empty `featured_media` unless
   the draft is stored with `--waiting-for FEATURED_MEDIA`.
 - **PUBLISHED means WordPress said so.** The intent becomes PUBLISHED when WordPress returns a valid ID, status `publish` and
