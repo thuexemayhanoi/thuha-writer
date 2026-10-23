@@ -5214,6 +5214,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:58:31.401490+00:00",
+      "expires_at": 1792769311.401481,
+      "fence": "858c22afc0db413eae5c13f822d0e6d7",
+      "heartbeat_at": "2026-10-23T14:58:31.401463+00:00",
+      "language": "vi",
+      "previous": "d883b184321960c673da902719563c5b59bcaf53cecbec288305b804155da880",
+      "session": "sess-b3",
+      "sha256": "1bcef9a46b34141cb7423174f3c0143e0ddaf099675f64db6a1a2916daf741f6",
+      "slot": "W1",
+      "topic_id": "TH-VI-0267"
     }
   ],
   "intents": {
@@ -8189,7 +8203,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792769311.401481,
+      "fence": "858c22afc0db413eae5c13f822d0e6d7",
+      "heartbeat_at": "2026-10-23T14:58:31.401463+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0267"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -12931,6 +12956,7 @@
         162
       ],
       "cluster": "su-dung-va-cham-soc-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi làm bằng xe máy thuê tháng mặc đồ công sở",
       "proposed_title": "Đi làm bằng xe thuê tháng khi mặc đồ công sở: cất áo khoác, giày thay và áo mưa thế nào cho gọn",
@@ -12943,7 +12969,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0267",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13166,5 +13192,5 @@
       ]
     }
   },
-  "version": 697
+  "version": 698
 }
