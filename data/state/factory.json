@@ -4033,23 +4033,20 @@
       "previous": "179ccaa26a0cc96a9434f5d841b10b54c453ce2041b4cc6b1d3281af9bd7651d",
       "sha256": "5c285cc2385550d8ac493a16778bd10f620796f2a2083716b08793331cac6924",
       "topic_id": "TH-EN-0001"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T13:58:07.968551+00:00",
+      "previous": "5c285cc2385550d8ac493a16778bd10f620796f2a2083716b08793331cac6924",
+      "report_sha": "f4cebed3b3484154683c764c4327fbedb943ca98da14575862c337900010bce4",
+      "sha256": "0a4296213368f45ed73eb7027d3c6233b5b72290c1824c20a25beb78997cffa2",
+      "status": "PASS",
+      "topic_id": "TH-EN-0001"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W2",
-      "expires_at": 1792765678.676662,
-      "fence": "799e377eb6ae42bfa45e186e54cdd11c",
-      "heartbeat_at": "2026-10-23T13:57:58.676642+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "sess-e2",
-      "slot": "W1",
-      "topic_id": "TH-EN-0001"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4094,6 +4091,11 @@
     "TH-000009": {
       "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
       "report_sha": "62c3f33e8d0ee8267d7ac9973d3bd198f8bd36cee242c88285ed8aec4d20e164",
+      "status": "PASS"
+    },
+    "TH-EN-0001": {
+      "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
+      "report_sha": "f4cebed3b3484154683c764c4327fbedb943ca98da14575862c337900010bce4",
       "status": "PASS"
     }
   },
@@ -6892,7 +6894,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0001"
     },
     "TH-EN-0002": {
@@ -8718,5 +8720,5 @@
       ]
     }
   },
-  "version": 529
+  "version": 530
 }
