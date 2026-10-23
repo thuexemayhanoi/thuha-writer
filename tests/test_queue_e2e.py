@@ -808,15 +808,17 @@ class WiringTests(unittest.TestCase):
         queue, gate = text.index('  queue:'), text.index('  protected-publish:')
         self.assertLess(queue, gate)
         outside, inside = text[queue:gate], text[gate:]
-        # Outside the protected environment (no WordPress secret): hand-over first, then inventory, then English QA only.
+        # Outside the publishing job (no WordPress secret): hand-over first, then inventory, then English QA only.
         order = [outside.index(x) for x in ('thuha.cli --remote promote --apply', 'audit --max-age 18000', 'qa --pending --language en')]
         self.assertEqual(order, sorted(order))
         self.assertNotIn('THUHA_WP_', outside)
         self.assertNotIn('--mode drain', outside)
-        # Inside it: adapter check, authenticated inventory, QA of everything reviewed, then the drain.
+        # Publishing job: adapter check, authenticated inventory, QA of everything reviewed, then the drain.
         order = [inside.index(x) for x in ('adapter-preflight', ' audit', 'qa --pending', 'publisher --mode drain')]
         self.assertEqual(order, sorted(order))
-        self.assertIn('environment: thuha-production', inside)
+        self.assertNotIn('environment: thuha-production', inside)
+        self.assertNotIn('THUHA_GO_LIVE_APPROVAL', inside)
+        self.assertIn('secrets.THUHA_WP_APPLICATION_PASSWORD', inside)
         self.assertIn('needs.preflight.outputs.may_publish', inside)
         for gate_condition in ("release.get('enabled')", "release.get('approved')", 'approval_ref', 'cross_publisher_coordination_verified', 'languages_enabled'):
             self.assertIn(gate_condition, text)
