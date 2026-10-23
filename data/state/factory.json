@@ -6081,6 +6081,21 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-VI6",
+      "at": "2026-10-23T15:52:36.165399+00:00",
+      "expires_at": 1792772556.165389,
+      "fence": "b22fb684f931496b992ae2758297adaf",
+      "heartbeat_at": "2026-10-23T15:52:36.165370+00:00",
+      "language": "vi",
+      "picked": true,
+      "previous": "064496d077d8cd2d57c8ab8da260dc6729ee416d152d0d657782f0507f8dafcb",
+      "session": "vi-b6-20261023",
+      "sha256": "f044a27e105c93c7365ac4bb0ba02c06adbbd3c7480e41a1713bab5bd8a49fbd",
+      "slot": "W1",
+      "topic_id": "TH-VI-0017"
     }
   ],
   "intents": {
@@ -9056,7 +9071,19 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-VI6",
+      "expires_at": 1792772556.165389,
+      "fence": "b22fb684f931496b992ae2758297adaf",
+      "heartbeat_at": "2026-10-23T15:52:36.165370+00:00",
+      "language": "vi",
+      "picked": true,
+      "session": "vi-b6-20261023",
+      "slot": "W1",
+      "topic_id": "TH-VI-0017"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -13567,7 +13594,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0017"
     },
     "TH-VI-0018": {
@@ -15169,5 +15196,5 @@
       ]
     }
   },
-  "version": 795
+  "version": 796
 }
