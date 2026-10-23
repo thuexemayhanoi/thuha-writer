@@ -7,20 +7,14 @@ writer does not burn bounded repairs on mechanical faults. Nothing here writes
 to WordPress or lowers a gate.
 """
 from collections import Counter
-from urllib.parse import urljoin, urlsplit
-from .common import SITE, digest, load, now, norm, urlkey, validate_inventory
+from .common import digest, now, norm, urlkey, validate_inventory
 from .coordinator import WAIT_CODES, timestamp
-from .language import LANGUAGES, locale, screen_alt, targets as language_targets
+from .datawait import DATA_WAIT_FAILS, media_catalogue, planned_urls, potential_score, qa_blocked, split, unknown_internal_links  # shared with QA
+from .language import LANGUAGES, locale, targets as language_targets
 from . import quota
 from .quality import evaluate
-from .matrix import matrix_path
 from .research import capture_external_source, collisions, intake, item_language
 
-# Hard-fail codes that mean "the data does not exist yet" rather than "the article is wrong". A draft may be stored with
-# `--waiting-for` for these; everything else must be fixed in the prose.
-DATA_WAIT_FAILS={'FEATURED_MEDIA':('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED',),
-                 'INTERNAL_LINKS':('INTERNAL_LINK_NOT_LIVE_VERIFIED','INSUFFICIENT_REAL_INTERNAL_LINKS'),
-                 'AUTHORITATIVE_INVENTORY':('Inventory is stale or future-dated','Complete inventory for the exact production site is required')}
 ARTICLE_FIELDS=('topic_id','session','agent_id','source_commit','language','title','body_html','seo_title',
                 'meta_description','focus_keyword','canonical','category_id','featured_media','sources','business_claims')
 
@@ -39,12 +33,6 @@ def link_catalogue(inv,language=None,limit=None):
                      'categories':item.get('categories',[]),'words':item.get('word_count')})
     rows.sort(key=lambda r:(r['type']!='posts',r['id']))
     return rows[:limit] if limit else rows
-
-
-def media_catalogue(inv,language=None):
-    """Existing media whose alt text is written in the article's language (QA screens the alt text)."""
-    return [m for m in inv.get('media',[]) if str(m.get('alt_text','')).strip()
-            and (language is None or not screen_alt(language,str(m['alt_text'])))]
 
 
 RULES={
@@ -82,33 +70,6 @@ def kit(state,inv,topic_id,policy,business):
             'rules':RULES[lang]}
 
 
-def planned_urls(state,language):
-    """Every same-site URL a draft may legitimately point to before it is live: the ledger's topics and the language's matrix plan."""
-    urls={urlkey(t['proposed_url']) for t in state['topics'].values() if t.get('proposed_url')}
-    try:urls|={urlkey(r['proposed_url']) for r in load(matrix_path(language))['rows'] if r.get('proposed_url')}
-    except (OSError,ValueError,KeyError):pass
-    return urls
-
-
-def unknown_internal_links(article,topic,inv,state):
-    """Same-site links that are neither live (inventory item or category archive) nor planned: a typo, not a data wait."""
-    known={urlkey(x['url']) for x in inv['items']}|{urlkey(c['link']) for c in inv['categories'] if c.get('link')}|planned_urls(state,topic['language'])
-    out=[]
-    for link in _links(article.get('body_html','')):
-        if link.startswith('#'):continue
-        url=urljoin(topic['proposed_url'],link);parts=urlsplit(url)
-        if parts.scheme!='https' or parts.netloc!=urlsplit(SITE).netloc:continue
-        try:
-            if urlkey(url) not in known:out.append(url)
-        except ValueError:out.append(url)
-    return out
-
-
-def _links(html):
-    from .audit import parse
-    return parse(html).links
-
-
 def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     """Run the production QA function without touching state, leases or repair counts."""
     topic=state['topics'][topic_id]
@@ -120,10 +81,13 @@ def precheck(store,state,inv,topic_id,article,policy,business,review=None):
     unknown=unknown_internal_links(article,topic,inv,state)
     if unknown:failures.append('INTERNAL_LINK_TARGET_UNKNOWN')
     if missing:failures.append('ARTICLE_FIELDS_MISSING')
-    waits=sorted(code for code,fails in DATA_WAIT_FAILS.items() if any(x in fails for x in failures))
+    # The writer's view of the QA split: a wait only where no edit could clear it, and only if the article would pass with the data
+    # (an unfinished draft may wait for what it will be completed with; the automatic QA is stricter, see datawait.split).
+    waits,faults=split(failures,article,topic,inv,state,policy,declared=True)
+    potential=potential_score(result,waits)
+    if waits and not faults and potential<policy['score_threshold']:faults.append('SCORE_BELOW_THRESHOLD_EVEN_WITH_THE_DATA')
     result.update(mode='non-mutating-precheck',wordpress_writes=0,missing_fields=missing,word_count=words,
-                  hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,
-                  content_fails=[x for x in failures if not any(x in DATA_WAIT_FAILS[c] for c in waits)])
+                  hard_fails=sorted(set(failures)),data_waits=waits,unknown_internal_links=unknown,content_fails=faults,potential_score=potential)
     result['would_pass_qa']=not failures and result['score']>=policy['score_threshold']
     result['status']='PASS' if result['would_pass_qa'] else 'FAIL'
     return result
@@ -166,6 +130,7 @@ def cycle(state,inv,release,targets=None):
     """Per-language progress. Live totals need an adapter inventory; otherwise they are UNKNOWN, never 0."""
     targets=targets or language_targets()
     counts=Counter(t['status'] for t in state['topics'].values())
+    blocked=qa_blocked(state) # DRAFT_READY drafts whose QA waits for data: neither "writing" nor a pass nor a failure
     try:live=quota.effective(state,quota.published(inv),{x['id'] for x in inv.get('items',[])});live_error=None
     except ValueError as exc:live,live_error=None,str(exc)
     languages={}
@@ -175,11 +140,13 @@ def cycle(state,inv,release,targets=None):
         unresolved=sum(1 for k,i in state['intents'].items() if i.get('language')==lang and i['phase'] not in ('PUBLISHED',)+quota.CLOSED_PHASES)
         languages[lang]={'target':targets[lang],'live':None if live is None else live[lang],
                          'remaining':None if live is None else max(0,targets[lang]-live[lang]-unresolved),
-                         'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY'],'waiting_data':c['WAITING_DATA'],'qa_pass':c['READY'],
+                         'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY']-sum(state['topics'][k]['language']==lang for k in blocked),
+                         'waiting_data':c['WAITING_DATA'],'qa_pass':c['READY'],'qa_blocked_data':sum(state['topics'][k]['language']==lang for k in blocked),
                          'qa_fail':c['NEEDS_REPAIR']+c['NEEDS_REVIEW'],'published':c['PUBLISHED'],
                          'blocked':c['BLOCKED']+c['PUBLISHING'],'held':c['HELD']}
-    row={'FACTORY PUBLISHED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY'],
-         'WAITING DATA':counts['WAITING_DATA'],'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['PUBLISHED'],
+    row={'FACTORY PUBLISHED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY']-len(blocked),
+         'WAITING DATA':counts['WAITING_DATA'],'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],
+         'QA BLOCKED DATA':len(blocked),'PUBLISHED':counts['PUBLISHED'],
          'BLOCKED':counts['BLOCKED']+counts['PUBLISHING'],'HELD':counts['HELD']}
     for lang in LANGUAGES:
         row['LIVE '+lang.upper()]='UNKNOWN' if live is None else live[lang]

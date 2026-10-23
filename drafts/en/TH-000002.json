@@ -26,6 +26,7 @@
   "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
   "category_id": 117,
   "language": "en",
+  "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
   "qa": {
     "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
@@ -33,7 +34,6 @@
   },
   "receipt": null,
   "repair_count": 0,
-  "review_recorded": false,
   "source_documents": [
     "ec0ea807c695cda0d88683a41d70bb1ccefa7bd686a7c7f04958a9db9a0fbfc4"
   ],

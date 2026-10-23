@@ -26,11 +26,11 @@
   "article_sha": "3f300dc43ee092f76c334c31c44d4117bcef66aee8251474cbc1311ebc3c1c42",
   "category_id": 155,
   "language": "vi",
+  "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-con-bao-nhieu-xang-tra-xe-can-bao-nhieu-thong-nhat-tu-dau/",
   "qa": null,
   "receipt": null,
   "repair_count": 0,
-  "review_recorded": false,
   "source_documents": [
     "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa"
   ],

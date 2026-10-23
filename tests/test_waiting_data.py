@@ -27,6 +27,13 @@ def aged(inv, hours):
     return old
 
 
+def without_vi_media(inv):
+    """The live situation: the media library holds only English alt text, so a Vietnamese article has no image to choose."""
+    value = copy.deepcopy(inv)
+    value['media'] = [m for m in value['media'] if m['id'] == 50]
+    return value
+
+
 class FirstPartyEvidenceTests(Fixture):
     def test_the_business_facts_file_is_captured_as_labelled_repository_evidence(self):
         out = capture_repository_file(self.store, FACTS)
@@ -265,12 +272,17 @@ class WaitingDataTests(WaitingHelpers):
     def test_precheck_separates_content_faults_from_data_waits(self):
         topic, article, lease, out = self.waiting()
         state = self.store.read()
-        result = runtime.precheck(self.store, state, self.inv, topic['topic_id'], dict(article, featured_media=None), self.policy, self.business)
+        bare = without_vi_media(self.inv)  # nothing with Vietnamese alt text exists, so nothing could have been chosen
+        result = runtime.precheck(self.store, state, bare, topic['topic_id'], dict(article, featured_media=None), self.policy, self.business)
         self.assertIn('FEATURED_MEDIA', result['data_waits'])
         self.assertNotIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
         broken = dict(article, featured_media=None, body_html=article['body_html'] + '<p>không cần đặt cọc</p>')
-        result = runtime.precheck(self.store, state, self.inv, topic['topic_id'], broken, self.policy, self.business)
+        result = runtime.precheck(self.store, state, bare, topic['topic_id'], broken, self.policy, self.business)
         self.assertIn('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM', result['content_fails'])  # a real fault stays a fault
+        # With an image that could have been chosen, leaving the choice empty is the writer's to fix, not a wait.
+        result = runtime.precheck(self.store, state, self.inv, topic['topic_id'], dict(article, featured_media=None), self.policy, self.business)
+        self.assertEqual(result['data_waits'], [])
+        self.assertIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
 
 
 def readiness_cleared(store, inv):
@@ -366,11 +378,12 @@ class LinkTypoTests(Fixture):
         topic = self.candidate(1, 'vi')
         intake(self.store, [topic], self.inv)
         article = dict(self.article_for(topic), featured_media=None)
+        bare = without_vi_media(self.inv)
         typo = dict(article, body_html=article['body_html'] + '<p><a href="' + SITE + '/vi/chuyen-muc/khong-co-chuyen-muc-nay/">sai</a></p>')
-        result = runtime.precheck(self.store, self.store.read(), self.inv, 'TH-VI-0001', typo, self.policy, self.business)
+        result = runtime.precheck(self.store, self.store.read(), bare, 'TH-VI-0001', typo, self.policy, self.business)
         self.assertIn('INTERNAL_LINK_TARGET_UNKNOWN', result['content_fails'])
         self.assertEqual(result['unknown_internal_links'], [SITE + '/vi/chuyen-muc/khong-co-chuyen-muc-nay/'])
-        clean = runtime.precheck(self.store, self.store.read(), self.inv, 'TH-VI-0001', article, self.policy, self.business)
+        clean = runtime.precheck(self.store, self.store.read(), bare, 'TH-VI-0001', article, self.policy, self.business)
         self.assertEqual((clean['content_fails'], clean['unknown_internal_links']), ([], []))
 
     def test_a_planned_url_of_the_matrix_or_the_ledger_is_not_a_typo(self):
@@ -384,9 +397,9 @@ class LinkTypoTests(Fixture):
 
 
 class CommandLineTests(Fixture):
-    def run_cli(self, *argv, inventory=True):
+    def run_cli(self, *argv, inventory=True, inv=None):
         path = Path(self.temp.name) / 'inv.json'
-        path.write_text(json.dumps(self.inv))
+        path.write_text(json.dumps(inv or self.inv))
         out = io.StringIO()
         with contextlib.redirect_stdout(out):
             code = cli.main(['--state-dir', self.temp.name] + (['--inventory', str(path)] if inventory else []) + list(argv))
@@ -423,10 +436,12 @@ class CommandLineTests(Fixture):
         article = dict(self.article_for(topic), featured_media=None)
         path = Path(self.temp.name) / 'a.json'
         path.write_text(json.dumps(article))
-        code, out = self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))
+        bare = without_vi_media(self.inv)
+        code, out = self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path), inv=bare)
         self.assertEqual((code, out['data_waits'], out['content_fails']), (3, ['FEATURED_MEDIA'], []))
+        self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))[0], 1)  # an image exists and was not chosen
         path.write_text(json.dumps(dict(article, body_html=article['body_html'] + '<p>không cần đặt cọc</p>')))
-        self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))[0], 1)
+        self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path), inv=bare)[0], 1)
         path.write_text(json.dumps(dict(article, featured_media=51)))
         self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))[0], 0)
 

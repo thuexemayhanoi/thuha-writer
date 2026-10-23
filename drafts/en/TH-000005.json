@@ -41,6 +41,7 @@
   "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
   "category_id": 144,
   "language": "en",
+  "legacy_review_on_record": true,
   "proposed_url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
   "qa": {
     "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
@@ -48,7 +49,6 @@
   },
   "receipt": null,
   "repair_count": 0,
-  "review_recorded": true,
   "source_documents": [
     "39bd6b7ee0d2c1846f975f076496d6556ca6b98b1efe1d7998aadf4c2dcb1d06",
     "d82772731391916012eb82b983c01f3bb94240301106a6db687b7d63fecf875b",

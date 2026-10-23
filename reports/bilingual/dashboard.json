@@ -16,7 +16,7 @@
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T08:36:36.604542+00:00",
+  "generated_at": "2026-10-23T10:42:04.011869+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
@@ -125,6 +125,7 @@
     "FAIL": 2,
     "PASS": 2
   },
+  "qa_blocked_data": {},
   "queue": {
     "en": {
       "awaiting_qa": [
@@ -140,6 +141,7 @@
       "needs_repair": [],
       "published": [],
       "publishing": [],
+      "qa_blocked_data": [],
       "qa_pass": [
         "TH-000005",
         "TH-000006"
@@ -164,6 +166,7 @@
       "needs_repair": [],
       "published": [],
       "publishing": [],
+      "qa_blocked_data": [],
       "qa_pass": [],
       "waiting_data": [
         "TH-VI-0004",

@@ -41,6 +41,7 @@
   "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
   "category_id": 121,
   "language": "en",
+  "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
   "qa": {
     "report_sha": "d21f54fa461ff9d43fe2debce59c8406cbcb4f0a8896a4dc29b8e3665675cc49",
@@ -48,7 +49,6 @@
   },
   "receipt": null,
   "repair_count": 1,
-  "review_recorded": false,
   "source_documents": [
     "1c7e39b631768bec8afe7d95f24139238a12fbe0bcbc224c8deea9cee21afe57",
     "c3d5f5555b30adc29676bcdbef524300550331609e44de51c522a08f4808a525",

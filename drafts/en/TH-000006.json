@@ -46,6 +46,7 @@
   "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
   "category_id": 144,
   "language": "en",
+  "legacy_review_on_record": true,
   "proposed_url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
   "qa": {
     "report_sha": "2a30a188c36d1097338a9a8b410a97226fda964bfdcf42f3923ef5b812b93228",
@@ -53,7 +54,6 @@
   },
   "receipt": null,
   "repair_count": 0,
-  "review_recorded": true,
   "source_documents": [
     "7ff56060e1f8d8299f4e13a903cffca1a7e8a100efec1a7fb0048fe0147e729e",
     "b3f03dab182ae28e8041f7610ea9910885afdb3d9276d692942ab964160eae38",

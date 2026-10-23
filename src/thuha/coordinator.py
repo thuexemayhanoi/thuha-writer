@@ -103,6 +103,9 @@ def submit(store,slot,session,fence,article,max_repairs=3,waiting_for=None):
     if any(code not in WAIT_CODES for code in waiting):raise ValueError('Unknown wait code; choose from '+', '.join(WAIT_CODES))
     if 'FEATURED_MEDIA' in waiting and article.get('featured_media') is not None:
         raise ValueError('A draft waiting for FEATURED_MEDIA must leave featured_media empty; no media ID may be invented')
+    if article.get('featured_media') is None and 'FEATURED_MEDIA' not in waiting:
+        # QA can never pass an empty image, so the draft would only go to repair for something that is not in the prose.
+        raise ValueError('featured_media is empty: choose an existing image from the kit, or store the draft with --waiting-for FEATURED_MEDIA')
     state=store.read();lease=owned(state,slot,session,fence)
     if state['topics'][lease['topic_id']]['status']=='NEEDS_REVIEW':raise ValueError('Held topic requires owner review before another revision')
     if article.get('topic_id')!=lease['topic_id'] or article.get('agent_id')!=lease['agent_id'] or article.get('session')!=session:

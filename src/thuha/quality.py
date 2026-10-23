@@ -11,6 +11,7 @@ from .audit import parse
 from . import htmlpolicy
 from .common import SITE, age, digest, now, norm, urlkey, signature, category_path, validate_inventory
 from .language import locale, screen, screen_alt, url_language
+from . import datawait
 from .research import collisions, evidence_current, item_language
 from .quota import CLOSED_PHASES
 from .store import event
@@ -153,13 +154,32 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
             'disclaimer':'Automatic technical and evidence QA; no independent semantic review performed; not a ranking or indexing guarantee'}
 
 
+class InventoryUnusable(ValueError):
+    """The inventory cannot carry a verdict (stale, incomplete, wrong site). That says nothing about the article."""
+
+
 def run_qa(store,topic_id,inv,policy,business):
     state=store.read();sub=state['submissions'][topic_id];topic=state['topics'][topic_id]
     if topic['status']=='WAITING_DATA':
         raise ValueError('Topic waits for data ('+', '.join(topic.get('waiting_for') or ['finish the draft'])+'); it cannot be evaluated or made READY until the draft is complete')
     if topic['status']=='HELD':raise ValueError('Topic is HELD; resolve its hold before QA')
+    # A verdict on an unusable inventory would send every draft to repair for something no writer can fix: record nothing.
+    try:validate_inventory(inv,policy['inventory_max_age_seconds'])
+    except ValueError as exc:raise InventoryUnusable('Inventory unusable for QA ('+str(exc)+'); nothing was evaluated, recorded or changed') from None
     article=store.get_document(sub['article_sha'])
     result=evaluate(article,topic,sub,inv,policy,store,business=business)
+    waits=[]
+    if result['status']=='FAIL' and result['hard_fails']:
+        waits,faults=datawait.split(result['hard_fails'],article,topic,inv,state,policy)
+        potential=datawait.potential_score(result,waits)
+        # Only missing data, and the article would pass with it: the draft waits and keeps its repairs; it is not QA-passed.
+        if not waits or faults or potential<policy['score_threshold']:waits=[]
+    if waits:
+        record={'article_sha':sub['article_sha'],'status':'BLOCKED_DATA','waiting_for':waits,'policy_sha256':digest(policy)}
+        previous=state['qa'].get(topic_id) or {}
+        result=dict(result,status='BLOCKED_DATA',waiting_for=waits,potential_score=potential)
+        if topic['status']=='DRAFT_READY' and all(previous.get(k)==v for k,v in record.items()):return result # already recorded; no noise
+    else:record=None
     report_sha=store.put_document(result)
     def transaction(state):
         if state['submissions'][topic_id]['article_sha']!=sub['article_sha']:raise ValueError('Draft changed during QA')
@@ -168,6 +188,12 @@ def run_qa(store,topic_id,inv,policy,business):
             raise ValueError('Another live writer is repairing this checkpoint; do not close their lease')
         intent=state['intents'].get(topic_id)
         if intent and intent['phase'] not in CLOSED_PHASES:raise ValueError('Publication pending; reconcile before QA mutation') # a closed intent never reached WordPress
+        if record:
+            # READY meant "passed under the current policy"; a check that cannot be renewed no longer shows it. No repair is spent.
+            state['qa'][topic_id]={'report_sha':report_sha,**record}
+            if state['topics'][topic_id]['status'] in ('READY','NEEDS_REPAIR'):state['topics'][topic_id]['status']='DRAFT_READY'
+            event(state,'QA',topic_id=topic_id,report_sha=report_sha,status='BLOCKED_DATA',waiting_for=record['waiting_for'])
+            return result
         state['qa'][topic_id]={'report_sha':report_sha,'article_sha':sub['article_sha'],'status':result['status']}
         state['topics'][topic_id]['status']='READY' if result['status']=='PASS' else 'NEEDS_REPAIR'
         if sub['repair_count']>=policy['maximum_repairs'] and result['status']!='PASS':state['topics'][topic_id]['status']='NEEDS_REVIEW'

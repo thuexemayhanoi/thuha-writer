@@ -4,6 +4,7 @@ from .common import ROOT,REPO,now,age,save,load
 from .coordinator import SLOTS,timestamp
 from .language import LANGUAGES,screen_alt,targets as language_targets
 from . import ledger,quota
+from .datawait import qa_blocked
 
 STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','WAITING_DATA','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','HELD','PUBLISHING','PUBLISHED')
 
@@ -25,18 +26,19 @@ def language_view(s,inv,targets):
     return out,None
 
 
-QUEUE_COLUMNS=('waiting_data','awaiting_qa','qa_pass','publishing','published','needs_repair','held_or_unknown')
+QUEUE_COLUMNS=('waiting_data','awaiting_qa','qa_blocked_data','qa_pass','publishing','published','needs_repair','held_or_unknown')
 
 
 def queue_view(s):
     """What sits where in the shared queue, per language. Nothing here is a count of published posts."""
-    out={}
+    out={};blocked=qa_blocked(s)
     for lang in LANGUAGES:
         rows={c:[] for c in QUEUE_COLUMNS}
         for tid,t in sorted(s['topics'].items()):
             if t['language']!=lang or tid not in s['submissions']:continue
             status=t['status']
             if status=='WAITING_DATA':rows['waiting_data'].append(tid) # stored, complete but for data that does not exist yet; never QA pass
+            elif status=='DRAFT_READY' and tid in blocked:rows['qa_blocked_data'].append(tid) # finished; QA waits for an image or live pages; no repair spent
             elif status=='DRAFT_READY':rows['awaiting_qa'].append(tid)
             elif status=='READY':rows['qa_pass'].append(tid)
             elif status=='PUBLISHING':rows['publishing'].append(tid)
@@ -93,6 +95,7 @@ def report(store,inv,release,targets=None,live_ledger=None):
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'factory_published_receipts':len(s['receipts']),
        'queue':queue_view(s),'waiting_data':{k:v.get('waiting_for',[]) for k,v in sorted(s['topics'].items()) if v['status']=='WAITING_DATA'},
+       'qa_blocked_data':dict(sorted(qa_blocked(s).items())),
        'held':{k:v['held']['reason'] for k,v in sorted(s['topics'].items()) if v['status']=='HELD' and v.get('held')},'post_checks':post_checks(s),'open_alerts':[a for a in s.get('alerts',[]) if not a.get('acknowledged')],
        'handoff':handoff(store,live_ledger),
        'states':dict(counts),'production_enabled':release['enabled'],'languages_enabled':release.get('languages_enabled',[]),
@@ -127,6 +130,11 @@ def report(store,inv,release,targets=None,live_ledger=None):
     if result['handoff'] and result['handoff']['status']=='FAST_FORWARD':result['blockers'].append('The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over')
     if result['handoff'] and result['handoff']['status'] in ('DIVERGED','INCONSISTENT','INVALID_LEDGER'):result['blockers'].append('Session ledger cannot be handed over ('+result['handoff']['status']+'): sync the session branch from the shared ledger')
     if inv.get('media_library')=='complete':result['blockers'].extend(media_blockers(inv)) # an inventory that listed only featured images says nothing about the library
+    if result['qa_blocked_data']:
+        by_code=Counter(c for codes in result['qa_blocked_data'].values() for c in codes)
+        result['blockers'].append(str(len(result['qa_blocked_data']))+' finished draft(s) cannot pass QA yet because the site lacks data ('
+                                  +', '.join(c+' x'+str(n) for c,n in sorted(by_code.items()))+'); they are checked again on every QA run and spend no repair: '
+                                  +', '.join(list(result['qa_blocked_data'])[:12]))
     if result['waiting_data']:
         by_code=Counter(c for codes in result['waiting_data'].values() for c in codes)
         ready=[k for k,v in result['waiting_data'].items() if not v]
@@ -146,7 +154,7 @@ def write_report(value,directory):
     for lang in value['priority']:
         row=(value['languages'] or {}).get(lang)
         text+='| '+lang+' | '+str(value['targets'][lang])+' | '+(' | '.join(str(row[k]) for k in ('published_live','unresolved_intents','remaining','factory_published_receipts')) if row else 'UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN')+' |\n'
-    text+='\n## Shared queue (not published posts)\n\n| Language | Waiting for data | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|---|\n'
+    text+='\n## Shared queue (not published posts)\n\n| Language | Waiting for data | Awaiting QA | QA waits for data | QA pass | Publishing | Published | Needs repair | Held / unknown |\n|---|---|---|---|---|---|---|---|---|\n'
     for lang in value['priority']:
         q=value['queue'][lang]
         text+='| '+lang+' | '+' | '.join(str(len(q[k])) for k in QUEUE_COLUMNS)+' |\n'

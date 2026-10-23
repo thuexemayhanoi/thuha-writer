@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-23T08:36:36.604542+00:00
+Generated: 2026-10-23T10:42:04.011869+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -18,10 +18,10 @@ Generated: 2026-10-23T08:36:36.604542+00:00
 
 ## Shared queue (not published posts)
 
-| Language | Waiting for data | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
+| Language | Waiting for data | Awaiting QA | QA waits for data | QA pass | Publishing | Published | Needs repair | Held / unknown |
 |---|---|---|---|---|---|---|---|---|
-| vi | 7 | 0 | 0 | 0 | 0 | 0 | 11 |
-| en | 0 | 7 | 2 | 0 | 0 | 0 | 0 |
+| vi | 7 | 0 | 0 | 0 | 0 | 0 | 0 | 11 |
+| en | 0 | 7 | 0 | 2 | 0 | 0 | 0 | 0 |
 
 Public-page checks after publication: none yet. Public-page checks run after publication, back off and retry; they never stop the queue.
 

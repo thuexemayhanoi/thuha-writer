@@ -231,13 +231,17 @@ def main(argv=None):
             try:
                 if store.read()['topics'][tid]['language']!='en' and inv.get('language_source') not in quota.SOURCES:
                     # A public-only inventory cannot see Vietnamese posts or categories: that is a missing input, not a failed article.
-                    raise ValueError('Vietnamese QA needs an adapter or authenticated inventory; this one is '+str(inv.get('language_source')))
+                    raise quality.InventoryUnusable('Vietnamese QA needs an adapter or authenticated inventory; this one is '+str(inv.get('language_source')))
                 value=quality.run_qa(store,tid,inv,policy,facts)
                 result['results'][tid]=value
-                if value['status']!='PASS' and not args.pending:exit_code=max(exit_code,1) # a scheduled batch reports FAIL in the ledger, not as a red step
+                # A scheduled batch reports FAIL / BLOCKED_DATA in the ledger, not as a red step; asking for one topic says so in the exit code.
+                if value['status']=='BLOCKED_DATA' and not args.pending:exit_code=max(exit_code,3)
+                elif value['status'] not in ('PASS','BLOCKED_DATA') and not args.pending:exit_code=max(exit_code,1)
             except (ValueError,OSError,RuntimeError,KeyError) as exc:
-                result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if isinstance(exc,(NetworkError,OSError)) else 'STATE_OR_CONTRACT'}
-                exit_code=max(exit_code,2 if isinstance(exc,(NetworkError,OSError)) else 1)
+                # An unusable inventory (stale audit, wrong site, public-only for Vietnamese) is infrastructure: the run is red, no draft is touched.
+                infra=isinstance(exc,(NetworkError,OSError,quality.InventoryUnusable))
+                result['results'][tid]={'status':'BLOCKED','error':str(exc),'kind':'INFRASTRUCTURE' if infra else 'STATE_OR_CONTRACT'}
+                exit_code=max(exit_code,2 if infra else 1)
     elif args.command=='publisher':
         pub=Publisher(store,AdapterClient(HTTP(allow_write=args.mode in ('production','drain'))),inventory_for(store,args.inventory),policy,facts)
         if args.mode=='dry-run':result=pub.dry_run()

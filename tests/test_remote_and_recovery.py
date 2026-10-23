@@ -121,7 +121,7 @@ class RecoveryTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.store=LocalStore(self.temp.name)
         self.store.mutate(lambda s:s['topics'].update({'TH-EN-0001':{'topic_id':'TH-EN-0001','language':'en','status':'PLANNED'}}))
         self.lease=claim(self.store,'session-fixture','agent-fixture')
-        self.article={'topic_id':'TH-EN-0001','agent_id':'agent-fixture','session':'session-fixture','language':'en-US','body_html':'<p>first draft</p>'}
+        self.article={'topic_id':'TH-EN-0001','agent_id':'agent-fixture','session':'session-fixture','language':'en-US','body_html':'<p>first draft</p>','featured_media':50}
     def send(self):return submit(self.store,self.lease['slot'],self.lease['session'],self.lease['fence'],self.article,max_repairs=2)
     def test_identical_submission_does_not_consume_repair(self):
         a=self.send();b=self.send();self.assertEqual(a['repair_count'],b['repair_count'])
