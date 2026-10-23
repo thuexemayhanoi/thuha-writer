@@ -5136,6 +5136,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:58:03.464568+00:00",
+      "expires_at": 1792769283.464559,
+      "fence": "db36528b43924a939010619412b08fc1",
+      "heartbeat_at": "2026-10-23T14:58:03.464539+00:00",
+      "language": "vi",
+      "previous": "ea8e31795bdacbc78326ca2a043941bc09401ccf2757ba6f5961afad004347ab",
+      "session": "sess-b3",
+      "sha256": "09482bb35ca4912df86f2e77a910314191ea6d64fd2ac6cf448bac1e47a9aba6",
+      "slot": "W1",
+      "topic_id": "TH-VI-0371"
     }
   ],
   "intents": {
@@ -8111,7 +8125,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792769283.464559,
+      "fence": "db36528b43924a939010619412b08fc1",
+      "heartbeat_at": "2026-10-23T14:58:03.464539+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0371"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -12934,6 +12959,7 @@
         165
       ],
       "cluster": "lai-xe-an-toan",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "kỹ năng vào cua xe máy đường đê ngoại thành",
       "proposed_title": "Vào cua gắt trên đường đê hoặc đường ngoại thành: giảm tốc trước cua, nhìn xa và không phanh gấp giữa cua",
@@ -12946,7 +12972,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0371",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13088,5 +13114,5 @@
       ]
     }
   },
-  "version": 688
+  "version": 689
 }
