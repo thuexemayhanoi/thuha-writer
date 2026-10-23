@@ -5254,6 +5254,18 @@
       "sha256": "24c792c4cd9e2068f98921a89fd08302b0d47920e080dac3e32f92a944aac3fc",
       "slot": "W1",
       "topic_id": "TH-VI-0491"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "e1fc85cd329458cf65a3a314baf0ff0c03dc4403fb16ee1e1d32ff4ee77fe881",
+      "at": "2026-10-23T14:58:44.847422+00:00",
+      "previous": "24c792c4cd9e2068f98921a89fd08302b0d47920e080dac3e32f92a944aac3fc",
+      "sha256": "ea35d0537ccadfe0c46d8442a1cfa91fb3e1333a736d625b0751083f14101132",
+      "topic_id": "TH-VI-0491",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8229,18 +8241,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792769320.362955,
-      "fence": "5752599ec09a47a1bc1fb69093bbcb7e",
-      "heartbeat_at": "2026-10-23T14:58:40.362933+00:00",
-      "language": "vi",
-      "session": "sess-b3",
-      "slot": "W1",
-      "topic_id": "TH-VI-0491"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -9261,13 +9262,13 @@
     },
     "TH-VI-0491": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "1c75ec77bb9f774abc143508fd356408d18bd94b142456ab5954e1994ba5ede3",
+      "article_sha": "e1fc85cd329458cf65a3a314baf0ff0c03dc4403fb16ee1e1d32ff4ee77fe881",
       "commit": "5400a124fc51ffbb07285a36c654b2131bb82eda",
-      "fence": "2241c99730494e778fa0fa52b978c546",
+      "fence": "5752599ec09a47a1bc1fb69093bbcb7e",
       "repair_count": 0,
       "session": "sess-b3",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:45.826534+00:00"
+      "submitted_at": "2026-10-23T14:58:44.847397+00:00"
     }
   },
   "topics": {
@@ -13198,7 +13199,6 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "điện thoại hết pin giữa đường khi đi xe máy",
       "proposed_title": "Điện thoại hết pin giữa chuyến đi xa: ghi sẵn ra giấy số liên lạc và địa chỉ để không bị lạc",
@@ -13211,12 +13211,12 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0491",
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
     }
   },
-  "version": 701
+  "version": 702
 }
