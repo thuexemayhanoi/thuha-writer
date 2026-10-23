@@ -44,7 +44,7 @@ def inventory_for(store,path,max_age=None):
     """
     state=store.read()
     chosen=None
-    if state.get('inventory_document'):
+    if path is None and state.get('inventory_document'): # an inventory named with --inventory is what the caller asked for; only the default is the stored one
         stored=store.get_document(state['inventory_document'])
         # An inventory recorded before languages existed carries no label and cannot count anything; an honestly
         # labelled one (even the public-only one) is kept as it is.

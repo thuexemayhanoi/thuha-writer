@@ -107,6 +107,15 @@ class PlanningInventoryTests(Fixture):
         self.store.mutate(lambda s: s.update(inventory_document=self.store.put_document(labelled)))
         self.assertEqual(cli.inventory_for(self.store, None)['language_source'], 'public-rest-unverified')  # honest labels are kept
 
+    def test_an_inventory_named_on_the_command_line_beats_the_stored_one(self):
+        # Admission is planning work and may use the authenticated snapshot while the ledger points at the public inventory a queue run refreshed.
+        public = dict(self.inv, language_source='public-rest-unverified')
+        self.store.mutate(lambda s: s.update(inventory_document=self.store.put_document(public)))
+        self.assertEqual(cli.inventory_for(self.store, None)['language_source'], 'public-rest-unverified')  # the default is still the stored one
+        path = Path(self.temp.name) / 'named.json'
+        path.write_text(json.dumps(self.inv))
+        self.assertEqual(cli.inventory_for(self.store, path)['language_source'], 'adapter')
+
     def test_the_age_limit_depends_on_where_the_inventory_comes_from(self):
         self.assertEqual(cli.inventory_max_age({'language_source': 'adapter'}, self.policy, FACTORY), self.policy['inventory_max_age_seconds'])
         self.assertEqual(cli.inventory_max_age({'language_source': 'public-rest-unverified'}, self.policy, FACTORY), self.policy['inventory_max_age_seconds'])
