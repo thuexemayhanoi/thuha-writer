@@ -5572,6 +5572,22 @@
         "TH-EN-0036",
         "TH-EN-0031"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T15:15:19.811797+00:00",
+      "previous": "793b5992321df1f03216c376f14a7a7e0539cf17d882167f76351697d837e5ff",
+      "sha256": "101a16d965b118689b2e5687c21a5491b59278216c5fad9c8aab5fe8d6e4d81c",
+      "topic_ids": [
+        "TH-VI-0064",
+        "TH-VI-0248",
+        "TH-VI-0246",
+        "TH-VI-0176",
+        "TH-VI-0010",
+        "TH-VI-0086",
+        "TH-VI-0088",
+        "TH-VI-0017"
+      ]
     }
   ],
   "intents": {
@@ -8879,6 +8895,17 @@
       "status": "FULFILLED"
     },
     "research-vi-5ea4b275ae51aaf1": {
+      "admitted_topic_ids": [
+        "TH-VI-0064",
+        "TH-VI-0248",
+        "TH-VI-0246",
+        "TH-VI-0176",
+        "TH-VI-0010",
+        "TH-VI-0086",
+        "TH-VI-0088",
+        "TH-VI-0017"
+      ],
+      "completed_at": "2026-10-23T15:15:19.811784+00:00",
       "created_at": "2026-10-23T14:51:22.845273+00:00",
       "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
       "language": "vi",
@@ -8886,7 +8913,7 @@
       "planned": 14,
       "request_id": "research-vi-5ea4b275ae51aaf1",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-8ce4098a69750969": {
       "admitted_topic_ids": [
@@ -12448,6 +12475,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0010": {
+      "admitted_at": "2026-10-23T15:15:19.771738+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "giá thuê xe máy đã gồm mũ bảo hiểm áo mưa chưa",
+      "proposed_title": "Báo giá thuê xe đã gồm những gì: mũ bảo hiểm, áo mưa, khóa và giá đỡ điện thoại",
+      "proposed_url": "https://rentbikehanoi.com/vi/bao-gia-thue-xe-da-gom-mu-ao-mua-khoa-gia-do-dien-thoai/",
+      "search_intent": "Người thuê muốn biết phụ kiện nào nằm trong báo giá (mũ, áo mưa, khóa chống trộm, giá đỡ điện thoại) và món nào tính riêng, để dự trù đúng ngân sách và không bất ngờ lúc nhận xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0010"
+    },
     "TH-VI-0011": {
       "admitted_at": "2026-10-23T07:26:56.990143+00:00",
       "category_id": 152,
@@ -12598,6 +12649,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0017": {
+      "admitted_at": "2026-10-23T15:15:19.811752+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "bảng giá thuê xe ghi liên hệ nghĩa là gì",
+      "proposed_title": "Bảng giá ghi “từ… trở lên” hoặc “liên hệ”: hiểu thế nào để không tính sai ngân sách",
+      "proposed_url": "https://rentbikehanoi.com/vi/doc-bang-gia-thue-xe-ghi-tu-tro-len-hoac-lien-he/",
+      "search_intent": "Người đọc bảng giá chỉ ghi mức khởi điểm hoặc chỉ ghi “liên hệ” cần biết cách hiểu các kiểu ghi này và những thông tin phải cung cấp cho cửa hàng để ra con số cụ thể theo xe và số ngày.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0017"
     },
     "TH-VI-0018": {
       "admitted_at": "2026-10-23T11:56:51.622094+00:00",
@@ -13027,6 +13102,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0064": {
+      "admitted_at": "2026-10-23T15:15:19.717870+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy một tháng tính từ ngày nào",
+      "proposed_title": "Một tháng thuê xe tính từ ngày nào đến ngày nào: đủ ba mươi ngày hay theo tháng lịch",
+      "proposed_url": "https://rentbikehanoi.com/vi/mot-thang-thue-xe-tinh-tu-ngay-nao-den-ngay-nao/",
+      "search_intent": "Người nhận xe giữa tháng muốn biết kỳ thuê một tháng tính đủ ba mươi ngày từ ngày nhận hay theo tháng dương lịch, ngày trả cuối kỳ rơi vào đâu và cần ghi mốc nào vào hợp đồng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0064"
+    },
     "TH-VI-0065": {
       "admitted_at": "2026-10-23T12:36:45.358331+00:00",
       "category_id": 154,
@@ -13053,6 +13152,54 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0086": {
+      "admitted_at": "2026-10-23T15:15:19.785642+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê sau giờ hành chính",
+      "proposed_title": "Nhận và trả xe quanh giờ làm việc: nên hẹn trước hay sau giờ hành chính",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-va-tra-xe-quanh-gio-lam-viec-hen-truoc-hay-sau-gio-hanh-chinh/",
+      "search_intent": "Người đi làm văn phòng chỉ rảnh sớm buổi sáng hoặc chiều tối muốn xếp lịch nhận và trả xe mà không phải xin nghỉ, cần hỏi cửa hàng về khung giờ phục vụ và cách báo trước nếu tan ca muộn.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0086"
+    },
+    "TH-VI-0088": {
+      "admitted_at": "2026-10-23T15:15:19.798347+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê buổi tối kiểm tra bằng đèn điện thoại",
+      "proposed_title": "Nhận xe lúc trời tối hoặc đang mưa: kiểm tra xe bằng đèn điện thoại cho đúng cách",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-thue-luc-troi-toi-hoac-dang-mua-kiem-tra-bang-den-dien-thoai/",
+      "search_intent": "Khách đến nhận xe sau khi trời tối hoặc đúng lúc mưa, thiếu sáng để nhìn vết xước và lốp, muốn biết nên dùng đèn điện thoại, hẹn lại hay thống nhất ghi nhận gì để không bỏ sót tình trạng xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0088"
     },
     "TH-VI-0089": {
       "admitted_at": "2026-10-23T07:53:31.978741+00:00",
@@ -13446,6 +13593,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0176": {
+      "admitted_at": "2026-10-23T15:15:19.758737+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "thuê xe điện theo tháng pin yếu đổi pin",
+      "proposed_title": "Thuê xe điện theo tháng mà pin yếu dần giữa kỳ: các câu hỏi về đổi pin và quãng đường cần có trong thỏa thuận",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-dien-theo-thang-pin-yeu-dan-giua-ky-thue/",
+      "search_intent": "Người thuê xe điện dài ngày thấy quãng đường mỗi lần sạc ngắn dần, muốn biết cách ghi nhận, báo cửa hàng, và điều khoản nào (đổi pin, đổi xe) cần thỏa thuận từ đầu thay vì tranh cãi khi pin đã yếu.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0176"
+    },
     "TH-VI-0197": {
       "admitted_at": "2026-10-23T12:36:45.378678+00:00",
       "category_id": 159,
@@ -13572,6 +13743,54 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0246": {
+      "admitted_at": "2026-10-23T15:15:19.743464+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "tiệm sửa xe ven đường mời thay phụ tùng xe thuê",
+      "proposed_title": "Tiệm sửa xe ven đường báo xe có lỗi và mời thay phụ tùng: hỏi cửa hàng trước khi đồng ý",
+      "proposed_url": "https://rentbikehanoi.com/vi/tiem-sua-xe-ven-duong-moi-thay-phu-tung-xe-thue-hoi-cua-hang/",
+      "search_intent": "Người thuê dừng xe nhờ tiệm ven đường xem hộ, bị báo nhiều hạng mục cần thay ngay, không biết nên tin hay không, cần biết nên chụp ảnh, xin báo giá bằng chữ và gọi cửa hàng xác nhận trước khi đồng ý sửa gì.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0246"
+    },
+    "TH-VI-0248": {
+      "admitted_at": "2026-10-23T15:15:19.730294+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê gặp sự cố gọi điện hay nhắn tin cho cửa hàng",
+      "proposed_title": "Xe gặp sự cố: gọi điện hay nhắn tin cho cửa hàng trước, và tin nhắn đầu tiên cần có gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-gap-su-co-goi-dien-hay-nhan-tin-cho-cua-hang-truoc/",
+      "search_intent": "Người thuê gặp trục trặc ở nơi ồn hoặc sóng yếu, phân vân nên gọi điện hay nhắn tin trước, cần biết nên lưu sẵn số cửa hàng, gửi vị trí, biển số và ảnh nào để cửa hàng phản hồi nhanh hơn.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0248"
     },
     "TH-VI-0263": {
       "admitted_at": "2026-10-23T13:00:04.430804+00:00",
@@ -13844,5 +14063,5 @@
       ]
     }
   },
-  "version": 738
+  "version": 739
 }
