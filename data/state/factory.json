@@ -3486,11 +3486,36 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T13:54:27.832512+00:00",
+      "expires_at": 1792765467.832501,
+      "fence": "e684611542f342a9b0ae1c30905fddc3",
+      "heartbeat_at": "2026-10-23T13:54:27.832477+00:00",
+      "language": "vi",
+      "previous": "633937996e1bc9e7431227e09149de70e382b2fb14069da04b870afdec822e2b",
+      "session": "sess-b3r",
+      "sha256": "d0c007eb5268ebd427c41d4879b86bb21d1998f5cbe4cbb113ec262458c79fac",
+      "slot": "W1",
+      "topic_id": "TH-VI-0146"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792765467.832501,
+      "fence": "e684611542f342a9b0ae1c30905fddc3",
+      "heartbeat_at": "2026-10-23T13:54:27.832477+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0146"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7487,6 +7512,7 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi dép lê lái xe số xe côn có nguy hiểm không",
       "proposed_title": "Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân",
@@ -7499,7 +7525,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0146",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7953,5 +7979,5 @@
       ]
     }
   },
-  "version": 489
+  "version": 490
 }
