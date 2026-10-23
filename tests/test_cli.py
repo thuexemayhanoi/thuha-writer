@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import patch
 from thuha.cli import main
 from thuha.store import LocalStore
+from thuha.common import ROOT, load
 
 
 def run(*argv, env=None):
