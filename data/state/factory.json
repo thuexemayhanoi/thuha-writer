@@ -5046,6 +5046,18 @@
       "sha256": "1d18d412f2937704ce84a7862c72ea0073a030aaf490a688c6792f173f0bfcea",
       "slot": "W1",
       "topic_id": "TH-VI-0019"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "252bfd59686bbd7ee694e81f169013cb4c68cf603c3d0ffd954424dc582530dc",
+      "at": "2026-10-23T14:57:29.430908+00:00",
+      "previous": "1d18d412f2937704ce84a7862c72ea0073a030aaf490a688c6792f173f0bfcea",
+      "sha256": "8e46fdc34db8e1a502c7df3f7917242b9009d7d9c8406e715afd81c27d38bd3c",
+      "topic_id": "TH-VI-0019",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8021,18 +8033,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792769244.931558,
-      "fence": "070d128a1d7c4a099817f63479085a05",
-      "heartbeat_at": "2026-10-23T14:57:24.931538+00:00",
-      "language": "vi",
-      "session": "sess-rev1",
-      "slot": "W1",
-      "topic_id": "TH-VI-0019"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -8693,13 +8694,13 @@
     },
     "TH-VI-0019": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "4778163276c5933e3554b17669186bf32b12fb135245c5155be9b30a5d502ceb",
+      "article_sha": "252bfd59686bbd7ee694e81f169013cb4c68cf603c3d0ffd954424dc582530dc",
       "commit": "29649da81f4be0bd5ade04c036d4ae7d77ca14c7",
-      "fence": "3ea69e4e948c42ddb2f4cb5d5d4f7095",
+      "fence": "070d128a1d7c4a099817f63479085a05",
       "repair_count": 0,
       "session": "sess-rev1",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:18:19.207744+00:00"
+      "submitted_at": "2026-10-23T14:57:29.430886+00:00"
     },
     "TH-VI-0022": {
       "agent_id": "claude-writer-W1",
@@ -11800,7 +11801,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -11825,7 +11825,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0019",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -13010,5 +13010,5 @@
       ]
     }
   },
-  "version": 677
+  "version": 678
 }
