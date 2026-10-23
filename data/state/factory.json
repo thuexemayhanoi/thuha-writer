@@ -69,9 +69,9 @@
     },
     "W2": {
       "agent_id": "claude-writer-W2",
-      "expires_at": 1792722531.759599,
+      "expires_at": 1792722756.594043,
       "fence": "8bf7b5ee8a6242f5aaf9b4391d3aa970",
-      "heartbeat_at": "2026-10-23T01:58:51.759586+00:00",
+      "heartbeat_at": "2026-10-23T02:02:36.594021+00:00",
       "session": "w2-20261023-b1",
       "slot": "W2",
       "topic_id": "TH-000002"
@@ -169,5 +169,5 @@
       "topic_id": "TH-000002"
     }
   },
-  "version": 10
+  "version": 11
 }
