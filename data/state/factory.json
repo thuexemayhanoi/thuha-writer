@@ -6304,6 +6304,18 @@
       "sha256": "eaed997f918a789cfd7c249be3765345db7d693e9251e2059ba40d7523f7959a",
       "slot": "W1",
       "topic_id": "TH-VI-0013"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "34240f240103f4e0a34d58a39bae76f1dbe1cbed7fc15f817ebd78a5a124456e",
+      "at": "2026-10-23T16:05:56.735568+00:00",
+      "previous": "eaed997f918a789cfd7c249be3765345db7d693e9251e2059ba40d7523f7959a",
+      "sha256": "bd97053dc257564c2b7839713b7d6652270b83898d54cef2b6da6ffbe4a11472",
+      "topic_id": "TH-VI-0013",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9279,18 +9291,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773350.677912,
-      "fence": "ff34b34eab0e400880dfa5926adc1dc5",
-      "heartbeat_at": "2026-10-23T16:05:50.677887+00:00",
-      "language": "vi",
-      "session": "sess-b4",
-      "slot": "W1",
-      "topic_id": "TH-VI-0013"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10182,13 +10183,13 @@
     },
     "TH-VI-0013": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "883793d35d8d04c5b6032480354828cd970ae27d59afcc5fb1b9503e0e6f7559",
+      "article_sha": "34240f240103f4e0a34d58a39bae76f1dbe1cbed7fc15f817ebd78a5a124456e",
       "commit": "58375c30ec13d54012b3623325e895d2322bbcda",
-      "fence": "ba07bdbbc46e41ca974d05f2ab9b5751",
+      "fence": "ff34b34eab0e400880dfa5926adc1dc5",
       "repair_count": 0,
       "session": "sess-b4",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:52:34.463038+00:00"
+      "submitted_at": "2026-10-23T16:05:56.735544+00:00"
     },
     "TH-VI-0014": {
       "agent_id": "claude-writer-W1",
@@ -13687,7 +13688,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "khoản dự phòng khi thuê xe máy",
       "proposed_title": "Dự trù khoản dự phòng khi thuê xe: những chi phí nhỏ dễ phát sinh giữa chuyến đi",
@@ -13700,7 +13700,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0013",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15417,5 +15417,5 @@
       ]
     }
   },
-  "version": 820
+  "version": 821
 }
