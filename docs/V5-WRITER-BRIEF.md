@@ -41,8 +41,11 @@ cannot reach any website except api.github.com: research with the Parallel
    Fix every entry in `hard_fails_excluding_review` and re-run until it is empty
    and `would_pass_after_review` is true. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
-   Record the returned article_sha. Do not resubmit unless QA later asks for a
-   repair; each changed resubmission consumes one of three repairs.
+   Record the returned article_sha, then free the slot for the next writer:
+   `python3 -m thuha.cli --git-branch release --slot <SLOT> --session <SESSION> --fence <FENCE>`.
+   Do not resubmit unless QA later asks for a repair; each changed resubmission
+   consumes one of three repairs and goes through a fresh claim of the
+   NEEDS_REPAIR topic (read `topic.repair_notes` in the kit first).
 8. Report: topic_id, slot, article_sha, word count, sources used, any blocked
    source, anything the reviewer should double-check.
 
