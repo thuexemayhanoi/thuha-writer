@@ -1,3 +1,13 @@
+## Verified current checkpoint — 23/10/2026 (use over historic notes below)
+
+- Exact scope: `thuexemayhanoi/thuha-writer` / `https://rentbikehanoi.com`.
+- `main` commit `1355dcfc8ad1`: QA **75/100 inclusive**, auto mode, all hard failures intact; owner release **enabled / auto-scale / 50 posts per day**. GitHub quality and guarded publisher CI both succeeded.
+- Shared `factory-state` version **448**: **9 verified EN PUBLISHED receipts**, **0 READY**, **51 EN + 14 VI PLANNED**, **7 EN + 21 VI WAITING_DATA**, **11 VI HELD**, **0 writer leases**.
+- The numbers are a point-in-time GitHub ledger reading, not a live WordPress site count. Follow `AGENTS.md` and read the current state before any claim. Waiting topics need real data and are never implicitly approved; HELD topics stay held. VI is prioritized, but research-backed EN may proceed when VI is blocked.
+- Historical sections below may say QA85, mandatory reviewer, GitHub Environment setup, release OFF, plugin not deployed or nine drafts still awaiting transfer. **Those statements are superseded and must not be used as current setup instructions.** No ledger, post, secret or code has been changed by this documentation revision.
+
+---
+
 > **Cập nhật hiệu lực 23/10/2026:** QA tự động từ **75 điểm trở lên PASS**, dưới 75 FAIL; mọi hard fail vẫn chặn. Không yêu cầu AI reviewer riêng, không cài GitHub Environment; dùng Repository Secrets. Những đoạn lịch sử phía dưới nhắc 85, environment hoặc reviewer là thông tin cũ, không dùng để triển khai. Đọc `AGENTS.md`, `config/qa.json` và `docs/AUTO-QA85-PUBLISHER.md` (tên file lịch sử).
 
 # Trạng thái triển khai: workflow 500 VI + 500 EN
