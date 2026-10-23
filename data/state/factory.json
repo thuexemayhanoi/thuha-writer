@@ -3527,22 +3527,24 @@
       "sha256": "e7ad83e83dd9ca0deb9bddf248a517bef77449ab7cb262530bf421dc8486f897",
       "slot": "W1",
       "topic_id": "TH-VI-0134"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "86d3f59dd535078e8ed2fac4119b084e30bd1c34fb30db8ba44dbf22e0e9bfcd",
+      "at": "2026-10-23T13:54:35.842426+00:00",
+      "previous": "e7ad83e83dd9ca0deb9bddf248a517bef77449ab7cb262530bf421dc8486f897",
+      "sha256": "643e21872e630ce873880de69910349fe646a2dd25682f311f488a8a8f0e23f9",
+      "topic_id": "TH-VI-0134",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765473.205259,
-      "fence": "e0a5353f4ef04921b224ac686485e3b1",
-      "heartbeat_at": "2026-10-23T13:54:33.205241+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0134"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4122,13 +4124,13 @@
     },
     "TH-VI-0134": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "9d511527bfba047223012d854463ad53c98e2c0d6880d77629de65589293c5b8",
-      "commit": "29d7325c057232bc9520150cab85db88936989f0",
-      "fence": "bff4d5ae92f04ee5b4402b7145d698b8",
+      "article_sha": "86d3f59dd535078e8ed2fac4119b084e30bd1c34fb30db8ba44dbf22e0e9bfcd",
+      "commit": "8bd09c53d778ec45b9c71bd60d624884331eb3a9",
+      "fence": "e0a5353f4ef04921b224ac686485e3b1",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:32:24.479577+00:00"
+      "submitted_at": "2026-10-23T13:54:35.842407+00:00"
     },
     "TH-VI-0146": {
       "agent_id": "claude-writer-W1",
@@ -7487,7 +7489,6 @@
         157
       ],
       "cluster": "chon-xe-va-so-sanh",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chưa biết lái xe côn tay có nên thuê không",
       "proposed_title": "Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe",
@@ -7500,7 +7501,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0134",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8006,5 +8007,5 @@
       ]
     }
   },
-  "version": 492
+  "version": 493
 }
