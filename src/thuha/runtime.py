@@ -175,10 +175,10 @@ def cycle(state,inv,release,targets=None):
                          'remaining':None if live is None else max(0,targets[lang]-live[lang]-unresolved),
                          'planned':c['PLANNED'],'writing':c['CLAIMED']+c['DRAFT_READY'],'waiting_data':c['WAITING_DATA'],'qa_pass':c['READY'],
                          'qa_fail':c['NEEDS_REPAIR']+c['NEEDS_REVIEW'],'published':c['PUBLISHED'],
-                         'blocked':c['BLOCKED']+c['PUBLISHING']}
+                         'blocked':c['BLOCKED']+c['PUBLISHING'],'held':c['HELD']}
     row={'FACTORY PUBLISHED':len(state['receipts']),'PLANNED':counts['PLANNED'],'WRITING':counts['CLAIMED']+counts['DRAFT_READY'],
          'WAITING DATA':counts['WAITING_DATA'],'QA PASS':counts['READY'],'QA FAIL':counts['NEEDS_REPAIR']+counts['NEEDS_REVIEW'],'PUBLISHED':counts['PUBLISHED'],
-         'BLOCKED':counts['BLOCKED']+counts['PUBLISHING']}
+         'BLOCKED':counts['BLOCKED']+counts['PUBLISHING'],'HELD':counts['HELD']}
     for lang in LANGUAGES:
         row['LIVE '+lang.upper()]='UNKNOWN' if live is None else live[lang]
         row['REMAINING '+lang.upper()]='UNKNOWN' if live is None else languages[lang]['remaining']

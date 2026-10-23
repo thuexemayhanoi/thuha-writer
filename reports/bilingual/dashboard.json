@@ -12,21 +12,24 @@
     "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "10 draft(s) wait for data (AUTHORITATIVE_INVENTORY x10, FEATURED_MEDIA x10, INTERNAL_LINKS x10): TH-VI-0004, TH-VI-0006, TH-VI-0011, TH-VI-0014, TH-VI-0016, TH-VI-0019, TH-VI-0024, TH-VI-0033, TH-VI-0035, TH-VI-0058",
+    "17 draft(s) wait for data (AUTHORITATIVE_INVENTORY x17, FEATURED_MEDIA x17, INTERNAL_LINKS x17): TH-VI-0004, TH-VI-0006, TH-VI-0011, TH-VI-0014, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0035, TH-VI-0043, TH-VI-0053, TH-VI-0058, TH-VI-0063",
     "7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T07:39:01.000019+00:00",
+  "generated_at": "2026-10-23T07:55:01.530995+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 168,
+    "session_ledger_version": 221,
     "shared_ledger_version": 5,
     "status": "FAST_FORWARD"
+  },
+  "held": {
+    "TH-VI-0024": "Held after the independent editorial pre-review: it repeats the compensation questions of TH-VI-0011 and adds only a guess; its one distinct idea (ask whether the figures differ by vehicle) now lives in a section of TH-VI-0011."
   },
   "inventory_age_seconds": 0,
   "inventory_complete": true,
@@ -44,6 +47,7 @@
         "BLOCKED": 0,
         "CLAIMED": 0,
         "DRAFT_READY": 7,
+        "HELD": 0,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 48,
@@ -61,17 +65,17 @@
       "factory_published_receipts": 0,
       "needs_source_or_research": [
         {
-          "created_at": "2026-10-23T07:27:09.269308+00:00",
+          "created_at": "2026-10-23T07:53:34.330874+00:00",
           "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
           "language": "vi",
           "maximum_topics": 100,
-          "planned": 10,
-          "request_id": "research-vi-d08b8dd5e031330b",
+          "planned": 8,
+          "request_id": "research-vi-b6c6d839c56d89d5",
           "runtime": "External authorized AI session required",
           "status": "AWAITING_EXTERNAL_RESEARCH"
         }
       ],
-      "open_topics": 10,
+      "open_topics": 18,
       "over_target": false,
       "published_live": 0,
       "remaining": 500,
@@ -79,6 +83,7 @@
         "BLOCKED": 0,
         "CLAIMED": 0,
         "DRAFT_READY": 0,
+        "HELD": 1,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 0,
@@ -86,7 +91,7 @@
         "PUBLISHING": 0,
         "READY": 0,
         "RESEARCH": 0,
-        "WAITING_DATA": 10
+        "WAITING_DATA": 17
       },
       "target": 500,
       "unresolved_intents": 0
@@ -136,7 +141,9 @@
     "vi": {
       "awaiting_qa": [],
       "awaiting_review": [],
-      "held_or_unknown": [],
+      "held_or_unknown": [
+        "TH-VI-0024"
+      ],
       "needs_repair": [],
       "published": [],
       "publishing": [],
@@ -148,10 +155,17 @@
         "TH-VI-0014",
         "TH-VI-0016",
         "TH-VI-0019",
-        "TH-VI-0024",
         "TH-VI-0033",
         "TH-VI-0035",
-        "TH-VI-0058"
+        "TH-VI-0043",
+        "TH-VI-0053",
+        "TH-VI-0058",
+        "TH-VI-0063",
+        "TH-VI-0089",
+        "TH-VI-0093",
+        "TH-VI-0095",
+        "TH-VI-0101",
+        "TH-VI-0217"
       ]
     }
   },
@@ -240,6 +254,27 @@
       "status": "FULFILLED"
     },
     {
+      "created_at": "2026-10-23T07:53:34.330874+00:00",
+      "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 8,
+      "request_id": "research-vi-b6c6d839c56d89d5",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
+    },
+    {
+      "admitted_topic_ids": [
+        "TH-VI-0043",
+        "TH-VI-0053",
+        "TH-VI-0063",
+        "TH-VI-0089",
+        "TH-VI-0093",
+        "TH-VI-0095",
+        "TH-VI-0101",
+        "TH-VI-0217"
+      ],
+      "completed_at": "2026-10-23T07:53:32.021238+00:00",
       "created_at": "2026-10-23T07:27:09.269308+00:00",
       "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
       "language": "vi",
@@ -247,7 +282,7 @@
       "planned": 10,
       "request_id": "research-vi-d08b8dd5e031330b",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     }
   ],
   "site_live_verified_posts": 0,
@@ -294,6 +329,7 @@
     "BLOCKED": 0,
     "CLAIMED": 0,
     "DRAFT_READY": 7,
+    "HELD": 1,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
     "PLANNED": 48,
@@ -301,7 +337,7 @@
     "PUBLISHING": 0,
     "READY": 2,
     "RESEARCH": 0,
-    "WAITING_DATA": 10
+    "WAITING_DATA": 17
   },
   "targets": {
     "en": 500,
@@ -338,11 +374,6 @@
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
     ],
-    "TH-VI-0024": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
     "TH-VI-0033": [
       "AUTHORITATIVE_INVENTORY",
       "FEATURED_MEDIA",
@@ -353,7 +384,47 @@
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
     ],
+    "TH-VI-0043": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0053": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
     "TH-VI-0058": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0063": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0089": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0093": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0095": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0101": [
+      "AUTHORITATIVE_INVENTORY",
+      "FEATURED_MEDIA",
+      "INTERNAL_LINKS"
+    ],
+    "TH-VI-0217": [
       "AUTHORITATIVE_INVENTORY",
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"

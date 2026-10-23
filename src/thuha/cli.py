@@ -57,6 +57,7 @@ def main(argv=None):
     sub.add_parser('coordinator');sub.add_parser('recovery');sub.add_parser('refill');sub.add_parser('credentials')
     sub.add_parser('quota');sub.add_parser('adapter-preflight');sub.add_parser('package')
     q=sub.add_parser('claim');q.add_argument('--session',required=True);q.add_argument('--agent-id',required=True);q.add_argument('--slot',default='auto')
+    q.add_argument('--revise',metavar='TOPIC_ID',help='Claim a stored WAITING_DATA draft to revise it while its data is still missing')
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':
@@ -69,6 +70,8 @@ def main(argv=None):
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
     q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',required=True);q.add_argument('--extra-queue')
     sub.add_parser('cycle');sub.add_parser('recheck-data')
+    q=sub.add_parser('hold');q.add_argument('--topic-id',required=True);q.add_argument('--reason',required=True)
+    q=sub.add_parser('unhold');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10);q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
@@ -132,7 +135,7 @@ def main(argv=None):
         inv=inventory_for(store,args.inventory);planning=inventory_max_age(inv,policy,factory);validate_inventory(inv,planning);note=None
         try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],inventory_max_age=planning)
         except ValueError as exc:note=str(exc) # e.g. inventory not language-authoritative; claiming itself stays possible
-        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets()))
+        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets(),args.revise))
         if note:result['refill_note']=note
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
@@ -158,6 +161,8 @@ def main(argv=None):
                                          inventory_max_age=inventory_max_age(inv,policy,factory))}
     elif args.command=='cycle':
         result=runtime.cycle(store.read(),inventory_for(store,args.inventory),release)
+    elif args.command=='hold':result={'held':coordinator.hold(store,args.topic_id,args.reason)}
+    elif args.command=='unhold':result={'restored_status':coordinator.unhold(store,args.topic_id)}
     elif args.command=='recheck-data':
         # Only an authoritative, fresh inventory can show that the image or the live links now exist. Nothing becomes READY.
         inv=inventory_for(store,args.inventory)

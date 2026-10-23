@@ -4,16 +4,24 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 
 | Topic | Language | Status | Waiting for | Review | QA | Units | Title |
 |---|---|---|---|---|---|---|---|
-| [TH-VI-0004](vi/TH-VI-0004.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1033 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
-| [TH-VI-0006](vi/TH-VI-0006.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1044 | Trả xe sớm hơn dự kiến: có được tính lại số ngày không và nên hỏi trước điều gì |
-| [TH-VI-0011](vi/TH-VI-0011.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1096 | Xước nhẹ, gãy gương, mất chìa: xin xem bảng mức đền bù trước khi nhận xe |
-| [TH-VI-0014](vi/TH-VI-0014.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1147 | Phụ phí khi thuê xe máy: danh sách câu hỏi để hỏi từng mục trước khi đặt |
-| [TH-VI-0016](vi/TH-VI-0016.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1088 | Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực |
-| [TH-VI-0019](vi/TH-VI-0019.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1239 | Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không |
-| [TH-VI-0024](vi/TH-VI-0024.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1014 | Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không |
-| [TH-VI-0033](vi/TH-VI-0033.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1170 | Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản |
-| [TH-VI-0035](vi/TH-VI-0035.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 990 | Khi nào nhận lại tiền cọc: hỏi rõ thời điểm và cách hoàn trước khi chuyển tiền |
-| [TH-VI-0058](vi/TH-VI-0058.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1085 | Tân sinh viên lên Hà Nội nhập học: thuê xe máy theo tháng khi chưa quyết định mua xe |
+| [TH-VI-0004](vi/TH-VI-0004.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1008 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
+| [TH-VI-0006](vi/TH-VI-0006.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1006 | Trả xe sớm hơn dự kiến: có được tính lại số ngày không và nên hỏi trước điều gì |
+| [TH-VI-0011](vi/TH-VI-0011.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1095 | Xước nhẹ, gãy gương, mất chìa: hỏi rõ cách tính đền bù trước khi nhận xe |
+| [TH-VI-0014](vi/TH-VI-0014.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 986 | Phụ phí khi thuê xe máy: danh sách câu hỏi để hỏi từng mục trước khi đặt |
+| [TH-VI-0016](vi/TH-VI-0016.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1002 | Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực |
+| [TH-VI-0019](vi/TH-VI-0019.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1250 | Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không |
+| [TH-VI-0024](vi/TH-VI-0024.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1014 | Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không |
+| [TH-VI-0033](vi/TH-VI-0033.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1092 | Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản |
+| [TH-VI-0035](vi/TH-VI-0035.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1015 | Khi nào nhận lại tiền cọc: hỏi rõ thời điểm và cách hoàn trước khi chuyển tiền |
+| [TH-VI-0043](vi/TH-VI-0043.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1021 | Đặt cọc trước qua nhóm Facebook hay Zalo: dấu hiệu cần dừng lại và cách kiểm tra cửa hàng thật |
+| [TH-VI-0053](vi/TH-VI-0053.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 979 | Thuê hai xe cùng lúc: cọc tính theo từng xe hay gộp chung, trả một xe trước thì phần cọc xử lý ra sao |
+| [TH-VI-0058](vi/TH-VI-0058.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1056 | Tân sinh viên lên Hà Nội: thuê xe máy theo tháng khi chưa quyết định mua xe |
+| [TH-VI-0063](vi/TH-VI-0063.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 962 | Trả tiền thuê xe theo tuần hay theo tháng: lịch thanh toán và khoản cần chuẩn bị ngày đầu |
+| [TH-VI-0089](vi/TH-VI-0089.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1004 | Nhận xe còn bao nhiêu xăng, trả xe cần bao nhiêu: thống nhất mức xăng từ đầu |
+| [TH-VI-0093](vi/TH-VI-0093.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 955 | Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao |
+| [TH-VI-0095](vi/TH-VI-0095.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 971 | Kết thúc kỳ thuê tháng: lịch trả xe, kiểm tra cuối kỳ và nhận lại cọc |
+| [TH-VI-0101](vi/TH-VI-0101.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 1010 | Trả xe sau giờ cửa hàng đóng cửa vì tăng ca hoặc chuyến về muộn: hỏi trước chìa khóa để đâu và ai xác nhận hiện trạng xe |
+| [TH-VI-0217](vi/TH-VI-0217.json) | vi | WAITING_DATA | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | none | not run | 964 | Hỏi lịch sử bảo dưỡng của chiếc xe sắp thuê: tem thay nhớt, sổ bảo hành và lần kiểm tra gần nhất |
 | [TH-000001](en/TH-000001.json) | en | DRAFT_READY | — | none | FAIL | 2484 | Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit |
 | [TH-000002](en/TH-000002.json) | en | DRAFT_READY | — | none | FAIL | 2187 | The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk |
 | [TH-000003](en/TH-000003.json) | en | DRAFT_READY | — | none | not run | 2097 | Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules |

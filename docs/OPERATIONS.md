@@ -84,6 +84,7 @@ python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0004 --file article.
 python3 -m thuha.cli --git-branch submit --slot W1 --session S --fence F --file article.json --waiting-for FEATURED_MEDIA INTERNAL_LINKS AUTHORITATIVE_INVENTORY
 python3 -m thuha.cli --remote recheck-data          # (protected job) clears only what the authenticated inventory really holds
 python3 scripts/export_drafts.py                    # drafts/<language>/<ID>.json + drafts/INDEX.md, derived from the ledger
+python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004   # edit a stored draft whose data is still missing
 ```
 
 `WAITING_DATA` is a stored state, never READY: `qa` refuses it, `qa --pending` skips it, the publisher cannot take it, it is not

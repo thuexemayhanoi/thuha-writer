@@ -109,7 +109,7 @@ class PlanningInventoryTests(Fixture):
         self.assertEqual(audit.snapshot_inventory()['counts']['posts_by_language'], {'vi': 0, 'en': 275})
 
 
-class WaitingDataTests(Fixture):
+class WaitingHelpers(Fixture):
     def waiting(self, codes=('FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'), i=1, lang='vi'):
         topic = self.candidate(i, lang)
         intake(self.store, [topic], self.inv)
@@ -118,6 +118,9 @@ class WaitingDataTests(Fixture):
         article['featured_media'] = None
         out = submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=codes)
         return topic, article, lease, out
+
+
+class WaitingDataTests(WaitingHelpers):
 
     def test_a_draft_that_lacks_data_is_stored_waiting_and_frees_the_writer_slot(self):
         topic, article, lease, out = self.waiting()
@@ -167,6 +170,29 @@ class WaitingDataTests(Fixture):
         again = claim(self.store, 'session-other', 'writer-other')
         self.assertEqual(again['topic_id'], tid)
         self.assertEqual(self.store.read()['topics'][tid]['status'], 'CLAIMED')
+
+    def test_a_waiting_draft_can_be_revised_while_its_data_is_still_missing(self):
+        topic, article, lease, out = self.waiting()
+        tid = topic['topic_id']
+        with self.assertRaisesRegex(ValueError, 'No admissible'):
+            claim(self.store, 'session-r', 'writer-r')  # not claimable the ordinary way
+        revise = claim(self.store, 'session-r', 'writer-r', revise=tid)
+        self.assertEqual(revise['topic_id'], tid)
+        self.assertEqual(self.store.read()['topics'][tid]['status'], 'CLAIMED')
+        fixed = dict(article, session='session-r', agent_id='writer-r', body_html=article['body_html'] + '<p>Một câu được sửa lại.</p>')
+        result = submit(self.store, revise['slot'], 'session-r', revise['fence'], fixed, waiting_for=['FEATURED_MEDIA'])
+        self.assertEqual(result['repair_count'], 0)  # a revision of a stored draft is not a repair
+        state = self.store.read()
+        self.assertEqual((state['topics'][tid]['status'], state['topics'][tid]['waiting_for']), ('WAITING_DATA', ['FEATURED_MEDIA']))
+        self.assertEqual(state['leases'], {})
+        self.assertNotEqual(result['article_sha'], out['article_sha'])
+
+    def test_only_a_waiting_draft_can_be_revised_this_way(self):
+        intake(self.store, [self.candidate(2, 'vi')], self.inv)
+        with self.assertRaisesRegex(ValueError, 'waits for data'):
+            claim(self.store, 'session-r2', 'writer-r2', revise='TH-VI-0002')
+        with self.assertRaisesRegex(ValueError, 'waits for data'):
+            claim(self.store, 'session-r3', 'writer-r3', revise='TH-VI-9999')
 
     def test_completing_a_draft_is_not_a_repair_and_a_lost_lease_returns_it_to_waiting(self):
         topic, article, lease, out = self.waiting()
@@ -250,6 +276,66 @@ class WaitingDataTests(Fixture):
 def readiness_cleared(store, inv):
     from thuha import coordinator
     return store.mutate(lambda s: coordinator.clear_satisfied(s, inv))
+
+
+class EditorialHoldTests(WaitingHelpers):
+    """A topic that should not be written (it overlaps another, or its draft adds nothing) is held, not deleted."""
+
+    def test_a_held_topic_is_not_claimable_not_qaed_and_remembers_where_it_was(self):
+        from thuha.coordinator import hold, unhold
+        topic, article, lease, out = self.waiting()
+        tid = topic['topic_id']
+        hold(self.store, tid, 'Overlaps another row; its angle moves into TH-VI-0011.')
+        state = self.store.read()
+        self.assertEqual((state['topics'][tid]['status'], state['topics'][tid]['held']['from']), ('HELD', 'WAITING_DATA'))
+        self.assertIn(state['topics'][tid]['status'], __import__('thuha.quota', fromlist=['x']).OPEN_TOPIC_STATES)
+        self.assertEqual(state['events'][-1]['action'], 'TOPIC_HELD')
+        with self.assertRaisesRegex(ValueError, 'No admissible'):
+            claim(self.store, 'session-h', 'writer-h')
+        self.store.mutate(lambda s: s['topics'][tid].update(waiting_for=[]))
+        with self.assertRaisesRegex(ValueError, 'No admissible'):
+            claim(self.store, 'session-h', 'writer-h')  # even with no data wait left, a hold is a hold
+        self.assertEqual(self.store.read()['qa'], {})
+        unhold(self.store, tid)
+        self.assertEqual(self.store.read()['topics'][tid]['status'], 'WAITING_DATA')
+        self.assertNotIn('held', self.store.read()['topics'][tid])
+
+    def test_only_an_unleased_topic_that_is_not_in_publication_can_be_held(self):
+        from thuha.coordinator import hold
+        intake(self.store, [self.candidate(2, 'vi')], self.inv)
+        lease = claim(self.store, 'session-h2', 'writer-h2')
+        with self.assertRaisesRegex(ValueError, 'cannot be held'):
+            hold(self.store, 'TH-VI-0002', 'reason')
+        with self.assertRaisesRegex(ValueError, 'reason'):
+            hold(self.store, 'TH-VI-0002', '')
+        release(self.store, lease['slot'], lease['session'], lease['fence'])
+        hold(self.store, 'TH-VI-0002', 'Overlaps another row.')
+        self.store.mutate(lambda s: s['topics']['TH-VI-0002'].update(status='PUBLISHING'))
+        with self.assertRaisesRegex(ValueError, 'cannot be held'):
+            hold(self.store, 'TH-VI-0002', 'again')
+
+    def test_the_dashboard_lists_held_topics_apart_from_the_queue(self):
+        from thuha.coordinator import hold
+        topic, article, lease, out = self.waiting()
+        hold(self.store, topic['topic_id'], 'Overlaps another row.')
+        report = dashboard.report(self.store, self.inv, load(ROOT / 'config/release.json'))
+        self.assertEqual(report['queue']['vi']['held_or_unknown'], [topic['topic_id']])
+        self.assertEqual(report['held'], {topic['topic_id']: 'Overlaps another row.'})
+        self.assertEqual(report['queue']['vi']['waiting_data'], [])
+
+    def test_the_command_line_holds_and_unholds(self):
+        topic, article, lease, out = self.waiting()
+        path = Path(self.temp.name) / 'inv.json'
+        path.write_text(json.dumps(self.inv))
+        def run(*argv):
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                code = cli.main(['--state-dir', self.temp.name, '--inventory', str(path)] + list(argv))
+            return code, json.loads(buf.getvalue())
+        self.assertEqual(run('hold', '--topic-id', topic['topic_id'], '--reason', 'Overlaps another row.')[0], 0)
+        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['status'], 'HELD')
+        self.assertEqual(run('unhold', '--topic-id', topic['topic_id'])[0], 0)
+        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['status'], 'WAITING_DATA')
 
 
 class WaitCodeTests(unittest.TestCase):

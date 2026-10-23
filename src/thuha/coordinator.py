@@ -53,7 +53,7 @@ def claimable(topic):
     return topic['status'] in ('NEEDS_REPAIR','PLANNED') or (topic['status']=='WAITING_DATA' and not topic.get('waiting_for'))
 
 
-def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None):
+def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,revise=None):
     if not re.fullmatch('[a-zA-Z0-9_-]{4,80}',session) or not agent_id.strip():
         raise ValueError('Stable session and explicit external agent attribution required')
     if slot!='auto' and slot not in SLOTS:raise ValueError('Unknown writer slot')
@@ -69,10 +69,16 @@ def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None):
         if available is None or available in state['leases']:raise ValueError('No free slot')
         # A language already at its ceiling (live posts + unresolved intents) takes no more writers.
         full=complete_languages(state,counts,targets) if counts is not None and targets is not None else set()
-        candidates=sorted((x for x in state['topics'].values() if claimable(x) and x['language'] not in full),key=claim_order)
         busy={x['topic_id'] for x in state['leases'].values()}
-        candidate=next((x for x in candidates if x['topic_id'] not in busy),None)
-        if not candidate:raise ValueError('No admissible researched topic; external research required')
+        if revise:
+            # Revising a stored draft whose data is still missing; the ordinary order of claims is not bypassed for anything else.
+            candidate=state['topics'].get(revise)
+            if not candidate or candidate['status']!='WAITING_DATA' or candidate['topic_id'] in busy or candidate['language'] in full:
+                raise ValueError('Only an unleased draft that waits for data can be revised this way')
+        else:
+            candidates=sorted((x for x in state['topics'].values() if claimable(x) and x['language'] not in full),key=claim_order)
+            candidate=next((x for x in candidates if x['topic_id'] not in busy),None)
+            if not candidate:raise ValueError('No admissible researched topic; external research required')
         lease={'slot':available,'session':session,'agent_id':agent_id,'topic_id':candidate['topic_id'],
                'language':candidate['language'],'fence':fence,'heartbeat_at':now(),'expires_at':timestamp()+ttl}
         if candidate['status']=='WAITING_DATA':candidate['completion_pending']=True # the next submission completes the stored draft
@@ -142,6 +148,36 @@ def release(store,slot,session,fence):
         event(state,'RELEASE',slot=slot,topic_id=tid)
     return store.mutate(transaction)
 
+
+
+HOLDABLE=('PLANNED','WAITING_DATA','NEEDS_REPAIR','DRAFT_READY')
+
+
+def hold(store,topic_id,reason):
+    """Editorial hold: the topic is not written, claimed or QA'd, and the stored draft (if any) stays untouched.
+
+    For a topic that overlaps another row or whose draft adds nothing the reader needs. Nothing is deleted.
+    """
+    if not str(reason or '').strip():raise ValueError('A hold needs a reason')
+    def transaction(state):
+        topic=state['topics'].get(topic_id)
+        if not topic or topic['status'] not in HOLDABLE or any(l['topic_id']==topic_id for l in state['leases'].values()):
+            raise ValueError('This topic cannot be held now (unknown, leased, or already in QA or publication)')
+        topic['held']={'from':topic['status'],'reason':str(reason).strip(),'at':now()}
+        topic['status']='HELD'
+        event(state,'TOPIC_HELD',topic_id=topic_id,previous_status=topic['held']['from'],reason=topic['held']['reason'])
+        return topic['held']
+    return store.mutate(transaction)
+
+
+def unhold(store,topic_id):
+    def transaction(state):
+        topic=state['topics'].get(topic_id)
+        if not topic or topic['status']!='HELD' or not topic.get('held'):raise ValueError('This topic is not held')
+        topic['status']=topic.pop('held')['from']
+        event(state,'TOPIC_UNHELD',topic_id=topic_id,restored_status=topic['status'])
+        return topic['status']
+    return store.mutate(transaction)
 
 
 def inventory_usable(inv,policy):

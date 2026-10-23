@@ -5,7 +5,7 @@ from .coordinator import SLOTS,timestamp
 from .language import LANGUAGES,screen_alt,targets as language_targets
 from . import ledger,quota
 
-STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','WAITING_DATA','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','PUBLISHING','PUBLISHED')
+STATUSES=('RESEARCH','PLANNED','CLAIMED','DRAFT_READY','WAITING_DATA','READY','NEEDS_REPAIR','NEEDS_REVIEW','BLOCKED','HELD','PUBLISHING','PUBLISHED')
 
 
 def language_view(s,inv,targets):
@@ -42,7 +42,7 @@ def queue_view(s):
             elif status=='PUBLISHING':rows['publishing'].append(tid)
             elif status=='PUBLISHED':rows['published'].append(tid)
             elif status in ('NEEDS_REPAIR','NEEDS_REVIEW'):rows['needs_repair'].append(tid)
-            elif status=='BLOCKED':rows['held_or_unknown'].append(tid)
+            elif status in ('BLOCKED','HELD'):rows['held_or_unknown'].append(tid)
         out[lang]=rows
     return out
 
@@ -92,7 +92,8 @@ def report(store,inv,release,targets=None,live_ledger=None):
        'wordpress_pages':inv.get('counts',{}).get('pages'),'inventory_complete':inv.get('complete',False),
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'factory_published_receipts':len(s['receipts']),
-       'queue':queue_view(s),'waiting_data':{k:v.get('waiting_for',[]) for k,v in sorted(s['topics'].items()) if v['status']=='WAITING_DATA'},'post_checks':post_checks(s),'open_alerts':[a for a in s.get('alerts',[]) if not a.get('acknowledged')],
+       'queue':queue_view(s),'waiting_data':{k:v.get('waiting_for',[]) for k,v in sorted(s['topics'].items()) if v['status']=='WAITING_DATA'},
+       'held':{k:v['held']['reason'] for k,v in sorted(s['topics'].items()) if v['status']=='HELD' and v.get('held')},'post_checks':post_checks(s),'open_alerts':[a for a in s.get('alerts',[]) if not a.get('acknowledged')],
        'handoff':handoff(store,live_ledger),
        'states':dict(counts),'production_enabled':release['enabled'],'languages_enabled':release.get('languages_enabled',[]),
        'adapter':s.get('adapter') or {'status':'NOT_VERIFIED','code':'BLOCKED_ADAPTER_NOT_DEPLOYED'},
