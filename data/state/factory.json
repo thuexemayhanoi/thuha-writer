@@ -173,6 +173,19 @@
       "sha256": "f37ee1105593269d7176ed21d4be5b7f6f27b79c0a5b5a006280bfe81d9f87a9",
       "slot": "W5",
       "topic_id": "TH-000005"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W6",
+      "at": "2026-10-23T02:10:05.378871+00:00",
+      "expires_at": 1792723205.378861,
+      "fence": "d196eeb9692c4477b0c6175637427fef",
+      "heartbeat_at": "2026-10-23T02:10:05.378842+00:00",
+      "previous": "f37ee1105593269d7176ed21d4be5b7f6f27b79c0a5b5a006280bfe81d9f87a9",
+      "session": "w6-20261023-c1",
+      "sha256": "3e876b5cc6ffb9a539b6cfd3c7e0c348e8b375e0d2d4f8fc8ddeb30f948108ee",
+      "slot": "W6",
+      "topic_id": "TH-000006"
     }
   ],
   "intents": {},
@@ -222,6 +235,15 @@
       "session": "w5-20261023-c1",
       "slot": "W5",
       "topic_id": "TH-000005"
+    },
+    "W6": {
+      "agent_id": "claude-writer-W6",
+      "expires_at": 1792723205.378861,
+      "fence": "d196eeb9692c4477b0c6175637427fef",
+      "heartbeat_at": "2026-10-23T02:10:05.378842+00:00",
+      "session": "w6-20261023-c1",
+      "slot": "W6",
+      "topic_id": "TH-000006"
     }
   },
   "qa": {},
@@ -530,7 +552,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000006"
     },
     "TH-000007": {
@@ -2234,5 +2256,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 23
+  "version": 24
 }
