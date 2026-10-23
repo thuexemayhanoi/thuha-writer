@@ -4785,6 +4785,15 @@
       "previous": "674b05faaf2cf1bd3ed45c36e65dcdbae298e458a8cf4953455192341e13c1a0",
       "sha256": "ca492f9f76bf9ddbe898d793844875cff8a6ceb43d0b8d91b3df2dacb790353c",
       "topic_id": "TH-EN-0140"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T14:55:39.198816+00:00",
+      "previous": "ca492f9f76bf9ddbe898d793844875cff8a6ceb43d0b8d91b3df2dacb790353c",
+      "report_sha": "ac89b80d63f8ec3a057b0ac2ac8bdd5e6f00f3d862eb4a509c48b8948232bf1b",
+      "sha256": "94e5182dc07e750a73e56e03913cf3daa794367c571dab08ec71ad3e6dcfc7f5",
+      "status": "PASS",
+      "topic_id": "TH-EN-0140"
     }
   ],
   "intents": {
@@ -7760,18 +7769,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W2",
-      "expires_at": 1792769132.203073,
-      "fence": "69a9374dfe974794a622bea773e162d4",
-      "heartbeat_at": "2026-10-23T14:55:32.203051+00:00",
-      "language": "en",
-      "session": "sess-e1c",
-      "slot": "W1",
-      "topic_id": "TH-EN-0140"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7836,6 +7834,11 @@
     "TH-EN-0139": {
       "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
       "report_sha": "6037306741420a0e1a0cbe4c2c9eb6ad87e3d46c46d138b6e9b8f6740b809bdc",
+      "status": "PASS"
+    },
+    "TH-EN-0140": {
+      "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
+      "report_sha": "ac89b80d63f8ec3a057b0ac2ac8bdd5e6f00f3d862eb4a509c48b8948232bf1b",
       "status": "PASS"
     }
   },
@@ -11159,7 +11162,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0140"
     },
     "TH-EN-0141": {
@@ -12723,5 +12726,5 @@
       ]
     }
   },
-  "version": 645
+  "version": 646
 }
