@@ -3996,22 +3996,24 @@
       "sha256": "758b0ebec156b0f6e411fccf20b945dde8a9e81f100cbc501a17775a45ac4909",
       "slot": "W1",
       "topic_id": "TH-VI-0459"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "ae68c54e8fa8a6530c98a773a18000543f666897135ec01641a1153474dc11e9",
+      "at": "2026-10-23T13:56:22.544959+00:00",
+      "previous": "758b0ebec156b0f6e411fccf20b945dde8a9e81f100cbc501a17775a45ac4909",
+      "sha256": "8ffe41a37ecb687eda3eac9628e50171818870307e5c193a9065fb217e866ae1",
+      "topic_id": "TH-VI-0459",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765579.723423,
-      "fence": "31e7473daac94c03a41a215d6465e203",
-      "heartbeat_at": "2026-10-23T13:56:19.723401+00:00",
-      "language": "vi",
-      "session": "sess-b3r2",
-      "slot": "W1",
-      "topic_id": "TH-VI-0459"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4821,13 +4823,13 @@
     },
     "TH-VI-0459": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "fa4511a875717fa43daa445431a826cb3d212850a85dec473082b7713e26ed77",
-      "commit": "4b10acc4228b4a3c338fd687ade509d77a9197f4",
-      "fence": "ab0a582f57714cba95bc6e636a80d5cc",
+      "article_sha": "ae68c54e8fa8a6530c98a773a18000543f666897135ec01641a1153474dc11e9",
+      "commit": "35e1757fac171961f9f63825fab4200d768d1038",
+      "fence": "31e7473daac94c03a41a215d6465e203",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r2",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:18.514970+00:00"
+      "submitted_at": "2026-10-23T13:56:22.544939+00:00"
     },
     "TH-VI-0484": {
       "agent_id": "claude-writer-W1",
@@ -8566,7 +8568,6 @@
         169
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi nhóm nhiều xe máy không bị lạc nhau",
       "proposed_title": "Đi chơi trong ngày bằng nhiều xe: thứ tự chạy, điểm dừng chung và cách không bị lạc nhau",
@@ -8579,7 +8580,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0459",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8671,5 +8672,5 @@
       ]
     }
   },
-  "version": 526
+  "version": 527
 }
