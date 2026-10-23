@@ -3037,6 +3037,24 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T12:36:45.408614+00:00",
+      "previous": "b00c5e5e7abec234cbc421a53111760543484598bf5c75c681a7919cdfafbced",
+      "sha256": "468917e654c56ab745f1fa2ea262e372b51a24717b14a1ea2d71bcde02517ff1",
+      "topic_ids": [
+        "TH-VI-0013",
+        "TH-VI-0218",
+        "TH-VI-0003",
+        "TH-VI-0026",
+        "TH-VI-0065",
+        "TH-VI-0140",
+        "TH-VI-0197",
+        "TH-VI-0008",
+        "TH-VI-0224",
+        "TH-VI-0090"
+      ]
     }
   ],
   "intents": {},
@@ -3150,6 +3168,19 @@
       "status": "FULFILLED"
     },
     "research-vi-8ce4098a69750969": {
+      "admitted_topic_ids": [
+        "TH-VI-0013",
+        "TH-VI-0218",
+        "TH-VI-0003",
+        "TH-VI-0026",
+        "TH-VI-0065",
+        "TH-VI-0140",
+        "TH-VI-0197",
+        "TH-VI-0008",
+        "TH-VI-0224",
+        "TH-VI-0090"
+      ],
+      "completed_at": "2026-10-23T12:36:45.408603+00:00",
       "created_at": "2026-10-23T12:17:43.814245+00:00",
       "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
       "language": "vi",
@@ -3157,7 +3188,7 @@
       "planned": 14,
       "request_id": "research-vi-8ce4098a69750969",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-b6c6d839c56d89d5": {
       "admitted_topic_ids": [
@@ -5762,6 +5793,30 @@
       "status": "PLANNED",
       "topic_id": "TH-EN-0141"
     },
+    "TH-VI-0003": {
+      "admitted_at": "2026-10-23T12:36:45.338809+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe theo ngày hay theo tuần",
+      "proposed_title": "Ở Hà Nội khoảng một tuần: thuê xe theo ngày hay theo tuần thì tính thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-theo-ngay-hay-theo-tuan-khi-o-mot-tuan/",
+      "search_intent": "Khách trong nước ở lại Hà Nội năm sáu ngày cần cách quy đổi các báo giá theo ngày và theo tuần về cùng một thước đo, và biết điểm nào trong lịch trình nên làm căn cứ chọn gói.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0003"
+    },
     "TH-VI-0004": {
       "admitted_at": "2026-10-23T07:26:56.973717+00:00",
       "category_id": 152,
@@ -5848,6 +5903,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0008": {
+      "admitted_at": "2026-10-23T12:36:45.388359+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "chia tiền thuê xe máy cho nhóm bạn",
+      "proposed_title": "Nhóm bạn đi chung nhiều xe: cách chia tiền thuê xe, xăng và gửi xe cho công bằng",
+      "proposed_url": "https://rentbikehanoi.com/vi/chia-tien-thue-xe-may-xang-gui-xe-cho-nhom-ban/",
+      "search_intent": "Năm sáu người bạn thuê ba bốn xe đi chơi cuối tuần cần một cách ghi chép và chia các khoản thuê, xăng, gửi xe để không ai thiệt và không phải tính lại sau chuyến đi.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0008"
+    },
     "TH-VI-0011": {
       "admitted_at": "2026-10-23T07:26:56.990143+00:00",
       "category_id": 152,
@@ -5887,6 +5966,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0013": {
+      "admitted_at": "2026-10-23T12:36:45.318885+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "khoản dự phòng khi thuê xe máy",
+      "proposed_title": "Dự trù khoản dự phòng khi thuê xe: những chi phí nhỏ dễ phát sinh giữa chuyến đi",
+      "proposed_url": "https://rentbikehanoi.com/vi/du-tru-khoan-du-phong-khi-thue-xe-may-chi-phi-nho-phat-sinh/",
+      "search_intent": "Sinh viên đi chơi theo ngân sách chặt muốn biết nên để dành cho các tình huống như vá lốp, rửa xe, gửi xe ngoài kế hoạch hay trả muộn, thay vì chỉ tính tiền thuê và tiền xăng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0013"
     },
     "TH-VI-0014": {
       "admitted_at": "2026-10-23T07:26:56.998227+00:00",
@@ -6115,6 +6218,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0026": {
+      "admitted_at": "2026-10-23T12:36:45.349250+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "xe số hay xe ga chi phí cả chuyến",
+      "proposed_title": "Xe số hay xe ga cho một tuần ở Hà Nội: cộng tiền thuê, xăng và gửi xe thay vì chỉ so giá mỗi ngày",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-so-hay-xe-ga-cho-mot-tuan-cong-tien-thue-xang-va-gui-xe/",
+      "search_intent": "Người chưa chọn được loại xe thấy bảng giá xe số và xe ga chênh nhau, muốn quy ra tổng chi phí cả chuyến gồm tiền thuê, xăng theo quãng đường dự kiến, gửi xe và cọc, đồng thời biết cần hỏi cửa hàng điều gì vì giá tham khảo có thể thay đổi.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0026"
     },
     "TH-VI-0033": {
       "admitted_at": "2026-10-23T07:26:57.036760+00:00",
@@ -6380,6 +6507,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0065": {
+      "admitted_at": "2026-10-23T12:36:45.358331+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy không liên tục trong tháng",
+      "proposed_title": "Chỉ cần xe vài ngày mỗi tuần: thuê nguyên tháng hay thuê từng đợt ngắn",
+      "proposed_url": "https://rentbikehanoi.com/vi/chi-can-xe-vai-ngay-moi-tuan-thue-nguyen-thang-hay-thue-theo-dot/",
+      "search_intent": "Người làm việc kiểu luân phiên, chỉ đi lại bằng xe hai ba ngày mỗi tuần, muốn so sánh thuê nguyên tháng với thuê nhiều đợt ngắn theo số ngày thực dùng và biết nên hỏi cửa hàng điều gì.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0065"
+    },
     "TH-VI-0089": {
       "admitted_at": "2026-10-23T07:53:31.978741+00:00",
       "category_id": 155,
@@ -6424,6 +6575,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0090": {
+      "admitted_at": "2026-10-23T12:36:45.408580+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhờ người quen biết xe đi nhận xe thuê cùng",
+      "proposed_title": "Rủ người quen thạo xe đi cùng khi nhận xe: họ có thể giúp kiểm tra những gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/ru-nguoi-quen-thao-xe-di-cung-khi-nhan-xe-thue-giup-kiem-tra-gi/",
+      "search_intent": "Người ít đi xe máy hoặc mới đổi từ xe số sang xe ga muốn nhờ bạn hay người nhà biết xe đi cùng buổi nhận xe, cần phân việc kiểm tra, hỏi nhân viên và cách phối hợp để buổi nhận xe không kéo dài.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0090"
     },
     "TH-VI-0093": {
       "admitted_at": "2026-10-23T07:53:31.988769+00:00",
@@ -6585,6 +6760,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0140": {
+      "admitted_at": "2026-10-23T12:36:45.368297+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "sinh viên thuê xe số hay xe ga theo tháng",
+      "proposed_title": "Sinh viên thuê xe theo tháng: xe số hay xe ga hợp với nhà trọ chật, bãi gửi ký túc xá và đường đi học",
+      "proposed_url": "https://rentbikehanoi.com/vi/sinh-vien-thue-xe-theo-thang-xe-so-hay-xe-ga/",
+      "search_intent": "Sinh viên ở nhà trọ chật hoặc ký túc xá, đi học xa, cần so xe số và xe ga về độ bền khi dắt lên dắt xuống, chỗ gửi, nguy cơ mất trộm và tiền xăng để chọn kiểu xe thuê tháng phù hợp.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0140"
+    },
     "TH-VI-0146": {
       "admitted_at": "2026-10-23T11:56:51.672527+00:00",
       "category_id": 157,
@@ -6669,6 +6868,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0197": {
+      "admitted_at": "2026-10-23T12:36:45.378678+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "chia tiền xăng khi dùng chung xe thuê",
+      "proposed_title": "Mấy bạn cùng phòng dùng chung một xe thuê tháng: cách ghi sổ và chia tiền xăng cho công bằng",
+      "proposed_url": "https://rentbikehanoi.com/vi/ban-cung-phong-dung-chung-xe-thue-thang-chia-tien-xang/",
+      "search_intent": "Ba bốn sinh viên hoặc người đi làm ở chung nhà trọ góp thuê một xe, hay cãi nhau về xăng; cần cách ghi quãng đường, ai đổ, ai đi nhiều và thống nhất cách chia trước, kèm lưu ý chỉ người có giấy tờ phù hợp mới được lái.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0197"
+    },
     "TH-VI-0217": {
       "admitted_at": "2026-10-23T07:53:32.021215+00:00",
       "category_id": 160,
@@ -6714,6 +6937,54 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0218": {
+      "admitted_at": "2026-10-23T12:36:45.329092+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "gia hạn thuê xe kiểm tra lại xe",
+      "proposed_title": "Trước khi gia hạn thuê xe: những điểm nên cùng cửa hàng nhìn lại trên chiếc xe đang đi",
+      "proposed_url": "https://rentbikehanoi.com/vi/truoc-khi-gia-han-thue-xe-nhin-lai-tinh-trang-xe/",
+      "search_intent": "Người đang thuê xe sắp gia hạn thêm thời gian muốn nhân dịp đó rà lại tình trạng xe, cần biết nên mang xe đến cho cửa hàng xem những hạng mục nào và hỏi gì về điều kiện gia hạn thay vì tự suy đoán.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0218"
+    },
+    "TH-VI-0224": {
+      "admitted_at": "2026-10-23T12:36:45.399058+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "ghi nhật ký lỗi chập chờn xe máy thuê",
+      "proposed_title": "Xe lúc có lúc không bị lỗi: ghi nhật ký ngày giờ, thời tiết và quãng đường để cửa hàng kiểm tra đúng chỗ",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-luc-co-luc-khong-bi-loi-ghi-nhat-ky-ngay-gio-thoi-tiet-quang-duong/",
+      "search_intent": "Người thuê gặp lỗi chỉ thỉnh thoảng xuất hiện, như khó nổ buổi sáng lạnh, chết máy sau mưa hoặc đèn chập chờn, và lo rằng khi mang tới cửa hàng xe lại chạy bình thường; cần cách ghi điều kiện xảy ra để mô tả cho đủ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0224"
     },
     "TH-VI-0267": {
       "admitted_at": "2026-10-23T11:56:51.703497+00:00",
@@ -6940,5 +7211,5 @@
       ]
     }
   },
-  "version": 378
+  "version": 379
 }
