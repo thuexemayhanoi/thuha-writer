@@ -3,6 +3,13 @@ https://rentbikehanoi.com
 
 **Bilingual workflow implemented and tested offline. WordPress production publishing remains OFF.**
 
+V5 writer-session runtime (merged from the 23 October 2026 session branch): labelled external source
+evidence, a read-only writer kit, a non-mutating precheck, source-backed topic admission and the cycle
+report. See [V5 writer runtime](docs/V5-WRITER-RUNTIME.md), the [writer brief](docs/V5-WRITER-BRIEF.md)
+and the [reviewer brief](docs/V5-REVIEWER-BRIEF.md). Its numbers were measured for the old 2,000-post
+goal; the live goal is 500 + 500 (see below). Live inventory on 23 October 2026: 275 published posts,
+6 pages, 59 categories.
+
 Repository: `thuexemayhanoi/thuha-writer`  
 Languages: English (`en-US`, site root) and original Vietnamese (`vi`, under `/vi/`)
 

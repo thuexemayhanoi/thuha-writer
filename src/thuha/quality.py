@@ -17,6 +17,22 @@ from .store import event
 from .coordinator import timestamp
 
 REVIEW_CHECKS=('intent','factual_accuracy','native_language','originality','business_facts','image_relevance','no_machine_translation')
+
+
+def review_language(review):
+    """The language a review names. Reviews recorded before schema 5 carry no label but attest `english`."""
+    if review.get('language'):return review['language']
+    return 'en' if 'english' in review.get('checks',{}) else None
+
+
+def review_checks_ok(review,lang):
+    """Vietnamese: native language AND no machine translation. English: `english` (the attestation recorded by
+    reviews that predate schema 5) or `native_language`; English articles are written in English, so there is no
+    translation step to attest. Every language also needs the five factual/editorial checks."""
+    checks=(review or {}).get('checks',{})
+    common=all(checks.get(k) is True for k in ('intent','factual_accuracy','originality','business_facts','image_relevance'))
+    if lang=='vi':return common and checks.get('native_language') is True and checks.get('no_machine_translation') is True
+    return common and (checks.get('native_language') is True or checks.get('english') is True)
 REGULATED={'en':r'\b(licen[cs]e|permit|registration|legal|law|visa|embass(?:y|ies))\b',
            'vi':r'(giấy phép|bằng lái|gplx|nghị định|thông tư|\bluật\b|mức phạt|xử phạt|csgt|cảnh sát giao thông|\bvisa\b|đại sứ quán|đăng kiểm|bảo hiểm bắt buộc)'}
 FIRSTHAND={'en':r'\b(no deposit|deposit.free|guaranteed refund|we personally tested|we have tested)\b',
@@ -125,10 +141,10 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
         sig=set(old['content_signature'])
         if len(new_sig&sig)/max(1,min(len(new_sig),len(sig)))>.75:errors.append('CONTENT_OVERLAP_REVIEW')
     if policy.get('semantic_review_required'):
-        valid=bool(review and review.get('article_sha')==sha and review.get('language')==lang and
+        valid=bool(review and review.get('article_sha')==sha and review_language(review)==lang and
                    review.get('reviewer_id') in policy['trusted_reviewers'] and
                    review.get('reviewer_id')!=article['agent_id'] and
-                   all(review.get('checks',{}).get(k) is True for k in REVIEW_CHECKS) and
+                   review_checks_ok(review,lang) and
                    review.get('notes') and review.get('checked_at') and 0<=age(review['checked_at'])<=policy['research_max_age_seconds'])
         if not valid:errors.append('INDEPENDENT_SEMANTIC_REVIEW_REQUIRED')
         else:score+=10
@@ -160,3 +176,24 @@ def run_qa(store,topic_id,inv,policy,business):
         event(state,'QA',topic_id=topic_id,report_sha=report_sha,status=result['status'])
         return result
     return store.mutate(transaction)
+
+
+def pending_qa(store,policy):
+    """Drafts that a scheduled QA run should evaluate.
+
+    A draft without a recorded review is not evaluated: it would fail only for the missing review and move to
+    NEEDS_REPAIR, which sends a writer to "repair" something that needs a reviewer. A READY draft whose report was
+    produced under an older policy (or for another revision) must be evaluated again before it can publish.
+    """
+    state=store.read();out=[]
+    for tid,topic in sorted(state['topics'].items()):
+        sub=state['submissions'].get(tid)
+        if not sub:continue
+        if topic['status']=='DRAFT_READY' and tid in state.get('reviews',{}):out.append(tid)
+        elif topic['status']=='READY':
+            record=state['qa'].get(tid)
+            try:
+                report=store.get_document(record['report_sha']) if record else None
+            except (ValueError,OSError,KeyError):report=None
+            if not report or report.get('policy_sha256')!=digest(policy) or report.get('article_sha')!=sub['article_sha']:out.append(tid)
+    return out

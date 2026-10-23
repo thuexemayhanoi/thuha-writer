@@ -33,7 +33,7 @@ def report(store,inv,release,targets=None):
     result={'generated_at':now(),'wordpress_published':inv.get('counts',{}).get('posts'),
        'targets':targets,'priority':list(LANGUAGES),'languages':languages,
        'inventory_language_source':inv.get('language_source','UNKNOWN'),
-       'state_backend':'github-factory-state' if store.durable_remote else 'local-offline-snapshot',
+       'state_backend':('git-branch:'+store.branch if hasattr(store,'root') else 'github-factory-state') if store.durable_remote else 'local-offline-snapshot',
        'wordpress_pages':inv.get('counts',{}).get('pages'),'inventory_complete':inv.get('complete',False),
        'inventory_age_seconds':round(age(inv['captured_at'])), 'site_live_verified_posts':verified,
        'factory_verified_receipts':len(s['receipts']),

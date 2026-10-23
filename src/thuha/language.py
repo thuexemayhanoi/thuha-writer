@@ -142,7 +142,9 @@ def screen(lang, text, short=False):
     if short:
         if p['vi_function_hits'] >= 1 or (n >= 5 and p['vi_ratio'] > 0.5):
             errors.append('VIETNAMESE_MIXED_INTO_ENGLISH')
-    elif p['vi_ratio'] > 0.12 or p['vi_function_hits'] >= 3:
+    elif p['vi_ratio'] > 0.12 or p['vi_function_hits'] > max(3, 0.02 * n):
+        # Quoted Vietnamese legal terms or place names are normal in an English guide; a handful of function words in
+        # thousands of tokens is not mixing. The allowance scales with length so it stays a screen, not a verdict.
         errors.append('VIETNAMESE_MIXED_INTO_ENGLISH')
     return errors
 

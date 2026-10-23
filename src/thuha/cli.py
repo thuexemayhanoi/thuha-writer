@@ -5,14 +5,15 @@ import json
 import os
 import sys
 from pathlib import Path
-from .common import ROOT,REPO,digest,load,now,save,validate_inventory
-from .store import LocalStore,GitStore,event,validate
-from . import audit,coordinator,research,quality,dashboard,matrix,quota
+from .common import ROOT,REPO,age,digest,load,now,save,validate_inventory
+from .store import LocalStore,GitStore,GitBranchStore,event,validate
+from . import audit,coordinator,research,quality,dashboard,matrix,quota,ledger
 from .adapter import AdapterClient
 from .http import HTTP,NetworkError
 from .language import LANGUAGES,targets as language_targets
 from .publisher import Publisher
 from . import pipeline
+from . import runtime
 
 
 def inventory_for(store,path):
@@ -31,28 +32,37 @@ def live_counts(inv):
 def main(argv=None):
     p=argparse.ArgumentParser(description='ThuHa Writer V4; production is disabled until separately approved')
     p.add_argument('--remote',action='store_true',help='Use authoritative GitHub CAS; required across computers')
+    p.add_argument('--git-branch',action='store_true',help='Durable state via git commits/pushes on the current session branch (when REST writes are closed)')
     p.add_argument('--state-dir',default=str(ROOT/'.runtime'))
     p.add_argument('--inventory',default=None,help='Inventory JSON; default is the stored remote inventory, else the committed snapshot')
     p.add_argument('--output',default=str(ROOT/'artifacts'))
     sub=p.add_subparsers(dest='command',required=True)
-    sub.add_parser('audit');sub.add_parser('validate');sub.add_parser('health');sub.add_parser('report')
+    q=sub.add_parser('audit');q.add_argument('--max-age',type=int,default=0,help='Skip when the stored inventory is younger than this many seconds')
+    sub.add_parser('validate');sub.add_parser('health');sub.add_parser('report')
     sub.add_parser('coordinator');sub.add_parser('recovery');sub.add_parser('refill');sub.add_parser('credentials')
     sub.add_parser('quota');sub.add_parser('adapter-preflight');sub.add_parser('package')
     q=sub.add_parser('claim');q.add_argument('--session',required=True);q.add_argument('--agent-id',required=True);q.add_argument('--slot',default='auto')
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':q.add_argument('--file',required=True)
-    q=sub.add_parser('source');q.add_argument('--url',required=True)
+    q=sub.add_parser('source');q.add_argument('--url',required=True);q.add_argument('--external-fetch',help='JSON record written from an authorized external fetcher result')
     q=sub.add_parser('resume');q.add_argument('--topic-id',required=True)
+    q=sub.add_parser('kit');q.add_argument('--topic-id',required=True)
+    q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
+    q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',required=True);q.add_argument('--extra-queue')
+    sub.add_parser('cycle')
     q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10);q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('intake');q.add_argument('--file',required=True)
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
-    q=sub.add_parser('qa');q.add_argument('--topic-id')
+    q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='Only drafts with a recorded review, and READY drafts whose QA report predates the current policy')
+    q=sub.add_parser('promote');q.add_argument('--source-state',default='data/state/factory.json');q.add_argument('--source-docs',default='data/documents');q.add_argument('--apply',action='store_true')
+    q=sub.add_parser('sync');q.add_argument('--apply',action='store_true')
     q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain'],default='dry-run');q.add_argument('--topic-id')
     q=sub.add_parser('controls');q.add_argument('--pause',choices=['on','off']);q.add_argument('--emergency-stop',choices=['on','off'])
     args=p.parse_args(argv)
-    store=GitStore() if args.remote else LocalStore(args.state_dir)
+    if args.remote and args.git_branch:raise ValueError('Choose one state backend')
+    store=GitStore() if args.remote else GitBranchStore() if args.git_branch else LocalStore(args.state_dir)
     policy=load(ROOT/'config/qa.json');facts=load(ROOT/'config/business-facts.json');factory=load(ROOT/'config/factory.json')
     release=load(ROOT/'config/release.json')
     result={}
@@ -75,13 +85,21 @@ def main(argv=None):
         # Vietnamese posts can be hidden from the public REST collection, so a complete
         # inventory needs the authenticated adapter. Without credentials this is public-only
         # and is labelled unverified; quota and publishing refuse to trust it.
+        stored=store.read().get('inventory_document')
+        current=store.get_document(stored) if stored else None
+        if args.max_age and current and age(current['captured_at'])<args.max_age:
+            print(json.dumps({'status':'SKIPPED','reason':'stored inventory is fresh','age_seconds':round(age(current['captured_at'])),
+                              'language_source':current.get('language_source')}));return 0
         if os.environ.get('THUHA_WP_USER') and os.environ.get('THUHA_WP_APPLICATION_PASSWORD'):
             client=AdapterClient(HTTP());client.preflight();inv=audit.inventory_bilingual(client)
         else:inv=audit.inventory()
         result=audit.write_audit(inv,args.output)
-        if inv['complete'] and args.remote:
+        # A public-only read never replaces a still-fresh adapter inventory: the publisher refuses the public one.
+        keep=bool(current and current.get('language_source')=='adapter' and inv.get('language_source')!='adapter' and age(current['captured_at'])<policy['inventory_max_age_seconds'])
+        if inv['complete'] and args.remote and not keep:
             document=store.put_document(inv)
             store.mutate(lambda s:s.update(inventory_document=document))
+        result['stored']=bool(inv['complete'] and args.remote and not keep)
         if not inv['complete']:
             print(json.dumps(result));return 2
     elif args.command=='credentials':
@@ -101,7 +119,23 @@ def main(argv=None):
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
     elif args.command=='submit':result=coordinator.submit(store,args.slot,args.session,args.fence,load(args.file),policy['maximum_repairs'])
-    elif args.command=='source':result=research.capture_source(store,args.url)
+    elif args.command=='source':
+        result=(research.capture_external_source(store,args.url,load(args.external_fetch)) if args.external_fetch
+                else research.capture_source(store,args.url))
+    elif args.command=='kit':
+        inv=inventory_for(store,args.inventory);validate_inventory(inv)
+        result=runtime.kit(store.read(),inv,args.topic_id,policy,facts)
+    elif args.command=='precheck':
+        inv=inventory_for(store,args.inventory)
+        review=load(args.review) if args.review else None
+        result=runtime.precheck(store,store.read(),inv,args.topic_id,load(args.file),policy,facts,review)
+        if result['hard_fails_excluding_review']:exit_code=1
+    elif args.command=='admit':
+        inv=inventory_for(store,args.inventory)
+        extra=load(args.extra_queue) if args.extra_queue else []
+        result={'admitted':runtime.admit(store,inv,load(args.file),args.reviewer_id,load(args.fetch_records),factory['refill_batch_max'],extra)}
+    elif args.command=='cycle':
+        result=runtime.cycle(store.read(),inventory_for(store,args.inventory),release)
     elif args.command=='resume':
         state=store.read();submission=state['submissions'].get(args.topic_id)
         result={'topic':state['topics'][args.topic_id],'submission':submission,
@@ -148,7 +182,7 @@ def main(argv=None):
         result={'review_document':document}
     elif args.command=='qa':
         inv=inventory_for(store,args.inventory)
-        ids=[args.topic_id] if args.topic_id else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
+        ids=[args.topic_id] if args.topic_id else quality.pending_qa(store,policy) if args.pending else [k for k,v in store.read()['topics'].items() if v['status'] in ('DRAFT_READY','NEEDS_REPAIR')]
         result={'results':{}}
         for tid in ids:
             try:
@@ -168,6 +202,15 @@ def main(argv=None):
         else:
             ids=[args.topic_id] if args.topic_id else list(store.read()['intents'])
             result={'receipts':{tid:pub.reconcile(tid) for tid in ids}}
+    elif args.command=='promote':
+        if args.apply and not args.remote:raise ValueError('Promotion writes the shared ledger: run it with --remote')
+        source=ROOT/args.source_state
+        result=ledger.promote(store,load(source),ledger.read_documents(ROOT/args.source_docs),args.source_state,apply=args.apply)
+        if result['status'] not in ('FAST_FORWARD','ALREADY_INCLUDED'):exit_code=1
+    elif args.command=='sync':
+        if args.remote:raise ValueError('Sync copies the shared ledger into a session branch: use --git-branch')
+        result=ledger.sync(store,GitStore(),apply=args.apply)
+        if result['status'] not in ('FAST_FORWARD','ALREADY_INCLUDED'):exit_code=1
     elif args.command=='controls':
         def controls(s):
             for key,arg in [('paused',args.pause),('emergency_stop',args.emergency_stop)]:

@@ -1,0 +1,2868 @@
+{
+  "controls": {
+    "emergency_stop": false,
+    "paused": false
+  },
+  "events": [
+    {
+      "action": "REFILL_REQUEST",
+      "at": "2026-10-20T19:01:10.097550+00:00",
+      "previous": null,
+      "request_id": "research-bf46daf1e88fa9d4",
+      "sha256": "b57c7bbe4a78a8bd860c9bc0729fcb0299a914d3e710587a28b3303b3e349ed0"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-20T19:01:25.441758+00:00",
+      "previous": "b57c7bbe4a78a8bd860c9bc0729fcb0299a914d3e710587a28b3303b3e349ed0",
+      "sha256": "146ea5ba577925e8b8b9058dca08d9edab3ff1671a5268658d0f3791f4a5984a",
+      "topic_ids": [
+        "TH-000001",
+        "TH-000002"
+      ]
+    },
+    {
+      "action": "REFILL_REQUEST",
+      "at": "2026-10-20T19:01:25.461219+00:00",
+      "previous": "146ea5ba577925e8b8b9058dca08d9edab3ff1671a5268658d0f3791f4a5984a",
+      "request_id": "research-02c699867a6129e1",
+      "sha256": "c888ec7e3e82f45a3728f931b7ed7f533d493bfceba6233b5995f120269f4fae"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T01:56:15.093160+00:00",
+      "expires_at": 1792722375.093151,
+      "fence": "bc80b55594e743ee8544b08e524aa8ea",
+      "heartbeat_at": "2026-10-23T01:56:15.093135+00:00",
+      "previous": "c888ec7e3e82f45a3728f931b7ed7f533d493bfceba6233b5995f120269f4fae",
+      "session": "w1-20261023-b1",
+      "sha256": "3e92bbcc5768b919dd1eb2ee52b7aa1957a1f5498b5abf7e50bb0ff72c9862c0",
+      "slot": "W1",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T01:56:18.994845+00:00",
+      "expires_at": 1792722378.994836,
+      "fence": "8bf7b5ee8a6242f5aaf9b4391d3aa970",
+      "heartbeat_at": "2026-10-23T01:56:18.994818+00:00",
+      "previous": "3e92bbcc5768b919dd1eb2ee52b7aa1957a1f5498b5abf7e50bb0ff72c9862c0",
+      "session": "w2-20261023-b1",
+      "sha256": "61802803dd2f02e42e232a7350604449d4d9b4e930cbc6e1c8c35976429b2194",
+      "slot": "W2",
+      "topic_id": "TH-000002"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+      "at": "2026-10-23T02:02:47.148626+00:00",
+      "previous": "61802803dd2f02e42e232a7350604449d4d9b4e930cbc6e1c8c35976429b2194",
+      "sha256": "85076aeb05b7ff31591a7fe2078c130234585eb3fba00109e85cfc69b5044ab0",
+      "topic_id": "TH-000002"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
+      "at": "2026-10-23T02:07:08.788893+00:00",
+      "previous": "85076aeb05b7ff31591a7fe2078c130234585eb3fba00109e85cfc69b5044ab0",
+      "sha256": "ac76d3702c1bfb7cdbe0280e2f4471baacb6e4593ff8ef27d9add40e2188984e",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T02:08:40.239407+00:00",
+      "previous": "ac76d3702c1bfb7cdbe0280e2f4471baacb6e4593ff8ef27d9add40e2188984e",
+      "sha256": "0c537e55bc5c2a572894e724042253be87edbdbc62c049eb24dae2f3a3ef9105",
+      "topic_ids": [
+        "TH-000003",
+        "TH-000004",
+        "TH-000005",
+        "TH-000006",
+        "TH-000007",
+        "TH-000008",
+        "TH-000009",
+        "TH-000010",
+        "TH-000011",
+        "TH-000012",
+        "TH-000013",
+        "TH-000014",
+        "TH-000015",
+        "TH-000016",
+        "TH-000017",
+        "TH-000018",
+        "TH-000019",
+        "TH-000020",
+        "TH-000021",
+        "TH-000022",
+        "TH-000023",
+        "TH-000024",
+        "TH-000025",
+        "TH-000026",
+        "TH-000027",
+        "TH-000028",
+        "TH-000029",
+        "TH-000030",
+        "TH-000031",
+        "TH-000032",
+        "TH-000033",
+        "TH-000034",
+        "TH-000035",
+        "TH-000036",
+        "TH-000037",
+        "TH-000038",
+        "TH-000040",
+        "TH-000041",
+        "TH-000042",
+        "TH-000043",
+        "TH-000044",
+        "TH-000045",
+        "TH-000047",
+        "TH-000049",
+        "TH-000050",
+        "TH-000051",
+        "TH-000052",
+        "TH-000053",
+        "TH-000054",
+        "TH-000055",
+        "TH-000056",
+        "TH-000057",
+        "TH-000059",
+        "TH-000060",
+        "TH-000061"
+      ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W3",
+      "at": "2026-10-23T02:09:44.246371+00:00",
+      "expires_at": 1792723184.246363,
+      "fence": "af77e3b43142465ab7d874922c7af697",
+      "heartbeat_at": "2026-10-23T02:09:44.246342+00:00",
+      "previous": "0c537e55bc5c2a572894e724042253be87edbdbc62c049eb24dae2f3a3ef9105",
+      "session": "w3-20261023-c1",
+      "sha256": "64a98cda95a8bcd9039583a19992fd4a478a667abecbaff7379c3d4b03021763",
+      "slot": "W3",
+      "topic_id": "TH-000003"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W4",
+      "at": "2026-10-23T02:09:52.569694+00:00",
+      "expires_at": 1792723192.569685,
+      "fence": "2d6c3390616c4fb7813a481d695ec4f4",
+      "heartbeat_at": "2026-10-23T02:09:52.569663+00:00",
+      "previous": "64a98cda95a8bcd9039583a19992fd4a478a667abecbaff7379c3d4b03021763",
+      "session": "w4-20261023-c1",
+      "sha256": "e3f820c45417f4dcdaffef05ef148eccdd3e50f8e18961e231d5e3c3e6840a7b",
+      "slot": "W4",
+      "topic_id": "TH-000004"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W5",
+      "at": "2026-10-23T02:09:58.764663+00:00",
+      "expires_at": 1792723198.764655,
+      "fence": "d02aa4184a48470c8cc8ebcfb6f1b9d9",
+      "heartbeat_at": "2026-10-23T02:09:58.764634+00:00",
+      "previous": "e3f820c45417f4dcdaffef05ef148eccdd3e50f8e18961e231d5e3c3e6840a7b",
+      "session": "w5-20261023-c1",
+      "sha256": "f37ee1105593269d7176ed21d4be5b7f6f27b79c0a5b5a006280bfe81d9f87a9",
+      "slot": "W5",
+      "topic_id": "TH-000005"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W6",
+      "at": "2026-10-23T02:10:05.378871+00:00",
+      "expires_at": 1792723205.378861,
+      "fence": "d196eeb9692c4477b0c6175637427fef",
+      "heartbeat_at": "2026-10-23T02:10:05.378842+00:00",
+      "previous": "f37ee1105593269d7176ed21d4be5b7f6f27b79c0a5b5a006280bfe81d9f87a9",
+      "session": "w6-20261023-c1",
+      "sha256": "3e876b5cc6ffb9a539b6cfd3c7e0c348e8b375e0d2d4f8fc8ddeb30f948108ee",
+      "slot": "W6",
+      "topic_id": "TH-000006"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W7",
+      "at": "2026-10-23T02:10:12.468085+00:00",
+      "expires_at": 1792723212.468077,
+      "fence": "597f269dc7b6445fbb49486db659bbd1",
+      "heartbeat_at": "2026-10-23T02:10:12.468060+00:00",
+      "previous": "3e876b5cc6ffb9a539b6cfd3c7e0c348e8b375e0d2d4f8fc8ddeb30f948108ee",
+      "session": "w7-20261023-c1",
+      "sha256": "2b8b26955a6fe412d2a6e70c92aaa649e3ea22411e81d7352f117fe1622eee79",
+      "slot": "W7",
+      "topic_id": "TH-000007"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W8",
+      "at": "2026-10-23T02:10:19.058111+00:00",
+      "expires_at": 1792723219.058103,
+      "fence": "adf58444f78b4bac98c75bfeca427b6c",
+      "heartbeat_at": "2026-10-23T02:10:19.058084+00:00",
+      "previous": "2b8b26955a6fe412d2a6e70c92aaa649e3ea22411e81d7352f117fe1622eee79",
+      "session": "w8-20261023-c1",
+      "sha256": "b114b2cf957b88d154b61fd3af340912169692b1d9eb66a5de5c54f965b0001e",
+      "slot": "W8",
+      "topic_id": "TH-000008"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W9",
+      "at": "2026-10-23T02:10:27.693673+00:00",
+      "expires_at": 1792723227.693665,
+      "fence": "191689a4937b46fabb367501b51b171f",
+      "heartbeat_at": "2026-10-23T02:10:27.693645+00:00",
+      "previous": "b114b2cf957b88d154b61fd3af340912169692b1d9eb66a5de5c54f965b0001e",
+      "session": "w9-20261023-c1",
+      "sha256": "a5bc0d8c1dc0b2f1fa7a931e4d7f68f881b07b26ffb8a8f1779652ecf7c2093a",
+      "slot": "W9",
+      "topic_id": "TH-000009"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:13:44.891039+00:00",
+      "previous": "a5bc0d8c1dc0b2f1fa7a931e4d7f68f881b07b26ffb8a8f1779652ecf7c2093a",
+      "report_sha": "d21f54fa461ff9d43fe2debce59c8406cbcb4f0a8896a4dc29b8e3665675cc49",
+      "sha256": "010c1ea927e1d49117769f325a737e4a3eaa1bdf09fcc07010243b6d976c1e96",
+      "status": "FAIL",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:13:48.700295+00:00",
+      "previous": "010c1ea927e1d49117769f325a737e4a3eaa1bdf09fcc07010243b6d976c1e96",
+      "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
+      "sha256": "eec60177240d2c6f204b1b9151b0a50c4ce363c26304cfb305a987a47debdc27",
+      "status": "FAIL",
+      "topic_id": "TH-000002"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W3",
+      "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+      "at": "2026-10-23T02:15:25.872303+00:00",
+      "previous": "eec60177240d2c6f204b1b9151b0a50c4ce363c26304cfb305a987a47debdc27",
+      "sha256": "bf9de9ae691cb43922ee0b0fe97e94fcb81c2ee4b5d5f82f19f811273bc129e5",
+      "topic_id": "TH-000003"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W6",
+      "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+      "at": "2026-10-23T02:15:31.324229+00:00",
+      "previous": "bf9de9ae691cb43922ee0b0fe97e94fcb81c2ee4b5d5f82f19f811273bc129e5",
+      "sha256": "2aff6702887fbbe6f61e8e6b38dcb9789c5802611b5892a3978d9257939f2a7c",
+      "topic_id": "TH-000006"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W8",
+      "article_sha": "922c56c8c1b7b01c43393a923418f5e2e61bce7b43cc74f9be5d48489001a196",
+      "at": "2026-10-23T02:15:38.698430+00:00",
+      "previous": "2aff6702887fbbe6f61e8e6b38dcb9789c5802611b5892a3978d9257939f2a7c",
+      "sha256": "19e37bd77b614bc0a8befc5d49eee9bb4ca4fa04b8b62a53cadb7cf90f19b93e",
+      "topic_id": "TH-000008"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W5",
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "at": "2026-10-23T02:15:55.236539+00:00",
+      "previous": "19e37bd77b614bc0a8befc5d49eee9bb4ca4fa04b8b62a53cadb7cf90f19b93e",
+      "sha256": "9ba1f9d7db1d6e38c5b5ec8f3e44aa5fe5347296c0c6e380a0a594f2db4370aa",
+      "topic_id": "TH-000005"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:13.092471+00:00",
+      "previous": "9ba1f9d7db1d6e38c5b5ec8f3e44aa5fe5347296c0c6e380a0a594f2db4370aa",
+      "sha256": "e9bd45aa0efe6498f84985c664ef5b5612003acae3a51d02c637bd85782d624a",
+      "slot": "W3",
+      "topic_id": "TH-000003"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:15.016658+00:00",
+      "previous": "e9bd45aa0efe6498f84985c664ef5b5612003acae3a51d02c637bd85782d624a",
+      "sha256": "81578cdfac9c89066556166a7c902401dfad3c438be47a813bbe132b45381e47",
+      "slot": "W5",
+      "topic_id": "TH-000005"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:16.717059+00:00",
+      "previous": "81578cdfac9c89066556166a7c902401dfad3c438be47a813bbe132b45381e47",
+      "sha256": "af4e40bf999c7531f61dac876b818eff6391d292327b7b5418a105d73fc13902",
+      "slot": "W6",
+      "topic_id": "TH-000006"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:16:18.451217+00:00",
+      "previous": "af4e40bf999c7531f61dac876b818eff6391d292327b7b5418a105d73fc13902",
+      "sha256": "18d5c289852a3bdc46d05229627e3400880f2788c069c767bef4cf20301e7f56",
+      "slot": "W8",
+      "topic_id": "TH-000008"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W7",
+      "article_sha": "1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f",
+      "at": "2026-10-23T02:16:28.309067+00:00",
+      "previous": "18d5c289852a3bdc46d05229627e3400880f2788c069c767bef4cf20301e7f56",
+      "sha256": "77a6d85c161f99f02e851cb91de9a6ff86e9f99bd0c92c93c3720aa2465fa33a",
+      "topic_id": "TH-000007"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W7",
+      "at": "2026-10-23T02:16:35.479126+00:00",
+      "expires_at": 1792723595.479117,
+      "fence": "184083a4930640a194c6ac5b22bda5b2",
+      "heartbeat_at": "2026-10-23T02:16:35.479096+00:00",
+      "previous": "77a6d85c161f99f02e851cb91de9a6ff86e9f99bd0c92c93c3720aa2465fa33a",
+      "session": "w7-20261023-c2",
+      "sha256": "8b1ec3bd0ba613f2f6e64579ebf29c5846e070fe1c20eba7b8f7f197b3115914",
+      "slot": "W3",
+      "topic_id": "TH-000010"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W4",
+      "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+      "at": "2026-10-23T02:16:52.944317+00:00",
+      "previous": "8b1ec3bd0ba613f2f6e64579ebf29c5846e070fe1c20eba7b8f7f197b3115914",
+      "sha256": "1506953ea421d8dd07aca477817a7cdff56d926fa860d40626d95f64b2a71d4b",
+      "topic_id": "TH-000004"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W4",
+      "at": "2026-10-23T02:17:00.203642+00:00",
+      "expires_at": 1792723620.203633,
+      "fence": "48205436fcae471ba3a1a9f22fd4b8ce",
+      "heartbeat_at": "2026-10-23T02:17:00.203612+00:00",
+      "previous": "1506953ea421d8dd07aca477817a7cdff56d926fa860d40626d95f64b2a71d4b",
+      "session": "w4-20261023-c2",
+      "sha256": "9d97fea637fe126cba74f6c1c8b06f0be6621ebdc96154aaf18adb8f7574fd2f",
+      "slot": "W5",
+      "topic_id": "TH-000011"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W10",
+      "at": "2026-10-23T02:17:07.919774+00:00",
+      "expires_at": 1792723627.919764,
+      "fence": "625d5a5ab56e40eba570b4bd7fa5cdc3",
+      "heartbeat_at": "2026-10-23T02:17:07.919740+00:00",
+      "previous": "9d97fea637fe126cba74f6c1c8b06f0be6621ebdc96154aaf18adb8f7574fd2f",
+      "session": "w10-20261023-d1",
+      "sha256": "4ca0805214ceaac59c868c29b85b3848e91060526244af85128df8048ebe4391",
+      "slot": "W6",
+      "topic_id": "TH-000012"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:17:15.670946+00:00",
+      "previous": "4ca0805214ceaac59c868c29b85b3848e91060526244af85128df8048ebe4391",
+      "sha256": "e00f179eaf0f79f0a0eec7e21b12cca2657b4b415d6b4f82f2231f185db2e11b",
+      "slot": "W1",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W11",
+      "at": "2026-10-23T02:17:17.481203+00:00",
+      "expires_at": 1792723637.48119,
+      "fence": "96afbe289bf843c79d504eca05418e51",
+      "heartbeat_at": "2026-10-23T02:17:17.481075+00:00",
+      "previous": "e00f179eaf0f79f0a0eec7e21b12cca2657b4b415d6b4f82f2231f185db2e11b",
+      "session": "w11-20261023-d1",
+      "sha256": "053319e5dbd843034d3d58e4330d084b785fb64cf09e370674241157da638733",
+      "slot": "W1",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:17:19.312155+00:00",
+      "previous": "053319e5dbd843034d3d58e4330d084b785fb64cf09e370674241157da638733",
+      "sha256": "8446af5621d3d5b167d1b266eeb031549c1b3fafe7d4b25be243eb51370d90ad",
+      "slot": "W2",
+      "topic_id": "TH-000002"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R2",
+      "at": "2026-10-23T02:17:25.162521+00:00",
+      "expires_at": 1792723645.162509,
+      "fence": "8f291e255d484d19a1b75e1391b73ce2",
+      "heartbeat_at": "2026-10-23T02:17:25.162483+00:00",
+      "previous": "8446af5621d3d5b167d1b266eeb031549c1b3fafe7d4b25be243eb51370d90ad",
+      "session": "r2-20261023-a1",
+      "sha256": "ae790b30711aa5e3fc1ff87c2994a227e659eae0de0d739106ee500ed336d48e",
+      "slot": "W2",
+      "topic_id": "TH-000002"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W9",
+      "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
+      "at": "2026-10-23T02:17:40.727061+00:00",
+      "previous": "ae790b30711aa5e3fc1ff87c2994a227e659eae0de0d739106ee500ed336d48e",
+      "sha256": "f6e5b39db196a20df348e5e08f63337b0935ff75df78e012e05f2ebe94828237",
+      "topic_id": "TH-000009"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W9",
+      "at": "2026-10-23T02:17:47.852486+00:00",
+      "expires_at": 1792723667.852478,
+      "fence": "6d52ffd5664442b7bdbf06287ec1b180",
+      "heartbeat_at": "2026-10-23T02:17:47.852460+00:00",
+      "previous": "f6e5b39db196a20df348e5e08f63337b0935ff75df78e012e05f2ebe94828237",
+      "session": "w9-20261023-c2",
+      "sha256": "d8a715e4f273c3a04b3bf937779fefa4f63f659955779823486e476f1ccc4da6",
+      "slot": "W8",
+      "topic_id": "TH-000013"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:18:53.000160+00:00",
+      "previous": "d8a715e4f273c3a04b3bf937779fefa4f63f659955779823486e476f1ccc4da6",
+      "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
+      "sha256": "7f9b757966852adc305d1856b9e9734f1cff0b9de40f2e43fc2eabf30e6c9619",
+      "status": "PASS",
+      "topic_id": "TH-000005"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W11",
+      "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+      "at": "2026-10-23T02:18:58.553084+00:00",
+      "previous": "7f9b757966852adc305d1856b9e9734f1cff0b9de40f2e43fc2eabf30e6c9619",
+      "sha256": "42b157d51ac332115e5124476187566c496cb8c1d828dcb1997ed1176484d21f",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:19:03.857547+00:00",
+      "previous": "42b157d51ac332115e5124476187566c496cb8c1d828dcb1997ed1176484d21f",
+      "sha256": "ee725eeaa394c87f86309b78fbb17f40c1845733e06c9f1499f07bcf4c74006b",
+      "slot": "W1",
+      "topic_id": "TH-000001"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:19:09.528390+00:00",
+      "previous": "ee725eeaa394c87f86309b78fbb17f40c1845733e06c9f1499f07bcf4c74006b",
+      "report_sha": "2a30a188c36d1097338a9a8b410a97226fda964bfdcf42f3923ef5b812b93228",
+      "sha256": "6007b800a8028fdd856d7c116b18ee39d87b9bd4964bcf9f337884deb9710736",
+      "status": "PASS",
+      "topic_id": "TH-000006"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:20:11.861580+00:00",
+      "expires_at": 1792723811.86155,
+      "fence": "6e25a9dd7988444fb8b79ca70605f669",
+      "heartbeat_at": "2026-10-23T02:20:11.861527+00:00",
+      "previous": "6007b800a8028fdd856d7c116b18ee39d87b9bd4964bcf9f337884deb9710736",
+      "session": "r1-20261023-a1",
+      "sha256": "e333aa80d7678645d301979786514bbc47d6a80654777139d3b8761938caa2a4",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:20:15.486320+00:00",
+      "previous": "e333aa80d7678645d301979786514bbc47d6a80654777139d3b8761938caa2a4",
+      "sha256": "cfd64ed758158229133633e1e00fb2153091c4cabb4d409e9e2292897fdf20a4",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:22:21.541792+00:00",
+      "expires_at": 1792723941.541774,
+      "fence": "e082e322f9a1499a8b1ebd60e6308c45",
+      "heartbeat_at": "2026-10-23T02:22:21.541752+00:00",
+      "previous": "cfd64ed758158229133633e1e00fb2153091c4cabb4d409e9e2292897fdf20a4",
+      "session": "r1-20261023-a1",
+      "sha256": "23373e493696c434e8cc6063edca74c178f9f93e47bb08a4533933639c6ca62d",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:22:23.619664+00:00",
+      "previous": "23373e493696c434e8cc6063edca74c178f9f93e47bb08a4533933639c6ca62d",
+      "sha256": "690774b952709c7c7e11e1c53080db0ff1160a3c396e47258429c56778026550",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:24:29.437459+00:00",
+      "expires_at": 1792724069.43745,
+      "fence": "ceec3baa635742dd9cbd0cfce049742f",
+      "heartbeat_at": "2026-10-23T02:24:29.437427+00:00",
+      "previous": "690774b952709c7c7e11e1c53080db0ff1160a3c396e47258429c56778026550",
+      "session": "r1-20261023-a1",
+      "sha256": "7c57f7c8b220a50d1a21bb373a55106d03a74dea8eedf082f5b7441a9a1f7f9b",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:24:31.258629+00:00",
+      "previous": "7c57f7c8b220a50d1a21bb373a55106d03a74dea8eedf082f5b7441a9a1f7f9b",
+      "sha256": "7f923b011879e9e1ffdae0c055d0481eb6ff4868785a7f53ad014be25c074b74",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:26:37.004809+00:00",
+      "expires_at": 1792724197.004799,
+      "fence": "6df56de3f3d24e23b96a09cfb8b76f74",
+      "heartbeat_at": "2026-10-23T02:26:37.004777+00:00",
+      "previous": "7f923b011879e9e1ffdae0c055d0481eb6ff4868785a7f53ad014be25c074b74",
+      "session": "r1-20261023-a1",
+      "sha256": "2956185c5c183512ca50c7283cd16b3f8605516824cdf61fef65948b963d7e37",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:26:38.898659+00:00",
+      "previous": "2956185c5c183512ca50c7283cd16b3f8605516824cdf61fef65948b963d7e37",
+      "sha256": "8a566eb7f512b3a7eaa1d8e765f7746b733fc2e83851ebb1cfc675346d98be06",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:28:44.652148+00:00",
+      "expires_at": 1792724324.652136,
+      "fence": "3218127c20d1455e8aa58667e8636b0b",
+      "heartbeat_at": "2026-10-23T02:28:44.652111+00:00",
+      "previous": "8a566eb7f512b3a7eaa1d8e765f7746b733fc2e83851ebb1cfc675346d98be06",
+      "session": "r1-20261023-a1",
+      "sha256": "0cf22a5d153f89aa53005b265e91fad870b63920e5d7d31b955a57ba890556bf",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:28:46.591152+00:00",
+      "previous": "0cf22a5d153f89aa53005b265e91fad870b63920e5d7d31b955a57ba890556bf",
+      "sha256": "9fb0da084889be297b05b639a1d1ded873e5b79f847d7d47e362a7a439bf7ec8",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:30:52.319828+00:00",
+      "expires_at": 1792724452.319819,
+      "fence": "eb4a00a82d294ae6831555f5debafc78",
+      "heartbeat_at": "2026-10-23T02:30:52.319798+00:00",
+      "previous": "9fb0da084889be297b05b639a1d1ded873e5b79f847d7d47e362a7a439bf7ec8",
+      "session": "r1-20261023-a1",
+      "sha256": "e39fe4d49fd6b41485c64569a2fe472dfe12986aafd81bd424dcf2c3bac1acda",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:30:54.054951+00:00",
+      "previous": "e39fe4d49fd6b41485c64569a2fe472dfe12986aafd81bd424dcf2c3bac1acda",
+      "sha256": "c765089cf11c3fa99ff7009940ad476800e5163563e2e2d16d72b6092e6bb4bd",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:33:00.045063+00:00",
+      "expires_at": 1792724580.045055,
+      "fence": "02f6c460c48b43beb8b858fa3d8f7262",
+      "heartbeat_at": "2026-10-23T02:33:00.045035+00:00",
+      "previous": "c765089cf11c3fa99ff7009940ad476800e5163563e2e2d16d72b6092e6bb4bd",
+      "session": "r1-20261023-a1",
+      "sha256": "458012e074986237fe8c6d9d8de5d67886b3a1e3bdc47aff498e1573e1bbeadd",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:33:01.934976+00:00",
+      "previous": "458012e074986237fe8c6d9d8de5d67886b3a1e3bdc47aff498e1573e1bbeadd",
+      "sha256": "4145f1c6faf7301b06f69cf23ee950d02ab739a2fea910fa127a89159bf3d639",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:35:07.754073+00:00",
+      "expires_at": 1792724707.754063,
+      "fence": "ba885239f4344542b4a86234daa7c0f2",
+      "heartbeat_at": "2026-10-23T02:35:07.754022+00:00",
+      "previous": "4145f1c6faf7301b06f69cf23ee950d02ab739a2fea910fa127a89159bf3d639",
+      "session": "r1-20261023-a1",
+      "sha256": "b17a67cbe33cd7e589902ceffed61472d2841bffab17f25585044b8624fdae1c",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:35:09.590669+00:00",
+      "previous": "b17a67cbe33cd7e589902ceffed61472d2841bffab17f25585044b8624fdae1c",
+      "sha256": "3c9a20e1b9197cad4a9b293ea50af1d7b3c74a1a5df70296e86674cfcffe651f",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:37:15.624102+00:00",
+      "expires_at": 1792724835.624066,
+      "fence": "cff9701b155744a0a84a17095eef6af5",
+      "heartbeat_at": "2026-10-23T02:37:15.624045+00:00",
+      "previous": "3c9a20e1b9197cad4a9b293ea50af1d7b3c74a1a5df70296e86674cfcffe651f",
+      "session": "r1-20261023-a1",
+      "sha256": "4384804940ea51aa0d0d31011cbcd44b0b890c8318b5b0f638f6237e89a01278",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:37:17.545593+00:00",
+      "previous": "4384804940ea51aa0d0d31011cbcd44b0b890c8318b5b0f638f6237e89a01278",
+      "sha256": "b813e228623b3c4fb57eeb66d699f26e8bb9801710f8f0b12b4ae7fce9f1d593",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-R1",
+      "at": "2026-10-23T02:39:23.424016+00:00",
+      "expires_at": 1792724963.424008,
+      "fence": "45fc301b59ff49b680b93181deac0ee7",
+      "heartbeat_at": "2026-10-23T02:39:23.423984+00:00",
+      "previous": "b813e228623b3c4fb57eeb66d699f26e8bb9801710f8f0b12b4ae7fce9f1d593",
+      "session": "r1-20261023-a1",
+      "sha256": "1696a71bfada22e4decb133600e79be07815e2914590957f5dbf3954948c83ae",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-23T02:39:25.414281+00:00",
+      "previous": "1696a71bfada22e4decb133600e79be07815e2914590957f5dbf3954948c83ae",
+      "sha256": "c311ae4f55e13f86ea6bfe258e80b925e73a624f5bd3fd713088347f138ef983",
+      "slot": "W1",
+      "topic_id": "TH-000014"
+    }
+  ],
+  "intents": {},
+  "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
+  "leases": {
+    "W2": {
+      "agent_id": "claude-writer-R2",
+      "expires_at": 1792723747.705592,
+      "fence": "8f291e255d484d19a1b75e1391b73ce2",
+      "heartbeat_at": "2026-10-23T02:19:07.705572+00:00",
+      "session": "r2-20261023-a1",
+      "slot": "W2",
+      "topic_id": "TH-000002"
+    },
+    "W3": {
+      "agent_id": "claude-writer-W7",
+      "expires_at": 1792723595.479117,
+      "fence": "184083a4930640a194c6ac5b22bda5b2",
+      "heartbeat_at": "2026-10-23T02:16:35.479096+00:00",
+      "session": "w7-20261023-c2",
+      "slot": "W3",
+      "topic_id": "TH-000010"
+    },
+    "W4": {
+      "agent_id": "claude-writer-W4",
+      "expires_at": 1792723608.924231,
+      "fence": "2d6c3390616c4fb7813a481d695ec4f4",
+      "heartbeat_at": "2026-10-23T02:16:48.924218+00:00",
+      "session": "w4-20261023-c1",
+      "slot": "W4",
+      "topic_id": "TH-000004"
+    },
+    "W5": {
+      "agent_id": "claude-writer-W4",
+      "expires_at": 1792723620.203633,
+      "fence": "48205436fcae471ba3a1a9f22fd4b8ce",
+      "heartbeat_at": "2026-10-23T02:17:00.203612+00:00",
+      "session": "w4-20261023-c2",
+      "slot": "W5",
+      "topic_id": "TH-000011"
+    },
+    "W6": {
+      "agent_id": "claude-writer-W10",
+      "expires_at": 1792723627.919764,
+      "fence": "625d5a5ab56e40eba570b4bd7fa5cdc3",
+      "heartbeat_at": "2026-10-23T02:17:07.919740+00:00",
+      "session": "w10-20261023-d1",
+      "slot": "W6",
+      "topic_id": "TH-000012"
+    },
+    "W7": {
+      "agent_id": "claude-writer-W7",
+      "expires_at": 1792723584.68435,
+      "fence": "597f269dc7b6445fbb49486db659bbd1",
+      "heartbeat_at": "2026-10-23T02:16:24.684335+00:00",
+      "session": "w7-20261023-c1",
+      "slot": "W7",
+      "topic_id": "TH-000007"
+    },
+    "W8": {
+      "agent_id": "claude-writer-W9",
+      "expires_at": 1792723821.167836,
+      "fence": "6d52ffd5664442b7bdbf06287ec1b180",
+      "heartbeat_at": "2026-10-23T02:20:21.167819+00:00",
+      "session": "w9-20261023-c2",
+      "slot": "W8",
+      "topic_id": "TH-000013"
+    },
+    "W9": {
+      "agent_id": "claude-writer-W9",
+      "expires_at": 1792723657.105168,
+      "fence": "191689a4937b46fabb367501b51b171f",
+      "heartbeat_at": "2026-10-23T02:17:37.105151+00:00",
+      "session": "w9-20261023-c1",
+      "slot": "W9",
+      "topic_id": "TH-000009"
+    }
+  },
+  "qa": {
+    "TH-000001": {
+      "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
+      "report_sha": "d21f54fa461ff9d43fe2debce59c8406cbcb4f0a8896a4dc29b8e3665675cc49",
+      "status": "FAIL"
+    },
+    "TH-000002": {
+      "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+      "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
+      "status": "FAIL"
+    },
+    "TH-000005": {
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
+      "status": "PASS"
+    },
+    "TH-000006": {
+      "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+      "report_sha": "2a30a188c36d1097338a9a8b410a97226fda964bfdcf42f3923ef5b812b93228",
+      "status": "PASS"
+    }
+  },
+  "receipts": {},
+  "research_requests": {
+    "research-02c699867a6129e1": {
+      "admitted_topic_ids": [
+        "TH-000003",
+        "TH-000004",
+        "TH-000005",
+        "TH-000006",
+        "TH-000007",
+        "TH-000008",
+        "TH-000009",
+        "TH-000010",
+        "TH-000011",
+        "TH-000012",
+        "TH-000013",
+        "TH-000014",
+        "TH-000015",
+        "TH-000016",
+        "TH-000017",
+        "TH-000018",
+        "TH-000019",
+        "TH-000020",
+        "TH-000021",
+        "TH-000022",
+        "TH-000023",
+        "TH-000024",
+        "TH-000025",
+        "TH-000026",
+        "TH-000027",
+        "TH-000028",
+        "TH-000029",
+        "TH-000030",
+        "TH-000031",
+        "TH-000032",
+        "TH-000033",
+        "TH-000034",
+        "TH-000035",
+        "TH-000036",
+        "TH-000037",
+        "TH-000038",
+        "TH-000040",
+        "TH-000041",
+        "TH-000042",
+        "TH-000043",
+        "TH-000044",
+        "TH-000045",
+        "TH-000047",
+        "TH-000049",
+        "TH-000050",
+        "TH-000051",
+        "TH-000052",
+        "TH-000053",
+        "TH-000054",
+        "TH-000055",
+        "TH-000056",
+        "TH-000057",
+        "TH-000059",
+        "TH-000060",
+        "TH-000061"
+      ],
+      "completed_at": "2026-10-23T02:08:40.239277+00:00",
+      "created_at": "2026-10-20T19:01:25.452661+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "maximum_topics": 100,
+      "planned": 2,
+      "request_id": "research-02c699867a6129e1",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    },
+    "research-bf46daf1e88fa9d4": {
+      "admitted_topic_ids": [
+        "TH-000001",
+        "TH-000002"
+      ],
+      "completed_at": "2026-10-20T19:01:25.441752+00:00",
+      "created_at": "2026-10-20T19:01:10.087964+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "maximum_topics": 100,
+      "planned": 0,
+      "request_id": "research-bf46daf1e88fa9d4",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    }
+  },
+  "reviews": {
+    "TH-000005": "7d4bad6b4deab4218185ac9e11d702571aa402607d5fb91cc572403d9d170386",
+    "TH-000006": "dde6bd8cd5ddec8bd878d9ceafb67a909a13be08417f76a06369505f48b49bda"
+  },
+  "schema": 4,
+  "submissions": {
+    "TH-000001": {
+      "agent_id": "claude-writer-W11",
+      "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+      "commit": "84d9cc101cb5031304e79c2e6cb77521830a847d",
+      "fence": "96afbe289bf843c79d504eca05418e51",
+      "repair_count": 1,
+      "session": "w11-20261023-d1",
+      "slot": "W1",
+      "submitted_at": "2026-10-23T02:18:58.553053+00:00"
+    },
+    "TH-000002": {
+      "agent_id": "claude-writer-W2",
+      "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+      "commit": "e062602acf13e91b914d381864d7b3360b6fc2d8",
+      "fence": "8bf7b5ee8a6242f5aaf9b4391d3aa970",
+      "repair_count": 0,
+      "session": "w2-20261023-b1",
+      "slot": "W2",
+      "submitted_at": "2026-10-23T02:02:47.148607+00:00"
+    },
+    "TH-000003": {
+      "agent_id": "claude-writer-W3",
+      "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+      "commit": "7bebbf54a46aa7c0f83566ca912dfc0d0596d575",
+      "fence": "af77e3b43142465ab7d874922c7af697",
+      "repair_count": 0,
+      "session": "w3-20261023-c1",
+      "slot": "W3",
+      "submitted_at": "2026-10-23T02:15:25.872275+00:00"
+    },
+    "TH-000004": {
+      "agent_id": "claude-writer-W4",
+      "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+      "commit": "df88f757414860018f16cf029df5c406276149ab",
+      "fence": "2d6c3390616c4fb7813a481d695ec4f4",
+      "repair_count": 0,
+      "session": "w4-20261023-c1",
+      "slot": "W4",
+      "submitted_at": "2026-10-23T02:16:52.944291+00:00"
+    },
+    "TH-000005": {
+      "agent_id": "claude-writer-W5",
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "commit": "8965daf111713f820f49522e52d0d26ec659bdda",
+      "fence": "d02aa4184a48470c8cc8ebcfb6f1b9d9",
+      "repair_count": 0,
+      "session": "w5-20261023-c1",
+      "slot": "W5",
+      "submitted_at": "2026-10-23T02:15:55.236513+00:00"
+    },
+    "TH-000006": {
+      "agent_id": "claude-writer-W6",
+      "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+      "commit": "81cd6d818f2562a71fae86d83043522a72382865",
+      "fence": "d196eeb9692c4477b0c6175637427fef",
+      "repair_count": 0,
+      "session": "w6-20261023-c1",
+      "slot": "W6",
+      "submitted_at": "2026-10-23T02:15:31.324195+00:00"
+    },
+    "TH-000007": {
+      "agent_id": "claude-writer-W7",
+      "article_sha": "1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f",
+      "commit": "3ad4116554dcecb3b6c2bf167d07a6aecd9895bc",
+      "fence": "597f269dc7b6445fbb49486db659bbd1",
+      "repair_count": 0,
+      "session": "w7-20261023-c1",
+      "slot": "W7",
+      "submitted_at": "2026-10-23T02:16:28.309041+00:00"
+    },
+    "TH-000008": {
+      "agent_id": "claude-writer-W8",
+      "article_sha": "922c56c8c1b7b01c43393a923418f5e2e61bce7b43cc74f9be5d48489001a196",
+      "commit": "66b4afa47fb8e250f761b452e05be1f8d907087a",
+      "fence": "adf58444f78b4bac98c75bfeca427b6c",
+      "repair_count": 0,
+      "session": "w8-20261023-c1",
+      "slot": "W8",
+      "submitted_at": "2026-10-23T02:15:38.698405+00:00"
+    },
+    "TH-000009": {
+      "agent_id": "claude-writer-W9",
+      "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
+      "commit": "84d9cc101cb5031304e79c2e6cb77521830a847d",
+      "fence": "191689a4937b46fabb367501b51b171f",
+      "repair_count": 0,
+      "session": "w9-20261023-c1",
+      "slot": "W9",
+      "submitted_at": "2026-10-23T02:17:40.727031+00:00"
+    }
+  },
+  "topics": {
+    "TH-000001": {
+      "admitted_at": "2026-10-20T19:01:25.423177+00:00",
+      "category_id": 121,
+      "category_path": [
+        39,
+        59,
+        117,
+        121
+      ],
+      "cluster": "hanoi-museums",
+      "intent_review": {
+        "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+        "rationale": "Reviewed all 273 existing titles and the corresponding inventory signatures; no dedicated destination guide matches this focal intent. Existing broader routes remain protected.",
+        "reviewer_id": "chatgpt-work-root",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
+      "proposed_title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
+      "proposed_url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+      "repair_notes": "Reviewer claude-editorial-reviewer rejected article_sha 4b92c14c... on 2026-10-23. Fix: (1) FAQ says the mausoleum is 'the marble building' - no source; the exterior is granite - drop the material or source it. (2) 'Expect attended parking and keep the ticket you are given' is an unsourced firsthand claim - hedge or remove. (3) 'bag and camera rules apply at least around the mausoleum' infers a policy from deposit counters - either register the board's visiting-regulations page as a source and quote it, or say only that deposit counters exist. Everything else was verified against the four listed sources.",
+      "repair_notes_at": "2026-10-23T02:13:41.311837+00:00",
+      "research_scope": "Entity and source validation; no ticket price, opening hour or access policy is asserted by the topic record.",
+      "search_intent": "Understand the Ho Chi Minh Museum exhibition and distinguish a museum visit from the mausoleum",
+      "sources": [
+        {
+          "document": "1c7e39b631768bec8afe7d95f24139238a12fbe0bcbc224c8deea9cee21afe57",
+          "supports": "Official institution or tourism source establishes the specific destination and editorial subject; current visitor details require further verification while drafting.",
+          "url": "https://baotanghochiminh.vn/"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000001"
+    },
+    "TH-000002": {
+      "admitted_at": "2026-10-20T19:01:25.441740+00:00",
+      "category_id": 117,
+      "category_path": [
+        39,
+        59,
+        117
+      ],
+      "cluster": "hanoi-public-art",
+      "intent_review": {
+        "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+        "rationale": "Reviewed all 273 existing titles and the corresponding inventory signatures; no dedicated destination guide matches this focal intent. Existing broader routes remain protected.",
+        "reviewer_id": "chatgpt-work-root",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "Hanoi ceramic mosaic mural walk",
+      "proposed_title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+      "repair_notes": "Reviewer claude-editorial-reviewer rejected article_sha 0424d20d... on 2026-10-23. The only registered source is vietnam.travel; three further captures now exist in the store (Wikipedia Hanoi_Ceramic_Mosaic_Mural doc ec44833e2ebc..., DTiNews 2020 removal doc 14ab9ceaecf5..., DTiNews 2019 expansion doc 05d705741289...) - add them to the article's sources and base geography on them. Fix: (1) the mural is on the dyke wall beside the streets (Au Co, Nghi Tam, Yen Phu, Tran Nhat Duat, Tran Quang Khai, Tran Khanh Du) at the inland foot of the dyke, not on top of it; (2) the wall is on the RIVER side of the carriageway, so the 'walk with traffic on your side to face the wall' instruction is reversed; (3) the mural continues south of Long Bien along Tran Quang Khai and Tran Khanh Du, so the Old Quarter/Long Bien stretch is not the southern end; (4) 'longer, less visited, more open' and 'road works changed parts of the dyke' need sourcing (600 m removed on Au Co in 2020 per DTiNews) or removal; (5) 'small inscribed tiles naming an artist...' unsourced - remove or source; (6) children's and foreign artists' panels are supported by DTiNews/Wikipedia - register them; (7) hedge unsourced street-level claims about scarce parking, narrow pavement and commuting traffic; (8) Guinness certified the LARGEST ceramic mosaic (3,850 linear m, 2010) and 'over six kilometres' predates the 2020 removal - attribute precisely; (9) alt text of image 323 is 'Hanoi Old Quarter' - keep only if no better option (there is none in the catalogue).",
+      "repair_notes_at": "2026-10-23T02:13:41.311863+00:00",
+      "research_scope": "Entity and source validation; no ticket price, opening hour or access policy is asserted by the topic record.",
+      "search_intent": "Plan a focused visit to the ceramic mosaic mural as public art rather than a general architecture photo route",
+      "sources": [
+        {
+          "document": "ec0ea807c695cda0d88683a41d70bb1ccefa7bd686a7c7f04958a9db9a0fbfc4",
+          "supports": "Official institution or tourism source establishes the specific destination and editorial subject; current visitor details require further verification while drafting.",
+          "url": "https://vietnam.travel/things-to-do/hanoi-art-lovers"
+        }
+      ],
+      "status": "CLAIMED",
+      "topic_id": "TH-000002"
+    },
+    "TH-000003": {
+      "admitted_at": "2026-10-23T02:08:38.757964+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand which Vietnamese licence class (A1, A, B1) covers which engine size or electric motor power after 1 January 2025 and what that means for a rental choice. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Rental Motorbike Recalled by Its Manufacturer: Questions for the Shop.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam motorbike licence classes A1 A",
+      "proposed_title": "Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules",
+      "proposed_url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand which Vietnamese licence class (A1, A, B1) covers which engine size or electric motor power after 1 January 2025 and what that means for a rental choice",
+      "sources": [
+        {
+          "document": "5d272158b33ce03c7e52d0b3252a0a735aa574f3d562166dc5996df942db3f53",
+          "supports": "Official provincial government summary of the 15 licence classes under Law 36/2024, including A1 and A engine-size and electric power thresholds.",
+          "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+        },
+        {
+          "document": "5f9d547118c1bb8d88d3903c9d5e67c8980e61d80bfd59870d60af8007164bc7",
+          "supports": "Official US Embassy page stating foreign licences are not valid in Vietnam and listing conversion documents.",
+          "url": "https://vn.usembassy.gov/driving-in-vietnam/"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000003"
+    },
+    "TH-000004": {
+      "admitted_at": "2026-10-23T02:08:38.784254+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Learn how the 12-point licence system introduced in 2025 deducts and restores points for motorbike violations. Nearest live titles differ in intent: Motorbike Riding Tips for First-Time Riders | Motorbike Rental Vietnam: Complete Safety Guide for Tourists.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam driving licence points deduction",
+      "proposed_title": "How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders",
+      "proposed_url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Learn how the 12-point licence system introduced in 2025 deducts and restores points for motorbike violations",
+      "sources": [
+        {
+          "document": "14f9473b2755e0d31b78b38dffd68baf56b35300d0477cd578066fbcdc999a0d",
+          "supports": "Official provincial page explaining the point-deduction principle under Decree 168/2024 from 1 January 2025.",
+          "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+        },
+        {
+          "document": "7addb7a2c8fad098b89bdcfb107119f8f729605416bb642632ebbe95c518d328",
+          "supports": "Ministry of Public Security page listing point deductions and suspensions tied to alcohol offences for motorbike riders.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000004"
+    },
+    "TH-000005": {
+      "admitted_at": "2026-10-23T02:08:38.811649+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the official permission regime for foreign-registered motor vehicles driven into Vietnam for tourism since 1 May 2024, and why renting locally is usually simpler. Nearest live titles differ in intent: Motorbike Rental Vietnam: Complete Safety Guide for Tourists | Vietnam eSIM for Tourists: Complete A-to-Z Guide to Buy and Activate.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "bring own motorbike into vietnam permission",
+      "proposed_title": "Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists",
+      "proposed_url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the official permission regime for foreign-registered motor vehicles driven into Vietnam for tourism since 1 May 2024, and why renting locally is usually simpler",
+      "sources": [
+        {
+          "document": "39bd6b7ee0d2c1846f975f076496d6556ca6b98b1efe1d7998aadf4c2dcb1d06",
+          "supports": "Ministry of Public Security announcement of Decree 30/2024 conditions for foreign-registered vehicles entering Vietnam.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333"
+        }
+      ],
+      "status": "READY",
+      "topic_id": "TH-000005"
+    },
+    "TH-000006": {
+      "admitted_at": "2026-10-23T02:08:38.837638+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Clarify when a national licence from an ASEAN member state is recognised in Vietnam and which documents a renter should still carry. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "asean driving licence vietnam motorbike",
+      "proposed_title": "Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For",
+      "proposed_url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Clarify when a national licence from an ASEAN member state is recognised in Vietnam and which documents a renter should still carry",
+      "sources": [
+        {
+          "document": "7ff56060e1f8d8299f4e13a903cffca1a7e8a100efec1a7fb0048fe0147e729e",
+          "supports": "Official US Embassy page noting limited ASEAN licence recognition and recommending a Vietnamese licence.",
+          "url": "https://vn.usembassy.gov/driving-in-vietnam/"
+        },
+        {
+          "document": "b3f03dab182ae28e8041f7610ea9910885afdb3d9276d692942ab964160eae38",
+          "supports": "UK government advice that both a 1968 IDP and the national licence must be carried when riding in Vietnam.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+        }
+      ],
+      "status": "READY",
+      "topic_id": "TH-000006"
+    },
+    "TH-000007": {
+      "admitted_at": "2026-10-23T02:08:38.865551+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Find out which electric two-wheelers need an A1 or A licence based on motor power, and which low-power models fall into the no-licence moped class. Nearest live titles differ in intent: Do You Need a Motorcycle License in Vietnam? Current Rules | How to Rent an Electric Scooter in Hanoi: Step-by-Step Guide.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "electric scooter licence vietnam kw",
+      "proposed_title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
+      "proposed_url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Find out which electric two-wheelers need an A1 or A licence based on motor power, and which low-power models fall into the no-licence moped class",
+      "sources": [
+        {
+          "document": "786380462d2c58c29109f7cb0477d2ead9a33a074ad3a1a6724de7eb17023592",
+          "supports": "Official page quoting the electric motor power bands (4 kW to under 14 kW for A1) that define licence classes from 2025.",
+          "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+        },
+        {
+          "document": "e724aab929ad8d4e116343d7b5559fb7a994fbbdff459cd378535fb601ce4fd8",
+          "supports": "Manufacturer specification listing the Evo200 motor rated power, used to show where a common rental model sits.",
+          "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000007"
+    },
+    "TH-000008": {
+      "admitted_at": "2026-10-23T02:08:38.891427+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the mandatory third-party liability insurance for motorbikes in Vietnam, what it pays for and how to confirm a rental bike carries a valid certificate. Nearest live titles differ in intent: Motorbike Tyre Age Codes: What the Date Can and Cannot Tell a Renter | Carrying a Rental Motorbike on a Ferry in Northern Vietnam: Permission and Operator Checks.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "compulsory motorbike insurance vietnam",
+      "proposed_title": "Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check",
+      "proposed_url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the mandatory third-party liability insurance for motorbikes in Vietnam, what it pays for and how to confirm a rental bike carries a valid certificate",
+      "sources": [
+        {
+          "document": "363ea593487a0478592bc2948b6f0789a0f3cc2602e4d5a3077b5425ab86ace9",
+          "supports": "Official source defining compulsory civil liability insurance for motorbike owners and its coverage limits.",
+          "url": "https://pbgdpl.camau.gov.vn/quy-dinh-ve-bao-hiem-bat-buoc-cua-chu-xe-co-gioi.4329"
+        },
+        {
+          "document": "2fb0b3ae400464366d3396a3ed462c66824193e062684bba0cd9bcfeee3cc3c5",
+          "supports": "UK government advice that driving without third-party insurance is illegal in Vietnam.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000008"
+    },
+    "TH-000009": {
+      "admitted_at": "2026-10-23T02:08:38.916724+00:00",
+      "category_id": 144,
+      "category_path": [
+        39,
+        60,
+        128,
+        144
+      ],
+      "cluster": "licences-legal",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the legal steps, fees and documents for transferring and registering a used motorbike in Hanoi against renting for the same period. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | A Company-Paid Motorbike Rental in Hanoi: Invoice and Reimbursement Questions.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "buy used motorbike hanoi foreigner registration",
+      "proposed_title": "Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates",
+      "proposed_url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Compare the legal steps, fees and documents for transferring and registering a used motorbike in Hanoi against renting for the same period",
+      "sources": [
+        {
+          "document": "504064eea2046fde1e35f83c6e460e9072a672db8076e23154f55209eaedcc82",
+          "supports": "Ministry of Public Security summary of registration and plate issuance rules effective 1 January 2025 under Circular 79/2024.",
+          "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+        },
+        {
+          "document": "3ba865e8e972cc1e82a8380c2c4694bc60bc8ad7f2f7e7e4247abd9dee0b7757",
+          "supports": "Official public-service listing of documents and steps for first-time motorbike registration at commune-level police.",
+          "url": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676"
+        }
+      ],
+      "status": "DRAFT_READY",
+      "topic_id": "TH-000009"
+    },
+    "TH-000010": {
+      "admitted_at": "2026-10-23T02:08:38.941843+00:00",
+      "category_id": 145,
+      "category_path": [
+        39,
+        60,
+        128,
+        145
+      ],
+      "cluster": "riding-skills",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decode the informal signalling habits of Hanoi motorbike traffic so a visiting rider can predict movements without adopting unsafe ones. Nearest live titles differ in intent: A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template | Exploring Hanoi on a Motorbike: Travel Tips and Experience.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi traffic etiquette motorbike horn",
+      "proposed_title": "Horns, Lanes and Flashing Lights: How Hanoi Riders Communicate and What a Visitor Should Copy",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-motorbike-traffic-communication-horns-lanes/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Decode the informal signalling habits of Hanoi motorbike traffic so a visiting rider can predict movements without adopting unsafe ones",
+      "sources": [
+        {
+          "document": "cbd216ce052d8b3b8c78849d5144577562dfa5fac8e5dc1b8789923488e19edf",
+          "supports": "UK government advice describing the elevated risk of motorbike travel in Vietnam and the need for experience.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+        }
+      ],
+      "status": "CLAIMED",
+      "topic_id": "TH-000010"
+    },
+    "TH-000011": {
+      "admitted_at": "2026-10-23T02:08:38.976626+00:00",
+      "category_id": 145,
+      "category_path": [
+        39,
+        60,
+        128,
+        145
+      ],
+      "cluster": "riding-skills",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Give a nervous first-time renter a structured, low-traffic practice sequence near the pickup area before entering central Hanoi traffic. Nearest live titles differ in intent: Three Days in Hanoi With a Rental Motorbike: Plan Distinct Routes | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "first time riding scooter hanoi practice",
+      "proposed_title": "Your First Hour on a Rental Scooter in Hanoi: A Low-Traffic Practice Plan on the Long Bien Side",
+      "proposed_url": "https://rentbikehanoi.com/first-hour-rental-scooter-hanoi-practice-plan/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Give a nervous first-time renter a structured, low-traffic practice sequence near the pickup area before entering central Hanoi traffic",
+      "sources": [
+        {
+          "document": "787939746f37a66f7635a5fe9694ca1abdbd715a435f085860c0253b2aeb6418",
+          "supports": "UK government advice not to hire a motorbike without experience and to check the bike thoroughly, framing the need for a practice plan.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+        }
+      ],
+      "status": "CLAIMED",
+      "topic_id": "TH-000011"
+    },
+    "TH-000012": {
+      "admitted_at": "2026-10-23T02:08:39.002186+00:00",
+      "category_id": 133,
+      "category_path": [
+        39,
+        60,
+        115,
+        133
+      ],
+      "cluster": "weather",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Prepare for the cold, damp, low-visibility conditions of Hanoi's late winter when riding a rental scooter. Nearest live titles differ in intent: Riding Footwear in Wet Hanoi Weather: Grip, Coverage and Drying | Shopping for Riding Gear in Hanoi: Check Fit Before Buying.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi winter riding fog drizzle",
+      "proposed_title": "Riding in Hanoi's Winter Drizzle and Fog: Visibility, Grip and Clothing for January to March",
+      "proposed_url": "https://rentbikehanoi.com/riding-hanoi-winter-drizzle-fog-visibility-grip/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Prepare for the cold, damp, low-visibility conditions of Hanoi's late winter when riding a rental scooter",
+      "sources": [
+        {
+          "document": "04d16c66a8a0acf094ac3750d5fb3730e8336f1b9d52b48446e5f4349ba56b5e",
+          "supports": "National Center for Hydro-Meteorological Forecasting portal, the official source for cold surge and seasonal outlooks referenced in the article.",
+          "url": "https://nchmf.gov.vn/KttvSiteE/"
+        }
+      ],
+      "status": "CLAIMED",
+      "topic_id": "TH-000012"
+    },
+    "TH-000013": {
+      "admitted_at": "2026-10-23T02:08:39.033470+00:00",
+      "category_id": 133,
+      "category_path": [
+        39,
+        60,
+        115,
+        133
+      ],
+      "cluster": "weather",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan rental scooter trips around Hanoi's hottest months using official heat warnings and practical timing. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | Hanoi Opera House and French Quarter: Park for a Walking Loop.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi summer heat motorbike riding",
+      "proposed_title": "Riding a Scooter Through Hanoi Heatwaves: Timing, Hydration and Heat-Index Planning for June and July",
+      "proposed_url": "https://rentbikehanoi.com/riding-scooter-hanoi-heatwaves-june-july-planning/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan rental scooter trips around Hanoi's hottest months using official heat warnings and practical timing",
+      "sources": [
+        {
+          "document": "7f0ad07aa9ccab42ac671ceeeccba1b24ea6cf7e22ecaa1ea7a753cb4db94021",
+          "supports": "Official forecasting centre portal publishing heat-wave (nang nong) warnings used to plan riding windows.",
+          "url": "https://nchmf.gov.vn/KttvSiteE/"
+        },
+        {
+          "document": "894f1fadbaeb692362b9041f2c955d8f4c9b105d82e421880620d42826e07dfc",
+          "supports": "UK government health advice for Vietnam covering heat and medical care.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
+        }
+      ],
+      "status": "CLAIMED",
+      "topic_id": "TH-000013"
+    },
+    "TH-000014": {
+      "admitted_at": "2026-10-23T02:08:39.061610+00:00",
+      "category_id": 133,
+      "category_path": [
+        39,
+        60,
+        115,
+        133
+      ],
+      "cluster": "weather",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decide whether to postpone or reroute a day trip when a tropical cyclone warning is issued for northern Vietnam. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "typhoon season hanoi motorbike trip",
+      "proposed_title": "Typhoon Season in Northern Vietnam: When to Postpone a Rental Motorbike Trip From Hanoi",
+      "proposed_url": "https://rentbikehanoi.com/typhoon-season-northern-vietnam-postpone-motorbike-trip/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Decide whether to postpone or reroute a day trip when a tropical cyclone warning is issued for northern Vietnam",
+      "sources": [
+        {
+          "document": "a46fcac358d4efedc38ded20fa7147764b5e64f46dacdbff975f587e1713b919",
+          "supports": "Official tropical cyclone and heavy-rain warnings portal used to make the go-or-postpone decision.",
+          "url": "https://nchmf.gov.vn/KttvSiteE/"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000014"
+    },
+    "TH-000015": {
+      "admitted_at": "2026-10-23T02:08:39.088099+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "prices",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Build a realistic weekly budget for renting a scooter in Hanoi using reference rental prices, official fuel prices and typical parking charges. Nearest live titles differ in intent: A Hanoi Motorbike Day Budget: Fuel, Parking and Food Worksheet | Hanoi Botanical Garden by Motorbike: Parking and a Slow Morning Walk.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi motorbike rental weekly budget",
+      "proposed_title": "A Seven-Day Hanoi Motorbike Rental Budget: Rental, Fuel, Parking and Deposit Line by Line",
+      "proposed_url": "https://rentbikehanoi.com/seven-day-hanoi-motorbike-rental-budget-breakdown/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Build a realistic weekly budget for renting a scooter in Hanoi using reference rental prices, official fuel prices and typical parking charges",
+      "sources": [
+        {
+          "document": "2126dcfe1c914e56e02369ab34982569a9c65229419ca516ab014e640c370b4d",
+          "supports": "Official retail fuel price listing used for the fuel line of the budget.",
+          "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+        },
+        {
+          "document": "5e8d883bc36084c4a9b61f45aef6c15223c293804a863a760e130f3efd68f5d7",
+          "supports": "Manufacturer fuel-consumption figure for a common 125cc automatic scooter used in the range calculation.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000015"
+    },
+    "TH-000016": {
+      "admitted_at": "2026-10-23T02:08:39.114863+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "prices",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the price gap between automatic scooters and manual or semi-automatic motorbikes and help a renter decide which is worth it for their trip. Nearest live titles differ in intent: Banh Duc Nong in Hanoi: What Is in the Topping and Sauce? | Where to Rent a High-Performance Sport Motorcycle in Hanoi.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "automatic vs manual rental price hanoi",
+      "proposed_title": "Why Automatic Scooters Cost More to Rent Than Manual Bikes in Hanoi, and When the Difference Is Worth Paying",
+      "proposed_url": "https://rentbikehanoi.com/automatic-vs-manual-motorbike-rental-price-hanoi/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the price gap between automatic scooters and manual or semi-automatic motorbikes and help a renter decide which is worth it for their trip",
+      "sources": [
+        {
+          "document": "347fd16deacef156efb9d357691e3b5bb3125746acd2959ac6a31d6b9815b9a4",
+          "supports": "Manufacturer page for a CVT automatic scooter showing drivetrain and consumption used in the comparison.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        },
+        {
+          "document": "2fdfcc748c667a542213d640fcc597074a03598c3540017a249a6f07523fa169",
+          "supports": "Manufacturer page for a semi-automatic 110cc motorbike used as the manual-side comparison.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000016"
+    },
+    "TH-000017": {
+      "admitted_at": "2026-10-23T02:08:39.140860+00:00",
+      "category_id": 129,
+      "category_path": [
+        39,
+        60,
+        114,
+        129
+      ],
+      "cluster": "fuel",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Calculate the real fuel cost of a rental scooter from manufacturer consumption figures and current official pump prices. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "scooter fuel consumption cost hanoi",
+      "proposed_title": "Fuel Cost per Kilometre on a Rental Scooter in Hanoi: Litres per 100 km and What One Tank Buys",
+      "proposed_url": "https://rentbikehanoi.com/rental-scooter-fuel-cost-per-kilometre-hanoi/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Calculate the real fuel cost of a rental scooter from manufacturer consumption figures and current official pump prices",
+      "sources": [
+        {
+          "document": "79bf8466c73c40b9889f046c9eef443b2c0416f1be0c68b586c7f420e86ba13e",
+          "supports": "Manufacturer fuel-consumption and tank data for a 125cc scooter.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        },
+        {
+          "document": "d8f5a77a53f84fff745595142c031cbe161e8b24b1a22cd842eac69dd819c9cb",
+          "supports": "Official retail fuel price list for the cost calculation.",
+          "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000017"
+    },
+    "TH-000018": {
+      "admitted_at": "2026-10-23T02:08:39.166808+00:00",
+      "category_id": 129,
+      "category_path": [
+        39,
+        60,
+        114,
+        129
+      ],
+      "cluster": "fuel",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the two petrol grades sold in Vietnam, which one a rental scooter should use and how to read the pump. Nearest live titles differ in intent: Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "e5 ron 92 vs ron 95 scooter vietnam",
+      "proposed_title": "RON 95 or E5 RON 92 for a Rental Scooter in Vietnam: What the Pump Labels Mean",
+      "proposed_url": "https://rentbikehanoi.com/ron-95-or-e5-ron-92-rental-scooter-vietnam/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the two petrol grades sold in Vietnam, which one a rental scooter should use and how to read the pump",
+      "sources": [
+        {
+          "document": "3b2b0191025ef18c88b170c6ea3eccb9f542e9f7e7827799caf790b35d241131",
+          "supports": "Official retail price list naming the grades sold at Vietnamese pumps.",
+          "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
+        },
+        {
+          "document": "28bc125c2d9d9705d8d0b792bec2c005885932b9d3b63a6b3879b692d0d8c7ce",
+          "supports": "Manufacturer page stating fuel injection and consumption for a current scooter model.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000018"
+    },
+    "TH-000019": {
+      "admitted_at": "2026-10-23T02:08:39.193977+00:00",
+      "category_id": 129,
+      "category_path": [
+        39,
+        60,
+        114,
+        129
+      ],
+      "cluster": "fuel",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Estimate the running cost of an electric scooter rental from manufacturer range figures and the battery rental or swap model used in Vietnam. Nearest live titles differ in intent: Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record | How to Rent an Electric Scooter in Hanoi: Step-by-Step Guide.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "electric scooter running cost hanoi",
+      "proposed_title": "What It Costs to Run an Electric Rental Scooter in Hanoi: Electricity, Battery Subscription and Range per Charge",
+      "proposed_url": "https://rentbikehanoi.com/electric-rental-scooter-running-cost-hanoi/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Estimate the running cost of an electric scooter rental from manufacturer range figures and the battery rental or swap model used in Vietnam",
+      "sources": [
+        {
+          "document": "b368d17dc5364a1b2d311cab7a2c5a9b825180b99e8227e8b00f9ba23f37cd42",
+          "supports": "Manufacturer page describing the battery-swap model, range per charge and the national charging/swap network.",
+          "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+        },
+        {
+          "document": "cbc600788b32436c90b3b57d5bce2fa74b0fbfc51b21a2e9bd4008c5b9ff3922",
+          "supports": "Manufacturer specification for motor power, battery and range.",
+          "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000019"
+    },
+    "TH-000020": {
+      "admitted_at": "2026-10-23T02:08:39.221475+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "long-term",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the total cost and paperwork of a long-term rental against buying and registering a motorbike for a stay of around six months. Nearest live titles differ in intent: Renting a Motorbike for a Film or Photo Shoot in Hanoi: Permissions to Confirm | Motorbike Renting in Hanoi: Requirements and Tips – Complete Guide.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "rent or buy motorbike hanoi six months",
+      "proposed_title": "Renting vs Buying a Motorbike in Hanoi for a Six-Month Stay: Registration, Resale and Total Cost",
+      "proposed_url": "https://rentbikehanoi.com/renting-vs-buying-motorbike-hanoi-six-month-stay/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Compare the total cost and paperwork of a long-term rental against buying and registering a motorbike for a stay of around six months",
+      "sources": [
+        {
+          "document": "4fac75be668c3a89cdd110e3ef7a4fda822257971bb237a6fbe240fab9b10c9c",
+          "supports": "Official registration procedure and document list a foreign buyer would face.",
+          "url": "https://dichvucong.bocongan.gov.vn/bocongan/bothutuc/tthc?matt=35676"
+        },
+        {
+          "document": "d3ea55bcf0d639b97093ad3329ac45e4953a90e63ce8168dc9dee7f412c5f849",
+          "supports": "Official summary of registration rules in force from 2025.",
+          "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000020"
+    },
+    "TH-000021": {
+      "admitted_at": "2026-10-23T02:08:39.247714+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "long-term",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain how a long-term renter's visa validity and temporary residence declaration interact with a multi-month rental contract. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Motorbike Rental Vietnam vs Other Transport Options: Your Ultimate Transportation Guide.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "temporary residence vietnam long term rental",
+      "proposed_title": "Long-Term Motorbike Rental and Your Vietnam Temporary Residence: Keeping Visa, Address and Contract Aligned",
+      "proposed_url": "https://rentbikehanoi.com/long-term-motorbike-rental-vietnam-temporary-residence-paperwork/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain how a long-term renter's visa validity and temporary residence declaration interact with a multi-month rental contract",
+      "sources": [
+        {
+          "document": "0e1892b1663389dde067efefa68e2abfd708defd562577954191fbc5b47317ba",
+          "supports": "Official immigration portal stating e-visa validity limits and the temporary residence declaration duty.",
+          "url": "https://evisa.gov.vn/"
+        },
+        {
+          "document": "42ea4549fcf17af9ffcbb470a8fe86d56a600f9d8ed2011655b9b9f80cce1ca2",
+          "supports": "Official FAQ on e-visa validity and conditions.",
+          "url": "https://evisa.gov.vn/faq"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000021"
+    },
+    "TH-000022": {
+      "admitted_at": "2026-10-23T02:08:39.273597+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "delivery-return",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan the first leg from Noi Bai Airport to a Hanoi rental shop, comparing public buses, taxis and the questions to ask about delivery. Nearest live titles differ in intent: Helmet Fit at Motorbike Pickup: A Strap and Size Checklist | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "noi bai airport to motorbike rental shop",
+      "proposed_title": "Collecting a Rental Motorbike After Landing at Noi Bai: Airport Bus, Taxi and Shop Pickup Compared",
+      "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-to-motorbike-rental-shop-options/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan the first leg from Noi Bai Airport to a Hanoi rental shop, comparing public buses, taxis and the questions to ask about delivery",
+      "sources": [
+        {
+          "document": "9ead14e64dafb0c499f746a5a6b3237fd40711efa3842aa87bd74eb182c26d17",
+          "supports": "Official airport page listing public bus routes, fares and operating hours from Noi Bai.",
+          "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000022"
+    },
+    "TH-000023": {
+      "admitted_at": "2026-10-23T02:08:39.299886+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "delivery-return",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Schedule a rental return around an evening train departure from Hanoi Station, including luggage handling and the last transfer. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "return motorbike before train hanoi station",
+      "proposed_title": "Returning a Rental Motorbike Before a Night Train From Hanoi Station: Timing and Luggage Plan",
+      "proposed_url": "https://rentbikehanoi.com/return-rental-motorbike-before-night-train-hanoi-station/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Schedule a rental return around an evening train departure from Hanoi Station, including luggage handling and the last transfer",
+      "sources": [
+        {
+          "document": "23d70381be783c4213da592a32b61138e6109ff72ec31df445ebf093d3e8f10f",
+          "supports": "Official Vietnam Railways page on Hanoi Station services or luggage rules.",
+          "url": "https://dsvn.vn/images/1_RegulationsOnTransport.pdf"
+        },
+        {
+          "document": "070782d6dcfba823bbb83d3158644a517888804749b5468dd6b1f6d266c92394",
+          "supports": "Official airport page listing bus 86 which links Hanoi Station and the airport, used for the transfer context.",
+          "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000023"
+    },
+    "TH-000024": {
+      "admitted_at": "2026-10-23T02:08:39.325620+00:00",
+      "category_id": 130,
+      "category_path": [
+        39,
+        60,
+        114,
+        130
+      ],
+      "cluster": "maintenance",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Translate manufacturer service schedules into what a renter should expect the shop to do and when, during a multi-week rental. Nearest live titles differ in intent: Scooter Fit Before Renting: A Stationary Test for Short and Tall Riders | Find the Exact Manual for Your Rental Scooter: Model Code, Year and Market.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "scooter service interval rental",
+      "proposed_title": "Scooter Oil Change and Service Intervals for Rental Riders: Reading Honda and Yamaha Schedules",
+      "proposed_url": "https://rentbikehanoi.com/scooter-oil-change-service-intervals-rental-riders/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Translate manufacturer service schedules into what a renter should expect the shop to do and when, during a multi-week rental",
+      "sources": [
+        {
+          "document": "010df50e9d77a7d40985198ee6422f8a6632ae6292564dd2a1b17dc25017b836",
+          "supports": "Manufacturer specification page for a current Yamaha scooter.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        },
+        {
+          "document": "b51747d37a98a0ef9250f1cf6315bff63e1cbabe995a77a306a75772015b32d7",
+          "supports": "Manufacturer page for the most common Honda rental scooter.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000024"
+    },
+    "TH-000025": {
+      "admitted_at": "2026-10-23T02:08:39.351348+00:00",
+      "category_id": 130,
+      "category_path": [
+        39,
+        60,
+        114,
+        130
+      ],
+      "cluster": "maintenance",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Recognise the vibration, hesitation and noise symptoms of CVT wear on an automatic rental scooter and report them correctly. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "cvt belt wear scooter symptoms",
+      "proposed_title": "CVT Belt and Roller Wear on an Automatic Scooter: Symptoms a Renter Should Report",
+      "proposed_url": "https://rentbikehanoi.com/cvt-belt-roller-wear-automatic-scooter-symptoms/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Recognise the vibration, hesitation and noise symptoms of CVT wear on an automatic rental scooter and report them correctly",
+      "sources": [
+        {
+          "document": "070261c5cf00b9b0b5f87c751e8ca573c17a01bb9ae4348144f536ae3c4f3333",
+          "supports": "Manufacturer page confirming the CVT automatic drivetrain on a common rental scooter.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000025"
+    },
+    "TH-000026": {
+      "admitted_at": "2026-10-23T02:08:39.376899+00:00",
+      "category_id": 130,
+      "category_path": [
+        39,
+        60,
+        114,
+        130
+      ],
+      "cluster": "maintenance",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Show a renter of a Honda Wave-type semi-automatic how to inspect chain slack and lubrication weekly without tools. Nearest live titles differ in intent: Charging Your Phone on a Rental Motorbike: Ports and Cable Checks | Carrying a Rental Motorbike on a Ferry in Northern Vietnam: Permission and Operator Checks.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "motorbike chain check rental",
+      "proposed_title": "Chain Care on a Semi-Automatic Rental Motorbike: Weekly Slack and Lubrication Checks",
+      "proposed_url": "https://rentbikehanoi.com/chain-care-semi-automatic-rental-motorbike-weekly-checks/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Show a renter of a Honda Wave-type semi-automatic how to inspect chain slack and lubrication weekly without tools",
+      "sources": [
+        {
+          "document": "3de1a386248ff05d8688f1fec758292419781b48867ab9d213c2ad1964bcd5af",
+          "supports": "Manufacturer page for a chain-driven semi-automatic motorbike.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/wave-alpha-110"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000026"
+    },
+    "TH-000027": {
+      "admitted_at": "2026-10-23T02:08:39.402646+00:00",
+      "category_id": 130,
+      "category_path": [
+        39,
+        60,
+        114,
+        130
+      ],
+      "cluster": "maintenance",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Teach a renter to spot worn disc pads and drum shoes on a scooter and when to stop riding. Nearest live titles differ in intent: Securing a Backpack on a Hanoi Rental Bike: Load and Visibility Checks | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "scooter brake pad wear check",
+      "proposed_title": "Brake Pad and Shoe Wear on a Rental Scooter: Disc and Drum Checks Without Tools",
+      "proposed_url": "https://rentbikehanoi.com/rental-scooter-brake-pad-drum-wear-checks/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Teach a renter to spot worn disc pads and drum shoes on a scooter and when to stop riding",
+      "sources": [
+        {
+          "document": "7aec2cf3be6f59495f85c09e8654df08a68f2fb431c10e4f08bbf1a6f15b3816",
+          "supports": "Manufacturer page listing front disc and rear drum brakes on a common scooter.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000027"
+    },
+    "TH-000028": {
+      "admitted_at": "2026-10-23T02:08:39.428338+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "electric",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Protect range and avoid damage on an electric rental scooter with charging and parking habits based on manufacturer guidance. Nearest live titles differ in intent: Hanoi Electric Bike Rental: Requirements & Conditions for Renters | Electric or Petrol for a Hanoi Commute: A Charging-Access Worksheet.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "electric scooter battery care renter",
+      "proposed_title": "Electric Scooter Battery Care for Renters: Charging Habits, Heat and Range Loss",
+      "proposed_url": "https://rentbikehanoi.com/electric-scooter-battery-care-renters-charging-heat-range/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Protect range and avoid damage on an electric rental scooter with charging and parking habits based on manufacturer guidance",
+      "sources": [
+        {
+          "document": "cc590b8be68bb29b4174d8fc1b507903a20a993d20884225c96c1016bca34947",
+          "supports": "Manufacturer page with battery type, capacity, charging time and range caveats.",
+          "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+        },
+        {
+          "document": "f91aaa30e5c8d5170aed4ad68acc3bdf77634cb3fd418721a102baab29707bdf",
+          "supports": "Manufacturer specification for battery and water-resistance rating.",
+          "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000028"
+    },
+    "TH-000029": {
+      "admitted_at": "2026-10-23T02:08:39.454197+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "electric",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Assess the Evo200 for a visitor's rental using manufacturer specifications rather than marketing claims. Nearest live titles differ in intent: A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop | Packing a Camera on a Rental Scooter: Vibration, Rain and Quick Access.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vinfast evo200 rental",
+      "proposed_title": "VinFast Evo200 as a Rental Electric Scooter: Range, Speed and Charging Facts From the Spec Sheet",
+      "proposed_url": "https://rentbikehanoi.com/vinfast-evo200-rental-electric-scooter-spec-sheet/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Assess the Evo200 for a visitor's rental using manufacturer specifications rather than marketing claims",
+      "sources": [
+        {
+          "document": "9d1e3e8c1b9d3883a13e9a5ce5e5278889ad9d1737ebafe4d75592a3ccc94011",
+          "supports": "Manufacturer specification page for the Evo200.",
+          "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000029"
+    },
+    "TH-000030": {
+      "admitted_at": "2026-10-23T02:08:39.480256+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "electric",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare two current VinFast electric scooters on seat height, storage, range and battery model for a short-term renter. Nearest live titles differ in intent: Electric Bike vs Electric Scooter Rental Hanoi: Compare Prices | Hanoi Electric Scooter Rental: Common Questions Answered.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vinfast feliz vs evo",
+      "proposed_title": "VinFast Feliz 2025 vs VinFast Evo: Which Electric Scooter Suits a Hanoi Visitor?",
+      "proposed_url": "https://rentbikehanoi.com/vinfast-feliz-2025-vs-evo-electric-scooter-hanoi-visitor/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Compare two current VinFast electric scooters on seat height, storage, range and battery model for a short-term renter",
+      "sources": [
+        {
+          "document": "b0c5083baa799fe584cf60ca2b623cef3793b3b03e4b71a5ec5102c65a3fa33a",
+          "supports": "Manufacturer page for Feliz 2025 specifications.",
+          "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+        },
+        {
+          "document": "5412045db6da3bdf17120a77d99a870ada668140d99b17238a601198fa2e935e",
+          "supports": "Manufacturer page for Evo specifications and battery model.",
+          "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000030"
+    },
+    "TH-000031": {
+      "admitted_at": "2026-10-23T02:08:39.506826+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "electric",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the practical difference between battery-swap and home-charged electric scooters for a renter planning daily range. Nearest live titles differ in intent: Hanoi Electric Bike Rental: Requirements & Conditions for Renters | Pho Tron in Hanoi: How the Dry Bowl Differs From Pho Soup.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "battery swap electric scooter hanoi",
+      "proposed_title": "Battery-Swap vs Plug-In Electric Scooters in Hanoi: How the Model Changes Range Planning for Renters",
+      "proposed_url": "https://rentbikehanoi.com/battery-swap-vs-plug-in-electric-scooters-hanoi-renters/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the practical difference between battery-swap and home-charged electric scooters for a renter planning daily range",
+      "sources": [
+        {
+          "document": "aa9917a10d601c6a4073b0616de8e5c78a4f26fda4bd56cc9b8b2060379cf8b7",
+          "supports": "Manufacturer page describing the swap model and network size.",
+          "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
+        },
+        {
+          "document": "614f402ad77531de0197baabcf619ae3ae054bcee575bb7a144181206cf3ca2f",
+          "supports": "Manufacturer page describing a plug-in model with charging time.",
+          "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000031"
+    },
+    "TH-000032": {
+      "admitted_at": "2026-10-23T02:08:39.533313+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "electric",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the legal 40 km/h ceiling for the moped class and how it restricts route choices beyond the city. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Vietnamese Silk Paintings: What to Look For in a Hanoi Gallery.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "50cc moped speed limit vietnam",
+      "proposed_title": "Why a 50cc Moped Is Limited to 40 km/h in Vietnam and What That Means for Hanoi Day Trips",
+      "proposed_url": "https://rentbikehanoi.com/50cc-moped-40-kmh-limit-vietnam-day-trips/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the legal 40 km/h ceiling for the moped class and how it restricts route choices beyond the city",
+      "sources": [
+        {
+          "document": "4c8017091d8d6ec6c7734dd089a9fe7f6c91f5790b99e43fd12e5ead6d1fe01a",
+          "supports": "Official provincial page describing licence classes including the under-50cc moped class.",
+          "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000032"
+    },
+    "TH-000033": {
+      "admitted_at": "2026-10-23T02:08:39.559429+00:00",
+      "category_id": 141,
+      "category_path": [
+        39,
+        60,
+        127,
+        141
+      ],
+      "cluster": "automatic",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Compare the two most common 125cc automatic rental scooters on measurable specifications. Nearest live titles differ in intent: How to Track Fuel Use on a Monthly Hanoi Motorbike Rental | Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "yamaha janus vs honda vision rental",
+      "proposed_title": "Yamaha Janus vs Honda Vision for a Hanoi Rental: Seat Height, Storage and Fuel Use Compared",
+      "proposed_url": "https://rentbikehanoi.com/yamaha-janus-vs-honda-vision-hanoi-rental/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Compare the two most common 125cc automatic rental scooters on measurable specifications",
+      "sources": [
+        {
+          "document": "78c149dc58b27bff9219e0ccdeadfb10feab235f6109d363e5182ed3d8053f94",
+          "supports": "Manufacturer specifications for Janus.",
+          "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
+        },
+        {
+          "document": "b5ba4e547477555f76fce813e6779f2f4fc88e5b92319572bdcd708977b8357e",
+          "supports": "Manufacturer specifications for Vision.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000033"
+    },
+    "TH-000034": {
+      "admitted_at": "2026-10-23T02:08:39.586267+00:00",
+      "category_id": 141,
+      "category_path": [
+        39,
+        60,
+        127,
+        141
+      ],
+      "cluster": "automatic",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the Grande's hybrid assist and storage features for renters deciding between premium scooters. Nearest live titles differ in intent: A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop | Find the Exact Manual for Your Rental Scooter: Model Code, Year and Market.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "yamaha grande hybrid rental",
+      "proposed_title": "Yamaha Grande as a Rental Scooter: What the Blue Core Hybrid Means for Fuel Use and Riding Feel",
+      "proposed_url": "https://rentbikehanoi.com/yamaha-grande-hybrid-rental-scooter/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the Grande's hybrid assist and storage features for renters deciding between premium scooters",
+      "sources": [
+        {
+          "document": "dff1b56cdf17f2d10d6bd2e5378da231dc0daa67a51c2c48660a4f069945848e",
+          "supports": "Manufacturer specifications for Grande.",
+          "url": "https://yamaha-motor.com.vn/xe/grande-phien-ban-tieu-chuan-mau-moi-nhat-2025-bjjd/"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000034"
+    },
+    "TH-000035": {
+      "admitted_at": "2026-10-23T02:08:39.618868+00:00",
+      "category_id": 141,
+      "category_path": [
+        39,
+        60,
+        127,
+        141
+      ],
+      "cluster": "automatic",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Clarify which licence class a 155cc scooter requires and who benefits from its power on Hanoi roads. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | A Rental Scooter’s Horn Stops Working: Report It Before Continuing.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "yamaha nvx 155 rental licence",
+      "proposed_title": "Yamaha NVX 155 as a Rental: Licence Class, Power and Who Should Choose It",
+      "proposed_url": "https://rentbikehanoi.com/yamaha-nvx-155-rental-licence-class-power/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Clarify which licence class a 155cc scooter requires and who benefits from its power on Hanoi roads",
+      "sources": [
+        {
+          "document": "fee3a947482798a5cae5711770aa3748aac7114b6e85dc6791279272994df23d",
+          "supports": "Manufacturer specifications for NVX 155.",
+          "url": "https://yamaha-motor.com.vn/xe/nvx-155-vva-abs-mau-hoan-toan-moi-bbn7"
+        },
+        {
+          "document": "402adcd850f0836cc3013b01b993f49ed5c2d82d9422c7fc3bd1440e370130ce",
+          "supports": "Official page defining A1 (to 125cc) and A (over 125cc) classes.",
+          "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000035"
+    },
+    "TH-000036": {
+      "admitted_at": "2026-10-23T02:08:39.647751+00:00",
+      "category_id": 141,
+      "category_path": [
+        39,
+        60,
+        127,
+        141
+      ],
+      "cluster": "automatic",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Evaluate the Air Blade as a monthly commuter rental using manufacturer features and consumption data. Nearest live titles differ in intent: Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist | Rental Motorbike Keys in Hanoi: Spare Keys, Loss, and Safe Storage.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "honda air blade commute rental",
+      "proposed_title": "Honda Air Blade for a Daily Hanoi Commute: Fuel Injection, Idling Stop and Storage in Practice",
+      "proposed_url": "https://rentbikehanoi.com/honda-air-blade-daily-hanoi-commute-rental/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Evaluate the Air Blade as a monthly commuter rental using manufacturer features and consumption data",
+      "sources": [
+        {
+          "document": "43cf600f1d215c591bfcd579d301123b325417461495c8bf7d8bee9751d2ac1d",
+          "supports": "Manufacturer specifications for Air Blade.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/air-blade-160125?category=2"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000036"
+    },
+    "TH-000037": {
+      "admitted_at": "2026-10-23T02:08:39.685269+00:00",
+      "category_id": 142,
+      "category_path": [
+        39,
+        60,
+        127,
+        142
+      ],
+      "cluster": "manual",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Describe the Future 125's clutchless gearbox and economy for renters who want gears without a clutch lever. Nearest live titles differ in intent: How to Verify a Hanoi Scooter Automatic Rental Pickup Address | Refuelling a Rental Motorbike in Hanoi: A Photo Guide to the Pump.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "honda future 125 rental",
+      "proposed_title": "Honda Future 125 as a Rental: The Semi-Automatic Middle Ground Explained",
+      "proposed_url": "https://rentbikehanoi.com/honda-future-125-rental-semi-automatic/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Describe the Future 125's clutchless gearbox and economy for renters who want gears without a clutch lever",
+      "sources": [
+        {
+          "document": "7fc5e601a776688c9591968258ce099e2614b16943a498024d92f55f8c75d083",
+          "supports": "Manufacturer specifications for Future 125.",
+          "url": "https://www.honda.com.vn/xe-may/san-pham/future-125-fi?category=1"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000037"
+    },
+    "TH-000038": {
+      "admitted_at": "2026-10-23T02:08:39.711582+00:00",
+      "category_id": 131,
+      "category_path": [
+        39,
+        60,
+        114,
+        131
+      ],
+      "cluster": "luggage",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain why a wheeled suitcase cannot be carried safely on a scooter and lay out the transfer alternatives. Nearest live titles differ in intent: Carrying a Laptop on a Hanoi Scooter: Padding and Water Protection | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "suitcase on scooter hanoi",
+      "proposed_title": "Carrying a Suitcase on a Rental Scooter in Hanoi: Why It Fails and the Alternatives That Work",
+      "proposed_url": "https://rentbikehanoi.com/carrying-suitcase-rental-scooter-hanoi-alternatives/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain why a wheeled suitcase cannot be carried safely on a scooter and lay out the transfer alternatives",
+      "sources": [
+        {
+          "document": "00cc3aeb612be636c71073c7a499296129d308237069e82023c5266eda4e8580",
+          "supports": "Official airport page listing bus and transport alternatives for luggage transfers.",
+          "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000038"
+    },
+    "TH-000040": {
+      "admitted_at": "2026-10-23T02:08:39.738929+00:00",
+      "category_id": 132,
+      "category_path": [
+        39,
+        60,
+        115,
+        132
+      ],
+      "cluster": "parking",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Combine a rental scooter with the metro by parking at stations on Line 2A and Line 3 and paying metro fares. Nearest live titles differ in intent: Ninh Binh from Hanoi: Self-Ride or Bus and Local Rental? | A Rental Scooter Caught in Floodwater: Stop, Record and Contact the Shop.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi metro park and ride motorbike",
+      "proposed_title": "Park and Ride With the Hanoi Metro: Leaving a Rental Scooter at Cat Linh or Nhon Line Stations",
+      "proposed_url": "https://rentbikehanoi.com/park-and-ride-hanoi-metro-rental-scooter/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Combine a rental scooter with the metro by parking at stations on Line 2A and Line 3 and paying metro fares",
+      "sources": [
+        {
+          "document": "a1889eb8df6bc778728b3b54f36e8a4cf3511bdf8348d993050d5ddd692ea6bd",
+          "supports": "Official Hanoi Metro fare page.",
+          "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+        },
+        {
+          "document": "e6e1928e79d82a5c9b7daee86a01524dd3798df071265f9cf58a9aded733d97d",
+          "supports": "Official station list for the two operating lines.",
+          "url": "https://metrohanoi.vn/en/?noredirect=en_US"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000040"
+    },
+    "TH-000041": {
+      "admitted_at": "2026-10-23T02:08:39.765208+00:00",
+      "category_id": 134,
+      "category_path": [
+        39,
+        60,
+        115,
+        134
+      ],
+      "cluster": "breakdowns",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: List the official emergency numbers and what information to give after a breakdown or accident. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Rental Motorbike Puncture in Hanoi: Where to Stop and What to Record.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam emergency numbers motorbike",
+      "proposed_title": "Emergency Numbers in Vietnam for Motorbike Riders: 113, 114, 115 and What to Say",
+      "proposed_url": "https://rentbikehanoi.com/vietnam-emergency-numbers-motorbike-riders/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "List the official emergency numbers and what information to give after a breakdown or accident",
+      "sources": [
+        {
+          "document": "e6e5fc81cfcb22b7b641f5a3ea6473eab8842dcc672412a70be77c61c66af550",
+          "supports": "US State Department country page listing Vietnam emergency contacts and road safety notes.",
+          "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
+        },
+        {
+          "document": "4ded06e668e3d907ce466e2a785173ae2c691df47f968d089759daccdb82570d",
+          "supports": "UK government safety page for Vietnam.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000041"
+    },
+    "TH-000042": {
+      "admitted_at": "2026-10-23T02:08:39.791598+00:00",
+      "category_id": 135,
+      "category_path": [
+        39,
+        59,
+        117,
+        135
+      ],
+      "cluster": "neighborhoods",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Help a renter working or staying in the western districts understand the main roads, underpasses and metro links. Nearest live titles differ in intent: Hanoi Book Street by Motorbike: Parking and Nearby Stops | Thay Pagoda from Hanoi by Motorbike: Arrival, Parking and Temple Etiquette.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "cau giay my dinh motorbike",
+      "proposed_title": "Cau Giay and My Dinh by Motorbike: Navigating Hanoi's Western Business Districts",
+      "proposed_url": "https://rentbikehanoi.com/cau-giay-my-dinh-motorbike-hanoi-western-districts/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Help a renter working or staying in the western districts understand the main roads, underpasses and metro links",
+      "sources": [
+        {
+          "document": "43c6ea817507e9ee8f86795c161c2827441e7c7c048300787c7ba3b9479d4834",
+          "supports": "Official station list for Line 3, which serves Cau Giay.",
+          "url": "https://metrohanoi.vn/en/?noredirect=en_US"
+        },
+        {
+          "document": "fa5dda04f970f720ce493080d77e7f833b8cea1433f0cb6b075fc52543126e70",
+          "supports": "Official metro fare page used as the primary factual reference for this topic.",
+          "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000042"
+    },
+    "TH-000043": {
+      "admitted_at": "2026-10-23T02:08:39.817176+00:00",
+      "category_id": 137,
+      "category_path": [
+        39,
+        59,
+        116,
+        137
+      ],
+      "cluster": "day-trips",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a full day to Chua Huong including the ride, the boat leg and the festival-season crowd question. Nearest live titles differ in intent: Tay Phuong Pagoda from Hanoi by Motorbike: Steps, Parking and Return Timing | Thay Pagoda from Hanoi by Motorbike: Arrival, Parking and Temple Etiquette.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "perfume pagoda motorbike hanoi",
+      "proposed_title": "Perfume Pagoda From Hanoi by Motorbike: Route, Boat Transfer and Festival Timing",
+      "proposed_url": "https://rentbikehanoi.com/perfume-pagoda-from-hanoi-by-motorbike/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan a full day to Chua Huong including the ride, the boat leg and the festival-season crowd question",
+      "sources": [
+        {
+          "document": "00ad2ad0f1b43b22f5144bc44db5a5719d72460a4d0ef454776e5e98ec0f9b22",
+          "supports": "Official tourism or local government page about the Perfume Pagoda complex.",
+          "url": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000043"
+    },
+    "TH-000044": {
+      "admitted_at": "2026-10-23T02:08:39.843487+00:00",
+      "category_id": 137,
+      "category_path": [
+        39,
+        59,
+        116,
+        137
+      ],
+      "cluster": "day-trips",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a day ride east of Hanoi to the Con Son Kiep Bac relic complex. Nearest live titles differ in intent: Duong Lam from Hanoi by Motorbike: Village Access and a Day-Trip Plan | Dong Mo from Hanoi by Motorbike: A Lakeside Day-Trip Checklist.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "con son kiep bac motorbike",
+      "proposed_title": "Con Son and Kiep Bac From Hanoi by Motorbike: A Hai Duong Day Trip Beyond the Usual List",
+      "proposed_url": "https://rentbikehanoi.com/con-son-kiep-bac-from-hanoi-by-motorbike/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan a day ride east of Hanoi to the Con Son Kiep Bac relic complex",
+      "sources": [
+        {
+          "document": "dd82ffa537ca0966669c5991e94cead9ae75e81d0519e3127370dcb859dc619c",
+          "supports": "Official page describing the Con Son Kiep Bac relic site.",
+          "url": "https://vietnamtourism.gov.vn/en/post/10405"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000044"
+    },
+    "TH-000045": {
+      "admitted_at": "2026-10-23T02:08:39.871141+00:00",
+      "category_id": 137,
+      "category_path": [
+        39,
+        59,
+        116,
+        137
+      ],
+      "cluster": "day-trips",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a day ride to Pho Hien ancient town in Hung Yen along the Red River. Nearest live titles differ in intent: Dong Mo from Hanoi by Motorbike: A Lakeside Day-Trip Checklist | Duong Lam from Hanoi by Motorbike: Village Access and a Day-Trip Plan.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "pho hien hung yen motorbike",
+      "proposed_title": "Hung Yen's Pho Hien From Hanoi by Motorbike: A Riverside Heritage Day Trip",
+      "proposed_url": "https://rentbikehanoi.com/pho-hien-hung-yen-from-hanoi-by-motorbike/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan a day ride to Pho Hien ancient town in Hung Yen along the Red River",
+      "sources": [
+        {
+          "document": "3b64e4d4cbb97e36510dfbde4a25f7a40cf3c19547747268cc4ab97ab4d02a64",
+          "supports": "Official page describing Pho Hien.",
+          "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000045"
+    },
+    "TH-000047": {
+      "admitted_at": "2026-10-23T02:08:39.896866+00:00",
+      "category_id": 138,
+      "category_path": [
+        39,
+        59,
+        116,
+        138
+      ],
+      "cluster": "weekend-trips",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a weekend ride to Cat Ba including the ferry crossing and what to confirm about taking a rental bike across. Nearest live titles differ in intent: Hanoi Book Street by Motorbike: Parking and Nearby Stops | How to Compare Two Hanoi Motorbike Rental Quotes Line by Line.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi cat ba motorbike ferry",
+      "proposed_title": "Hanoi to Cat Ba by Motorbike and Ferry: Pier Logistics and Island Riding",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-to-cat-ba-by-motorbike-and-ferry/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan a weekend ride to Cat Ba including the ferry crossing and what to confirm about taking a rental bike across",
+      "sources": [
+        {
+          "document": "1300246fb0b6bf2e811b269e6077b24b896f1d05918c309074546166b11db45d",
+          "supports": "Official page about Cat Ba island or national park visiting.",
+          "url": "https://catbanationalpark.com/"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000047"
+    },
+    "TH-000049": {
+      "admitted_at": "2026-10-23T02:08:39.926883+00:00",
+      "category_id": 138,
+      "category_path": [
+        39,
+        59,
+        116,
+        138
+      ],
+      "cluster": "weekend-trips",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Plan a weekend ride to the Moc Chau plateau with distance, road character and seasonal timing. Nearest live titles differ in intent: Hanoi to Hai Phong by Motorbike: A Non-Expressway Route Checklist | B52 Victory Museum by Motorbike: A Small Hanoi History Route.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "moc chau motorbike hanoi weekend",
+      "proposed_title": "Hanoi to Moc Chau by Motorbike: A Weekend on National Route 6",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-to-moc-chau-by-motorbike-weekend/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Plan a weekend ride to the Moc Chau plateau with distance, road character and seasonal timing",
+      "sources": [
+        {
+          "document": "8f491a789115b97d90401092eedc0836d600c32c54c1b4e07b37f6341c73ab05",
+          "supports": "Official page about Moc Chau used as the primary factual reference for this topic.",
+          "url": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000049"
+    },
+    "TH-000050": {
+      "admitted_at": "2026-10-23T02:08:39.956140+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the e-visa rules that shape how long a visitor can rent and ride in Vietnam. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam e-visa motorbike trip",
+      "proposed_title": "Vietnam E-Visa for a Motorbike Trip: 90-Day Validity, Entry Points and What Rental Shops Check",
+      "proposed_url": "https://rentbikehanoi.com/vietnam-e-visa-motorbike-trip-90-day-validity/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the e-visa rules that shape how long a visitor can rent and ride in Vietnam",
+      "sources": [
+        {
+          "document": "a0b5e29ad62eff26385025fe06e757ef730e54250ffe0c31cfe77e95d40758a0",
+          "supports": "Official e-visa portal stating validity and conditions.",
+          "url": "https://evisa.gov.vn/"
+        },
+        {
+          "document": "391a441f0c49cc7bca4af489498c16e6f09ef348e8aa62c908bf326bcf1e5cd9",
+          "supports": "Official e-visa FAQ used as the primary factual reference for this topic.",
+          "url": "https://evisa.gov.vn/faq"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000050"
+    },
+    "TH-000051": {
+      "admitted_at": "2026-10-23T02:08:39.982663+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Match a motorbike rental period to the temporary stay granted under visa exemption. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Charging Your Phone on a Rental Motorbike: Ports and Cable Checks.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam visa exemption stay limit",
+      "proposed_title": "Visa-Free Entry to Vietnam: Temporary Stay Limits and Planning a Rental Around Your Exit Date",
+      "proposed_url": "https://rentbikehanoi.com/visa-free-entry-vietnam-stay-limit-rental-planning/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Match a motorbike rental period to the temporary stay granted under visa exemption",
+      "sources": [
+        {
+          "document": "c4fff3371b91a92fdc2e1213d2ddfec5ccb16fb5aff6f6b1ffb16f4c46ac0962",
+          "supports": "Official portal describing visa-exemption stay periods.",
+          "url": "https://evisa.gov.vn/"
+        },
+        {
+          "document": "0b2feba6790127e2041647e4453d564fe210854aefbb7cdc17e9d6df8b947b9b",
+          "supports": "UK government entry requirements page for Vietnam.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000051"
+    },
+    "TH-000052": {
+      "admitted_at": "2026-10-23T02:08:40.019099+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the legal duty behind hotel passport registration and how it interacts with a rental shop's document requests. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | Overnight Motorbike Parking in Hanoi: Questions for Your Hotel.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "temporary residence declaration vietnam hotel",
+      "proposed_title": "Temporary Residence Declaration in Vietnam: Why Your Hotel Takes Your Passport Details and What It Means for Rentals",
+      "proposed_url": "https://rentbikehanoi.com/temporary-residence-declaration-vietnam-hotel-passport/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the legal duty behind hotel passport registration and how it interacts with a rental shop's document requests",
+      "sources": [
+        {
+          "document": "2234cc6b30f63822ecf695fe09c65cf5104459fed9b7d2cf760d2e385fe68685",
+          "supports": "Official portal stating the temporary residence declaration duty for foreigners.",
+          "url": "https://evisa.gov.vn/"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000052"
+    },
+    "TH-000053": {
+      "admitted_at": "2026-10-23T02:08:40.046292+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Locate foreign embassies in Hanoi and plan for passport loss during a rental. Nearest live titles differ in intent: What to Record When Swapping a Rental Motorbike in Hanoi | Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "embassies in hanoi lost passport",
+      "proposed_title": "Embassies in Hanoi: Finding Yours and What a Lost or Held Passport Means for a Motorbike Rental",
+      "proposed_url": "https://rentbikehanoi.com/embassies-in-hanoi-lost-passport-motorbike-rental/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Locate foreign embassies in Hanoi and plan for passport loss during a rental",
+      "sources": [
+        {
+          "document": "374c702cc74260591a1861ee20a9989620a77aebbfa24af65299ecfcb24606c8",
+          "supports": "Official Ministry of Foreign Affairs State Protocol list of foreign missions and addresses.",
+          "url": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000053"
+    },
+    "TH-000054": {
+      "admitted_at": "2026-10-23T02:08:40.073341+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Choose the right public bus from Noi Bai using the official route list, fares and hours. Nearest live titles differ in intent: A Hanoi Hotel Closes Its Gate Early: Plan Access to Your Parked Motorbike | Overnight Motorbike Parking in Hanoi: Questions for Your Hotel.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "noi bai airport bus routes",
+      "proposed_title": "Noi Bai Airport Buses 86, 90, 17 and 109: Which One Stops Closest to Your Hanoi Hotel",
+      "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-buses-86-90-17-109-hanoi/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Choose the right public bus from Noi Bai using the official route list, fares and hours",
+      "sources": [
+        {
+          "document": "88f9e74e5d89cab2cfdb8058940d54af6b3e38edcedb46819145f675f4281034",
+          "supports": "Official airport page listing routes, fares and hours.",
+          "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000054"
+    },
+    "TH-000055": {
+      "admitted_at": "2026-10-23T02:08:40.100266+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the two operating metro lines, fares and when a visitor should use them instead of riding. Nearest live titles differ in intent: Hanoi Motorbike Rental for a Late Flight: Plan Pickup and Return | A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi metro fares visitors",
+      "proposed_title": "Hanoi Metro for Visitors: Fares, Hours and How It Pairs With a Motorbike Rental",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-metro-for-visitors-fares-hours/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the two operating metro lines, fares and when a visitor should use them instead of riding",
+      "sources": [
+        {
+          "document": "381ef90c75b09a0ff6db112e0224c63191adc93da30deb90d239585f648fc507",
+          "supports": "Official fare page used as the primary factual reference for this topic.",
+          "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
+        },
+        {
+          "document": "bf767806e6094f148d95ddc66f70e6a7f3998382777166a9fe9c3dfbe18d6df6",
+          "supports": "Official station list used as the primary factual reference for this topic.",
+          "url": "https://metrohanoi.vn/en/?noredirect=en_US"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000055"
+    },
+    "TH-000056": {
+      "admitted_at": "2026-10-23T02:08:40.128116+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Summarise official travel-health guidance relevant to a rider, including insurance expectations and emergency care. Nearest live titles differ in intent: Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer | 50cc Motorbike Rental in Hanoi for Beginners: What to Know.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi hospitals travel advice riders",
+      "proposed_title": "Medical Care in Hanoi for Visiting Riders: What Official Travel Advice Says About Hospitals and Insurance",
+      "proposed_url": "https://rentbikehanoi.com/medical-care-hanoi-visiting-riders-official-advice/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Summarise official travel-health guidance relevant to a rider, including insurance expectations and emergency care",
+      "sources": [
+        {
+          "document": "3cb35e7dbca95bdc3ca3de5ce082ef5e090a0cdfadec31059e73e64979af5cff",
+          "supports": "UK government health advice for Vietnam.",
+          "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
+        },
+        {
+          "document": "923f1a42c2308bb1505f34fa9c582664d96fc9de317eeeb8a1a0ab1b93a4a558",
+          "supports": "US State Department page with health and safety notes.",
+          "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000056"
+    },
+    "TH-000057": {
+      "admitted_at": "2026-10-23T02:08:40.154721+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Know what a visiting rider can bring into Vietnam and what must be declared. Nearest live titles differ in intent: Motorcycle License for Renting in Vietnam: Requirements & Rules | Vietnam Off-Road Motorcycle Rental: Cost, Rules, and Tips.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam customs allowance travellers",
+      "proposed_title": "Vietnam Customs Rules for Riders: Helmets, Cameras, Drones and Medicines at the Border",
+      "proposed_url": "https://rentbikehanoi.com/vietnam-customs-rules-riders-helmets-cameras-drones/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Know what a visiting rider can bring into Vietnam and what must be declared",
+      "sources": [
+        {
+          "document": "3e112b87c6664c28ad218619aa7f9ea708e4d0dcc88eefa981a14cfc1fca5e51",
+          "supports": "Official customs page on allowances and declarations.",
+          "url": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000057"
+    },
+    "TH-000059": {
+      "admitted_at": "2026-10-23T02:08:40.181494+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Understand the official low-emission-zone scheme for central Hanoi, its timeline and vehicle categories, and how it may affect a rental motorbike choice. Nearest live titles differ in intent: Motorbike Rental for Hanoi Old Quarter Stays: Pickup and Delivery | 50cc Motorbike Rental in Hanoi for Beginners: What to Know.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "hanoi low emission zone motorbike ban",
+      "proposed_title": "Hanoi's Low-Emission Zone Scheme: What It Covers and What It Means for Motorbike Rentals",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-low-emission-zone-ring-road-1-motorbike-restriction/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Understand the official low-emission-zone scheme for central Hanoi, its timeline and vehicle categories, and how it may affect a rental motorbike choice",
+      "sources": [
+        {
+          "document": "fcdb7222af5cd92adc66ba9ac667151f5c3e4121fd28c40bd231a9762d4d5ff5",
+          "supports": "Official source on the low-emission zone and the Ring Road 1 restriction.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000059"
+    },
+    "TH-000060": {
+      "admitted_at": "2026-10-23T02:08:40.211716+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Decode the province series on a Vietnamese plate and why it matters when checking a rental bike's papers. Nearest live titles differ in intent: Motorbike Tyre Age Codes: What the Date Can and Cannot Tell a Renter | Banh Che Lam: A Northern Sweet and What Its Ingredient List Tells You.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam motorbike number plate codes",
+      "proposed_title": "Reading Vietnamese Motorbike Number Plates: Province Codes and What a Hanoi Plate Tells You",
+      "proposed_url": "https://rentbikehanoi.com/reading-vietnamese-motorbike-number-plates-province-codes/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Decode the province series on a Vietnamese plate and why it matters when checking a rental bike's papers",
+      "sources": [
+        {
+          "document": "9453919c1c5f16389b2462134b66aadd81ba7594dbc021f99d8da826dba2163f",
+          "supports": "Official source describing plate series and province codes.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/nhan-dien-mau-sac-seri-ky-hieu-bien-so-xe-cua-co-quan-to-chuc-ca-nhan-tu-01012025-d1-t1617"
+        },
+        {
+          "document": "3bc3ab04ac60e81942a4c636c908bb523e81a54b021e898bedbbb571de322c49",
+          "supports": "Official summary of plate issuance rules.",
+          "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000060"
+    },
+    "TH-000061": {
+      "admitted_at": "2026-10-23T02:08:40.239243+00:00",
+      "category_id": 139,
+      "category_path": [
+        39,
+        59,
+        139
+      ],
+      "cluster": "practicalities",
+      "intent_review": {
+        "inventory_sha256": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+        "rationale": "Reviewed against all 275 live post titles and intents (inventory 46e7db38b68c), the queued factory topics and the 500 reference ideas attached to PR #2. No live post answers this focal question: Explain the planned emissions testing regime for motorbikes and how it affects the age of bikes a renter should accept. Nearest live titles differ in intent: 50cc Motorbike Rental in Hanoi for Beginners: What to Know | Travel Insurance and Rental Motorbikes in Vietnam: Questions for Your Insurer.",
+        "reviewer_id": "claude-research-lead",
+        "verdict": "DISTINCT"
+      },
+      "primary_keyword": "vietnam motorbike emissions inspection",
+      "proposed_title": "Motorbike Emissions Inspection in Vietnam: The Roadmap and What It Means for Older Rental Bikes",
+      "proposed_url": "https://rentbikehanoi.com/motorbike-emissions-inspection-vietnam-roadmap-rental-bikes/",
+      "research_scope": "Entity, policy and specification facts from the captured sources; no price, opening hour, shop policy or availability is asserted by the topic record.",
+      "search_intent": "Explain the planned emissions testing regime for motorbikes and how it affects the age of bikes a renter should accept",
+      "sources": [
+        {
+          "document": "4d013f5028d8ac1f92fba6d5e9214bb84abac80b3699e3d1b684f937b6bc472f",
+          "supports": "Official source on the emissions inspection roadmap.",
+          "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-000061"
+    }
+  },
+  "version": 137
+}

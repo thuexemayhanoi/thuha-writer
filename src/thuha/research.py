@@ -1,6 +1,6 @@
 """Source-backed admission; refill requests never pretend to be researched prose."""
 from .common import age, digest, now, norm, urlkey, category_path, validate_inventory
-from .http import HTTP, safe_public_url
+from .http import HTTP, safe_public_url, safe_url_shape
 from .language import LANGUAGES, TOPIC_ID, check, post_url, split_url, url_language, targets as language_targets
 from .quota import published, topics_needed
 from .store import event
@@ -16,6 +16,33 @@ def capture_source(store,url):
               'excerpt':' '.join(' '.join(page.text).split()[:20]),'page_title':page.title,
               'content_type':headers.get('Content-Type',headers.get('content-type'))}
     return {'document':store.put_document(snapshot),'url':url}
+
+
+EXTERNAL_FETCHERS=('parallel-web-fetch','claude-webfetch','github-actions-runner')
+
+
+def capture_external_source(store,url,record,max_record_age=86400):
+    """Record evidence fetched by an authorized external fetcher.
+
+    The writer container may be denied direct egress to research origins. A
+    fetcher such as the Parallel web_fetch tool performs the real HTTP request;
+    its result is saved as a record and converted into a source snapshot here.
+    The snapshot is labelled with its capture method; nothing is inferred from
+    an empty, failed or mismatched record and no content verdict is fabricated.
+    """
+    safe_url_shape(url) # The external fetcher resolved the host; this container may have no DNS.
+    if record.get('url')!=url:raise ValueError('External fetch record is for a different URL')
+    if record.get('fetcher') not in EXTERNAL_FETCHERS:raise ValueError('Unknown external fetcher')
+    if record.get('status')!='ok' or record.get('error'):raise ValueError('External fetch did not succeed; mark the source blocked')
+    content=str(record.get('content') or '')
+    if len(content.split())<40:raise ValueError('External fetch content too thin to count as evidence')
+    if not 0<=age(record['fetched_at'])<=max_record_age:raise ValueError('External fetch record is stale or future-dated')
+    snapshot={'url':url,'checked_at':now(),'http_status':200,'response_sha256':digest(content.encode()),
+              'excerpt':' '.join(content.split()[:20]),'page_title':str(record.get('title') or ''),
+              'content_type':'text/markdown; external fetch','capture_method':'external-fetcher',
+              'fetcher':record['fetcher'],'fetched_at':record['fetched_at'],
+              'http_status_basis':'successful external fetch returned document content'}
+    return {'document':store.put_document(snapshot),'url':url,'capture_method':'external-fetcher'}
 
 
 def item_language(item):

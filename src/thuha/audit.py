@@ -155,6 +155,9 @@ def inventory(client=None, check_pages=True):
     result['captured_at'] = now()
     for item in result['items']:
         item['language'] = url_language(item['url']) or 'en'
+    for category in result['categories']:
+        # The URL namespace is all the public collection offers; the adapter inventory carries the verified label.
+        category['language'] = url_language(category.get('link') or '') or 'en'
     result['language_source'] = 'public-rest-unverified'  # the public collection can hide native VI posts
     result['counts'] = counts(result['items'])
     return result
