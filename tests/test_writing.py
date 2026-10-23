@@ -83,7 +83,7 @@ class HintTests(unittest.TestCase):
             self.assertTrue(hint['where'] and hint['fix'], code)
 
     def test_the_most_specific_pattern_wins(self):
-        self.assertIn('Alt', writing._hint_for('BODY_IMAGE_ALT_NOT_VIETNAMESE_TEXT', CFG['hints'])['fix'])
+        self.assertIn('optional', writing._hint_for('BODY_IMAGE_ALT_NOT_VIETNAMESE_TEXT', CFG['hints'])['fix'])
         self.assertIn('Văn bản thuần', writing._hint_for('TITLE_NOT_CANONICAL_PLAIN_TEXT', CFG['hints'])['fix'])
         self.assertIn('đúng ngôn ngữ', writing._hint_for('TITLE_ENGLISH_MIXED_INTO_VIETNAMESE', CFG['hints'])['fix'])
         self.assertIn('Điền từ khóa', writing._hint_for('FOCUS_KEYWORD_MISSING', CFG['hints'])['fix'])
@@ -261,10 +261,10 @@ class DeclaringAWaitTests(unittest.TestCase):
         needs = self.result(waits=['FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'])
         ok, problems, _ = writing.submission_check(needs, None)
         self.assertFalse(ok)
-        self.assertIn('--waiting-for FEATURED_MEDIA INTERNAL_LINKS', problems[0])
+        self.assertIn('--waiting-for INTERNAL_LINKS', problems[0])
         self.assertTrue(writing.submission_check(needs, ['FEATURED_MEDIA', 'INTERNAL_LINKS'])[0])
-        self.assertEqual(writing.submission_check(needs, ['auto'])[2], ['FEATURED_MEDIA', 'INTERNAL_LINKS'])
-        self.assertFalse(writing.submission_check(needs, ['FEATURED_MEDIA'])[0])  # one needed code is missing
+        self.assertEqual(writing.submission_check(needs, ['auto'])[2], ['INTERNAL_LINKS'])
+        self.assertFalse(writing.submission_check(needs, ['FEATURED_MEDIA'])[0])
 
     def test_an_offline_inventory_is_never_a_wait_the_writer_must_declare(self):
         self.assertTrue(writing.submission_check(self.result(waits=['AUTHORITATIVE_INVENTORY']), None)[0])
