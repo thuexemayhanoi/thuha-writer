@@ -4218,6 +4218,15 @@
       "sha256": "8ef802addd7cbf0be93f4a17221b99b952c1575c8c99087a26033d11cdff3a57",
       "slot": "W1",
       "topic_id": "TH-EN-0065"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "at": "2026-10-23T13:59:20.078491+00:00",
+      "previous": "8ef802addd7cbf0be93f4a17221b99b952c1575c8c99087a26033d11cdff3a57",
+      "sha256": "c77d6ea0d324d970007c88e65212a7563d9b98cb61447ca1bc74b7f624ecfc5f",
+      "topic_id": "TH-EN-0065"
     }
   ],
   "intents": {},
@@ -4633,13 +4642,13 @@
     },
     "TH-EN-0065": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "5d9bab52cf98a121f46850580bfbdf293cce4327d974fcd0aff0d37dfcfdd6b9",
-      "commit": "033a2df6ab722af5ed191fcaabaa1febb5c02369",
-      "fence": "322c76062a354a86ac5843048aacf949",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "commit": "2ec77eb2828548224cad7af251c4a6e896493d0d",
+      "fence": "828722cf243344b6b8f5d89248fd6162",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:52.241942+00:00"
+      "submitted_at": "2026-10-23T13:59:20.078463+00:00"
     },
     "TH-EN-0125": {
       "agent_id": "claude-writer-W2",
@@ -7247,7 +7256,6 @@
         142
       ],
       "cluster": "motorbike-reviews-comparisons",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "xe so xe con tay xe ga meaning",
       "proposed_title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
@@ -7260,12 +7268,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0065",
-      "waiting_for": [
-        "FEATURED_MEDIA",
-        "INTERNAL_LINKS"
-      ]
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0065"
     },
     "TH-EN-0125": {
       "admitted_at": "2026-10-23T12:08:22.382465+00:00",
@@ -8941,5 +8945,5 @@
       ]
     }
   },
-  "version": 546
+  "version": 547
 }
