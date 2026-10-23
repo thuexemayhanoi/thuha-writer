@@ -6278,6 +6278,18 @@
       "sha256": "c90ce2a72f914e3e2e58d54a92371dbddb0c39a8518b4853576a2b619b64fd8b",
       "slot": "W1",
       "topic_id": "TH-VI-0268"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "a69d56d304ae03153aa0c310c3509f5f2d6e822f8a1acf14bf45f66bccb4e2e2",
+      "at": "2026-10-23T16:05:45.186730+00:00",
+      "previous": "c90ce2a72f914e3e2e58d54a92371dbddb0c39a8518b4853576a2b619b64fd8b",
+      "sha256": "ac9c2912270144905b76fa65f1184c49542e7bca385be48c1b0e79976cacaf95",
+      "topic_id": "TH-VI-0268",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9253,18 +9265,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773340.418081,
-      "fence": "229472bc685b4091b903c77c67ee7468",
-      "heartbeat_at": "2026-10-23T16:05:40.418057+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0268"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10556,13 +10557,13 @@
     },
     "TH-VI-0268": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "8e5f88131ea03cd8cf88a6d2c609b3821759a07c3ab44e5620591215c37e69b6",
+      "article_sha": "a69d56d304ae03153aa0c310c3509f5f2d6e822f8a1acf14bf45f66bccb4e2e2",
       "commit": "0c140f9f39095da9365d7d21b364513aec9cc564",
-      "fence": "ea1f03645a4542758b84184e4104de4e",
+      "fence": "229472bc685b4091b903c77c67ee7468",
       "repair_count": 0,
       "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:52:24.613981+00:00"
+      "submitted_at": "2026-10-23T16:05:45.186701+00:00"
     },
     "TH-VI-0359": {
       "agent_id": "claude-writer-W1",
@@ -15158,7 +15159,6 @@
         162
       ],
       "cluster": "su-dung-va-cham-soc-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "mặc váy áo dài quần ống rộng đi xe máy",
       "proposed_title": "Mặc váy, áo dài hoặc quần ống rộng đi xe máy: tránh vướng bánh sau, xích và chân người ngồi sau",
@@ -15171,7 +15171,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0268",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15391,5 +15391,5 @@
       ]
     }
   },
-  "version": 817
+  "version": 818
 }
