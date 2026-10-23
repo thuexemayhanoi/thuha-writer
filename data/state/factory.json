@@ -6330,6 +6330,18 @@
       "sha256": "807a9d4961f97a381d145fc563dbbb7acf1935981298a486b4767ba256780886",
       "slot": "W1",
       "topic_id": "TH-VI-0003"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "afe26f9ffd75c385d2b3af2f945aa8d2ee9b71ef213db242629e61b67972b58c",
+      "at": "2026-10-23T16:06:09.505189+00:00",
+      "previous": "807a9d4961f97a381d145fc563dbbb7acf1935981298a486b4767ba256780886",
+      "sha256": "c8aa27e079db20508554617b8ecc51cb12dd24e9c659262e4e1322015cd94417",
+      "topic_id": "TH-VI-0003",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9305,18 +9317,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773361.352815,
-      "fence": "994936c050c842fc8b5ddb597b5961c7",
-      "heartbeat_at": "2026-10-23T16:06:01.352790+00:00",
-      "language": "vi",
-      "session": "sess-b4",
-      "slot": "W1",
-      "topic_id": "TH-VI-0003"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10148,13 +10149,13 @@
     },
     "TH-VI-0003": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "5b8f78b2255b3c73cba4daf53a1bb5c223bc60ee95f8cacf58a71c980bfa577f",
+      "article_sha": "afe26f9ffd75c385d2b3af2f945aa8d2ee9b71ef213db242629e61b67972b58c",
       "commit": "01315650697dea10eca9ff3a665019fb78030ae7",
-      "fence": "d4402017233f4c4d859d3eb3364eb362",
+      "fence": "994936c050c842fc8b5ddb597b5961c7",
       "repair_count": 0,
       "session": "sess-b4",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:52:53.134964+00:00"
+      "submitted_at": "2026-10-23T16:06:09.505155+00:00"
     },
     "TH-VI-0004": {
       "agent_id": "claude-writer-W1",
@@ -13508,7 +13509,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "thuê xe theo ngày hay theo tuần",
       "proposed_title": "Ở Hà Nội khoảng một tuần: thuê xe theo ngày hay theo tuần thì tính thế nào",
@@ -13521,7 +13521,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0003",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15443,5 +15443,5 @@
       ]
     }
   },
-  "version": 823
+  "version": 824
 }
