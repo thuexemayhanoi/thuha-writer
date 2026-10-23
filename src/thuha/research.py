@@ -1,7 +1,7 @@
 """Source-backed admission; refill requests never pretend to be researched prose."""
 import re
 from .common import SITE, ROOT, age, digest, now, norm, urlkey, category_path, validate_inventory
-from .http import HTTP, safe_public_url
+from .http import HTTP, safe_public_url, safe_url_shape
 from .store import event
 
 
@@ -29,7 +29,7 @@ def capture_external_source(store,url,record,max_record_age=86400):
     The snapshot is labelled with its capture method; nothing is inferred from
     an empty, failed or mismatched record and no content verdict is fabricated.
     """
-    safe_public_url(url)
+    safe_url_shape(url) # The external fetcher resolved the host; this container may have no DNS.
     if record.get('url')!=url:raise ValueError('External fetch record is for a different URL')
     if record.get('fetcher') not in EXTERNAL_FETCHERS:raise ValueError('Unknown external fetcher')
     if record.get('status')!='ok' or record.get('error'):raise ValueError('External fetch did not succeed; mark the source blocked')

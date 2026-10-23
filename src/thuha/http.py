@@ -15,10 +15,17 @@ class NetworkError(RuntimeError):
     pass
 
 
-def safe_public_url(url):
+def safe_url_shape(url):
+    """Structural check only: HTTPS, a hostname, no credentials, default port."""
     p = urlsplit(url)
     if p.scheme != 'https' or not p.hostname or p.username or p.password or p.port not in (None, 443):
         raise ValueError('Unsafe source URL')
+    return url
+
+
+def safe_public_url(url):
+    safe_url_shape(url)
+    p = urlsplit(url)
     # These two fixed, user-authorized service origins are resolved by the
     # environment's egress proxy when local DNS is intentionally unavailable.
     # Arbitrary research URLs retain the strict public-address check below.
