@@ -6290,6 +6290,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:05:50.677923+00:00",
+      "expires_at": 1792773350.677912,
+      "fence": "ff34b34eab0e400880dfa5926adc1dc5",
+      "heartbeat_at": "2026-10-23T16:05:50.677887+00:00",
+      "language": "vi",
+      "previous": "ac9c2912270144905b76fa65f1184c49542e7bca385be48c1b0e79976cacaf95",
+      "session": "sess-b4",
+      "sha256": "eaed997f918a789cfd7c249be3765345db7d693e9251e2059ba40d7523f7959a",
+      "slot": "W1",
+      "topic_id": "TH-VI-0013"
     }
   ],
   "intents": {
@@ -9265,7 +9279,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773350.677912,
+      "fence": "ff34b34eab0e400880dfa5926adc1dc5",
+      "heartbeat_at": "2026-10-23T16:05:50.677887+00:00",
+      "language": "vi",
+      "session": "sess-b4",
+      "slot": "W1",
+      "topic_id": "TH-VI-0013"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -13662,6 +13687,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "khoản dự phòng khi thuê xe máy",
       "proposed_title": "Dự trù khoản dự phòng khi thuê xe: những chi phí nhỏ dễ phát sinh giữa chuyến đi",
@@ -13674,7 +13700,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0013",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15391,5 +15417,5 @@
       ]
     }
   },
-  "version": 819
+  "version": 820
 }
