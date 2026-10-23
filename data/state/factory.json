@@ -4045,6 +4045,20 @@
       "previous": "9bbc4ccbe230676d1f3cf30f52f5063ad0ca26981f427127e2730c8d23d025fc",
       "request_id": "research-vi-5ea4b275ae51aaf1",
       "sha256": "e5630b9a8ef14042cd3b5f8082e40c40173ef9782db48dfef8ede43bd7b28c9d"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:51:24.949210+00:00",
+      "expires_at": 1792768884.949201,
+      "fence": "d4dbb444831b4f13bf56c1074ff687a8",
+      "heartbeat_at": "2026-10-23T14:51:24.949189+00:00",
+      "language": "vi",
+      "previous": "e5630b9a8ef14042cd3b5f8082e40c40173ef9782db48dfef8ede43bd7b28c9d",
+      "session": "sess-b3r",
+      "sha256": "b4f37b43d1cf71d31d9d80588ac17b31288d6c638d34482ff22f9ebd382d78b9",
+      "slot": "W1",
+      "topic_id": "TH-VI-0022"
     }
   ],
   "intents": {
@@ -7020,7 +7034,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792768884.949201,
+      "fence": "d4dbb444831b4f13bf56c1074ff687a8",
+      "heartbeat_at": "2026-10-23T14:51:24.949189+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0022"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10605,6 +10630,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "gọi xe công nghệ hay thuê xe máy đi ít chặng",
       "proposed_title": "Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy",
@@ -10617,7 +10643,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0022",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -11742,5 +11768,5 @@
       ]
     }
   },
-  "version": 561
+  "version": 562
 }
