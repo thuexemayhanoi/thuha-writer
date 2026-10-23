@@ -188,6 +188,14 @@ class FullLineTests(Line):
         self.assertEqual(len(self.wp.post_requests()), posts)
         self.assertEqual(len(self.wp.created), 2)
 
+    def test_explicit_owner_auto_scale_continues_after_two_verified_posts(self):
+        vi1, vi2, en1 = self.two_vietnamese_one_english()
+        auto = dict(stage='auto-scale', approved_capacity=10, maximum_daily_posts=10,
+                    expansion_approval_ref='e2e-synthetic')
+        result = self.drain(**auto)
+        self.assertEqual([p['topic_id'] for p in result['published']], [vi1, vi2, en1])
+        self.assertEqual(len(self.state()['receipts']), 3)
+        self.assertIsNone(result['halted'])
     def test_the_next_stage_publishes_the_rest_only_after_two_public_pages_passed(self):
         vi1, vi2, en1 = self.two_vietnamese_one_english()
         self.drain()
@@ -835,12 +843,18 @@ class WiringTests(unittest.TestCase):
         for mode in ('acknowledge', 'reconcile', 'verify'):
             self.assertIn(mode, publisher)
 
-    def test_nothing_in_the_repository_switches_production_on(self):
+    def test_repository_release_requires_explicit_owner_approval(self):
         release = load(ROOT / 'config/release.json')
-        self.assertFalse(release['enabled'])
-        self.assertFalse(release['approved'])
-        self.assertEqual(release['languages_enabled'], [])
-        self.assertTrue(release['paused'])
+        if release['enabled']:
+            self.assertTrue(release['approved'])
+            self.assertFalse(release['paused'])
+            self.assertTrue(release['approval_ref'])
+            self.assertEqual(set(release['languages_enabled']), {'vi', 'en'})
+            self.assertTrue(release['cross_publisher_coordination_verified'])
+            self.assertEqual(release['pilot_max_posts'], 2)
+        else:
+            self.assertFalse(release['approved'])
+            self.assertEqual(release['languages_enabled'], [])
 
 
 if __name__ == '__main__':
