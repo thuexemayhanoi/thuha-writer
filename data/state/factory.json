@@ -3290,11 +3290,36 @@
       "previous": "f6c3756b5d3b62dd10c494d7e909da425eb8815e5a2d74d20dc75ca47eb7aa43",
       "request_id": "research-vi-934c439f07bab8c9",
       "sha256": "bcb1b4a7f4788441791ea484067216dd278cd5ea65eb7df5d8624acd1d7745b8"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T13:18:03.309805+00:00",
+      "expires_at": 1792763283.309795,
+      "fence": "980bf40c099940e28c7c9ba18177e14f",
+      "heartbeat_at": "2026-10-23T13:18:03.309779+00:00",
+      "language": "vi",
+      "previous": "bcb1b4a7f4788441791ea484067216dd278cd5ea65eb7df5d8624acd1d7745b8",
+      "session": "sess-b3r",
+      "sha256": "7c4320607bf19d9e0329d67d0e9c354f033a520decbd1b39cbccf5b03202ab9d",
+      "slot": "W1",
+      "topic_id": "TH-VI-0359"
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792763283.309795,
+      "fence": "980bf40c099940e28c7c9ba18177e14f",
+      "heartbeat_at": "2026-10-23T13:18:03.309779+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0359"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -7558,6 +7583,7 @@
         165
       ],
       "cluster": "lai-xe-an-toan",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "lâu không đi xe máy tập lại",
       "proposed_title": "Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông",
@@ -7570,7 +7596,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0359",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7742,5 +7768,5 @@
       ]
     }
   },
-  "version": 403
+  "version": 404
 }
