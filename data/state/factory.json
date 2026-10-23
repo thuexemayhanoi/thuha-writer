@@ -4300,11 +4300,36 @@
       "sha256": "333a0ab94131848009a05a5e8828871e48484eb8bf8a12713bfffc51a2b6b219",
       "status": "PASS",
       "topic_id": "TH-EN-0125"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T13:59:47.889755+00:00",
+      "expires_at": 1792765787.889746,
+      "fence": "d37d261ab07645aa9cab202113026fe4",
+      "heartbeat_at": "2026-10-23T13:59:47.889727+00:00",
+      "language": "en",
+      "previous": "333a0ab94131848009a05a5e8828871e48484eb8bf8a12713bfffc51a2b6b219",
+      "session": "sess-e1c",
+      "sha256": "45c87ffa52c4387d6534cca66a4345ce13d9b73a33a0e5c257673dbeea5562a9",
+      "slot": "W1",
+      "topic_id": "TH-EN-0012"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792765787.889746,
+      "fence": "d37d261ab07645aa9cab202113026fe4",
+      "heartbeat_at": "2026-10-23T13:59:47.889727+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0012"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7300,6 +7325,7 @@
         123
       ],
       "cluster": "motorbike-rental-guides",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "start motorbike rental on arrival day or next day hanoi",
       "proposed_title": "Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent",
@@ -7312,7 +7338,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0012",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -9014,5 +9040,5 @@
       ]
     }
   },
-  "version": 554
+  "version": 555
 }
