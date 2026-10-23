@@ -239,7 +239,7 @@ before enabling `config/release.json`. Unit tests do not prove these external co
 
 Resource use: only read-only health and the hourly queue job run on a schedule; the expensive authenticated
 audit runs in the protected job. A stale inventory blocks work and is shown in the dashboard. No scheduled AI
-writer exists and production publishing is OFF.
+writer exists; the owner enabled release separately on 23/10/2026. Real publishing is confirmed only by WordPress readback and durable receipts.
 
 The full public audit is committed. Authenticated SEO metadata is retained separately for the owner and
 excluded from this public repository and history. Public focus-keyword values stay UNKNOWN.
