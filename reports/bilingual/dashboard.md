@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-23T07:55:01.530995+00:00
+Generated: 2026-10-23T07:59:58.582722+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -25,7 +25,7 @@ Generated: 2026-10-23T07:55:01.530995+00:00
 
 Public-page checks after publication: none yet. Public-page checks run after publication, back off and retry; they never stop the queue.
 
-Session ledger hand-over: FAST_FORWARD (session v221, shared v5)
+Session ledger hand-over: FAST_FORWARD (session v263, shared v5)
 
 Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 

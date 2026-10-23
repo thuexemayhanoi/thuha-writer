@@ -3,6 +3,41 @@
 Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ; ngày 23/10 đã gộp thêm nhánh phiên V5).
 Không có pull request nào được tạo; `main` không bị đụng; production publisher **vẫn tắt**.
 
+## Phiên 23/10/2026 (lần 3): vận hành workflow và viết bài thật
+
+**Tình trạng thật, tính theo sổ cái** (`python3 -m thuha.cli --git-branch cycle`; số đã xuất bản lấy từ ảnh chụp ngày 22/10, không phải bộ đếm sống):
+
+| | VI | EN |
+|---|---|---|
+| Đã xuất bản trên site (ảnh chụp 22/10) | 0 | 275 |
+| Bản thảo đã lưu trong sổ cái | **17** (`WAITING_DATA`) + 1 chủ đề `HELD` | 9 (từ phiên V5, giữ nguyên) |
+| Đã có review độc lập ghi trong sổ cái | 0 | 2 |
+| Qua QA | **0** | 2 (QA chạy trên inventory cũ, phải chạy lại với inventory mới) |
+| Chờ review | 17 chưa thể (còn thiếu ảnh/liên kết/inventory) | 7 |
+| Chờ dữ liệu (ảnh alt tiếng Việt, liên kết nội bộ đã sống, inventory adapter) | 17 | 0 |
+| Biên nhận xuất bản | 0 | 0 |
+
+Còn thiếu để đạt 500: VI 500, EN 225 (57 chủ đề EN đã vào sổ cái, trong đó 9 có bản thảo). Ma trận không phải bài viết, bản thảo không phải bài đã đăng.
+
+**Việc đã làm.** (1) Thêm cơ chế lưu bản thảo chờ dữ liệu (`WAITING_DATA`, `submit --waiting-for`, `recheck-data`, `claim --revise`, `hold`/`unhold`, xuất `drafts/`), bằng chứng
+first-party có nhãn, inventory dùng cho lập kế hoạch (ảnh chụp tối đa 7 ngày, QA vẫn 6 giờ), tất cả có test trước. (2) Viết 18 bản thảo VI từ thông tin chủ cửa hàng cung cấp, mỗi chủ đề qua kiểm
+ý định độc lập (3 trong 20 bị loại vì trùng ý), mỗi bản qua precheck (không lỗi nội dung; chỉ còn ba mục chờ dữ liệu) và qua review biên tập độc lập hai lần. Lần đầu tìm ra 2 lỗi số học và nhiều chỗ lặp/giọng văn trong chính bản thảo của tôi;
+đã sửa. Chi tiết: [WRITING-LOG.md](WRITING-LOG.md).
+
+**Việc chưa làm được và vì sao (nói thẳng).**
+- *Không có nguồn ngoài nào được xác minh.* Từ container này chỉ `api.github.com` tới được; WebFetch không phân giải được tên miền, Firecrawl hết tín dụng, WebSearch chỉ trả tóm tắt (không phải bằng chứng). Nên mọi
+  chủ đề cần luật, nhà sản xuất, địa điểm, giao thông, thời tiết vẫn là `NEEDS_SOURCE`; bảy bản EN còn lại vẫn cần reviewer mở nguồn thật.
+- *Không viết tiếp hàng loạt bài "hỏi cửa hàng".* Review biên tập chỉ ra các bài cùng một khung và chỉ là danh sách câu hỏi vì chủ cửa hàng chưa trả lời chúng; thêm vài chục bài cùng khung sẽ giống nội dung sản xuất hàng loạt.
+  Việc mở khóa là [những câu chỉ chủ cửa hàng trả lời được](OWNER-QUESTIONS.md).
+- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần: ảnh có alt tiếng Việt trong thư viện media, trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi review độc lập và QA.
+
+**Việc phải xin quyết định của chủ cửa hàng:** (a) giọng văn thống nhất cho cả loạt bài (nay là trung tính, "giá tham khảo của Thuê xe máy Nguyễn Hà", "mỗi cửa hàng có cách làm riêng"); (b) câu trả lời cho
+[9 câu hỏi](OWNER-QUESTIONS.md); (c) ảnh có alt tiếng Việt.
+
+**Tiếp tục ở phiên sau.** `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch cycle`; `python3 -m thuha.cli --git-branch recheck-data` (cần inventory authoritative);
+`python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-0004` để sửa bản chờ; xem [drafts/INDEX.md](../../drafts/INDEX.md). Chủ đề đã kiểm ý định mà chưa viết (13 DISTINCT: 0003, 0017, 0020, 0021, 0026, 0032, 0054, 0062, 0087, 0099, 0105,
+0248, 0250; 0094 trùng 0215) và hai bản nháp chưa nhập (0017, 0026) nằm ở scratchpad của phiên này, không được coi là đã lưu.
+
 ## Phiên 23/10/2026: hợp nhất V5, hàng đợi chung, publisher theo bằng chứng WordPress
 
 Nhánh `feature/bilingual-500-workflow` đã gộp nhánh phiên V5 (`claude/thuha-writer-v5-factory-3la2u4`, 415 commit giữ nguyên lịch sử):
