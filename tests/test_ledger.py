@@ -307,6 +307,11 @@ class RoundsTests(unittest.TestCase):
         self.assertEqual((result['status'], result['applied']), ('DIVERGED', False))
         self.assertEqual([d['topic_id'] for d in result['unpromoted']['drafts']], ['TH-000004'])
         self.assertEqual(result['unpromoted']['events'], {'RESEARCH_INTAKE': 1, 'SUBMISSION': 1})
+        self.assertTrue(result['unpromoted']['drafts'][0]['submitted_at'])  # the order in which the drafts are submitted again
+        admitted = result['unpromoted']['topics']  # admitted only in the session: the records to admit again
+        self.assertEqual([t['topic_id'] for t in admitted], ['TH-000004'])
+        self.assertEqual(set(admitted[0]) & {'status', 'admitted_at', 'waiting_for'}, set())  # lifecycle fields are not part of an admission
+        self.assertEqual(set(ledger.ADMISSION_FIELDS) - set(admitted[0]), set())
         self.assertEqual(self.session.raw()[0], before)  # nothing was replaced
 
     def test_discarding_the_unpromoted_work_is_explicit_and_leaves_every_document_in_place(self):

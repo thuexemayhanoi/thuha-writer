@@ -256,6 +256,10 @@ def _raw(store):
     return initial(), None
 
 
+# What `intake` needs to admit a topic again (config of a topic record minus its lifecycle fields).
+ADMISSION_FIELDS = ('topic_id', 'language', 'primary_keyword', 'search_intent', 'proposed_title', 'category_id', 'category_path', 'cluster', 'proposed_url', 'sources')
+
+
 def unpromoted(mine, theirs):
     """What a session ledger holds that the shared one lacks once their common history ends: the events after it and the drafts
     whose submission the shared ledger does not have (or has with a different article). Pure; raw ledgers in."""
@@ -269,11 +273,14 @@ def unpromoted(mine, theirs):
             continue
         topic = mine_m['topics'].get(tid, {})
         drafts.append({'topic_id': tid, 'article_sha': sub['article_sha'], 'session': sub.get('session'), 'agent_id': sub.get('agent_id'),
-                       'status': topic.get('status'), 'waiting_for': topic.get('waiting_for')})
+                       'submitted_at': sub.get('submitted_at'), 'status': topic.get('status'), 'waiting_for': topic.get('waiting_for')})
+    # A topic admitted only in the session is unknown to the shared ledger: its record is the candidate to admit again.
+    topics = [{k: v for k, v in topic.items() if k in ADMISSION_FIELDS or k == 'intent_review'}
+              for tid, topic in sorted(mine_m['topics'].items()) if tid not in theirs_m['topics']]
     counts = {}
     for e in own:
         counts[e['action']] = counts.get(e['action'], 0) + 1
-    return {'events': counts, 'drafts': drafts}
+    return {'events': counts, 'drafts': drafts, 'topics': topics}
 
 
 def sync(local, remote, apply=False, discard_unpromoted=False):
