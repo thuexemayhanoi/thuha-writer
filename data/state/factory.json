@@ -2180,6 +2180,15 @@
       "reason": "Merged after the second independent editorial review: refund timing, means and deductions now live in TH-VI-0033, the single deposit page.",
       "sha256": "a66fafdbe70a3f6d12af2c01c83463d0f3b05cf4b7088678b136debaca17471f",
       "topic_id": "TH-VI-0035"
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:39.467814+00:00",
+      "previous": "a66fafdbe70a3f6d12af2c01c83463d0f3b05cf4b7088678b136debaca17471f",
+      "previous_status": "WAITING_DATA",
+      "reason": "Merged after the second independent editorial review: the two-bike points now live in TH-VI-0033.",
+      "sha256": "0a1b306761103e568b85e21d2b4ed2a76ea1857ef5eb490b2e92d2a750a51741",
+      "topic_id": "TH-VI-0053"
     }
   ],
   "intents": {},
@@ -4997,6 +5006,11 @@
         153
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T08:19:39.467791+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Merged after the second independent editorial review: the two-bike points now live in TH-VI-0033."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -5021,7 +5035,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0053",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5321,5 +5335,5 @@
       ]
     }
   },
-  "version": 288
+  "version": 289
 }
