@@ -2234,6 +2234,15 @@
       "reason": "Held after the second independent editorial review: a scam-warning page is a tone decision for the owner; its contact check is folded into TH-VI-0016.",
       "sha256": "24bf726f73dc2ae375a8c3bab7f38ae5d516e3ecac33c605b59f95c3ebaa28df",
       "topic_id": "TH-VI-0043"
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:51.780277+00:00",
+      "previous": "24bf726f73dc2ae375a8c3bab7f38ae5d516e3ecac33c605b59f95c3ebaa28df",
+      "previous_status": "WAITING_DATA",
+      "reason": "Held after the second independent editorial review: it audits the shop's own maintenance records, about which nothing is known; revive when the owner has answered the maintenance question.",
+      "sha256": "8f4d120fb24856a3103b8dde43ec057348ef4a3c651fde1754dcd137771979e1",
+      "topic_id": "TH-VI-0217"
     }
   ],
   "intents": {},
@@ -5372,6 +5381,11 @@
         160
       ],
       "cluster": "su-dung-va-cham-soc-xe",
+      "held": {
+        "at": "2026-10-23T08:19:51.780240+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Held after the second independent editorial review: it audits the shop's own maintenance records, about which nothing is known; revive when the owner has answered the maintenance question."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -5396,7 +5410,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0217",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5405,5 +5419,5 @@
       ]
     }
   },
-  "version": 294
+  "version": 295
 }
