@@ -247,7 +247,7 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
   read-only preview: it runs `preflight` only and writes nothing (the `queue` job is skipped). Jobs: `preflight`
   (read-only, evaluates the release gate); `queue` (no WordPress secret: `promote --apply`, `audit --max-age 18000`,
   `qa --pending --language en`; each step carries on if the one before failed, and a refused hand-over fails the run at the
-  end); `protected-publish` (only when the gate is open, inside `thuha-production`: adapter preflight, authenticated `audit`,
+  end); `protected-publish` (only when the gate is open, using repository Actions Secrets: adapter preflight, authenticated `audit`,
   `qa --pending`, `publisher --mode drain`; a failed audit or QA step does not stop the drain, which re-reads the inventory
   itself). `qa --pending` reports a failed or data-blocked draft in the ledger and exits 0; an unusable inventory exits 2 and changes nothing.
 * `maintenance` — read-only health every six hours; manual tasks (`audit`, `coordinator`, `refill`, `intake`,
@@ -256,8 +256,7 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
 
 ## Go-live (a separate owner decision)
 
-The release lists `languages_enabled` (empty by default). Configure credentials inside the protected
-`thuha-production` environment, not by copying another repository's secrets. Keep `main` review + the `quality`
+The release lists `languages_enabled` (empty by default). Configure `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` as repository Actions Secrets. No GitHub Environment or `THUHA_GO_LIVE_APPROVAL` variable is required; never copy secrets between projects. Keep `main` review + the `quality`
 check required; restrict the `factory-state` writer to the Actions app and forbid force pushes. Verify the
 WordPress user and the registered Yoast REST fields. Coordinate any other tool publishing to the same site
 (`cross_publisher_coordination_verified`). Approve a real pilot reference and the editorial policy

@@ -92,9 +92,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 2. **Protect the branches (recommended)**: `main` needs the `quality` check; `factory-state` should accept writes only from the
    GitHub Actions app and forbid force pushes. Since the owner's 23 October change the publisher no longer verifies branch
    protection or environment reviewers: it requires that it runs from `main` and that the `main` and `factory-state` refs exist.
-3. **Environment `thuha-production`** with the secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` (an Application Password of
-   an account that may publish posts) and the variable `THUHA_GO_LIVE_APPROVAL`. For publication with no human wait the environment
-   must have no required reviewers: only its GitHub administrator can change that, and this repository does not.
+3. **Repository GitHub Actions Secrets:** configure `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` for the publishing account. No `thuha-production` Environment or separate `THUHA_GO_LIVE_APPROVAL` variable is required. Never store credentials in code. Owner approval is recorded in `config/release.json` and the publisher retains QA, adapter checks, collision coordination and the two-post pilot.
 4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
    access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
 5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
