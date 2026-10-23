@@ -3473,22 +3473,24 @@
       "sha256": "6c0c7cbfdab004d72c8101c927ff1de74737cab01338e15f00add6a183861b53",
       "slot": "W1",
       "topic_id": "TH-VI-0487"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "d476c459c6f3c96a0b64a206872f2fe2c8fe76eb10bf9ce73c1fc02b0732ee9a",
+      "at": "2026-10-23T13:54:25.310572+00:00",
+      "previous": "6c0c7cbfdab004d72c8101c927ff1de74737cab01338e15f00add6a183861b53",
+      "sha256": "633937996e1bc9e7431227e09149de70e382b2fb14069da04b870afdec822e2b",
+      "topic_id": "TH-VI-0487",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765462.142135,
-      "fence": "75d01cf30ef8468abc65261690c12d72",
-      "heartbeat_at": "2026-10-23T13:54:22.142118+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0487"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4178,13 +4180,13 @@
     },
     "TH-VI-0487": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "9f6e72d61b3a548912f2b9551c82746a159e4f87766f664964c31880befcdf6e",
-      "commit": "f39610cc5d01b515bc25bdad746e4fead34cecfa",
-      "fence": "5bed230f3c8f4d7b9ae167fcfa0dcfc4",
+      "article_sha": "d476c459c6f3c96a0b64a206872f2fe2c8fe76eb10bf9ce73c1fc02b0732ee9a",
+      "commit": "1f5ed49aebf64946297e754b53dfdabb62a16cca",
+      "fence": "75d01cf30ef8468abc65261690c12d72",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:36.694731+00:00"
+      "submitted_at": "2026-10-23T13:54:25.310552+00:00"
     },
     "TH-VI-0491": {
       "agent_id": "claude-writer-W1",
@@ -7903,7 +7905,6 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "một ngày nghỉ muốn đi nhiều nơi nên bỏ bớt điểm nào",
       "proposed_title": "Chỉ có một ngày nghỉ mà muốn đi ba nơi: bỏ bớt điểm nào để chuyến đi không thành cuộc chạy đua",
@@ -7916,7 +7917,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0487",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7952,5 +7953,5 @@
       ]
     }
   },
-  "version": 488
+  "version": 489
 }
