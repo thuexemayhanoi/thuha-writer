@@ -16,8 +16,9 @@ cannot reach any website except api.github.com: research with the Parallel
    and report: this branch holds work the shared ledger has not got, and the owner decides how to hand it over.
 1. `python3 -m thuha.cli --git-branch claim --session <SESSION> --agent-id <AGENT>`
    SESSION is `w<N>-<date>-<random>` (letters, digits, dashes, 4–80 chars),
-   AGENT is `claude-writer-W<N>`. Save slot, fence, topic_id from the output.
-   If it fails with "No admissible researched topic", stop and report.
+   AGENT is `claude-writer-W<N>`. Save slot, fence, topic_id from the output. `next --language vi` ranks what can be written now; add
+   `--topic-id <ID>` to claim one of those instead of the next in order (the topic must be claimable and unleased; the claim records that it
+   was picked). If it fails with "No admissible researched topic", stop and report.
 2. `python3 -m thuha.cli --git-branch pack --topic-id <TOPIC> --out pack.json` (read-only; `next` shows what can be written now).
    Read the topic record and intent, the category chain and canonical, the shop facts and reference prices, the saved
    sources and the other topics' sources that fit, the live same-language links and archives, the images with alt text in the

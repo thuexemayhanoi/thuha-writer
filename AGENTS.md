@@ -76,6 +76,8 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   holds the shared bands, templates and fix hints. The advisory lint (`src/thuha/writing.py`) never adds or removes a point and never changes a
   hard failure. `submit` refuses (nothing stored, no repair spent) a draft the precheck knows is faulty, or one that waits for data it did not
   declare, or declares a wait for data that exists; `--waiting-for auto` declares exactly what is missing, `--allow-faults` stores a faulty draft on purpose.
+  `claim` keeps its order (Vietnamese first); `claim --topic-id ID` takes one claimable, unleased topic in a language below its ceiling instead, and the
+  claim event records `picked`, so a topic nobody can finish here does not stand in front of the ones that can be written.
 
 ## Language contract (enforced in code; do not weaken)
 

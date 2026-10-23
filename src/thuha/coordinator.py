@@ -54,10 +54,17 @@ def claimable(topic):
     return topic['status'] in ('NEEDS_REPAIR','PLANNED') or (topic['status']=='WAITING_DATA' and not topic.get('waiting_for'))
 
 
-def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,revise=None):
+def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,revise=None,pick=None):
+    """Take the next topic in order (Vietnamese first), or `revise` a stored draft that waits for data, or `pick` one claimable topic.
+
+    `pick` is an informed override of the order for a writer that knows which topics it can finish (`next` ranks them): a topic that needs a
+    page nobody can read here must not stand in front of ones that can be written. It takes only a topic that is claimable anyway, unleased,
+    in a language that is not at its ceiling, and the claim event says it was picked.
+    """
     if not re.fullmatch('[a-zA-Z0-9_-]{4,80}',session) or not agent_id.strip():
         raise ValueError('Stable session and explicit external agent attribution required')
     if slot!='auto' and slot not in SLOTS:raise ValueError('Unknown writer slot')
+    if revise and pick:raise ValueError('Choose one: revise a stored draft, or pick a topic')
     fence=uuid.uuid4().hex
     def transaction(state):
         recover(state)
@@ -78,12 +85,17 @@ def claim(store,session,agent_id,slot='auto',ttl=1800,counts=None,targets=None,r
             waits=bool(candidate) and (candidate['status']=='WAITING_DATA' or revise in qa_blocked(state))
             if not waits or candidate['topic_id'] in busy or candidate['language'] in full:
                 raise ValueError('Only an unleased draft that waits for data can be revised this way')
+        elif pick:
+            candidate=state['topics'].get(pick)
+            if not candidate or not claimable(candidate) or candidate['topic_id'] in busy or candidate['language'] in full:
+                raise ValueError('That topic cannot be claimed now: unknown, not claimable, already leased, or its language is at its ceiling')
         else:
             candidates=sorted((x for x in state['topics'].values() if claimable(x) and x['language'] not in full),key=claim_order)
             candidate=next((x for x in candidates if x['topic_id'] not in busy),None)
             if not candidate:raise ValueError('No admissible researched topic; external research required')
         lease={'slot':available,'session':session,'agent_id':agent_id,'topic_id':candidate['topic_id'],
                'language':candidate['language'],'fence':fence,'heartbeat_at':now(),'expires_at':timestamp()+ttl}
+        if pick:lease['picked']=True
         if candidate['status']=='WAITING_DATA' or revise:candidate['completion_pending']=True # the next submission completes the stored draft
         state['leases'][available]=lease;candidate['status']='CLAIMED'
         event(state,'CLAIM',**lease)

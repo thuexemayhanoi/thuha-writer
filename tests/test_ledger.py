@@ -509,8 +509,8 @@ class RealLedgerTests(unittest.TestCase):
         self.assertEqual(state['reviews'], handoff['reviews'])
         self.assertEqual(state['qa'], handoff['qa'])
         self.assertEqual(state['events'][:len(handoff['events'])], handoff['events'])
-        # The 57 English topics of the V5 session are still there; Vietnamese topics may have been added since.
-        self.assertEqual(len([t for t in state['topics'].values() if t['language'] == 'en']), 57)
+        # The 57 legacy English topics of the V5 session are still there; topics admitted from matrix rows (TH-VI-####, TH-EN-####) may have been added since.
+        self.assertEqual(len([k for k, t in state['topics'].items() if t['language'] == 'en' and k.startswith('TH-0')]), 57)
         self.assertTrue(all(t['language'] in ('en', 'vi') for t in state['topics'].values()))
         self.assertEqual(state['receipts'], {})
         self.assertEqual(state['intents'], {})

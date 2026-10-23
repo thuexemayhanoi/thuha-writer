@@ -150,6 +150,15 @@ class LintTests(unittest.TestCase):
         self.assertIn('LINT_POLICY_AMOUNT', self.price_codes('Thuê xe máy Nguyễn Hà thu cọc 500.000 đồng khi nhận xe.'))
         self.assertEqual(self.price_codes('Ví dụ, nếu cửa hàng thu cọc 500.000 đồng thì hãy hỏi khi nào được hoàn lại.'), [])
 
+    def test_the_extension_fee_the_owner_confirmed_is_an_approved_amount_and_an_invented_one_is_not(self):
+        without = {k: v for k, v in FACTS.items() if k != 'extension_policy'}
+        facts = dict(without, extension_policy={'hourly_rate_vnd': 20000, 'one_rental_day_when_extension_hours_exceed': 6, 'confirmed_by': 'website owner'})
+        sentence = '<p>Thuê xe máy Nguyễn Hà tính phí gia hạn %s đồng mỗi giờ.</p>'
+        codes = lambda amount, business: [f['code'] for f in writing.lint(self.article(self.GOOD + sentence % amount), self.TOPIC, business, None, CFG)]
+        self.assertNotIn('LINT_PRICE_NOT_APPROVED', codes('20.000', facts))
+        self.assertIn('LINT_PRICE_NOT_APPROVED', codes('30.000', facts))  # the old rate was superseded and is not a fact
+        self.assertIn('LINT_PRICE_NOT_APPROVED', codes('20.000', without))  # nothing confirmed it in a file that holds no such policy
+
     def test_a_point_inside_an_interval_is_a_precision_the_shop_did_not_state(self):
         article = self.article(self.GOOD + '<p>Giá thuê khoảng 175.000 đồng một ngày. ' + CFG['disclaimer']['vi'] + '</p>',
                                business_claims=[{'kind': 'reference_price', 'vehicle': 'manual', 'period': 'day', 'value_vnd': 175000}])

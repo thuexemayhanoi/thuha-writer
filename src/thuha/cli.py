@@ -122,6 +122,7 @@ def main(argv=None):
     sub.add_parser('quota');sub.add_parser('adapter-preflight');sub.add_parser('package')
     q=sub.add_parser('claim');q.add_argument('--session',required=True);q.add_argument('--agent-id',required=True);q.add_argument('--slot',default='auto')
     q.add_argument('--revise',metavar='TOPIC_ID',help='Claim a stored WAITING_DATA draft, or a finished one whose QA is BLOCKED_DATA, to revise it (not a repair)')
+    q.add_argument('--topic-id',metavar='TOPIC_ID',help='Claim this claimable topic instead of the next one in order (see `next`); the claim records that it was picked')
     for command in ('heartbeat','release','submit'):
         q=sub.add_parser(command);q.add_argument('--slot',required=True);q.add_argument('--session',required=True);q.add_argument('--fence',required=True)
         if command=='submit':
@@ -207,7 +208,7 @@ def main(argv=None):
         inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory));planning=inventory_max_age(inv,policy,factory);validate_inventory(inv,planning);note=None
         try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],inventory_max_age=planning)
         except ValueError as exc:note=str(exc) # e.g. inventory not language-authoritative; claiming itself stays possible
-        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets(),args.revise))
+        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets(),args.revise,args.topic_id))
         if note:result['refill_note']=note
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
@@ -256,6 +257,7 @@ def main(argv=None):
         save(target,article)
         result=runtime.precheck(store,state,inv,args.topic_id,article,policy,facts)
         result['article_file']=str(target)
+        result['left_out_stale_sources']=writing.stale_sources(data)
         if result['content_fails'] or any(f['severity']=='fix' for f in result['lint']):exit_code=1
         elif result['data_waits']:exit_code=3
         elif not result['would_pass_qa']:exit_code=1

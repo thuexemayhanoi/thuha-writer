@@ -5,7 +5,7 @@ import unittest
 from collections import Counter
 from thuha import matrix
 from thuha.common import ROOT, SITE, load
-from thuha.language import post_url, split_url
+from thuha.language import LEGACY_TOPIC_ID, post_url, split_url
 from thuha.research import validate_candidate
 from thuha.store import LocalStore, migrate
 
@@ -95,14 +95,23 @@ class CommittedMatrixTests(unittest.TestCase):
             for cid, want in planned.items():
                 self.assertLessEqual(abs(actual[cid] - want), max(3, round(want * 0.2)), (lang, cid))
 
-    def test_queued_rows_are_exactly_the_english_topics_of_the_session_ledger(self):
+    def test_queued_rows_are_exactly_the_legacy_english_topics_of_the_session_ledger(self):
         ledger = migrate(load(ROOT / 'data/state/factory.json'))
         queued = {r['id']: r for r in self.m['en']['rows'] if r['kind'] == 'QUEUED_IN_LEDGER'}
-        english = {k: t for k, t in ledger['topics'].items() if t['language'] == 'en'}
+        english = {k: t for k, t in ledger['topics'].items() if t['language'] == 'en' and LEGACY_TOPIC_ID.fullmatch(k)}
         self.assertEqual(set(queued), set(english))
         for tid, row in queued.items():
             self.assertEqual((row['proposed_url'], row['title'], row['category_id']),
                              (english[tid]['proposed_url'], english[tid]['proposed_title'], english[tid]['category_id']))
+
+    def test_an_english_topic_admitted_from_a_matrix_row_is_that_row_not_a_second_queued_topic(self):
+        ledger = migrate(load(ROOT / 'data/state/factory.json'))
+        rows = {r['id']: r for r in self.m['en']['rows']}
+        for tid, topic in ledger['topics'].items():
+            if topic['language'] == 'en' and not LEGACY_TOPIC_ID.fullmatch(tid):
+                self.assertEqual(rows[tid]['kind'], 'NEW', tid)  # still planned by the matrix
+                self.assertEqual((rows[tid]['proposed_url'], rows[tid]['category_id']), (topic['proposed_url'], topic['category_id']), tid)
+                self.assertNotIn(tid, {r['id'] for r in rows.values() if r['kind'] == 'QUEUED_IN_LEDGER'})
 
     def test_no_new_row_repeats_the_intent_of_a_queued_topic(self):
         queued = [r for r in self.m['en']['rows'] if r['kind'] == 'QUEUED_IN_LEDGER']

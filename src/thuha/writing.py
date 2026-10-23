@@ -223,6 +223,7 @@ def price_findings(parsed, text, article, business, cfg, lang):
     claims = [c for c in (article.get('business_claims') or []) if isinstance(c, dict)]
     declared = {c.get('value_vnd') for c in claims}
     policies = {name: keys for name, keys in cfg['readiness']['policy_keywords'].items() if name in business.get('unconfirmed_policies', [])}
+    confirmed = {business['extension_policy']['hourly_rate_vnd']} if (business.get('extension_policy') or {}).get('hourly_rate_vnd') else set()  # a fee the owner confirmed
     quoted, unapproved, undeclared, inside, policy_amounts = {}, {}, {}, {}, {}
     for _, block in parsed.blocks:
         for sentence in sentences(block):
@@ -242,7 +243,7 @@ def price_findings(parsed, text, article, business, cfg, lang):
                         if _contains(folded, keys):
                             policy_amounts.setdefault(amount, name)
                 if not matches:
-                    if named:
+                    if named and amount not in confirmed:
                         unapproved.setdefault(amount, sentence[:120])
                     continue
                 quoted.setdefault(amount, sentence[:120])
@@ -473,8 +474,12 @@ def source_status(store, ref, policy):
     official = host.endswith(('.gov.vn', '.gov.uk', '.gov', '.gouv.fr')) or host in ('unece.org', 'www.unece.org')
     note = ('first-party: supports statements about the shop only (name, address, hours, reference prices); never an official source for a legal claim' if first_party
             else 'official host: may support a regulated claim' if official else 'external page: the saved capture holds the title and a short excerpt only; read the page again to write facts from it')
-    return dict(out, current=bool(current), age_days=days, kind='first-party' if first_party else 'external', host=host, official=official,
-                excerpt_words=len(str(evidence.get('excerpt', '')).split()), note=note)
+    out = dict(out, current=bool(current), age_days=days, kind='first-party' if first_party else 'external', host=host, official=official,
+               excerpt_words=len(str(evidence.get('excerpt', '')).split()), note=note)
+    if first_party and not current:
+        out['problem'] = ('the shop facts file changed or the capture is too old: run `source --repository-file config/business-facts.json` and pass the new '
+                          'document in the meta file as extra_sources; `build` leaves this stale one out')
+    return out
 
 
 def expectations(topic, inv, policy):
@@ -624,6 +629,11 @@ def datawait_rules(lang):
 
 # ------------------------------------------------------------------------------------------------ building a draft
 
+def stale_sources(data):
+    """The saved sources `compose` leaves out because they are no longer current (the shop facts file changed, or the capture is too old)."""
+    return [{'url': s['url'], 'document': s['document'], 'problem': s.get('problem') or 'not current'} for s in data['sources']['saved'] if not s.get('current')]
+
+
 def compose(data, body_html, meta, session=None, agent_id=None, source_commit=None):
     """An article from the pack's skeleton, a body and a small meta file: nothing the repository already knows is typed again."""
     if not data.get('skeleton'):
@@ -647,7 +657,8 @@ def compose(data, body_html, meta, session=None, agent_id=None, source_commit=No
         raise ValueError('featured_media %r is not one of the verified options for this language; nothing is invented' % (media,))
     article['featured_media'] = media
     article['business_claims'] = list(meta.get('business_claims', []))
-    article['sources'] = article['sources'] + list(meta.get('extra_sources', []))
+    current = {s['document'] for s in data['sources']['saved'] if s.get('current')}
+    article['sources'] = [s for s in article['sources'] if s['document'] in current] + list(meta.get('extra_sources', []))  # a stale capture is a certain QA fault
     article['body_html'] = str(body_html).strip()
     return article
 

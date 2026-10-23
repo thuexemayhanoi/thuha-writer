@@ -136,6 +136,25 @@ class PackTests(Cli):
         self.assertEqual([(s['url'], s['used_by'], s['current']) for s in out['sources']['reusable']], [(evidence['url'], 'TH-VI-0002', True)])
         self.assertEqual(out['skeleton']['sources'][0]['document'], first['sources'][0]['document'])  # nothing is attached on the writer's behalf
 
+    def test_a_first_party_capture_the_facts_file_has_outgrown_is_left_out_and_the_fresh_one_goes_in(self):
+        topic, _ = self.leased()
+        stale = {'url': 'repo://config/business-facts.json', 'checked_at': now(), 'http_status': 200, 'response_sha256': 'a' * 64, 'file_sha256': '0' * 64,
+                 'capture_method': 'repository-file', 'excerpt': 'x', 'page_title': 'config/business-facts.json'}
+        ref = dict(topic['sources'][0], url=stale['url'], document=self.store.put_document(stale))
+        self.store.mutate(lambda s: s['topics']['TH-VI-0001'].update(sources=[ref]))
+        pack = self.run_cli('pack', '--topic-id', 'TH-VI-0001')[1]
+        self.assertFalse(pack['sources']['saved'][0]['current'])
+        self.assertIn('source --repository-file', pack['sources']['saved'][0]['problem'])
+        fresh = self.run_cli('source', '--repository-file', 'config/business-facts.json')[1]
+        extra = {'url': fresh['url'], 'document': fresh['document'], 'supports': 'Thông tin cửa hàng dùng ở phần liên hệ của bài, chụp lại sau khi tệp đổi.'}
+        with patch('thuha.writing.git_head', return_value=COMMIT):
+            code, out = self.run_cli('build', '--topic-id', 'TH-VI-0001', '--body', self.write('body.html', self.body(topic)),
+                                     '--meta', self.write('meta.json', dict(self.META, extra_sources=[extra])), '--out', str(Path(self.temp.name) / 'built.json'))
+        article = load(Path(out['article_file']))
+        self.assertEqual([s['document'] for s in article['sources']], [fresh['document']])
+        self.assertEqual([s['document'] for s in out['left_out_stale_sources']], [ref['document']])
+        self.assertNotIn('SOURCE_STALE_OR_UNVERIFIED', out['hard_fails'])
+
     def test_planned_pages_are_listed_but_are_never_live_links(self):
         self.leased()
         out = self.run_cli('pack', '--topic-id', 'TH-VI-0001')[1]
@@ -356,6 +375,48 @@ class SubmitGuardTests(Cli):
         path = self.write('a.json', self.article(topic, lease, agent_id='someone-else'))
         with self.assertRaisesRegex(ValueError, 'provenance'):
             self.run_cli(*self.submit_args(lease, path))
+
+
+class PickTests(Cli):
+    """`claim --topic-id`: an informed override of the order, for a writer that knows which topics it can finish."""
+
+    def seeded(self):
+        vi, en = self.distinct(2), self.candidate(1, 'en')
+        intake(self.store, [vi, en], self.inv)
+        return vi, en
+
+    def test_a_writer_can_pick_a_topic_that_the_order_would_not_give_yet(self):
+        self.seeded()
+        default = claim(self.store, 'session-d', 'writer-d')
+        self.assertEqual(default['topic_id'], 'TH-VI-0002')  # Vietnamese first when nothing is picked
+        code, out = self.run_cli('claim', '--session', 'session-p', '--agent-id', 'writer-p', '--topic-id', 'TH-EN-0001')
+        self.assertEqual((code, out['topic_id'], out['picked']), (0, 'TH-EN-0001', True))
+        event = self.store.read()['events'][-1]
+        self.assertEqual((event['action'], event['topic_id'], event['picked']), ('CLAIM', 'TH-EN-0001', True))
+
+    def test_an_ordinary_claim_is_not_marked_as_picked(self):
+        self.seeded()
+        self.assertNotIn('picked', claim(self.store, 'session-d', 'writer-d'))
+
+    def test_only_a_claimable_unleased_topic_can_be_picked(self):
+        self.seeded()
+        claim(self.store, 'session-d', 'writer-d')  # leases TH-VI-0002
+        for topic in ('TH-VI-0002', 'TH-VI-9999'):
+            with self.assertRaisesRegex(ValueError, 'cannot be claimed now'):
+                claim(self.store, 'session-p', 'writer-p', pick=topic)
+        hold(self.store, 'TH-EN-0001', 'Needs a page that cannot be read here.')
+        with self.assertRaisesRegex(ValueError, 'cannot be claimed now'):
+            claim(self.store, 'session-p', 'writer-p', pick='TH-EN-0001')
+
+    def test_a_language_at_its_ceiling_cannot_be_picked(self):
+        self.seeded()
+        with self.assertRaisesRegex(ValueError, 'cannot be claimed now'):
+            claim(self.store, 'session-p', 'writer-p', counts={'vi': 0, 'en': 500}, targets={'vi': 500, 'en': 500}, pick='TH-EN-0001')
+
+    def test_a_pick_and_a_revision_are_two_different_requests(self):
+        self.seeded()
+        with self.assertRaisesRegex(ValueError, 'Choose one'):
+            claim(self.store, 'session-p', 'writer-p', revise='TH-VI-0002', pick='TH-VI-0002')
 
 
 class NextTests(Cli):

@@ -49,7 +49,7 @@ automatic QA, and the historical [reviewer brief](V5-REVIEWER-BRIEF.md) is kept 
 
 ```
 python3 -m thuha.cli --git-branch next --language vi      # what can be written now, in order (read-only; HELD topics are never offered)
-python3 -m thuha.cli --git-branch claim --session SESSION --agent-id claude-writer-W1
+python3 -m thuha.cli --git-branch claim --session SESSION --agent-id claude-writer-W1 [--topic-id TH-VI-0134]   # next in order, or this claimable topic (recorded as picked)
 python3 -m thuha.cli --git-branch pack --topic-id TH-VI-0001 --out pack.json     # everything the repository already holds for the topic (read-only)
 python3 -m thuha.cli --git-branch build --topic-id TH-VI-0001 --body body.html --meta meta.json   # article.json from the pack + the precheck, in one step
 python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # the older read-only handoff: same-language links, images with that language's alt text
@@ -65,6 +65,9 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
   source), then saved external sources that must be read again, and last the topics that overlap another (`CHECK_OVERLAP`). A HELD
   topic is never offered, and a topic that needs an official or manufacturer page nobody has read is counted, not offered. Topics about a
   policy the shop has not confirmed (deposit, refund, delivery, extension) are marked: the article says what to ask, never what the policy is.
+* `claim` gives the next topic in order, Vietnamese first. A writer that knows from `next` which topics it can finish may name one with
+  `--topic-id`: the topic must be claimable, unleased and in a language below its ceiling, and the claim event records `picked`. Without it a topic that
+  needs a page nobody can read here would stand in front of all the ones that can be written.
 * `pack` assembles, for one topic, the confirmed intent and category chain, the canonical URL, the shop's name, address, hours, phone and
   reference prices (a price with no reference is listed as such), the saved sources that are still current and, separately, other topics'
   sources that fit, the live same-language pages and category archives it may link to (planned pages are listed but are not live links), the
