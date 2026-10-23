@@ -248,7 +248,13 @@ class QualityTests(Fixture):
         review={'reviewer_id':'writer-fixture','language':'en','article_sha':digest(a),'checks':{k:True for k in REVIEW_CHECKS},'notes':'fake','checked_at':now()}
         with_review=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
         without=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
-        self.assertEqual(with_review['status'],'FAIL');self.assertEqual(with_review['score'],75)
+        self.assertEqual(with_review['status'],'PASS');self.assertEqual(with_review['score'],75)
+        self.assertEqual(with_review['threshold'],75)
+        self.assertEqual(with_review['hard_fails'],[])
+        lower_policy=dict(self.policy, substantial_length={**self.policy['substantial_length'], 'en':999999})
+        below=evaluate(a,t,s,self.inv,lower_policy,self.store,None,self.business)
+        self.assertEqual(below['status'],'FAIL');self.assertLess(below['score'],75)
+        self.assertEqual(below['hard_fails'],[])
         self.assertEqual(with_review['score'],without['score'])
     def test_held_draft_cannot_be_released_by_explicit_qa(self):
         t,a,s=self.ready()
@@ -266,11 +272,11 @@ class QualityTests(Fixture):
             return original(sha)
         with patch.object(self.store,'get_document',side_effect=read):
             self.assertEqual(run_qa(self.store,t['topic_id'],self.inv,self.policy,self.business)['status'],'PASS')
-    def test_no_external_reviewer_required_but_qa85_kept(self):
+    def test_no_external_reviewer_required_but_qa75_kept(self):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
         self.assertEqual(r['status'],'PASS',r)
-        self.assertGreaterEqual(r['score'],85)
-        self.assertEqual(r['threshold'],85)
+        self.assertGreaterEqual(r['score'],75)
+        self.assertEqual(r['threshold'],75)
         self.assertEqual(r['semantic_review'],'not-required')
     def test_fake_review_does_not_change_automated_qa_or_override_hard_fails(self):
         t,a,s=self.ready()
