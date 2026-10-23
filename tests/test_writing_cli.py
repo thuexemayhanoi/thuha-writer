@@ -181,7 +181,11 @@ class PackTests(Cli):
         self.assertEqual([(c['id'], c['source']) for c in out['taxonomy']], [(140, 'inventory'), (146, 'matrix'), (152, 'inventory')])
         self.assertTrue(any('matrix row' in n for n in out['notes']))
         self.assertEqual(out['internal_links']['service_target']['candidates'], [])
-        self.assertIn('never guess a slug', out['internal_links']['service_target']['note'])
+        self.assertEqual((out['internal_links']['service_target']['url'], out['internal_links']['service_target']['note']),
+                         ('https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/', 'confirmed address'))  # a live page recorded from the adapter inventory
+        monthly = self.run_cli('pack', '--topic-id', 'TH-VI-0058')[1]['internal_links']['service_target']
+        self.assertEqual((monthly['key'], monthly['url']), ('monthly', None))
+        self.assertIn('no dedicated live page', monthly['note'])  # nothing is guessed for a service that has no Vietnamese page
 
     def test_an_unknown_topic_is_refused(self):
         with self.assertRaisesRegex(ValueError, 'Unknown topic'):

@@ -1,46 +1,46 @@
 {
   "schema_version": 1,
-  "note": "Service/landing targets an article may point its call-to-action and internal links at. English URLs come from the committed live snapshot. The 11 Vietnamese static pages are known to exist but their slugs are not in this repository, so every vi_url is null until the credentialed publisher lists them (PENDING_LIVE_VI_PAGE_INVENTORY). Never invent a Vietnamese page URL.",
+  "note": "Service/landing targets an article may point its call-to-action and internal links at. English URLs come from the committed live snapshot. Vietnamese URLs come from the authenticated adapter inventory of 2026-10-23 (see static-pages.json vietnamese_pages for the evidence): seven keys have a dedicated live Vietnamese page, and the others (monthly, electric, old-quarter, sale) have none, so their vi_url stays null (NO_DEDICATED_LIVE_VI_PAGE). Never invent a Vietnamese page URL: a writer links to what the pack lists as live.",
   "keys": {
     "home": {
       "label_en": "Rental and sale home page",
       "label_vi": "Trang chủ thuê và bán xe",
       "en_url": "https://rentbikehanoi.com/",
       "scope": "main money page; articles must not compete with it for the head keyword",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "faq": {
       "label_en": "Rental FAQ",
       "label_vi": "Câu hỏi thường gặp",
       "en_url": "https://rentbikehanoi.com/faq/",
       "scope": "short answers; articles go deeper on one question",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/cau-hoi-thuong-gap/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "contact": {
       "label_en": "Contact and booking",
       "label_vi": "Liên hệ và đặt xe",
       "en_url": "https://rentbikehanoi.com/contact-us/",
       "scope": "how to reach the shop",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/lien-he/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "about": {
       "label_en": "About the shop",
       "label_vi": "Giới thiệu cửa hàng",
       "en_url": "https://rentbikehanoi.com/about-us/",
       "scope": "business identity",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/gioi-thieu/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "prices": {
       "label_en": "Rental prices guide",
       "label_vi": "Bảng giá thuê xe",
       "en_url": "https://rentbikehanoi.com/motorbike-rental-prices-in-hanoi/",
       "scope": "owner-approved reference prices only",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "monthly": {
       "label_en": "Monthly rental",
@@ -48,23 +48,23 @@
       "en_url": "https://rentbikehanoi.com/monthly-motorbike-rental-hanoi/",
       "scope": "long-term rental offer",
       "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url_status": "NO_DEDICATED_LIVE_VI_PAGE_2026-10-23"
     },
     "delivery": {
       "label_en": "Delivery and pickup",
       "label_vi": "Giao nhận xe",
       "en_url": "https://rentbikehanoi.com/motorbike-rental-hanoi-delivery-and-pickup-guide-complete-service-overview-2025/",
       "scope": "pickup, delivery and return process; policy beyond business-facts is unconfirmed",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/giao-nhan-xe-may-ha-noi/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "scooter": {
       "label_en": "Automatic scooter rental",
       "label_vi": "Thuê xe ga",
       "en_url": "https://rentbikehanoi.com/hanoi-scooter-rental/",
       "scope": "automatic scooter offer",
-      "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url": "https://rentbikehanoi.com/vi/thue-xe-ga-ha-noi/",
+      "vi_url_status": "LIVE_VERIFIED_ADAPTER_2026-10-23"
     },
     "electric": {
       "label_en": "Electric scooter rental",
@@ -72,7 +72,7 @@
       "en_url": "https://rentbikehanoi.com/hanoi-electric-scooter-rental/",
       "scope": "electric offer; no electric day rate is approved",
       "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url_status": "NO_DEDICATED_LIVE_VI_PAGE_2026-10-23"
     },
     "old-quarter": {
       "label_en": "Old Quarter stays",
@@ -80,7 +80,7 @@
       "en_url": "https://rentbikehanoi.com/motorbike-rental-hanoi-old-quarter/",
       "scope": "pickup/delivery when staying in the Old Quarter",
       "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url_status": "NO_DEDICATED_LIVE_VI_PAGE_2026-10-23"
     },
     "sale": {
       "label_en": "Motorbikes for sale",
@@ -88,7 +88,7 @@
       "en_url": "https://rentbikehanoi.com/hanoi-motorbike-for-sale/",
       "scope": "purchase offer, separate from rental",
       "vi_url": null,
-      "vi_url_status": "PENDING_LIVE_VI_PAGE_INVENTORY"
+      "vi_url_status": "NO_DEDICATED_LIVE_VI_PAGE_2026-10-23"
     }
   }
 }

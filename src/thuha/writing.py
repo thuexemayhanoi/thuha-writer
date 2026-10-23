@@ -577,7 +577,9 @@ def pack(store, state, inv, topic_id, policy, business, cfg=None):
         pages = [x for x in inv['items'] if x.get('type') == 'pages' and item_language(x) == lang and x.get('public_check', {}).get('http_status') == 200]
         label = {w for w in words(target.get('label', '')) if len(w) > 2}
         target['candidates'] = [{'id': x['id'], 'title': x.get('title'), 'url': urlkey_slash(x['url'])} for x in pages if label and jaccard(label, {w for w in words(x.get('title', '')) if len(w) > 2}) > 0]
-        target['note'] = ('the page exists but its address is not in the repository until an adapter audit lists it; never guess a slug' if not target.get('url') else 'confirmed address')
+        target['note'] = ('confirmed address' if target.get('url') else
+                          'no dedicated live page of this language exists for this service: link the closest live page the pack lists, never guess a slug' if 'NO_DEDICATED' in str(target.get('url_status'))
+                          else 'the page exists but its address is not in the repository until an adapter audit lists it; never guess a slug')
     media = datawait.media_catalogue(inv, lang)
     options = sorted(({'id': m['id'], 'alt_text': m['alt_text'], 'source_url': m.get('source_url'), 'relevance': relevance(keywords, m.get('alt_text'), m.get('source_url'))} for m in media),
                      key=lambda m: (-m['relevance'], m['id']))

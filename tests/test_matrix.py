@@ -134,9 +134,27 @@ class CommittedMatrixTests(unittest.TestCase):
                                  ('NEEDS_SOURCE', None, 'PENDING', 'NOT_MEASURED'), r['id'])
                 self.assertTrue(r['source_requirements']);self.assertGreaterEqual(len(r['internal_link_plan']['links']), 3)
 
-    def test_vietnamese_service_urls_are_never_invented(self):
+    def test_vietnamese_service_urls_are_recorded_live_pages_and_never_invented(self):
+        recorded = {p['url'] for p in load(matrix.DATA / 'static-pages.json')['vietnamese_pages']['pages']}
+        self.assertEqual(len(recorded), 11)
         for r in self.m['vi']['rows']:
-            self.assertIsNone(r['service_target']['url']);self.assertEqual(r['service_target']['url_status'], 'PENDING_LIVE_VI_PAGE_INVENTORY')
+            target = r['service_target']
+            if target['url'] is None:
+                self.assertEqual(target['url_status'], 'NO_DEDICATED_LIVE_VI_PAGE_2026-10-23', r['id'])
+            else:
+                self.assertIn(target['url'], recorded, r['id'])
+                self.assertEqual(target['url_status'], 'LIVE_VERIFIED_ADAPTER_2026-10-23', r['id'])
+
+    def test_a_vietnamese_row_cannot_reuse_a_live_static_page_slug_or_title(self):
+        self.assertIn('lien-he', matrix.existing()['reserved'])
+        self.assertIn('SLUG_COLLIDES_WITH_EXISTING_OR_RESERVED', codes('vi', [seed(c=152, u='bang-gia-thue-xe-may-ha-noi')]))
+        page = matrix.existing()['vi_pages'][2]
+        self.assertEqual(page['title'], 'Bảng giá thuê xe máy Hà Nội')
+        self.assertIn('TOO_CLOSE_TO_LIVE_VI_PAGE', codes('vi', [seed(c=152, t='Bảng giá thuê xe máy Hà Nội', u='bang-gia-thue-xe-may-bai-moi-thu-nghiem')]))
+        for r in self.m['vi']['rows']:
+            if r['kind'] == 'NEW':
+                self.assertTrue(r['dedup']['vi_static_pages_checked'], r['id'])
+                self.assertEqual(r['dedup']['nearest_existing']['kind'], 'page', r['id'])
 
     def test_legal_and_regulated_topics_demand_an_official_source(self):
         pattern = ('giấy phép', 'bằng lái', 'gplx', 'mức phạt', 'luật', 'licence', 'license', 'idp', 'legal', 'fine')

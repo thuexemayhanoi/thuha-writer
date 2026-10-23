@@ -33,9 +33,94 @@
     }
   ],
   "vietnamese_pages": {
-    "count_reported": 11,
-    "slugs": "UNKNOWN_PENDING_LIVE_INVENTORY",
-    "note": "Handoff reports 11 static Vietnamese pages. Matrix slugs are checked against known EN pages and WordPress reserved words here; the publisher must re-check against the live VI page inventory before any reservation."
+    "count": 11,
+    "evidence": {
+      "source": "adapter inventory held in the factory-state ledger (language_source adapter, collection complete, every page published and HTTP 200)",
+      "inventory_document": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
+      "captured_at": "2026-10-23T14:18:01.417680+00:00",
+      "schema": "bilingual-1",
+      "ledger_branch": "factory-state"
+    },
+    "note": "The 11 Vietnamese static pages exist and are published. Matrix slugs and titles are checked against them here; the publisher still re-checks the live inventory before any reservation. Their text is not copied into the repository: a writer links to them and reads the live page.",
+    "pages": [
+      {
+        "id": 3454,
+        "slug": "vi",
+        "url": "https://rentbikehanoi.com/vi/",
+        "title": "Thuê xe máy Hà Nội tại Long Biên",
+        "status": "publish"
+      },
+      {
+        "id": 3455,
+        "slug": "gioi-thieu",
+        "url": "https://rentbikehanoi.com/vi/gioi-thieu/",
+        "title": "Giới thiệu Thuê xe máy Nguyễn Hà",
+        "status": "publish"
+      },
+      {
+        "id": 3456,
+        "slug": "bang-gia-thue-xe-may-ha-noi",
+        "url": "https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/",
+        "title": "Bảng giá thuê xe máy Hà Nội",
+        "status": "publish"
+      },
+      {
+        "id": 3457,
+        "slug": "thue-xe-ga-ha-noi",
+        "url": "https://rentbikehanoi.com/vi/thue-xe-ga-ha-noi/",
+        "title": "Thuê xe ga Hà Nội: Honda Vision, Air Blade và xe điện",
+        "status": "publish"
+      },
+      {
+        "id": 3458,
+        "slug": "thu-tuc-thue-xe-may-ha-noi",
+        "url": "https://rentbikehanoi.com/vi/thu-tuc-thue-xe-may-ha-noi/",
+        "title": "Thủ tục thuê xe máy ở Hà Nội: các bước và điều cần hỏi",
+        "status": "publish"
+      },
+      {
+        "id": 3459,
+        "slug": "giao-nhan-xe-may-ha-noi",
+        "url": "https://rentbikehanoi.com/vi/giao-nhan-xe-may-ha-noi/",
+        "title": "Giao nhận xe máy thuê tại Hà Nội",
+        "status": "publish"
+      },
+      {
+        "id": 3460,
+        "slug": "cau-hoi-thuong-gap",
+        "url": "https://rentbikehanoi.com/vi/cau-hoi-thuong-gap/",
+        "title": "Câu hỏi thường gặp khi thuê xe máy",
+        "status": "publish"
+      },
+      {
+        "id": 3461,
+        "slug": "lien-he",
+        "url": "https://rentbikehanoi.com/vi/lien-he/",
+        "title": "Liên hệ Thuê xe máy Nguyễn Hà",
+        "status": "publish"
+      },
+      {
+        "id": 3462,
+        "slug": "blog",
+        "url": "https://rentbikehanoi.com/vi/blog/",
+        "title": "Blog kinh nghiệm thuê và đi xe máy",
+        "status": "publish"
+      },
+      {
+        "id": 3463,
+        "slug": "chinh-sach-bao-mat",
+        "url": "https://rentbikehanoi.com/vi/chinh-sach-bao-mat/",
+        "title": "Chính sách bảo mật",
+        "status": "publish"
+      },
+      {
+        "id": 3464,
+        "slug": "dieu-khoan-su-dung",
+        "url": "https://rentbikehanoi.com/vi/dieu-khoan-su-dung/",
+        "title": "Điều khoản sử dụng website",
+        "status": "publish"
+      }
+    ]
   },
   "reserved_slugs": [
     "vi",

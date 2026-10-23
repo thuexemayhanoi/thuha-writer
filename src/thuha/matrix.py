@@ -94,8 +94,9 @@ def existing():
     pages = load(DATA / 'static-pages.json')
     queued = [{'id': t['topic_id'], 'slug': t['slug'], 'url': t['url'], 'title': t['title'], 'kind': 'queued'}
               for t in load(DATA / 'existing-queued-en.json')['topics']]
+    vi_pages = [dict(x, kind='page') for x in pages.get('vietnamese_pages', {}).get('pages', [])]
     return {'posts': posts, 'pages': [dict(x, kind='page', title=x['slug'].replace('-', ' ')) for x in pages['pages']],
-            'queued': queued, 'reserved': set(pages['reserved_slugs'])}
+            'queued': queued, 'reserved': set(pages['reserved_slugs']) | {x['slug'] for x in vi_pages}, 'vi_pages': vi_pages}
 
 
 # --- similarity -------------------------------------------------------------
@@ -219,12 +220,14 @@ def finish(rows, lang, tax):
             best = max(((similarity('en', row['title'], o['title']), o) for o in old), key=lambda x: x[0])
             nearest = {'id': best[1]['id'], 'url': best[1]['url'], 'kind': best[1]['kind'], 'score': round(best[0], 3)}
         else:
-            nearest = None  # No Vietnamese post exists; the 11 VI pages are unlisted (see static-pages.json).
+            # No Vietnamese post exists yet; the nearest thing a Vietnamese row can collide with is one of the live static pages.
+            best = max(((similarity('vi', row['title'], o['title']), o) for o in ex['vi_pages']), key=lambda x: x[0], default=None)
+            nearest = {'id': best[1]['id'], 'url': best[1]['url'], 'kind': 'page', 'score': round(best[0], 3)} if best else None
         others = [(similarity(lang, row['title'], m['title']), m) for m in rows if m is not row]
         top = max(others, key=lambda x: x[0]) if others else (0.0, {'id': None})
         row['dedup'] = {'status': 'OFFLINE_DISTINCT_PENDING_LIVE_RECHECK', 'snapshot': SNAPSHOT,
                         'nearest_existing': nearest, 'nearest_new_row': {'id': top[1]['id'], 'score': round(top[0], 3)},
-                        'live_recheck': 'PENDING', 'vi_static_pages_checked': lang == 'en'}
+                        'live_recheck': 'PENDING', 'vi_static_pages_checked': lang == 'en' or bool(ex['vi_pages'])}
         row['writer_state'] = 'NEEDS_SOURCE'
         row['checkpoint'] = None
         row['next_action'] = 'Capture dated primary sources, then submit for independent intent review and intake.'
@@ -341,6 +344,10 @@ def check_rows(rows, lang, complete=False, tax=None, svc=None, allowed_categorie
             kscore = max((similarity('en', row['primary_keyword'], t) for _, t in old_titles), default=0)
             if score >= EXISTING_FAIL or kscore >= KEYWORD_FAIL:
                 out.append(problem('TOO_CLOSE_TO_EXISTING_POST', row, str(near['id']) + ' ' + near['url']))
+        else:
+            page = max(((similarity('vi', row['title'], x['title']), x) for x in ex['vi_pages']), key=lambda pair: pair[0], default=(0, None))
+            if page[1] and page[0] >= TITLE_FAIL:
+                out.append(problem('TOO_CLOSE_TO_LIVE_VI_PAGE', row, str(page[1]['id']) + ' ' + page[1]['url']))
     for stem, ids in stems.items():
         if stem and len(ids) > MAX_STEM_FAMILY and stem.count('PLACE') + stem.count('MODEL') > 0:
             out.append({'code': 'DOORWAY_STEM_FAMILY_TOO_LARGE', 'row': ids[0], 'detail': stem + ' x' + str(len(ids))})
