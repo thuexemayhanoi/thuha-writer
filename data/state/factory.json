@@ -5556,6 +5556,22 @@
       "sha256": "b8b7066ef01c8654d955a44068f9bcc1435a4dd5df2ea384e356719a605d4fe9",
       "status": "PASS",
       "topic_id": "TH-EN-0037"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T15:12:43.319624+00:00",
+      "previous": "b8b7066ef01c8654d955a44068f9bcc1435a4dd5df2ea384e356719a605d4fe9",
+      "sha256": "793b5992321df1f03216c376f14a7a7e0539cf17d882167f76351697d837e5ff",
+      "topic_ids": [
+        "TH-EN-0003",
+        "TH-EN-0006",
+        "TH-EN-0017",
+        "TH-EN-0018",
+        "TH-EN-0023",
+        "TH-EN-0038",
+        "TH-EN-0036",
+        "TH-EN-0031"
+      ]
     }
   ],
   "intents": {
@@ -11693,6 +11709,31 @@
       "status": "READY",
       "topic_id": "TH-EN-0002"
     },
+    "TH-EN-0003": {
+      "admitted_at": "2026-10-23T15:12:43.217354+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental quote currency dollars or dong hanoi",
+      "proposed_title": "Dollars or Vietnamese Dong? Fix the Currency on a Hanoi Rental Quote Before You Pay",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-rental-quote-currency-dollars-or-dong/",
+      "search_intent": "A visitor who received a quote in a foreign currency, or a deposit request in another, wants to confirm which currency is binding, how any conversion is set, and what the receipt should say to avoid disputes at return.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0003"
+    },
     "TH-EN-0005": {
       "admitted_at": "2026-10-23T12:08:22.355566+00:00",
       "category_id": 123,
@@ -11717,6 +11758,31 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0005"
+    },
+    "TH-EN-0006": {
+      "admitted_at": "2026-10-23T15:12:43.233826+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental bike extras second helmet phone holder poncho",
+      "proposed_title": "Add-Ons on a Rental Bike: Which Extras to Ask About Before You Agree the Rate",
+      "proposed_url": "https://rentbikehanoi.com/rental-bike-add-ons-helmet-phone-holder-poncho-ask-before-agreeing-rate/",
+      "search_intent": "A couple booking a bike for a week wants to know whether a second helmet, phone holder, rain poncho, top box or lock is included or charged separately, and how to get that listed in the written quote.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0006"
     },
     "TH-EN-0007": {
       "admitted_at": "2026-10-23T14:51:19.185073+00:00",
@@ -11818,6 +11884,106 @@
       "status": "READY",
       "topic_id": "TH-EN-0012"
     },
+    "TH-EN-0017": {
+      "admitted_at": "2026-10-23T15:12:43.248676+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "motorbike rental shop not replying hanoi",
+      "proposed_title": "No Reply From a Rental Shop in Hanoi: What to Do Before You Arrive",
+      "proposed_url": "https://rentbikehanoi.com/no-reply-from-a-hanoi-rental-shop-what-to-do-before-you-arrive/",
+      "search_intent": "A traveller who messaged a shop about a booking two days before landing has heard nothing, and needs to decide how long to wait, which other channel to try, and what not to pay until someone confirms.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0017"
+    },
+    "TH-EN-0018": {
+      "admitted_at": "2026-10-23T15:12:43.261926+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "lost rental receipt or contract photos motorbike hanoi",
+      "proposed_title": "Lost Your Rental Receipt or Agreement Photos? Rebuild the Record Before You Return the Bike",
+      "proposed_url": "https://rentbikehanoi.com/lost-rental-receipt-or-agreement-photos-rebuild-the-record-before-return/",
+      "search_intent": "A renter whose phone was stolen or reset mid-rental, taking the contract photos and payment receipt with it, needs to contact the shop calmly, reconstruct the pickup record and gather what proof remains before returning.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0018"
+    },
+    "TH-EN-0023": {
+      "admitted_at": "2026-10-23T15:12:43.274592+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "phone number to give motorbike rental shop hanoi",
+      "proposed_title": "Which Phone Number to Give a Rental Shop: Roaming, Local SIM or Messaging App",
+      "proposed_url": "https://rentbikehanoi.com/which-phone-number-to-give-a-hanoi-rental-shop-roaming-sim-or-app/",
+      "search_intent": "A visitor arriving without a local SIM must choose which contact number or messaging account to put on the booking, so the shop can reach them during a breakdown, a late return or a delivery.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0023"
+    },
+    "TH-EN-0031": {
+      "admitted_at": "2026-10-23T15:12:43.319579+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "end monthly motorbike rental notice hanoi",
+      "proposed_title": "Ending a Monthly Rental: How Much Notice to Give and What the Last Day Looks Like",
+      "proposed_url": "https://rentbikehanoi.com/ending-a-monthly-rental-notice-and-the-last-day-in-hanoi/",
+      "search_intent": "A renter leaving Hanoi at the end of the month wants to know when to tell the shop, whether the last day follows a calendar or the pickup date, and what to arrange for the final inspection and deposit conversation.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0031"
+    },
     "TH-EN-0032": {
       "admitted_at": "2026-10-23T14:51:19.209735+00:00",
       "category_id": 125,
@@ -11843,6 +12009,31 @@
       "status": "READY",
       "topic_id": "TH-EN-0032"
     },
+    "TH-EN-0036": {
+      "admitted_at": "2026-10-23T15:12:43.304766+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "book monthly motorbike rental before moving to hanoi",
+      "proposed_title": "Arranging a Monthly Rental Before You Move to Hanoi: What You Can Settle From Abroad",
+      "proposed_url": "https://rentbikehanoi.com/arranging-a-monthly-rental-before-moving-to-hanoi-settle-from-abroad/",
+      "search_intent": "A relocating expat wants a bike lined up for the first month before flying in, and needs to know what can be agreed remotely, such as bike type, start date and a video of the actual bike, and what must wait for arrival.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0036"
+    },
     "TH-EN-0037": {
       "admitted_at": "2026-10-23T14:51:19.220692+00:00",
       "category_id": 125,
@@ -11867,6 +12058,31 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0037"
+    },
+    "TH-EN-0038": {
+      "admitted_at": "2026-10-23T15:12:43.288464+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "fuel level when returning rental motorbike hanoi",
+      "proposed_title": "Return Fuel Level: Agree the Rule at Pickup, Not at the Counter",
+      "proposed_url": "https://rentbikehanoi.com/return-fuel-level-agree-the-rule-at-pickup-not-at-the-counter/",
+      "search_intent": "A renter wants to know whether the bike should come back full, at the same level or paid for by distance, and how to record the starting level and the agreed rule at pickup so return day holds no surprises.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0038"
     },
     "TH-EN-0039": {
       "admitted_at": "2026-10-23T14:51:19.233690+00:00",
@@ -13628,5 +13844,5 @@
       ]
     }
   },
-  "version": 737
+  "version": 738
 }
