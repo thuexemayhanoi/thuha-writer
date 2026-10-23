@@ -123,7 +123,7 @@ run_test( 'category language mismatch is refused and creates nothing', function 
 	check( 'thuha_category_language_mismatch' === code_of( call( '/posts', post_request( array( 'language' => 'en', 'category_id' => 152, '_n' => 2 ) ), 'POST' ) ), 'en into vi category' );
 	check( 'thuha_category_language_mismatch' === code_of( call( '/posts', post_request( array( 'language' => 'vi', 'category_id' => 160, '_n' => 3 ) ), 'POST' ) ), 'vi child under en parent' );
 	check( 'thuha_category_language_mismatch' === code_of( call( '/posts', post_request( array( 'category_id' => 999, '_n' => 4 ) ), 'POST' ) ), 'unknown category' );
-	check( 1 === count( WPWorld::posts_of() ), 'only the accepted image-no-alt post was created' );
+	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
 } );
 
 run_test( 'a Vietnamese category alone never makes a post Vietnamese', function () {
@@ -222,7 +222,7 @@ run_test( 'media and insert failures leave nothing live', function () {
 	check( 'thuha_media_invalid' === code_of( call( '/posts', post_request( array( 'featured_media' => 99999, '_n' => 2 ) ), 'POST' ) ), 'missing media' );
 	WPWorld::$fail_insert = true;
 	check( 'thuha_insert_failed' === code_of( call( '/posts', post_request( array( '_n' => 3 ) ), 'POST' ) ), 'insert failure' );
-	check( 0 === count( WPWorld::posts_of() ), 'nothing created' );
+	check( 1 === count( WPWorld::posts_of() ), 'only the accepted image-no-alt post was created' );
 } );
 
 run_test( 'reconcile by key: unknown, found, foreign and unreadable', function () {
