@@ -6368,6 +6368,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:06:26.569411+00:00",
+      "expires_at": 1792773386.569402,
+      "fence": "d632aefb8076443ba25a9feabedc339b",
+      "heartbeat_at": "2026-10-23T16:06:26.569382+00:00",
+      "language": "vi",
+      "previous": "e0cd805e9e720bb7b1325f681f08f99faaaefaaafb82ec582e0e330f405aa566",
+      "session": "sess-b4",
+      "sha256": "a758f53c1d1351a41e1c75eb8cc68c204b94be8cf6c06298d49abdbab2b185ae",
+      "slot": "W1",
+      "topic_id": "TH-VI-0065"
     }
   ],
   "intents": {
@@ -9343,7 +9357,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773386.569402,
+      "fence": "d632aefb8076443ba25a9feabedc339b",
+      "heartbeat_at": "2026-10-23T16:06:26.569382+00:00",
+      "language": "vi",
+      "session": "sess-b4",
+      "slot": "W1",
+      "topic_id": "TH-VI-0065"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -14334,6 +14359,7 @@
         154
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "thuê xe máy không liên tục trong tháng",
       "proposed_title": "Chỉ cần xe vài ngày mỗi tuần: thuê nguyên tháng hay thuê từng đợt ngắn",
@@ -14346,7 +14372,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0065",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15469,5 +15495,5 @@
       ]
     }
   },
-  "version": 828
+  "version": 829
 }
