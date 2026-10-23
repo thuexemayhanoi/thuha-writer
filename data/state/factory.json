@@ -439,9 +439,9 @@
   "leases": {
     "W1": {
       "agent_id": "claude-writer-W11",
-      "expires_at": 1792723637.48119,
+      "expires_at": 1792723716.039543,
       "fence": "96afbe289bf843c79d504eca05418e51",
-      "heartbeat_at": "2026-10-23T02:17:17.481075+00:00",
+      "heartbeat_at": "2026-10-23T02:18:36.039526+00:00",
       "session": "w11-20261023-d1",
       "slot": "W1",
       "topic_id": "TH-000001"
@@ -2614,5 +2614,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 87
+  "version": 88
 }
