@@ -1,0 +1,89 @@
+{
+  "agent_id": "claude-writer-EN4",
+  "article": {
+    "agent_id": "claude-writer-EN4",
+    "body_html": "<p>\"150\" can mean 150,000 dong or 150 dollars, and those two are worlds apart. A price misunderstanding can start with a number whose currency nobody wrote down. If you are asked for a booking fee, a deposit or an instalment, make the quote, the deposit request and the receipt each name their currency, in words and not only in symbols.</p>\n\n<h2>Why a bare number is not a price</h2>\n<p>Prices in Vietnam can be written in thousands of dong: \"150k\" means 150,000 VND, and a chat message may drop the \"k\" altogether. A visitor who thinks in dollars, euros or pounds can read the same digits very differently. Thuê xe máy Nguyễn Hà gives its reference prices in dong: 150,000 to 200,000 VND for one day on a manual or an automatic bike. They are reference prices, so the bike and the rate have to be confirmed when you book, but they show the scale to expect. A three-digit figure written beside the word \"day\" is far more likely to mean thousands of dong than dollars. \"More likely\" is still not a quote, so ask.</p>\n\n<h2>Ambiguous quotes and the question that settles each</h2>\n<table>\n<thead><tr><th>What you were sent</th><th>What it could mean</th><th>The question to send back</th></tr></thead>\n<tbody>\n<tr><td>\"150 per day\"</td><td>150,000 dong, or 150 of a foreign currency</td><td>\"Is that 150,000 VND per day?\"</td></tr>\n<tr><td>\"150k\"</td><td>Probably 150,000 dong, but the \"k\" does not name a currency</td><td>\"Do you mean 150,000 dong, charged in dong?\"</td></tr>\n<tr><td>\"150.000đ\"</td><td>150,000 dong: in Vietnamese style the dot separates thousands and is not a decimal point</td><td>\"Is that 150,000 VND, and is it per day?\"</td></tr>\n<tr><td>\"10 dollars a day, deposit 100\"</td><td>The deposit may be in dollars or in dong, and the rate may be converted at the counter</td><td>\"Which currency is the deposit in, and who sets the conversion?\"</td></tr>\n</tbody>\n</table>\n<p>The pattern is the same each time: restate the figure with its currency and wait for a yes. A reply that repeats the bare number has not answered you.</p>\n\n<h2>What to settle in writing</h2>\n<ul>\n<li><strong>The currency of the rental rate.</strong> Write VND or USD, not a symbol alone.</li>\n<li><strong>The currency of the deposit.</strong> It can differ from the currency of the rental.</li>\n<li><strong>How any conversion is made.</strong> Whose rate, taken on which day, and whether the result is rounded up or down.</li>\n<li><strong>The currency of every payment you will make.</strong> List every payment the quote shows, and put the currency beside each one.</li>\n<li><strong>The currency printed on the receipt.</strong> Return day then compares like with like.</li>\n</ul>\n<p>If a quote arrives in dong, you can ask the shop to repeat it in words, for example \"one hundred and fifty thousand dong per day, manual bike, five days\". A figure in words is hard to misread, and it is easy to show a bank or a card app later if a payment is disputed.</p>\n\n<h2>Converting for yourself</h2>\n<p>A conversion rate changes from day to day, and the rate used by a card, a banking app or a cash counter can differ from the one a search engine shows. Convert once, on the day you agree, and write down the rate and the time. If you plan to pay by card or transfer, ask your own bank which currency it will take the payment in and what it adds; the shop cannot answer that for you. If a card terminal offers to charge you in your home currency or in dong, ask which one is being charged before you confirm.</p>\n<p>Ask the shop which payment methods and currencies it accepts for each payment before you rely on one of them, because a method accepted for one payment may not be accepted for another. If the two sides remember different currencies, this guide cannot say which one applies; the safest position is the currency both sides confirmed in writing before any money moved.</p>\n\n<h2>Before you send anything</h2>\n<p>A request for money before you arrive deserves a second look at who is asking for it as well as how much. <a href=\"https://rentbikehanoi.com/motorbike-rental-payment-in-hanoi-confirm-the-payee-before-a-bank-transfer/\">Motorbike Rental Payment in Hanoi: Confirm the Payee Before a Bank Transfer</a> explains how to check the account name against the shop before a transfer. If you are comparing two offers that quote in different currencies, convert both to the same one first and then follow <a href=\"https://rentbikehanoi.com/how-to-compare-two-hanoi-motorbike-rental-quotes-line-by-line/\">How to Compare Two Hanoi Motorbike Rental Quotes Line by Line</a>, which shows what to put in each row.</p>\n\n<h2>On return day</h2>\n<p>Put the receipt next to the original quote and read both from the top: currency, amount, dates and any extra line. A difference that is only a currency or a decimal point is easy to clear up at the counter and hard to clear up from another country. If the receipt does not name the currency, ask for it to be added or for a short written note that does. <a href=\"https://rentbikehanoi.com/returning-a-rental-motorbike-in-hanoi-a-receipt-and-handover-checklist/\">Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist</a> lists what else a receipt should show, and <a href=\"https://rentbikehanoi.com/hanoi-motorbike-rental-deposits-how-to-record-payment-and-return/\">Hanoi Motorbike Rental Deposits: How to Record Payment and Return</a> covers the deposit entry in particular.</p>\n<p>The shop's <a href=\"https://rentbikehanoi.com/motorbike-rental-prices-in-hanoi/\">motorbike rental prices page</a> is where to see its reference prices: a scale to expect, not a quote. To ask about a quote, call <a href=\"tel:+84334699969\">0334 699 969</a> between 09:00 and 21:00 or visit Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (near Gia Lâm bus station).</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "automatic"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/hanoi-rental-quote-currency-dollars-or-dong/",
+    "category_id": 123,
+    "featured_media": 662,
+    "focus_keyword": "rental quote currency dollars or dong hanoi",
+    "language": "en-US",
+    "meta_description": "A quote that says 150 may mean dong or dollars. How to confirm the currency of the rate, the deposit and the receipt before you pay for a bike.",
+    "seo_title": "Dollars or Dong? Fix the Currency on a Hanoi Rental Quote",
+    "session": "en-b4-20261023",
+    "source_commit": "635784f5144d62195e7a80abecbc4e7c1315c55b",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Dollars or Vietnamese Dong? Fix the Currency on a Hanoi Rental Quote Before You Pay",
+    "topic_id": "TH-EN-0003"
+  },
+  "article_sha": "0395fe0c2097790779ff6ed4eb9014802038e3142c4052393399d549b236b47a",
+  "category_id": 123,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/hanoi-rental-quote-currency-dollars-or-dong/",
+  "qa": {
+    "report_sha": "c5e9589245208ddc7827fe0f00b30a45ea905e1d87df4be053e63b532da4bf19",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-23T15:40:24.748098+00:00",
+  "topic_id": "TH-EN-0003",
+  "waiting_for": []
+}

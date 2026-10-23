@@ -1,0 +1,64 @@
+{
+  "agent_id": "claude-writer-EN5",
+  "article": {
+    "agent_id": "claude-writer-EN5",
+    "body_html": "<p>You find a Hanoi motorbike shop on a booking platform, and the same shop has its own page with a slightly different price and a different way to book. Which route should you use, and does it change anything about the rental itself? The questions that can differ are who holds the contract, whom you contact if something goes wrong, where the money goes and where the terms are written. Whether Thuê xe máy Nguyễn Hà takes bookings through any platform is not something this guide knows; if you see its name on one, use the checks below.</p>\n\n<h2>Five questions, two routes</h2>\n<table>\n<thead><tr><th>Question</th><th>Through a platform</th><th>Directly with the shop</th></tr></thead>\n<tbody>\n<tr><td>Who holds the contract?</td><td>It may be the platform, the shop or both; the booking terms should say which</td><td>The shop, but the confirmation should name it</td></tr>\n<tr><td>Whom do you contact about a problem?</td><td>Possibly the platform first and then the shop; check the support instructions</td><td>The shop, by the number or channel you were given</td></tr>\n<tr><td>Where does the money go?</td><td>Possibly to the platform, with the shop paid later, or to the shop at pickup; the confirmation should show</td><td>To the shop, so check the payee before you transfer</td></tr>\n<tr><td>Where are the cancellation terms?</td><td>In the platform's terms and in the listing</td><td>In the shop's message or form; ask for them in writing</td></tr>\n<tr><td>What counts as proof?</td><td>The platform confirmation, and the listing as it looked when you booked</td><td>The shop's written confirmation of bike, dates and rate</td></tr>\n</tbody>\n</table>\n<p>The \"platform\" column hedges every answer because arrangements differ from one platform to another. The way to know is to read the booking terms and the confirmation you receive, not to assume.</p>\n\n<h2>Check that it is the same shop</h2>\n<p>Before you book through any route, match the details. The shop's name is Thuê xe máy Nguyễn Hà, it is at Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (near Gia Lâm bus station), it is open 09:00–21:00 daily and its number is <a href=\"tel:+84334699969\">0334 699 969</a>. If a listing shows a different name, address or number, ask the shop directly before you pay. <a href=\"https://rentbikehanoi.com/motorbike-rental-through-a-hotel-identify-the-contracting-shop-and-support-contact/\">Motorbike Rental Through a Hotel: Identify the Contracting Shop and Support Contact</a> shows the same check for another kind of intermediary.</p>\n\n<h2>Compare the price like for like</h2>\n<p>A platform price and a direct price can include different things: a helmet, a service fee, taxes or a deposit. Put the two side by side, line by line, before you decide. <a href=\"https://rentbikehanoi.com/how-to-compare-two-hanoi-motorbike-rental-quotes-line-by-line/\">How to Compare Two Hanoi Motorbike Rental Quotes Line by Line</a> shows how to give each item its own row. The shop's <a href=\"https://rentbikehanoi.com/motorbike-rental-prices-in-hanoi/\">reference prices</a> show the scale to expect, but the figure that counts is the one confirmed in writing for your bike and dates.</p>\n\n<h2>Before you pay through either route</h2>\n<ul>\n<li>Check the payee's name against the shop, or against the platform's name if you pay the platform. <a href=\"https://rentbikehanoi.com/motorbike-rental-payment-in-hanoi-confirm-the-payee-before-a-bank-transfer/\">Motorbike Rental Payment in Hanoi: Confirm the Payee Before a Bank Transfer</a> explains the check.</li>\n<li>Find out what is being paid: the whole rental, a booking fee or a deposit, and in which currency.</li>\n<li>Take screenshots of the listing, the price, the cancellation terms and the confirmation, because a listing can change after you have booked.</li>\n<li>Note the booking reference and the date of the booking.</li>\n</ul>\n\n<h2>If something goes wrong after you have booked</h2>\n<p>Decide in advance whom you will call. If you booked through a platform, keep both numbers: the platform's support contact from the booking terms and the shop's own number. For a breakdown on the road, ask the shop before you set off whom to call, and save that number; for a dispute about payment or cancellation, follow the route that the platform's terms describe. Save the confirmation where you can reach it without a data connection, such as a screenshot in your photo gallery.</p>\n\n<h2>Keep your own line to the shop</h2>\n<p>Even when you book through a platform, message the shop directly with your arrival date and time and ask it to confirm that it has your booking. A confirmation from the shop is one more record, and it shows that the shop and the platform agree about the bike, the dates and the price. If they disagree, ask in writing which one the shop will honour, and keep the answer.</p>\n<p>For example: \"I booked through [platform] under reference [number] for a [bike type] from [date] to [date]. Could you confirm that you have this booking, the price and what is included, and tell me what I should bring at pickup?\" The shop's <a href=\"https://rentbikehanoi.com/contact-us/\">contact page</a> may show other ways to reach it, and <a href=\"https://rentbikehanoi.com/a-motorbike-rental-booking-message-for-hanoi-copy-and-send-template/\">A Motorbike Rental Booking Message for Hanoi: Copy-and-Send Template</a> has fuller wording.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/booking-through-a-platform-or-directly-with-a-hanoi-rental-shop/",
+    "category_id": 124,
+    "featured_media": 76,
+    "focus_keyword": "book motorbike rental through platform or direct hanoi",
+    "language": "en-US",
+    "meta_description": "Same shop on a booking platform and on its own page? Who holds the contract, whom to contact and what to check before paying through either route.",
+    "seo_title": "Platform or Direct Booking for a Hanoi Motorbike: What Changes",
+    "session": "en-b5-20261023",
+    "source_commit": "fefe56cc2bbaa32abc60c7a73068de9181d3488d",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Booking a Hanoi Motorbike Through a Platform or Directly With the Shop: What Changes",
+    "topic_id": "TH-EN-0013"
+  },
+  "article_sha": "21291af52f5552fb579721692eaf5a6c600b41304cdde016f397395718290717",
+  "category_id": 124,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/booking-through-a-platform-or-directly-with-a-hanoi-rental-shop/",
+  "qa": {
+    "report_sha": "d4b07cbbf0983cbf7caf5da8e382509ae5ae601cca4ae5c5bf81b0df696698cd",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-23T16:18:25.959687+00:00",
+  "topic_id": "TH-EN-0013",
+  "waiting_for": []
+}

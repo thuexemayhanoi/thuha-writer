@@ -1,0 +1,63 @@
+{
+  "agent_id": "claude-writer-VI6",
+  "article": {
+    "agent_id": "claude-writer-VI6",
+    "body_html": "<p>Bảng giá ghi một con số cho một ngày thuê xe. Nhưng con số ấy chưa cho biết bạn nhận được những gì ngoài chiếc xe: có hai mũ bảo hiểm hay một, có áo mưa không, ổ khóa phụ và giá đỡ điện thoại nằm trong giá hay tính riêng. Nói cách khác, giá thuê xe máy đã gồm mũ bảo hiểm, áo mưa chưa là câu hỏi mà con số không trả lời. Hỏi những điều này khi đã đứng ở quầy và đã trả tiền thì quá muộn để so sánh với nơi khác. Bài này giúp bạn lập một danh sách ngắn, hỏi một lần và ghi kết quả vào báo giá trước khi đồng ý.</p>\n\n<h2>Năm món nên hỏi</h2>\n<table>\n<thead><tr><th>Món</th><th>Vì sao cần hỏi</th><th>Nên ghi vào báo giá</th></tr></thead>\n<tbody>\n<tr><td>Mũ bảo hiểm cho người lái</td><td>Cần vừa đầu và có quai chắc, không chỉ là có một cái mũ</td><td>Có kèm không, kích cỡ nào, ai kiểm tra độ vừa</td></tr>\n<tr><td>Mũ cho người ngồi sau</td><td>Người ngồi sau cũng cần mũ vừa; một mũ cho hai người là không đủ</td><td>Có mũ thứ hai không, kèm hay tính thêm</td></tr>\n<tr><td>Áo mưa</td><td>Hà Nội có ngày mưa bất chợt, mà đi xe không áo mưa phải dừng lại tìm chỗ trú</td><td>Có kèm không, loại áo hay bộ hai mảnh, trả lại thế nào</td></tr>\n<tr><td>Khóa phụ</td><td>Khóa cổ xe có thể chưa đủ khi để xe qua đêm ở nơi đông người</td><td>Có khóa kèm không, và ai chịu nếu mất khóa</td></tr>\n<tr><td>Giá đỡ điện thoại</td><td>Xem bản đồ tiện hơn, nhưng giá đỡ lỏng lẻo hoặc che tầm nhìn là nguy hiểm</td><td>Có hay không, tính phí hay không, gắn ở đâu</td></tr>\n</tbody>\n</table>\n<p>Các mức giá tham khảo của cửa hàng được ghi theo loại xe. Món nào đi kèm xe, món nào tính riêng hay không có, bài này không biết; đó là điều cửa hàng trả lời. Hãy coi mỗi ô \"nên ghi\" là một câu hỏi bạn sẽ nhận lại bằng chữ.</p>\n\n<h2>Hỏi một lần cho cả năm món</h2>\n<p>Gom cả danh sách vào một tin nhắn để câu trả lời quay về dưới dạng một danh sách bạn có thể lưu lại. Ví dụ: \"Tôi thuê xe [loại xe] trong [số] ngày từ [ngày], đi [một/hai] người. Trong giá thuê, món nào đã gồm, món nào tính thêm và món nào không có: mũ cho người lái, mũ cho người ngồi sau, áo mưa, khóa phụ, giá đỡ điện thoại? Nhờ cửa hàng ghi giá từng món tính thêm và tổng tiền.\"</p>\n\n<h2>Nếu có món tính riêng, cộng vào ngân sách</h2>\n<p>Một món tính theo ngày sẽ nhân với số ngày thuê chứ không chỉ tính một lần. Giả sử một món tính [a] đồng mỗi ngày và bạn thuê [n] ngày, thì tiền món đó là a nhân n. Nếu báo giá ghi món đó là khoản một lần, hãy yêu cầu ghi rõ là một lần. Đặt từng món thành một dòng riêng khi so hai báo giá, để bạn so được giá xe cộng phụ kiện chứ không so giá xe của nơi này với giá trọn gói của nơi kia. Các mức giá tham khảo theo ngày, tuần và tháng của cửa hàng nằm ở <a href=\"https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/\">Bảng giá thuê xe máy Hà Nội</a>.</p>\n\n<h2>Với món liên quan đến an toàn, đừng thỏa hiệp</h2>\n<ul>\n<li><strong>Mũ:</strong> đội thử, cài quai, lắc nhẹ. Mũ trượt về trước hoặc để hở trán là mũ không vừa, kể cả khi nó \"đi kèm\".</li>\n<li><strong>Áo mưa:</strong> chọn loại ôm người, tránh vạt áo bay phấp phới gần bánh xe, xích và tay lái.</li>\n<li><strong>Giá đỡ điện thoại:</strong> phải giữ điện thoại chắc và không che đồng hồ hay tầm nhìn. Đừng nhìn điện thoại khi đang chạy; chỉ dừng xe an toàn rồi xem.</li>\n<li><strong>Khóa:</strong> thử khóa và mở khi còn ở cửa hàng, để biết cách dùng và kiểm tra chìa.</li>\n</ul>\n\n<h2>Nếu cửa hàng không có món bạn cần</h2>\n<p>Có món bạn có thể tự mang: một chiếc mũ đã vừa đầu mình, một chiếc áo mưa gọn, một giá đỡ điện thoại đã quen dùng. Nhưng đừng tự gắn thêm thứ gì lên xe thuê khi chưa hỏi, nhất là khóa phụ hay giá đỡ phải bắt vào tay lái. Hãy hỏi: \"Tôi có được gắn giá đỡ riêng lên xe không?\" Ghi lại câu trả lời. Nếu được gắn, hỏi luôn việc tháo ra khi trả xe để chiếc xe về đúng nguyên trạng.</p>\n\n<h2>Đi nhiều người hoặc thuê nhiều ngày: cộng dồn</h2>\n<p>Nếu bạn thuê hai xe cho bốn người, số mũ và áo mưa tăng theo số người (bốn), còn khóa phụ tăng theo số xe (hai). Hãy ghi số lượng cụ thể vào tin nhắn hỏi thay vì viết \"đủ cho cả nhóm\", vì chữ \"đủ\" có thể được hiểu khác nhau ở hai phía. Khi thuê dài ngày, hỏi riêng xem các món phụ tính theo ngày hay theo cả kỳ thuê, vì một món nhỏ nhân với ba mươi ngày có thể thành một khoản đáng kể. Ghi tổng tiền dự kiến, gồm cả phụ kiện, ngay cạnh giá xe, để cuối kỳ không có con số nào làm bạn bất ngờ.</p>\n\n<h2>Khi nhận xe: kiểm và chụp ảnh các món đi kèm</h2>\n<p>Ngay tại quầy, hãy xem từng món một và chụp ảnh chúng cùng chiếc xe, có cả mũ, khóa và áo mưa trong khung hình. Nhờ cửa hàng ghi vào phiếu hoặc nhắn lại những món đã đưa cho bạn, ví dụ \"kèm xe: hai mũ, một khóa, một áo mưa\". Khi trả xe, bạn sẽ đối chiếu với đúng danh sách ấy. Nếu mất hoặc hỏng một món, hãy hỏi cửa hàng cách xử lý và ghi lại, thay vì đoán trước một con số.</p>\n<p>Để hỏi về những món này, hãy gọi <a href=\"tel:+84334699969\">0334 699 969</a> trong giờ mở cửa (09:00 đến 21:00 mỗi ngày) hoặc dùng trang <a href=\"https://rentbikehanoi.com/vi/lien-he/\">Liên hệ Thuê xe máy Nguyễn Hà</a>.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/bao-gia-thue-xe-da-gom-mu-ao-mua-khoa-gia-do-dien-thoai/",
+    "category_id": 152,
+    "featured_media": null,
+    "focus_keyword": "giá thuê xe máy đã gồm mũ bảo hiểm áo mưa chưa",
+    "language": "vi",
+    "meta_description": "Giá thuê xe máy đã gồm mũ bảo hiểm, áo mưa chưa? Khóa phụ và giá đỡ điện thoại tính thế nào? Cách hỏi một lần và ghi từng món vào báo giá.",
+    "seo_title": "Hỏi gì khi báo giá thuê xe: mũ bảo hiểm, áo mưa, khóa, giá đỡ điện thoại",
+    "session": "vi-b6-20261023",
+    "source_commit": "ee5a294ec4b17f359aa91e008935bad9554b4309",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Báo giá thuê xe đã gồm những gì: mũ bảo hiểm, áo mưa, khóa và giá đỡ điện thoại",
+    "topic_id": "TH-VI-0010"
+  },
+  "article_sha": "acf2f0e064668072ab22874b6ee977616a24948da56df2cc99adff936bcc439f",
+  "category_id": 152,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/bao-gia-thue-xe-da-gom-mu-ao-mua-khoa-gia-do-dien-thoai/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T15:52:12.613971+00:00",
+  "topic_id": "TH-VI-0010",
+  "waiting_for": [
+    "FEATURED_MEDIA"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "agent_id": "claude-writer-VI7",
+  "article": {
+    "agent_id": "claude-writer-VI7",
+    "body_html": "<p>Bạn hẹn nhận xe lúc 09:30, đến đúng giờ, nhưng nghe nói xe chưa về hoặc chưa kiểm xong. Bạn đứng ở cửa với lịch của mình: một cuộc họp, một chuyến tàu, giờ nhận phòng. Khi đến nhận xe thuê nhưng xe chưa sẵn sàng, hai câu hỏi cần có câu trả lời ngay là chờ bao lâu, và tiền thuê bắt đầu tính từ lúc nào. Bài này không biết cách cửa hàng trả lời; nó giúp bạn hỏi đúng, tự đặt giới hạn chờ của mình và ghi lại để hai bên cùng nhớ một mốc giờ.</p>\n\n<h2>Ba tình huống và câu hỏi cho từng tình huống</h2>\n<table>\n<thead><tr><th>Tình huống</th><th>Điều có thể xảy ra</th><th>Câu nên hỏi</th></tr></thead>\n<tbody>\n<tr><td>Xe chưa về từ người thuê trước</td><td>Phải chờ, dời giờ hoặc đổi sang xe khác</td><td>Dự kiến mấy giờ xe về, có xe thay thế không, giá có khác không</td></tr>\n<tr><td>Cửa hàng nói xe đang được chuẩn bị</td><td>Chưa biết phải chờ bao lâu</td><td>Còn bao lâu nữa, bạn có thể bắt đầu kiểm xe cùng lúc không</td></tr>\n<tr><td>Thủ tục hoặc thanh toán chưa xong</td><td>Chờ đến khi hai bên chốt xong mọi thứ</td><td>Còn thiếu gì, bạn cần làm gì để xong nhanh hơn</td></tr>\n</tbody>\n</table>\n\n<p>Trang <a href=\"https://rentbikehanoi.com/vi/thu-tuc-thue-xe-may-ha-noi/\">Thủ tục thuê xe máy ở Hà Nội: các bước và điều cần hỏi</a> nói về các bước thuê và những điều cần hỏi, còn trang <a href=\"https://rentbikehanoi.com/vi/giao-nhan-xe-may-ha-noi/\">Giao nhận xe máy thuê tại Hà Nội</a> nói về việc giao nhận xe.</p>\n\n<h2>Ba câu hỏi nên hỏi ngay</h2>\n<ol>\n<li><strong>Xe sẵn sàng lúc mấy giờ?</strong> Xin một giờ cụ thể thay vì \"một lát nữa\".</li>\n<li><strong>Ngày thuê tính từ giờ hẹn hay từ lúc bạn nhận xe?</strong> Đây là câu quan trọng nhất cho khoản tiền sau này.</li>\n<li><strong>Nếu chờ quá một mốc bạn đặt ra, có xe khác hoặc dời giờ được không,</strong> và tiền thuê được điều chỉnh ra sao?</li>\n</ol>\n\n<h2>Chờ bao lâu là hợp lý?</h2>\n<p>Không có con số dùng chung cho mọi người, vì mức hợp lý phụ thuộc vào lịch của bạn. Cách làm là tự tính giới hạn của mình ngay lúc đầu. Ví dụ minh họa: bạn có cuộc họp lúc 11:00, đường từ cửa hàng đến nơi họp mất 25 phút, bạn muốn đến sớm 10 phút và cần 30 phút để kiểm xe. Tính ngược từ 11:00: bạn phải xuất phát muộn nhất lúc 10:25, nên xe phải sẵn sàng muộn nhất lúc 09:55. Với giờ hẹn 09:30, bạn chỉ có thể chờ tối đa 25 phút. Quá mốc đó, hãy nói với nhân viên rằng bạn cần đổi phương án. Các con số trong ví dụ chỉ để minh họa; hãy thay bằng lịch thật của bạn.</p>\n\n<h2>Cách nói chuyện khi phải chờ</h2>\n<p>Chờ xe không phải lỗi của nhân viên đang đứng trước mặt bạn. Hãy giữ giọng bình tĩnh và hỏi những câu có thể trả lời bằng một con số hoặc một ngày giờ, thay vì hỏi \"bao giờ có xe?\":</p>\n<ul>\n<li>\"Anh/chị cho tôi biết giờ cụ thể xe sẵn sàng được không? Tôi cần biết để sắp xếp lịch.\"</li>\n<li>\"Trong lúc chờ, tôi có thể xem trước chiếc xe hoặc bắt đầu các bước kiểm xe không?\"</li>\n<li>\"Nếu quá [giờ], tôi sẽ phải đổi kế hoạch. Khi đó cửa hàng có phương án nào không?\"</li>\n</ul>\n\n<h2>Ghi lại để hai bên cùng nhớ một mốc giờ</h2>\n<ul>\n<li>Giờ bạn đến cửa hàng.</li>\n<li>Giờ nhân viên nói xe sẵn sàng.</li>\n<li>Giờ bạn thực sự nhận xe.</li>\n<li>Câu trả lời về giờ bắt đầu tính thuê.</li>\n</ul>\n<p>Bạn có thể gửi tin nhắn: \"Tôi đến cửa hàng lúc [giờ] theo hẹn nhận xe lúc [giờ hẹn]. Xe sẵn sàng lúc [giờ]. Nhờ cửa hàng xác nhận giúp tôi: ngày thuê tính từ [giờ hẹn / giờ nhận], và giờ trả xe là [giờ].\" Chụp màn hình câu trả lời.</p>\n\n<h2>Một bảng ghi mốc giờ bạn có thể chép lại</h2>\n<table>\n<thead><tr><th>Mốc</th><th>Giờ</th><th>Ghi chú</th></tr></thead>\n<tbody>\n<tr><td>Giờ hẹn nhận xe</td><td>[điền]</td><td>Theo tin nhắn đã hẹn</td></tr>\n<tr><td>Giờ bạn đến cửa hàng</td><td>[điền]</td><td>Chụp màn hình giờ trên điện thoại nếu cần</td></tr>\n<tr><td>Giờ nhân viên báo xe sẵn sàng</td><td>[điền]</td><td>Ghi tên người báo</td></tr>\n<tr><td>Giờ bạn nhận xe</td><td>[điền]</td><td>Sau khi kiểm xe xong</td></tr>\n<tr><td>Giờ trả xe đã thỏa thuận</td><td>[điền]</td><td>Nhờ cửa hàng xác nhận bằng chữ</td></tr>\n</tbody>\n</table>\n\n<h2>Nếu bạn phải rời đi trong lúc chờ</h2>\n<p>Nếu lịch của bạn không cho phép chờ tại chỗ, hãy hỏi xem bạn có thể quay lại sau một khoảng thời gian cụ thể không, và xe hoặc chỗ của bạn có được giữ trong thời gian đó không. Cửa hàng có đồng ý hay không là việc của cửa hàng; điều bạn cần là một câu trả lời rõ ràng, tốt nhất bằng tin nhắn, kèm giờ bạn sẽ quay lại. Đừng rời đi chỉ với một câu \"lát nữa quay lại là có xe\" mà không có giờ.</p>\n\n<h2>Khi được đưa xe khác hoặc dời giờ</h2>\n<ul>\n<li><strong>Xe khác:</strong> vẫn kiểm xe và chụp ảnh như bình thường. Ghi lại mẫu xe, số km, mức xăng và vết xước có sẵn của chiếc xe mới. Hỏi giá có khác không, nhất là khi xe thuộc loại khác, và ghi lại câu trả lời.</li>\n<li><strong>Dời giờ:</strong> xin xác nhận giờ mới bằng tin nhắn, kèm giờ trả tương ứng.</li>\n<li><strong>Đừng bỏ bước kiểm xe vì đã chờ lâu.</strong> Càng vội, càng dễ bỏ sót vết xước hay lỗi phanh.</li>\n</ul>\n\n<h2>Chuẩn bị để một lần chờ không làm hỏng kế hoạch</h2>\n<ul>\n<li>Đặt giờ nhận cách xa mốc quan trọng nhất của bạn, để còn khoảng đệm.</li>\n<li>Lưu số cửa hàng trong điện thoại và gọi báo nếu bạn đến sớm hoặc trễ so với giờ hẹn.</li>\n<li>Sạc đầy điện thoại, vì bạn sẽ cần bản đồ, ảnh và tin nhắn.</li>\n<li>Nếu có thể, nhắn xác nhận lại giờ hẹn vào hôm trước hoặc sáng cùng ngày.</li>\n</ul>\n<p>Nếu cần báo giờ đến, hãy gọi <a href=\"tel:+84334699969\">0334 699 969</a> (09:00 đến 21:00 mỗi ngày).</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/den-dung-gio-hen-nhung-xe-chua-ve-hoac-chua-kiem-xong-cho-bao-lau/",
+    "category_id": 155,
+    "featured_media": null,
+    "focus_keyword": "đến nhận xe thuê nhưng xe chưa sẵn sàng",
+    "language": "vi",
+    "meta_description": "Đến nhận xe thuê nhưng xe chưa sẵn sàng thì hỏi gì? Cách tự đặt giới hạn chờ, hỏi giờ bắt đầu tính thuê và ghi lại mốc giờ bằng tin nhắn.",
+    "seo_title": "Đến đúng giờ hẹn nhưng xe chưa sẵn sàng: chờ bao lâu, tính giờ thế nào",
+    "session": "vi-b7-20261023",
+    "source_commit": "4fd1b2a8d69826cb7743a9e47a4732e5b999664a",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Đến đúng giờ hẹn nhưng xe chưa về hoặc chưa kiểm xong: chờ bao lâu là hợp lý và giờ thuê tính từ lúc nào",
+    "topic_id": "TH-VI-0105"
+  },
+  "article_sha": "494a92a7acd4e012038aa80a7294b4226c36b5ac7f0d5a352584cd4019efed9b",
+  "category_id": 155,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/den-dung-gio-hen-nhung-xe-chua-ve-hoac-chua-kiem-xong-cho-bao-lau/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T16:14:38.343197+00:00",
+  "topic_id": "TH-VI-0105",
+  "waiting_for": [
+    "FEATURED_MEDIA"
+  ]
+}

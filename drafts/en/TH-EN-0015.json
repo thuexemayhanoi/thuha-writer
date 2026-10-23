@@ -1,0 +1,64 @@
+{
+  "agent_id": "claude-writer-EN5",
+  "article": {
+    "agent_id": "claude-writer-EN5",
+    "body_html": "<p>At handover you notice small scuffs on the side panels and grips worn smooth. Neither looks like damage, yet neither is new. The question is not whether the shop will charge for them. It is whether you and the shop mean the same thing by \"normal wear\" and by \"damage\" before the bike leaves.</p>\n\n<h2>Why the line is not obvious</h2>\n<p>Every rented bike picks up marks. A scuff on a footrest, a faded seat and a lever end rubbed smooth can all come from ordinary use, while a cracked panel or a bent lever suggests a knock. A shop and a renter can place the same mark on different sides of the line, and nothing in this guide says where Thuê xe máy Nguyễn Hà places it. That is for the shop to say. What you can do is ask, and write the answer down next to the pickup record.</p>\n\n<h2>Marks and the question that settles each</h2>\n<table>\n<thead><tr><th>What you see at handover</th><th>Why it is ambiguous</th><th>Question to ask</th></tr></thead>\n<tbody>\n<tr><td>Light scuffs on plastic panels</td><td>They could come from use or from a knock</td><td>\"Was this scuff here before I arrived?\"</td></tr>\n<tr><td>Grips worn smooth or a faded seat</td><td>Wear from hands and sun, with no single event behind it</td><td>\"Do you treat grip and seat wear as normal?\"</td></tr>\n<tr><td>A small dent in the fuel tank cover</td><td>Cosmetic, but it has a date of origin</td><td>\"Can we write this dent down in a message we both keep?\"</td></tr>\n<tr><td>A loose mirror or a lever that sits slightly bent</td><td>It may affect control, so it is more than cosmetic</td><td>\"Can this be fixed or swapped before I leave?\"</td></tr>\n<tr><td>A tyre that looks worn</td><td>Wear that matters for grip and for punctures</td><td>\"Is this tyre fit for the riding I plan, and can it be checked before I leave?\"</td></tr>\n</tbody>\n</table>\n<p>A question that can be answered with a plain yes or no is better than one that invites a long discussion. Whatever the answer, ask for the mark to be written down before you take the keys.</p>\n\n<h2>Ask for the shop's line in its own words</h2>\n<ul>\n<li>\"How do you tell normal wear from damage that may be charged?\"</li>\n<li>\"Is there a written list of what counts as damage, or is it judged on return?\"</li>\n<li>\"Who decides, and how will I be told if something is judged to be damage?\"</li>\n<li>\"Will you explain the reasoning and any amount in writing before I agree to it?\"</li>\n</ul>\n<p>Write the answers beside the pickup record, with the date and the name of the person who gave them. If the answer is \"it depends\", ask for an example: one concrete mark and which side of the line it falls on. A worked example tells you more than a general phrase.</p>\n\n<h2>Make the line easier to draw at pickup</h2>\n<p>The clearest protection for both sides is a record made before the bike leaves. Photograph every side, the controls, the tyres and each mark you can find, with a coin or key beside the small ones; <a href=\"https://rentbikehanoi.com/rental-bike-damage-photos-a-hanoi-handover-shot-list/\">Rental Bike Damage Photos: A Hanoi Handover Shot List</a> gives the full list of angles. Then sketch the bike from above and from each side on a sheet of paper or in a note, and mark each scuff with a number that matches a photograph. Ask the shop to look at the sketch and say whether anything is missing, and keep a photograph of it.</p>\n\n<h2>When a new mark appears during the rental</h2>\n<p>Report it when you notice it rather than at return, and say whether you know how it happened. A mark from a minor knock is easier to settle when it is reported the same day than when it is found at return. <a href=\"https://rentbikehanoi.com/rental-motorbike-falls-over-while-parked-document-damage-before-moving-on/\">Rental Motorbike Falls Over While Parked: Document Damage Before Moving On</a> shows how to record damage on the spot. Do not try to rub out a scuff or replace a part yourself: that can turn a small mark into a bigger question.</p>\n\n<h2>On return day</h2>\n<p>Compare the bike with your photographs and your sketch before you hand over the keys. If the shop points to a mark, ask which photograph or record it is comparing with, and ask for the assessment to be written down: the mark, the reason and any figure. If you disagree, say so calmly and ask what the shop would need to see. <a href=\"https://rentbikehanoi.com/returning-a-rental-motorbike-in-hanoi-a-receipt-and-handover-checklist/\">Returning a Rental Motorbike in Hanoi: A Receipt and Handover Checklist</a> is a short checklist for the handback. The shop's <a href=\"https://rentbikehanoi.com/faq/\">FAQ page</a> is the place to look for short answers to general questions, and you can call <a href=\"tel:+84334699969\">0334 699 969</a> between 09:00 and 21:00.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/normal-wear-or-chargeable-damage-ask-how-hanoi-shop-draws-the-line/",
+    "category_id": 124,
+    "featured_media": 76,
+    "focus_keyword": "normal wear versus damage rental motorbike hanoi",
+    "language": "en-US",
+    "meta_description": "Scuffs and worn grips at handover: which questions to ask about the line between wear and damage, and how to record the answer at pickup.",
+    "seo_title": "Normal Wear or Chargeable Damage on a Hanoi Rental Bike?",
+    "session": "en-b5-20261023",
+    "source_commit": "c3866e81551aa8e7c4f10e762ffc300330a714e1",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Normal Wear or Chargeable Damage? How a Hanoi Rental Shop Draws the Line",
+    "topic_id": "TH-EN-0015"
+  },
+  "article_sha": "f091192b7f3d6410da5951f4737636d434475312524c2e458b4fda0c6b5e1df4",
+  "category_id": 124,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/normal-wear-or-chargeable-damage-ask-how-hanoi-shop-draws-the-line/",
+  "qa": {
+    "report_sha": "e46dbef5c5c48ef59ea9403b3d47c7a04ca74d6fbfd74e09aee9ddd8729a613d",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-23T16:16:54.278805+00:00",
+  "topic_id": "TH-EN-0015",
+  "waiting_for": []
+}

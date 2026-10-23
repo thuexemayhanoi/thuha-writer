@@ -1,0 +1,63 @@
+{
+  "agent_id": "claude-writer-VI7",
+  "article": {
+    "agent_id": "claude-writer-VI7",
+    "body_html": "<p>Bạn thuê xe theo tháng, và giữa kỳ thuê bạn cần về quê một tuần dịp nghỉ lễ hoặc ăn Tết. Xe sẽ đứng yên bảy ngày; kỳ thuê có tính cả những ngày đó hay không thì phải hỏi cửa hàng. Về quê giữa kỳ thuê xe máy tháng, bạn có ba hướng xử lý: giữ nguyên xe và hợp đồng, tạm trả xe rồi thuê lại, hoặc trả hẳn. Mỗi hướng đều có điều chỉ cửa hàng mới trả lời được: tính tiền ra sao, có nhận gửi xe không, có giữ lại đúng chiếc xe của bạn không. Bài này giúp bạn so ba hướng, hỏi đúng câu và ghi lại câu trả lời trước khi lên đường.</p>\n\n<h2>Ba hướng và điều cần hỏi cửa hàng</h2>\n<table>\n<thead><tr><th>Hướng</th><th>Điều có thể xảy ra</th><th>Điều cần hỏi cửa hàng</th></tr></thead>\n<tbody>\n<tr><td>Giữ xe, giữ hợp đồng</td><td>Xe nằm lại chỗ bạn ở; kỳ thuê có thể vẫn tính cả những ngày xe đứng yên</td><td>Có tính đủ ngày không, tôi nên để xe ở đâu và giữ xe thế nào</td></tr>\n<tr><td>Gửi xe lại cửa hàng hoặc tạm trả</td><td>Bạn không phải lo chỗ để xe; cách tính những ngày vắng và việc thuê lại có thể khác</td><td>Cửa hàng có nhận không, tính tiền thế nào, quay lại có xe cùng loại không, giá khi thuê lại ra sao</td></tr>\n<tr><td>Trả hẳn, về lại thì thuê mới</td><td>Kỳ thuê kết thúc và bạn không còn giữ xe nữa</td><td>Giá và điều kiện của kỳ thuê mới, thủ tục có làm lại không, có chắc có xe khi tôi về không</td></tr>\n</tbody>\n</table>\n<p>Không cột nào ở trên là chính sách của cửa hàng. Đó là những khả năng; bạn cần hỏi để biết cách nào được áp dụng.</p>\n\n<h2>Tính nhanh tiền của từng hướng</h2>\n<p>Khi cửa hàng báo cách tính, hãy viết thành phép tính để so sánh. Ví dụ minh họa: giả sử kỳ thuê gồm 30 ngày và bạn vắng 7 ngày. Nếu cửa hàng vẫn tính đủ 30 ngày, bảy ngày xe đứng yên nằm trong khoản bạn trả; nếu cửa hàng cho tạm dừng hoặc tính lại, bạn có thể không phải trả cho bảy ngày đó, tức gần một phần tư kỳ thuê. Hai con số 30 và 7 chỉ là để bạn thấy cách tính; khoản tiền thật phụ thuộc vào cách cửa hàng xác nhận. Hãy đặt cạnh nhau tổng tiền của cả ba hướng thay vì so một dòng giá, và nhớ cộng cả công sức làm lại thủ tục nếu bạn trả hẳn rồi thuê mới.</p>\n\n<h2>Nếu giữ xe ở chỗ bạn trong tuần vắng</h2>\n<ul>\n<li>Chọn nơi có người trông hoặc có khóa chắc; đừng để xe qua đêm ở chỗ vắng.</li>\n<li>Khóa cổ xe và thêm khóa phụ nếu có; hỏi cửa hàng xem bạn được dùng khóa phụ loại nào.</li>\n<li>Chụp ảnh các phía của xe và đồng hồ số km, kèm ngày giờ, trước khi đi.</li>\n<li>Lấy mũ bảo hiểm, giấy tờ và đồ cá nhân ra khỏi cốp xe.</li>\n<li>Hỏi cửa hàng: nếu có việc xảy ra với xe lúc bạn vắng, cửa hàng muốn được báo thế nào, và ai ở chỗ bạn ở có thể liên lạc hộ.</li>\n<li>Với xe điện, hỏi cách giữ pin khi không dùng một tuần và có nên cắm sạc suốt thời gian đó không.</li>\n<li>Khi về, kiểm tra lại lốp, phanh và đèn trước khi chạy, và nổ máy thử ở chỗ đỗ.</li>\n</ul>\n\n<h2>Nếu gửi xe lại hoặc tạm trả</h2>\n<ul>\n<li>Ghi số km, chụp ảnh các phía của xe và ghi giờ bạn đưa xe lại.</li>\n<li>Xin cửa hàng xác nhận bằng chữ: ngày gửi hoặc trả, ngày hẹn lấy lại, xe nào, và cách tính tiền cho những ngày vắng.</li>\n<li>Hỏi khi lấy lại có phải đúng chiếc xe này không. Nếu đổi xe, ghi lại mẫu xe, số km và tình trạng chiếc xe mới như lúc nhận xe lần đầu.</li>\n</ul>\n\n<h2>Chọn hướng nào?</h2>\n<p>Không có đáp án chung, nhưng có vài câu \"nếu… thì…\" giúp bạn quyết định:</p>\n<ul>\n<li>Nếu bạn có chỗ để xe an toàn và muốn giữ đúng chiếc xe đã quen, hãy hỏi trước về hướng giữ nguyên.</li>\n<li>Nếu bạn không có chỗ để xe an toàn, hãy hỏi về gửi xe lại hoặc tạm trả.</li>\n<li>Nếu bạn chưa chắc ngày quay lại Hà Nội, tránh hướng cần cam kết ngày cụ thể và hỏi kỹ điều kiện thuê lại.</li>\n<li>Nếu chênh lệch tiền giữa các hướng nhỏ, ưu tiên hướng ít việc phải làm lại và ít rủi ro cho xe.</li>\n<li>Nếu kỳ nghỉ của bạn dài hơn một tuần, hãy tính lại cả ba hướng, vì cách tính tiền có thể khác khi xe nằm yên lâu hơn.</li>\n</ul>\n\n<h2>Tin nhắn hỏi trước khi đi</h2>\n<p>Tin nhắn gợi ý: \"Tôi đang thuê xe [mẫu xe] theo tháng, kỳ thuê đến [ngày]. Tôi về quê từ [ngày] đến [ngày]. Trong thời gian đó, cửa hàng cho tôi giữ xe, nhận gửi xe hoặc cho tạm trả không? Cách tính tiền cho những ngày này là gì, khi quay lại tôi có xe cùng loại không? Nhờ cửa hàng trả lời bằng tin nhắn.\" Hãy báo ngày quay lại sớm nếu lịch về có thể đổi.</p>\n\n<h2>Khi quay lại Hà Nội</h2>\n<p>Dù bạn giữ xe hay lấy lại xe, hãy coi ngày quay lại như một buổi nhận xe mới. Nhìn xe một lượt, chụp ảnh các phía và đồng hồ số km, thử phanh và đèn trước khi chạy. Nếu xe có vết mới so với ảnh trước khi đi, nhắn cho cửa hàng ngay hôm đó thay vì chờ đến lúc trả xe. Nếu bạn về muộn hơn dự kiến, hãy báo cửa hàng sớm và hỏi lịch thuê được điều chỉnh thế nào; đừng để cửa hàng phải tự đoán ngày bạn quay lại.</p>\n\n<p>Tóm lại: hỏi trước, ghi lại bằng chữ, và đặt cạnh nhau tổng tiền của cả ba hướng. Các mức giá tham khảo theo tháng nằm ở <a href=\"https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/\">Bảng giá thuê xe máy Hà Nội</a>; những bài khác về thuê xe dài ngày nằm trong chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/thue-xe-dai-han/\">Thuê xe dài hạn</a>. Số điện thoại của cửa hàng là <a href=\"tel:+84334699969\">0334 699 969</a> (09:00 đến 21:00 mỗi ngày).</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/ve-que-mot-tuan-giua-ky-thue-thang-de-xe-lai-tra-tam-hay-giu-nguyen/",
+    "category_id": 154,
+    "featured_media": null,
+    "focus_keyword": "về quê giữa kỳ thuê xe máy tháng",
+    "language": "vi",
+    "meta_description": "Về quê giữa kỳ thuê xe máy tháng thì giữ xe, gửi lại hoặc tạm trả, hay trả hẳn? Ba hướng, cách tính tiền để so sánh và câu cần hỏi cửa hàng trước khi đi.",
+    "seo_title": "Về quê một tuần giữa kỳ thuê xe tháng: giữ xe, gửi xe hay trả hẳn",
+    "session": "vi-b7-20261023",
+    "source_commit": "7b7229ae74768c74ebd83b4a6c5f136f78eb62d3",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Về quê một tuần giữa kỳ thuê tháng: để xe lại, trả tạm hay giữ nguyên hợp đồng",
+    "topic_id": "TH-VI-0072"
+  },
+  "article_sha": "3d16a7d4f6c3c51ae34ffee82b619a9f25274c2b8fc8ea8b35ab2fd8574f1985",
+  "category_id": 154,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/ve-que-mot-tuan-giua-ky-thue-thang-de-xe-lai-tra-tam-hay-giu-nguyen/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T16:14:04.898783+00:00",
+  "topic_id": "TH-VI-0072",
+  "waiting_for": [
+    "FEATURED_MEDIA"
+  ]
+}

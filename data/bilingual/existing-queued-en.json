@@ -1,7 +1,7 @@
 {
-  "ledger_events_sha256": "ca9e704a36b25381216decac764f556a2e6f49e3a1aeb8e7f30caecbfc30f7cf",
+  "ledger_events_sha256": "8c789d0f53f2e5fad93820884568b9928a3420f94469f6aeaff3f2a9e51139be",
   "note": "English topics already admitted to the ledger with captured sources. They are not published posts and do not count toward 500 until WordPress confirms them; the English matrix counts them as planned and never re-plans them.",
-  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 737",
+  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 919",
   "status": "QUEUED_NOT_PUBLISHED",
   "topics": [
     {

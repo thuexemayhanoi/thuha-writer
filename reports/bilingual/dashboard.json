@@ -21,18 +21,18 @@
   "blockers": [
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "35 draft(s) wait for data (FEATURED_MEDIA x35): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026, TH-VI-0033, TH-VI-0058"
+    "51 draft(s) wait for data (FEATURED_MEDIA x51): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0010, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0017, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026"
   ],
   "closed_intents": {},
   "factory_published_receipts": 9,
-  "generated_at": "2026-10-23T15:09:54.258244+00:00",
+  "generated_at": "2026-10-23T16:19:08.120563+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 737,
+    "session_ledger_version": 919,
     "shared_ledger_version": 448,
     "status": "FAST_FORWARD"
   },
@@ -57,7 +57,7 @@
       "complete": false,
       "factory_published_receipts": 9,
       "needs_source_or_research": [],
-      "open_topics": 66,
+      "open_topics": 82,
       "over_target": false,
       "published_live": 284,
       "remaining": 216,
@@ -71,7 +71,7 @@
         "PLANNED": 48,
         "PUBLISHED": 9,
         "PUBLISHING": 0,
-        "READY": 18,
+        "READY": 34,
         "RESEARCH": 0,
         "WAITING_DATA": 0
       },
@@ -83,17 +83,17 @@
       "factory_published_receipts": 0,
       "needs_source_or_research": [
         {
-          "created_at": "2026-10-23T14:51:22.845273+00:00",
+          "created_at": "2026-10-23T15:40:17.261364+00:00",
           "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
           "language": "vi",
           "maximum_topics": 100,
-          "planned": 14,
-          "request_id": "research-vi-5ea4b275ae51aaf1",
+          "planned": 16,
+          "request_id": "research-vi-b9db1237c27c80a7",
           "runtime": "External authorized AI session required",
           "status": "AWAITING_EXTERNAL_RESEARCH"
         }
       ],
-      "open_topics": 46,
+      "open_topics": 62,
       "over_target": false,
       "published_live": 0,
       "remaining": 500,
@@ -109,7 +109,7 @@
         "PUBLISHING": 0,
         "READY": 0,
         "RESEARCH": 0,
-        "WAITING_DATA": 35
+        "WAITING_DATA": 51
       },
       "target": 500,
       "unresolved_intents": 0
@@ -227,7 +227,7 @@
   ],
   "publisher_uncertain": [],
   "qa": {
-    "PASS": 27
+    "PASS": 43
   },
   "qa_blocked_data": {},
   "queue": {
@@ -251,17 +251,33 @@
       "qa_pass": [
         "TH-EN-0001",
         "TH-EN-0002",
+        "TH-EN-0003",
         "TH-EN-0005",
+        "TH-EN-0006",
         "TH-EN-0007",
         "TH-EN-0009",
         "TH-EN-0010",
         "TH-EN-0012",
+        "TH-EN-0013",
+        "TH-EN-0015",
+        "TH-EN-0017",
+        "TH-EN-0018",
+        "TH-EN-0020",
+        "TH-EN-0021",
+        "TH-EN-0023",
+        "TH-EN-0030",
+        "TH-EN-0031",
         "TH-EN-0032",
+        "TH-EN-0035",
+        "TH-EN-0036",
         "TH-EN-0037",
+        "TH-EN-0038",
         "TH-EN-0039",
         "TH-EN-0040",
+        "TH-EN-0042",
         "TH-EN-0045",
         "TH-EN-0065",
+        "TH-EN-0075",
         "TH-EN-0125",
         "TH-EN-0126",
         "TH-EN-0139",
@@ -294,18 +310,27 @@
         "TH-VI-0003",
         "TH-VI-0004",
         "TH-VI-0008",
+        "TH-VI-0010",
         "TH-VI-0011",
         "TH-VI-0013",
         "TH-VI-0016",
+        "TH-VI-0017",
         "TH-VI-0018",
         "TH-VI-0019",
         "TH-VI-0022",
         "TH-VI-0026",
         "TH-VI-0033",
         "TH-VI-0058",
+        "TH-VI-0064",
         "TH-VI-0065",
+        "TH-VI-0072",
+        "TH-VI-0086",
+        "TH-VI-0087",
+        "TH-VI-0088",
         "TH-VI-0090",
         "TH-VI-0093",
+        "TH-VI-0100",
+        "TH-VI-0105",
         "TH-VI-0121",
         "TH-VI-0128",
         "TH-VI-0134",
@@ -313,14 +338,21 @@
         "TH-VI-0146",
         "TH-VI-0151",
         "TH-VI-0158",
+        "TH-VI-0176",
         "TH-VI-0197",
         "TH-VI-0218",
         "TH-VI-0224",
+        "TH-VI-0246",
+        "TH-VI-0247",
+        "TH-VI-0248",
+        "TH-VI-0250",
+        "TH-VI-0251",
         "TH-VI-0263",
         "TH-VI-0267",
         "TH-VI-0268",
         "TH-VI-0359",
         "TH-VI-0371",
+        "TH-VI-0373",
         "TH-VI-0445",
         "TH-VI-0459",
         "TH-VI-0484",
@@ -431,6 +463,17 @@
       "status": "FULFILLED"
     },
     {
+      "admitted_topic_ids": [
+        "TH-VI-0064",
+        "TH-VI-0248",
+        "TH-VI-0246",
+        "TH-VI-0176",
+        "TH-VI-0010",
+        "TH-VI-0086",
+        "TH-VI-0088",
+        "TH-VI-0017"
+      ],
+      "completed_at": "2026-10-23T15:15:19.811784+00:00",
       "created_at": "2026-10-23T14:51:22.845273+00:00",
       "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
       "language": "vi",
@@ -438,7 +481,7 @@
       "planned": 14,
       "request_id": "research-vi-5ea4b275ae51aaf1",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     {
       "admitted_topic_ids": [
@@ -489,6 +532,16 @@
       "request_id": "research-vi-b6c6d839c56d89d5",
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
+    },
+    {
+      "created_at": "2026-10-23T15:40:17.261364+00:00",
+      "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 16,
+      "request_id": "research-vi-b9db1237c27c80a7",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
     },
     {
       "admitted_topic_ids": [
@@ -562,9 +615,9 @@
     "PLANNED": 48,
     "PUBLISHED": 9,
     "PUBLISHING": 0,
-    "READY": 18,
+    "READY": 34,
     "RESEARCH": 0,
-    "WAITING_DATA": 35
+    "WAITING_DATA": 51
   },
   "targets": {
     "en": 500,
@@ -580,6 +633,9 @@
     "TH-VI-0008": [
       "FEATURED_MEDIA"
     ],
+    "TH-VI-0010": [
+      "FEATURED_MEDIA"
+    ],
     "TH-VI-0011": [
       "FEATURED_MEDIA"
     ],
@@ -587,6 +643,9 @@
       "FEATURED_MEDIA"
     ],
     "TH-VI-0016": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0017": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0018": [
@@ -607,13 +666,34 @@
     "TH-VI-0058": [
       "FEATURED_MEDIA"
     ],
+    "TH-VI-0064": [
+      "FEATURED_MEDIA"
+    ],
     "TH-VI-0065": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0072": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0086": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0087": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0088": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0090": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0093": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0100": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0105": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0121": [
@@ -637,6 +717,9 @@
     "TH-VI-0158": [
       "FEATURED_MEDIA"
     ],
+    "TH-VI-0176": [
+      "FEATURED_MEDIA"
+    ],
     "TH-VI-0197": [
       "FEATURED_MEDIA"
     ],
@@ -644,6 +727,21 @@
       "FEATURED_MEDIA"
     ],
     "TH-VI-0224": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0246": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0247": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0248": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0250": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0251": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0263": [
@@ -659,6 +757,9 @@
       "FEATURED_MEDIA"
     ],
     "TH-VI-0371": [
+      "FEATURED_MEDIA"
+    ],
+    "TH-VI-0373": [
       "FEATURED_MEDIA"
     ],
     "TH-VI-0445": [
