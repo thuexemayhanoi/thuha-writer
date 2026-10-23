@@ -4936,6 +4936,15 @@
       "sha256": "53d5c9eceb5231b29539cd0567a7d03b9d0e46c8a5c0f1422fab80365bd1de52",
       "slot": "W1",
       "topic_id": "TH-EN-0012"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "0ef54e5c920f95084d14578c5b146f8907b5ea53f2335e8c2d09307a4d358f72",
+      "at": "2026-10-23T14:56:32.790105+00:00",
+      "previous": "53d5c9eceb5231b29539cd0567a7d03b9d0e46c8a5c0f1422fab80365bd1de52",
+      "sha256": "78f86beb2eb36c7af4dac7627bab05f61196306687dbce499ccdb872c684c9f1",
+      "topic_id": "TH-EN-0012"
     }
   ],
   "intents": {
@@ -8428,13 +8437,13 @@
     },
     "TH-EN-0012": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "45079901de45406fb5dff8f393480c8c65ea6c1471ede5de42afbce004c076af",
-      "commit": "8b958b741623ff9f15c5c7657ee7cde2ca623d34",
-      "fence": "dd4f7c8e09244e8483661d20cd6df325",
+      "article_sha": "0ef54e5c920f95084d14578c5b146f8907b5ea53f2335e8c2d09307a4d358f72",
+      "commit": "dda0461c6a3a925e6083fdeabc1f5842bbf21c76",
+      "fence": "8668c0f40567441281eca2669697e2cd",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:45:18.710371+00:00"
+      "submitted_at": "2026-10-23T14:56:32.790079+00:00"
     },
     "TH-EN-0065": {
       "agent_id": "claude-writer-W2",
@@ -11069,7 +11078,6 @@
         123
       ],
       "cluster": "motorbike-rental-guides",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "start motorbike rental on arrival day or next day hanoi",
       "proposed_title": "Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent",
@@ -11082,9 +11090,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0012",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0012"
     },
     "TH-EN-0032": {
       "admitted_at": "2026-10-23T14:51:19.209735+00:00",
@@ -12896,5 +12903,5 @@
       ]
     }
   },
-  "version": 664
+  "version": 665
 }
