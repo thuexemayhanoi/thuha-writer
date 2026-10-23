@@ -432,6 +432,15 @@
       "sha256": "d8a715e4f273c3a04b3bf937779fefa4f63f659955779823486e476f1ccc4da6",
       "slot": "W8",
       "topic_id": "TH-000013"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T02:18:53.000160+00:00",
+      "previous": "d8a715e4f273c3a04b3bf937779fefa4f63f659955779823486e476f1ccc4da6",
+      "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
+      "sha256": "7f9b757966852adc305d1856b9e9734f1cff0b9de40f2e43fc2eabf30e6c9619",
+      "status": "PASS",
+      "topic_id": "TH-000005"
     }
   ],
   "intents": {},
@@ -529,6 +538,11 @@
       "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
       "report_sha": "fa210fd4b9678ea4bbe029323ddc17c63a4740786cd3a37a7b58afec1e51ec6d",
       "status": "FAIL"
+    },
+    "TH-000005": {
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "report_sha": "39dd650e775772c34d1799b8ff3a3cfe5df31c3ee325179bdd6e13e5feffe871",
+      "status": "PASS"
     }
   },
   "receipts": {},
@@ -877,7 +891,7 @@
           "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/tu-ngay-152024-bo-cong-an-cap-phep-viec-mang-phuong-tien-co-gioi-nuoc-ngoai-tham-gia-giao-thong-tai-lanh-tho-viet-nam-d1-t1333"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000005"
     },
     "TH-000006": {
@@ -2617,5 +2631,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 89
+  "version": 90
 }
