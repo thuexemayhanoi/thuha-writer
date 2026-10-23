@@ -7052,6 +7052,15 @@
       "previous": "154bf89a999c0ce2a57e6285ca8cf3e611595cf20748d9decb015a36fbb6cae9",
       "sha256": "8e17c709ec5b85d5b0d8ae219bb601c0e2c2cfd3f9a383a04781256e99818d8a",
       "topic_id": "TH-EN-0042"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-23T16:17:41.568166+00:00",
+      "previous": "8e17c709ec5b85d5b0d8ae219bb601c0e2c2cfd3f9a383a04781256e99818d8a",
+      "report_sha": "3992008ef1d72a7a55f4cbf9883a593d9243cb68b7937cde1611f6b83c8eeb42",
+      "sha256": "6f3c4778be1128b10f4d3827a85b0bf7486f0608b96716d7b6643820ea39729b",
+      "status": "PASS",
+      "topic_id": "TH-EN-0042"
     }
   ],
   "intents": {
@@ -10027,19 +10036,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN5",
-      "expires_at": 1792774051.917508,
-      "fence": "7c56e49f63c649e483a0f1b273ac7491",
-      "heartbeat_at": "2026-10-23T16:17:31.917488+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b5-20261023",
-      "slot": "W1",
-      "topic_id": "TH-EN-0042"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10199,6 +10196,11 @@
     "TH-EN-0040": {
       "article_sha": "e839a8c03ec2f6dfca7d04b397531267ec5a6020f120cddca83aa9d64cfd9c35",
       "report_sha": "b06ee1ee7ecf4e8bbf72dd83f16d7755e8cb58a848a9cff89b7b285561267598",
+      "status": "PASS"
+    },
+    "TH-EN-0042": {
+      "article_sha": "690ee2c29dd3ab6ca9aa8afef92b34f36c69b15017d0d6643bbca6587d55556f",
+      "report_sha": "3992008ef1d72a7a55f4cbf9883a593d9243cb68b7937cde1611f6b83c8eeb42",
       "status": "PASS"
     },
     "TH-EN-0045": {
@@ -14169,7 +14171,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0042"
     },
     "TH-EN-0045": {
@@ -16339,5 +16341,5 @@
       ]
     }
   },
-  "version": 906
+  "version": 907
 }
