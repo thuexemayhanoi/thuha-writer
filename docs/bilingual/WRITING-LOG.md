@@ -56,4 +56,6 @@ Chín bản đã được viết lại và nộp lại (không tính là sửa l
 
 Kiểm ý định độc lập: 8 DISTINCT, 2 OVERLAP (`TH-VI-0086` trùng 0101, `TH-VI-0211` trùng 0049). Hai chủ đề bị trùng **không nhập sổ cái**.
 Tám bản nháp viết sau khi biết các phát hiện ở trên (cùng giọng văn, "nếu có", từ khóa trong thân bài) rồi lưu `WAITING_DATA`:
-TH-VI-0043, 0053, 0063, 0089, 0093, 0095, 0101, 0217. Đã được review biên tập độc lập lần hai cùng với chín bản đã sửa của lô #1 (kết quả bên dưới khi có).
+TH-VI-0043, 0053, 0063, 0089, 0093, 0095, 0101, 0217. Lỗi của chính tôi cần ghi lại: lần nộp đầu của lô #2 vô tình dùng văn bản cũ (trước khi áp dụng các bài học trên) vì một script phụ bỏ qua thư mục
+bản đã sửa. Tôi phát hiện khi đối chiếu số liệu của bản đã lưu (meta quá dài, từ khóa vắng mặt), trước khi có reviewer nào đọc chúng; cả tám bản được nộp lại
+như hoàn thiện bản chờ (không tốn lần sửa) và bản đã lưu nay khớp văn bản đã sửa. Review biên tập độc lập lần hai chạy trên bản đã lưu của cả 17 bài.
