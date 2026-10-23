@@ -4123,6 +4123,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:51:51.535321+00:00",
+      "expires_at": 1792768911.535313,
+      "fence": "4e7276c9cc344ec99150e179dfded084",
+      "heartbeat_at": "2026-10-23T14:51:51.535296+00:00",
+      "language": "vi",
+      "previous": "cfdb084be65e8cc1ef00c1cf23bbe035614f8b3800beed56a4b8410de069c9ba",
+      "session": "sess-b3r",
+      "sha256": "bce8bd8eeb4720475992125338db915f93e54fe5699b035796ab654c9bee9cec",
+      "slot": "W1",
+      "topic_id": "TH-VI-0487"
     }
   ],
   "intents": {
@@ -7098,7 +7112,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792768911.535313,
+      "fence": "4e7276c9cc344ec99150e179dfded084",
+      "heartbeat_at": "2026-10-23T14:51:51.535296+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0487"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11774,6 +11799,7 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "một ngày nghỉ muốn đi nhiều nơi nên bỏ bớt điểm nào",
       "proposed_title": "Chỉ có một ngày nghỉ mà muốn đi ba nơi: bỏ bớt điểm nào để chuyến đi không thành cuộc chạy đua",
@@ -11786,7 +11812,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0487",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -11820,5 +11846,5 @@
       ]
     }
   },
-  "version": 570
+  "version": 571
 }
