@@ -235,8 +235,15 @@ class SecurityTests(unittest.TestCase):
             source=file.read_text();self.assertNotIn('pull_request_target:',source)
             for action in re.findall(r'uses: (\S+)',source):self.assertRegex(action,r'@[a-f0-9]{40}$')
             self.assertIn('persist-credentials: false',source)
-    def test_production_config_is_off(self):
-        value=load(ROOT/'config/release.json');self.assertFalse(value['enabled']);self.assertFalse(value['approved']);self.assertTrue(value['paused'])
+    def test_production_configuration_requires_explicit_owner_approval(self):
+        value=load(ROOT/'config/release.json')
+        if value['enabled']:
+            self.assertTrue(value['approved'])
+            self.assertFalse(value['paused'])
+            self.assertTrue(value['approval_ref'])
+            self.assertTrue(value['cross_publisher_coordination_verified'])
+        else:
+            self.assertFalse(value['approved'])
 
 
 if __name__=='__main__':unittest.main()

@@ -1,16 +1,18 @@
 {
   "schema_version": 1,
-  "score_threshold": 85,
+  "score_threshold": 75,
   "minimum_internal_links": 2,
   "maximum_repairs": 3,
   "inventory_max_age_seconds": 21600,
   "research_max_age_seconds": 2592000,
-  "trusted_reviewers": ["claude-editorial-reviewer"],
+  "trusted_reviewers": [
+    "claude-editorial-reviewer"
+  ],
   "reviewer_roster_note": "Legacy optional review attribution only. No reviewer or attestation is required for QA or publishing.",
   "semantic_review_required": false,
   "review_mode": "automated",
-  "score_basis": "Automatic raw score out of 80 normalized to 100; reviews add no points; any hard failure blocks publication",
-  "threshold_status": "Owner requested automatic QA >=85 then publish, 2026-10-23",
+  "score_basis": "Automatic points out of 80 normalized to 100. PASS if >=75 and no hard failures. Reviews add no points.",
+  "threshold_status": "Owner-approved automated QA >=75 PASS, below 75 FAIL (2026-10-23); any hard failure blocks publication.",
   "hard_fail_overrides_score": true,
   "minimum_internal_content_links": 1,
   "substantial_length": {

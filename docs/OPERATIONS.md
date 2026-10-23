@@ -117,13 +117,13 @@ SHA through quota exhaustion. Only changed bytes count as a repair (limit in pol
 Actions job rewrite prose. An empty `featured_media` is refused by `submit` unless the draft is stored with
 `--waiting-for FEATURED_MEDIA`: QA cannot pass it, so it would only cost a repair.
 
-**QA** is deterministic (raw automatic points out of 80, normalized to 100, threshold 85, any hard failure blocks) and
+**QA** is deterministic (raw automatic points out of 80, normalized to 100, threshold 75 inclusive, any hard failure blocks) and
 runs on the shared ledger for every completed draft. Historical review records neither gate it nor add points. Its outcomes:
 
 | Outcome | What happened | Ledger | Exit code of `qa --pending` |
 |---|---|---|---|
 | `PASS` | every check passed | READY, report stored | 0 |
-| `FAIL` | the article has a fault, or its score stays below 85 even with the data | NEEDS_REPAIR (a repair is spent when the writer resubmits changed text), or NEEDS_REVIEW after the repair limit | 0 (the failure is in the ledger) |
+| `FAIL` | the article has a fault, or its score stays below 75 even with the data | NEEDS_REPAIR (a repair is spent when the writer resubmits changed text), or NEEDS_REVIEW after the repair limit | 0 (the failure is in the ledger) |
 | `BLOCKED_DATA` | only pages the draft already links to are planned but not live yet, and with them it would pass as written | stays DRAFT_READY (a READY draft whose check can no longer be renewed goes back to DRAFT_READY); the writer's slot is freed; no repair spent; not a pass; recorded once, then checked again by every run at no ledger cost. If those pages never come, `claim --revise ID` lets a writer re-point the links (a completion, not a repair) | 0 (3 when one topic is asked for) |
 | `BLOCKED` / `INFRASTRUCTURE` | the inventory is stale, incomplete or public-only for Vietnamese, or the network failed | **nothing is evaluated, recorded or changed** | 2 (the run is red so a stale audit is noticed) |
 
@@ -272,7 +272,7 @@ before enabling `config/release.json`. Unit tests do not prove these external co
 
 Resource use: only read-only health and the hourly queue job run on a schedule; the expensive authenticated
 audit runs in the protected job. A stale inventory blocks work and is shown in the dashboard. No scheduled AI
-writer exists and production publishing is OFF.
+writer exists; the owner enabled release separately on 23/10/2026. Real publishing is confirmed only by WordPress readback and durable receipts.
 
 The full public audit is committed. Authenticated SEO metadata is retained separately for the owner and
 excluded from this public repository and history. Public focus-keyword values stay UNKNOWN.

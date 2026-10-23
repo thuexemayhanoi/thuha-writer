@@ -173,12 +173,13 @@ class CliRuntimeTests(Fixture):
         policy = load(ROOT / 'config/qa.json')
         self.assertFalse(policy['semantic_review_required'])
         self.assertEqual(policy['review_mode'], 'automated')
-        self.assertEqual(policy['score_threshold'], 85)
+        self.assertEqual(policy['score_threshold'], 75)
         self.assertTrue(policy['hard_fail_overrides_score'])
 
     def test_cli_precheck_rejects_a_low_score_even_without_hard_failures(self):
         topic, article, sub = self.ready()
         article.update(seo_title='Short', meta_description='Too short')
+        article['body_html'] = article['body_html'].replace('<h2>Practical stops</h2>', '<h3>Practical stops</h3>')  # below 75, no hard failure
         inventory = os.path.join(self.temp.name, 'inv.json'); json.dump(self.inv, open(inventory, 'w'))
         draft = os.path.join(self.temp.name, 'low.json'); json.dump(article, open(draft, 'w'))
         before = copy.deepcopy(self.store.read())

@@ -7,6 +7,7 @@ import unittest
 from unittest.mock import patch
 from thuha.cli import main
 from thuha.store import LocalStore
+from thuha.common import ROOT, load
 
 
 def run(*argv, env=None):
@@ -61,12 +62,15 @@ class CliTests(unittest.TestCase):
             report = json.loads(stdout.getvalue())
             self.assertEqual(report['adapter']['code'], 'BLOCKED_ADAPTER_NOT_DEPLOYED')
             self.assertTrue(any('BLOCKED_ADAPTER_NOT_DEPLOYED' in b for b in report['blockers']))
-            self.assertFalse(report['production_enabled']);self.assertEqual(report['languages_enabled'], [])
+            release = load(ROOT / 'config/release.json')
+            self.assertEqual(report['production_enabled'], release['enabled'])
+            self.assertEqual(report['languages_enabled'], release['languages_enabled'])
             self.assertIn('Vietnamese first', open(out + '/dashboard.md').read())
 
-    def test_publisher_dry_run_is_read_only_and_reports_no_enabled_language(self):
+    def test_publisher_dry_run_is_read_only_regardless_of_release_state(self):
         code, result, _ = run('publisher', '--mode', 'dry-run')
-        self.assertEqual((result['wordpress_writes'], result['publishing_enabled']), (0, False))
+        self.assertEqual(result['wordpress_writes'], 0)
+        self.assertEqual(result['publishing_enabled'], load(ROOT / 'config/release.json')['enabled'])
 
     def test_production_publishing_refuses_without_every_gate(self):
         with self.assertRaises(ValueError):run('publisher', '--mode', 'production', '--topic-id', 'TH-VI-0001')

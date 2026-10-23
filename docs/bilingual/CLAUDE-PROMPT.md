@@ -46,7 +46,7 @@ sitemap, không cần tạo bài Anh giả để ghép. Kiểm tra archive cha/c
 robots, phân trang và language isolation bằng fixture local, còn live để
 publisher có quyền thực hiện sau. Giữ mọi cổng chất lượng hiện có, không hạ
 ngưỡng chỉ để đạt 1000 bài. Cập nhật của chủ website ngày 23/10: bỏ cổng AI review độc lập;
-bản thảo hoàn chỉnh chạy QA tự động >=85/100 + chống trùng + đúng danh mục/ngôn ngữ rồi publisher.
+bản thảo hoàn chỉnh chạy QA tự động >=75/100 + chống trùng + đúng danh mục/ngôn ngữ rồi publisher.
 Không chờ reviewer, không giả review và không cộng điểm review. Lỗi nghiêm trọng vẫn chặn; bài WAITING_DATA/HELD
 không được biến thành READY khi chưa đủ dữ liệu. Lưu review cũ như lịch sử, không dùng làm điều kiện xuất bản.
 

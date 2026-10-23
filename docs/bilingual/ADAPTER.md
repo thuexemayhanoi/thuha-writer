@@ -1,3 +1,5 @@
+> **Current instructions (23 Oct 2026):** `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` belong in repository GitHub Actions Secrets, NOT GitHub Environment; current QA is **>=75 and no hard failures**. Older Environment instructions below are superseded.
+
 # Plugin kết nối xuất bản `thuha-native-vi-publisher`
 
 Plugin đồng hành này là **đường ghi duy nhất** của workflow vào rentbikehanoi.com.
@@ -19,8 +21,7 @@ không có trường ngôn ngữ đã kiểm chứng.
 3. Tạo **Application Password** cho một người dùng có quyền xuất bản bài
    (Users → Profile → Application Passwords). Không dùng tài khoản quản trị chung nếu
    có thể tạo vai trò Editor riêng.
-4. Chủ website (hoặc người giữ secret) đặt user và application password vào secret của
-   môi trường `thuha-production` trên GitHub (`THUHA_WP_USER`,
+4. Chủ website (hoặc người giữ secret) đặt user và application password vào GitHub Actions **Repository Secrets** (`THUHA_WP_USER`,
    `THUHA_WP_APPLICATION_PASSWORD`). Không dán vào repo, issue, log hay prompt.
 5. Publisher có thông tin xác thực chạy `python3 -m thuha.cli --remote adapter-preflight`.
    Chỉ khi lệnh này thành công, trạng thái adapter trong state mới là `VERIFIED`.

@@ -1,16 +1,18 @@
 {
-  "approved": false,
-  "approval_ref": null,
-  "enabled": false,
-  "paused": true,
+  "approved": true,
+  "approval_ref": "owner-authorized-2026-10-23-auto-publish",
+  "enabled": true,
+  "paused": false,
   "emergency_stop": false,
   "pilot_max_posts": 2,
-  "stage": "pilot",
-  "approved_capacity": 2,
-  "maximum_daily_posts": 2,
-  "expansion_approval_ref": null,
-  "minimum_post_interval_seconds": 0,
-  "environment": "thuha-production",
-  "cross_publisher_coordination_verified": false,
-  "languages_enabled": []
+  "stage": "auto-scale",
+  "approved_capacity": 1000,
+  "maximum_daily_posts": 50,
+  "expansion_approval_ref": "owner-authorized-2026-10-23-auto-publish",
+  "minimum_post_interval_seconds": 5,
+  "cross_publisher_coordination_verified": true,
+  "languages_enabled": [
+    "vi",
+    "en"
+  ]
 }

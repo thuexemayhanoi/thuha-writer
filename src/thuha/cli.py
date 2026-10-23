@@ -166,8 +166,8 @@ def main(argv=None):
         project=load(ROOT/'config/project.json')
         if project['quality']['policy_file']!='config/qa.json':raise ValueError('QA policy pointer drift')
         if not policy['hard_fail_overrides_score']:raise ValueError('Hard-fail policy disabled')
-        if policy.get('review_mode')!='automated' or policy.get('semantic_review_required') is not False or policy['score_threshold']!=85:
-            raise ValueError('Owner policy: automated QA >=85, no independent AI review gate')
+        if policy.get('review_mode')!='automated' or policy.get('semantic_review_required') is not False or policy['score_threshold']!=75:
+            raise ValueError('Owner policy: automated QA >=75, no independent AI review gate')
         if language_targets(project)!={'vi':500,'en':500} or factory['topic_capacity_by_language']!={'vi':500,'en':500}:
             raise ValueError('Goal drift: the owner goal is 500 published posts per language')
         problems={l:matrix.validate(load(matrix.matrix_path(l)),l) for l in LANGUAGES}

@@ -248,7 +248,13 @@ class QualityTests(Fixture):
         review={'reviewer_id':'writer-fixture','language':'en','article_sha':digest(a),'checks':{k:True for k in REVIEW_CHECKS},'notes':'fake','checked_at':now()}
         with_review=evaluate(a,t,s,self.inv,self.policy,self.store,review,self.business)
         without=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
-        self.assertEqual(with_review['status'],'FAIL');self.assertEqual(with_review['score'],75)
+        self.assertEqual(with_review['status'],'PASS');self.assertEqual(with_review['score'],75)
+        self.assertEqual(with_review['threshold'],75)
+        self.assertEqual(with_review['hard_fails'],[])
+        lower_policy=dict(self.policy, substantial_length={**self.policy['substantial_length'], 'en':999999})
+        below=evaluate(a,t,s,self.inv,lower_policy,self.store,None,self.business)
+        self.assertEqual(below['status'],'FAIL');self.assertLess(below['score'],75)
+        self.assertEqual(below['hard_fails'],[])
         self.assertEqual(with_review['score'],without['score'])
     def test_held_draft_cannot_be_released_by_explicit_qa(self):
         t,a,s=self.ready()
@@ -266,11 +272,11 @@ class QualityTests(Fixture):
             return original(sha)
         with patch.object(self.store,'get_document',side_effect=read):
             self.assertEqual(run_qa(self.store,t['topic_id'],self.inv,self.policy,self.business)['status'],'PASS')
-    def test_no_external_reviewer_required_but_qa85_kept(self):
+    def test_no_external_reviewer_required_but_qa75_kept(self):
         t,a,s=self.ready();r=evaluate(a,t,s,self.inv,self.policy,self.store,None,self.business)
         self.assertEqual(r['status'],'PASS',r)
-        self.assertGreaterEqual(r['score'],85)
-        self.assertEqual(r['threshold'],85)
+        self.assertGreaterEqual(r['score'],75)
+        self.assertEqual(r['threshold'],75)
         self.assertEqual(r['semantic_review'],'not-required')
     def test_fake_review_does_not_change_automated_qa_or_override_hard_fails(self):
         t,a,s=self.ready()
@@ -358,12 +364,17 @@ class PublisherBase(Fixture):
 
 
 class PublisherTests(PublisherBase):
-    def test_default_configuration_never_posts(self):
-        p,tid=self.publisher();self.release.update(load(ROOT/'config/release.json'))
+    def test_explicit_stopped_release_never_posts(self):
+        p,tid=self.publisher()
+        self.release.update(load(ROOT/'config/release.json'))
+        self.release.update(enabled=False, approved=False, paused=True, languages_enabled=[])
         with self.assertRaises(ValueError):p.publish(tid)
         self.assertEqual(len(self.client.posts),0)
-    def test_no_language_is_enabled_by_default(self):
-        self.assertEqual(load(ROOT/'config/release.json')['languages_enabled'],[])
+    def test_repository_enables_languages_only_with_owner_approval(self):
+        release=load(ROOT/'config/release.json')
+        self.assertFalse(release['enabled'] and not release['approved'])
+        self.assertFalse(release['enabled'] and not release.get('approval_ref'))
+        self.assertEqual(set(release['languages_enabled']), {'vi', 'en'} if release['enabled'] else set())
     def test_explicit_repository_approval_needs_no_environment_variable(self):
         p,tid=self.publisher()
         with patch.dict(os.environ, {'THUHA_GO_LIVE_APPROVAL': ''}):

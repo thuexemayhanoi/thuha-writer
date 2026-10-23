@@ -95,7 +95,7 @@ class Line(tf.Fixture):
 
     # -- the writer side: a session ledger, then a hand-over -----------------------------------------------------------
 
-    def draft(self, lang, subject, reviewed=True):
+    def draft(self, lang, subject, reviewed=True, soft_qa_75=False):
         keyword, title, slug = subject
         self.sessions += 1
         number = self.sessions
@@ -107,7 +107,10 @@ class Line(tf.Fixture):
         session, agent = 'session-w%d' % number, 'writer-w%d' % number
         lease = claim(self.store, session, agent)
         self.assertEqual(lease['topic_id'], topic['topic_id'])
-        receipt = submit(self.store, lease['slot'], lease['session'], lease['fence'], distinct_body(self.article_for(topic, session, agent), lang))
+        article = distinct_body(self.article_for(topic, session, agent), lang)
+        if soft_qa_75:
+            article.update(seo_title='Short', meta_description='Too short')
+        receipt = submit(self.store, lease['slot'], lease['session'], lease['fence'], article)
         if reviewed:
             review = {'article_sha': receipt['article_sha'], 'reviewer_id': 'reviewer-qa', 'language': lang, 'checked_at': now(),
                       'checks': {k: True for k in quality.REVIEW_CHECKS}, 'notes': 'Synthetic review for an end-to-end test; never evidence.'}
@@ -188,6 +191,14 @@ class FullLineTests(Line):
         self.assertEqual(len(self.wp.post_requests()), posts)
         self.assertEqual(len(self.wp.created), 2)
 
+    def test_explicit_owner_auto_scale_continues_after_two_verified_posts(self):
+        vi1, vi2, en1 = self.two_vietnamese_one_english()
+        auto = dict(stage='auto-scale', approved_capacity=10, maximum_daily_posts=10,
+                    expansion_approval_ref='e2e-synthetic')
+        result = self.drain(**auto)
+        self.assertEqual([p['topic_id'] for p in result['published']], [vi1, vi2, en1])
+        self.assertEqual(len(self.state()['receipts']), 3)
+        self.assertIsNone(result['halted'])
     def test_the_next_stage_publishes_the_rest_only_after_two_public_pages_passed(self):
         vi1, vi2, en1 = self.two_vietnamese_one_english()
         self.drain()
@@ -205,6 +216,16 @@ class FullLineTests(Line):
         with self.assertRaisesRegex(ValueError, 'public-page check passed'):
             self.drain(**scale)
         self.assertEqual(len(self.wp.created), 2)
+
+    def test_score_75_without_reviewer_publishes_and_records_receipt(self):
+        topic_id = self.draft('en', EN[0], reviewed=False, soft_qa_75=True)
+        self.assertEqual(self.hand_over()['status'], 'FAST_FORWARD')
+        self.assertEqual(self.qa(), {topic_id: 'PASS'})
+        report = self.shared.get_document(self.state()['qa'][topic_id]['report_sha'])
+        self.assertEqual((report['score'], report['threshold'], report['hard_fails']), (75, 75, []))
+        self.assertEqual([row['topic_id'] for row in self.drain()['published']], [topic_id])
+        self.assertEqual(self.state()['intents'][topic_id]['phase'], 'PUBLISHED')
+        self.assertEqual(len(self.wp.created), 1)
 
     def test_a_draft_without_a_review_passes_qa_and_publishes(self):
         unreviewed = self.draft('vi', VI[2], reviewed=False)
@@ -264,9 +285,9 @@ class FullLineTests(Line):
         self.assertTrue(any(b.startswith('NEEDS_MEDIA') and ' vi ' in b for b in value['blockers']))
         self.assertFalse(any(b.startswith('NEEDS_MEDIA') and ' en ' in b for b in value['blockers']))
 
-    def test_default_configuration_publishes_nothing(self):
+    def test_an_explicit_stopped_release_publishes_nothing(self):
         self.two_vietnamese_one_english()
-        release = load(ROOT / 'config/release.json')
+        release = dict(load(ROOT / 'config/release.json'), enabled=False, approved=False, paused=True, languages_enabled=[])
         with self.assertRaisesRegex(ValueError, 'OFF'):
             pipeline.drain(self.publisher(**release))
         self.assertEqual(self.wp.created, [])
@@ -835,12 +856,18 @@ class WiringTests(unittest.TestCase):
         for mode in ('acknowledge', 'reconcile', 'verify'):
             self.assertIn(mode, publisher)
 
-    def test_nothing_in_the_repository_switches_production_on(self):
+    def test_repository_release_requires_explicit_owner_approval(self):
         release = load(ROOT / 'config/release.json')
-        self.assertFalse(release['enabled'])
-        self.assertFalse(release['approved'])
-        self.assertEqual(release['languages_enabled'], [])
-        self.assertTrue(release['paused'])
+        if release['enabled']:
+            self.assertTrue(release['approved'])
+            self.assertFalse(release['paused'])
+            self.assertTrue(release['approval_ref'])
+            self.assertEqual(set(release['languages_enabled']), {'vi', 'en'})
+            self.assertTrue(release['cross_publisher_coordination_verified'])
+            self.assertEqual(release['pilot_max_posts'], 2)
+        else:
+            self.assertFalse(release['approved'])
+            self.assertEqual(release['languages_enabled'], [])
 
 
 if __name__ == '__main__':
