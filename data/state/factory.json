@@ -2243,11 +2243,36 @@
       "reason": "Held after the second independent editorial review: it audits the shop's own maintenance records, about which nothing is known; revive when the owner has answered the maintenance question.",
       "sha256": "8f4d120fb24856a3103b8dde43ec057348ef4a3c651fde1754dcd137771979e1",
       "topic_id": "TH-VI-0217"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T08:34:15.655629+00:00",
+      "expires_at": 1792746255.65562,
+      "fence": "44ca90d6e7bd41188e5ecfb917bd2914",
+      "heartbeat_at": "2026-10-23T08:34:15.655599+00:00",
+      "language": "vi",
+      "previous": "8f4d120fb24856a3103b8dde43ec057348ef4a3c651fde1754dcd137771979e1",
+      "session": "w7-20261023-r0011",
+      "sha256": "261ce7654d6f1e5c2885c9251d95b6d8581c4b2ad30bfa8e1500fbc0f6c9730a",
+      "slot": "W1",
+      "topic_id": "TH-VI-0011"
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792746255.65562,
+      "fence": "44ca90d6e7bd41188e5ecfb917bd2914",
+      "heartbeat_at": "2026-10-23T08:34:15.655599+00:00",
+      "language": "vi",
+      "session": "w7-20261023-r0011",
+      "slot": "W1",
+      "topic_id": "TH-VI-0011"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -4722,6 +4747,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -4746,7 +4772,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0011",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5419,5 +5445,5 @@
       ]
     }
   },
-  "version": 296
+  "version": 297
 }
