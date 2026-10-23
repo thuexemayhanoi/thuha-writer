@@ -6342,6 +6342,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:06:16.844925+00:00",
+      "expires_at": 1792773376.844916,
+      "fence": "5ca6e942261e4670b90bbe6b24348120",
+      "heartbeat_at": "2026-10-23T16:06:16.844896+00:00",
+      "language": "vi",
+      "previous": "c8aa27e079db20508554617b8ecc51cb12dd24e9c659262e4e1322015cd94417",
+      "session": "sess-b4",
+      "sha256": "f3d6733d83a2a7e561ef0c08e0fca5ef9aa2ab10f9f3bbdcdbe4a503f11095ca",
+      "slot": "W1",
+      "topic_id": "TH-VI-0026"
     }
   ],
   "intents": {
@@ -9317,7 +9331,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773376.844916,
+      "fence": "5ca6e942261e4670b90bbe6b24348120",
+      "heartbeat_at": "2026-10-23T16:06:16.844896+00:00",
+      "language": "vi",
+      "session": "sess-b4",
+      "slot": "W1",
+      "topic_id": "TH-VI-0026"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -13992,6 +14017,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "xe số hay xe ga chi phí cả chuyến",
       "proposed_title": "Xe số hay xe ga cho một tuần ở Hà Nội: cộng tiền thuê, xăng và gửi xe thay vì chỉ so giá mỗi ngày",
@@ -14004,7 +14030,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0026",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15443,5 +15469,5 @@
       ]
     }
   },
-  "version": 825
+  "version": 826
 }
