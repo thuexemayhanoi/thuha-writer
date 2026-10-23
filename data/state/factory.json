@@ -3259,6 +3259,18 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T13:00:04.441297+00:00",
+      "previous": "6903becd4465f7926aabee9a2fb9c4703e509ba96f9980bfad108a83ed67bfaf",
+      "sha256": "1c7f9f115019a43bd9ef253986c774c90bb7fe6af2044378ac3fa8726af6e5c2",
+      "topic_ids": [
+        "TH-VI-0128",
+        "TH-VI-0121",
+        "TH-VI-0263",
+        "TH-VI-0445"
+      ]
     }
   ],
   "intents": {},
@@ -3372,6 +3384,13 @@
       "status": "FULFILLED"
     },
     "research-vi-25b424b7fe3e602e": {
+      "admitted_topic_ids": [
+        "TH-VI-0128",
+        "TH-VI-0121",
+        "TH-VI-0263",
+        "TH-VI-0445"
+      ],
+      "completed_at": "2026-10-23T13:00:04.441286+00:00",
       "created_at": "2026-10-23T12:44:16.004172+00:00",
       "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
       "language": "vi",
@@ -3379,7 +3398,7 @@
       "planned": 10,
       "request_id": "research-vi-25b424b7fe3e602e",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-8ce4098a69750969": {
       "admitted_topic_ids": [
@@ -7044,6 +7063,54 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0121": {
+      "admitted_at": "2026-10-23T13:00:04.418980+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "nhóm bạn đi nhiều xe thuê cùng loại",
+      "proposed_title": "Nhóm bạn đi chung nhiều xe: nên thuê cùng loại xe ga để không ai phải chờ ai?",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhom-ban-di-nhieu-xe-thue-cung-loai-xe-ga/",
+      "search_intent": "Nhóm ba bốn người định đi cùng nhau, mỗi người một xe, băn khoăn nên lấy cùng kiểu xe ga cho tốc độ và độ nhạy tương đương hay mỗi người một kiểu; cần cách chọn để cả nhóm đi đều tay và dễ đỗ cạnh nhau.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0121"
+    },
+    "TH-VI-0128": {
+      "admitted_at": "2026-10-23T13:00:04.408668+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "thuê xe ga dùng thử trước khi mua xe",
+      "proposed_title": "Thuê xe ga một tuần để thử trước khi quyết định mua: cần quan sát những gì trong những ngày đầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-ga-mot-tuan-de-thu-truoc-khi-mua/",
+      "search_intent": "Người đang cân nhắc mua xe ga muốn thuê vài ngày để thử dáng ngồi, độ nặng, cốp và mức xăng thật trong sinh hoạt hằng ngày; cần danh sách quan sát, ghi chép, và phải hỏi cửa hàng điều kiện nếu sau đó muốn mua.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0128"
+    },
     "TH-VI-0134": {
       "admitted_at": "2026-10-23T11:56:51.661304+00:00",
       "category_id": 157,
@@ -7298,6 +7365,30 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0224"
     },
+    "TH-VI-0263": {
+      "admitted_at": "2026-10-23T13:00:04.430804+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "áo phản quang đi xe máy buổi tối ngoại thành",
+      "proposed_title": "Đi buổi tối ra ngoại thành: áo sáng màu hoặc áo phản quang có giúp người khác nhìn thấy mình không",
+      "proposed_url": "https://rentbikehanoi.com/vi/ao-phan-quang-di-xe-may-buoi-toi-ngoai-thanh-co-can-khong/",
+      "search_intent": "Người dự định chạy xe thuê về lại Hà Nội sau khi trời tối trên đoạn đường ít đèn, muốn biết áo sáng màu hay áo phản quang giúp được đến mức nào, cách mặc không vướng gió và có nên đổi giờ về thay vì chỉ mặc thêm đồ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0263"
+    },
     "TH-VI-0267": {
       "admitted_at": "2026-10-23T11:56:51.703497+00:00",
       "category_id": 162,
@@ -7409,6 +7500,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0445": {
+      "admitted_at": "2026-10-23T13:00:04.441257+00:00",
+      "category_id": 168,
+      "category_path": [
+        140,
+        150,
+        168
+      ],
+      "cluster": "kham-pha-ha-noi",
+      "language": "vi",
+      "primary_keyword": "ăn no lái xe máy buồn ngủ",
+      "proposed_title": "Ăn trưa no rồi lại lái xe: buồn ngủ sau bữa ăn và cách xếp giờ nghỉ cho chuyến đi buổi chiều",
+      "proposed_url": "https://rentbikehanoi.com/vi/an-trua-no-roi-lai-xe-may-buon-ngu-xep-gio-nghi/",
+      "search_intent": "Người đi chơi xa bằng xe máy hay ăn một bữa trưa nặng rồi buồn ngủ, cần quyết định chọn món nhẹ hơn, nghỉ bao lâu trước khi lái tiếp và lúc nào nên đổi người lái hoặc dừng hẳn.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0445"
     },
     "TH-VI-0459": {
       "admitted_at": "2026-10-23T11:56:51.742999+00:00",
@@ -7523,5 +7638,5 @@
       ]
     }
   },
-  "version": 400
+  "version": 401
 }
