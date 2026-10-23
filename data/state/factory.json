@@ -3982,11 +3982,36 @@
       "sha256": "fe909bf90ffc3ac5a0a89aba67583291d7c94467958aa8b4b4123409de8ec6f6",
       "slot": "W1",
       "topic_id": "TH-EN-0001"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T13:56:19.723433+00:00",
+      "expires_at": 1792765579.723423,
+      "fence": "31e7473daac94c03a41a215d6465e203",
+      "heartbeat_at": "2026-10-23T13:56:19.723401+00:00",
+      "language": "vi",
+      "previous": "fe909bf90ffc3ac5a0a89aba67583291d7c94467958aa8b4b4123409de8ec6f6",
+      "session": "sess-b3r2",
+      "sha256": "758b0ebec156b0f6e411fccf20b945dde8a9e81f100cbc501a17775a45ac4909",
+      "slot": "W1",
+      "topic_id": "TH-VI-0459"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792765579.723423,
+      "fence": "31e7473daac94c03a41a215d6465e203",
+      "heartbeat_at": "2026-10-23T13:56:19.723401+00:00",
+      "language": "vi",
+      "session": "sess-b3r2",
+      "slot": "W1",
+      "topic_id": "TH-VI-0459"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -8541,6 +8566,7 @@
         169
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi nhóm nhiều xe máy không bị lạc nhau",
       "proposed_title": "Đi chơi trong ngày bằng nhiều xe: thứ tự chạy, điểm dừng chung và cách không bị lạc nhau",
@@ -8553,7 +8579,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0459",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8645,5 +8671,5 @@
       ]
     }
   },
-  "version": 525
+  "version": 526
 }
