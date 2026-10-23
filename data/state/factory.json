@@ -4794,6 +4794,20 @@
       "sha256": "94e5182dc07e750a73e56e03913cf3daa794367c571dab08ec71ad3e6dcfc7f5",
       "status": "PASS",
       "topic_id": "TH-EN-0140"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T14:55:43.937767+00:00",
+      "expires_at": 1792769143.937757,
+      "fence": "85649d22fa8548e7bf53a448e957220c",
+      "heartbeat_at": "2026-10-23T14:55:43.937735+00:00",
+      "language": "en",
+      "previous": "94e5182dc07e750a73e56e03913cf3daa794367c571dab08ec71ad3e6dcfc7f5",
+      "session": "sess-e1c",
+      "sha256": "c7c39344238a92d998857680d58a9fa69ee11d891049d5d27bc4b68f7d2a4e84",
+      "slot": "W1",
+      "topic_id": "TH-EN-0141"
     }
   ],
   "intents": {
@@ -7769,7 +7783,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792769143.937757,
+      "fence": "85649d22fa8548e7bf53a448e957220c",
+      "heartbeat_at": "2026-10-23T14:55:43.937735+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0141"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11175,6 +11200,7 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "following distance motorbike hanoi stop go traffic",
       "proposed_title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
@@ -11187,7 +11213,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0141",
       "waiting_for": []
     },
@@ -12726,5 +12752,5 @@
       ]
     }
   },
-  "version": 647
+  "version": 648
 }
