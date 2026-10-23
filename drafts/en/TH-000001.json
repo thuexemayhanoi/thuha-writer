@@ -47,7 +47,16 @@
     "report_sha": "bd186ce63d5c45393592d9bd42ca6ac2e558f1dc5883e2322b3c6a62382affaa",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W11",
+    "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+    "document": "31bc02ae563ecb1370c11ff57f3870763dd63a7ae296986829bb7d2abf25f593",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:18:46.710571+00:00",
+    "url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+    "wp_id": 3486
+  },
   "repair_count": 1,
   "source_documents": [
     "1c7e39b631768bec8afe7d95f24139238a12fbe0bcbc224c8deea9cee21afe57",
@@ -105,7 +114,7 @@
       "url": "https://baotanghochiminh.vn/gioi-thieu-chung-ve-trung-bay-thuong-xuyen-cua-bao-tang-ho-chi-minh.htm"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:18:58.553053+00:00",
   "topic_id": "TH-000001",
   "waiting_for": []

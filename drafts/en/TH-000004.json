@@ -52,7 +52,16 @@
     "report_sha": "a3d8cfd0cb683b8c90aadc3fbd7f625f55aae84f03d0f392afd57a6e829adc4c",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W4",
+    "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+    "document": "13c1ae51819deae60e2c9a95babb1408ad00a9e767a3d4082e5ff61e0c20d668",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:20:38.231183+00:00",
+    "url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
+    "wp_id": 3492
+  },
   "repair_count": 0,
   "source_documents": [
     "14f9473b2755e0d31b78b38dffd68baf56b35300d0477cd578066fbcdc999a0d",
@@ -128,7 +137,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/nghi-dinh-so-238-2026-nd-cp-sua-doi-quy-dinh-xu-phat-vi-pham-giao-thong-duong-bo-tru-diem-phuc-hoi-diem-giay-phep-lai-xe-119260630142033452.htm"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:16:52.944291+00:00",
   "topic_id": "TH-000004",
   "waiting_for": []

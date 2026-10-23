@@ -17,7 +17,8 @@ python3 -m thuha.cli --remote promote                 # the PLAN: FAST_FORWARD /
 python3 -m thuha.cli --remote promote --apply         # performed by the queue job after a merge to main
 python3 -m thuha.cli --git-branch sync                # plan: bring the session ledger up to the shared one
 python3 -m thuha.cli --git-branch sync --apply        # do it (before a new session starts working)
-python3 -m thuha.cli --git-branch sync --apply --discard-unpromoted   # only after DIVERGED: replace the session ledger, then submit its drafts again
+python3 -m thuha.cli --git-branch sync --apply --discard-unpromoted > plan.json   # only after DIVERGED: replace the session ledger
+python3 scripts/replay_unpromoted.py plan.json -- --git-branch        # then submit its drafts again (add --inventory FILE after -- when admission needs one)
 ```
 
 `promote` is **fast-forward only**: every event of the shared ledger must also be in the session ledger, in the same
@@ -35,14 +36,19 @@ still be handed over; any other replaced draft must have consumed one.
 If the shared ledger holds events the session ledger lacks (Actions ran QA, a publisher wrote an intent) and the session
 also has new work, the verdict is `DIVERGED`, nothing is written, and the reasons name the shared events. Work done on a
 stale copy cannot be merged automatically: `sync` refuses too, because it would discard that work, and it lists what the
-session holds that the shared ledger lacks (`unpromoted`: one entry per draft with its article sha, session and agent, plus the
-event counts). The way out is deliberate and never automatic: `sync --apply --discard-unpromoted` replaces the session ledger
-with the shared one (refused while a writer holds a lease; the replaced ledger stays in the branch history and no immutable
-document is deleted), and each listed draft is then submitted again, one `claim` (`--revise` for a draft that is `WAITING_DATA`,
-`--topic-id` otherwise) with the session and agent the listing names, then `submit --file data/documents/<article_sha>.json`.
-The same article document comes back with the same address and no repair is spent. This happened on 23 October 2026, when the
-owner merged PR #3 while a session was still writing and the queue promoted the ledger and wrote QA: 22 Vietnamese drafts were
-submitted again that way (three English drafts on the list were finished with an image instead, because the refreshed inventory no longer allowed them to wait for one). Start every session with `sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
+session holds that the shared ledger lacks (`unpromoted`: one entry per draft with its article sha, session, agent and submission time,
+the records of the topics only the session had admitted, plus the event counts). The way out is deliberate and never automatic:
+`sync --apply --discard-unpromoted` replaces the session ledger with the shared one (refused while a writer holds a lease; the
+replaced ledger stays in the branch history and no immutable document is deleted), and each listed draft is then submitted again.
+`scripts/replay_unpromoted.py PLAN.json -- --git-branch` does that in submission order (`src/thuha/replay.py`): it admits again the
+topics the shared ledger does not know, then one `claim` per draft (`--revise` for a draft that is `WAITING_DATA`, `--topic-id`
+when it is `PLANNED`) with the session and agent the listing names, then `submit --file data/documents/<article_sha>.json
+--waiting-for auto`. The same article document comes back with the same address and no repair is spent; the submit guard, the
+data-wait classifier and automatic QA run as always. A draft whose topic has moved on in the shared ledger is skipped and reported,
+the first refusal stops the run after releasing its lease, and `--override DIR` submits `DIR/<TOPIC_ID>.json` (a rewritten article)
+instead of the stored document. This happened on 23 October 2026, when the owner merged PR #3 while a session was still writing
+and the queue promoted the ledger and wrote QA: 22 Vietnamese drafts were submitted again that way (three English drafts on the list were finished with an image instead, because the refreshed inventory no longer allowed them to wait for one). It happened a second time the same
+afternoon, once the queue was publishing and its publication events moved the shared ledger again: the round replaced the session ledger, submitted the English drafts again, rewrote the 35 waiting Vietnamese drafts to link to live pages and submitted the new batch. Start every session with `sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
 point to. A session ledger that holds state no event explains (a historical review recorded by older code, for instance) is
 reported `INCONSISTENT` instead of being silently called "already included". A pull request that changes the ledger shows
 this plan (`FAST_FORWARD`, `DIVERGED`, ...) in its `quality` run before anyone merges.
@@ -165,16 +171,18 @@ python3 -m thuha.cli --git-branch claim --session S --agent-id A --revise TH-VI-
 claimable until `waiting_for` is empty, and the dashboard shows it in its own column with the missing codes. `FEATURED_MEDIA`
 requires `featured_media` to stay empty. Finishing a draft after the data arrives is a completion, not a repair: it does not use
 the three bounded repairs, and a lease lost half-way returns the topic to `WAITING_DATA`. A completed draft then goes through
-automatic QA like any other. Each stored Vietnamese draft links to category archives and to sibling drafts of its own batch (none of them live yet): once live Vietnamese content
-exists, the writer adds one link to it when finishing (QA needs at least one live content link, and archives do not count). The best such link is the matrix row's service target
-(`internal_link_plan`, role `service`, status `PENDING_LIVE_VI_PAGE_INVENTORY` until the audit lists the page): every draft then has a live link of its own and none depends on another
-draft being published first (a link to a sibling draft is only `planned`, so two drafts that link only to each other could never pass).
+automatic QA like any other. Eleven Vietnamese static pages are published (the adapter inventory of 23 October lists them; `data/bilingual/static-pages.json` records their
+addresses and the evidence), so a Vietnamese draft links to the category archives of its topic and to the live page that fits it (prices, scooters, procedure, delivery and return, FAQ, contact):
+QA needs at least one live content link, and archives do not count. The matrix row's service target (`internal_link_plan`, role `service`, status `LIVE_VERIFIED_ADAPTER_2026-10-23`)
+names the page; four service keys (monthly, electric, old-quarter, sale) have no dedicated Vietnamese page (`NO_DEDICATED_LIVE_VI_PAGE`), so the writer picks the closest live page the pack lists. Every
+draft then has a live link of its own and none depends on another draft being published first (a link to a sibling draft is only `planned`, so two drafts that link only to each other could never
+pass). The 35 waiting Vietnamese drafts were rewritten that way on 23 October: the only thing they still wait for is an image whose alt text is Vietnamese.
 
 **Links between waiting drafts must not form a loop.** QA fails a link to a page that is not live, so a draft can only pass after every draft it links to is published.
 `next` therefore reports `planned_link_cycles` (groups of stored drafts that depend on each other, which can never pass) and `precheck`/`build` report `planned_links` and
 `link_cycle` for the draft in hand, with the replacement text taken into account. Keep the links acyclic: a draft may link to a draft written before it, never back (the 2026-10-23
-batches were pruned to such an order, and a mention of an unpublished sibling is plain text, not a link). The roots of the order still need one live link of their own, which only the
-credentialed inventory can supply. The owner-facts file can be captured as labelled first-party evidence (`source --repository-file
+batches were pruned to such an order, and a mention of an unpublished sibling is plain text, not a link). Since the Vietnamese static pages are live, no draft needs a sibling draft to reach
+its link minimum, and the drafts of 23 October were rewritten to link to live pages only; keep it that way. The owner-facts file can be captured as labelled first-party evidence (`source --repository-file
 config/business-facts.json`); it is stale the moment that file changes, supports statements about the shop only and is never an
 official source for a legal claim. A planning inventory (the committed authenticated snapshot) may feed claims, kits and admission for
 seven days; QA and publication keep the six-hour limit.

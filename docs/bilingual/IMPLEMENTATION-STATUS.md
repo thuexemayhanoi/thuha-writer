@@ -28,6 +28,49 @@ Xuất lại draft/matrix/gói không đổi nội dung (export có đường d�
 Đã đọc danh sách plugin WordPress qua kết nối ngày 23/10: chưa có companion publisher adapter;
 không có thao tác cài đặt, viết bài hay thay theme trong bản sửa. CI là nơi chạy PHP harness trước khi đưa code vào nhánh chạy.
 
+## Phiên 23/10/2026 (lần 6): hàng đợi đã đăng 9 bài thật; bàn giao vòng 2; bài VI chỉ còn thiếu ảnh
+
+**Điều đã đổi bên ngoài phiên này (đọc trước).** Sau lần 5, chủ website tiếp tục sửa `main` (tới `1355dcf`): ngưỡng QA tự động **75/100** (mọi hard fail vẫn chặn), `config/release.json` **đã bật** (`approved`, `enabled`, `stage: auto-scale`, tối đa 50 bài/ngày, `languages_enabled` gồm vi và en) và có bước kiểm tra credential một lần.
+`adapter-preflight` đã chạy: **adapter VERIFIED** (adapter 1.0.0, native-vi 1.1.1, 14:26 UTC). Inventory của adapter (14:18 UTC, tài liệu `0331f4e9…` trong `factory-state`) ghi nhận **11 trang tĩnh VI đã đăng** (HTTP 200) và 79 ảnh, **không ảnh nào có alt tiếng Việt**.
+Hàng đợi đã chạy thật: **9 bài EN (TH-000001 đến TH-000009) đã được đăng**, mỗi bài có biên nhận trong `factory-state` (ID WordPress 3486 đến 3502, `status: publish`, permalink, `proof: adapter-create-response`, `integrity: MATCH`) và `POST_CHECK`. Đây là những biên nhận thật đầu tiên; do publisher ghi.
+Phiên này không có mạng tới `rentbikehanoi.com`, nên **chưa đối chiếu lại các trang đó từ đây**. Mỗi lần đăng bài hàng đợi ghi sự kiện vào sổ cái chung (323 sự kiện, v448 lúc lấy), nên sổ cái của phiên lại lệch và phải khôi phục một lần nữa (xem dưới).
+
+**Đã làm (có commit):**
+
+- Gộp `main` (`a1d7c41`, không xung đột), 527 test đạt.
+- Dữ liệu kế hoạch: `data/bilingual/static-pages.json` ghi địa chỉ 11 trang VI kèm bằng chứng; `service-targets.json` điền `vi_url` cho 7 khóa có trang riêng, còn `monthly`, `electric`, `old-quarter`, `sale` không có trang riêng (`NO_DEDICATED_LIVE_VI_PAGE`, không đoán địa chỉ); ma trận VI kiểm trùng slug và tiêu đề với 11 trang đó; `pack` nói rõ khi một dịch vụ không có trang VI. Câu hỏi 11 của chủ website được trả lời bằng dữ liệu này.
+- **35 bản VI được viết lại phần liên kết**: bỏ liên kết, và cả những câu nhắc tên, tới bài chị em chưa đăng; thay bằng trang VI đã đăng phù hợp (bảng giá, xe ga, thủ tục, giao nhận, câu hỏi thường gặp, liên hệ) cùng chuyên mục của chủ đề. Không bản nào còn phụ thuộc bản khác. QA tự động đọc-chỉ trên inventory của adapter: **87,5** (70/80 điểm thô), không lỗi nội dung, **chỉ còn chờ `FEATURED_MEDIA`**.
+- **Lô EN #3 (8 bài)** qua rà soát độc lập chỉ đọc: 12 điểm chặn và 30 điểm sửa (chính sách cửa hàng bị khẳng định khi chưa xác nhận, như "trả muộn tính theo phí gia hạn" hay "ngoài giờ không ai trả lời"; câu an toàn đọc ngược; ví dụ dựa vào quy tắc làm tròn giờ chưa xác nhận; một cách đếm ngày thứ ba mà bảng của bài không minh họa; cụm lặp giữa các bài). Tất cả đã kiểm chứng và áp dụng trước khi nộp; QA **8/8 PASS 100/100**.
+- **Công cụ khôi phục**: `sync --discard-unpromoted` liệt kê thêm thời điểm nộp và hồ sơ chủ đề chỉ có trong phiên; `scripts/replay_unpromoted.py` (`src/thuha/replay.py`, 9 test) nộp lại bằng claim và submit thường, không đi vòng cổng nào.
+- **Vòng bàn giao #2**: `sync --apply --discard-unpromoted` thay sổ cái phiên bằng sổ cái chung v448, rồi replay: nhập lại 8 chủ đề EN, EN #1 (7, `--revise`) và EN #2 (3) nộp lại từ tài liệu đã lưu (10 PASS), 35 bản VI nộp bản mới (ghi đè), lô #3 (8) nộp mới. Một `git commit` của sổ cái bị lỗi thoáng qua giữa chừng; điểm kiểm tra v717 đã được commit tay và các bước sau chạy bình thường.
+
+**Số liệu chính xác** (sổ cái phiên v737, 449 sự kiện; `reports/bilingual/dashboard.md`; WordPress snapshot 275 EN + 0 VI không phải bộ đếm live):
+
+| | VI | EN |
+|---|---|---|
+| Chủ đề trong sổ cái | 46 | 75 |
+| `WAITING_DATA` (chỉ thiếu ảnh có alt tiếng Việt) | **35** | 0 |
+| `READY`, QA PASS (chưa đăng) | 0 | **18** |
+| Đã đăng, biên nhận trong sổ cái chung | **0** | **9** |
+| `HELD` (quyết định biên tập có ghi lý do) | 11 | 0 |
+| `PLANNED` (đã nhập, chưa viết) | 0 | 48 |
+
+**Kế hoạch `promote` tính ngoại tuyến** với bản `factory-state` v448 vừa lấy: **FAST_FORWARD** (phiên v737, 449 sự kiện). Chưa chạy thật; nếu hàng đợi ghi thêm sự kiện trước khi chủ website merge, kết quả sẽ là `DIVERGED` (không ghi gì) và phải chạy lại vòng khôi phục.
+
+**Điều đang chặn xuất bản (theo thứ tự):**
+1. **Nhánh này chưa nằm trong `main`**: cần chủ website mở và merge PR (hoặc yêu cầu tôi mở). Job `queue` sẽ `promote`, rồi 18 bài EN đã PASS đi vào hàng đợi đăng (trần 50 bài mỗi ngày).
+2. **VI cần đúng một thứ: một ảnh có alt tiếng Việt** trong thư viện (hiện 0/79). Khi có, `recheck-data` xóa chờ và mỗi bản chỉ cần chọn `featured_media` (từ danh sách của `pack`) rồi qua QA. Tôi không đặt ID ảnh và không sửa alt tiếng Anh dùng chung.
+3. Các chủ đề cần chính sách cửa hàng (giao xe, cọc, hoàn cọc) chờ [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md); các bài hiện chỉ viết cách hỏi, không khẳng định chính sách.
+
+**Tiếp tục từ đây:**
+
+1. `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply`. Nếu báo `DIVERGED`: `sync --apply --discard-unpromoted > plan.json`, rồi `python3 scripts/replay_unpromoted.py plan.json -- --git-branch --inventory <inventory của adapter>` (đổi `--inventory` khi inventory lưu trong sổ cái chưa đủ thẩm quyền để nhập chủ đề). Làm việc này muộn nhất có thể và push ngay sau đó.
+2. EN: còn 28 dòng ma trận chỉ cần dữ kiện của cửa hàng (`TH-EN-0003, 0006, 0017, 0018, 0023, 0038, 0036, 0031` là lô kế tiếp đang được viết); bài đủ ảnh và liên kết sống đi thẳng tới QA.
+3. VI: còn 55 dòng chỉ cần dữ kiện của cửa hàng; bài mới phải liên kết **chỉ tới trang VI đang sống**, rồi chờ ảnh như 35 bản kia.
+4. Mỗi lô: `pack` → `build` → `precheck` → rà soát độc lập chỉ đọc → sửa → nộp.
+
+> **Lỗi thời (xem lần 6):** các câu "chưa có bài nào được xuất bản", "release OFF", "slug 11 trang VI chưa biết" và "ngưỡng 85" trong mục này đúng tại thời điểm viết nhưng đã thay đổi.
+
 ## Phiên 23/10/2026 (lần 5): chủ website đã merge PR #3; viết bài từ dữ liệu có sẵn; chống vòng liên kết; khôi phục sổ cái phiên
 
 Yêu cầu của chủ website: viết → tự kiểm tra và sửa → QA ≥85/100 + chống trùng + đúng danh mục/ngôn ngữ → publisher. Giữ ngưỡng 85, cách tính điểm, trọng số và mọi hard fail; không thêm lại AI reviewer; không bịa giá, nguồn, ảnh, liên kết hay biên nhận; không merge, deploy hay đụng hosting; không reset hay force-push.

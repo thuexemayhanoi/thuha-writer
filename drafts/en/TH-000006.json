@@ -52,7 +52,16 @@
     "report_sha": "9a068333e8253f2909770d15caa07f01589db92c48348dbf96ea24db54efdbe0",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W6",
+    "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+    "document": "386fd345ae7b5278d31e6980421a2d5034f2ee1e2cfd86e659090240ca7d775e",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:21:52.456665+00:00",
+    "url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
+    "wp_id": 3496
+  },
   "repair_count": 0,
   "source_documents": [
     "7ff56060e1f8d8299f4e13a903cffca1a7e8a100efec1a7fb0048fe0147e729e",
@@ -128,7 +137,7 @@
       "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:15:31.324195+00:00",
   "topic_id": "TH-000006",
   "waiting_for": []

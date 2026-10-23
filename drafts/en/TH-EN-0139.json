@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/rusty-rider-decide-whether-to-rent-motorbike-hanoi-years-away/",
   "qa": {
-    "report_sha": "47ed2d740bd02b7b901c38d17591dc229fae52528c53266be901f7b410f2e508",
+    "report_sha": "6037306741420a0e1a0cbe4c2c9eb6ad87e3d46c46d138b6e9b8f6740b809bdc",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T13:58:45.605017+00:00",
+  "submitted_at": "2026-10-23T14:55:23.193897+00:00",
   "topic_id": "TH-EN-0139",
   "waiting_for": []
 }

@@ -32,7 +32,16 @@
     "report_sha": "0f0591c6e984a8ea0c59a48296df228aeec8b804dbe8e500edd476024514931f",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W2",
+    "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+    "document": "f0e6f0b52cca91821ab4ddd0f8023927613823dc7eecebf30c23e928ad9a6e44",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:19:22.866311+00:00",
+    "url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+    "wp_id": 3488
+  },
   "repair_count": 0,
   "source_documents": [
     "ec0ea807c695cda0d88683a41d70bb1ccefa7bd686a7c7f04958a9db9a0fbfc4"
@@ -48,7 +57,7 @@
       "url": "https://vietnam.travel/things-to-do/hanoi-art-lovers"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:02:47.148607+00:00",
   "topic_id": "TH-000002",
   "waiting_for": []

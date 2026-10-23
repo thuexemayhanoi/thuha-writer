@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/xe-so-xe-con-xe-ga-vietnamese-motorbike-terms-decoded/",
   "qa": {
-    "report_sha": "4399cb2b74f989fa8b106a38b27723a6cb3024ea2257f995c39521653729a20c",
+    "report_sha": "1189454c3d547c8fa9fa1eef6b663d1b9426888175ccfccb1376dc676a254a9e",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T13:59:20.078463+00:00",
+  "submitted_at": "2026-10-23T14:55:57.894355+00:00",
   "topic_id": "TH-EN-0065",
   "waiting_for": []
 }

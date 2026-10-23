@@ -1,13 +1,13 @@
 {
-  "ledger_events_sha256": "42c2ff32f9383ccbdebc9c7d5bb65c4b43aa8d1418947159253406f389f59039",
+  "ledger_events_sha256": "ca9e704a36b25381216decac764f556a2e6f49e3a1aeb8e7f30caecbfc30f7cf",
   "note": "English topics already admitted to the ledger with captured sources. They are not published posts and do not count toward 500 until WordPress confirms them; the English matrix counts them as planned and never re-plans them.",
-  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 557",
+  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 737",
   "status": "QUEUED_NOT_PUBLISHED",
   "topics": [
     {
       "category_id": 121,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
       "slug": "ho-chi-minh-museum-hanoi-exhibition-guide",
       "title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
@@ -17,7 +17,7 @@
     {
       "category_id": 117,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "Hanoi ceramic mosaic mural walk",
       "slug": "hanoi-ceramic-mosaic-mural-art-walk",
       "title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
@@ -27,7 +27,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "vietnam motorbike licence classes A1 A",
       "slug": "vietnam-motorbike-licence-classes-a1-a-2025-rules",
       "title": "Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules",
@@ -37,7 +37,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "vietnam driving licence points deduction",
       "slug": "vietnam-driving-licence-points-system-motorbike-riders",
       "title": "How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders",
@@ -47,7 +47,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "bring own motorbike into vietnam permission",
       "slug": "bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024",
       "title": "Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists",
@@ -57,7 +57,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "asean driving licence vietnam motorbike",
       "slug": "asean-driving-licence-vietnam-motorbike-recognition",
       "title": "Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For",
@@ -67,7 +67,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "electric scooter licence vietnam kw",
       "slug": "electric-scooter-licence-vietnam-motor-power-thresholds",
       "title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
@@ -77,7 +77,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "compulsory motorbike insurance vietnam",
       "slug": "compulsory-motorbike-liability-insurance-vietnam-renters",
       "title": "Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check",
@@ -87,7 +87,7 @@
     {
       "category_id": 144,
       "language": "en",
-      "ledger_status": "READY",
+      "ledger_status": "PUBLISHED",
       "primary_keyword": "buy used motorbike hanoi foreigner registration",
       "slug": "buying-second-hand-motorbike-hanoi-foreigner-registration",
       "title": "Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates",

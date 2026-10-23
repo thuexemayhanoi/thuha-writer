@@ -47,7 +47,16 @@
     "report_sha": "b7e878bba594452e6e4666b86143559a2cc639d8c075d667b937a738c7af5c65",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W5",
+    "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+    "document": "9480168c4013737a0d04c18ef3466be2af54763284ee1d744025210de0d5ff34",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:21:16.092436+00:00",
+    "url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
+    "wp_id": 3494
+  },
   "repair_count": 0,
   "source_documents": [
     "39bd6b7ee0d2c1846f975f076496d6556ca6b98b1efe1d7998aadf4c2dcb1d06",
@@ -109,7 +118,7 @@
       "url": "https://baochinhphu.vn/dieu-kien-cap-phep-luu-thong-cho-xe-nuoc-ngoai-tai-viet-nam-10225112111221317.htm"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:15:55.236513+00:00",
   "topic_id": "TH-000005",
   "waiting_for": []

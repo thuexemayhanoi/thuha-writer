@@ -27,9 +27,10 @@ def main(argv=None):
     parser.add_argument('--only', nargs='*', default=[], help='topic IDs to submit again (default: every listed draft)')
     parser.add_argument('--override', help='folder with <TOPIC_ID>.json articles submitted instead of the stored documents')
     parser.add_argument('--documents', default=str(ROOT / 'data/documents'), help='folder of immutable documents (default: the session branch)')
-    parser.add_argument('cli_flags', nargs=argparse.REMAINDER, help='after `--`: global flags of thuha.cli')
-    args = parser.parse_args(argv)
-    flags = [f for f in args.cli_flags if f != '--'] if args.cli_flags[:1] == ['--'] else args.cli_flags
+    argv = sys.argv[1:] if argv is None else list(argv)
+    split = argv.index('--') if '--' in argv else len(argv)  # argparse's REMAINDER would also swallow this script's own options
+    args = parser.parse_args(argv[:split])
+    flags = argv[split + 1:]
     env = dict(os.environ, PYTHONPATH=str(ROOT / 'src'))
 
     def run(*cli_args):

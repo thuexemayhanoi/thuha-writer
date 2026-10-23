@@ -1,30 +1,39 @@
 {
   "adapter": {
-    "code": "BLOCKED_ADAPTER_NOT_DEPLOYED",
-    "status": "NOT_VERIFIED"
+    "adapter_version": "1.0.0",
+    "contract": "thuha-writer/1",
+    "native_vi_version": "1.1.1",
+    "status": "VERIFIED",
+    "verified_at": "2026-10-23T14:26:30.329911+00:00"
   },
-  "agent_attribution": {},
+  "agent_attribution": {
+    "claude-writer-W11": 1,
+    "claude-writer-W2": 1,
+    "claude-writer-W3": 1,
+    "claude-writer-W4": 1,
+    "claude-writer-W5": 1,
+    "claude-writer-W6": 1,
+    "claude-writer-W7": 1,
+    "claude-writer-W8": 1,
+    "claude-writer-W9": 1
+  },
   "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
   "blockers": [
-    "Separate owner go-live approval outstanding",
-    "No language enabled in the release (production stays OFF)",
-    "BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded",
-    "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "35 draft(s) wait for data (FEATURED_MEDIA x35, INTERNAL_LINKS x35): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026, TH-VI-0033, TH-VI-0058"
+    "35 draft(s) wait for data (FEATURED_MEDIA x35): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026, TH-VI-0033, TH-VI-0058"
   ],
   "closed_intents": {},
-  "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T14:01:38.935781+00:00",
+  "factory_published_receipts": 9,
+  "generated_at": "2026-10-23T15:09:54.258244+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 557,
-    "shared_ledger_version": 5,
+    "session_ledger_version": 737,
+    "shared_ledger_version": 448,
     "status": "FAST_FORWARD"
   },
   "held": {
@@ -46,12 +55,12 @@
   "languages": {
     "en": {
       "complete": false,
-      "factory_published_receipts": 0,
+      "factory_published_receipts": 9,
       "needs_source_or_research": [],
-      "open_topics": 67,
+      "open_topics": 66,
       "over_target": false,
-      "published_live": 275,
-      "remaining": 225,
+      "published_live": 284,
+      "remaining": 216,
       "states": {
         "BLOCKED": 0,
         "CLAIMED": 0,
@@ -60,9 +69,9 @@
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 48,
-        "PUBLISHED": 0,
+        "PUBLISHED": 9,
         "PUBLISHING": 0,
-        "READY": 19,
+        "READY": 18,
         "RESEARCH": 0,
         "WAITING_DATA": 0
       },
@@ -72,7 +81,18 @@
     "vi": {
       "complete": false,
       "factory_published_receipts": 0,
-      "needs_source_or_research": [],
+      "needs_source_or_research": [
+        {
+          "created_at": "2026-10-23T14:51:22.845273+00:00",
+          "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
+          "language": "vi",
+          "maximum_topics": 100,
+          "planned": 14,
+          "request_id": "research-vi-5ea4b275ae51aaf1",
+          "runtime": "External authorized AI session required",
+          "status": "AWAITING_EXTERNAL_RESEARCH"
+        }
+      ],
       "open_topics": 46,
       "over_target": false,
       "published_live": 0,
@@ -95,11 +115,16 @@
       "unresolved_intents": 0
     }
   },
-  "languages_enabled": [],
-  "offline_note": "Built from the committed session ledger, the 2026-10-23 snapshot of factory-state and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
+  "languages_enabled": [
+    "vi",
+    "en"
+  ],
+  "offline_note": "Built from the committed session ledger, the factory-state ledger as last fetched (version 448, 323 events) and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
   "open_alerts": [],
   "post_checks": {
-    "counts": {},
+    "counts": {
+      "PASSED": 9
+    },
     "note": "Public-page checks run after publication, back off and retry; they never stop the queue.",
     "warnings": {}
   },
@@ -107,11 +132,102 @@
     "vi",
     "en"
   ],
-  "production_enabled": false,
-  "published_articles": [],
+  "production_enabled": true,
+  "published_articles": [
+    {
+      "agent_id": "claude-writer-W11",
+      "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
+      "document": "31bc02ae563ecb1370c11ff57f3870763dd63a7ae296986829bb7d2abf25f593",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:18:46.710571+00:00",
+      "url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+      "wp_id": 3486
+    },
+    {
+      "agent_id": "claude-writer-W2",
+      "article_sha": "0424d20de1a865635af3427fff418482f2cbcb46d16845e381d9e53677170526",
+      "document": "f0e6f0b52cca91821ab4ddd0f8023927613823dc7eecebf30c23e928ad9a6e44",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:19:22.866311+00:00",
+      "url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+      "wp_id": 3488
+    },
+    {
+      "agent_id": "claude-writer-W3",
+      "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+      "document": "3c322565dee327d413ec4eb042b38ea186cda7b4473271e514f4f1e2e82ad6dc",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:20:00.100033+00:00",
+      "url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
+      "wp_id": 3490
+    },
+    {
+      "agent_id": "claude-writer-W4",
+      "article_sha": "922d26572e8094d7635a9c76e5543f01c17eb9e026ea3f228680c31e5e7964bb",
+      "document": "13c1ae51819deae60e2c9a95babb1408ad00a9e767a3d4082e5ff61e0c20d668",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:20:38.231183+00:00",
+      "url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
+      "wp_id": 3492
+    },
+    {
+      "agent_id": "claude-writer-W5",
+      "article_sha": "4c9c33572db4391b8f446e8758157625b509808dc011faee63299c6740b2a316",
+      "document": "9480168c4013737a0d04c18ef3466be2af54763284ee1d744025210de0d5ff34",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:21:16.092436+00:00",
+      "url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
+      "wp_id": 3494
+    },
+    {
+      "agent_id": "claude-writer-W6",
+      "article_sha": "6470a5685780d07b6635001844ee40877e5df8807295f78307d6dd63e1905704",
+      "document": "386fd345ae7b5278d31e6980421a2d5034f2ee1e2cfd86e659090240ca7d775e",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:21:52.456665+00:00",
+      "url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
+      "wp_id": 3496
+    },
+    {
+      "agent_id": "claude-writer-W7",
+      "article_sha": "1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f",
+      "document": "6e5a9471f64d9dfcb074a5dda8c9f5d933aff79b353b37e94f1751bfbfb1aff0",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:22:29.696121+00:00",
+      "url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+      "wp_id": 3498
+    },
+    {
+      "agent_id": "claude-writer-W8",
+      "article_sha": "922c56c8c1b7b01c43393a923418f5e2e61bce7b43cc74f9be5d48489001a196",
+      "document": "90c31cf178dbcf03d283bb0d36e1e411a9cb6f964373eeded29d443fc553554f",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:23:07.763772+00:00",
+      "url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
+      "wp_id": 3500
+    },
+    {
+      "agent_id": "claude-writer-W9",
+      "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
+      "document": "11cf5292be33f6f9f678c8657e4775b2d1d92a9a1451426652a0923bbf170a88",
+      "integrity": "MATCH",
+      "language": "en",
+      "published_at": "2026-10-23T14:23:44.671252+00:00",
+      "url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
+      "wp_id": 3502
+    }
+  ],
   "publisher_uncertain": [],
   "qa": {
-    "PASS": 19
+    "PASS": 27
   },
   "qa_blocked_data": {},
   "queue": {
@@ -119,10 +235,7 @@
       "awaiting_qa": [],
       "held_or_unknown": [],
       "needs_repair": [],
-      "published": [],
-      "publishing": [],
-      "qa_blocked_data": [],
-      "qa_pass": [
+      "published": [
         "TH-000001",
         "TH-000002",
         "TH-000003",
@@ -131,14 +244,26 @@
         "TH-000006",
         "TH-000007",
         "TH-000008",
-        "TH-000009",
+        "TH-000009"
+      ],
+      "publishing": [],
+      "qa_blocked_data": [],
+      "qa_pass": [
         "TH-EN-0001",
         "TH-EN-0002",
         "TH-EN-0005",
+        "TH-EN-0007",
         "TH-EN-0009",
+        "TH-EN-0010",
         "TH-EN-0012",
+        "TH-EN-0032",
+        "TH-EN-0037",
+        "TH-EN-0039",
+        "TH-EN-0040",
+        "TH-EN-0045",
         "TH-EN-0065",
         "TH-EN-0125",
+        "TH-EN-0126",
         "TH-EN-0139",
         "TH-EN-0140",
         "TH-EN-0141"
@@ -306,6 +431,16 @@
       "status": "FULFILLED"
     },
     {
+      "created_at": "2026-10-23T14:51:22.845273+00:00",
+      "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 14,
+      "request_id": "research-vi-5ea4b275ae51aaf1",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
+    },
+    {
       "admitted_topic_ids": [
         "TH-VI-0013",
         "TH-VI-0218",
@@ -425,9 +560,9 @@
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
     "PLANNED": 48,
-    "PUBLISHED": 0,
+    "PUBLISHED": 9,
     "PUBLISHING": 0,
-    "READY": 19,
+    "READY": 18,
     "RESEARCH": 0,
     "WAITING_DATA": 35
   },
@@ -437,144 +572,109 @@
   },
   "waiting_data": {
     "TH-VI-0003": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0004": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0008": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0011": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0013": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0016": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0018": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0019": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0022": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0026": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0033": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0058": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0065": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0090": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0093": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0121": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0128": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0134": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0140": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0146": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0151": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0158": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0197": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0218": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0224": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0263": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0267": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0268": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0359": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0371": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0445": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0459": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0484": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0487": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ],
     "TH-VI-0491": [
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
+      "FEATURED_MEDIA"
     ]
   },
   "wordpress_pages": 0,

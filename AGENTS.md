@@ -39,7 +39,8 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   done on a stale copy cannot be merged automatically. Run `--git-branch sync --apply` before a new session works, so its
   ledger starts from the shared one; hand-over works repeatedly (sync, work, promote). A session that kept working after the shared ledger moved on is `DIVERGED`: `sync` lists its
   `unpromoted` drafts and only `sync --apply --discard-unpromoted` (never automatic, refused while a lease is held) replaces the ledger; each listed draft is then claimed
-  and submitted again from its stored document. The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
+  and submitted again from its stored document (`scripts/replay_unpromoted.py`: through the normal gates, never around them). The queue appends events whenever it publishes, so run that
+  recovery as late as possible and push right after it. The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
   ledger from a session.
 - **Automatic QA before publication; no independent AI review gate.** `qa --pending` evaluates every DRAFT_READY submission
   and every READY draft whose policy or article hash is stale. Score = raw automatic points / 80 * 100; threshold 75 (inclusive).

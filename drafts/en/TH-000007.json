@@ -52,7 +52,16 @@
     "report_sha": "dd9f0ead406c514a1651f10fcda7cff38acf2728a58a5d99a12b0e1281a47cef",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W7",
+    "article_sha": "1ca276f5ca3ab89804d58ad76b15eb955143d2f795dda72775c225e5e00e689f",
+    "document": "6e5a9471f64d9dfcb074a5dda8c9f5d933aff79b353b37e94f1751bfbfb1aff0",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:22:29.696121+00:00",
+    "url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
+    "wp_id": 3498
+  },
   "repair_count": 0,
   "source_documents": [
     "786380462d2c58c29109f7cb0477d2ead9a33a074ad3a1a6724de7eb17023592",
@@ -128,7 +137,7 @@
       "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:16:28.309041+00:00",
   "topic_id": "TH-000007",
   "waiting_for": []

@@ -59,7 +59,16 @@
     "report_sha": "62c3f33e8d0ee8267d7ac9973d3bd198f8bd36cee242c88285ed8aec4d20e164",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W9",
+    "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
+    "document": "11cf5292be33f6f9f678c8657e4775b2d1d92a9a1451426652a0923bbf170a88",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:23:44.671252+00:00",
+    "url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
+    "wp_id": 3502
+  },
   "repair_count": 0,
   "source_documents": [
     "504064eea2046fde1e35f83c6e460e9072a672db8076e23154f55209eaedcc82",
@@ -135,7 +144,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/van-ban-hop-nhat-thong-tu-quy-dinh-ve-cap-thu-hoi-chung-nhan-dang-ky-xe-bien-so-xe-co-gioi-xe-may-chuyen-dung-119251114070809667.htm"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:17:40.727031+00:00",
   "topic_id": "TH-000009",
   "waiting_for": []

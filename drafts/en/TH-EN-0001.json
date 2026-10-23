@@ -83,7 +83,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/six-day-hanoi-stay-should-you-take-a-weekly-rental-or-pay-day-by-day/",
   "qa": {
-    "report_sha": "f4cebed3b3484154683c764c4327fbedb943ca98da14575862c337900010bce4",
+    "report_sha": "087a2320d7b4db8155258a5ea3d693a70f44487df71bccfae0d2e53d073fd2f2",
     "status": "PASS"
   },
   "receipt": null,
@@ -107,7 +107,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T13:58:03.813916+00:00",
+  "submitted_at": "2026-10-23T14:54:48.951890+00:00",
   "topic_id": "TH-EN-0001",
   "waiting_for": []
 }

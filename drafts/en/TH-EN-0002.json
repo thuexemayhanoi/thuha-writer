@@ -95,7 +95,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/two-or-three-week-hanoi-rental-weekly-blocks-or-monthly/",
   "qa": {
-    "report_sha": "38975b2aba108f70ec1687fcd43f635852fe561d52a132b81bf82fa68f42f069",
+    "report_sha": "444d36a26c73ac82e6e82824541ba7c81391a222a9d4f9f6b9904135c537b21a",
     "status": "PASS"
   },
   "receipt": null,
@@ -119,7 +119,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T13:58:15.040236+00:00",
+  "submitted_at": "2026-10-23T14:55:00.146480+00:00",
   "topic_id": "TH-EN-0002",
   "waiting_for": []
 }

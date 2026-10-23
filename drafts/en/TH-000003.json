@@ -52,7 +52,16 @@
     "report_sha": "2af20ebe0adf6c4b9189ce5a367f3ea317ccd79203989add624a13f179845410",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W3",
+    "article_sha": "08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c",
+    "document": "3c322565dee327d413ec4eb042b38ea186cda7b4473271e514f4f1e2e82ad6dc",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:20:00.100033+00:00",
+    "url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
+    "wp_id": 3490
+  },
   "repair_count": 0,
   "source_documents": [
     "5d272158b33ce03c7e52d0b3252a0a735aa574f3d562166dc5996df942db3f53",
@@ -128,7 +137,7 @@
       "url": "https://xaydungchinhsach.chinhphu.vn/tu-1-1-2025-co-nhung-hang-giay-phep-lai-xe-nao-119240812165630751.htm"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:15:25.872275+00:00",
   "topic_id": "TH-000003",
   "waiting_for": []

@@ -52,7 +52,16 @@
     "report_sha": "52c87f4ef691f8e775e4c3424465b98aa6712fad75c953745fc91ad9be4f2b94",
     "status": "PASS"
   },
-  "receipt": null,
+  "receipt": {
+    "agent_id": "claude-writer-W8",
+    "article_sha": "922c56c8c1b7b01c43393a923418f5e2e61bce7b43cc74f9be5d48489001a196",
+    "document": "90c31cf178dbcf03d283bb0d36e1e411a9cb6f964373eeded29d443fc553554f",
+    "integrity": "MATCH",
+    "language": "en",
+    "published_at": "2026-10-23T14:23:07.763772+00:00",
+    "url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
+    "wp_id": 3500
+  },
   "repair_count": 0,
   "source_documents": [
     "363ea593487a0478592bc2948b6f0789a0f3cc2602e4d5a3077b5425ab86ace9",
@@ -128,7 +137,7 @@
       "url": "https://binhphuoc.gov.vn/vi/news/tin-tuc-su-kien-421/muc-xu-phat-voi-loi-khong-mang-hoac-khong-co-bao-hiem-xe-may-41127.html"
     }
   },
-  "status": "READY",
+  "status": "PUBLISHED",
   "submitted_at": "2026-10-23T02:15:38.698405+00:00",
   "topic_id": "TH-000008",
   "waiting_for": []
