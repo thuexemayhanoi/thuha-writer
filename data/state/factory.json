@@ -3913,23 +3913,24 @@
       "sha256": "4d60caabd524c600e8c4e74c18f4cf2dfdf0707194fcfc861de83afa23092a9c",
       "slot": "W1",
       "topic_id": "TH-EN-0001"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "e6f4f8b95e67eea95deceb0982946c26d7b53fcf19e0208d78953d2f80167de2",
+      "at": "2026-10-23T13:39:41.697975+00:00",
+      "previous": "4d60caabd524c600e8c4e74c18f4cf2dfdf0707194fcfc861de83afa23092a9c",
+      "sha256": "0894ad8b14082fd3145fd6383d087359078a04e20e66782dc949e5302d7b8895",
+      "topic_id": "TH-EN-0001",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W2",
-      "expires_at": 1792764576.968999,
-      "fence": "715c955223da45c4971ff86768bbfae9",
-      "heartbeat_at": "2026-10-23T13:39:36.968981+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "sess-e2",
-      "slot": "W1",
-      "topic_id": "TH-EN-0001"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -4231,6 +4232,16 @@
       "session": "w9-20261023-c1",
       "slot": "W9",
       "submitted_at": "2026-10-23T02:17:40.727031+00:00"
+    },
+    "TH-EN-0001": {
+      "agent_id": "claude-writer-W2",
+      "article_sha": "e6f4f8b95e67eea95deceb0982946c26d7b53fcf19e0208d78953d2f80167de2",
+      "commit": "29b24cd7dbf9139cbfc85e5f15133693107d291b",
+      "fence": "715c955223da45c4971ff86768bbfae9",
+      "repair_count": 0,
+      "session": "sess-e2",
+      "slot": "W1",
+      "submitted_at": "2026-10-23T13:39:41.697952+00:00"
     },
     "TH-EN-0005": {
       "agent_id": "claude-writer-W2",
@@ -6747,8 +6758,12 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0001"
+      "status": "WAITING_DATA",
+      "topic_id": "TH-EN-0001",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     },
     "TH-EN-0002": {
       "admitted_at": "2026-10-23T13:00:07.124142+00:00",
@@ -8573,5 +8588,5 @@
       ]
     }
   },
-  "version": 470
+  "version": 471
 }
