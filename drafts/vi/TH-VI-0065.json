@@ -1,0 +1,125 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Làm việc luân phiên, chỉ cần xe hai ba ngày mỗi tuần, bạn đứng trước hai lựa chọn khi thuê xe máy không liên tục trong tháng: giữ nguyên một chiếc theo tháng hoặc thuê từng đợt ngắn mỗi khi cần. Cách thứ hai nghe hợp lý vì bạn chỉ trả cho những ngày thật sự dùng, nhưng phép tính thường cho kết quả khác với cảm giác. Điều quyết định không phải là số ngày bạn nghĩ mình dùng mà là số ngày bạn đếm được trong một tháng cụ thể, so với điểm hòa vốn mà với xe số nằm khá thấp.</p>\n\n<h2>Bước 1: đếm số ngày dùng trong một tháng</h2>\n<p>Hai ba ngày mỗi tuần nghe ít, nhưng một tháng có hơn bốn tuần một chút (khoảng 4,3 tuần), nên số ngày dùng xe là khoảng từ 9 đến 13 ngày (2 × 4,3 ≈ 9 và 3 × 4,3 ≈ 13). Hãy mở lịch của tháng tới và đánh dấu từng ngày bạn chắc chắn cần xe, kể cả những ngày chỉ đi một chặng ngắn, vì giá tham khảo được nêu theo ngày; nếu bạn chỉ cần xe vài giờ, hãy hỏi cửa hàng cách tính. Tháng nào có năm tuần làm việc sẽ cho con số cao hơn tháng chỉ có bốn.</p>\n<p>Ví dụ, nếu bạn đi làm vào thứ Hai, thứ Tư và thứ Sáu, một tháng có thể có 13 ngày như vậy; nếu bạn chỉ cần xe hai ngày một tuần thì còn khoảng 9 ngày. Để khỏi đếm thiếu, hãy nhìn lại lịch hoặc tin nhắn của một tháng vừa qua và đếm những ngày bạn thật sự đã cần xe, thay vì dựa vào trí nhớ.</p>\n\n<h2>Bước 2: điểm hòa giữa giá tháng và giá ngày</h2>\n<p>Giá tham khảo của cửa hàng Thuê xe máy Nguyễn Hà cho xe số là từ 150.000 đến 200.000 đồng một ngày, từ 700.000 đến 800.000 đồng một tuần và từ 1.000.000 đến 1.200.000 đồng một tháng; con số thật còn tùy chiếc xe bạn chọn nên cần hỏi lại cửa hàng khi đặt xe. Điểm hòa là số ngày mà tiền thuê lẻ bằng giá tháng, tức giá tháng chia cho giá ngày:</p>\n<ul>\n<li>giá tháng thấp nhất, giá ngày cao nhất: 1.000.000 ÷ 200.000 = 5 ngày;</li>\n<li>giá tháng cao nhất, giá ngày cao nhất: 1.200.000 ÷ 200.000 = 6 ngày;</li>\n<li>giá tháng thấp nhất, giá ngày thấp nhất: 1.000.000 ÷ 150.000 ≈ 6,7 ngày;</li>\n<li>giá tháng cao nhất, giá ngày thấp nhất: 1.200.000 ÷ 150.000 = 8 ngày.</li>\n</ul>\n<p>Nghĩa là với xe số, thuê tháng bắt đầu không đắt hơn thuê lẻ từ khoảng 5 đến 8 ngày dùng trong tháng, tùy bạn nhận mức giá nào. Bảng dưới đặt ba mức dùng cạnh nhau:</p>\n<table>\n<thead><tr><th>Số ngày dùng trong tháng</th><th>Thuê lẻ (150.000 đến 200.000 đồng mỗi ngày)</th><th>Thuê tháng (1.000.000 đến 1.200.000 đồng)</th></tr></thead>\n<tbody>\n<tr><td>4 ngày</td><td>600.000 đến 800.000 đồng</td><td>Đắt hơn thuê lẻ từ 200.000 đến 600.000 đồng</td></tr>\n<tr><td>8 ngày</td><td>1.200.000 đến 1.600.000 đồng</td><td>Không đắt hơn, rẻ hơn tới 600.000 đồng</td></tr>\n<tr><td>12 ngày</td><td>1.800.000 đến 2.400.000 đồng</td><td>Rẻ hơn từ 600.000 đến 1.400.000 đồng</td></tr>\n</tbody>\n</table>\n<p>Với xe ga, giá ngày tham khảo cũng từ 150.000 đến 200.000 đồng nhưng khoảng giá tháng tham khảo rộng hơn, từ 1.200.000 đến 2.000.000 đồng, nên điểm hòa trải từ khoảng 6 ngày (1.200.000 ÷ 200.000) đến khoảng 13 ngày (2.000.000 ÷ 150.000 ≈ 13,3), có thể cao hơn số ngày bạn đếm được ở bước 1. Muốn so cho chắc, hãy lấy giá tháng của đúng mẫu xe ga bạn định thuê.</p>\n\n<h2>Nếu bạn cần xe theo từng tuần liền</h2>\n<p>Có người cần xe nguyên cả tuần rồi nghỉ vài tuần. Khi đó so giá tuần với giá tháng: một tuần giá tham khảo 700.000 đến 800.000 đồng, rẻ hơn giá tháng. Nhưng, ví dụ, hai tuần thuê riêng hết 1.400.000 đến 1.600.000 đồng (2 × 700.000 và 2 × 800.000), đã cao hơn giá tháng tham khảo 1.000.000 đến 1.200.000 đồng. Nói gọn: nếu mỗi tháng bạn cần xe lâu hơn khoảng 1,25 đến 1,7 tuần (1.000.000 ÷ 800.000 và 1.200.000 ÷ 700.000), giá tháng bắt đầu có lợi, kể cả khi xe nằm yên hơn một nửa thời gian.</p>\n\n<h2>Những khoản tiền không nằm trong phép tính</h2>\n<ul>\n<li><strong>Chỗ để xe những ngày không dùng:</strong> xe thuê tháng vẫn phải được khóa và để ở nơi an toàn trong những ngày nằm yên. Nếu chỗ bạn ở không có chỗ để, tiền gửi xe có thể làm giá tháng bớt hấp dẫn.</li>\n<li><strong>Công đi lại lấy và trả xe:</strong> nếu bạn tự đến nhận và trả xe tại cửa hàng (hãy hỏi có giao nhận không), mỗi đợt thuê ngắn đều có một lần đi và một lần về. Nếu cửa hàng không gần nơi bạn ở, thời gian và tiền đi lại cũng là chi phí của cách thuê lẻ.</li>\n<li><strong>Quen xe:</strong> giữ nguyên một chiếc xe cả tháng giúp bạn quen tay lái, phanh và cốp xe, thay vì làm quen lại ở mỗi đợt.</li>\n<li><strong>Lịch có thể đổi:</strong> nếu lịch làm việc của bạn thay đổi từng tuần, hãy tính cả rủi ro những ngày xe nằm yên mà vẫn tính tiền; thuê lẻ linh hoạt hơn khi bạn chưa chắc lịch.</li>\n<li><strong>Chắc có xe:</strong> thuê lẻ phụ thuộc vào việc đúng ngày bạn cần có xe sẵn; giữ xe theo tháng bỏ nỗi lo đó, nhưng cũng khiến bạn phải chịu trách nhiệm với chiếc xe cả tháng.</li>\n</ul>\n\n<h2>Hỏi gì trước khi chốt</h2>\n<p>Phép tính trên giả định giá tháng áp dụng cho một chiếc xe bạn giữ suốt tháng. Hãy hỏi cửa hàng và ghi lại câu trả lời:</p>\n<ul>\n<li>Nếu tôi chỉ dùng xe vài ngày mỗi tuần nhưng giữ xe cả tháng, giá tháng có thay đổi không?</li>\n<li>Nếu tôi muốn trả xe giữa tháng, vì đổi lịch làm việc chẳng hạn, thì tính thế nào?</li>\n<li>Con số giá tháng này là của mẫu xe cụ thể nào, và nếu tôi đổi sang mẫu khác thì giá tháng có đổi không?</li>\n<li>Nếu hết tháng tôi muốn giữ xe thêm một thời gian, những ngày thêm tính theo giá ngày hay theo giá tháng?</li>\n</ul>\n\n<h2>Khi hoàn cảnh của bạn khác đi</h2>\n<p>Nếu bạn chia xe thuê tháng với người ở cùng, bài <a href=\"https://rentbikehanoi.com/vi/ban-cung-phong-dung-chung-xe-thue-thang-chia-tien-xang/\">bạn cùng phòng dùng chung xe thuê tháng, chia tiền xăng</a> có cách ghi sổ. Nếu bạn chỉ cần xe theo tuần, bài <a href=\"https://rentbikehanoi.com/vi/thue-xe-theo-ngay-hay-theo-tuan-khi-o-mot-tuan/\">thuê xe theo ngày hay theo tuần khi ở một tuần</a> tính điểm hòa tương tự giữa giá ngày và giá tuần. Chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/thue-xe-dai-han/\">Thuê xe dài hạn</a> gom các bài thuê dài ngày khác.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 700000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 800000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1000000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 2000000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 150000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "day",
+        "value_vnd": 200000,
+        "vehicle": "automatic"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/chi-can-xe-vai-ngay-moi-tuan-thue-nguyen-thang-hay-thue-theo-dot/",
+    "category_id": 154,
+    "featured_media": null,
+    "focus_keyword": "thuê xe máy không liên tục trong tháng",
+    "language": "vi",
+    "meta_description": "Chỉ cần xe vài ngày mỗi tuần: tính điểm hòa giữa giá tháng và giá ngày, so với thuê theo tuần và những khoản ngoài tiền thuê trước khi chốt.",
+    "seo_title": "Thuê xe máy không liên tục trong tháng: thuê tháng hay thuê lẻ",
+    "session": "sess-b4",
+    "source_commit": "8fd47f96d495cbf80291bd94528855ba50fef1bd",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Chỉ cần xe vài ngày mỗi tuần: thuê nguyên tháng hay thuê từng đợt ngắn",
+    "topic_id": "TH-VI-0065"
+  },
+  "article_sha": "490a9b5a4a8afbd412189efa902347611b4725c4ff2033acf4484e961d3a06a3",
+  "category_id": 154,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/chi-can-xe-vai-ngay-moi-tuan-thue-nguyen-thang-hay-thue-theo-dot/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T13:32:32.162973+00:00",
+  "topic_id": "TH-VI-0065",
+  "waiting_for": [
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

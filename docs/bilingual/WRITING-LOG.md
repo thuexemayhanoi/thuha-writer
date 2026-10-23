@@ -95,3 +95,71 @@ và 27 chỗ nhỏ. Đã sửa tất cả lỗi chặn và chỗ cần sửa r�
 Còn lại, nói thẳng (reviewer ghi nhận, chưa giải quyết bằng viết lại): (a) cả bảy bài cùng kết thúc bằng một đoạn liên hệ giống nhau và năm bài mở đầu bằng cùng một công thức "áp dụng cho chuyến của bạn cần được xác nhận khi đặt xe";
 (b) giọng trung lập kiểu hướng dẫn người tiêu dùng vẫn nằm trên trang của cửa hàng; (c) năm bài chỉ đưa câu hỏi chứ không đưa đáp án vì cửa hàng chưa trả lời. Cả ba cần quyết định hoặc dữ kiện của chủ cửa hàng
 ([OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)); không có bài nào nên xuất bản trước khi chủ cửa hàng xem giọng văn.
+
+## Lô VI #3 (23/10/2026, lần 5): mười bốn bản mới từ chủ đề `editorial_only`
+
+Chọn từ các dòng matrix chỉ cần `editorial_only` (cộng `first_party_facts`) mà ý định không phụ thuộc vào chính sách chưa xác nhận (giao xe, quy trình cọc, hoàn cọc): kỹ năng lái, quần áo, đi nhóm, lập kế hoạch ngày, xe số/xe côn/xe ga, chi phí đi hai người.
+Nhập bằng `intake` với bằng chứng first-party **mới** (chụp lại sau khi chủ website xác nhận phí gia hạn 20.000 đồng một giờ, quá 6 giờ tính một ngày thuê), viết bằng `pack`/`build`, kiểm bằng `precheck` rồi nộp `--waiting-for auto`:
+TH-VI-0018, 0022, 0134, 0146, 0151, 0158, 0267, 0268, 0359, 0371, 0459, 0484, 0487, 0491. Tất cả `WAITING_DATA` (`FEATURED_MEDIA`, `INTERNAL_LINKS`), điểm hiện tại 62,5/80, điểm tiềm năng 100 khi có dữ liệu, không lỗi nội dung.
+
+### Rà soát độc lập trước khi nộp (23/10/2026)
+
+Một tác tử khác (chỉ đọc) đọc cả mười bốn bản, tính lại mọi phép toán, tìm từ bị cấm bằng chính regex của QA và so chồng lấn. Số liệu **đúng** (0018, 0022, 0484, 0487 tính lại không sai), **không có** từ về giấy phép/luật/mức phạt/cọc/hoàn tiền. Nó tìm ra những điều tôi đã sửa trước khi nộp (khoảng 80 chỗ):
+
+- **Một lỗi chặn về an toàn (TH-VI-0371):** câu "chấp nhận rằng xe sẽ đi ra ngoài đường cua một chút" trên đường hẹp có xe tải; đã viết lại (vào cua đủ chậm để xe trôi ra vẫn nằm trong làn; ở cua phải phía ngoài cua là làn ngược chiều, ở cua trái là mép đường có cát) và thêm lời dặn dừng gọi cửa hàng nếu tay lái rung hoặc phanh lạ.
+- **Câu ngầm cho rằng cửa hàng có dịch vụ chưa xác nhận:** thử xe trước khi nhận, đổi sang xe số, hai người cùng lái, trả muộn được chấp nhận, hướng dẫn dọc đường, kèm áo mưa. Tất cả đã đổi thành câu hỏi cho cửa hàng hoặc bị bỏ.
+- **Mâu thuẫn giữa các bài và với chính nó:** dép lê "chỉ dùng cho xe ga" (mâu thuẫn bốn bài khuyên giày kín mũi), thứ tự chạy nhóm (0459 và 0484 khác nhau), cách phá thế hòa nêu hai lần với hai quy tắc khác nhau ở 0484, lời dặn xe số/xe côn lẫn nhau (phanh sau là bàn đạp chân phải trên xe số, cần tay trái trên xe ga), ví dụ khung giờ ở 0487 (đệm 1,5 giờ không khớp quy tắc một phần năm; đã tính lại thành 9 giờ, đệm 2 giờ, còn 7 giờ).
+- **Chồng lấn đoạn văn** (0151 với 0359, 0134 với 0158, 0146 với 0268): đã chia lại phần của từng bài.
+- **Cảm giác sản xuất hàng loạt:** 12/14 kết đoạn mở đầu bằng cùng một câu lộ trình "Bài này …", 11/14 kết bằng cùng một câu trỏ vào chuyên mục, 6/14 có cùng đoạn địa chỉ, mỗi bài một bảng ba cột. Sau sửa: 2/14 còn câu lộ trình ở đoạn mở đầu, câu kết đổi theo ngữ cảnh, đoạn địa chỉ chỉ còn ở hai bài cần nó (0484, 0491), số bảng từ 1 đến 3 theo nội dung.
+
+**Còn lại, nói thẳng:** (1) cả mười bốn bài chỉ liên kết tới chuyên mục VI đang có và tới bài cùng lô (chưa sống), nên QA cần ít nhất một liên kết tới trang/bài nội dung VI đang sống
+(`minimum_internal_content_links = 1`); 11 trang tĩnh VI đã tồn tại nhưng slug chưa nằm trong repo. Cách giải: khi audit có thẩm quyền liệt kê các trang ấy, `claim --revise` từng bản để thêm liên kết dịch vụ theo `internal_link_plan` của dòng ma trận;
+mỗi bài có liên kết sống riêng nên không còn phụ thuộc chéo giữa các bản thảo. (2) Ảnh có alt tiếng Việt chưa tồn tại. (3) Chưa có inventory từ adapter.
+
+## Lô EN #1 (23/10/2026, lần 5): bảy bản mới
+
+TH-EN-0005 (gọi xe hay thuê xe cả tuần), 0012 (nhận xe ngày đến hay ngày thứ hai), 0065 (xe số/xe côn tay/xe ga), 0125 (giải thích sự cố không biết tiếng Việt), 0139 (lâu không lái), 0140 (đi nhóm), 0141 (khoảng cách an toàn).
+Cùng cách làm: `intake`, `build`, `precheck`, `submit --waiting-for auto` (`WAITING_DATA`). Từ container này không truy cập được `rentbikehanoi.com`, nên liên kết chỉ trỏ tới bài EN đã có trong inventory và các chuyên mục.
+
+Rà soát độc lập (chỉ đọc) cũng không thấy từ bị cấm và tính lại toàn bộ số liệu của TH-EN-0005 (đúng). Đã sửa trước khi nộp:
+**TH-EN-0005** liên kết tới bài chưa đăng (chặn) và đếm sai số chặng; **TH-EN-0012** khẳng định chính sách ngoài giờ mở cửa mà cửa hàng chưa xác nhận;
+**TH-EN-0065** một khẳng định sai về cần ga; **TH-EN-0139** ngưỡng "nhiều dấu hiệu mới hoãn" (một dấu hiệu là đủ) và lời trấn an quá mức; **TH-EN-0140** mâu thuẫn "xem vị trí khi đang chạy" với "không dùng điện thoại khi chạy", điểm hẹn ở mép lề/vỉa hè;
+**TH-EN-0141** "đánh lái sang bên cạnh khi không phanh kịp" có thể là làn ngược chiều; **TH-EN-0125** "thay xe" như một quyền lợi. Mỗi bài được viết lại theo các điểm trên và bỏ đoạn liên hệ giống nhau ở cuối.
+
+## Vòng liên kết giữa các bản thảo (23/10/2026, lần 5)
+
+Tìm ra khi diễn tập "bài nào qua QA trước", không phải do reviewer: QA coi liên kết tới trang chưa sống là lỗi cứng (`INTERNAL_LINK_NOT_LIVE_VERIFIED`; trong một bản chờ dữ liệu thì thành chờ `INTERNAL_LINKS`) và cần ít nhất một liên kết nội dung sống.
+Mười bốn bản của lô VI #3 chỉ trỏ tới chuyên mục và tới bản cùng lô, bốn nhóm bản trỏ vòng quanh nhau (ví dụ 0359↔0371; công cụ phát hiện vòng báo đúng bốn nhóm trước khi cắt). Dù sau này có trang dịch vụ VI sống thì những cặp ấy vẫn không bao giờ qua, vì bản nào cũng chờ bản kia đăng trước.
+
+Đã làm: công cụ phát hiện (`writing.link_graph`; `next` có `planned_link_cycles`; `precheck`/`build` có `planned_links`, `link_cycle` và lint `LINT_LINK_CYCLE`/`LINT_PLANNED_LINK`, kiểm bằng test và đột biến); cắt chín liên kết ở tám bản VI đã lưu rồi nộp lại bằng `claim --revise`
+(hoàn thiện, không phải sửa lại: `repair_count` vẫn 0) và sáu liên kết ở lô #4 trước khi nộp. Quy tắc: một bản chỉ trỏ tới bản viết trước nó, không bao giờ ngược lại; nhắc tới một bản chưa đăng thì ghi bằng chữ, không bằng liên kết. `next --language vi` báo `planned_link_cycles: []`.
+Còn lại: các "gốc" của thứ tự này (0022, 0146, 0359...) chỉ trỏ chuyên mục, nên mỗi gốc vẫn cần một liên kết sống của riêng nó (trang dịch vụ VI) khi audit có thẩm quyền liệt kê chúng; không thể bịa slug.
+
+## Lô VI #4 (23/10/2026, lần 5): mười bản về tiền thuê, chi phí và nhóm
+
+TH-VI-0013 (khoản dự phòng), 0218 (kiểm tra xe khi gia hạn), 0003 (ngày hay tuần), 0026 (xe số hay xe ga cho một tuần), 0065 (thuê tháng hay thuê lẻ), 0140 (sinh viên, nhà trọ), 0197 (chia xăng khi dùng chung xe tháng), 0008 (chia tiền nhóm bạn), 0224 (nhật ký lỗi chập chờn), 0090 (người quen đi nhận xe).
+Mỗi bài dùng phép tính từ khoảng giá tham khảo đã xác nhận (điểm hòa vốn ngày/tuần/tháng, chia theo km, quỹ chung...) và có khung riêng. Tất cả `WAITING_DATA` (`FEATURED_MEDIA`, `INTERNAL_LINKS`), `repair_count` 0, không lỗi nội dung.
+
+Rà soát độc lập (chỉ đọc; tính lại mọi phép toán, chạy regex REGULATED/FIRSTHAND của QA lên từng bài). Sai số học duy nhất: TH-VI-0065 ("bốn tuần rưỡi" nhưng nhân với 4,3; "8 ngày" mâu thuẫn "9 ngày"). Các lỗi chặn và chỗ cần sửa đã áp dụng:
+
+- **Chính sách cửa hàng bị ngầm khẳng định:** 0013 "tính tròn từng giờ" (mâu thuẫn đoạn sau của chính nó; phần lẻ của giờ chưa xác nhận), 0090 mũ bảo hiểm như món cửa hàng có sẵn; mềm hơn ở 0065 (cách tính theo ngày, không giao nhận), 0197 (hai người cùng lái), 0140 (thử xe), 0224 (cổng sạc), 0218 (kênh nhắn tin).
+- **An toàn (0224):** nhật ký bị gọi là "lỗi nhẹ" trong khi bảng ghi "máy tắt giữa đường" và đèn nháy; thiếu quy tắc dừng xe khi chết máy giữa dòng xe hoặc đèn hậu/phanh/xi nhan không sáng ban đêm; "đề liên tục" sau khi lội nước; "ghi ngay" có thể bị hiểu là ghi lúc đang lái; "sáng sớm" trái giờ mở cửa 09:00.
+  Đã đưa phần dừng xe lên đầu bài với số điện thoại và giờ mở cửa đã xác nhận, bỏ giả định kênh nhắn tin.
+- **Chồng lấn nội dung (QA không bắt được, độ chồng chữ cao nhất 0,104):** danh sách kiểm tra 0218 và 0090 (0090 chỉ giữ bốn điều chỉ người thứ hai làm được, nối tới 0218), khung quyết định 0026 và 0140, ba cách chia 0008 và 0197, "rút sát ngày" ở 0008 và 0484.
+- **Lặp khuôn:** đoạn "Nối tiếp từ đây" ở 8/10 bài, câu phí gia hạn ở 6/10, "Ví dụ với số giả định" ở 5/10, câu rào giá ở 7/10, khung tin nhắn […] ở ba bài. Sau sửa: không bài nào còn "Nối tiếp từ đây", câu phí gia hạn chỉ ở 0013 và 0218 (nơi nó là chủ đề), khung tin nhắn […] chỉ ở 0218.
+
+Còn lại: các số xăng/giá trong ví dụ là số tự đặt (giá xăng hiện hành chưa kiểm được ngoài repo); mọi bài vẫn chờ ảnh có alt tiếng Việt và liên kết sống (xem mục vòng liên kết).
+
+## Lô VI #5 và EN #2 (23/10/2026, lần 5): bốn bản VI và ba bản EN
+
+TH-VI-0128 (thuê xe ga một tuần để thử), 0121 (nhóm nhiều xe cùng loại xe ga), 0263 (áo phản quang buổi tối ngoại thành), 0445 (ăn no rồi lái xe); TH-EN-0001 (ngày hay tuần, sáu ngày), 0002 (hai ba tuần: tuần hay tháng), 0009 (chỉ cuối tuần: thuê lẻ hay thuê tháng).
+Cùng cách làm, cùng rà soát độc lập (chỉ đọc). Đã sửa các lỗi chặn trước khi nộp:
+
+- **Nội dung sức khỏe/an toàn không có nguồn (0445):** lời khuyên ăn uống kèm tác dụng sinh lý, "trạng thái tỉnh hơn", lời dặn gọi xe cho đoạn về mà không nhắc chiếc xe thuê, "đừng tự đổi người lái" không có ngoại lệ an toàn. **0128:** "gặp mưa đừng né, thử phanh" với người có thể mới lái. Tất cả đã viết lại.
+- **Khẳng định số liệu không đỡ được:** TH-EN-0001 mở bài nói sáu ngày là lúc hai giá "sát nhau nhất" (bảng của chính nó cho thấy sát nhất ở 4–5 ngày) và meta nói "scooter" trong khi mọi số là xe số; TH-EN-0002 "một khối tuần thứ hai đã đắt hơn cả tháng" (sai: cần hai khối), "hai khoảng chồng lên nhau rộng" (không đúng);
+  TH-EN-0009 "tối đa bốn chuyến bằng xe buýt" (đúng là tám đến mười), "mỗi lần thuê ngắn là hai chuyến tới cửa hàng" (giao xe chưa xác nhận), "trả xe muộn nhất 21:00 chủ nhật" (chính sách chưa xác nhận), "cho phép kết hợp" (chưa xác nhận).
+- **Chính sách cửa hàng bị ngầm khẳng định:** TH-VI-0263 mũ là đồ thuê; TH-EN-0001 không hoàn tiền/linh hoạt như dữ kiện; TH-VI-0445 trả muộn bị đồng nhất với gia hạn.
+- Bốn bản VI và ba bản EN sau sửa: không lỗi nội dung, `WAITING_DATA`, `repair_count` 0. TH-EN-0001 nay nêu cả xe ga (khai báo thêm giá ngày/tuần xe ga), TH-EN-0009 có đoạn nói rõ thuê tuần chỉ để đi hai ngày không có lợi.
+
+Còn lại, nói thẳng: TH-EN-0001 trùng phương pháp với TH-VI-0003 và TH-EN-0002 chia một câu tính toán với TH-VI-0065 (cùng một quyết định của người thuê, hai thị trường đọc; đã đổi cách diễn đạt và thứ tự câu hỏi, không phải bản dịch, và không có cặp hreflang nào được lên kế hoạch);
+TH-EN-0001 và TH-EN-0009 cùng một "động cơ" tính toán nên không nên đăng liền nhau. Từ khóa chính tiếng Anh của ba bài EN là cụm của ma trận nên không xuất hiện nguyên văn trong tiêu đề (chỉ là gợi ý lint, QA không kiểm).

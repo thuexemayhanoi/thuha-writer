@@ -1,0 +1,77 @@
+{
+  "agent_id": "claude-writer-W1",
+  "article": {
+    "agent_id": "claude-writer-W1",
+    "body_html": "<p>Cách làm dưới đây chỉ áp dụng nếu cửa hàng cho phép nhiều người cùng lái một xe thuê; hãy hỏi trước khi góp tiền. Khi được phép, chia tiền xăng khi dùng chung xe thuê là chỗ ba bốn người ở chung nhà trọ dễ bất đồng hơn cả tiền thuê, vì tiền thuê là con số rõ ràng và cố định, còn xăng thì ai đổ lần trước, ai đi nhiều hơn, ai chưa góp đều phải nhớ. Cách đỡ rắc rối nhất là thống nhất cách ghi và cách chia từ trước lần đổ xăng đầu tiên, khi chưa ai có lý do để tính toán cho phần mình.</p>\n\n<h2>Thống nhất ba điều trước khi nhận xe</h2>\n<ul>\n<li><strong>Ai liên hệ cửa hàng:</strong> một người làm đầu mối để cửa hàng không phải trao đổi với cả nhóm, và cả nhóm biết số điện thoại cửa hàng.</li>\n<li><strong>Ai được lái:</strong> hãy hỏi cửa hàng ai được phép lái chiếc xe thuê, rồi ghi tên những người đó vào sổ chung. Chỉ những người cửa hàng đã đồng ý mới được lái; đừng để ai khác, kể cả người trong nhóm chưa được ghi tên, mượn xe.</li>\n<li><strong>Cách chia:</strong> tiền thuê chia thế nào, tiền xăng chia thế nào, và khoản phát sinh như vá lốp hay rửa xe lấy từ đâu.</li>\n</ul>\n\n<h2>Cuốn sổ chung: ghi gì</h2>\n<p>Một cuốn sổ nhỏ để cùng xe, hoặc một tệp chung trên điện thoại, là đủ. Mỗi lần dùng xe, người đi ghi một dòng:</p>\n<table>\n<thead><tr><th>Ngày</th><th>Người đi</th><th>Số km trên đồng hồ trước và sau chuyến đi</th><th>Xăng đổ (đồng)</th></tr></thead>\n<tbody>\n<tr><td>[…]</td><td>[…]</td><td>[…] đến […]</td><td>[…]</td></tr>\n</tbody>\n</table>\n<p>Số km là cách đo khá công bằng vì ai đi nhiều thì ghi nhiều. Hãy chụp ảnh đồng hồ khi lấy xe lần đầu và khi đổ xăng, để cả nhóm cùng xem được và không ai phải nhớ lại. Với xăng, ghi ai đổ và bao nhiêu tiền, vì người đổ là người đã ứng trước phần của cả nhóm.</p>\n<p>Vài quy ước nhỏ giúp cuốn sổ chạy đều:</p>\n<ul>\n<li>Đổ đầy bình mỗi lần để dễ so sánh giữa các lần đổ.</li>\n<li>Chụp ảnh hóa đơn hoặc màn hình thanh toán, hoặc ghi số tiền ngay sau khi trả, đừng để đến cuối tuần mới nhớ.</li>\n<li>Người lái ghi km. Khi chở một người trong nhóm, km vẫn tính cho người lái, vì xe hao xăng chủ yếu theo quãng đường.</li>\n<li>Ai dùng xe lúc bình xăng gần cạn thì đổ trước khi để xe lại chỗ cũ, để người sau không bị kẹt giữa đường.</li>\n</ul>\n\n<h2>Công thức chia tiền xăng</h2>\n<p>Phần xăng của một người bằng tổng tiền xăng nhân với tỷ lệ km của người đó trên tổng km của cả nhóm. Ví dụ bằng số tự đặt: trong tháng nhóm đổ tổng cộng 600.000 đồng xăng, và ba bạn đi lần lượt 600 km, 400 km và 200 km, tổng 1.200 km. Phần của từng người là 600.000 × 600 ÷ 1.200 = 300.000 đồng, 600.000 × 400 ÷ 1.200 = 200.000 đồng và 600.000 × 200 ÷ 1.200 = 100.000 đồng.</p>\n<p>Nếu người thứ nhất đã đổ 400.000 đồng, người thứ hai đổ 200.000 đồng và người thứ ba chưa đổ lần nào, thì người thứ nhất được nhận lại 100.000 đồng, người thứ hai không phải trả gì thêm, người thứ ba trả 100.000 đồng. Số thật trong sổ sẽ khác; chỉ cần thay vào cùng công thức, rồi ghi việc chuyển tiền bù vào sổ để khỏi phải hỏi lại.</p>\n\n<p>Chia xăng đều theo đầu người nghe nhanh hơn nhưng không công bằng với người ít đi: trong ví dụ này, mỗi người trả 200.000 đồng thì người thứ ba trả gấp đôi phần mình đã dùng (200.000 so với 100.000 đồng), còn người thứ nhất trả ít hơn phần mình dùng 100.000 đồng. Chênh lệch ấy lặp lại mỗi tháng và chính nó là nguồn của những lời phàn nàn.</p>\n\n<h2>Chia tiền thuê: nửa đều, nửa theo km</h2>\n<p>Giá tham khảo của cửa hàng Thuê xe máy Nguyễn Hà cho xe số theo tháng là từ 1.000.000 đến 1.200.000 đồng; con số thật tùy chiếc xe bạn chọn nên cần hỏi lại cửa hàng khi đặt. Chia đều cho ba người, mỗi người khoảng 333.000 đến 400.000 đồng. Cách này đơn giản, nhưng người ít dùng xe dễ thấy thiệt.</p>\n<p>Một cách pha: một nửa tiền thuê chia đều như phí giữ xe, nửa còn lại chia theo km. Ví dụ, với tiền thuê 1.200.000 đồng và km 600, 400, 200 như trên, mỗi người trả 200.000 đồng phần đều, cộng với 300.000 đồng, 200.000 đồng và 100.000 đồng phần theo km, tổng 500.000 đồng, 400.000 đồng và 300.000 đồng. Cách pha hợp với nhóm có người đi nhiều, vì nó vừa ghi nhận việc cả nhóm đều được lợi từ chiếc xe đang để sẵn, vừa tính thêm cho người đi nhiều.</p>\n\n<h2>Hai tình huống làm lệch sổ</h2>\n<ul>\n<li><strong>Chuyến riêng đi xa:</strong> nếu một người đi xa một ngày cuối tuần với quãng đường gấp nhiều lần ngày thường, hãy thống nhất trước hai cách: người đó tự đổ xăng cho chuyến ấy và không ghi vào sổ chung, hoặc ghi như mọi chuyến để công thức tự tính. Chọn một cách và áp dụng cho tất cả mọi người.</li>\n<li><strong>Đồng hồ km không đáng tin:</strong> nếu đồng hồ xe không hiển thị km hoặc đứng yên, hãy báo cửa hàng và tạm ghi km theo ứng dụng bản đồ, thay vì để mỗi người ước lượng một kiểu.</li>\n</ul>\n\n<h2>Một buổi họp nhỏ mỗi tháng</h2>\n<p>Cuối mỗi tháng, dành mười phút để cộng sổ và chuyển tiền bù. Mười phút này tránh được chuyện để dồn đến ba tháng rồi không ai nhớ ai đã đổ lần nào. Nếu mức dùng của mỗi người thay đổi theo tháng, vì đổi ca làm hay đi xa, hãy xem lại cách chia mỗi quý thay vì giữ mãi một công thức. Khoản nhỏ như vá lốp hay rửa xe cũng nên ghi vào sổ cùng lúc, kèm việc ai đã chịu. Nếu có người sắp dọn đi hoặc muốn thôi góp, hãy chốt sổ với họ trước, rồi hỏi cửa hàng cách xử lý chiếc xe và người liên hệ.</p>\n\n<h2>Khi bạn chỉ chia tiền cho một chuyến ngắn</h2>\n<p>Sổ km hợp với chiếc xe dùng suốt tháng. Với một chuyến đi chơi ngắn ngày của cả nhóm, bài <a href=\"https://rentbikehanoi.com/vi/chia-tien-thue-xe-may-xang-gui-xe-cho-nhom-ban/\">chia tiền thuê xe máy, xăng, gửi xe cho nhóm bạn</a> có cách chia nhẹ hơn, còn khoản nhỏ như vá lốp hay rửa xe được tính trong bài <a href=\"https://rentbikehanoi.com/vi/du-tru-khoan-du-phong-khi-thue-xe-may-chi-phi-nho-phat-sinh/\">dự trù khoản dự phòng khi thuê xe</a>. Chuyên mục <a href=\"https://rentbikehanoi.com/vi/chuyen-muc/nhien-lieu-va-tieu-hao/\">Nhiên liệu và tiêu hao</a> gom các bài về xăng.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1000000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "manual"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/ban-cung-phong-dung-chung-xe-thue-thang-chia-tien-xang/",
+    "category_id": 159,
+    "featured_media": null,
+    "focus_keyword": "chia tiền xăng khi dùng chung xe thuê",
+    "language": "vi",
+    "meta_description": "Bạn cùng phòng dùng chung xe thuê tháng: cách ghi sổ km, công thức chia tiền xăng, chia tiền thuê đều hay theo mức dùng và xử lý khoản phát sinh.",
+    "seo_title": "Chia tiền xăng khi dùng chung xe thuê tháng: ghi sổ công bằng",
+    "session": "sess-b4",
+    "source_commit": "267a28b99b62ee8a66326cb6ecef02ff206c48c5",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Mấy bạn cùng phòng dùng chung một xe thuê tháng: cách ghi sổ và chia tiền xăng cho công bằng",
+    "topic_id": "TH-VI-0197"
+  },
+  "article_sha": "a7f82c0494a02edb7d4df6de07316e94040595829b300b74389d80978d70c418",
+  "category_id": 159,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/ban-cung-phong-dung-chung-xe-thue-thang-chia-tien-xang/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T13:32:51.499106+00:00",
+  "topic_id": "TH-VI-0197",
+  "waiting_for": [
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}

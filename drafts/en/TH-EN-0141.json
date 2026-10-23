@@ -1,0 +1,64 @@
+{
+  "agent_id": "claude-writer-W2",
+  "article": {
+    "agent_id": "claude-writer-W2",
+    "body_html": "<p>Following distance in stop-and-go Hanoi traffic is one of the first things that surprises a rider used to wide gaps at home. You leave a comfortable space in front, and within seconds another scooter has slid into it. That is normal here, and trying to defend the gap by closing up behind the next bike only leaves you with no room to stop. A better approach is to accept that the space in front of you will fill, and to keep your speed low enough to stop, your eyes two vehicles ahead and a way out in mind.</p>\n\n<h2>Why the textbook gap feels impossible</h2>\n<p>At home you may have learned a gap measured in seconds behind the vehicle ahead. In dense Hanoi traffic, riders weave in and out and bikes fill any space that opens, so that gap rarely lasts. The mistake is to respond by following very closely. The useful point is that stopping distance depends mostly on speed. In slow, stop-and-go traffic, you are moving slowly, so the space you need to stop is small. If you keep your speed low enough that the room you actually have is enough to stop, the fact that other bikes keep filling the gap matters much less.</p>\n\n<h2>Look two vehicles ahead</h2>\n<p>Do not stare at the back of the bike directly in front. Look past it. Watch the brake lights and movement of the vehicles ahead of the one you are following, and keep an eye on the front wheels of nearby scooters: a front wheel turning shows the direction a rider is about to take before the rest of the bike does. If you see brake lights two vehicles ahead, you can start slowing before the rider in front of you has reacted, and your own stop is smoother.</p>\n\n<h2>Feel your own stopping distance</h2>\n<p>Before you ride in busy streets, find a quiet spot and practise stopping from a low speed: brake smoothly with both brakes, never to the point of locking a wheel, and notice how far the bike travels before it stops. Repeat at a slightly higher speed. You are not measuring in metres; you are building a feel for how much room your bike needs at the speeds you will ride in traffic. If the bike feels unfamiliar, that is a sign to ride more slowly in the first hours.</p>\n\n<h2>A quick three-check routine</h2>\n<ol>\n<li><strong>Could I stop before touching if the vehicle ahead stopped right now?</strong> If not, ease off a little. The answer depends on your speed, so lower it rather than trying to force space.</li>\n<li><strong>Is there a way out?</strong> Brake first. If you still cannot stop in time, steer only into clear space on your own side of the road, never into oncoming traffic. Avoid riding in a spot with a vehicle at each side and one ahead.</li>\n<li><strong>What is behind me?</strong> Glance in your mirrors. A bike close behind you means you should brake earlier and more smoothly, not harder.</li>\n</ol>\n<p>Make these a habit in dense traffic; they become automatic with practice.</p>\n\n<h2>Leaving space without being boxed in</h2>\n<p>Being boxed in means that vehicles are close on both sides and in front, so you have no choices if something happens. To avoid it, do not ride directly in the line of the vehicle ahead; offset slightly so you can see past it and can steer around. Try to keep one side open rather than filling the gap beside you. When you stop at lights, stop with a little room in front and with your front wheel pointing straight, so you can move off cleanly. If a gap beside you is filling and you cannot get out of it, slow down gently and let the traffic move on rather than squeezing through.</p>\n\n<h2>Four situations you will meet</h2>\n<ul>\n<li><strong>Creeping forward at a red light.</strong> Bikes edge toward the front. Keep a small gap behind the bike in front, stop with your wheel straight, and do not follow it through the gap until you can see the road beyond.</li>\n<li><strong>A bus or lorry pulling out or turning.</strong> Buses may pull out from stops without waiting for a gap, and lorries swing wide on corners. The driver cannot see a rider directly beside or close behind, so do not ride tight against a large vehicle or alongside its front or rear corners. Watch indicators and wheels, ease off early, and do not squeeze past on the inside as it moves.</li>\n<li><strong>A bike braking hard ahead.</strong> Riders can brake suddenly to avoid a pedestrian or another bike. This is why your eyes should be two vehicles ahead and your speed low enough to stop.</li>\n<li><strong>A bike crossing your path.</strong> Riders turn across traffic from side streets and U-turn mid-block. Slow at the mouth of an alley and rest your fingers on the brake levers rather than assuming the road is clear.</li>\n</ul>\n\n<h2>Wet roads need more room</h2>\n<p>In rain, brakes take longer to work and road markings, metal covers and wet leaves reduce grip. Your braking distance grows, so your speed should drop and your habit of looking two vehicles ahead matters even more. The guide to <a href=\"https://rentbikehanoi.com/wet-road-markings-and-metal-covers-in-hanoi-a-riding-risk-checklist/\">wet road markings and metal covers in Hanoi</a> goes into the specific hazards.</p>\n\n<h2>Timing and further reading</h2>\n<p>The easiest way to reduce the problem is to avoid the busiest hours when you can; the <a href=\"https://rentbikehanoi.com/choosing-a-motorbike-departure-time-in-hanoi-a-rush-hour-worksheet/\">rush-hour worksheet for choosing a motorbike departure time in Hanoi</a> helps you plan that. You can also browse the <a href=\"https://rentbikehanoi.com/blog/tips-resources/road-rules-riding-safety/riding-skills-safety-planning/\">Riding Skills &amp; Safety Planning</a> category.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
+    "category_id": 145,
+    "featured_media": null,
+    "focus_keyword": "following distance motorbike hanoi stop go traffic",
+    "language": "en-US",
+    "meta_description": "How to judge following distance in stop-and-go Hanoi traffic: look two vehicles ahead, keep an exit, avoid blind spots and handle four common situations.",
+    "seo_title": "Following Distance in Stop-and-Go Hanoi Traffic",
+    "session": "sess-e1",
+    "source_commit": "4ffa0a18abb0424c03b50663459b47bef39bcad5",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts: name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee, used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source, and the facts file holds no delivery, deposit or refund policy.",
+        "url": "repo://config/business-facts.json"
+      },
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
+    "topic_id": "TH-EN-0141"
+  },
+  "article_sha": "2a7ad8786dc49aabdc77b0c4c121301b942fc27fbe5e2d5fa7191505efbd2319",
+  "category_id": 145,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
+  "qa": null,
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "WAITING_DATA",
+  "submitted_at": "2026-10-23T12:44:42.716940+00:00",
+  "topic_id": "TH-EN-0141",
+  "waiting_for": [
+    "FEATURED_MEDIA",
+    "INTERNAL_LINKS"
+  ]
+}
