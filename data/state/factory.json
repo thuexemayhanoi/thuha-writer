@@ -6434,6 +6434,18 @@
       "sha256": "a4d634411d12e1e204692777ec74d83f7c81aeac648b203dd84b9d30ac0a87d6",
       "slot": "W1",
       "topic_id": "TH-VI-0008"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "a04d750222da20f540afe796bc1506222e7a6fb5fbbd6a2c7282e1b254fbf4c7",
+      "at": "2026-10-23T16:06:53.988892+00:00",
+      "previous": "a4d634411d12e1e204692777ec74d83f7c81aeac648b203dd84b9d30ac0a87d6",
+      "sha256": "9b13625169fb5e21e20358db0e8c81a5b64e297650f50215e25f977177eee37a",
+      "topic_id": "TH-VI-0008",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9409,18 +9421,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773408.745376,
-      "fence": "6523af0d051346c595f0752712e40dd5",
-      "heartbeat_at": "2026-10-23T16:06:48.745354+00:00",
-      "language": "vi",
-      "session": "sess-b4",
-      "slot": "W1",
-      "topic_id": "TH-VI-0008"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10282,13 +10283,13 @@
     },
     "TH-VI-0008": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "6ab503cfc0d4688665ae8acfee4ca5202964a08500859e90cb35d20a2eb3211c",
+      "article_sha": "a04d750222da20f540afe796bc1506222e7a6fb5fbbd6a2c7282e1b254fbf4c7",
       "commit": "868d237b97b2ddcf0e51b9110731660c24068641",
-      "fence": "4a0963bdbac34342aea11bcdc28d4474",
+      "fence": "6523af0d051346c595f0752712e40dd5",
       "repair_count": 0,
       "session": "sess-b4",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:53:38.466970+00:00"
+      "submitted_at": "2026-10-23T16:06:53.988865+00:00"
     },
     "TH-VI-0010": {
       "agent_id": "claude-writer-VI6",
@@ -13724,7 +13725,6 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chia tiền thuê xe máy cho nhóm bạn",
       "proposed_title": "Nhóm bạn đi chung nhiều xe: cách chia tiền thuê xe, xăng và gửi xe cho công bằng",
@@ -13737,7 +13737,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0008",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15547,5 +15547,5 @@
       ]
     }
   },
-  "version": 835
+  "version": 836
 }
