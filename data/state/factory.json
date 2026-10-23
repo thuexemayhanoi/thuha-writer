@@ -677,6 +677,33 @@
       "sha256": "c311ae4f55e13f86ea6bfe258e80b925e73a624f5bd3fd713088347f138ef983",
       "slot": "W1",
       "topic_id": "TH-000014"
+    },
+    {
+      "action": "SCHEMA_MIGRATION",
+      "at": "2026-10-23T02:39:25.414281+00:00",
+      "from": 4,
+      "legacy_language": "en",
+      "previous": "c311ae4f55e13f86ea6bfe258e80b925e73a624f5bd3fd713088347f138ef983",
+      "sha256": "c78f95f980ca208d0adfbc5a78f8feb27e9819d7a33ed9b551852c6c481c9d3c",
+      "to": 5
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T07:26:57.054380+00:00",
+      "previous": "c78f95f980ca208d0adfbc5a78f8feb27e9819d7a33ed9b551852c6c481c9d3c",
+      "sha256": "ce2af7c229e352dccacdeb3cdae953318943fc0b42ab164f70bd860b8ae257cb",
+      "topic_ids": [
+        "TH-VI-0004",
+        "TH-VI-0006",
+        "TH-VI-0011",
+        "TH-VI-0014",
+        "TH-VI-0016",
+        "TH-VI-0019",
+        "TH-VI-0024",
+        "TH-VI-0033",
+        "TH-VI-0035",
+        "TH-VI-0058"
+      ]
     }
   ],
   "intents": {},
@@ -687,6 +714,7 @@
       "expires_at": 1792723747.705592,
       "fence": "8f291e255d484d19a1b75e1391b73ce2",
       "heartbeat_at": "2026-10-23T02:19:07.705572+00:00",
+      "language": "en",
       "session": "r2-20261023-a1",
       "slot": "W2",
       "topic_id": "TH-000002"
@@ -696,6 +724,7 @@
       "expires_at": 1792723595.479117,
       "fence": "184083a4930640a194c6ac5b22bda5b2",
       "heartbeat_at": "2026-10-23T02:16:35.479096+00:00",
+      "language": "en",
       "session": "w7-20261023-c2",
       "slot": "W3",
       "topic_id": "TH-000010"
@@ -705,6 +734,7 @@
       "expires_at": 1792723608.924231,
       "fence": "2d6c3390616c4fb7813a481d695ec4f4",
       "heartbeat_at": "2026-10-23T02:16:48.924218+00:00",
+      "language": "en",
       "session": "w4-20261023-c1",
       "slot": "W4",
       "topic_id": "TH-000004"
@@ -714,6 +744,7 @@
       "expires_at": 1792723620.203633,
       "fence": "48205436fcae471ba3a1a9f22fd4b8ce",
       "heartbeat_at": "2026-10-23T02:17:00.203612+00:00",
+      "language": "en",
       "session": "w4-20261023-c2",
       "slot": "W5",
       "topic_id": "TH-000011"
@@ -723,6 +754,7 @@
       "expires_at": 1792723627.919764,
       "fence": "625d5a5ab56e40eba570b4bd7fa5cdc3",
       "heartbeat_at": "2026-10-23T02:17:07.919740+00:00",
+      "language": "en",
       "session": "w10-20261023-d1",
       "slot": "W6",
       "topic_id": "TH-000012"
@@ -732,6 +764,7 @@
       "expires_at": 1792723584.68435,
       "fence": "597f269dc7b6445fbb49486db659bbd1",
       "heartbeat_at": "2026-10-23T02:16:24.684335+00:00",
+      "language": "en",
       "session": "w7-20261023-c1",
       "slot": "W7",
       "topic_id": "TH-000007"
@@ -741,6 +774,7 @@
       "expires_at": 1792723821.167836,
       "fence": "6d52ffd5664442b7bdbf06287ec1b180",
       "heartbeat_at": "2026-10-23T02:20:21.167819+00:00",
+      "language": "en",
       "session": "w9-20261023-c2",
       "slot": "W8",
       "topic_id": "TH-000013"
@@ -750,6 +784,7 @@
       "expires_at": 1792723657.105168,
       "fence": "191689a4937b46fabb367501b51b171f",
       "heartbeat_at": "2026-10-23T02:17:37.105151+00:00",
+      "language": "en",
       "session": "w9-20261023-c1",
       "slot": "W9",
       "topic_id": "TH-000009"
@@ -840,6 +875,7 @@
       "completed_at": "2026-10-23T02:08:40.239277+00:00",
       "created_at": "2026-10-20T19:01:25.452661+00:00",
       "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "language": "en",
       "maximum_topics": 100,
       "planned": 2,
       "request_id": "research-02c699867a6129e1",
@@ -854,6 +890,7 @@
       "completed_at": "2026-10-20T19:01:25.441752+00:00",
       "created_at": "2026-10-20T19:01:10.087964+00:00",
       "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "language": "en",
       "maximum_topics": 100,
       "planned": 0,
       "request_id": "research-bf46daf1e88fa9d4",
@@ -865,7 +902,7 @@
     "TH-000005": "7d4bad6b4deab4218185ac9e11d702571aa402607d5fb91cc572403d9d170386",
     "TH-000006": "dde6bd8cd5ddec8bd878d9ceafb67a909a13be08417f76a06369505f48b49bda"
   },
-  "schema": 4,
+  "schema": 5,
   "submissions": {
     "TH-000001": {
       "agent_id": "claude-writer-W11",
@@ -975,6 +1012,7 @@
         "reviewer_id": "chatgpt-work-root",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
       "proposed_title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
       "proposed_url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
@@ -1007,6 +1045,7 @@
         "reviewer_id": "chatgpt-work-root",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "Hanoi ceramic mosaic mural walk",
       "proposed_title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
       "proposed_url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
@@ -1040,6 +1079,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam motorbike licence classes A1 A",
       "proposed_title": "Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules",
       "proposed_url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/",
@@ -1076,6 +1116,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam driving licence points deduction",
       "proposed_title": "How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders",
       "proposed_url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/",
@@ -1112,6 +1153,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "bring own motorbike into vietnam permission",
       "proposed_title": "Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists",
       "proposed_url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/",
@@ -1143,6 +1185,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "asean driving licence vietnam motorbike",
       "proposed_title": "Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For",
       "proposed_url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/",
@@ -1179,6 +1222,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "electric scooter licence vietnam kw",
       "proposed_title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
       "proposed_url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/",
@@ -1215,6 +1259,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "compulsory motorbike insurance vietnam",
       "proposed_title": "Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check",
       "proposed_url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/",
@@ -1251,6 +1296,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "buy used motorbike hanoi foreigner registration",
       "proposed_title": "Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates",
       "proposed_url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
@@ -1287,6 +1333,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi traffic etiquette motorbike horn",
       "proposed_title": "Horns, Lanes and Flashing Lights: How Hanoi Riders Communicate and What a Visitor Should Copy",
       "proposed_url": "https://rentbikehanoi.com/hanoi-motorbike-traffic-communication-horns-lanes/",
@@ -1318,6 +1365,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "first time riding scooter hanoi practice",
       "proposed_title": "Your First Hour on a Rental Scooter in Hanoi: A Low-Traffic Practice Plan on the Long Bien Side",
       "proposed_url": "https://rentbikehanoi.com/first-hour-rental-scooter-hanoi-practice-plan/",
@@ -1349,6 +1397,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi winter riding fog drizzle",
       "proposed_title": "Riding in Hanoi's Winter Drizzle and Fog: Visibility, Grip and Clothing for January to March",
       "proposed_url": "https://rentbikehanoi.com/riding-hanoi-winter-drizzle-fog-visibility-grip/",
@@ -1380,6 +1429,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi summer heat motorbike riding",
       "proposed_title": "Riding a Scooter Through Hanoi Heatwaves: Timing, Hydration and Heat-Index Planning for June and July",
       "proposed_url": "https://rentbikehanoi.com/riding-scooter-hanoi-heatwaves-june-july-planning/",
@@ -1416,6 +1466,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "typhoon season hanoi motorbike trip",
       "proposed_title": "Typhoon Season in Northern Vietnam: When to Postpone a Rental Motorbike Trip From Hanoi",
       "proposed_url": "https://rentbikehanoi.com/typhoon-season-northern-vietnam-postpone-motorbike-trip/",
@@ -1447,6 +1498,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi motorbike rental weekly budget",
       "proposed_title": "A Seven-Day Hanoi Motorbike Rental Budget: Rental, Fuel, Parking and Deposit Line by Line",
       "proposed_url": "https://rentbikehanoi.com/seven-day-hanoi-motorbike-rental-budget-breakdown/",
@@ -1483,6 +1535,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "automatic vs manual rental price hanoi",
       "proposed_title": "Why Automatic Scooters Cost More to Rent Than Manual Bikes in Hanoi, and When the Difference Is Worth Paying",
       "proposed_url": "https://rentbikehanoi.com/automatic-vs-manual-motorbike-rental-price-hanoi/",
@@ -1519,6 +1572,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "scooter fuel consumption cost hanoi",
       "proposed_title": "Fuel Cost per Kilometre on a Rental Scooter in Hanoi: Litres per 100 km and What One Tank Buys",
       "proposed_url": "https://rentbikehanoi.com/rental-scooter-fuel-cost-per-kilometre-hanoi/",
@@ -1555,6 +1609,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "e5 ron 92 vs ron 95 scooter vietnam",
       "proposed_title": "RON 95 or E5 RON 92 for a Rental Scooter in Vietnam: What the Pump Labels Mean",
       "proposed_url": "https://rentbikehanoi.com/ron-95-or-e5-ron-92-rental-scooter-vietnam/",
@@ -1591,6 +1646,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "electric scooter running cost hanoi",
       "proposed_title": "What It Costs to Run an Electric Rental Scooter in Hanoi: Electricity, Battery Subscription and Range per Charge",
       "proposed_url": "https://rentbikehanoi.com/electric-rental-scooter-running-cost-hanoi/",
@@ -1627,6 +1683,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "rent or buy motorbike hanoi six months",
       "proposed_title": "Renting vs Buying a Motorbike in Hanoi for a Six-Month Stay: Registration, Resale and Total Cost",
       "proposed_url": "https://rentbikehanoi.com/renting-vs-buying-motorbike-hanoi-six-month-stay/",
@@ -1663,6 +1720,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "temporary residence vietnam long term rental",
       "proposed_title": "Long-Term Motorbike Rental and Your Vietnam Temporary Residence: Keeping Visa, Address and Contract Aligned",
       "proposed_url": "https://rentbikehanoi.com/long-term-motorbike-rental-vietnam-temporary-residence-paperwork/",
@@ -1699,6 +1757,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "noi bai airport to motorbike rental shop",
       "proposed_title": "Collecting a Rental Motorbike After Landing at Noi Bai: Airport Bus, Taxi and Shop Pickup Compared",
       "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-to-motorbike-rental-shop-options/",
@@ -1730,6 +1789,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "return motorbike before train hanoi station",
       "proposed_title": "Returning a Rental Motorbike Before a Night Train From Hanoi Station: Timing and Luggage Plan",
       "proposed_url": "https://rentbikehanoi.com/return-rental-motorbike-before-night-train-hanoi-station/",
@@ -1766,6 +1826,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "scooter service interval rental",
       "proposed_title": "Scooter Oil Change and Service Intervals for Rental Riders: Reading Honda and Yamaha Schedules",
       "proposed_url": "https://rentbikehanoi.com/scooter-oil-change-service-intervals-rental-riders/",
@@ -1802,6 +1863,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "cvt belt wear scooter symptoms",
       "proposed_title": "CVT Belt and Roller Wear on an Automatic Scooter: Symptoms a Renter Should Report",
       "proposed_url": "https://rentbikehanoi.com/cvt-belt-roller-wear-automatic-scooter-symptoms/",
@@ -1833,6 +1895,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "motorbike chain check rental",
       "proposed_title": "Chain Care on a Semi-Automatic Rental Motorbike: Weekly Slack and Lubrication Checks",
       "proposed_url": "https://rentbikehanoi.com/chain-care-semi-automatic-rental-motorbike-weekly-checks/",
@@ -1864,6 +1927,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "scooter brake pad wear check",
       "proposed_title": "Brake Pad and Shoe Wear on a Rental Scooter: Disc and Drum Checks Without Tools",
       "proposed_url": "https://rentbikehanoi.com/rental-scooter-brake-pad-drum-wear-checks/",
@@ -1895,6 +1959,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "electric scooter battery care renter",
       "proposed_title": "Electric Scooter Battery Care for Renters: Charging Habits, Heat and Range Loss",
       "proposed_url": "https://rentbikehanoi.com/electric-scooter-battery-care-renters-charging-heat-range/",
@@ -1931,6 +1996,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vinfast evo200 rental",
       "proposed_title": "VinFast Evo200 as a Rental Electric Scooter: Range, Speed and Charging Facts From the Spec Sheet",
       "proposed_url": "https://rentbikehanoi.com/vinfast-evo200-rental-electric-scooter-spec-sheet/",
@@ -1962,6 +2028,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vinfast feliz vs evo",
       "proposed_title": "VinFast Feliz 2025 vs VinFast Evo: Which Electric Scooter Suits a Hanoi Visitor?",
       "proposed_url": "https://rentbikehanoi.com/vinfast-feliz-2025-vs-evo-electric-scooter-hanoi-visitor/",
@@ -1998,6 +2065,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "battery swap electric scooter hanoi",
       "proposed_title": "Battery-Swap vs Plug-In Electric Scooters in Hanoi: How the Model Changes Range Planning for Renters",
       "proposed_url": "https://rentbikehanoi.com/battery-swap-vs-plug-in-electric-scooters-hanoi-renters/",
@@ -2034,6 +2102,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "50cc moped speed limit vietnam",
       "proposed_title": "Why a 50cc Moped Is Limited to 40 km/h in Vietnam and What That Means for Hanoi Day Trips",
       "proposed_url": "https://rentbikehanoi.com/50cc-moped-40-kmh-limit-vietnam-day-trips/",
@@ -2065,6 +2134,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "yamaha janus vs honda vision rental",
       "proposed_title": "Yamaha Janus vs Honda Vision for a Hanoi Rental: Seat Height, Storage and Fuel Use Compared",
       "proposed_url": "https://rentbikehanoi.com/yamaha-janus-vs-honda-vision-hanoi-rental/",
@@ -2101,6 +2171,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "yamaha grande hybrid rental",
       "proposed_title": "Yamaha Grande as a Rental Scooter: What the Blue Core Hybrid Means for Fuel Use and Riding Feel",
       "proposed_url": "https://rentbikehanoi.com/yamaha-grande-hybrid-rental-scooter/",
@@ -2132,6 +2203,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "yamaha nvx 155 rental licence",
       "proposed_title": "Yamaha NVX 155 as a Rental: Licence Class, Power and Who Should Choose It",
       "proposed_url": "https://rentbikehanoi.com/yamaha-nvx-155-rental-licence-class-power/",
@@ -2168,6 +2240,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "honda air blade commute rental",
       "proposed_title": "Honda Air Blade for a Daily Hanoi Commute: Fuel Injection, Idling Stop and Storage in Practice",
       "proposed_url": "https://rentbikehanoi.com/honda-air-blade-daily-hanoi-commute-rental/",
@@ -2199,6 +2272,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "honda future 125 rental",
       "proposed_title": "Honda Future 125 as a Rental: The Semi-Automatic Middle Ground Explained",
       "proposed_url": "https://rentbikehanoi.com/honda-future-125-rental-semi-automatic/",
@@ -2230,6 +2304,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "suitcase on scooter hanoi",
       "proposed_title": "Carrying a Suitcase on a Rental Scooter in Hanoi: Why It Fails and the Alternatives That Work",
       "proposed_url": "https://rentbikehanoi.com/carrying-suitcase-rental-scooter-hanoi-alternatives/",
@@ -2261,6 +2336,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi metro park and ride motorbike",
       "proposed_title": "Park and Ride With the Hanoi Metro: Leaving a Rental Scooter at Cat Linh or Nhon Line Stations",
       "proposed_url": "https://rentbikehanoi.com/park-and-ride-hanoi-metro-rental-scooter/",
@@ -2297,6 +2373,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam emergency numbers motorbike",
       "proposed_title": "Emergency Numbers in Vietnam for Motorbike Riders: 113, 114, 115 and What to Say",
       "proposed_url": "https://rentbikehanoi.com/vietnam-emergency-numbers-motorbike-riders/",
@@ -2333,6 +2410,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "cau giay my dinh motorbike",
       "proposed_title": "Cau Giay and My Dinh by Motorbike: Navigating Hanoi's Western Business Districts",
       "proposed_url": "https://rentbikehanoi.com/cau-giay-my-dinh-motorbike-hanoi-western-districts/",
@@ -2369,6 +2447,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "perfume pagoda motorbike hanoi",
       "proposed_title": "Perfume Pagoda From Hanoi by Motorbike: Route, Boat Transfer and Festival Timing",
       "proposed_url": "https://rentbikehanoi.com/perfume-pagoda-from-hanoi-by-motorbike/",
@@ -2400,6 +2479,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "con son kiep bac motorbike",
       "proposed_title": "Con Son and Kiep Bac From Hanoi by Motorbike: A Hai Duong Day Trip Beyond the Usual List",
       "proposed_url": "https://rentbikehanoi.com/con-son-kiep-bac-from-hanoi-by-motorbike/",
@@ -2431,6 +2511,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "pho hien hung yen motorbike",
       "proposed_title": "Hung Yen's Pho Hien From Hanoi by Motorbike: A Riverside Heritage Day Trip",
       "proposed_url": "https://rentbikehanoi.com/pho-hien-hung-yen-from-hanoi-by-motorbike/",
@@ -2462,6 +2543,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi cat ba motorbike ferry",
       "proposed_title": "Hanoi to Cat Ba by Motorbike and Ferry: Pier Logistics and Island Riding",
       "proposed_url": "https://rentbikehanoi.com/hanoi-to-cat-ba-by-motorbike-and-ferry/",
@@ -2493,6 +2575,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "moc chau motorbike hanoi weekend",
       "proposed_title": "Hanoi to Moc Chau by Motorbike: A Weekend on National Route 6",
       "proposed_url": "https://rentbikehanoi.com/hanoi-to-moc-chau-by-motorbike-weekend/",
@@ -2523,6 +2606,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam e-visa motorbike trip",
       "proposed_title": "Vietnam E-Visa for a Motorbike Trip: 90-Day Validity, Entry Points and What Rental Shops Check",
       "proposed_url": "https://rentbikehanoi.com/vietnam-e-visa-motorbike-trip-90-day-validity/",
@@ -2558,6 +2642,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam visa exemption stay limit",
       "proposed_title": "Visa-Free Entry to Vietnam: Temporary Stay Limits and Planning a Rental Around Your Exit Date",
       "proposed_url": "https://rentbikehanoi.com/visa-free-entry-vietnam-stay-limit-rental-planning/",
@@ -2593,6 +2678,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "temporary residence declaration vietnam hotel",
       "proposed_title": "Temporary Residence Declaration in Vietnam: Why Your Hotel Takes Your Passport Details and What It Means for Rentals",
       "proposed_url": "https://rentbikehanoi.com/temporary-residence-declaration-vietnam-hotel-passport/",
@@ -2623,6 +2709,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "embassies in hanoi lost passport",
       "proposed_title": "Embassies in Hanoi: Finding Yours and What a Lost or Held Passport Means for a Motorbike Rental",
       "proposed_url": "https://rentbikehanoi.com/embassies-in-hanoi-lost-passport-motorbike-rental/",
@@ -2653,6 +2740,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "noi bai airport bus routes",
       "proposed_title": "Noi Bai Airport Buses 86, 90, 17 and 109: Which One Stops Closest to Your Hanoi Hotel",
       "proposed_url": "https://rentbikehanoi.com/noi-bai-airport-buses-86-90-17-109-hanoi/",
@@ -2683,6 +2771,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi metro fares visitors",
       "proposed_title": "Hanoi Metro for Visitors: Fares, Hours and How It Pairs With a Motorbike Rental",
       "proposed_url": "https://rentbikehanoi.com/hanoi-metro-for-visitors-fares-hours/",
@@ -2718,6 +2807,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi hospitals travel advice riders",
       "proposed_title": "Medical Care in Hanoi for Visiting Riders: What Official Travel Advice Says About Hospitals and Insurance",
       "proposed_url": "https://rentbikehanoi.com/medical-care-hanoi-visiting-riders-official-advice/",
@@ -2753,6 +2843,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam customs allowance travellers",
       "proposed_title": "Vietnam Customs Rules for Riders: Helmets, Cameras, Drones and Medicines at the Border",
       "proposed_url": "https://rentbikehanoi.com/vietnam-customs-rules-riders-helmets-cameras-drones/",
@@ -2783,6 +2874,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "hanoi low emission zone motorbike ban",
       "proposed_title": "Hanoi's Low-Emission Zone Scheme: What It Covers and What It Means for Motorbike Rentals",
       "proposed_url": "https://rentbikehanoi.com/hanoi-low-emission-zone-ring-road-1-motorbike-restriction/",
@@ -2813,6 +2905,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam motorbike number plate codes",
       "proposed_title": "Reading Vietnamese Motorbike Number Plates: Province Codes and What a Hanoi Plate Tells You",
       "proposed_url": "https://rentbikehanoi.com/reading-vietnamese-motorbike-number-plates-province-codes/",
@@ -2848,6 +2941,7 @@
         "reviewer_id": "claude-research-lead",
         "verdict": "DISTINCT"
       },
+      "language": "en",
       "primary_keyword": "vietnam motorbike emissions inspection",
       "proposed_title": "Motorbike Emissions Inspection in Vietnam: The Roadmap and What It Means for Older Rental Bikes",
       "proposed_url": "https://rentbikehanoi.com/motorbike-emissions-inspection-vietnam-roadmap-rental-bikes/",
@@ -2862,7 +2956,367 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-000061"
+    },
+    "TH-VI-0004": {
+      "admitted_at": "2026-10-23T07:26:56.973717+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0064 (cách đếm kỳ thuê THÁNG: đủ 30 ngày hay tháng lịch; không phải đơn vị một ngày thuê lẻ)",
+          "TH-VI-0093 (trả muộn vì kẹt xe/mưa: nhắn báo và cách tính khoản muộn; không giải thích quy ước đếm ngày)",
+          "TH-VI-0005 (thuê dưới một ngày: nửa ngày/theo buổi/theo giờ; ở đây vẫn thuê qua đêm nhưng sợ bị tính thêm một ngày)"
+        ],
+        "rationale": "Câu hỏi chỉ bài này trả lời là nhận xe buổi chiều, trả sáng hôm sau thì một ngày thuê được đếm theo đủ 24 giờ hay theo ngày lịch, nên tránh bị tính thêm một ngày. Không hàng nào khác bàn về quy ước đếm ngày của thuê ngắn ngày (0064 là kỳ thuê tháng, 0093 là phí trả muộn, 0105 là giờ bắt đầu tính khi xe chưa sẵn sàng). Bài phải giữ góc đọc và xác nhận mốc giờ nhận, giờ trả bằng ví dụ dòng thời gian; không nêu quy tắc cụ thể của cửa hàng như một sự thật và không lặp lại câu trả lời ngắn mà trang FAQ/bảng giá có thể đã có.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "ngày thuê xe tính theo 24 giờ hay ngày lịch",
+      "proposed_title": "Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả",
+      "proposed_url": "https://rentbikehanoi.com/vi/ngay-thue-xe-may-tinh-theo-24-gio-hay-ngay-lich/",
+      "search_intent": "Khách nhận xe buổi chiều và định trả vào sáng hôm sau, muốn biết cửa hàng đếm ngày theo đủ 24 giờ hay theo ngày lịch để không bị tính thêm một ngày ngoài dự tính.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0004"
+    },
+    "TH-VI-0006": {
+      "admitted_at": "2026-10-23T07:26:56.982134+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0071 (chấm dứt sớm hợp đồng thuê THÁNG khi thử việc: báo trước bao lâu; không phải thuê ngắn ngày)",
+          "TH-VI-0053 (thuê hai xe, trả một xe sớm: xử lý phần CỌC của xe đó; bài này hỏi về TIỀN THUÊ các ngày chưa dùng)",
+          "TH-VI-0019 (ứng viên: kéo dài/đổi gói giữa chừng; bài này là chiều ngược lại, rút ngắn chuyến)"
+        ],
+        "rationale": "Người đọc đang thuê theo ngày, chuyến bị rút ngắn và cần biết hỏi cách tính lại số ngày cùng cách báo cửa hàng để không bị hiểu nhầm; đây là tình huống riêng, không trang dịch vụ nào trả lời. Các hàng gần nhất xử lý thuê tháng (0071, 0072), khoản cọc khi trả một xe (0053) hoặc hủy lịch trước khi nhận xe (0015). Bài phải giữ góc trả sớm của thuê ngắn ngày: tính lại tiền thuê và mẫu tin báo, không sa vào cọc (0035, 0053) hay thuê tháng (0071).",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "trả xe thuê sớm hơn dự kiến",
+      "proposed_title": "Trả xe sớm hơn dự kiến: có được tính lại số ngày không và nên hỏi trước điều gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-som-hon-du-kien-tinh-lai-so-ngay/",
+      "search_intent": "Chuyến đi bị rút ngắn vì việc đột xuất, người thuê muốn trả xe sớm một hai ngày và cần biết hỏi cửa hàng cách tính lại tiền thuê, cũng như cách thông báo để không bị hiểu nhầm.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0006"
+    },
+    "TH-VI-0011": {
+      "admitted_at": "2026-10-23T07:26:56.990143+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0036 (đã bị trừ cọc vì vết xước: xin căn cứ và chứng từ SAU khi trả xe; bài này là phòng ngừa lúc nhận xe)",
+          "TH-VI-0024 (ứng viên: cọc và đền bù có đổi theo loại xe không khi chọn xe; bài này hỏi có nên xin bảng đền bù và ghi ở đâu)",
+          "TH-VI-0211 (hao mòn thông thường hay hư hỏng: tiêu chí phân loại lúc trả xe; không phải bảng giá đền bù)"
+        ],
+        "rationale": "Người lần đầu thuê, còn lo trước khi nhận xe, muốn biết có nên xin bảng mức đền bù hay cách tính chi phí sửa và ghi lại ở đâu. Các hàng liền kề giải quyết thời điểm khác (tranh chấp sau trả xe ở 0036), tiêu chí hao mòn (0211, 0049) hoặc rủi ro theo loại xe (0024). Bài phải giữ góc trước khi nhận xe: xin bảng hoặc cách tính, chụp và ghi hiện trạng; không bàn khiếu nại trừ cọc, không so sánh mức đền bù giữa các loại xe và không nêu con số đền bù nào.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "mức đền bù khi làm hỏng xe thuê",
+      "proposed_title": "Xước nhẹ, gãy gương, mất chìa: xin xem bảng mức đền bù trước khi nhận xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/xuoc-nhe-gay-guong-mat-chia-xin-bang-muc-den-bu-truoc-khi-nhan/",
+      "search_intent": "Người lần đầu thuê xe lo lỡ làm trầy xước hoặc gãy gương, muốn biết có nên xin cửa hàng bảng mức đền bù hay cách tính chi phí sửa ngay từ lúc nhận xe và nên ghi lại ở đâu cho rõ.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0011"
+    },
+    "TH-VI-0014": {
+      "admitted_at": "2026-10-23T07:26:56.998227+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0013 (khoản dự phòng người thuê tự chi: vá lốp, rửa xe, gửi xe ngoài kế hoạch; bài này là phí do cửa hàng thu để hỏi từng mục)",
+          "TH-VI-0093 (chỉ riêng trả muộn vì kẹt xe/mưa; bài này liệt kê tổng quát và dẫn sang)",
+          "TH-VI-0010 (ứng viên: phụ kiện nằm trong báo giá hay tính riêng; bài này là phí dịch vụ, không đụng phụ kiện)"
+        ],
+        "rationale": "Không hàng nào cho người đặt xe lần đầu một danh sách tổng quát các loại phụ phí để hỏi cửa hàng; các hàng khác chỉ xử lý từng khoản (trả muộn 0093, ngoài giờ 0101/0086, giao xe 0103, gia hạn 0218, vệ sinh 0094/0215) hoặc ngân sách tự chi của người thuê (0013). Đây là bài tổng quan nên có nguy cơ tranh chấp từ khóa vừa phải với các bài chuyên sâu đó. Bài phải giữ vai trò danh sách câu hỏi ngắn, mỗi khoản một dòng và liên kết sang bài chuyên sâu, không giải thích dài từng khoản, không bàn phụ kiện (0010/0255) hay khoản dự phòng tự chi (0013), và không khẳng định chính sách phụ phí của cửa hàng.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "phụ phí khi thuê xe máy cần hỏi gì",
+      "proposed_title": "Phụ phí khi thuê xe máy: danh sách câu hỏi để hỏi từng mục trước khi đặt",
+      "proposed_url": "https://rentbikehanoi.com/vi/phu-phi-khi-thue-xe-may-danh-sach-cau-hoi-truoc-khi-dat/",
+      "search_intent": "Người đặt xe lần đầu cần sẵn một danh sách ngắn các loại phụ phí có thể gặp (giao xe, nhận trả ngoài giờ, trả muộn, gia hạn, vệ sinh) để hỏi từng mục, không tự suy đoán chính sách của cửa hàng.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0014"
+    },
+    "TH-VI-0016": {
+      "admitted_at": "2026-10-23T07:26:57.006950+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0043 (cùng nguồn nhóm Facebook/Zalo nhưng câu hỏi là dấu hiệu lừa đảo khi bị đòi cọc trước; bài này là giá/mẫu xe cũ còn hiệu lực không)",
+          "TH-VI-0017 (cách hiểu bảng giá ghi 'từ...' hoặc 'liên hệ'; bài này là ảnh chụp/bài đăng đã cũ)",
+          "TH-VI-0080 (cửa hàng đổi giá giữa kỳ thuê tháng đã chốt; bài này xảy ra trước khi đặt)"
+        ],
+        "rationale": "Người xem ảnh bảng giá cũ hoặc bài ưu đãi trên mạng xã hội cần cách xác nhận mức giá và mẫu xe đó còn áp dụng trước khi tính ngân sách; đây là bài toán độ cũ của thông tin, không phải cách đọc bảng giá (0017), không phải kiểm tra cửa hàng thật (0043, 0047) và không phải đổi giá trong hợp đồng (0080). Bài phải giữ góc xác nhận hiệu lực bằng kênh chính thức: hỏi ngày áp dụng, mẫu xe, thời gian thuê và xin xác nhận bằng chữ; không sa vào nhận diện lừa đảo hay kiểm tra đăng ký kinh doanh, và không tự nêu mức giá.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "giá thuê xe máy trên facebook còn hiệu lực không",
+      "proposed_title": "Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực",
+      "proposed_url": "https://rentbikehanoi.com/vi/gia-tham-khao-va-bai-dang-uu-dai-xac-nhan-con-hieu-luc/",
+      "search_intent": "Người xem ảnh chụp bảng giá cũ hoặc bài đăng ưu đãi trong nhóm Facebook, Zalo muốn biết làm sao xác nhận mức giá và mẫu xe đó còn áp dụng không trước khi tính ngân sách.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0016"
+    },
+    "TH-VI-0019": {
+      "admitted_at": "2026-10-23T07:26:57.018929+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0003 (chọn thuê ngày hay tuần TRƯỚC khi đặt, quy đổi báo giá về cùng thước đo; bài này là đổi gói giữa chừng và các ngày đã thuê có tính lại không)",
+          "TH-VI-0062 (thuê thử một tuần rồi chuyển gói tháng: chủ yếu quan sát trong tuần đầu; khác cặp gói và mục đích)",
+          "TH-VI-0066 (đổi chiếc xe giữa kỳ thuê tháng: giá và cọc có tính lại; đổi xe, không đổi gói)"
+        ],
+        "rationale": "Khách đang thuê theo ngày rồi quyết định ở thêm cả tuần, cần biết nhắn cửa hàng thế nào để chuyển gói, các ngày đã thuê có được tính lại theo gói tuần hay không và xin xác nhận ở đâu. Đây là thay đổi giữa kỳ của thuê ngắn ngày, không trùng với so sánh gói trước khi đặt (0003), chuyển sang gói tháng (0062, 0065) hay gia hạn kèm kiểm tra xe (0218). Bài phải giữ góc chuyển gói ngày sang tuần giữa kỳ và cách xác nhận cách tính lại, không lặp lại phép so sánh giá ngày/tuần của 0003.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "đổi từ thuê ngày sang thuê tuần giữa chừng",
+      "proposed_title": "Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không",
+      "proposed_url": "https://rentbikehanoi.com/vi/doi-tu-thue-ngay-sang-thue-tuan-giua-chung/",
+      "search_intent": "Khách thuê theo ngày rồi quyết định ở thêm cả tuần, muốn biết nhắn cửa hàng thế nào để chuyển gói, các ngày đã thuê có được tính lại theo gói tuần hay không và xin xác nhận ở đâu.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0019"
+    },
+    "TH-VI-0024": {
+      "admitted_at": "2026-10-23T07:26:57.028166+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0011 (ứng viên: có nên xin bảng đền bù và ghi hiện trạng lúc nhận xe; không so sánh theo loại xe)",
+          "TH-VI-0026 (xe số hay xe ga: cộng tiền thuê, xăng, gửi xe, cọc cho cả chuyến; cọc chỉ là một mục trong tổng chi phí)",
+          "TH-VI-0124 (Vision hay Air Blade theo thông số: chiều cao yên, khối lượng, cốp; chọn xe theo thông số chứ không theo rủi ro cọc/đền bù)"
+        ],
+        "rationale": "Người phân vân giữa xe phổ thông và xe giá trị cao cần biết cọc và mức đền bù khi trầy xước, mất phụ tùng có khác nhau theo từng xe hay không để cân rủi ro chứ không chỉ tiền thuê mỗi ngày. Không hàng nào so sánh cọc và đền bù theo loại xe: 0026 chỉ cộng cọc vào tổng chi phí xe số/xe ga, 0124 và 0125 chọn theo thông số, 0034 bàn hình thức vật cọc. Bài phải giữ góc rủi ro theo hạng xe (hỏi cọc và bảng đền bù cho từng mẫu), không bịa con số, không biến thành bài xin bảng đền bù chung (0011) hay bài tổng chi phí cả chuyến (0026).",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "cọc và đền bù khác nhau theo loại xe thuê",
+      "proposed_title": "Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không",
+      "proposed_url": "https://rentbikehanoi.com/vi/chon-xe-ga-cao-cap-hay-xe-pho-thong-coc-va-den-bu-co-doi-khong/",
+      "search_intent": "Người thuê đang phân vân giữa mẫu xe thường và mẫu xe có giá trị cao hơn cần biết khoản cọc, mức đền bù khi trầy xước hoặc mất phụ tùng có khác nhau theo từng xe hay không, để cân cả rủi ro chứ không chỉ tiền thuê mỗi ngày.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0024"
+    },
+    "TH-VI-0033": {
+      "admitted_at": "2026-10-23T07:26:57.036760+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0035 (ứng viên: khi nào và bằng cách nào nhận lại cọc lúc trả xe; bài này là khoản giữ chỗ trước vài tuần so với cọc lúc nhận xe)",
+          "TH-VI-0015 (dời hoặc hủy lịch vì mưa bão: điều kiện đổi lịch; bài này phân biệt hai loại khoản tiền và khoản nào hoàn khi hủy)",
+          "TH-VI-0043 (đặt cọc trước qua nhóm Facebook/Zalo: dấu hiệu lừa đảo; bài này không bàn độ tin cậy của cửa hàng)"
+        ],
+        "rationale": "Khách đặt trước vài tuần được đề nghị chuyển khoản giữ chỗ và cần phân biệt nó với cọc lúc nhận xe, biết khoản nào hoàn khi hủy hay trừ vào tiền thuê và ghi rõ bằng cách nào. Các hàng gần nhất xử lý thời điểm khác (hoàn cọc lúc trả xe ở 0035, khiếu nại không hoàn cọc ở 0057), lý do hủy cụ thể (0015) hoặc độ an toàn của kênh nhận tiền (0043, 0051). Bài phải giữ góc phân loại hai khoản tiền trước khi chuyển và nhắn xác nhận bằng chữ; không bàn thời điểm hoàn cọc lúc trả xe và không bàn dấu hiệu lừa đảo.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "cọc giữ chỗ và cọc nhận xe khác nhau thế nào",
+      "proposed_title": "Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản",
+      "proposed_url": "https://rentbikehanoi.com/vi/coc-giu-cho-va-coc-nhan-xe-hai-khoan-khac-nhau/",
+      "search_intent": "Khách đặt xe trước vài tuần được đề nghị chuyển một khoản giữ chỗ, muốn phân biệt khoản đó với tiền cọc lúc nhận xe, biết khoản nào hoàn khi hủy hoặc trừ vào tiền thuê và ghi rõ điều ấy bằng cách nào.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0033"
+    },
+    "TH-VI-0035": {
+      "admitted_at": "2026-10-23T07:26:57.045703+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0057 (cửa hàng đã quá hạn hẹn hoặc từ chối hoàn cọc: gửi yêu cầu và kênh khiếu nại; bài này là hỏi trước thời điểm và cách hoàn)",
+          "TH-VI-0095 (kết thúc kỳ thuê THÁNG: lịch trả xe và nhận lại cọc; bài này áp dụng cho thuê ngắn ngày và tập trung vào việc chờ khoản hoàn)",
+          "TH-VI-0096 (trả xe rồi còn kịp xe khách/tàu: thời gian cho thủ tục trả xe; không bàn thời gian và cách hoàn cọc)"
+        ],
+        "rationale": "Người thuê cần biết cọc được trả ngay lúc trả xe hay sau vài ngày, bằng tiền mặt hay chuyển khoản, để sắp lịch về quê hoặc ra sân bay mà không phải chờ; đây là câu hỏi lập kế hoạch trước khi chuyển tiền, khác với khiếu nại khi bị chậm (0057), tranh chấp trừ cọc (0036) hoặc quy trình cuối kỳ thuê tháng (0095). Bài phải giữ góc câu hỏi cần hỏi trước về thời điểm và hình thức hoàn cọc; không nêu thời hạn hoàn cọc như chính sách của cửa hàng và không lặp lại FAQ hay nội dung khiếu nại, hòa giải của 0057.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "bao lâu thì được hoàn tiền cọc thuê xe",
+      "proposed_title": "Khi nào nhận lại tiền cọc: hỏi rõ thời điểm và cách hoàn trước khi chuyển tiền",
+      "proposed_url": "https://rentbikehanoi.com/vi/khi-nao-nhan-lai-tien-coc-thue-xe-hoi-ro-thoi-diem-hoan/",
+      "search_intent": "Người thuê cần biết tiền cọc được trả ngay lúc trả xe hay sau vài ngày, bằng tiền mặt hay chuyển khoản, và nên hỏi gì để sắp lịch về quê hoặc ra sân bay mà không phải chờ khoản hoàn.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0035"
+    },
+    "TH-VI-0058": {
+      "admitted_at": "2026-10-23T07:26:57.054356+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0140 (sinh viên thuê tháng nhưng câu hỏi là chọn xe số hay xe ga theo nhà trọ chật, bãi gửi ký túc xá; cùng đối tượng và cùng gói tháng, khác câu hỏi)",
+          "TH-VI-0059 (người làm hợp đồng sáu bảy tháng so sánh thuê dài hạn với mua xe cũ rồi bán lại: bảng chi phí sang tên, bảo hiểm; không phải tân sinh viên chưa biết trường)",
+          "TH-VI-0062 (thuê thử MỘT TUẦN rồi chốt tháng: quan sát trong tuần đầu; bài này là thuê tháng để hoãn quyết định mua trong lúc chưa biết trường và ký túc xá)"
+        ],
+        "rationale": "Không hàng nào hay ứng viên nào dành cho tân sinh viên từ tỉnh lên, chưa biết trường, ký túc xá và quãng đường, cân nhắc thuê tháng như giải pháp linh hoạt trước khi quyết định mua xe và cần biết hỏi, chuẩn bị gì. Các hàng gần nhất mỗi hàng chỉ trùng một chiều: cùng đối tượng sinh viên nhưng chọn loại xe (0140) hoặc tuổi lái hợp pháp (0286); cùng chuyện thuê thay vì mua nhưng là người làm hợp đồng vài tháng với bảng chi phí (0059) hay thuê thử một tuần cho một mẫu xe ga (0062, 0128); cùng việc người tỉnh khác chuẩn bị giấy tờ nhưng là danh sách giấy tờ thuê xe nói chung (0027, 0070). Bài là tổng quan theo tình huống nên có nguy cơ tranh chấp từ khóa vừa phải với trang thuê theo tháng và các bài thuê tháng chuyên sâu: phải giữ góc 'chưa biết trường nên thuê tháng thay vì mua ngay và hỏi gì', chỉ liên kết sang 0140, 0059, 0062, 0027, 0070, 0060 thay vì giải thích lại, không so sánh chi phí thuê và mua xe cũ, không nêu giá, ưu đãi sinh viên hay chính sách của cửa hàng, và không viết như trang bán gói thuê tháng.",
+        "reviewer_id": "intent-reviewer-subagent",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "sinh viên năm nhất thuê xe máy theo tháng",
+      "proposed_title": "Tân sinh viên lên Hà Nội nhập học: thuê xe máy theo tháng khi chưa quyết định mua xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/tan-sinh-vien-thue-xe-may-theo-thang-truoc-khi-quyet-dinh-mua/",
+      "search_intent": "Tân sinh viên từ tỉnh lên Hà Nội, chưa biết trường, ký túc xá và quãng đường sẽ ra sao, muốn thuê xe theo tháng một thời gian trước khi quyết định mua, cần biết nên hỏi và chuẩn bị những gì.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0058"
     }
   },
-  "version": 137
+  "version": 138
 }
