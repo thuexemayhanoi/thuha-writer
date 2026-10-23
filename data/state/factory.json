@@ -6654,6 +6654,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T16:08:22.207878+00:00",
+      "expires_at": 1792773502.207869,
+      "fence": "70e1cee1969849368ded16f51fc125f6",
+      "heartbeat_at": "2026-10-23T16:08:22.207847+00:00",
+      "language": "vi",
+      "previous": "bd0625b8b8c4ca6ef80db0e6349f1307e7870fd0b27a191e89f353c1fafc6b97",
+      "session": "sess-b3",
+      "sha256": "eca7f8d1d3367ab78521de5dbba2d13a3810fc8527d4356c8614ff684efe7fa3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0018"
     }
   ],
   "intents": {
@@ -9629,7 +9643,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792773502.207869,
+      "fence": "70e1cee1969849368ded16f51fc125f6",
+      "heartbeat_at": "2026-10-23T16:08:22.207847+00:00",
+      "language": "vi",
+      "session": "sess-b3",
+      "slot": "W1",
+      "topic_id": "TH-VI-0018"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -14165,6 +14190,7 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "đi hai người thuê một xe hay hai xe",
       "proposed_title": "Đi cặp đôi: thuê một xe hay hai xe, cân nhắc chi phí, gửi xe và sức lái",
@@ -14177,7 +14203,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0018",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15755,5 +15781,5 @@
       ]
     }
   },
-  "version": 861
+  "version": 862
 }
