@@ -1,14 +1,15 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**Bilingual workflow implemented and tested offline. WordPress production publishing remains OFF.**
+**Bilingual workflow and shared queue implemented and tested offline. WordPress production publishing remains OFF.**
 
-V5 writer-session runtime (merged from the 23 October 2026 session branch): labelled external source
-evidence, a read-only writer kit, a non-mutating precheck, source-backed topic admission and the cycle
-report. See [V5 writer runtime](docs/V5-WRITER-RUNTIME.md), the [writer brief](docs/V5-WRITER-BRIEF.md)
-and the [reviewer brief](docs/V5-REVIEWER-BRIEF.md). Its numbers were measured for the old 2,000-post
-goal; the live goal is 500 + 500 (see below). Live inventory on 23 October 2026: 275 published posts,
-6 pages, 59 categories.
+The nine English drafts, their sources, the two reviews and the whole history written by the V5 writer session are merged
+into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
+(`promote`) moves them into the ledger that GitHub Actions read (`factory-state`) once this branch is merged. From
+there the queue job runs QA and, only when go-live is enabled, the protected job publishes. See
+[how a draft becomes a post](#from-draft-to-published-post) and [what must be set up once](#set-up-once-for-automatic-operation).
+V5 documents: [writer runtime](docs/V5-WRITER-RUNTIME.md), [writer brief](docs/V5-WRITER-BRIEF.md), [reviewer brief](docs/V5-REVIEWER-BRIEF.md).
+Live inventory on 23 October 2026: 275 published posts, 6 pages, 59 categories.
 
 Repository: `thuexemayhanoi/thuha-writer`  
 Languages: English (`en-US`, site root) and original Vietnamese (`vi`, under `/vi/`)
@@ -21,29 +22,87 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 
 | Area | State |
 |---|---|
-| Runtime (state schema 5, per-language quota, Vietnamese-first claim/refill/drain, bilingual QA, publisher, dashboard) | **Implemented, unit-tested offline** |
-| Matrices `data/bilingual/matrix/vi500.*` (500 new) and `en500.*` (275 protected + 225 new) | **Built and validated offline; rows are plans, not articles, all `NEEDS_SOURCE`** |
-| Companion plugin `wordpress/thuha-native-vi-publisher` + `dist/*.zip` | **Implemented, packaged, run against an offline WordPress simulation** |
+| Runtime (state schema 5, per-language quota, Vietnamese-first claim/refill/drain, bilingual QA, publisher, dashboard) | **Implemented, tested offline** |
+| Nine V5 English drafts + 57 admitted English topics (44 planned, 13 started) | **Merged, ledger preserved byte for byte; NOT yet in `factory-state`** (the hand-over runs after merge) |
+| Hand-over `promote` / `sync` (fast-forward only, never overwrites, idempotent) | **Implemented; tested against the real session ledger and the 2026-10-23 snapshot of `factory-state`, never run against the real one** |
+| Publisher: PUBLISHED when WordPress returns a valid ID, status and permalink; public-page crawl is a warning step that never blocks | **Implemented, tested end to end against a simulated WordPress** (network faults, repeated runs, two publishers at once) |
+| Matrices: `vi500` (500 new) and `en500` (275 protected + 57 queued in the ledger + 168 new) | **Built and validated offline; rows are plans, not articles, all `NEEDS_SOURCE`** |
+| Companion plugin `wordpress/thuha-native-vi-publisher` 1.0.0 + `dist/*.zip` | **Implemented, packaged, run against an offline WordPress simulation** |
 | Plugin installed on rentbikehanoi.com, `RBHVI_Language` called for real, Yoast verified | **NOT installed, NOT tested live** (`BLOCKED_ADAPTER_NOT_DEPLOYED`) |
-| Source capture, intent review, article writing, independent review | **Not started**: needs real AI sessions and dated sources; nothing is published |
+| Theme 1.4.0 and `rentbikehanoi-native-vi` 1.1.1 | **Untouched and not in this repository**; the adapter does not pin their versions |
+| Vietnamese topics with sources, drafts, reviews | **None yet**: Vietnamese rows wait for real research sessions |
+| Independent review of the English drafts | 2 of 9 reviewed (TH-000005, TH-000006; both pass QA again under the new policy); the other 7 wait for a reviewer (TH-000002 is under a writer lease that expires and returns it to the queue) |
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 
 Published counts in the repo are a snapshot (275 EN, 0 VI at 2026-10-22). They are not a live counter:
-the publisher recounts both languages through the adapter before every reservation.
+the publisher recounts both languages through the adapter before every reservation. **Nothing is published by this
+repository today and nothing will be until the owner enables the release.**
 
 Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 [the Claude instruction](docs/bilingual/CLAUDE-PROMPT.md), [the adapter guide](docs/bilingual/ADAPTER.md),
 [the matrix guide](docs/bilingual/MATRIX-AUTHORING.md) and [the implementation status](docs/bilingual/IMPLEMENTATION-STATUS.md).
 
+## From draft to published post
+
+```
+writer session            claim -> kit -> source -> precheck -> submit        (session ledger: data/state + data/documents)
+independent reviewer      resume -> review                                    (a different identity; cannot review its own draft)
+merge to main             quality workflow runs, then the scheduled workflow starts
+queue job (no WordPress secret)
+                          promote --apply      session ledger -> factory-state, fast-forward only, documents first
+                          audit --max-age      refresh a stale public inventory
+                          qa --pending --language en
+protected job (only if release.json is fully enabled; environment thuha-production)
+                          adapter-preflight -> audit (authenticated, both languages) -> qa --pending
+                          publisher --mode drain:
+                            1 reconcile every unresolved intent (read-only; the POST is never repeated)
+                            2 publish READY topics, Vietnamese first, inside the release caps and the 500-per-language ceiling
+                            3 public-page checks that are due (warnings, back-off, never block)
+```
+
+A post is recorded as **PUBLISHED** the moment WordPress answers with a valid ID, status `publish` and the planned
+permalink for the intent that created it. What WordPress stored (body, title, SEO fields, category, language marker) is
+compared with the reviewed article and recorded with the receipt; a difference raises an alert that stops *new* posts until a
+person acknowledges it. The public page (canonical, title, meta, `<html lang>`, schema, no `noindex`) is checked afterwards
+with back-off and five attempts: its failures are warnings on the dashboard and never stop the queue. An answer to the POST
+that is lost is reconciled by idempotency key at once and on every run; the POST is never sent twice. A draft that WordPress
+holds is never counted and never re-sent.
+
+## Set up once for automatic operation
+
+Nothing below is done by this repository, and none of it can be checked offline.
+
+1. **Review and merge this branch.** The merge starts the quality workflow and then the queue job, which hands the nine drafts over.
+2. **Protect the branches**: `main` needs one review and the `quality` check; `factory-state` must accept writes only from the
+   GitHub Actions app and forbid force pushes (the publisher refuses to run otherwise).
+3. **Environment `thuha-production`** with required reviewers, secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` (an
+   Application Password of an account that may publish posts), `THUHA_GITHUB_SECURITY_TOKEN` (read access to branch protection)
+   and the variable `THUHA_GO_LIVE_APPROVAL`.
+4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
+   access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
+5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
+   language. Only 15 images carry (English) alt text today and none carries Vietnamese alt text, so no Vietnamese article can pass QA
+   until at least one is added to the media library. The inventory now lists the whole library.
+6. **Reviews.** Seven English drafts need an independent review (`claude-editorial-reviewer` is the only trusted reviewer in `config/qa.json`; the owner confirms or replaces it); Vietnamese drafts do not exist yet.
+7. **Go-live** is one reviewed change to `config/release.json` (`enabled`, `approved`, `approval_ref`, `paused: false`,
+   `cross_publisher_coordination_verified`, `languages_enabled`). The first stage publishes at most two posts. Nothing in this
+   repository does this.
+
 ## Commands
 
 ```
-PYTHONPATH=src python3 -m unittest discover -s tests -v     # 180+ offline tests (PHP harness runs if php exists)
+PYTHONPATH=src python3 -m unittest discover -s tests -v     # 287 offline tests (the PHP harness runs if php exists)
 PYTHONPATH=src python3 -m thuha.cli validate                # config, goal 500/500, matrices, adapter package
+PYTHONPATH=src python3 -m thuha.cli --remote promote        # PLAN of the hand-over; add --apply to perform it (queue job only)
+PYTHONPATH=src python3 -m thuha.cli --git-branch sync       # session branch: bring the session ledger up to the shared one first
+PYTHONPATH=src python3 -m thuha.cli --remote qa --pending   # QA for reviewed drafts and stale READY ones
+PYTHONPATH=src python3 -m thuha.cli --remote publisher --mode drain     # reconcile, publish, check (needs the release gate)
 PYTHONPATH=src python3 -m thuha.cli matrix next --language vi --limit 10   # next topics to research (read-only)
 PYTHONPATH=src python3 -m thuha.cli quota                   # per-language target / live / unresolved / remaining
 python3 scripts/build_matrices.py                           # rebuild + validate the matrices from seeds
+python3 scripts/export_queued.py                            # refresh the queued English topics from the ledger, then rebuild
 python3 scripts/build_adapter_zip.py                        # rebuild the reproducible plugin ZIP
+python3 scripts/offline_dashboard.py                        # reports/bilingual/dashboard.* from the committed ledger and snapshots
 php tests/php/run.php                                       # plugin logic against the WordPress simulation
 ```
 

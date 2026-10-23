@@ -144,6 +144,7 @@ def inventory(client=None, check_pages=True):
         for item in result['items']:
             item['category_paths'] = [category_path(x,result['categories']) for x in item['categories']]
         result['media'] = media_library(client, result['items'])
+        result['media_library'] = 'complete'  # every image of the library, not only the featured ones
         if check_pages:
             def check(item):
                 try:
@@ -226,6 +227,7 @@ def inventory_bilingual(adapter, client=None, check_pages=True):
         for item in result['items']:
             item['category_paths'] = [category_path(x,result['categories']) for x in item['categories']]
         result['media'] = media_library(client or adapter, result['items'])
+        result['media_library'] = 'complete'
         if check_pages:
             with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
                 checks = list(pool.map(lambda i: check_item(client or adapter, i), result['items']))

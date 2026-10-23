@@ -3,6 +3,46 @@
 Nhánh làm việc: `feature/bilingual-500-workflow` (tách từ `brief/bilingual-500-taxonomy`, **không** từ `main` cũ).
 Không có pull request nào được tạo; `main` không bị đụng; production publisher **vẫn tắt**.
 
+## Phiên 23/10/2026: hợp nhất V5, hàng đợi chung, publisher theo bằng chứng WordPress
+
+Nhánh `feature/bilingual-500-workflow` đã gộp nhánh phiên V5 (`claude/thuha-writer-v5-factory-3la2u4`, 415 commit giữ nguyên lịch sử):
+sổ cái phiên (57 chủ đề, 9 bản thảo, 2 review, 4 báo cáo QA, 60 sự kiện) và 277 tài liệu bất biến vẫn đúng từng byte như phiên V5 để lại.
+
+| Hạng mục | Đã implement | Đã test local | Đã chạy với WordPress/Actions thật |
+|---|---|---|---|
+| Gộp V5 vào mục tiêu 500 EN + 500 VI (kit, precheck, admit, cycle theo ngôn ngữ; không còn 2.000) | có | có | không áp dụng |
+| `promote`/`sync`: chuyển sổ cái phiên vào `factory-state`, chỉ fast-forward, tài liệu trước, một CAS, chạy lại không đổi gì | có | có: sổ cái V5 thật + ảnh chụp `factory-state` ngày 23/10 (FAST_FORWARD) và 24 test | **chưa**: chạy sau khi merge, bởi job `queue` |
+| Publisher: PUBLISHED khi WordPress trả ID + status + permalink hợp lệ; lệch nội dung → cảnh báo chặn bài MỚI; crawl công khai là bước phụ có back-off, không chặn hàng đợi | có | có: WordPress giả lập mức HTTP | **chưa** |
+| Kết quả POST không rõ: đối chiếu theo khóa ngay và mọi lần chạy, không POST lại; kết nối chưa mở = NOT_SENT; vắng mặt sau 1 giờ mới đóng | có | có (timeout, reset, 500, adapter không với tới, chạy lặp, hai publisher đồng thời) | **chưa** |
+| Hàng đợi không bị một chủ đề chặn: không qua được QA → về NEEDS_REPAIR, drain đi tiếp; chặn thật khi chưa rõ kết quả | có | có | **chưa** |
+| Workflow: job `queue` (không có secret WordPress) + job bảo vệ; `qa --pending`; `audit --max-age` | có | kiểm bằng đọc YAML (thứ tự, cổng) | **chưa chạy** |
+| Thư viện media đầy đủ trong inventory; dashboard báo `NEEDS_MEDIA` | có | có | chưa |
+| Matrix EN: 275 bảo vệ + 57 đã vào sổ cái + 168 mới; 57 dòng gỡ vì trùng chủ đề đã vào hàng đợi (giữ ở `seeds/retired/`) | có | có | chưa (dedup live còn PENDING) |
+| Theme 1.4.0, plugin `rentbikehanoi-native-vi` 1.1.1 | **không đụng**, không nằm trong repo | — | — |
+
+**Chín bản thảo.** TH-000005 và TH-000006 (có review) vượt QA lại dưới chính sách song ngữ mới; bảy bản còn lại chờ review độc lập
+(TH-000002 đang bị writer giữ lease, hết hạn sẽ về hàng đợi). Tôi không tự viết review: reviewer phải mở nguồn thật.
+Cả chín đã được chạy thử qua QA hiện tại (chỉ đọc, bằng inventory V5 đã lưu với nhãn ngôn ngữ danh mục suy từ URL — chưa phải QA trên inventory mới): ngoài thiếu review không có lỗi nào khác, sau khi sửa hai điểm dưới đây. QA thật chạy lại khi job `queue` có inventory mới.
+
+**Hai lỗi của chính tôi tìm ra khi chạy bản thảo thật** (đã sửa, có test): (1) bộ lọc "tiếng Việt lẫn vào bài tiếng Anh" đếm tuyệt đối 3
+từ chức năng tiếng Việt nên chặn nhầm TH-000003 (bài Anh trích tên giấy phép lái xe bằng tiếng Việt); nay ngưỡng tỷ lệ theo độ dài.
+(2) Review của V5 chỉ xác nhận `english`, không có nhãn ngôn ngữ nên bị loại; nay review EN cũ vẫn hợp lệ cho EN, còn VI vẫn bắt buộc
+`native_language` và `no_machine_translation`.
+
+**Một lỗ hổng lộ ra từ việc kiểm tra media:** inventory trước đây chỉ liệt kê ảnh đại diện của bài đã có, nên một ảnh có alt tiếng Việt
+chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **chưa bài VI nào qua được QA**
+cho đến khi thư viện có ít nhất một ảnh như vậy (việc của người có quyền WordPress).
+
+### Việc phải thiết lập một lần để chạy tự động (không làm được và không kiểm được offline)
+
+1. Review và merge nhánh này → quality chạy → job `queue` chuyển chín bản thảo vào `factory-state`.
+2. Bảo vệ nhánh: `main` cần 1 review + check `quality`; `factory-state` chỉ app GitHub Actions được ghi, cấm force push.
+3. Environment `thuha-production` có người duyệt, secrets `THUHA_WP_USER`, `THUHA_WP_APPLICATION_PASSWORD`, `THUHA_GITHUB_SECURITY_TOKEN`, biến `THUHA_GO_LIVE_APPROVAL`.
+4. Cài `dist/thuha-native-vi-publisher-1.0.0.zip`, chạy `adapter-preflight` (người/AI có quyền WordPress xem trước và triển khai).
+5. Thêm ảnh có alt tiếng Việt vào thư viện media.
+6. Review độc lập bảy bản thảo EN (và các bản VI khi có).
+7. Quyết định go-live: một thay đổi `config/release.json` đã được review (`enabled`, `approved`, `approval_ref`, `paused:false`, `cross_publisher_coordination_verified`, `languages_enabled`). Giai đoạn đầu tối đa 2 bài.
+
 ## Phân loại trung thực
 
 | Hạng mục | Đã implement | Đã test local | Đã cài lên website | Đã kiểm tra live |

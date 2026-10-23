@@ -1,25 +1,578 @@
 {
-  "source": "factory-state branch, state schema 4, version 3, captured 2026-10-20",
+  "ledger_events_sha256": "80e27e9ad83ef0e107ed697324409fac75fcd34a13ea250f8d88e400cc3e9f5d",
+  "note": "English topics already admitted to the ledger with captured sources. They are not published posts and do not count toward 500 until WordPress confirms them; the English matrix counts them as planned and never re-plans them.",
+  "source": "session ledger /home/user/thuha-writer/data/state/factory.json, schema 5, version 137",
   "status": "QUEUED_NOT_PUBLISHED",
-  "note": "Two English topics already admitted as PLANNED in remote state. They are not published posts and do not count toward 500, but new matrix rows must not duplicate them.",
   "topics": [
     {
-      "topic_id": "TH-000001",
+      "category_id": 121,
       "language": "en",
-      "title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
-      "slug": "ho-chi-minh-museum-hanoi-exhibition-guide",
-      "url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/",
+      "ledger_status": "DRAFT_READY",
       "primary_keyword": "Ho Chi Minh Museum Hanoi exhibition guide",
-      "category_id": 121
+      "slug": "ho-chi-minh-museum-hanoi-exhibition-guide",
+      "title": "Ho Chi Minh Museum in Hanoi: Read the Exhibition Before Planning Your Visit",
+      "topic_id": "TH-000001",
+      "url": "https://rentbikehanoi.com/ho-chi-minh-museum-hanoi-exhibition-guide/"
     },
     {
-      "topic_id": "TH-000002",
+      "category_id": 117,
       "language": "en",
-      "title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
-      "slug": "hanoi-ceramic-mosaic-mural-art-walk",
-      "url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/",
+      "ledger_status": "CLAIMED",
       "primary_keyword": "Hanoi ceramic mosaic mural walk",
-      "category_id": 117
+      "slug": "hanoi-ceramic-mosaic-mural-art-walk",
+      "title": "The Hanoi Ceramic Mosaic Mural: Plan a Short Art Walk",
+      "topic_id": "TH-000002",
+      "url": "https://rentbikehanoi.com/hanoi-ceramic-mosaic-mural-art-walk/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "DRAFT_READY",
+      "primary_keyword": "vietnam motorbike licence classes A1 A",
+      "slug": "vietnam-motorbike-licence-classes-a1-a-2025-rules",
+      "title": "Vietnam Driving Licence Classes A1 and A Explained for Motorbike Renters Under the 2025 Rules",
+      "topic_id": "TH-000003",
+      "url": "https://rentbikehanoi.com/vietnam-motorbike-licence-classes-a1-a-2025-rules/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "DRAFT_READY",
+      "primary_keyword": "vietnam driving licence points deduction",
+      "slug": "vietnam-driving-licence-points-system-motorbike-riders",
+      "title": "How Vietnam's Driving Licence Points System Works: 12 Points, Deductions and Recovery for Motorbike Riders",
+      "topic_id": "TH-000004",
+      "url": "https://rentbikehanoi.com/vietnam-driving-licence-points-system-motorbike-riders/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "READY",
+      "primary_keyword": "bring own motorbike into vietnam permission",
+      "slug": "bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024",
+      "title": "Bringing a Foreign-Registered Motorbike Into Vietnam: Decree 30/2024 Permission Rules for Tourists",
+      "topic_id": "TH-000005",
+      "url": "https://rentbikehanoi.com/bringing-foreign-registered-motorbike-into-vietnam-decree-30-2024/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "READY",
+      "primary_keyword": "asean driving licence vietnam motorbike",
+      "slug": "asean-driving-licence-vietnam-motorbike-recognition",
+      "title": "Riding in Vietnam on an ASEAN Motorbike Licence: Recognition Limits and What Hanoi Shops Ask For",
+      "topic_id": "TH-000006",
+      "url": "https://rentbikehanoi.com/asean-driving-licence-vietnam-motorbike-recognition/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "DRAFT_READY",
+      "primary_keyword": "electric scooter licence vietnam kw",
+      "slug": "electric-scooter-licence-vietnam-motor-power-thresholds",
+      "title": "Do You Need a Licence for an Electric Scooter in Vietnam? Motor Power Thresholds Under the 2024 Law",
+      "topic_id": "TH-000007",
+      "url": "https://rentbikehanoi.com/electric-scooter-licence-vietnam-motor-power-thresholds/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "DRAFT_READY",
+      "primary_keyword": "compulsory motorbike insurance vietnam",
+      "slug": "compulsory-motorbike-liability-insurance-vietnam-renters",
+      "title": "Compulsory Motorbike Liability Insurance in Vietnam: What the Certificate Covers and What a Renter Should Check",
+      "topic_id": "TH-000008",
+      "url": "https://rentbikehanoi.com/compulsory-motorbike-liability-insurance-vietnam-renters/"
+    },
+    {
+      "category_id": 144,
+      "language": "en",
+      "ledger_status": "DRAFT_READY",
+      "primary_keyword": "buy used motorbike hanoi foreigner registration",
+      "slug": "buying-second-hand-motorbike-hanoi-foreigner-registration",
+      "title": "Buying a Second-Hand Motorbike in Hanoi as a Foreigner: Ownership Transfer, Registration Fee and Plates",
+      "topic_id": "TH-000009",
+      "url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/"
+    },
+    {
+      "category_id": 145,
+      "language": "en",
+      "ledger_status": "CLAIMED",
+      "primary_keyword": "hanoi traffic etiquette motorbike horn",
+      "slug": "hanoi-motorbike-traffic-communication-horns-lanes",
+      "title": "Horns, Lanes and Flashing Lights: How Hanoi Riders Communicate and What a Visitor Should Copy",
+      "topic_id": "TH-000010",
+      "url": "https://rentbikehanoi.com/hanoi-motorbike-traffic-communication-horns-lanes/"
+    },
+    {
+      "category_id": 145,
+      "language": "en",
+      "ledger_status": "CLAIMED",
+      "primary_keyword": "first time riding scooter hanoi practice",
+      "slug": "first-hour-rental-scooter-hanoi-practice-plan",
+      "title": "Your First Hour on a Rental Scooter in Hanoi: A Low-Traffic Practice Plan on the Long Bien Side",
+      "topic_id": "TH-000011",
+      "url": "https://rentbikehanoi.com/first-hour-rental-scooter-hanoi-practice-plan/"
+    },
+    {
+      "category_id": 133,
+      "language": "en",
+      "ledger_status": "CLAIMED",
+      "primary_keyword": "hanoi winter riding fog drizzle",
+      "slug": "riding-hanoi-winter-drizzle-fog-visibility-grip",
+      "title": "Riding in Hanoi's Winter Drizzle and Fog: Visibility, Grip and Clothing for January to March",
+      "topic_id": "TH-000012",
+      "url": "https://rentbikehanoi.com/riding-hanoi-winter-drizzle-fog-visibility-grip/"
+    },
+    {
+      "category_id": 133,
+      "language": "en",
+      "ledger_status": "CLAIMED",
+      "primary_keyword": "hanoi summer heat motorbike riding",
+      "slug": "riding-scooter-hanoi-heatwaves-june-july-planning",
+      "title": "Riding a Scooter Through Hanoi Heatwaves: Timing, Hydration and Heat-Index Planning for June and July",
+      "topic_id": "TH-000013",
+      "url": "https://rentbikehanoi.com/riding-scooter-hanoi-heatwaves-june-july-planning/"
+    },
+    {
+      "category_id": 133,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "typhoon season hanoi motorbike trip",
+      "slug": "typhoon-season-northern-vietnam-postpone-motorbike-trip",
+      "title": "Typhoon Season in Northern Vietnam: When to Postpone a Rental Motorbike Trip From Hanoi",
+      "topic_id": "TH-000014",
+      "url": "https://rentbikehanoi.com/typhoon-season-northern-vietnam-postpone-motorbike-trip/"
+    },
+    {
+      "category_id": 123,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi motorbike rental weekly budget",
+      "slug": "seven-day-hanoi-motorbike-rental-budget-breakdown",
+      "title": "A Seven-Day Hanoi Motorbike Rental Budget: Rental, Fuel, Parking and Deposit Line by Line",
+      "topic_id": "TH-000015",
+      "url": "https://rentbikehanoi.com/seven-day-hanoi-motorbike-rental-budget-breakdown/"
+    },
+    {
+      "category_id": 123,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "automatic vs manual rental price hanoi",
+      "slug": "automatic-vs-manual-motorbike-rental-price-hanoi",
+      "title": "Why Automatic Scooters Cost More to Rent Than Manual Bikes in Hanoi, and When the Difference Is Worth Paying",
+      "topic_id": "TH-000016",
+      "url": "https://rentbikehanoi.com/automatic-vs-manual-motorbike-rental-price-hanoi/"
+    },
+    {
+      "category_id": 129,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "scooter fuel consumption cost hanoi",
+      "slug": "rental-scooter-fuel-cost-per-kilometre-hanoi",
+      "title": "Fuel Cost per Kilometre on a Rental Scooter in Hanoi: Litres per 100 km and What One Tank Buys",
+      "topic_id": "TH-000017",
+      "url": "https://rentbikehanoi.com/rental-scooter-fuel-cost-per-kilometre-hanoi/"
+    },
+    {
+      "category_id": 129,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "e5 ron 92 vs ron 95 scooter vietnam",
+      "slug": "ron-95-or-e5-ron-92-rental-scooter-vietnam",
+      "title": "RON 95 or E5 RON 92 for a Rental Scooter in Vietnam: What the Pump Labels Mean",
+      "topic_id": "TH-000018",
+      "url": "https://rentbikehanoi.com/ron-95-or-e5-ron-92-rental-scooter-vietnam/"
+    },
+    {
+      "category_id": 129,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "electric scooter running cost hanoi",
+      "slug": "electric-rental-scooter-running-cost-hanoi",
+      "title": "What It Costs to Run an Electric Rental Scooter in Hanoi: Electricity, Battery Subscription and Range per Charge",
+      "topic_id": "TH-000019",
+      "url": "https://rentbikehanoi.com/electric-rental-scooter-running-cost-hanoi/"
+    },
+    {
+      "category_id": 125,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "rent or buy motorbike hanoi six months",
+      "slug": "renting-vs-buying-motorbike-hanoi-six-month-stay",
+      "title": "Renting vs Buying a Motorbike in Hanoi for a Six-Month Stay: Registration, Resale and Total Cost",
+      "topic_id": "TH-000020",
+      "url": "https://rentbikehanoi.com/renting-vs-buying-motorbike-hanoi-six-month-stay/"
+    },
+    {
+      "category_id": 125,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "temporary residence vietnam long term rental",
+      "slug": "long-term-motorbike-rental-vietnam-temporary-residence-paperwork",
+      "title": "Long-Term Motorbike Rental and Your Vietnam Temporary Residence: Keeping Visa, Address and Contract Aligned",
+      "topic_id": "TH-000021",
+      "url": "https://rentbikehanoi.com/long-term-motorbike-rental-vietnam-temporary-residence-paperwork/"
+    },
+    {
+      "category_id": 126,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "noi bai airport to motorbike rental shop",
+      "slug": "noi-bai-airport-to-motorbike-rental-shop-options",
+      "title": "Collecting a Rental Motorbike After Landing at Noi Bai: Airport Bus, Taxi and Shop Pickup Compared",
+      "topic_id": "TH-000022",
+      "url": "https://rentbikehanoi.com/noi-bai-airport-to-motorbike-rental-shop-options/"
+    },
+    {
+      "category_id": 126,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "return motorbike before train hanoi station",
+      "slug": "return-rental-motorbike-before-night-train-hanoi-station",
+      "title": "Returning a Rental Motorbike Before a Night Train From Hanoi Station: Timing and Luggage Plan",
+      "topic_id": "TH-000023",
+      "url": "https://rentbikehanoi.com/return-rental-motorbike-before-night-train-hanoi-station/"
+    },
+    {
+      "category_id": 130,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "scooter service interval rental",
+      "slug": "scooter-oil-change-service-intervals-rental-riders",
+      "title": "Scooter Oil Change and Service Intervals for Rental Riders: Reading Honda and Yamaha Schedules",
+      "topic_id": "TH-000024",
+      "url": "https://rentbikehanoi.com/scooter-oil-change-service-intervals-rental-riders/"
+    },
+    {
+      "category_id": 130,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "cvt belt wear scooter symptoms",
+      "slug": "cvt-belt-roller-wear-automatic-scooter-symptoms",
+      "title": "CVT Belt and Roller Wear on an Automatic Scooter: Symptoms a Renter Should Report",
+      "topic_id": "TH-000025",
+      "url": "https://rentbikehanoi.com/cvt-belt-roller-wear-automatic-scooter-symptoms/"
+    },
+    {
+      "category_id": 130,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "motorbike chain check rental",
+      "slug": "chain-care-semi-automatic-rental-motorbike-weekly-checks",
+      "title": "Chain Care on a Semi-Automatic Rental Motorbike: Weekly Slack and Lubrication Checks",
+      "topic_id": "TH-000026",
+      "url": "https://rentbikehanoi.com/chain-care-semi-automatic-rental-motorbike-weekly-checks/"
+    },
+    {
+      "category_id": 130,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "scooter brake pad wear check",
+      "slug": "rental-scooter-brake-pad-drum-wear-checks",
+      "title": "Brake Pad and Shoe Wear on a Rental Scooter: Disc and Drum Checks Without Tools",
+      "topic_id": "TH-000027",
+      "url": "https://rentbikehanoi.com/rental-scooter-brake-pad-drum-wear-checks/"
+    },
+    {
+      "category_id": 143,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "electric scooter battery care renter",
+      "slug": "electric-scooter-battery-care-renters-charging-heat-range",
+      "title": "Electric Scooter Battery Care for Renters: Charging Habits, Heat and Range Loss",
+      "topic_id": "TH-000028",
+      "url": "https://rentbikehanoi.com/electric-scooter-battery-care-renters-charging-heat-range/"
+    },
+    {
+      "category_id": 143,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vinfast evo200 rental",
+      "slug": "vinfast-evo200-rental-electric-scooter-spec-sheet",
+      "title": "VinFast Evo200 as a Rental Electric Scooter: Range, Speed and Charging Facts From the Spec Sheet",
+      "topic_id": "TH-000029",
+      "url": "https://rentbikehanoi.com/vinfast-evo200-rental-electric-scooter-spec-sheet/"
+    },
+    {
+      "category_id": 143,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vinfast feliz vs evo",
+      "slug": "vinfast-feliz-2025-vs-evo-electric-scooter-hanoi-visitor",
+      "title": "VinFast Feliz 2025 vs VinFast Evo: Which Electric Scooter Suits a Hanoi Visitor?",
+      "topic_id": "TH-000030",
+      "url": "https://rentbikehanoi.com/vinfast-feliz-2025-vs-evo-electric-scooter-hanoi-visitor/"
+    },
+    {
+      "category_id": 143,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "battery swap electric scooter hanoi",
+      "slug": "battery-swap-vs-plug-in-electric-scooters-hanoi-renters",
+      "title": "Battery-Swap vs Plug-In Electric Scooters in Hanoi: How the Model Changes Range Planning for Renters",
+      "topic_id": "TH-000031",
+      "url": "https://rentbikehanoi.com/battery-swap-vs-plug-in-electric-scooters-hanoi-renters/"
+    },
+    {
+      "category_id": 143,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "50cc moped speed limit vietnam",
+      "slug": "50cc-moped-40-kmh-limit-vietnam-day-trips",
+      "title": "Why a 50cc Moped Is Limited to 40 km/h in Vietnam and What That Means for Hanoi Day Trips",
+      "topic_id": "TH-000032",
+      "url": "https://rentbikehanoi.com/50cc-moped-40-kmh-limit-vietnam-day-trips/"
+    },
+    {
+      "category_id": 141,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "yamaha janus vs honda vision rental",
+      "slug": "yamaha-janus-vs-honda-vision-hanoi-rental",
+      "title": "Yamaha Janus vs Honda Vision for a Hanoi Rental: Seat Height, Storage and Fuel Use Compared",
+      "topic_id": "TH-000033",
+      "url": "https://rentbikehanoi.com/yamaha-janus-vs-honda-vision-hanoi-rental/"
+    },
+    {
+      "category_id": 141,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "yamaha grande hybrid rental",
+      "slug": "yamaha-grande-hybrid-rental-scooter",
+      "title": "Yamaha Grande as a Rental Scooter: What the Blue Core Hybrid Means for Fuel Use and Riding Feel",
+      "topic_id": "TH-000034",
+      "url": "https://rentbikehanoi.com/yamaha-grande-hybrid-rental-scooter/"
+    },
+    {
+      "category_id": 141,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "yamaha nvx 155 rental licence",
+      "slug": "yamaha-nvx-155-rental-licence-class-power",
+      "title": "Yamaha NVX 155 as a Rental: Licence Class, Power and Who Should Choose It",
+      "topic_id": "TH-000035",
+      "url": "https://rentbikehanoi.com/yamaha-nvx-155-rental-licence-class-power/"
+    },
+    {
+      "category_id": 141,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "honda air blade commute rental",
+      "slug": "honda-air-blade-daily-hanoi-commute-rental",
+      "title": "Honda Air Blade for a Daily Hanoi Commute: Fuel Injection, Idling Stop and Storage in Practice",
+      "topic_id": "TH-000036",
+      "url": "https://rentbikehanoi.com/honda-air-blade-daily-hanoi-commute-rental/"
+    },
+    {
+      "category_id": 142,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "honda future 125 rental",
+      "slug": "honda-future-125-rental-semi-automatic",
+      "title": "Honda Future 125 as a Rental: The Semi-Automatic Middle Ground Explained",
+      "topic_id": "TH-000037",
+      "url": "https://rentbikehanoi.com/honda-future-125-rental-semi-automatic/"
+    },
+    {
+      "category_id": 131,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "suitcase on scooter hanoi",
+      "slug": "carrying-suitcase-rental-scooter-hanoi-alternatives",
+      "title": "Carrying a Suitcase on a Rental Scooter in Hanoi: Why It Fails and the Alternatives That Work",
+      "topic_id": "TH-000038",
+      "url": "https://rentbikehanoi.com/carrying-suitcase-rental-scooter-hanoi-alternatives/"
+    },
+    {
+      "category_id": 132,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi metro park and ride motorbike",
+      "slug": "park-and-ride-hanoi-metro-rental-scooter",
+      "title": "Park and Ride With the Hanoi Metro: Leaving a Rental Scooter at Cat Linh or Nhon Line Stations",
+      "topic_id": "TH-000040",
+      "url": "https://rentbikehanoi.com/park-and-ride-hanoi-metro-rental-scooter/"
+    },
+    {
+      "category_id": 134,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam emergency numbers motorbike",
+      "slug": "vietnam-emergency-numbers-motorbike-riders",
+      "title": "Emergency Numbers in Vietnam for Motorbike Riders: 113, 114, 115 and What to Say",
+      "topic_id": "TH-000041",
+      "url": "https://rentbikehanoi.com/vietnam-emergency-numbers-motorbike-riders/"
+    },
+    {
+      "category_id": 135,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "cau giay my dinh motorbike",
+      "slug": "cau-giay-my-dinh-motorbike-hanoi-western-districts",
+      "title": "Cau Giay and My Dinh by Motorbike: Navigating Hanoi's Western Business Districts",
+      "topic_id": "TH-000042",
+      "url": "https://rentbikehanoi.com/cau-giay-my-dinh-motorbike-hanoi-western-districts/"
+    },
+    {
+      "category_id": 137,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "perfume pagoda motorbike hanoi",
+      "slug": "perfume-pagoda-from-hanoi-by-motorbike",
+      "title": "Perfume Pagoda From Hanoi by Motorbike: Route, Boat Transfer and Festival Timing",
+      "topic_id": "TH-000043",
+      "url": "https://rentbikehanoi.com/perfume-pagoda-from-hanoi-by-motorbike/"
+    },
+    {
+      "category_id": 137,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "con son kiep bac motorbike",
+      "slug": "con-son-kiep-bac-from-hanoi-by-motorbike",
+      "title": "Con Son and Kiep Bac From Hanoi by Motorbike: A Hai Duong Day Trip Beyond the Usual List",
+      "topic_id": "TH-000044",
+      "url": "https://rentbikehanoi.com/con-son-kiep-bac-from-hanoi-by-motorbike/"
+    },
+    {
+      "category_id": 137,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "pho hien hung yen motorbike",
+      "slug": "pho-hien-hung-yen-from-hanoi-by-motorbike",
+      "title": "Hung Yen's Pho Hien From Hanoi by Motorbike: A Riverside Heritage Day Trip",
+      "topic_id": "TH-000045",
+      "url": "https://rentbikehanoi.com/pho-hien-hung-yen-from-hanoi-by-motorbike/"
+    },
+    {
+      "category_id": 138,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi cat ba motorbike ferry",
+      "slug": "hanoi-to-cat-ba-by-motorbike-and-ferry",
+      "title": "Hanoi to Cat Ba by Motorbike and Ferry: Pier Logistics and Island Riding",
+      "topic_id": "TH-000047",
+      "url": "https://rentbikehanoi.com/hanoi-to-cat-ba-by-motorbike-and-ferry/"
+    },
+    {
+      "category_id": 138,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "moc chau motorbike hanoi weekend",
+      "slug": "hanoi-to-moc-chau-by-motorbike-weekend",
+      "title": "Hanoi to Moc Chau by Motorbike: A Weekend on National Route 6",
+      "topic_id": "TH-000049",
+      "url": "https://rentbikehanoi.com/hanoi-to-moc-chau-by-motorbike-weekend/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam e-visa motorbike trip",
+      "slug": "vietnam-e-visa-motorbike-trip-90-day-validity",
+      "title": "Vietnam E-Visa for a Motorbike Trip: 90-Day Validity, Entry Points and What Rental Shops Check",
+      "topic_id": "TH-000050",
+      "url": "https://rentbikehanoi.com/vietnam-e-visa-motorbike-trip-90-day-validity/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam visa exemption stay limit",
+      "slug": "visa-free-entry-vietnam-stay-limit-rental-planning",
+      "title": "Visa-Free Entry to Vietnam: Temporary Stay Limits and Planning a Rental Around Your Exit Date",
+      "topic_id": "TH-000051",
+      "url": "https://rentbikehanoi.com/visa-free-entry-vietnam-stay-limit-rental-planning/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "temporary residence declaration vietnam hotel",
+      "slug": "temporary-residence-declaration-vietnam-hotel-passport",
+      "title": "Temporary Residence Declaration in Vietnam: Why Your Hotel Takes Your Passport Details and What It Means for Rentals",
+      "topic_id": "TH-000052",
+      "url": "https://rentbikehanoi.com/temporary-residence-declaration-vietnam-hotel-passport/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "embassies in hanoi lost passport",
+      "slug": "embassies-in-hanoi-lost-passport-motorbike-rental",
+      "title": "Embassies in Hanoi: Finding Yours and What a Lost or Held Passport Means for a Motorbike Rental",
+      "topic_id": "TH-000053",
+      "url": "https://rentbikehanoi.com/embassies-in-hanoi-lost-passport-motorbike-rental/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "noi bai airport bus routes",
+      "slug": "noi-bai-airport-buses-86-90-17-109-hanoi",
+      "title": "Noi Bai Airport Buses 86, 90, 17 and 109: Which One Stops Closest to Your Hanoi Hotel",
+      "topic_id": "TH-000054",
+      "url": "https://rentbikehanoi.com/noi-bai-airport-buses-86-90-17-109-hanoi/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi metro fares visitors",
+      "slug": "hanoi-metro-for-visitors-fares-hours",
+      "title": "Hanoi Metro for Visitors: Fares, Hours and How It Pairs With a Motorbike Rental",
+      "topic_id": "TH-000055",
+      "url": "https://rentbikehanoi.com/hanoi-metro-for-visitors-fares-hours/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi hospitals travel advice riders",
+      "slug": "medical-care-hanoi-visiting-riders-official-advice",
+      "title": "Medical Care in Hanoi for Visiting Riders: What Official Travel Advice Says About Hospitals and Insurance",
+      "topic_id": "TH-000056",
+      "url": "https://rentbikehanoi.com/medical-care-hanoi-visiting-riders-official-advice/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam customs allowance travellers",
+      "slug": "vietnam-customs-rules-riders-helmets-cameras-drones",
+      "title": "Vietnam Customs Rules for Riders: Helmets, Cameras, Drones and Medicines at the Border",
+      "topic_id": "TH-000057",
+      "url": "https://rentbikehanoi.com/vietnam-customs-rules-riders-helmets-cameras-drones/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "hanoi low emission zone motorbike ban",
+      "slug": "hanoi-low-emission-zone-ring-road-1-motorbike-restriction",
+      "title": "Hanoi's Low-Emission Zone Scheme: What It Covers and What It Means for Motorbike Rentals",
+      "topic_id": "TH-000059",
+      "url": "https://rentbikehanoi.com/hanoi-low-emission-zone-ring-road-1-motorbike-restriction/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam motorbike number plate codes",
+      "slug": "reading-vietnamese-motorbike-number-plates-province-codes",
+      "title": "Reading Vietnamese Motorbike Number Plates: Province Codes and What a Hanoi Plate Tells You",
+      "topic_id": "TH-000060",
+      "url": "https://rentbikehanoi.com/reading-vietnamese-motorbike-number-plates-province-codes/"
+    },
+    {
+      "category_id": 139,
+      "language": "en",
+      "ledger_status": "PLANNED",
+      "primary_keyword": "vietnam motorbike emissions inspection",
+      "slug": "motorbike-emissions-inspection-vietnam-roadmap-rental-bikes",
+      "title": "Motorbike Emissions Inspection in Vietnam: The Roadmap and What It Means for Older Rental Bikes",
+      "topic_id": "TH-000061",
+      "url": "https://rentbikehanoi.com/motorbike-emissions-inspection-vietnam-roadmap-rental-bikes/"
     }
   ]
 }

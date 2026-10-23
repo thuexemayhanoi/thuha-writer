@@ -54,6 +54,15 @@ def published_outside_inventory(state, lang, live_ids):
             if v['language'] == lang and v.get('phase') == 'PUBLISHED' and v.get('wp_id') not in live_ids]
 
 
+def effective(state, counts, live_ids):
+    """Counts from an inventory plus the factory posts WordPress confirmed after that inventory was read.
+
+    An inventory is a snapshot; a post the factory published since is in the ledger, not yet in the snapshot, and
+    must not be forgotten when deciding how many more topics or writers a language still needs.
+    """
+    return {lang: counts[lang] + len(published_outside_inventory(state, lang, live_ids)) for lang in LANGUAGES}
+
+
 def status(state, counts, targets):
     out = {}
     for lang in LANGUAGES:

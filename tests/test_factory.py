@@ -138,7 +138,7 @@ class CoordinationTests(Fixture):
         value=report(self.store,self.inv,load(ROOT/'config/release.json'))
         self.assertEqual(len(value['slots']),9)
         self.assertTrue(all(x['ai_execution']=='NOT_OBSERVED' for x in value['slots'].values()))
-        self.assertEqual(value['factory_verified_receipts'],0)
+        self.assertEqual(value['factory_published_receipts'],0)
 
 
 class ResearchTests(Fixture):

@@ -125,7 +125,7 @@ def cycle(state,inv,release,targets=None):
     """Per-language progress. Live totals need an adapter inventory; otherwise they are UNKNOWN, never 0."""
     targets=targets or language_targets()
     counts=Counter(t['status'] for t in state['topics'].values())
-    try:live=quota.published(inv);live_error=None
+    try:live=quota.effective(state,quota.published(inv),{x['id'] for x in inv.get('items',[])});live_error=None
     except ValueError as exc:live,live_error=None,str(exc)
     languages={}
     for lang in LANGUAGES:

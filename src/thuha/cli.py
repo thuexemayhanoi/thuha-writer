@@ -23,10 +23,11 @@ def inventory_for(store,path):
     return audit.snapshot_inventory() # Offline planning view only; it is stale by design.
 
 
-def live_counts(inv):
-    """Per-language live counts, or None when the inventory cannot be trusted for languages."""
-    try:return quota.published(inv)
+def live_counts(inv,state=None):
+    """Per-language live counts (plus factory posts published since the inventory), or None when the inventory cannot be trusted."""
+    try:counts=quota.published(inv)
     except ValueError:return None
+    return quota.effective(state,counts,{x['id'] for x in inv.get('items',[])}) if state is not None else counts
 
 
 def main(argv=None):
@@ -114,7 +115,7 @@ def main(argv=None):
         inv=inventory_for(store,args.inventory);validate_inventory(inv);note=None
         try:research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'])
         except ValueError as exc:note=str(exc) # e.g. inventory not language-authoritative; claiming itself stays possible
-        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv),language_targets()))
+        result=dict(coordinator.claim(store,args.session,args.agent_id,args.slot,factory['lease_seconds'],live_counts(inv,store.read()),language_targets()))
         if note:result['refill_note']=note
     elif args.command=='heartbeat':result=coordinator.heartbeat(store,args.slot,args.session,args.fence,factory['lease_seconds'])
     elif args.command=='release':result=coordinator.release(store,args.slot,args.session,args.fence)
@@ -147,7 +148,7 @@ def main(argv=None):
     elif args.command=='quota':
         inv=inventory_for(store,args.inventory)
         result={'inventory_language_source':inv.get('language_source'),'inventory_captured_at':inv['captured_at'],
-                'languages':quota.status(store.read(),quota.published(inv),language_targets()),
+                'languages':quota.status(store.read(),live_counts(inv,store.read()) or quota.published(inv),language_targets()),
                 'note':'Snapshots and non-adapter inventories are not live counters; the publisher recounts before each reservation.'}
     elif args.command=='adapter-preflight':
         # Live check, run only by the credentialed publisher. Nothing is recorded unless it passes.

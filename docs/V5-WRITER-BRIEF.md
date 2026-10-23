@@ -1,7 +1,9 @@
 # V5 writer brief (read fully before claiming)
 
 You are one authorized Claude writer session for https://rentbikehanoi.com,
-operating inside the ThuHa Writer factory. Work from the repository root with
+operating inside the ThuHa Writer factory. The site goal is 500 English and 500
+Vietnamese posts, Vietnamese first: claim returns a Vietnamese topic whenever one
+is admitted. Write each article natively in its topic's language; never translate. Work from the repository root with
 `export PYTHONPATH=src`. Every state command takes `--git-branch` in this session (REST writes are closed by the proxy; `--remote` is for environments that can write factory-state). The container
 cannot reach any website except api.github.com: research with the Parallel
 `web_fetch`/`web_search` MCP tools (session_id
@@ -9,6 +11,9 @@ cannot reach any website except api.github.com: research with the Parallel
 
 ## Loop
 
+0. Once per session, before claiming: `python3 -m thuha.cli --git-branch sync --apply`. It copies the shared ledger
+   (`factory-state`) into this branch so your work starts from what the queue already holds. If it answers `DIVERGED`, stop
+   and report: this branch holds work the shared ledger has not got, and the owner decides how to hand it over.
 1. `python3 -m thuha.cli --git-branch claim --session <SESSION> --agent-id <AGENT>`
    SESSION is `w<N>-<date>-<random>` (letters, digits, dashes, 4–80 chars),
    AGENT is `claude-writer-W<N>`. Save slot, fence, topic_id from the output.
@@ -30,11 +35,12 @@ cannot reach any website except api.github.com: research with the Parallel
    after research and again right before submit (lease is 30 minutes).
 5. Write `article.json` with exactly these fields:
    topic_id, session, agent_id, source_commit (current `git rev-parse HEAD`),
-   language "en-US", title, body_html, seo_title (35–75 chars),
+   language (the kit's `article_language_value`: "vi" for a TH-VI topic, "en-US" otherwise), title, body_html, seo_title (35–75 chars),
    meta_description (110–180 chars), focus_keyword (the topic's primary
    keyword), canonical (the topic's proposed_url), category_id (the topic's),
    featured_media (an id from the kit's featured_media_options whose alt text
-   fits), sources (list of {url, document, supports}; include the topic's own
+   fits; if the kit lists `NEEDS_MEDIA` under `blockers`, stop: no article in that language can pass QA until an image with
+   alt text in that language exists), sources (list of {url, document, supports}; include the topic's own
    sources plus any you captured), business_claims (usually `[]`; if you quote
    a reference price, add {"kind":"reference_price","vehicle":"manual|automatic|electric|50cc|Vision|Air Blade","period":"day|week|month","value_vnd":<int inside the business-facts interval>} and write a sentence containing "reference prices" plus a confirm-before-booking note).
 6. `python3 -m thuha.cli --git-branch precheck --topic-id <TOPIC> --file article.json`.
@@ -51,7 +57,11 @@ cannot reach any website except api.github.com: research with the Parallel
 
 ## Editorial bar
 
-- 1,200–2,500 words of original English for an international reader in Hanoi.
+- Vietnamese topics: native Vietnamese prose for a reader in Vietnam, at least 950 syllables (the QA floor; aim for 1,500–3,000),
+  Vietnamese title, meta, alt text and links only; regulated claims (giấy phép, bằng lái, mức phạt, visa, đăng kiểm…) need an
+  official `.gov.vn` source; prices only as `giá tham khảo` with a reminder to confirm before booking. The rest of this bar applies
+  to both languages.
+- English topics: 1,200–2,500 words of original English for an international reader in Hanoi.
   Answer the search intent in the first 150 words. Use `<h2>` sections (at
   least three) and `<h3>` where useful; no `<h1>`; paragraphs in `<p>`; lists
   allowed; a short FAQ `<h2>` with 3–5 `<h3>` questions when genuinely useful.
@@ -62,8 +72,8 @@ cannot reach any website except api.github.com: research with the Parallel
   Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội, open 09:00–21:00 daily.
   Never state delivery, deposit, refund or extension policy; never say
   "no deposit"; never claim firsthand testing or customer stories.
-- At least two internal links to URLs from the kit's internal_link_targets,
-  chosen for relevance, with descriptive anchor text. No other same-site URLs.
+- At least two internal links to URLs from the kit's internal_link_targets (always in the article's own language; a link to the
+  other language fails QA), chosen for relevance, with descriptive anchor text. No other same-site URLs.
 - No `<script>`, `<style>`, `<meta>`, `<iframe>`, `<form>`, `<img>` without alt,
   no HTML comments, no schema markup (Yoast adds it).
 - No slug, canonical or category other than the topic's. Do not mention

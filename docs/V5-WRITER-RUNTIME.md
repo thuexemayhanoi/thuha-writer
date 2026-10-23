@@ -1,5 +1,11 @@
 # ThuHa Writer V5 — writer-session runtime
 
+> **Update 23 October 2026 (after the owner's decision).** The goal is **500 English + 500 Vietnamese posts, Vietnamese
+> first**, not 2,000 English posts. This runtime is merged into the bilingual workflow: `kit`, `precheck`, `admit` and
+> `cycle` are language-aware, topics carry a `language`, and a session ledger reaches the queue Actions read through
+> `promote` (see [Operations](OPERATIONS.md)). Passages below that describe the observed execution boundary are kept as
+> they were written; numbers measured for the old goal are marked.
+
 V5 keeps every V4 gate and adds the pieces an authorized Claude session needs
 to act as the W1–W9 AI runtime: labelled external source evidence, a read-only
 writer kit, a non-mutating precheck that runs the production QA function, a
@@ -23,9 +29,13 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
   and `data/documents/` paths but checkpoints through ordinary commits and
   pushes on the designated session branch, with explicit pathspecs and
   push-rejection CAS. The ledger was imported from `factory-state` at version
-  4 unchanged. Promotion back to `factory-state` is a trusted Actions step the
-  owner runs after merge; until then, workflows reading `factory-state` do
-  not see this session's drafts.
+  4 unchanged. **Hand-over:** `thuha.cli --remote promote --apply` (run by the
+  queue job after the branch is merged) moves this ledger into `factory-state`
+  as a fast-forward: the live history must be the first part of the session
+  history, documents are copied first, nothing is overwritten and a second run
+  changes nothing. A new session starts with `--git-branch sync --apply` so its
+  ledger begins from the shared one. Until the hand-over has run, workflows
+  reading `factory-state` do not see this session's drafts.
 - `GitHub` (REST adapter) falls back to the harness `GITHUB_TOKEN` when
   `THUHA_GITHUB_TOKEN` is absent and now sends `Content-Type: application/json`
   on writes. The destination-repository path guard and CAS semantics are
@@ -39,8 +49,9 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
 ```
 export PYTHONPATH=src
 STATE=--git-branch   # or --remote where factory-state REST writes are allowed
+python3 -m thuha.cli --git-branch sync --apply          # once per session: start from the shared ledger
 python3 -m thuha.cli $STATE claim --session SESSION --agent-id claude-writer-WN
-python3 -m thuha.cli $STATE kit --topic-id TH-00000N > kit.json
+python3 -m thuha.cli $STATE kit --topic-id TH-VI-0001 > kit.json   # or TH-EN-0001 / legacy TH-00000N
 # research: web_fetch each source, write a fetch record, then
 python3 -m thuha.cli $STATE source --url URL --external-fetch record.json
 python3 -m thuha.cli $STATE heartbeat --slot WN --session SESSION --fence FENCE
@@ -48,7 +59,8 @@ python3 -m thuha.cli $STATE precheck --topic-id TH-00000N --file article.json
 python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --file article.json
 ```
 
-Rules the kit repeats and QA enforces: original English prose, two or more
+Rules the kit repeats and QA enforces (the kit prints the Vietnamese version for a Vietnamese topic: native
+Vietnamese prose, same-language links and images, `giá tham khảo` for prices): original prose in the topic's language, two or more
 `<h2>`, no body `<h1>`, no script/style/meta/iframe/form, internal links only
 to live-verified URLs in the kit, featured media only from the kit's media with
 alt text, reference prices only as declared `business_claims` with a disclaimer
@@ -77,12 +89,15 @@ topic notes; it is never invented.
 
 A separate agent identity on the `trusted_reviewers` roster
 (`claude-editorial-reviewer`) reads the exact submitted revision with `resume`,
-verifies intent, factual accuracy against the captured sources, English,
+verifies intent, factual accuracy against the captured sources, the language
+(`english` or `native_language`; for Vietnamese also `no_machine_translation`),
 originality, business facts and image relevance, and records a review for that
 `article_sha` with `THUHA_REVIEWER_ID` set. The writer agent cannot review its
-own draft. Then `qa --topic-id` recomputes everything; PASS moves the topic to
-READY, FAIL to NEEDS_REPAIR. The roster is attribution metadata; the owner
-confirms or replaces it at go-live.
+own draft. Reviews recorded before schema 5 (`english`, no `language` label)
+stay valid for English drafts. Then `qa --topic-id` (or the queue job's
+`qa --pending`) recomputes everything; PASS moves the topic to READY, FAIL to
+NEEDS_REPAIR. The roster is attribution metadata; the owner confirms or
+replaces it at go-live.
 
 ## Admission of researched topics
 
@@ -95,18 +110,16 @@ collision check so two workflows targeting the same site do not cannibalize.
 
 ## Cycle report
 
-`cycle` prints `LIVE TOTAL | FACTORY VERIFIED | PLANNED | WRITING | QA PASS |
-QA FAIL | PUBLISHED | BLOCKED | REMAINING`. LIVE TOTAL comes from the latest
-complete inventory document, never from a historical report; REMAINING is
-2000 minus LIVE TOTAL. FACTORY VERIFIED and PUBLISHED count only readback
-receipts.
+`cycle` prints `FACTORY PUBLISHED | PLANNED | WRITING | QA PASS | QA FAIL | PUBLISHED | BLOCKED | LIVE VI | REMAINING VI | LIVE EN | REMAINING EN`
+plus a per-language block. Live totals come from the latest complete adapter (or authenticated) inventory plus the factory posts
+WordPress confirmed since; with any other inventory they read `UNKNOWN`, never `0`. REMAINING is the language's 500 minus
+live minus unresolved intents. FACTORY PUBLISHED and PUBLISHED count only receipts WordPress confirmed.
 
 ## Known gaps
 
-- Only 15 of the site's featured images carry alt text, so new drafts reuse
-  existing verified images. Media upload is deliberately not implemented.
-- An inventory older than six hours blocks claim, QA and admission. Re-dispatch
-  the audit workflow; do not relax the age limit.
-- The open PR #2 brief proposes a different site goal (500 EN + 500 VI). This
-  V5 run follows the owner's 2,000 English-post instruction and records the
-  conflict for the owner; it does not touch VI categories or that branch.
+- The media library is now listed in full by `audit`, but only 15 of the site's featured images carry alt text, all of it
+  English, and no image has Vietnamese alt text. A Vietnamese article may only use an image whose alt text is Vietnamese, so
+  none can pass QA until the owner adds such images. The kit reports `NEEDS_MEDIA` and the dashboard shows it. Media upload is
+  deliberately not implemented.
+- An inventory older than six hours blocks claim, QA and admission. Re-dispatch the audit workflow; do not relax the age limit.
+- The conflict with the open PR #2 brief (500 EN + 500 VI) is resolved: that is the goal.

@@ -2,7 +2,7 @@
 from .common import age, digest, now, norm, urlkey, category_path, validate_inventory
 from .http import HTTP, safe_public_url, safe_url_shape
 from .language import LANGUAGES, TOPIC_ID, check, post_url, split_url, url_language, targets as language_targets
-from .quota import published, topics_needed
+from .quota import effective, published, topics_needed
 from .store import event
 
 
@@ -111,8 +111,9 @@ def validate_candidate(candidate,inv,queue,store,max_age=2592000):
 def intake(store,candidates,inv,batch_max=100,targets=None):
     if not 1<=len(candidates)<=batch_max:raise ValueError('Research batch size out of range')
     targets=targets or language_targets()
-    counts=published(inv)
+    inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
     def transaction(state):
+        counts=effective(state,inventory_counts,live_ids) # plus factory posts published since the inventory was read
         added={lang:sum(c.get('language')==lang for c in candidates) for lang in LANGUAGES}
         for lang,n in added.items():
             if n>topics_needed(state,counts,targets,lang):raise ValueError('Topic capacity reached for '+lang+' (target minus live posts minus open topics)')
@@ -140,8 +141,9 @@ def refill(store,inv,below=30,batch_max=100,targets=None):
     """
     validate_inventory(inv)
     targets=targets or language_targets()
-    counts=published(inv)
+    inventory_counts,live_ids=published(inv),{x['id'] for x in inv.get('items',[])}
     def transaction(state):
+        counts=effective(state,inventory_counts,live_ids)
         reasons={}
         # Priority order decides which language is served; an outstanding English request (for example one
         # migrated from schema 4) must not stop a Vietnamese request from being opened first.

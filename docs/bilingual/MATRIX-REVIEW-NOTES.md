@@ -159,3 +159,18 @@ Dòng cần reviewer nhìn kỹ ở đợt này: 154 "căn cước gốc giữa 
 ở 166); 162 "giáp bảo hộ đường dài" (gần EN 2132); 169/170 các điểm Tây Thiên, Chí Linh, Phủ Dầy – chùa Keo, khóa tu (dữ kiện địa điểm chưa kiểm chứng,
 bắt buộc `official_venue`/`field_check`); 167 thánh đường Hồi giáo phố Hàng Lược và quan họ Bắc Ninh (nghi lễ/văn hóa: cần nguồn chính thức trước khi viết);
 154 "đối chiếu tin nhắn" với các dòng 153. Chủ đề sức khỏe (khám sức khỏe nhịn ăn, mang thai, thuốc, sơ cứu) đều mang `official_health`.
+
+## 23/10/2026: 57 dòng EN gỡ vì sổ cái đã có chủ đề đó hoặc vì vượt kế hoạch
+
+Sổ cái phiên V5 đã nhận 57 chủ đề EN (có nguồn đã chụp, chín bản đã viết). Chúng lấp 57 trong 225 chỗ còn thiếu của EN, nên EN500 nay là
+275 bảo vệ + **57 đã vào sổ cái** + **168 mới**. Tôi so từng chủ đề của sổ cái với 225 dòng mới (độ trùng tiêu đề, chủ đề trước dấu hai chấm,
+từ khóa; rồi đọc tay ý định các cặp ≥ 0,25) và gỡ 57 dòng, giữ nguyên chúng ở `data/bilingual/seeds/retired/en-retired.jsonl` kèm lý do:
+
+* **13 dòng cùng ý định với một chủ đề đã vào sổ cái** (Perfume Pagoda, vali trên xe tay ga, RON 95/E5, Phố Hiến, nắng nóng, má phanh,
+  bảo hiểm trách nhiệm, Mộc Châu, xích, mưa phùn mùa đông, metro + xe, thuê hay mua, mua xe cũ). Chủ đề của sổ cái được giữ vì đã có nguồn.
+* **44 dòng vượt chỉ tiêu theo mục** sau khi trừ chủ đề đã vào sổ cái (trong từng mục: ưu tiên 3 trước, rồi ưu tiên 2; trong cùng ưu tiên, dòng gần chủ đề
+  của sổ cái nhất đi trước). Mục 139 (11 chủ đề đã vào sổ cái so với kế hoạch 5) không còn dòng mới.
+
+Dòng bị gỡ không mất: nếu một chủ đề của sổ cái bị loại (không qua review, không có nguồn), có thể đưa dòng cùng mục trở lại và dựng lại matrix.
+Kiểm tra mới trong `matrix.validate`: cặp (dòng mới, chủ đề sổ cái) có chủ đề trước dấu hai chấm giống ≥ 0,6 phải được xem xét, và các dòng
+`QUEUED_IN_LEDGER` phải khớp đúng bản xuất từ sổ cái (`scripts/export_queued.py`).

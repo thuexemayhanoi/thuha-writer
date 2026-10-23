@@ -1,12 +1,13 @@
 """The committed matrices and the rules that keep them honest (no network, no WordPress)."""
 import copy
+import json
 import unittest
 from collections import Counter
 from thuha import matrix
-from thuha.common import SITE, load
+from thuha.common import ROOT, SITE, load
 from thuha.language import post_url, split_url
 from thuha.research import validate_candidate
-from thuha.store import LocalStore
+from thuha.store import LocalStore, migrate
 
 
 def seed(**over):
@@ -44,10 +45,10 @@ class CommittedMatrixTests(unittest.TestCase):
         for lang, m in self.m.items():
             self.assertEqual(matrix.build(lang), m, lang + ' matrix is stale; run scripts/build_matrices.py')
 
-    def test_vietnamese_has_500_new_rows_and_english_275_protected_plus_225_new(self):
+    def test_vietnamese_has_500_new_rows_and_english_275_protected_plus_57_queued_plus_168_new(self):
         vi, en = self.m['vi']['rows'], self.m['en']['rows']
         self.assertEqual(Counter(r['kind'] for r in vi), {'NEW': 500})
-        self.assertEqual(Counter(r['kind'] for r in en), {'EXISTING_PROTECTED': 275, 'NEW': 225})
+        self.assertEqual(Counter(r['kind'] for r in en), {'EXISTING_PROTECTED': 275, 'QUEUED_IN_LEDGER': 57, 'NEW': 168})
         self.assertEqual(len(vi), 500);self.assertEqual(len(en), 500)
 
     def test_protected_rows_are_exactly_the_275_live_english_posts(self):
@@ -76,19 +77,46 @@ class CommittedMatrixTests(unittest.TestCase):
     def test_slugs_and_urls_are_unique_across_both_languages_posts_and_pages(self):
         everything = [r for m in self.m.values() for r in m['rows']]
         slugs = [r['slug'] for r in everything]
+        planned_only = [r['slug'] for m in self.m.values() for r in m['rows'] if r['kind'] == 'NEW']
         self.assertEqual(len(slugs), len(set(slugs)))
         urls = [r['proposed_url'] for r in everything]
         self.assertEqual(len(urls), len(set(urls)))
         pages = matrix.existing()
-        self.assertFalse(set(slugs) & ({p['slug'] for p in pages['pages']} | pages['reserved'] | {q['slug'] for q in pages['queued']}))
+        self.assertFalse(set(planned_only) & ({p['slug'] for p in pages['pages']} | pages['reserved'] | {q['slug'] for q in pages['queued']}))
 
     def test_allocation_stays_close_to_the_editorial_suggestion(self):
         for lang, m in self.m.items():
             planned = {int(k): v for k, v in self.plan['suggested_' + lang + '_new_topics_by_category'].items()}
+            for r in (x for x in m['rows'] if x['kind'] == 'QUEUED_IN_LEDGER'):  # a queued topic occupies a planned slot
+                if r['category_id'] in planned:
+                    planned[r['category_id']] = max(0, planned[r['category_id']] - 1)
             actual = Counter(r['category_id'] for r in m['rows'] if r['kind'] == 'NEW')
-            self.assertEqual(set(actual), set(planned))
+            self.assertLessEqual(set(actual), set(planned))
             for cid, want in planned.items():
                 self.assertLessEqual(abs(actual[cid] - want), max(3, round(want * 0.2)), (lang, cid))
+
+    def test_queued_rows_are_exactly_the_english_topics_of_the_session_ledger(self):
+        ledger = migrate(load(ROOT / 'data/state/factory.json'))
+        queued = {r['id']: r for r in self.m['en']['rows'] if r['kind'] == 'QUEUED_IN_LEDGER'}
+        english = {k: t for k, t in ledger['topics'].items() if t['language'] == 'en'}
+        self.assertEqual(set(queued), set(english))
+        for tid, row in queued.items():
+            self.assertEqual((row['proposed_url'], row['title'], row['category_id']),
+                             (english[tid]['proposed_url'], english[tid]['proposed_title'], english[tid]['category_id']))
+
+    def test_no_new_row_repeats_the_intent_of_a_queued_topic(self):
+        queued = [r for r in self.m['en']['rows'] if r['kind'] == 'QUEUED_IN_LEDGER']
+        for r in (x for x in self.m['en']['rows'] if x['kind'] == 'NEW'):
+            for q in queued:
+                self.assertLess(matrix.similarity('en', matrix.subject('en', r['title']), matrix.subject('en', q['title'])), matrix.SUBJECT_REVIEW, (r['id'], q['id']))
+                self.assertLess(matrix.similarity('en', r['title'], q['title']), matrix.TITLE_FAIL, (r['id'], q['id']))
+
+    def test_the_retired_seeds_are_kept_with_their_reason_and_never_read_as_seeds(self):
+        retired = [json.loads(x) for x in (matrix.SEEDS / 'retired/en-retired.jsonl').read_text(encoding='utf-8').splitlines() if x.strip()]
+        self.assertEqual(len(retired), 57)
+        self.assertTrue(all(x['retired']['reason'] for x in retired))
+        self.assertFalse({x['u'] for x in retired} & {r['slug'] for r in self.m['en']['rows']})
+        self.assertFalse([p for p in matrix.seed_files('en') if 'retired' in str(p)])
 
     def test_no_row_claims_progress_research_or_a_live_dedup_it_did_not_do(self):
         for m in self.m.values():

@@ -1,12 +1,13 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-22T20:27:25.960555+00:00
+Generated: 2026-10-23T05:42:43.986711+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
-- factory_verified_receipts: 0
+- factory_published_receipts: 0
 - inventory_language_source: authenticated-snapshot
 - production_enabled: False
+- state_backend: local-offline-snapshot
 
 ## Languages (Vietnamese first)
 
@@ -14,6 +15,17 @@ Generated: 2026-10-22T20:27:25.960555+00:00
 |---|---|---|---|---|---|
 | vi | 500 | 0 | 0 | 500 | 0 |
 | en | 500 | 275 | 0 | 225 | 0 |
+
+## Shared queue (not published posts)
+
+| Language | Awaiting review | Awaiting QA | QA pass | Publishing | Published | Needs repair | Held / unknown |
+|---|---|---|---|---|---|---|---|
+| vi | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| en | 6 | 0 | 2 | 0 | 0 | 0 | 0 |
+
+Public-page checks after publication: none yet. Public-page checks run after publication, back off and retry; they never stop the queue.
+
+Session ledger hand-over: FAST_FORWARD (session v137, shared v5)
 
 Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 
@@ -36,9 +48,9 @@ Adapter: NOT_VERIFIED (live status is PENDING until a credentialed preflight suc
 - Separate owner go-live approval outstanding
 - No language enabled in the release (production stays OFF)
 - BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded
-- No independent reviewer roster configured
 - Other publisher coordination not verified
-- No external AI session lease; Actions do not generate prose
+- The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over
+- 6 draft(s) wait for an independent review before QA: TH-000001, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009
 
 Existing articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.
 

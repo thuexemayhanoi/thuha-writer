@@ -1,25 +1,45 @@
 # ThuHa Writer: instructions for AI sessions
 
-## Current owner brief — 2026-10-22 UTC / 2026-10-23 Vietnam
+## Current owner brief — 2026-10-23 UTC
 
 Target only `https://rentbikehanoi.com`, repository `thuexemayhanoi/thuha-writer`.
 Read `docs/bilingual/HANDOFF.md`, `docs/bilingual/CLAUDE-PROMPT.md`,
-`docs/bilingual/IMPLEMENTATION-STATUS.md` and `data/bilingual/plan.json` first. This brief
-supersedes the old **English-only, 2,000-post goal**. The V4 runtime has been migrated to it
-(state schema 5, per-language quota, Vietnamese-first claim/refill/drain, bilingual QA,
-adapter-only publishing); anything that still says 2,000 or en-US-only is historical and must
-carry a label. Keep code, config, tests, reports and workflows consistent when you change behavior.
+`docs/bilingual/IMPLEMENTATION-STATUS.md` and `data/bilingual/plan.json` first. The goal is
+**500 published English posts and 500 published Vietnamese posts on the site, existing posts included, Vietnamese
+first**. The old English-only 2,000-post goal is superseded and every document that still says 2,000 is historical.
+The V4 runtime is migrated (state schema 5, per-language quota, Vietnamese-first claim/refill/drain, bilingual QA,
+adapter-only publishing) and the V5 writer-session work (nine drafts, 57 admitted English topics, sources, reviews,
+history) is merged and preserved. Authenticated snapshot: 275 EN + 0 VI; 225 EN + 500 VI still missing, of which 57 EN are
+already admitted to the ledger. Reconcile before each publish reservation; snapshots are not a live counter.
 
-The new final site goal is **500 published English blog posts total and 500
-published Vietnamese blog posts total**, including existing posts, excluding
-pages/drafts/trash. Prioritize Vietnamese. Authenticated snapshot measured
-275 EN + 0 VI; provisional additions are 500 VI + 225 EN. Reconcile before each
-publish reservation; snapshots are not a live counter.
+Claude is GitHub-only. WordPress/crawler access is NOT a prerequisite for code, matrix, drafting or offline QA. Use
+committed evidence and mark live checks PENDING. Never claim live QA was completed without an actual receipt. The
+credentialed publisher owns live reconciliation and post-publication checks. The theme (1.4.0) and the native
+Vietnamese plugin (1.1.1) are outside this repository: do not change, version or deploy them from here.
 
-Claude is GitHub-only. WordPress/crawler access is NOT a prerequisite for code,
-matrix, drafting or offline QA. Use committed evidence and mark live checks
-PENDING. Never claim live QA was completed without an actual receipt. The
-credentialed publisher owns live reconciliation and post-publication checks.
+## Queue and publication contract (enforced in code; do not weaken)
+
+- **Two ledgers, one hand-over.** Actions read `factory-state` (`GitStore`). A session that can only push its own branch
+  keeps a session ledger in that branch (`--git-branch`, `data/state/factory.json` + `data/documents/`). Nothing reads that
+  copy until `promote` moves it into `factory-state`: **fast-forward only** (the shared ledger's history must be the first part
+  of the session ledger's), documents first, one compare-and-swap, idempotent, never an overwrite. A diverged ledger is
+  refused with nothing written. Run `--git-branch sync --apply` before a new session works, so its ledger starts from the
+  shared one. The queue job runs `promote --apply` after every merge to `main`; nothing here runs it against the real
+  ledger from a session.
+- **QA before publication, review before QA.** `qa --pending` evaluates a draft only once an independent review is recorded
+  (otherwise it would fail for the missing review alone and be sent to repair), and again every READY draft whose report
+  predates the current policy. Vietnamese QA needs an adapter or authenticated inventory. English reviews recorded before
+  schema 5 (which attest `english`) stay valid for English only.
+- **PUBLISHED means WordPress said so.** The intent becomes PUBLISHED when WordPress returns a valid ID, status `publish` and
+  the planned permalink for the post this intent created. Stored-content differences (adapter read-back) are recorded in the
+  receipt and raise an alert that stops *new* posts until a person acknowledges it. The public-page crawl is a separate step
+  with back-off and five attempts; it reports warnings and never blocks the queue.
+- **Unknown outcome: reconcile, never POST again.** After a lost answer the publisher reads by idempotency key at once and on
+  every run. Only a connection that never opened (`not_sent`), a refusal proven to have created nothing, or an intent absent
+  from WordPress after the grace period closes an intent and frees its slot. A draft WordPress holds is never counted and
+  never re-sent. Unresolved intents stop the drain (red run) until reconciled.
+- **The queue is not blocked by one topic.** A READY topic that can no longer pass QA goes back to repair; the drain moves on.
+- Production stays OFF: `config/release.json` is changed only by a reviewed go-live decision, never by a session.
 
 ## Language contract (enforced in code; do not weaken)
 
@@ -84,5 +104,6 @@ before quota exhaustion: `docs/bilingual/IMPLEMENTATION-STATUS.md` is that recor
 PYTHONPATH=src python3 -m unittest discover -s tests -v
 PYTHONPATH=src python3 -m thuha.cli validate
 php tests/php/run.php
-python3 scripts/build_matrices.py && python3 scripts/build_adapter_zip.py   # then `git diff --exit-code`
+python3 scripts/export_queued.py && python3 scripts/build_matrices.py && python3 scripts/build_adapter_zip.py   # then `git diff --exit-code`
+python3 scripts/offline_dashboard.py                                      # refresh reports/bilingual if the ledger or counts changed
 ```

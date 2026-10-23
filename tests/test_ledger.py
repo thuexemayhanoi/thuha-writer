@@ -297,6 +297,26 @@ class RealLedgerTests(unittest.TestCase):
         self.assertEqual(state['receipts'], {})
         self.assertEqual(state['intents'], {})
 
+    # Immutable documents of the V5 session, addressed by their own digest: they cannot change, so these stay true.
+    TH3_ARTICLE = '08893c452e4ebe616a8e1584420f2086d4638a224a75a49a18ed1a7cac23475c'
+    TH5_REVIEW = '7d4bad6b4deab4218185ac9e11d702571aa402607d5fb91cc572403d9d170386'
+
+    def test_an_english_guide_that_quotes_vietnamese_legal_terms_is_not_mixed_language(self):
+        from thuha.audit import parse
+        from thuha.language import screen
+        article = ledger.read_documents(ROOT / 'data/documents')[self.TH3_ARTICLE]
+        text = ' '.join(parse(article['body_html']).text)
+        self.assertEqual(screen('en', text), [])  # it used to fail on five quoted Vietnamese function words in 2,000 tokens
+        self.assertIn('VIETNAMESE_MIXED_INTO_ENGLISH', screen('en', text + ' ' + 'Chúng tôi có những xe máy cho bạn và của bạn để đi. ' * 40))
+
+    def test_a_review_written_before_schema_five_stays_valid_for_english_only(self):
+        from thuha.quality import review_checks_ok, review_language
+        review = ledger.read_documents(ROOT / 'data/documents')[self.TH5_REVIEW]
+        self.assertNotIn('language', review)
+        self.assertEqual(review_language(review), 'en')
+        self.assertTrue(review_checks_ok(review, 'en'))
+        self.assertFalse(review_checks_ok(review, 'vi'))  # no native_language / no_machine_translation attestation
+
     def test_the_session_documents_are_complete_and_untouched(self):
         documents = ledger.read_documents(ROOT / 'data/documents')
         self.assertGreaterEqual(len(documents), 277)

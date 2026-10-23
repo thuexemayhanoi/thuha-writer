@@ -221,6 +221,38 @@ class FullLineTests(Line):
         self.assertEqual(self.qa(), {vi1: 'PASS'})
         self.assertEqual([p['topic_id'] for p in self.drain()['published']], [vi1])
 
+    def test_the_dashboard_shows_the_queue_the_checks_the_alerts_and_the_blockers(self):
+        unreviewed = self.draft('vi', VI[2], reviewed=False)
+        vi1, vi2 = self.draft('vi', VI[0]), self.draft('vi', VI[1])
+        before = dashboard.report(self.store, self.inv, self.release)  # the session ledger before any hand-over
+        self.assertEqual(before['queue']['vi']['awaiting_review'], [unreviewed])
+        self.hand_over()
+        self.qa()
+        self.wp.page_faults.add('canonical')
+        self.drain()
+        value = dashboard.report(self.shared, self.shared.get_document(self.state()['inventory_document']), self.release)
+        self.assertEqual(value['queue']['vi']['published'], [vi1, vi2])
+        self.assertEqual(value['queue']['vi']['awaiting_review'], [unreviewed])
+        self.assertEqual(value['post_checks']['counts'], {'WARNING': 2})
+        self.assertEqual(sorted(value['post_checks']['warnings']), [vi1, vi2])
+        self.assertEqual(value['factory_published_receipts'], 2)
+        self.assertEqual(value['languages']['vi']['published_live'], 3)  # the fixture's own Vietnamese post plus the two published since the audit
+        self.assertEqual(value['languages']['vi']['remaining'], 497)
+        self.assertTrue(any('wait for an independent review' in b for b in value['blockers']))
+        self.assertEqual(value['open_alerts'], [])
+        text = dashboard.write_report(value, self.temp.name) or (Path(self.temp.name) / 'dashboard.md').read_text(encoding='utf-8')
+        for heading in ('Shared queue', 'Public-page checks after publication', 'warning TH-VI-0002'):
+            self.assertIn(heading, text)
+
+    def test_the_dashboard_says_when_no_image_has_alt_text_in_a_language(self):
+        english_only = copy.deepcopy(self.inv)
+        english_only['media'] = [m for m in english_only['media'] if m['id'] == 50]
+        english_only['media_library'] = 'complete'
+        self.assertFalse(any(b.startswith('NEEDS_MEDIA') for b in dashboard.report(self.store, dict(english_only, media_library=None), self.release)['blockers']))
+        value = dashboard.report(self.store, english_only, self.release)
+        self.assertTrue(any(b.startswith('NEEDS_MEDIA') and ' vi ' in b for b in value['blockers']))
+        self.assertFalse(any(b.startswith('NEEDS_MEDIA') and ' en ' in b for b in value['blockers']))
+
     def test_default_configuration_publishes_nothing(self):
         self.two_vietnamese_one_english()
         release = load(ROOT / 'config/release.json')

@@ -2,6 +2,7 @@
   "counting": "Rows are planned topics. Only a read-back WordPress post counts toward the target.",
   "language": "vi",
   "new_rows_expected": 500,
+  "queued_in_ledger": 0,
   "rows": [
     {
       "category_id": 152,

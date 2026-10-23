@@ -68,7 +68,7 @@ và trang tĩnh, vì public REST có thể bị bộ lọc native VI tách ngôn
 
 ## Contract native VI cho publisher
 
-Website dùng theme riêng và plugin `rentbikehanoi-native-vi` 1.0.0. Yoast quản
+Website dùng theme riêng và plugin `rentbikehanoi-native-vi` 1.0.0 (chủ sở hữu báo 1.1.1 và theme 1.4.0 ngày 23/10/2026; repo này không chứa và không ghim các phiên bản đó). Yoast quản
 lý SEO; plugin riêng tách ngôn ngữ và nối cặp khi tương đương.
 
 | Dữ liệu | Contract đang chạy |

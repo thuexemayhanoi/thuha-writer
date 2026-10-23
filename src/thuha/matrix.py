@@ -5,6 +5,9 @@ row starts at `NEEDS_SOURCE`: the factory still demands captured, dated sources 
 an independent intent review before a topic is admitted, and none of that can be
 produced offline. Existing English posts appear only as EXISTING_PROTECTED rows so
 the English total is auditable; they are never rewritten, retitled or reparented.
+English topics that are already admitted to the ledger (researched, sourced, some
+drafted) appear as QUEUED_IN_LEDGER rows: they fill part of the English gap and are
+never planned a second time.
 
 Seeds (data/bilingual/seeds/*.jsonl) hold the hand-written topic ideas; `build`
 expands them with the real category IDs and URLs from the committed manifest.
@@ -229,6 +232,20 @@ def finish(rows, lang, tax):
     return rows
 
 
+def queued_topics():
+    return load(DATA / 'existing-queued-en.json')['topics']
+
+
+def queued_rows():
+    tax = taxonomy()
+    return [{'id': t['topic_id'], 'language': 'en', 'kind': 'QUEUED_IN_LEDGER', 'slug': t['slug'], 'proposed_url': t['url'],
+             'title': t['title'], 'primary_keyword': t['primary_keyword'], 'category_id': t['category_id'],
+             'category_path_names': tax[t['category_id']]['path_names'], 'ledger_status': t['ledger_status'],
+             'protection': 'ALREADY_ADMITTED_WITH_SOURCES_NEVER_PLAN_AGAIN',
+             'source': 'data/bilingual/existing-queued-en.json (exported from the session ledger)'}
+            for t in queued_topics()]
+
+
 def existing_rows():
     tax = taxonomy()
     rows = []
@@ -252,11 +269,12 @@ def build(lang, paths=None):
     rows = finish(rows, lang, tax)
     targets = language_targets()
     snapshot = plan()['snapshot_published_posts'][lang]
-    kept = existing_rows() if lang == 'en' else []
+    kept = existing_rows() + queued_rows() if lang == 'en' else []
+    queued = len(queued_rows()) if lang == 'en' else 0
     return {
         'schema_version': 1, 'site': SITE, 'language': lang, 'status': 'MATRIX_NOT_PUBLISHED_ARTICLES',
-        'snapshot': SNAPSHOT, 'target_total': targets[lang], 'snapshot_published': snapshot,
-        'new_rows_expected': targets[lang] - snapshot,
+        'snapshot': SNAPSHOT, 'target_total': targets[lang], 'snapshot_published': snapshot, 'queued_in_ledger': queued,
+        'new_rows_expected': targets[lang] - snapshot - queued,
         'counting': 'Rows are planned topics. Only a read-back WordPress post counts toward the target.',
         'rows': kept + rows,
     }
@@ -347,14 +365,19 @@ def validate(matrix, lang=None):
     out = []
     new = [r for r in rows if r['kind'] == 'NEW']
     kept = [r for r in rows if r['kind'] == 'EXISTING_PROTECTED']
+    queued = [r for r in rows if r['kind'] == 'QUEUED_IN_LEDGER']
     snapshot = p['snapshot_published_posts'][lang]
-    if len(kept) != snapshot or len(new) != targets[lang] - snapshot or len(kept) + len(new) != targets[lang]:
-        out.append({'code': 'ROW_COUNT', 'row': None, 'detail': 'protected=%d new=%d target=%d snapshot=%d' % (
-            len(kept), len(new), targets[lang], snapshot)})
+    if len(kept) != snapshot or len(new) + len(queued) != targets[lang] - snapshot or len(kept) + len(queued) + len(new) != targets[lang]:
+        out.append({'code': 'ROW_COUNT', 'row': None, 'detail': 'protected=%d queued=%d new=%d target=%d snapshot=%d' % (
+            len(kept), len(queued), len(new), targets[lang], snapshot)})
     if lang == 'en':
         wanted = {x['id'] for x in existing()['posts']}
         if {r['wp_id'] for r in kept} != wanted:
             out.append({'code': 'EXISTING_POSTS_NOT_EXACTLY_PROTECTED', 'row': None, 'detail': 'WordPress IDs differ from snapshot'})
+        if {r['id'] for r in queued} != {t['topic_id'] for t in queued_topics()}:
+            out.append({'code': 'QUEUED_TOPICS_DO_NOT_MATCH_LEDGER_EXPORT', 'row': None, 'detail': 'run scripts/export_queued.py and rebuild'})
+    elif queued:
+        out.append({'code': 'QUEUED_ROWS_ONLY_IN_ENGLISH', 'row': None, 'detail': str(len(queued))})
     ids = [r['id'] for r in rows]
     if len(set(ids)) != len(ids):
         out.append({'code': 'DUPLICATE_ID', 'row': None, 'detail': ''})
@@ -371,11 +394,17 @@ def validate(matrix, lang=None):
             out.append(problem('INTERNAL_LINK_PLAN_THIN', r))
     out.extend(check_rows(new, lang, tax=tax))
     known = reviewed_pairs()
-    for score, a, b in subject_pairs(new, lang):
+    for score, a, b in subject_pairs(new + queued, lang):
+        if a['kind'] == b['kind'] == 'QUEUED_IN_LEDGER':
+            continue  # two admitted topics were reviewed when they were admitted
         if frozenset((a['slug'], b['slug'])) not in known:
             out.append({'code': 'SUBJECT_PAIR_NEEDS_REVIEW', 'row': a['id'],
                         'detail': '%s vs %s (%.2f): same situation named twice? add to reviewed-pairs.json only if distinct' % (b['id'], a['slug'], score)})
     planned = {int(k): v for k, v in p['suggested_' + lang + '_new_topics_by_category'].items()}
+    # Topics already in the ledger occupy planned slots of their category.
+    for r in queued:
+        if r['category_id'] in planned:
+            planned[r['category_id']] = max(0, planned[r['category_id']] - 1)
     counts = {}
     for r in new:
         counts[r['category_id']] = counts.get(r['category_id'], 0) + 1
@@ -398,7 +427,7 @@ def write(lang, matrix):
     save(matrix_path(lang), matrix)
     fields = ['id', 'kind', 'language', 'category_id', 'category_path_names', 'title', 'primary_keyword', 'search_intent',
               'intent_type', 'proposed_url', 'service_target', 'source_requirements', 'priority', 'write_order',
-              'writer_state', 'wp_id']
+              'writer_state', 'wp_id', 'ledger_status']
     with (MATRIX / (matrix_path(lang).stem + '.csv')).open('w', newline='', encoding='utf-8') as f:
         w = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore')
         w.writeheader()
@@ -414,6 +443,7 @@ def summary(matrix):
     rows = matrix['rows']
     return {'language': matrix['language'], 'rows': len(rows), 'new': sum(r['kind'] == 'NEW' for r in rows),
             'protected': sum(r['kind'] == 'EXISTING_PROTECTED' for r in rows),
+            'queued': sum(r['kind'] == 'QUEUED_IN_LEDGER' for r in rows),
             'sha256': digest(matrix)}
 
 

@@ -97,3 +97,15 @@ repairs. Invalid state is held for review, not silently reset.
   other POST. `publisher.py` verifies the adapter readback and the public page (canonical, title,
   meta, `<html lang>`, no foreign hreflang, schema).
 - `matrix.py`: seeds → validated matrices; `package.py`: reproducible ZIP and static safety scan.
+
+
+## Deltas of 23 October 2026 (shared queue, publication semantics)
+
+* `ledger.py`: `plan`, `promote`, `sync` — fast-forward-only hand-over of a session ledger into `factory-state`; `store.migrate` is
+  deterministic so independently migrated chains compare; stores gained `raw()` and `adopt()`.
+* `publisher.py`: PUBLISHED on WordPress's own ID/status/permalink; adapter read-back recorded as `integrity` with an alert; public-page
+  crawl is `post_check` (back-off, five attempts, never blocking); phases `DRAFT_HELD`, `NOT_SENT`, `REJECTED`; `PublishBlocked`;
+  `reconcile`/`reconcile_all`; grace period for an intent WordPress never saw.
+* `pipeline.drain`: reconcile, publish Vietnamese first, send an unpublishable topic back to repair and carry on, run due checks, report the stop.
+* `quality.pending_qa`, `audit --max-age`, full media library in the inventory, `quota.effective`.
+* Workflows: queue job without WordPress secrets; protected job; `quality` also triggers on ledger paths.

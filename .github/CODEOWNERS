@@ -8,3 +8,6 @@
 /dist/ @thuexemayhanoi
 /scripts/ @thuexemayhanoi
 /data/bilingual/ @thuexemayhanoi
+# The session ledger and documents committed here are what the queue job hands over to the shared ledger: review them like code.
+/data/state/ @thuexemayhanoi
+/data/documents/ @thuexemayhanoi

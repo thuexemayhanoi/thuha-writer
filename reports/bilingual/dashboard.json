@@ -9,46 +9,53 @@
     "Separate owner go-live approval outstanding",
     "No language enabled in the release (production stays OFF)",
     "BLOCKED_ADAPTER_NOT_DEPLOYED: no successful live adapter preflight is recorded",
-    "No independent reviewer roster configured",
     "Other publisher coordination not verified",
-    "No external AI session lease; Actions do not generate prose"
+    "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
+    "6 draft(s) wait for an independent review before QA: TH-000001, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
   ],
-  "factory_verified_receipts": 0,
-  "generated_at": "2026-10-22T20:27:25.960555+00:00",
+  "closed_intents": {},
+  "factory_published_receipts": 0,
+  "generated_at": "2026-10-23T05:42:43.986711+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
-  "inventory_age_seconds": 6106,
+  "handoff": {
+    "reasons": [],
+    "session_ledger_version": 137,
+    "shared_ledger_version": 5,
+    "status": "FAST_FORWARD"
+  },
+  "inventory_age_seconds": 0,
   "inventory_complete": true,
   "inventory_language_source": "authenticated-snapshot",
   "languages": {
     "en": {
       "complete": false,
-      "factory_verified_receipts": 0,
+      "factory_published_receipts": 0,
       "needs_source_or_research": [],
-      "open_topics": 0,
+      "open_topics": 57,
       "over_target": false,
       "published_live": 275,
       "remaining": 225,
       "states": {
         "BLOCKED": 0,
-        "CLAIMED": 0,
-        "DRAFT_READY": 0,
+        "CLAIMED": 5,
+        "DRAFT_READY": 6,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
-        "PLANNED": 0,
+        "PLANNED": 44,
+        "PUBLISHED": 0,
         "PUBLISHING": 0,
-        "READY": 0,
-        "RESEARCH": 0,
-        "VERIFIED": 0
+        "READY": 2,
+        "RESEARCH": 0
       },
       "target": 500,
       "unresolved_intents": 0
     },
     "vi": {
       "complete": false,
-      "factory_verified_receipts": 0,
+      "factory_published_receipts": 0,
       "needs_source_or_research": [],
       "open_topics": 0,
       "over_target": false,
@@ -61,16 +68,23 @@
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 0,
+        "PUBLISHED": 0,
         "PUBLISHING": 0,
         "READY": 0,
-        "RESEARCH": 0,
-        "VERIFIED": 0
+        "RESEARCH": 0
       },
       "target": 500,
       "unresolved_intents": 0
     }
   },
   "languages_enabled": [],
+  "offline_note": "Built from the committed session ledger, the 2026-10-23 snapshot of factory-state and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
+  "open_alerts": [],
+  "post_checks": {
+    "counts": {},
+    "note": "Public-page checks run after publication, back off and retry; they never stop the queue.",
+    "warnings": {}
+  },
   "priority": [
     "vi",
     "en"
@@ -78,8 +92,125 @@
   "production_enabled": false,
   "published_articles": [],
   "publisher_uncertain": [],
-  "qa": {},
-  "research_requests": [],
+  "qa": {
+    "FAIL": 2,
+    "PASS": 2
+  },
+  "queue": {
+    "en": {
+      "awaiting_qa": [],
+      "awaiting_review": [
+        "TH-000001",
+        "TH-000003",
+        "TH-000004",
+        "TH-000007",
+        "TH-000008",
+        "TH-000009"
+      ],
+      "held_or_unknown": [],
+      "needs_repair": [],
+      "published": [],
+      "publishing": [],
+      "qa_pass": [
+        "TH-000005",
+        "TH-000006"
+      ]
+    },
+    "vi": {
+      "awaiting_qa": [],
+      "awaiting_review": [],
+      "held_or_unknown": [],
+      "needs_repair": [],
+      "published": [],
+      "publishing": [],
+      "qa_pass": []
+    }
+  },
+  "research_requests": [
+    {
+      "admitted_topic_ids": [
+        "TH-000003",
+        "TH-000004",
+        "TH-000005",
+        "TH-000006",
+        "TH-000007",
+        "TH-000008",
+        "TH-000009",
+        "TH-000010",
+        "TH-000011",
+        "TH-000012",
+        "TH-000013",
+        "TH-000014",
+        "TH-000015",
+        "TH-000016",
+        "TH-000017",
+        "TH-000018",
+        "TH-000019",
+        "TH-000020",
+        "TH-000021",
+        "TH-000022",
+        "TH-000023",
+        "TH-000024",
+        "TH-000025",
+        "TH-000026",
+        "TH-000027",
+        "TH-000028",
+        "TH-000029",
+        "TH-000030",
+        "TH-000031",
+        "TH-000032",
+        "TH-000033",
+        "TH-000034",
+        "TH-000035",
+        "TH-000036",
+        "TH-000037",
+        "TH-000038",
+        "TH-000040",
+        "TH-000041",
+        "TH-000042",
+        "TH-000043",
+        "TH-000044",
+        "TH-000045",
+        "TH-000047",
+        "TH-000049",
+        "TH-000050",
+        "TH-000051",
+        "TH-000052",
+        "TH-000053",
+        "TH-000054",
+        "TH-000055",
+        "TH-000056",
+        "TH-000057",
+        "TH-000059",
+        "TH-000060",
+        "TH-000061"
+      ],
+      "completed_at": "2026-10-23T02:08:40.239277+00:00",
+      "created_at": "2026-10-20T19:01:25.452661+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "language": "en",
+      "maximum_topics": 100,
+      "planned": 2,
+      "request_id": "research-02c699867a6129e1",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    },
+    {
+      "admitted_topic_ids": [
+        "TH-000001",
+        "TH-000002"
+      ],
+      "completed_at": "2026-10-20T19:01:25.441752+00:00",
+      "created_at": "2026-10-20T19:01:10.087964+00:00",
+      "inventory_sha256": "7e4ac5d2dd0748b92f3fcdb4dd43e7d114aa7d5ee1f9bc736dca0b1c61b8c1f2",
+      "language": "en",
+      "maximum_topics": 100,
+      "planned": 0,
+      "request_id": "research-bf46daf1e88fa9d4",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    }
+  ],
   "site_live_verified_posts": 0,
   "slots": {
     "W1": {
@@ -88,49 +219,129 @@
     },
     "W2": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-R2",
+        "expires_at": 1792723747.705592,
+        "fence": "8f291e255d484d19a1b75e1391b73ce2",
+        "heartbeat_at": "2026-10-23T02:19:07.705572+00:00",
+        "language": "en",
+        "session": "r2-20261023-a1",
+        "slot": "W2",
+        "topic_id": "TH-000002"
+      },
       "status": "AVAILABLE"
     },
     "W3": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W7",
+        "expires_at": 1792723595.479117,
+        "fence": "184083a4930640a194c6ac5b22bda5b2",
+        "heartbeat_at": "2026-10-23T02:16:35.479096+00:00",
+        "language": "en",
+        "session": "w7-20261023-c2",
+        "slot": "W3",
+        "topic_id": "TH-000010"
+      },
       "status": "AVAILABLE"
     },
     "W4": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W4",
+        "expires_at": 1792723608.924231,
+        "fence": "2d6c3390616c4fb7813a481d695ec4f4",
+        "heartbeat_at": "2026-10-23T02:16:48.924218+00:00",
+        "language": "en",
+        "session": "w4-20261023-c1",
+        "slot": "W4",
+        "topic_id": "TH-000004"
+      },
       "status": "AVAILABLE"
     },
     "W5": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W4",
+        "expires_at": 1792723620.203633,
+        "fence": "48205436fcae471ba3a1a9f22fd4b8ce",
+        "heartbeat_at": "2026-10-23T02:17:00.203612+00:00",
+        "language": "en",
+        "session": "w4-20261023-c2",
+        "slot": "W5",
+        "topic_id": "TH-000011"
+      },
       "status": "AVAILABLE"
     },
     "W6": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W10",
+        "expires_at": 1792723627.919764,
+        "fence": "625d5a5ab56e40eba570b4bd7fa5cdc3",
+        "heartbeat_at": "2026-10-23T02:17:07.919740+00:00",
+        "language": "en",
+        "session": "w10-20261023-d1",
+        "slot": "W6",
+        "topic_id": "TH-000012"
+      },
       "status": "AVAILABLE"
     },
     "W7": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W7",
+        "expires_at": 1792723584.68435,
+        "fence": "597f269dc7b6445fbb49486db659bbd1",
+        "heartbeat_at": "2026-10-23T02:16:24.684335+00:00",
+        "language": "en",
+        "session": "w7-20261023-c1",
+        "slot": "W7",
+        "topic_id": "TH-000007"
+      },
       "status": "AVAILABLE"
     },
     "W8": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W9",
+        "expires_at": 1792723821.167836,
+        "fence": "6d52ffd5664442b7bdbf06287ec1b180",
+        "heartbeat_at": "2026-10-23T02:20:21.167819+00:00",
+        "language": "en",
+        "session": "w9-20261023-c2",
+        "slot": "W8",
+        "topic_id": "TH-000013"
+      },
       "status": "AVAILABLE"
     },
     "W9": {
       "ai_execution": "NOT_OBSERVED",
+      "lease": {
+        "agent_id": "claude-writer-W9",
+        "expires_at": 1792723657.105168,
+        "fence": "191689a4937b46fabb367501b51b171f",
+        "heartbeat_at": "2026-10-23T02:17:37.105151+00:00",
+        "language": "en",
+        "session": "w9-20261023-c1",
+        "slot": "W9",
+        "topic_id": "TH-000009"
+      },
       "status": "AVAILABLE"
     }
   },
   "state_backend": "local-offline-snapshot",
   "states": {
     "BLOCKED": 0,
-    "CLAIMED": 0,
-    "DRAFT_READY": 0,
+    "CLAIMED": 5,
+    "DRAFT_READY": 6,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
-    "PLANNED": 0,
+    "PLANNED": 44,
+    "PUBLISHED": 0,
     "PUBLISHING": 0,
-    "READY": 0,
-    "RESEARCH": 0,
-    "VERIFIED": 0
+    "READY": 2,
+    "RESEARCH": 0
   },
   "targets": {
     "en": 500,
