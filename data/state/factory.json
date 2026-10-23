@@ -1943,22 +1943,25 @@
       "sha256": "cf39b4b3bdbfde38e16d57dd8d2ad856eab648e916de034001ec77eeb3b08e04",
       "slot": "W1",
       "topic_id": "TH-VI-0217"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "aef1a74e65c963b0f838103ea2c1a51d6479991af22e738d7666cdbac90f96c1",
+      "at": "2026-10-23T07:59:40.772550+00:00",
+      "previous": "cf39b4b3bdbfde38e16d57dd8d2ad856eab648e916de034001ec77eeb3b08e04",
+      "sha256": "7acb3f9135aaa0b57eb64903782ea4d0eb9c490c7c8f3a841cf4edd3b9fe3f52",
+      "topic_id": "TH-VI-0217",
+      "waiting_for": [
+        "AUTHORITATIVE_INVENTORY",
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792744177.023466,
-      "fence": "5a3a91ab46e14c339b5cf59fb4a09a6d",
-      "heartbeat_at": "2026-10-23T07:59:37.023449+00:00",
-      "language": "vi",
-      "session": "w5-20261023-r0217",
-      "slot": "W1",
-      "topic_id": "TH-VI-0217"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -2366,13 +2369,13 @@
     },
     "TH-VI-0217": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "33214feebc175082d8ed05ff752a4430727995bf8ccda283dc5c197ad09eaf53",
-      "commit": "d1ee237d0c6b480954428ed0d00d1276572f4c5c",
-      "fence": "a708d5ac824b45f0a578fb7edab0b935",
+      "article_sha": "aef1a74e65c963b0f838103ea2c1a51d6479991af22e738d7666cdbac90f96c1",
+      "commit": "e777fb5b7f2c26f924d9f6a91726fc281e5f503a",
+      "fence": "5a3a91ab46e14c339b5cf59fb4a09a6d",
       "repair_count": 0,
-      "session": "w4-20261023-r0217",
+      "session": "w5-20261023-r0217",
       "slot": "W1",
-      "submitted_at": "2026-10-23T07:58:23.437035+00:00"
+      "submitted_at": "2026-10-23T07:59:40.772523+00:00"
     }
   },
   "topics": {
@@ -5047,7 +5050,6 @@
         160
       ],
       "cluster": "su-dung-va-cham-soc-xe",
-      "completion_pending": true,
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -5072,7 +5074,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0217",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5081,5 +5083,5 @@
       ]
     }
   },
-  "version": 262
+  "version": 263
 }
