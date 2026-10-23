@@ -1,4 +1,4 @@
-> **OWNER POLICY UPDATE — 23/10/2026:** For `rentbikehanoi.com` and `thuexemayhanoi/thuha-writer` only, automatic QA **>=75/100 PASS**, **<75 FAIL**; any hard failure still blocks. Follow `/wp-aiwriter`'s event-driven architecture, NOT its score (76), URLs, credentials, taxonomy or ledger. Both VI and EN use `config/qa.json`. On a policy change, previously READY drafts must pass fresh QA before publisher. PASS moves to existing queue without human article review, but actual WordPress publish still requires configured repository Secrets, native adapter, verified live inventory, release authorization and two-post pilot. See `docs/AUTO-QA85-PUBLISHER.md` (legacy filename). This paragraph overrides every old QA85 mention below.
+> **OWNER POLICY UPDATE — 23/10/2026:** For `rentbikehanoi.com` and `thuexemayhanoi/thuha-writer` only, automatic QA **>=75/100 PASS**, **<75 FAIL**; any hard failure still blocks. Follow `/wp-aiwriter`'s event-driven architecture, NOT its score (76), URLs, credentials, taxonomy or ledger. Both VI and EN use `config/qa.json`. On a policy change, previously READY drafts must pass fresh QA before publisher. PASS moves to the existing queue without human article review. A separate 23/10/2026 owner change has now **enabled auto-scale in `config/release.json` (50/day)**; this QA75 change does not alter that release. WordPress publishing still requires configured repository Secrets, native adapter, verified live inventory, duplicate checks and durable receipts. Confirm success from real WordPress readback, not merely enabled flags. See `docs/AUTO-QA85-PUBLISHER.md` (legacy filename). This paragraph overrides every old QA85 mention below.
 
 # ThuHa Writer: instructions for AI sessions
 
@@ -63,8 +63,7 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   from WordPress after the grace period closes an intent and frees its slot. A draft WordPress holds is never counted and
   never re-sent. Unresolved intents stop the drain (red run) until reconciled.
 - **The queue is not blocked by one topic.** A READY topic that can no longer pass QA goes back to repair; the drain moves on.
-- Publication is requested by the owner. The checked-in release remains OFF until operational prerequisites are verified;
-  report missing configuration precisely, rather than asking again for permission to remove AI review.
+- Publication is requested by the owner. The separate release on `main` is currently enabled (auto-scale cap 50/day, 23/10/2026). This QA75 change does not modify `config/release.json`; real publishing remains conditional on preflight, adapter, inventory and verified WordPress readbacks. Do not claim success without receipts.
 - **A draft may wait for data, never fake it.** A finished text that lacks an image with Vietnamese alt text, live same-language links or an
   authoritative inventory is stored with `submit --waiting-for` as `WAITING_DATA`: never READY, never QA-passed, no media ID, source,
   permalink or check result invented, shared English alt text never edited to help it pass. `recheck-data` (credentialed inventory only)
