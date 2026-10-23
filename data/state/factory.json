@@ -4122,6 +4122,15 @@
       "sha256": "f0c326d7261f8a811a59a4bd7529ae34774a54158ccbbea2b6db4572b871df07",
       "slot": "W1",
       "topic_id": "TH-EN-0139"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "at": "2026-10-23T13:58:45.605041+00:00",
+      "previous": "f0c326d7261f8a811a59a4bd7529ae34774a54158ccbbea2b6db4572b871df07",
+      "sha256": "5ebe9e5fdcb008c52cc6c1b2c6b8ee03c0249f6ec48742fe4620295261df278e",
+      "topic_id": "TH-EN-0139"
     }
   ],
   "intents": {},
@@ -4542,13 +4551,13 @@
     },
     "TH-EN-0139": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "9a230d84fa6a79cc37d389cbfb493697cfe8566597244baab048a2c2e6e0ee99",
-      "commit": "b0aeb1b03fad97ade6f2cf68581a6e231d9b8329",
-      "fence": "549836a9a15e427aaed60f9cab2b499f",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "commit": "d77e66a9e2bf0bc0897551dc60067a8d80aeaa27",
+      "fence": "2de3bb12a756492285e4e541cb772897",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:24.243127+00:00"
+      "submitted_at": "2026-10-23T13:58:45.605017+00:00"
     },
     "TH-EN-0140": {
       "agent_id": "claude-writer-W2",
@@ -7194,7 +7203,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "not ridden motorbike in years hanoi rent",
       "proposed_title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
@@ -7207,12 +7215,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0139",
-      "waiting_for": [
-        "FEATURED_MEDIA",
-        "INTERNAL_LINKS"
-      ]
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0139"
     },
     "TH-EN-0140": {
       "admitted_at": "2026-10-23T12:08:22.403104+00:00",
@@ -8842,5 +8846,5 @@
       ]
     }
   },
-  "version": 537
+  "version": 538
 }
