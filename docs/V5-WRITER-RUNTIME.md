@@ -1,3 +1,5 @@
+> **Current owner policy, 23/10/2026:** QA >=75/100 PASS, below 75 FAIL, zero hard failures. Repository Actions Secrets replace the obsolete GitHub Environment. Older V5 QA85 statements below are superseded; `AGENTS.md` and `config/qa.json` govern current execution.
+
 # ThuHa Writer V5 — writer-session runtime
 
 > **Update 23 October 2026 (after the owner's decision).** The goal is **500 English + 500 Vietnamese posts, Vietnamese
@@ -11,7 +13,7 @@ to act as the W1–W9 AI runtime: labelled external source evidence, a read-only
 writer kit, a non-mutating precheck that runs the production QA function, a
 source-backed admission helper and the cycle report. GitHub Actions still only
 orchestrates; production publishing is still OFF until the owner's separate
-release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
+release. The V5-era baseline was 85/100; the owner has now approved 75/100 with no relaxation of hard gates.
 
 ## Execution boundary observed on 23 October 2026
 
@@ -40,8 +42,8 @@ release. Nothing in V5 lowers the 85/100 threshold or any hard gate.
   `THUHA_GITHUB_TOKEN` is absent and now sends `Content-Type: application/json`
   on writes. The destination-repository path guard and CAS semantics are
   unchanged.
-- WordPress credentials, the protected environment, branch protection and the
-  release approval are absent. The publisher stays BLOCKED; drafts that reach
+- WordPress credentials, repository-level Actions Secrets, branch protection and the
+  release approval were not verified in that historical execution. The publisher stays BLOCKED; drafts that reach
   READY wait in the queue for the owner's go-live and the main merge.
 
 ## Writer loop (one Claude agent per slot)
@@ -95,7 +97,7 @@ topic notes; it is never invented.
 
 Run `qa --topic-id` or `qa --pending` directly after a completed submission.
 The latter also rechecks READY reports produced under another policy/revision.
-The deterministic points available total 80, normalized to 100; >=85 is required
+The deterministic points available total 80, normalized to 100; >=75 is required
 and any hard failure blocks regardless of score. `precheck` returns `would_pass_qa`,
 the real score and `hard_fails`; it never assumes a reviewer will add points.
 PASS moves the draft to READY; FAIL to bounded repair. WAITING_DATA and HELD are

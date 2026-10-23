@@ -49,7 +49,7 @@ cannot reach any website except api.github.com: research with the Parallel
    (topic, session, agent, commit, language, canonical, category, sources are filled in; you write the body, `seo_title`,
    `meta_description`, the chosen `featured_media` and any `business_claims`) and runs the precheck; `precheck --file` runs it on a file you wrote
    yourself. Read `fixes` (where and how to fix each failure) and `lint` (`fix` ones will be refused by `submit`; `consider` ones are judgement
-   calls). Fix and re-run until `ready_to_submit` is true and, when nothing is missing, `would_pass_qa` is true (automatic score >=85/100).
+   calls). Fix and re-run until `ready_to_submit` is true and, when nothing is missing, `would_pass_qa` is true (automatic score >=75/100).
    The check changes nothing, so repeat it as often as you need; do not submit a draft you know will fail. No independent AI review is required. Only then:
 7. `python3 -m thuha.cli --git-branch submit --slot <SLOT> --session <SESSION> --fence <FENCE> --file article.json`.
    `submit` runs the same check again and refuses (nothing stored, no repair spent) a draft that is known to fail. If `precheck` exits 3 (only

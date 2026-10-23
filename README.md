@@ -1,17 +1,19 @@
+> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
+
 # ThuHa Writer
 
 Owner-confirmed extension fee (23 October 2026): **20,000 VND/hour; more than 6 hours is charged as one rental day**.
 See `config/business-facts.json extension_policy` and [the confirmation record](docs/OWNER-EXTENSION-FEE-2026-10-23.md).
 https://rentbikehanoi.com
 
-**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=85 -> immediate guarded publisher event. WordPress production publishing remains OFF until release credentials and collision safeguards are verified.**
+**Bilingual workflow and shared queue implemented and tested offline: writer -> automatic QA >=75 -> immediate guarded publisher event. The separate owner-approved release is now enabled; verify credentials, adapter and collision safeguards before reporting any WordPress publication.**
 
 **Owner update, 23 October 2026: no independent AI article review.** Completed drafts go straight to automatic
-QA (>=85/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
+QA (>=75/100), duplicate and category/language checks, then the configured publisher. Hard failures still block.
 The 80 automatic points are normalized to 100; a review adds no points. This is technical/evidence screening,
 not a claim of independent factual or native-language judgment. No reviewer identity is needed to move a draft forward.
 The owner has requested automatic publication; the running branch, adapter, credentials and release configuration still
-need verification before that can be reported as live. No WordPress publication is claimed by this code change.
+must be verified through GitHub Actions and the `factory-state` publication receipts before it can be reported as live. No WordPress publication is claimed by this QA change alone.
 
 The nine English drafts, their sources, the two historical reviews (kept as history; no review is required) and the whole history written by the V5 writer session are merged
 into this repository (`data/state/factory.json` and `data/documents/`) and a controlled, append-only hand-over
@@ -48,8 +50,7 @@ existing posts included, Vietnamese first.** Pages, drafts and trash never count
 | Live inventory, quota recount, staging post, archive/sitemap checks | **PENDING** with the credentialed publisher |
 
 Published counts in the repo are a snapshot (275 EN, 0 VI at 2026-10-22). They are not a live counter:
-the publisher recounts both languages through the adapter before every reservation. **Nothing is published by this
-repository today and nothing will be until the owner enables the release.**
+the publisher recounts both languages through the adapter before every reservation. **The owner enabled the release separately on 23/10/2026. This documentation is not evidence of a published post; consult real WordPress readback and `factory-state` receipts.**
 
 Read [AGENTS.md](AGENTS.md), [the WordPress handoff](docs/bilingual/HANDOFF.md),
 [the Claude instruction](docs/bilingual/CLAUDE-PROMPT.md), [the adapter guide](docs/bilingual/ADAPTER.md),
@@ -64,7 +65,7 @@ queue job (no WordPress secret)
                           promote --apply      session ledger -> factory-state, fast-forward only, documents first
                           audit --max-age      refresh a stale public inventory
                           qa --pending --language en
-protected job (only if release.json is fully enabled; environment thuha-production)
+publish job (only if release.json is fully enabled; repository Actions Secrets)
                           adapter-preflight -> audit (authenticated, both languages) -> qa --pending
                           publisher --mode drain:
                             1 reconcile every unresolved intent (read-only; the POST is never repeated)
@@ -165,8 +166,8 @@ dependency and no automatic AI prose generation inside GitHub Actions.
 ## Simple automated flow
 
 A real external Claude/ChatGPT writer submits each source-backed article with `submit`. For a completed draft the CLI immediately
-runs the deterministic QA (threshold 85 of 100 from 80 automatic points, every hard failure unchanged, no reviewer); a passing revision
+runs the deterministic QA (threshold 75 inclusive of 100 from 80 automatic points, every hard failure unchanged, no reviewer); a passing revision
 dispatches `thuha-qa-ready`, so the queue is drained without waiting for a cron tick. A draft stored with `--waiting-for` is not evaluated
 and dispatches nothing. The guarded WordPress publisher rechecks live QA, taxonomy and duplicates and records readback receipts. The hourly
-cron is a recovery fallback, not a queue delay. See the [direct QA85 publisher runbook](docs/AUTO-QA85-PUBLISHER.md). Production release
+cron is a recovery fallback, not a queue delay. See the [current QA75 publisher runbook (legacy filename)](docs/AUTO-QA85-PUBLISHER.md). Production release
 remains separately gated until credentials and other site publishers are coordinated.

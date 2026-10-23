@@ -119,7 +119,7 @@ chế xuất bản hiện có, không phải dịch vụ AI trả phí.
    bằng paraphrase, cùng một bài khác tên khu vực hoặc thay tên mẫu xe.
 5. Offline QA và CI không crawl WordPress bắt buộc. Nghiên cứu nguồn chỉ khai
    đã đọc khi có evidence thật; bị chặn thì checkpoint NEEDS_SOURCE, không bịa.
-6. Credentialed publisher thực hiện live preflight/readback; W1–W9 viết, QA tự động >=85 (không chờ AI review),
+6. Credentialed publisher thực hiện live preflight/readback; W1–W9 viết, QA tự động >=75 (không chờ AI review),
    sửa và lưu checkpoint qua phiên AI thật. GitHub Actions không có AI runtime
    thì chỉ điều phối, không được báo tự sinh bài bằng AI từ cron.
 7. Handoff cuối có ZIP adapter, diff, checks, matrix validation, README/AGENTS
