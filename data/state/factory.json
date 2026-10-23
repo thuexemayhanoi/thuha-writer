@@ -6382,6 +6382,18 @@
       "sha256": "a758f53c1d1351a41e1c75eb8cc68c204b94be8cf6c06298d49abdbab2b185ae",
       "slot": "W1",
       "topic_id": "TH-VI-0065"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "9785463d18bb57a95819f82016efff99686134dc5e33d8764065d4fa8cd68446",
+      "at": "2026-10-23T16:06:31.347113+00:00",
+      "previous": "a758f53c1d1351a41e1c75eb8cc68c204b94be8cf6c06298d49abdbab2b185ae",
+      "sha256": "66475aa733b3f812e404e428919bcd3c3939a6cd1d91babd39c17397c37ec972",
+      "topic_id": "TH-VI-0065",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -9357,18 +9369,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792773386.569402,
-      "fence": "d632aefb8076443ba25a9feabedc339b",
-      "heartbeat_at": "2026-10-23T16:06:26.569382+00:00",
-      "language": "vi",
-      "session": "sess-b4",
-      "slot": "W1",
-      "topic_id": "TH-VI-0065"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10420,13 +10421,13 @@
     },
     "TH-VI-0065": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "e8d39c98d56f67eca4804cf32268fef8f1747f37fa284aeff23d23791c52993e",
+      "article_sha": "9785463d18bb57a95819f82016efff99686134dc5e33d8764065d4fa8cd68446",
       "commit": "8fd47f96d495cbf80291bd94528855ba50fef1bd",
-      "fence": "3c984b60147b4feaaed530684a439833",
+      "fence": "d632aefb8076443ba25a9feabedc339b",
       "repair_count": 0,
       "session": "sess-b4",
       "slot": "W1",
-      "submitted_at": "2026-10-23T14:53:10.985516+00:00"
+      "submitted_at": "2026-10-23T16:06:31.347087+00:00"
     },
     "TH-VI-0086": {
       "agent_id": "claude-writer-VI6",
@@ -14359,7 +14360,6 @@
         154
       ],
       "cluster": "huong-dan-thue-xe",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "thuê xe máy không liên tục trong tháng",
       "proposed_title": "Chỉ cần xe vài ngày mỗi tuần: thuê nguyên tháng hay thuê từng đợt ngắn",
@@ -14372,7 +14372,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0065",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -15495,5 +15495,5 @@
       ]
     }
   },
-  "version": 829
+  "version": 830
 }
