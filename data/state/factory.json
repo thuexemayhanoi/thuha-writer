@@ -2411,6 +2411,28 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T11:56:51.775132+00:00",
+      "previous": "18ac38d4b63bffefad2cb1b193f9f208a28bc29e893883735406a49f47c95a08",
+      "sha256": "c05e7ab47dd30d43b07ddf78bbf71dc3e07d8970aeab95c9a217cbc488fc10ee",
+      "topic_ids": [
+        "TH-VI-0018",
+        "TH-VI-0022",
+        "TH-VI-0134",
+        "TH-VI-0146",
+        "TH-VI-0151",
+        "TH-VI-0158",
+        "TH-VI-0267",
+        "TH-VI-0268",
+        "TH-VI-0359",
+        "TH-VI-0371",
+        "TH-VI-0459",
+        "TH-VI-0484",
+        "TH-VI-0487",
+        "TH-VI-0491"
+      ]
     }
   ],
   "intents": {},
@@ -2524,6 +2546,23 @@
       "status": "FULFILLED"
     },
     "research-vi-b6c6d839c56d89d5": {
+      "admitted_topic_ids": [
+        "TH-VI-0018",
+        "TH-VI-0022",
+        "TH-VI-0134",
+        "TH-VI-0146",
+        "TH-VI-0151",
+        "TH-VI-0158",
+        "TH-VI-0267",
+        "TH-VI-0268",
+        "TH-VI-0359",
+        "TH-VI-0371",
+        "TH-VI-0459",
+        "TH-VI-0484",
+        "TH-VI-0487",
+        "TH-VI-0491"
+      ],
+      "completed_at": "2026-10-23T11:56:51.775106+00:00",
       "created_at": "2026-10-23T07:53:34.330874+00:00",
       "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
       "language": "vi",
@@ -2531,7 +2570,7 @@
       "planned": 8,
       "request_id": "research-vi-b6c6d839c56d89d5",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-d08b8dd5e031330b": {
       "admitted_topic_ids": [
@@ -5009,6 +5048,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0018": {
+      "admitted_at": "2026-10-23T11:56:51.622094+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "đi hai người thuê một xe hay hai xe",
+      "proposed_title": "Đi cặp đôi: thuê một xe hay hai xe, cân nhắc chi phí, gửi xe và sức lái",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-hai-nguoi-thue-mot-xe-hay-hai-xe-can-nhac-gi/",
+      "search_intent": "Hai người bạn cùng đi Hà Nội nhiều ngày, một người lái chắc, một người mới quen xe, cần cân nhắc thuê chung một xe hay mỗi người một xe về chi phí, chuyện gửi xe và độ linh hoạt lịch trình.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo theo ngày, tuần và tháng dùng trong bài; phần lời khuyên còn lại là kiến thức chung về chọn xe và lập kế hoạch, không phải số liệu của cửa hàng hay của nguồn bên ngoài.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0018"
+    },
     "TH-VI-0019": {
       "admitted_at": "2026-10-23T07:26:57.018929+00:00",
       "category_id": 152,
@@ -5049,6 +5112,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0022": {
+      "admitted_at": "2026-10-23T11:56:51.636611+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "gọi xe công nghệ hay thuê xe máy đi ít chặng",
+      "proposed_title": "Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-it-chang-trong-ngay-khi-nao-goi-xe-cong-nghe-hop-hon-thue-xe-may/",
+      "search_intent": "Người chỉ đi hai ba chặng cố định mỗi ngày muốn tự ước lượng điểm hòa giữa gọi xe công nghệ và thuê xe, cần biết đếm số chặng, thời gian chờ xe và chỗ gửi xe để ra phép so sánh của riêng mình.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo theo ngày, tuần và tháng dùng trong bài; phần lời khuyên còn lại là kiến thức chung về chọn xe và lập kế hoạch, không phải số liệu của cửa hàng hay của nguồn bên ngoài.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0022"
     },
     "TH-VI-0024": {
       "admitted_at": "2026-10-23T07:26:57.028166+00:00",
@@ -5540,6 +5627,102 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0134": {
+      "admitted_at": "2026-10-23T11:56:51.661304+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "chưa biết lái xe côn tay có nên thuê không",
+      "proposed_title": "Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/chua-tung-lai-con-tay-co-nen-thue-khong/",
+      "search_intent": "Người đã có bằng nhưng mới lái xe ga, thấy xe côn tay đẹp và muốn thử khi ở Hà Nội; cần bộ câu hỏi thực tế (nhả côn êm chưa, dừng lên dốc được không, tắc đường có mỏi không) để quyết định thuê hay chọn xe khác.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0134"
+    },
+    "TH-VI-0146": {
+      "admitted_at": "2026-10-23T11:56:51.672527+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "đi dép lê lái xe số xe côn có nguy hiểm không",
+      "proposed_title": "Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-dep-le-hay-giay-khi-lai-xe-so-va-xe-con/",
+      "search_intent": "Người quen mang dép lê khi đi xe ga bỗng cần sang số bằng mũi chân; muốn biết rủi ro tuột dép, trầy mu bàn chân, kẹt dây giày vào cần số, và loại giày nên mang khi thuê xe số.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0146"
+    },
+    "TH-VI-0151": {
+      "admitted_at": "2026-10-23T11:56:51.682427+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "người lớn tuổi quen xe số có nên đổi sang xe ga",
+      "proposed_title": "Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi?",
+      "proposed_url": "https://rentbikehanoi.com/vi/bo-me-quen-xe-so-ca-doi-thue-xe-so-hay-thu-xe-ga/",
+      "search_intent": "Con cái thuê xe cho bố mẹ đã đi xe số hàng chục năm và ngại xe ga lạ; cần cân nhắc giữa độ quen tay và việc đỡ mỏi chân, rồi cho bố mẹ thử trong bãi trước khi quyết định.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0151"
+    },
+    "TH-VI-0158": {
+      "admitted_at": "2026-10-23T11:56:51.693585+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "chở người ngồi sau xe số sang số êm",
+      "proposed_title": "Chở người ngồi sau bằng xe số: sang số thế nào để người ngồi sau không bị gật đầu hay dồn vào lưng bạn",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-nguoi-ngoi-sau-bang-xe-so-sang-so-em-khong-giat/",
+      "search_intent": "Người lái xe số, nhất là xe côn tay, chở bạn hoặc người nhà và bị giật mỗi lần lên hay về số; cần biết cách nhả ga, thả côn và chọn lúc sang số êm hơn, cùng những điều nên dặn người ngồi sau trước khi xuất phát.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0158"
+    },
     "TH-VI-0217": {
       "admitted_at": "2026-10-23T07:53:32.021215+00:00",
       "category_id": 160,
@@ -5585,7 +5768,199 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0267": {
+      "admitted_at": "2026-10-23T11:56:51.703497+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "đi làm bằng xe máy thuê tháng mặc đồ công sở",
+      "proposed_title": "Đi làm bằng xe thuê tháng khi mặc đồ công sở: cất áo khoác, giày thay và áo mưa thế nào cho gọn",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-lam-bang-xe-thue-thang-mac-do-cong-so-cat-ao-khoac-giay/",
+      "search_intent": "Người đi làm văn phòng thuê xe theo tháng, mỗi sáng mặc sơ mi hoặc váy công sở, cần cách cất áo khoác chắn gió, đôi giày thay và áo mưa gọn vào cốp hay túi mà không vướng chân ga và không làm nhàu áo.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0267"
+    },
+    "TH-VI-0268": {
+      "admitted_at": "2026-10-23T11:56:51.713818+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "mặc váy áo dài quần ống rộng đi xe máy",
+      "proposed_title": "Mặc váy, áo dài hoặc quần ống rộng đi xe máy: tránh vướng bánh sau, xích và chân người ngồi sau",
+      "proposed_url": "https://rentbikehanoi.com/vi/mac-vay-ao-dai-quan-ong-rong-di-xe-may-tranh-vuong-banh-xich/",
+      "search_intent": "Người đi dự tiệc hoặc chụp ảnh bằng xe thuê mặc váy, áo dài hay quần ống rộng, lo vạt áo bay vào bánh sau hoặc xích, cần biết cách chọn trang phục, cách gọn vạt áo và tư thế ngồi của người ngồi sau.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0268"
+    },
+    "TH-VI-0359": {
+      "admitted_at": "2026-10-23T11:56:51.723452+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "lâu không đi xe máy tập lại",
+      "proposed_title": "Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông",
+      "proposed_url": "https://rentbikehanoi.com/vi/lau-roi-khong-cam-lai-tap-lai-thang-bang-phanh-va-quay-dau/",
+      "search_intent": "Người từng đi xe máy nhưng nhiều năm không chạy, nay cần thuê xe đi lại ở Hà Nội và lo mất cảm giác tay lái; cần danh sách thao tác nên thử trước, thứ tự tập ngắn và tín hiệu cho thấy chưa nên vào đường chính.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0359"
+    },
+    "TH-VI-0371": {
+      "admitted_at": "2026-10-23T11:56:51.733838+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "kỹ năng vào cua xe máy đường đê ngoại thành",
+      "proposed_title": "Vào cua gắt trên đường đê hoặc đường ngoại thành: giảm tốc trước cua, nhìn xa và không phanh gấp giữa cua",
+      "proposed_url": "https://rentbikehanoi.com/vi/vao-cua-gat-tren-duong-de-hoac-ngoai-thanh-giam-toc-truoc-cua/",
+      "search_intent": "Người quen chạy thẳng trong phố, lần đầu ra đường đê hay đường ngoại thành gặp nhiều khúc cua liên tiếp; cần hiểu cách chọn tốc độ trước cua, đặt mắt nhìn và giữ xe để không văng sang làn ngược chiều hoặc trượt bánh.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0371"
+    },
+    "TH-VI-0459": {
+      "admitted_at": "2026-10-23T11:56:51.742999+00:00",
+      "category_id": 169,
+      "category_path": [
+        140,
+        151,
+        169
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "language": "vi",
+      "primary_keyword": "đi nhóm nhiều xe máy không bị lạc nhau",
+      "proposed_title": "Đi chơi trong ngày bằng nhiều xe: thứ tự chạy, điểm dừng chung và cách không bị lạc nhau",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-choi-trong-ngay-bang-nhieu-xe-thu-tu-chay-diem-dung-chung/",
+      "search_intent": "Một nhóm bạn đi ba bốn xe ra ngoại thành, từng bị tách nhau ở ngã tư đông, cần quy ước thứ tự chạy, điểm tập trung định trước, cách báo dừng và ai là người quyết định khi có xe cần nghỉ.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0459"
+    },
+    "TH-VI-0484": {
+      "admitted_at": "2026-10-23T11:56:51.754049+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "language": "vi",
+      "primary_keyword": "chốt điểm đi chơi nhóm trên Zalo bằng xe máy",
+      "proposed_title": "Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhom-zalo-chua-chot-diem-di-choi-chot-gio-xuat-phat-va-ai-di-xe-nao/",
+      "search_intent": "Nhóm bạn bàn mãi trên nhóm chat mà chưa chốt được điểm đến, giờ xuất phát và ai đi xe nào, cần quy trình ngắn để chọn theo tiêu chí chung, chia xe theo kinh nghiệm lái và đặt hạn chót để đặt thuê xe.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0484"
+    },
+    "TH-VI-0487": {
+      "admitted_at": "2026-10-23T11:56:51.764960+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "language": "vi",
+      "primary_keyword": "một ngày nghỉ muốn đi nhiều nơi nên bỏ bớt điểm nào",
+      "proposed_title": "Chỉ có một ngày nghỉ mà muốn đi ba nơi: bỏ bớt điểm nào để chuyến đi không thành cuộc chạy đua",
+      "proposed_url": "https://rentbikehanoi.com/vi/chi-co-mot-ngay-nghi-muon-di-ba-noi-bo-bot-diem-nao/",
+      "search_intent": "Người đi làm chỉ có một ngày nghỉ nhưng danh sách điểm muốn đến dài, cần tiêu chí giữ hoặc bỏ điểm dựa vào thời gian di chuyển, giờ mở cửa và sức người lái, thay vì cố nhồi tất cả vào một ngày.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0487"
+    },
+    "TH-VI-0491": {
+      "admitted_at": "2026-10-23T11:56:51.775074+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "language": "vi",
+      "primary_keyword": "điện thoại hết pin giữa đường khi đi xe máy",
+      "proposed_title": "Điện thoại hết pin giữa chuyến đi xa: ghi sẵn ra giấy số liên lạc và địa chỉ để không bị lạc",
+      "proposed_url": "https://rentbikehanoi.com/vi/dien-thoai-het-pin-giua-chuyen-di-xa-ghi-san-so-lien-lac-ra-giay/",
+      "search_intent": "Người đi xa bằng xe máy phụ thuộc hoàn toàn vào điện thoại để xem bản đồ và liên lạc, cần chuẩn bị bản ghi giấy gồm số người thân, địa chỉ nơi ở, số cửa hàng thuê xe và tên điểm đến phòng khi máy tắt hoặc mất sóng.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa và số điện thoại dùng ở phần liên hệ của bài; lời khuyên còn lại là kiến thức chung về lái xe và lập kế hoạch chuyến đi, không phải số liệu của cửa hàng hay của nguồn bên ngoài, và không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0491"
     }
   },
-  "version": 313
+  "version": 314
 }
