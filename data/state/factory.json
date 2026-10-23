@@ -4332,6 +4332,22 @@
       "sha256": "df2d1855759824fcb22eeaecca05f0c62b95ad40dbda0d14495caf81253f7fb0",
       "status": "PASS",
       "topic_id": "TH-EN-0012"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T14:09:18.072917+00:00",
+      "previous": "df2d1855759824fcb22eeaecca05f0c62b95ad40dbda0d14495caf81253f7fb0",
+      "sha256": "2c48710938582168e3af456353b08051e2d2533e93a838a1f91a57cc4857e8e5",
+      "topic_ids": [
+        "TH-EN-0045",
+        "TH-EN-0007",
+        "TH-EN-0010",
+        "TH-EN-0039",
+        "TH-EN-0040",
+        "TH-EN-0032",
+        "TH-EN-0126",
+        "TH-EN-0037"
+      ]
     }
   ],
   "intents": {},
@@ -7302,6 +7318,31 @@
       "status": "READY",
       "topic_id": "TH-EN-0005"
     },
+    "TH-EN-0007": {
+      "admitted_at": "2026-10-23T14:09:18.002310+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "how is a rental day counted motorbike hanoi",
+      "proposed_title": "What Counts as One Rental Day in Hanoi? A Full 24 Hours, a Calendar Day or Opening Hours",
+      "proposed_url": "https://rentbikehanoi.com/what-counts-as-one-rental-day-hanoi-24-hours-or-calendar-day/",
+      "search_intent": "A traveller collecting a bike at midday wants to know whether the day ends 24 hours later, at the shop's closing time or at midnight, because it changes the return time and the number of days charged.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0007"
+    },
     "TH-EN-0009": {
       "admitted_at": "2026-10-23T13:00:07.133314+00:00",
       "category_id": 123,
@@ -7327,6 +7368,31 @@
       "status": "READY",
       "topic_id": "TH-EN-0009"
     },
+    "TH-EN-0010": {
+      "admitted_at": "2026-10-23T14:09:18.012957+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental listing price range which bike hanoi",
+      "proposed_title": "Price Ranges on a Rental Listing: Pin Down Which Bike and Rate You Are Getting",
+      "proposed_url": "https://rentbikehanoi.com/price-ranges-on-a-rental-listing-pin-down-bike-and-rate/",
+      "search_intent": "A traveller sees a listing that shows a range for one type of bike and wants to confirm which model, age and condition sit at which rate before agreeing, and how to get the answer into the booking message.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0010"
+    },
     "TH-EN-0012": {
       "admitted_at": "2026-10-23T12:08:22.364867+00:00",
       "category_id": 123,
@@ -7351,6 +7417,131 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0012"
+    },
+    "TH-EN-0032": {
+      "admitted_at": "2026-10-23T14:09:18.049770+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "monthly motorbike rental night shift worker hanoi",
+      "proposed_title": "Shift Work and a Monthly Bike: Midnight Finishes, Lighting and Late-Night Parking",
+      "proposed_url": "https://rentbikehanoi.com/shift-work-and-a-monthly-bike-midnight-finishes-lighting-late-night-parking/",
+      "search_intent": "A nurse or bar manager working odd hours wants to decide whether a monthly bike suits finishing near midnight, and what to arrange about lighting checks, secure late-night parking and who to call after the shop closes.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0032"
+    },
+    "TH-EN-0037": {
+      "admitted_at": "2026-10-23T14:09:18.072883+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "weekly motorbike rental apartment hunting hanoi",
+      "proposed_title": "House-Hunting in Hanoi: Plan a Week of Apartment Viewings Around a Weekly Rental",
+      "proposed_url": "https://rentbikehanoi.com/house-hunting-in-hanoi-week-of-apartment-viewings-weekly-rental/",
+      "search_intent": "A newcomer with about a week to find a flat wants to cluster viewings by area, keep appointments despite rush hour and hard-to-find alley addresses, and decide how many days to hold the bike before the lease and a longer rental are settled.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0037"
+    },
+    "TH-EN-0039": {
+      "admitted_at": "2026-10-23T14:09:18.024789+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "return rental motorbike before shop opens early flight",
+      "proposed_title": "A Flight Before the Shop Opens: Plan the Bike Return the Night Before",
+      "proposed_url": "https://rentbikehanoi.com/flight-before-the-shop-opens-plan-the-bike-return-the-night-before/",
+      "search_intent": "A traveller whose flight leaves at dawn must hand the bike back before the shop's opening time, and wants to compare returning the evening before, an agreed key drop and onward transport, without assuming the shop offers any of these.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0039"
+    },
+    "TH-EN-0040": {
+      "admitted_at": "2026-10-23T14:09:18.038121+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "what time to collect a rental motorbike hanoi",
+      "proposed_title": "Pick Up Before the Rush: Choose a Collection Time That Leaves Room to Inspect",
+      "proposed_url": "https://rentbikehanoi.com/pick-up-before-the-rush-choose-a-collection-time-with-room-to-inspect/",
+      "search_intent": "A traveller who can collect the bike at any hour is choosing between early morning, midday and evening, and wants to weigh daylight for inspection, traffic on the first ride and the staff's time against their own schedule.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0040"
+    },
+    "TH-EN-0045": {
+      "admitted_at": "2026-10-23T14:09:17.989363+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "running late returning rental motorbike hanoi",
+      "proposed_title": "Running Late on Return Day: What to Tell the Shop and What to Ask",
+      "proposed_url": "https://rentbikehanoi.com/running-late-on-return-day-what-to-tell-the-shop-and-what-to-ask/",
+      "search_intent": "A renter stuck in traffic or delayed on a day trip realises the bike will reach the shop after the agreed time, and wants to know what to message, what to ask about extra time and how to show the delay was reported.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0045"
     },
     "TH-EN-0065": {
       "admitted_at": "2026-10-23T12:08:22.373485+00:00",
@@ -7401,6 +7592,31 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0125"
+    },
+    "TH-EN-0126": {
+      "admitted_at": "2026-10-23T14:09:18.061927+00:00",
+      "category_id": 134,
+      "category_path": [
+        39,
+        60,
+        115,
+        134
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "roadside mechanic rental motorbike hanoi repair permission",
+      "proposed_title": "A Roadside Mechanic Offers to Fix Your Rental Bike: What to Ask Before Saying Yes",
+      "proposed_url": "https://rentbikehanoi.com/roadside-mechanic-fix-rental-bike-ask-before-saying-yes/",
+      "search_intent": "A stranded renter is offered an immediate repair at a street stall and must weigh speed against the rental contract, asking the shop for approval and recording who did what.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0126"
     },
     "TH-EN-0139": {
       "admitted_at": "2026-10-23T12:08:22.392065+00:00",
@@ -9047,5 +9263,5 @@
       ]
     }
   },
-  "version": 557
+  "version": 558
 }
