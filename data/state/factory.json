@@ -4071,6 +4071,20 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W1",
+      "at": "2026-10-23T14:51:33.501241+00:00",
+      "expires_at": 1792768893.50123,
+      "fence": "5965c9652a04441fa9ff1fe485244c05",
+      "heartbeat_at": "2026-10-23T14:51:33.501209+00:00",
+      "language": "vi",
+      "previous": "ebc7839e97e53c7887ed39cd3952aa7a6d4ff201beede2d9dcf72d2baf3d717a",
+      "session": "sess-b3r",
+      "sha256": "bb9d5683b34c2eb60082f946f6f98d2742082f7cf2fbce46baf51cf7ad7cea45",
+      "slot": "W1",
+      "topic_id": "TH-VI-0359"
     }
   ],
   "intents": {
@@ -7046,7 +7060,18 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W1",
+      "expires_at": 1792768893.50123,
+      "fence": "5965c9652a04441fa9ff1fe485244c05",
+      "heartbeat_at": "2026-10-23T14:51:33.501209+00:00",
+      "language": "vi",
+      "session": "sess-b3r",
+      "slot": "W1",
+      "topic_id": "TH-VI-0359"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -11590,6 +11615,7 @@
         165
       ],
       "cluster": "lai-xe-an-toan",
+      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "lâu không đi xe máy tập lại",
       "proposed_title": "Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông",
@@ -11602,7 +11628,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0359",
       "waiting_for": [
         "FEATURED_MEDIA"
@@ -11768,5 +11794,5 @@
       ]
     }
   },
-  "version": 564
+  "version": 565
 }
