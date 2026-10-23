@@ -1,7 +1,15 @@
 # ThuHa Writer
 https://rentbikehanoi.com
 
-**V4 core implemented and tested. WordPress production publishing remains OFF.**
+**V5 writer-session runtime implemented and tested. WordPress production publishing remains OFF.**
+
+V5 (23 October 2026) adds the pieces an authorized Claude session needs to act
+as the W1–W9 AI runtime: labelled external source evidence, a read-only writer
+kit, a non-mutating precheck, source-backed topic admission and the cycle
+report. See [V5 writer runtime](docs/V5-WRITER-RUNTIME.md), the
+[writer brief](docs/V5-WRITER-BRIEF.md) and the
+[reviewer brief](docs/V5-REVIEWER-BRIEF.md). Live inventory on 23 October 2026:
+275 published posts, 6 pages, 59 categories; remaining to 2,000 = 1,725.
 
 Repository: `thuexemayhanoi/thuha-writer`  
 Language: English (en-US)  
