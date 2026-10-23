@@ -3419,22 +3419,24 @@
       "sha256": "b601805c66c48ef67dbdfcc01a88ed601bcc9ce6f013b03dabecd36011250e22",
       "slot": "W1",
       "topic_id": "TH-VI-0359"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "a3924a8bc06fec929645b9adbf9cec18b743e6118d279c5ddf659441cc6a66de",
+      "at": "2026-10-23T13:54:13.600897+00:00",
+      "previous": "b601805c66c48ef67dbdfcc01a88ed601bcc9ce6f013b03dabecd36011250e22",
+      "sha256": "23a784c16cbf676fb784be82ac27dee84fdd1230bd0aa5ba73e5b2a7297bf71b",
+      "topic_id": "TH-VI-0359",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765450.855341,
-      "fence": "1493bcc5d33c4046b69bbe317cb5e752",
-      "heartbeat_at": "2026-10-23T13:54:10.855324+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0359"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4084,13 +4086,13 @@
     },
     "TH-VI-0359": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "7ed517de40aabdde9950be7c5eb2ae4e91100220559dea17c10f680433a49b40",
-      "commit": "37fe996c276146cd30227d73dea340de4f72cc55",
-      "fence": "20992d807460441496bb8036cd0ceb54",
+      "article_sha": "a3924a8bc06fec929645b9adbf9cec18b743e6118d279c5ddf659441cc6a66de",
+      "commit": "843665a9aa46317fdd0dbfc874c6d72c312594ff",
+      "fence": "1493bcc5d33c4046b69bbe317cb5e752",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:32:15.200610+00:00"
+      "submitted_at": "2026-10-23T13:54:13.600877+00:00"
     },
     "TH-VI-0371": {
       "agent_id": "claude-writer-W1",
@@ -7713,7 +7715,6 @@
         165
       ],
       "cluster": "lai-xe-an-toan",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "lâu không đi xe máy tập lại",
       "proposed_title": "Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông",
@@ -7726,7 +7727,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0359",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7898,5 +7899,5 @@
       ]
     }
   },
-  "version": 484
+  "version": 485
 }
