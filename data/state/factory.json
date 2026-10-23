@@ -5588,6 +5588,22 @@
         "TH-VI-0088",
         "TH-VI-0017"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T15:30:00.279634+00:00",
+      "previous": "101a16d965b118689b2e5687c21a5491b59278216c5fad9c8aab5fe8d6e4d81c",
+      "sha256": "3afe17ff725b52779cb4e65bec18e394dfb6cf35dcd3de2a26ca61bdf90c8a9f",
+      "topic_ids": [
+        "TH-EN-0020",
+        "TH-EN-0015",
+        "TH-EN-0021",
+        "TH-EN-0030",
+        "TH-EN-0042",
+        "TH-EN-0075",
+        "TH-EN-0035",
+        "TH-EN-0013"
+      ]
     }
   ],
   "intents": {
@@ -11911,6 +11927,56 @@
       "status": "READY",
       "topic_id": "TH-EN-0012"
     },
+    "TH-EN-0013": {
+      "admitted_at": "2026-10-23T15:30:00.279591+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "book motorbike rental through platform or direct hanoi",
+      "proposed_title": "Booking a Hanoi Motorbike Through a Platform or Directly With the Shop: What Changes",
+      "proposed_url": "https://rentbikehanoi.com/booking-through-a-platform-or-directly-with-a-hanoi-rental-shop/",
+      "search_intent": "A traveller finds the same shop on a booking platform and on its own page, and wants to know who holds the contract, who to contact about a problem, and what to ask before paying through either route.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0013"
+    },
+    "TH-EN-0015": {
+      "admitted_at": "2026-10-23T15:30:00.190670+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "normal wear versus damage rental motorbike hanoi",
+      "proposed_title": "Normal Wear or Chargeable Damage? How a Hanoi Rental Shop Draws the Line",
+      "proposed_url": "https://rentbikehanoi.com/normal-wear-or-chargeable-damage-ask-how-hanoi-shop-draws-the-line/",
+      "search_intent": "A renter who notices small scuffs and worn grips at handover wants to know what to ask about how the shop separates normal wear from damage it may charge for, and where to record the answer.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0015"
+    },
     "TH-EN-0017": {
       "admitted_at": "2026-10-23T15:12:43.248676+00:00",
       "category_id": 124,
@@ -11961,6 +12027,56 @@
       "status": "PLANNED",
       "topic_id": "TH-EN-0018"
     },
+    "TH-EN-0020": {
+      "admitted_at": "2026-10-23T15:30:00.178405+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "found damage after leaving rental shop motorbike hanoi",
+      "proposed_title": "You Spot Damage After Leaving the Shop: Report It the Same Day With Dated Photos",
+      "proposed_url": "https://rentbikehanoi.com/damage-spotted-after-leaving-the-shop-report-same-day-with-dated-photos/",
+      "search_intent": "A renter who notices a crack or dent an hour after riding away, with nothing on the pickup record, wants to message the shop quickly and send enough dated evidence for it to compare with its own records.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0020"
+    },
+    "TH-EN-0021": {
+      "admitted_at": "2026-10-23T15:30:00.205385+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "reserve motorbike in advance or walk in hanoi",
+      "proposed_title": "Reserve Ahead or Walk In? Choosing How to Secure a Hanoi Rental Bike",
+      "proposed_url": "https://rentbikehanoi.com/reserve-ahead-or-walk-in-securing-a-hanoi-rental-bike/",
+      "search_intent": "A traveller heading for the Old Quarter wonders whether to message a shop days ahead or simply arrive and choose in person, weighing choice of model, time to inspect and the risk that no suitable bike is free.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0021"
+    },
     "TH-EN-0023": {
       "admitted_at": "2026-10-23T15:12:43.274592+00:00",
       "category_id": 124,
@@ -11985,6 +12101,31 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-EN-0023"
+    },
+    "TH-EN-0030": {
+      "admitted_at": "2026-10-23T15:30:00.222012+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "leave vietnam for weeks during monthly motorbike rental",
+      "proposed_title": "Travelling Abroad Mid-Rental: Hold the Bike, Pause the Rental or Return It?",
+      "proposed_url": "https://rentbikehanoi.com/travelling-abroad-mid-rental-hold-pause-or-return-the-bike/",
+      "search_intent": "An expat flying home for three weeks in the middle of a monthly rental wants to compare keeping the bike parked, asking the shop to pause the period, or returning it and booking again, and what to confirm for each.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0030"
     },
     "TH-EN-0031": {
       "admitted_at": "2026-10-23T15:12:43.319579+00:00",
@@ -12035,6 +12176,31 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0032"
+    },
+    "TH-EN-0035": {
+      "admitted_at": "2026-10-23T15:30:00.265832+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "monthly rental commute and weekend trip one bike hanoi",
+      "proposed_title": "Daily Commute Plus a Weekend Escape: One Bike for the Month or Two Rentals?",
+      "proposed_url": "https://rentbikehanoi.com/commute-plus-weekend-escape-one-bike-for-the-month-or-two-rentals/",
+      "search_intent": "A remote worker commuting to a coworking space on weekdays, who wants one overnight trip a month, must decide whether the daily bike suits that trip or whether to add a different rental just for the weekend.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0035"
     },
     "TH-EN-0036": {
       "admitted_at": "2026-10-23T15:12:43.304766+00:00",
@@ -12161,6 +12327,31 @@
       "status": "READY",
       "topic_id": "TH-EN-0040"
     },
+    "TH-EN-0042": {
+      "admitted_at": "2026-10-23T15:30:00.237152+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "motorbike handover at train station or cafe hanoi",
+      "proposed_title": "Handover at a Station, Cafe or Apartment Gate: Judge the Spot Before You Agree",
+      "proposed_url": "https://rentbikehanoi.com/handover-at-a-station-cafe-or-apartment-gate-judge-the-spot-before-you-agree/",
+      "search_intent": "A traveller offered a handover at a station, cafe or apartment gate wants to judge whether the spot has enough light, space and safe standing room to inspect the bike properly, and when to propose another place.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0042"
+    },
     "TH-EN-0045": {
       "admitted_at": "2026-10-23T14:51:19.260108+00:00",
       "category_id": 126,
@@ -12210,6 +12401,31 @@
       ],
       "status": "READY",
       "topic_id": "TH-EN-0065"
+    },
+    "TH-EN-0075": {
+      "admitted_at": "2026-10-23T15:30:00.250938+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "motorbike-reviews-comparisons",
+      "language": "en",
+      "primary_keyword": "return electric scooter battery level handover",
+      "proposed_title": "Returning an Electric Scooter: Agree and Record the Battery Level Before You Set Off",
+      "proposed_url": "https://rentbikehanoi.com/returning-electric-scooter-agree-record-battery-level/",
+      "search_intent": "A weekly electric renter wants to settle, before leaving the shop, what battery level is expected at return, who charges it and how to record the display so there is no dispute later.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0075"
     },
     "TH-EN-0125": {
       "admitted_at": "2026-10-23T12:08:22.382465+00:00",
@@ -14063,5 +14279,5 @@
       ]
     }
   },
-  "version": 739
+  "version": 740
 }
