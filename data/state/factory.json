@@ -1317,6 +1317,22 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T07:53:32.021247+00:00",
+      "previous": "6477c00fe01ba1325b89a5c6fd2cf22e18709d7c8fb94a4932dff4347c1f9c6d",
+      "sha256": "2b6ac69ee83faff81752f37d2a59997320bf7774291d962c052cb9573f19359e",
+      "topic_ids": [
+        "TH-VI-0043",
+        "TH-VI-0053",
+        "TH-VI-0063",
+        "TH-VI-0089",
+        "TH-VI-0093",
+        "TH-VI-0095",
+        "TH-VI-0101",
+        "TH-VI-0217"
+      ]
     }
   ],
   "intents": {},
@@ -1430,6 +1446,17 @@
       "status": "FULFILLED"
     },
     "research-vi-d08b8dd5e031330b": {
+      "admitted_topic_ids": [
+        "TH-VI-0043",
+        "TH-VI-0053",
+        "TH-VI-0063",
+        "TH-VI-0089",
+        "TH-VI-0093",
+        "TH-VI-0095",
+        "TH-VI-0101",
+        "TH-VI-0217"
+      ],
+      "completed_at": "2026-10-23T07:53:32.021238+00:00",
       "created_at": "2026-10-23T07:27:09.269308+00:00",
       "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
       "language": "vi",
@@ -1437,7 +1464,7 @@
       "planned": 10,
       "request_id": "research-vi-d08b8dd5e031330b",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     }
   },
   "reviews": {
@@ -3973,6 +4000,78 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0043": {
+      "admitted_at": "2026-10-23T07:53:31.951278+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0047 (tra cứu đăng ký kinh doanh trước khi cọc; cùng bước đối chiếu tên/địa chỉ/số điện thoại/tài khoản nhưng khác trọng tâm)",
+          "TH-VI-0016 (giá/bài ưu đãi trên mạng xã hội còn hiệu lực không, không hỏi chuyện lừa đảo)",
+          "TH-VI-0033 (phân biệt cọc giữ chỗ và cọc nhận xe, không nói về độ tin cậy của bên nhận tiền)"
+        ],
+        "rationale": "Người đọc đang cầm một lời đề nghị cụ thể trong nhóm Facebook/Zalo (chuyển cọc vào tài khoản cá nhân) và hỏi có phải lừa đảo không, nên cần bài nhận diện dấu hiệu rủi ro; không bài nào khác trả lời câu này. Rủi ro gần nhất là 0047 vì cùng dùng bước đối chiếu tên, địa chỉ, số điện thoại, tài khoản nhận tiền: bài phải giữ ở danh sách dấu hiệu đáng ngờ của lời mời đặt cọc trên mạng xã hội (tài khoản cá nhân, thúc ép, địa chỉ không kiểm chứng được) và chỉ đối chiếu nhanh, còn quy trình tra đăng ký kinh doanh thuộc 0047 (link sang, không lặp lại). Không được khẳng định gì về cửa hàng thật hay cách cửa hàng nhận cọc nếu chưa có first_party_facts; nên tinh gọn ý định của 0047 để bỏ phần đối chiếu tài khoản nhận tiền khi viết bài đó.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "đặt cọc thuê xe máy qua facebook có lừa đảo không",
+      "proposed_title": "Đặt cọc trước qua nhóm Facebook hay Zalo: dấu hiệu cần dừng lại và cách kiểm tra cửa hàng thật",
+      "proposed_url": "https://rentbikehanoi.com/vi/dat-coc-xe-may-qua-nhom-facebook-zalo-dau-hieu-can-dung-lai/",
+      "search_intent": "Người thấy bài đăng cho thuê xe trong nhóm mạng xã hội bị yêu cầu chuyển cọc trước cho tài khoản cá nhân, muốn biết các dấu hiệu đáng ngờ và cách đối chiếu địa chỉ, số điện thoại, tên chủ tài khoản trước khi chuyển tiền.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0043"
+    },
+    "TH-VI-0053": {
+      "admitted_at": "2026-10-23T07:53:31.960724+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0033 (cọc giữ chỗ vs cọc nhận xe, không nói về cấu trúc cọc nhiều xe)",
+          "TH-VI-0035 (thời điểm và cách hoàn cọc nói chung, không tách theo từng xe)",
+          "TH-VI-0025 (thuê thêm xe thứ hai giữa chuyến: ngày bắt đầu/kết thúc, không bàn cọc)"
+        ],
+        "rationale": "Câu hỏi riêng là khi thuê hai xe cùng lúc thì cọc tính theo từng xe hay gộp, và phần cọc của xe trả trước được xử lý ra sao; không peer nào xử lý cấu trúc cọc nhiều xe hoặc trả lệch nhau. Bài phải giữ trục 'một lần đặt, hai xe: cọc từng xe, trả một xe trước' kèm cách ghi rõ trong tin nhắn xác nhận hoặc hợp đồng. Không giải thích lại cọc giữ chỗ vs cọc nhận xe (link 0033), quy tắc hoàn cọc chung (link 0035), không biến thành bài xin ưu đãi nhiều xe (0012) hay tính ngày thuê xe thứ hai (0025).",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "đặt cọc thuê hai xe máy cùng lúc",
+      "proposed_title": "Thuê hai xe cùng lúc: cọc tính theo từng xe hay gộp chung, trả một xe trước thì phần cọc xử lý ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-hai-xe-cung-luc-coc-tinh-theo-tung-xe-hay-gop-chung/",
+      "search_intent": "Một người thuê hai xe hoặc hai người đi cùng muốn biết cọc có tách riêng từng xe không, trả một xe sớm thì phần cọc của xe đó được xử lý thế nào và cần ghi rõ điều gì trong tin nhắn xác nhận hoặc hợp đồng.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0053"
+    },
     "TH-VI-0058": {
       "admitted_at": "2026-10-23T07:26:57.054356+00:00",
       "category_id": 154,
@@ -4013,7 +4112,222 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0063": {
+      "admitted_at": "2026-10-23T07:53:31.969783+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0058 (danh sách chuẩn bị và câu hỏi chung cho tân sinh viên thuê tháng, đã viết)",
+          "TH-VI-0064 (định nghĩa mốc đầu-cuối của một tháng thuê: 30 ngày hay tháng lịch)",
+          "TH-VI-0009 (chọn hình thức trả: tiền mặt, chuyển khoản, QR, không bàn lịch/kỳ trả)"
+        ],
+        "rationale": "Trọng tâm là nhịp thanh toán của thuê tháng (trả một lần hay chia kỳ, khoản cần có ngày đầu, cách ghi lịch trả để không nhầm kỳ) cho người nhận lương cuối tháng; các peer chỉ chạm một mảnh (chuẩn bị chung, mốc tháng, hình thức trả). Bài phải giữ ở lịch/kỳ trả và đối chiếu kỳ trả, không lặp danh sách chuẩn bị tổng quát của 0058, không giải thích cách tính một tháng (link 0064), không bàn hình thức trả (link 0009), và không để tiêu đề 'theo tuần hay theo tháng' trượt thành bài so sánh gói thuê (0003/0065). Không nêu thông lệ hay số tiền cụ thể nếu chưa có first_party_facts; 0095 là giai đoạn cuối kỳ nên không trùng.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "lịch thanh toán thuê xe máy theo tháng",
+      "proposed_title": "Trả tiền thuê xe theo tuần hay theo tháng: lịch thanh toán và khoản cần chuẩn bị ngày đầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-tien-thue-xe-theo-tuan-hay-theo-thang-lich-thanh-toan-ngay-dau/",
+      "search_intent": "Người đi làm có lương về cuối tháng muốn biết thuê xe tháng thường trả một lần hay chia kỳ, ngày đầu cần chuẩn bị những khoản nào, và hỏi cửa hàng cách ghi lịch trả tiền để không nhầm kỳ.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0063"
+    },
+    "TH-VI-0089": {
+      "admitted_at": "2026-10-23T07:53:31.978741+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0199 (tìm cây xăng nằm trên đường về điểm trả, giả định đã có thỏa thuận; trùng đúng phần 'mẹo tìm cây xăng')",
+          "TH-VI-0098 (bản cho xe điện: ghi mức pin lúc nhận/trả, khác loại xe và từ khóa)"
+        ],
+        "rationale": "Bài trả lời câu hỏi tại lúc nhận xe: còn bao nhiêu xăng, ghi lại thế nào và quy ước khi trả (đổ đầy hay trả nguyên mức); không peer nào làm việc này, 0199 chỉ bắt đầu sau khi thỏa thuận đã có và chỉ về chọn cây xăng, 0098 là xe điện, các bài nhóm xăng khác nói về loại xăng, tiêu hao, giá. Vì ý định có 'mẹo tìm cây xăng gần chỗ trả xe' trùng nguyên phần cốt lõi của 0199, bài phải bỏ phần này hoặc chỉ link sang 0199 trong một câu. Không nêu chính sách xăng thật của cửa hàng; chỉ hướng người đọc hỏi và ghi lại (chụp đồng hồ xăng).",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "mức xăng khi nhận và trả xe thuê",
+      "proposed_title": "Nhận xe còn bao nhiêu xăng, trả xe cần bao nhiêu: thống nhất mức xăng từ đầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-con-bao-nhieu-xang-tra-xe-can-bao-nhieu-thong-nhat-tu-dau/",
+      "search_intent": "Người thuê muốn thống nhất ngay lúc nhận xe về lượng xăng trong bình, cách ghi lại và quy ước khi trả (đổ đầy hay trả nguyên mức), kèm mẹo tìm cây xăng gần chỗ trả xe để khỏi vội.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0089"
+    },
+    "TH-VI-0093": {
+      "admitted_at": "2026-10-23T07:53:31.988769+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0101 (trả ngoài giờ đóng cửa đã lên kế hoạch: chìa khóa, ai xác nhận hiện trạng, mốc hết hạn)",
+          "TH-VI-0014 (danh sách mọi loại phụ phí, trả muộn chỉ là một mục)",
+          "TH-VI-0004 (quy ước đếm ngày 24 giờ hay ngày lịch khi đặt xe, không phải tin báo khi đang di chuyển)"
+        ],
+        "rationale": "Tình huống riêng là đang trên đường mang xe về thì bị kẹt hoặc mưa lớn nên sẽ muộn so với giờ hẹn: cần tin nhắn báo ngay, xin xác nhận bằng chữ và hỏi cách tính khoản muộn. Bài phải giữ trục 'tin nhắn báo muộn và bằng chứng xác nhận khi đang di chuyển'; cách tính muộn chỉ là câu để hỏi cửa hàng, không giải thích quy ước đếm ngày (link 0004), không liệt kê phụ phí (link 0014), không bàn việc trả xe sau giờ đóng cửa (0101) hay ở lại qua đêm ngoài kế hoạch (0481). Không nêu mức phí muộn hay thời gian ân hạn của cửa hàng nếu chưa có first_party_facts.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "trả xe thuê muộn vì kẹt xe mưa lớn",
+      "proposed_title": "Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-muon-vi-ket-xe-hoac-mua-lon-nhan-cua-hang-the-nao/",
+      "search_intent": "Người đang trên đường trả xe nhưng kẹt hoặc mưa lớn khiến muộn hơn giờ hẹn cần biết nên báo ngay bằng tin nhắn nào, xin xác nhận gì và hỏi cách tính khoản muộn thay vì tự đoán.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0093"
+    },
+    "TH-VI-0095": {
+      "admitted_at": "2026-10-23T07:53:31.997747+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0035 (thời điểm và cách hoàn cọc nói chung, đã viết; chỉ trùng bước 'nhận lại cọc')",
+          "TH-VI-0071 (điều kiện chấm dứt sớm hợp đồng thuê tháng, khác bước cuối kỳ thông thường)",
+          "TH-VI-0211 (tiêu chí hao mòn thông thường vs hư hỏng khi nhận lại xe)"
+        ],
+        "rationale": "Đây là lịch các bước cuối kỳ của thuê tháng (hẹn giờ trả, kiểm tra xe so với lúc nhận, đối chiếu khoản đã trả, nhận lại cọc) và chưa có peer nào làm gói này; 0063 là giai đoạn đầu kỳ nên không trùng. Bài phải giữ khung 'xếp lịch ngày cuối kỳ để không vội' và chỉ nhắc nhận lại cọc, đối chiếu hao mòn như bước kèm link sang 0035 và 0211, không giải thích cách tính mốc một tháng (0064), không bàn chấm dứt sớm (0071) hay tranh chấp khoản trừ cọc (0036/0057). Ngày hoàn cọc thực tế phải để người đọc hỏi cửa hàng, không khẳng định.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "trả xe thuê tháng cuối kỳ cần làm gì",
+      "proposed_title": "Kết thúc kỳ thuê tháng: lịch trả xe, kiểm tra cuối kỳ và nhận lại cọc",
+      "proposed_url": "https://rentbikehanoi.com/vi/ket-thuc-ky-thue-thang-lich-tra-xe-kiem-tra-cuoi-ky-va-nhan-lai-coc/",
+      "search_intent": "Người sắp hết kỳ thuê tháng muốn lên lịch các bước cuối kỳ: hẹn giờ trả, kiểm tra xe so với lúc nhận, đối chiếu các khoản đã trả và nhận lại cọc, để không vội vàng trong ngày cuối.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0095"
+    },
+    "TH-VI-0101": {
+      "admitted_at": "2026-10-23T07:53:32.008938+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0102 (cửa hàng đến lấy xe: mốc hết hạn thuê, ai chịu trách nhiệm khi xe chờ; gần nhất vì cùng câu hỏi bàn giao không có người nhận)",
+          "TH-VI-0093 (đang kẹt xe, báo muộn so với giờ hẹn, tập trung vào tin nhắn và cách tính muộn)",
+          "TH-VI-0014 (phụ phí nhận/trả ngoài giờ chỉ là một mục trong danh sách)"
+        ],
+        "rationale": "Tình huống cụ thể là người đã biết mình không kịp giờ cửa hàng mở nên hỏi trước có được trả ngoài giờ không, chìa khóa và xe để đâu, ai xác nhận hiện trạng xe và mốc nào tính hết hạn thuê; các peer chỉ chạm một phần (nhân viên đến lấy xe, báo muộn khi đang kẹt, phụ phí). Bài phải gắn vào kịch bản tự mang xe tới sau giờ đóng cửa, không bàn nhân viên đến lấy xe (0102), không bàn phí ngoài giờ (chỉ là câu cần hỏi, link 0014) và không bàn báo muộn khi đang kẹt (0093). Đây phải là bài duy nhất giữ chủ đề trả xe ngoài giờ, nên 0086 không được viết lại trùng nó.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "trả xe thuê sau giờ đóng cửa của cửa hàng",
+      "proposed_title": "Trả xe sau giờ cửa hàng đóng cửa vì tăng ca hoặc chuyến về muộn: hỏi trước chìa khóa để đâu và ai xác nhận hiện trạng xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-sau-gio-cua-hang-dong-cua-chia-khoa-de-dau-ai-xac-nhan/",
+      "search_intent": "Người đi làm tăng ca hoặc về muộn không kịp trả xe trong giờ cửa hàng mở cần hỏi trước có được trả ngoài giờ không, chìa khóa và xe để ở đâu, ai xác nhận hiện trạng xe và thời điểm nào thì tính hết hạn thuê.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0101"
+    },
+    "TH-VI-0217": {
+      "admitted_at": "2026-10-23T07:53:32.021215+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "intent_review": {
+        "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
+        "language": "vi",
+        "nearest": [
+          "TH-VI-0208 (giải thích nhớt máy vs nhớt láp cho người đang thuê hỏi hạng mục đến hạn; gần nhất, cùng chủ đề nhớt nhưng khác thời điểm và nhu cầu)",
+          "TH-VI-0127 (năm đăng ký hay số km cho biết gì về tình trạng xe)",
+          "TH-VI-0218 (rà lại xe cùng cửa hàng trước khi gia hạn)"
+        ],
+        "rationale": "Câu hỏi riêng là trước khi chốt thuê từ một tháng, xin xem bằng chứng bảo dưỡng của chính chiếc xe (tem nhắc thay nhớt, hóa đơn, sổ hoặc ghi chú kiểm tra gần nhất) thay vì nghe nói miệng; 0127 chỉ so năm đăng ký với số km, 0208 giải thích hai loại nhớt cho người đang thuê, 0218 là rà xe lúc gia hạn. Bài phải giữ góc 'hỏi giấy tờ và dấu vết bảo dưỡng trước khi thuê', không giải thích hai loại nhớt (link 0208) hay so năm sản xuất với số km (link 0127). Không khẳng định cửa hàng có tem, sổ hay hóa đơn nào nếu chưa có first_party_facts; chỉ hướng người đọc đề nghị xem.",
+        "reviewer_id": "intent-reviewer-subagent-2",
+        "verdict": "DISTINCT"
+      },
+      "language": "vi",
+      "primary_keyword": "lịch sử bảo dưỡng xe thuê tem thay nhớt",
+      "proposed_title": "Hỏi lịch sử bảo dưỡng của chiếc xe sắp thuê: tem thay nhớt, sổ bảo hành và lần kiểm tra gần nhất",
+      "proposed_url": "https://rentbikehanoi.com/vi/hoi-lich-su-bao-duong-xe-sap-thue-tem-thay-nhot/",
+      "search_intent": "Người sắp thuê xe một tháng trở lên muốn biết xe được thay nhớt và kiểm tra lần gần nhất khi nào, cần biết nên hỏi cửa hàng cho xem tem nhắc, hóa đơn hay ghi chú nào thay vì chỉ nghe nói miệng.",
+      "sources": [
+        {
+          "document": "99bd5ac13eb7603e306cd257c586a098dcb34fcb3f6b98e17f87d0c7fd4231fa",
+          "supports": "Chủ cửa hàng cung cấp: tên, địa chỉ, giờ mở cửa, số điện thoại và các khoảng giá tham khảo; không có chính sách giao xe, cọc, hoàn cọc hay phí gia hạn.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0217"
     }
   },
-  "version": 196
+  "version": 197
 }
