@@ -228,7 +228,7 @@
     }
   ],
   "intents": {},
-  "inventory_document": "46e7db38b68c8a6d066fe2e017d6394ade8803828b314651cc043eb9fb8e7ccf",
+  "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
   "leases": {
     "W1": {
       "agent_id": "claude-writer-W1",
@@ -2322,5 +2322,5 @@
       "topic_id": "TH-000061"
     }
   },
-  "version": 33
+  "version": 34
 }
