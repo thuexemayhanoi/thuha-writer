@@ -3446,22 +3446,24 @@
       "sha256": "837b93163340c1bbbb0d2a777e008ec13ec71f670baa6c3966e667b9d9c298e9",
       "slot": "W1",
       "topic_id": "TH-VI-0484"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "29fa369baa0a7d1a96bd4f788c737b38c1f6276c65709648d7b81902c32eacd3",
+      "at": "2026-10-23T13:54:19.392432+00:00",
+      "previous": "837b93163340c1bbbb0d2a777e008ec13ec71f670baa6c3966e667b9d9c298e9",
+      "sha256": "db2fc05072a709cf52bbae7dbaba8669a9a766629cbc47ce7cde2e168eeb5d87",
+      "topic_id": "TH-VI-0484",
+      "waiting_for": [
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792765455.845244,
-      "fence": "112fa3caebaa4e48a1a452d84d504b2b",
-      "heartbeat_at": "2026-10-23T13:54:15.845226+00:00",
-      "language": "vi",
-      "session": "sess-b3r",
-      "slot": "W1",
-      "topic_id": "TH-VI-0484"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -4141,13 +4143,13 @@
     },
     "TH-VI-0484": {
       "agent_id": "claude-writer-W1",
-      "article_sha": "ee3497527e955d80f19389672f3b660234e48700d7d23e5d7d8addcf4f4f07de",
-      "commit": "5c1fade4c9386b0b4e4617a720650f071dcda04f",
-      "fence": "44cdf0e07aba47c6936e7c82d22f4962",
+      "article_sha": "29fa369baa0a7d1a96bd4f788c737b38c1f6276c65709648d7b81902c32eacd3",
+      "commit": "5cec8fc955dfd038069df635e799d47f14f4beee",
+      "fence": "112fa3caebaa4e48a1a452d84d504b2b",
       "repair_count": 0,
-      "session": "sess-b3",
+      "session": "sess-b3r",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:33:27.361118+00:00"
+      "submitted_at": "2026-10-23T13:54:19.392413+00:00"
     },
     "TH-VI-0487": {
       "agent_id": "claude-writer-W1",
@@ -7848,7 +7850,6 @@
         171
       ],
       "cluster": "hanh-trinh-tu-ha-noi",
-      "completion_pending": true,
       "language": "vi",
       "primary_keyword": "chốt điểm đi chơi nhóm trên Zalo bằng xe máy",
       "proposed_title": "Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào",
@@ -7861,7 +7862,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "WAITING_DATA",
       "topic_id": "TH-VI-0484",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -7925,5 +7926,5 @@
       ]
     }
   },
-  "version": 486
+  "version": 487
 }
