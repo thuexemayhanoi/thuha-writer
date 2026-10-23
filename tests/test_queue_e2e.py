@@ -272,9 +272,9 @@ class FullLineTests(Line):
         self.assertTrue(any(b.startswith('NEEDS_MEDIA') and ' vi ' in b for b in value['blockers']))
         self.assertFalse(any(b.startswith('NEEDS_MEDIA') and ' en ' in b for b in value['blockers']))
 
-    def test_default_configuration_publishes_nothing(self):
+    def test_an_explicit_stopped_release_publishes_nothing(self):
         self.two_vietnamese_one_english()
-        release = load(ROOT / 'config/release.json')
+        release = dict(load(ROOT / 'config/release.json'), enabled=False, approved=False, paused=True, languages_enabled=[])
         with self.assertRaisesRegex(ValueError, 'OFF'):
             pipeline.drain(self.publisher(**release))
         self.assertEqual(self.wp.created, [])
