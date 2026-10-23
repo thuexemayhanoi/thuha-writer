@@ -5961,6 +5961,18 @@
       "sha256": "883ed83563e58298e950bf926519553d8fa998cd9f8a2030c700631dc9d36a2a",
       "slot": "W1",
       "topic_id": "TH-VI-0246"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-VI6",
+      "article_sha": "887de441a5d47df009c11de34d0984bc7262837785368010db6e6c2f88d42163",
+      "at": "2026-10-23T15:51:52.780990+00:00",
+      "previous": "883ed83563e58298e950bf926519553d8fa998cd9f8a2030c700631dc9d36a2a",
+      "sha256": "15a4dfce2412529184bb5902b3f243dd2a84b417763e24b35e222371c5f588bf",
+      "topic_id": "TH-VI-0246",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     }
   ],
   "intents": {
@@ -8936,19 +8948,7 @@
     }
   },
   "inventory_document": "254df703d389f2699eec9c620338f4a46df4af48c64a7d71cf4bd504d5c3174b",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-VI6",
-      "expires_at": 1792772506.617917,
-      "fence": "c84cef4f34e34566b0ab1bcc7ac69f8e",
-      "heartbeat_at": "2026-10-23T15:51:46.617464+00:00",
-      "language": "vi",
-      "picked": true,
-      "session": "vi-b6-20261023",
-      "slot": "W1",
-      "topic_id": "TH-VI-0246"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -10147,6 +10147,16 @@
       "session": "sess-b4",
       "slot": "W1",
       "submitted_at": "2026-10-23T14:53:47.338100+00:00"
+    },
+    "TH-VI-0246": {
+      "agent_id": "claude-writer-VI6",
+      "article_sha": "887de441a5d47df009c11de34d0984bc7262837785368010db6e6c2f88d42163",
+      "commit": "a9c8af3fd69062d4b119dbd95d2c5fe5179aad33",
+      "fence": "c84cef4f34e34566b0ab1bcc7ac69f8e",
+      "repair_count": 0,
+      "session": "vi-b6-20261023",
+      "slot": "W1",
+      "submitted_at": "2026-10-23T15:51:52.780962+00:00"
     },
     "TH-VI-0248": {
       "agent_id": "claude-writer-VI6",
@@ -14599,8 +14609,11 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-VI-0246"
+      "status": "WAITING_DATA",
+      "topic_id": "TH-VI-0246",
+      "waiting_for": [
+        "FEATURED_MEDIA"
+      ]
     },
     "TH-VI-0247": {
       "admitted_at": "2026-10-23T15:30:03.260506+00:00",
@@ -14996,5 +15009,5 @@
       ]
     }
   },
-  "version": 781
+  "version": 782
 }
