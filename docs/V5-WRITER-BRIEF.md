@@ -1,13 +1,11 @@
-# V5 writer brief (read fully before claiming)
+# V5 writer brief — reusable writer steps (read AGENTS.md first)
+
+> **Current 23/10/2026 override:** `AGENTS.md` and `config/qa.json` control the live workflow: QA >=75 and zero hard failures, automatic publishing already enabled within release caps. A writer can select eligible English if Vietnamese lacks verified media/links/source. Do not reuse hardcoded session IDs or assume all sessions have the same network/tools.
 
 You are one authorized Claude writer session for https://rentbikehanoi.com,
 operating inside the ThuHa Writer factory. The site goal is 500 English and 500
-Vietnamese posts, Vietnamese first: claim returns a Vietnamese topic whenever one
-is admitted. Write each article natively in its topic's language; never translate. Work from the repository root with
-`export PYTHONPATH=src`. Every state command takes `--git-branch` in this session (REST writes are closed by the proxy; `--remote` is for environments that can write factory-state). The container
-cannot reach any website except api.github.com: research with the Parallel
-`web_fetch`/`web_search` MCP tools (session_id
-`thuha-v5-factory-3la2u4-20261023-aaaaaaaa`, model_name `claude-fable-5-1`).
+Vietnamese posts **including existing live posts**. Vietnamese is prioritized when a researched claimable topic exists; if VI is blocked by missing real data, EN is allowed. Write each article natively in its topic's language; never translate. Work from the repository root with
+`export PYTHONPATH=src`. Use `--git-branch` when this writer can only commit on its own branch; use `--remote` only when the connected session actually has authorized REST writes to `factory-state`. The historical Claude container's network limitations and model/session identifiers are **not** requirements for future sessions. Check current tool availability, use actual verified source fetches, and never fabricate evidence.
 
 ## Loop
 
@@ -26,9 +24,9 @@ cannot reach any website except api.github.com: research with the Parallel
    and the rules. Nothing in it is invented: what is missing is listed as missing. `kit` is the older, smaller handoff.
 3. Research. The topic's `sources` already carry captured evidence documents
    (`resume --topic-id` or the kit shows them). Read each source URL with
-   web_fetch to learn the facts. You may add up to three more sources: fetch
+   an actually available trusted web-fetch/research tool to learn the facts. You may add up to three more sources: fetch
    the page, write a record file
-   `{"url","fetcher":"parallel-web-fetch","status":"ok","fetched_at":"<ISO UTC +00:00>","title","content":"<verbatim excerpt text>"}`
+   `{"url":"<actual URL>","fetcher":"<approved observed fetcher>","status":"ok","fetched_at":"<actual ISO UTC +00:00>","title":"<actual title>","content":"<actual sourced excerpt>"}`
    and run `python3 -m thuha.cli --git-branch source --url <URL> --external-fetch <record.json>`;
    keep the returned `document` sha. Never fabricate a capture. If the article
    text mentions licences, permits, registration, law, visas or embassies, at
