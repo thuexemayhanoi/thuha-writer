@@ -17,6 +17,7 @@ python3 -m thuha.cli --remote promote                 # the PLAN: FAST_FORWARD /
 python3 -m thuha.cli --remote promote --apply         # performed by the queue job after a merge to main
 python3 -m thuha.cli --git-branch sync                # plan: bring the session ledger up to the shared one
 python3 -m thuha.cli --git-branch sync --apply        # do it (before a new session starts working)
+python3 -m thuha.cli --git-branch sync --apply --discard-unpromoted   # only after DIVERGED: replace the session ledger, then submit its drafts again
 ```
 
 `promote` is **fast-forward only**: every event of the shared ledger must also be in the session ledger, in the same
@@ -33,8 +34,15 @@ still be handed over; any other replaced draft must have consumed one.
 
 If the shared ledger holds events the session ledger lacks (Actions ran QA, a publisher wrote an intent) and the session
 also has new work, the verdict is `DIVERGED`, nothing is written, and the reasons name the shared events. Work done on a
-stale copy cannot be merged automatically: `sync` refuses too, because it would discard that work. Start every session with
-`sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
+stale copy cannot be merged automatically: `sync` refuses too, because it would discard that work, and it lists what the
+session holds that the shared ledger lacks (`unpromoted`: one entry per draft with its article sha, session and agent, plus the
+event counts). The way out is deliberate and never automatic: `sync --apply --discard-unpromoted` replaces the session ledger
+with the shared one (refused while a writer holds a lease; the replaced ledger stays in the branch history and no immutable
+document is deleted), and each listed draft is then submitted again, one `claim` (`--revise` for a draft that is `WAITING_DATA`,
+`--topic-id` otherwise) with the session and agent the listing names, then `submit --file data/documents/<article_sha>.json`.
+The same article document comes back with the same address and no repair is spent. This happened on 23 October 2026, when the
+owner merged PR #3 while a session was still writing and the queue promoted the ledger and wrote QA: 25 drafts were submitted
+again that way. Start every session with `sync --apply`. `sync` fetches the documents the shared ledger depends on, including the source snapshots its articles
 point to. A session ledger that holds state no event explains (a historical review recorded by older code, for instance) is
 reported `INCONSISTENT` instead of being silently called "already included". A pull request that changes the ledger shows
 this plan (`FAST_FORWARD`, `DIVERGED`, ...) in its `quality` run before anyone merges.

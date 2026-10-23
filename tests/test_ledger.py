@@ -294,6 +294,76 @@ class RoundsTests(unittest.TestCase):
         self.assertIn('QA', ' '.join(verdict['reasons']))
         self.assertIn('LEDGER_PROMOTION', ' '.join(verdict['reasons']))
 
+    def diverge(self):
+        """The shared ledger moves on (a promotion, then QA written by Actions) while a session keeps working on its stale copy."""
+        self.promote()
+        self.actions_move_the_shared_ledger('QA')
+        self.work('TH-000004')
+
+    def test_sync_refuses_a_diverged_session_and_lists_what_it_holds_that_the_shared_ledger_lacks(self):
+        self.diverge()
+        before = copy.deepcopy(self.session.raw()[0])
+        result = ledger.sync(self.session, self.remote, apply=True)
+        self.assertEqual((result['status'], result['applied']), ('DIVERGED', False))
+        self.assertEqual([d['topic_id'] for d in result['unpromoted']['drafts']], ['TH-000004'])
+        self.assertEqual(result['unpromoted']['events'], {'RESEARCH_INTAKE': 1, 'SUBMISSION': 1})
+        self.assertEqual(self.session.raw()[0], before)  # nothing was replaced
+
+    def test_discarding_the_unpromoted_work_is_explicit_and_leaves_every_document_in_place(self):
+        self.diverge()
+        draft = self.session.raw()[0]['submissions']['TH-000004']['article_sha']
+        listed = ledger.sync(self.session, self.remote, discard_unpromoted=True)  # without --apply this only lists
+        self.assertFalse(listed['applied'])
+        self.assertIn('TH-000004', self.session.raw()[0]['topics'])
+        result = ledger.sync(self.session, self.remote, apply=True, discard_unpromoted=True)
+        self.assertEqual((result['status'], result['applied']), ('REPLACED', True))
+        self.assertEqual([d['topic_id'] for d in result['unpromoted']['drafts']], ['TH-000004'])  # still told what has to be submitted again
+        state = self.session.raw()[0]
+        self.assertNotIn('TH-000004', state['topics'])
+        self.assertEqual(ledger.logical(state['events']), ledger.logical(self.remote.raw()[0]['events']))  # exactly the shared history
+        self.assertEqual(self.session.get_document(draft), {'article': 'draft of TH-000004'})  # immutable documents are never deleted
+        self.assertEqual(ledger.plan(self.remote.raw()[0], state)['status'], 'ALREADY_INCLUDED')
+        self.work('TH-000004')  # the same draft is submitted again on top of the shared history
+        again = self.promote()
+        self.assertEqual((again['status'], again['applied']), ('FAST_FORWARD', True), again)
+        self.assertEqual(self.remote.read()['submissions']['TH-000004']['article_sha'], draft)
+
+    def test_discarding_is_refused_while_a_writer_holds_a_lease(self):
+        self.diverge()
+        lease = {'slot': 'W1', 'session': 's', 'agent_id': 'a', 'topic_id': 'TH-000004', 'language': 'en', 'fence': 'f',
+                 'heartbeat_at': now(), 'expires_at': 4102444800}
+        self.session.mutate(lambda s: s['leases'].update({'W1': lease}))
+        result = ledger.sync(self.session, self.remote, apply=True, discard_unpromoted=True)
+        self.assertEqual((result['status'], result['applied']), ('LEASES_HELD', False))
+        self.assertIn('TH-000004', self.session.raw()[0]['topics'])
+        self.assertEqual(self.session.raw()[0]['leases']['W1']['fence'], 'f')
+
+    def test_the_command_line_replaces_a_diverged_ledger_only_when_asked(self):
+        import contextlib
+        import io
+        from unittest.mock import patch
+        from thuha import cli
+        self.diverge()
+
+        def run(*flags):
+            out = io.StringIO()
+            with patch('thuha.cli.GitStore', lambda: self.remote), contextlib.redirect_stdout(out):
+                code = cli.main(['--state-dir', str(self.session.directory), 'sync', *flags])
+            return code, json.loads(out.getvalue())
+        code, result = run('--apply')
+        self.assertEqual((code, result['status']), (1, 'DIVERGED'))
+        self.assertEqual([d['topic_id'] for d in result['unpromoted']['drafts']], ['TH-000004'])
+        self.assertIn('TH-000004', self.session.raw()[0]['topics'])
+        code, result = run('--apply', '--discard-unpromoted')
+        self.assertEqual((code, result['status']), (0, 'REPLACED'))
+        self.assertNotIn('TH-000004', self.session.raw()[0]['topics'])
+
+    def test_the_discard_option_changes_nothing_for_a_session_that_can_fast_forward(self):
+        self.promote()
+        self.actions_move_the_shared_ledger('QA')
+        result = ledger.sync(self.session, self.remote, apply=True, discard_unpromoted=True)
+        self.assertEqual((result['status'], result['applied']), ('FAST_FORWARD', True))  # a plain sync, no replacement
+
     def store_as_waiting(self, tid='TH-000003'):
         def store(state):  # what `submit --waiting-for` leaves behind
             state['topics'][tid]['status'] = 'WAITING_DATA'

@@ -256,23 +256,64 @@ def _raw(store):
     return initial(), None
 
 
-def sync(local, remote, apply=False):
+def unpromoted(mine, theirs):
+    """What a session ledger holds that the shared one lacks once their common history ends: the events after it and the drafts
+    whose submission the shared ledger does not have (or has with a different article). Pure; raw ledgers in."""
+    mine_m, theirs_m = migrate(copy.deepcopy(mine)), migrate(copy.deepcopy(theirs))
+    common = len(os_common(logical(mine_m['events']), logical(theirs_m['events'])))
+    own = [e for e in mine_m['events'] if e.get('action') != 'SCHEMA_MIGRATION'][common:]
+    drafts = []
+    for tid, sub in sorted(mine_m['submissions'].items()):
+        have = theirs_m['submissions'].get(tid)
+        if have and have['article_sha'] == sub['article_sha']:
+            continue
+        topic = mine_m['topics'].get(tid, {})
+        drafts.append({'topic_id': tid, 'article_sha': sub['article_sha'], 'session': sub.get('session'), 'agent_id': sub.get('agent_id'),
+                       'status': topic.get('status'), 'waiting_for': topic.get('waiting_for')})
+    counts = {}
+    for e in own:
+        counts[e['action']] = counts.get(e['action'], 0) + 1
+    return {'events': counts, 'drafts': drafts}
+
+
+def sync(local, remote, apply=False, discard_unpromoted=False):
     """Bring a session ledger up to the live one before more session work (the reverse of `promote`).
 
     Only possible while the session ledger holds nothing the live one lacks; the result is an exact copy, so the next
     promotion is a plain fast-forward again. Referenced documents are fetched first.
+
+    A session that kept working after the shared ledger moved on (a promotion by the queue, QA written by Actions) has diverged
+    and cannot be merged: `sync` refuses and lists what the session holds that the shared ledger lacks (`unpromoted`). Only
+    `discard_unpromoted`, an explicit choice, replaces the session ledger with the shared one anyway. Nothing is deleted:
+    every immutable document stays where it is, the replaced ledger stays in the branch history, and the listed drafts are
+    submitted again through the normal gates (claim, submit) on top of the shared history. It is refused while a writer
+    holds a lease, because the replacement would invalidate its fence.
     """
     mine, _ = _raw(local)
     theirs, _ = _raw(remote)
     verdict = plan(mine, theirs, promote=False)
     verdict.update(mode='sync', applied=False)
-    if verdict['status'] != 'FAST_FORWARD' or not apply:
+    diverged = verdict['status'] == 'DIVERGED'
+    if diverged:
+        verdict['unpromoted'] = unpromoted(mine, theirs)
+    replace = diverged and discard_unpromoted
+    if replace and migrate(copy.deepcopy(mine)).get('leases'):
+        verdict.update(status='LEASES_HELD', reasons=verdict['reasons'] + ['A writer holds a lease in the session ledger: finish or release it before replacing the ledger.'])
         return verdict
+    if not apply or not (replace or verdict['status'] == 'FAST_FORWARD'):
+        return verdict
+    allowed = ('FAST_FORWARD', 'DIVERGED') if replace else ('FAST_FORWARD',)
     fetched = 0
     for sha in referenced(migrate(copy.deepcopy(theirs)), remote.get_document):
         if not _exists(local, sha):
             local.put_document(remote.get_document(sha))
             fetched += 1
-    new = local.adopt(lambda raw: migrate(copy.deepcopy(theirs)) if plan(raw, theirs, promote=False)['status'] == 'FAST_FORWARD' else None)
+    def take(raw):
+        if plan(raw, theirs, promote=False)['status'] not in allowed or (replace and migrate(copy.deepcopy(raw)).get('leases')):
+            return None
+        return migrate(copy.deepcopy(theirs))
+    new = local.adopt(take)
     verdict.update(applied=new is not None, documents_fetched=fetched)
+    if new is not None and replace:
+        verdict.update(status='REPLACED', reasons=['The session ledger had diverged from the shared one and was replaced by it: its history stays in the branch and its immutable documents are untouched. Submit the listed drafts again (claim, then submit).'])
     return verdict

@@ -149,7 +149,7 @@ def main(argv=None):
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
     q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='All completed drafts without a reviewer gate, and READY drafts whose QA report predates the current policy');q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('promote');q.add_argument('--source-state',default='data/state/factory.json');q.add_argument('--source-docs',default='data/documents');q.add_argument('--apply',action='store_true')
-    q=sub.add_parser('sync');q.add_argument('--apply',action='store_true')
+    q=sub.add_parser('sync');q.add_argument('--apply',action='store_true');q.add_argument('--discard-unpromoted',action='store_true')
     q=sub.add_parser('publisher');q.add_argument('--mode',choices=['dry-run','production','reconcile','verify','drain','acknowledge'],default='dry-run');q.add_argument('--topic-id');q.add_argument('--note')
     q=sub.add_parser('controls');q.add_argument('--pause',choices=['on','off']);q.add_argument('--emergency-stop',choices=['on','off'])
     args=p.parse_args(argv)
@@ -376,8 +376,8 @@ def main(argv=None):
         if result['status'] not in ('FAST_FORWARD','ALREADY_INCLUDED'):exit_code=1
     elif args.command=='sync':
         if args.remote:raise ValueError('Sync copies the shared ledger into a session branch: use --git-branch')
-        result=ledger.sync(store,GitStore(),apply=args.apply)
-        if result['status'] not in ('FAST_FORWARD','ALREADY_INCLUDED'):exit_code=1
+        result=ledger.sync(store,GitStore(),apply=args.apply,discard_unpromoted=args.discard_unpromoted)
+        if result['status'] not in ('FAST_FORWARD','ALREADY_INCLUDED','REPLACED'):exit_code=1
     elif args.command=='controls':
         def controls(s):
             for key,arg in [('paused',args.pause),('emergency_stop',args.emergency_stop)]:
