@@ -4840,6 +4840,15 @@
       "sha256": "f78a640845a03d2de0271970dbc7ea2fa9d355ecea3e3348d5360e2fd16f7251",
       "slot": "W1",
       "topic_id": "TH-EN-0065"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "at": "2026-10-23T14:55:57.894373+00:00",
+      "previous": "f78a640845a03d2de0271970dbc7ea2fa9d355ecea3e3348d5360e2fd16f7251",
+      "sha256": "ca255c0197776a7bb7227854318a8e2fd159710598fea2ae54a933f48fca68db",
+      "topic_id": "TH-EN-0065"
     }
   ],
   "intents": {
@@ -8327,13 +8336,13 @@
     },
     "TH-EN-0065": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "5d9bab52cf98a121f46850580bfbdf293cce4327d974fcd0aff0d37dfcfdd6b9",
-      "commit": "033a2df6ab722af5ed191fcaabaa1febb5c02369",
-      "fence": "322c76062a354a86ac5843048aacf949",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "commit": "2ec77eb2828548224cad7af251c4a6e896493d0d",
+      "fence": "986f396732284d4c90686b53d5830e47",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:52.241942+00:00"
+      "submitted_at": "2026-10-23T14:55:57.894355+00:00"
     },
     "TH-EN-0125": {
       "agent_id": "claude-writer-W2",
@@ -11110,7 +11119,6 @@
         142
       ],
       "cluster": "motorbike-reviews-comparisons",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "xe so xe con tay xe ga meaning",
       "proposed_title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
@@ -11123,9 +11131,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0065",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0065"
     },
     "TH-EN-0125": {
       "admitted_at": "2026-10-23T12:08:22.382465+00:00",
@@ -12788,5 +12795,5 @@
       ]
     }
   },
-  "version": 652
+  "version": 653
 }
