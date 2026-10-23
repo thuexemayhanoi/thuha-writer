@@ -4282,6 +4282,15 @@
       "sha256": "f59e21c95acebf2d1cb82aaff0160759bbbbe56b53e21cfe508087055f6744b1",
       "slot": "W1",
       "topic_id": "TH-EN-0125"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "05e8f888b1d719ec83002d05febb9cb6c7b00857a02046150a5ba58fae1f478e",
+      "at": "2026-10-23T13:59:41.802662+00:00",
+      "previous": "f59e21c95acebf2d1cb82aaff0160759bbbbe56b53e21cfe508087055f6744b1",
+      "sha256": "b0f865a276926fd7dbc44f6786e8d26cc17146a791b5486fcc9a0bdb9c3a4ca6",
+      "topic_id": "TH-EN-0125"
     }
   ],
   "intents": {},
@@ -4717,13 +4726,13 @@
     },
     "TH-EN-0125": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "8404313e276621f3e17255b426db944af0257a069a69634ddf523c3781ebf916",
-      "commit": "904b4b17bc76536bae859e305eda92bf9082221d",
-      "fence": "1d758e50211341afbed9612e4c2b672e",
+      "article_sha": "05e8f888b1d719ec83002d05febb9cb6c7b00857a02046150a5ba58fae1f478e",
+      "commit": "42eab86d1174fd217289dac63b8fa44c7092c984",
+      "fence": "f33a97ac72534df594705efef210e603",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:45:09.777918+00:00"
+      "submitted_at": "2026-10-23T13:59:41.802639+00:00"
     },
     "TH-EN-0139": {
       "agent_id": "claude-writer-W2",
@@ -7342,7 +7351,6 @@
         134
       ],
       "cluster": "parking-weather-breakdowns",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
       "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
@@ -7355,12 +7363,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0125",
-      "waiting_for": [
-        "FEATURED_MEDIA",
-        "INTERNAL_LINKS"
-      ]
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0125"
     },
     "TH-EN-0139": {
       "admitted_at": "2026-10-23T12:08:22.392065+00:00",
@@ -9007,5 +9011,5 @@
       ]
     }
   },
-  "version": 552
+  "version": 553
 }
