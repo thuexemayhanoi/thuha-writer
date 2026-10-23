@@ -4776,6 +4776,15 @@
       "sha256": "674b05faaf2cf1bd3ed45c36e65dcdbae298e458a8cf4953455192341e13c1a0",
       "slot": "W1",
       "topic_id": "TH-EN-0140"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
+      "at": "2026-10-23T14:55:34.870913+00:00",
+      "previous": "674b05faaf2cf1bd3ed45c36e65dcdbae298e458a8cf4953455192341e13c1a0",
+      "sha256": "ca492f9f76bf9ddbe898d793844875cff8a6ceb43d0b8d91b3df2dacb790353c",
+      "topic_id": "TH-EN-0140"
     }
   ],
   "intents": {
@@ -8283,13 +8292,13 @@
     },
     "TH-EN-0140": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "3fc48ada3078b6b39a6aaae1bf2cd5920f01474fd4410cc896184597cb7b46da",
-      "commit": "20bf018de51116275dbb40ef29714263b8a60d80",
-      "fence": "8cbff82c70584df6a68974eae842f9ac",
+      "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
+      "commit": "94f0b7fa141e8fe8bfdf4f830ee7a42862f8de16",
+      "fence": "69a9374dfe974794a622bea773e162d4",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:33.683523+00:00"
+      "submitted_at": "2026-10-23T14:55:34.870888+00:00"
     },
     "TH-EN-0141": {
       "agent_id": "claude-writer-W2",
@@ -11138,7 +11147,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "group motorbike ride hanoi stay together",
       "proposed_title": "Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider",
@@ -11151,9 +11159,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0140",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0140"
     },
     "TH-EN-0141": {
       "admitted_at": "2026-10-23T12:08:22.413193+00:00",
@@ -12716,5 +12723,5 @@
       ]
     }
   },
-  "version": 644
+  "version": 645
 }
