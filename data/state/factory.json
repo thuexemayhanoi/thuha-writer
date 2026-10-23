@@ -7476,6 +7476,22 @@
         "TH-EN-0027",
         "TH-EN-0004"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-23T16:57:48.368120+00:00",
+      "previous": "2fc745f3e5ce20d3c80f705321d2ca8dc07396f28568decf5509537aa86e0166",
+      "sha256": "155ec2e6cdb8169bb15894f03429f7a54b4698704e543ed48dbe854fcce3c88c",
+      "topic_ids": [
+        "TH-VI-0009",
+        "TH-VI-0020",
+        "TH-VI-0068",
+        "TH-VI-0069",
+        "TH-VI-0075",
+        "TH-VI-0076",
+        "TH-VI-0221",
+        "TH-VI-0211"
+      ]
     }
   ],
   "intents": {
@@ -10995,6 +11011,17 @@
       "status": "FULFILLED"
     },
     "research-vi-cfda2564e017aec4": {
+      "admitted_topic_ids": [
+        "TH-VI-0009",
+        "TH-VI-0020",
+        "TH-VI-0068",
+        "TH-VI-0069",
+        "TH-VI-0075",
+        "TH-VI-0076",
+        "TH-VI-0221",
+        "TH-VI-0211"
+      ],
+      "completed_at": "2026-10-23T16:57:48.368111+00:00",
       "created_at": "2026-10-23T16:48:38.742228+00:00",
       "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
       "language": "vi",
@@ -11002,7 +11029,7 @@
       "planned": 8,
       "request_id": "research-vi-cfda2564e017aec4",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-d08b8dd5e031330b": {
       "admitted_topic_ids": [
@@ -15462,6 +15489,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0009": {
+      "admitted_at": "2026-10-23T16:57:48.256012+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thanh toán thuê xe máy chuyển khoản hay tiền mặt",
+      "proposed_title": "Trả tiền thuê xe bằng tiền mặt, chuyển khoản hay quét mã QR: chọn cách nào cho gọn",
+      "proposed_url": "https://rentbikehanoi.com/vi/thanh-toan-thue-xe-may-tien-mat-chuyen-khoan-hay-qr/",
+      "search_intent": "Người đi công tác không muốn mang nhiều tiền mặt, cân nhắc giữa tiền mặt, chuyển khoản và quét QR khi trả tiền thuê xe, cần chốt cách trả và ghi nội dung gì để sau này dễ đối chiếu.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0009"
+    },
     "TH-VI-0010": {
       "admitted_at": "2026-10-23T15:15:19.771738+00:00",
       "category_id": 152,
@@ -15756,6 +15807,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0020": {
+      "admitted_at": "2026-10-23T16:57:48.271863+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê hỏng có được trừ tiền ngày không dùng",
+      "proposed_title": "Xe hỏng giữa chừng mất cả ngày chờ sửa: cách tính tiền những ngày không dùng được",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-hong-giua-chung-tinh-tien-ngay-khong-dung-duoc/",
+      "search_intent": "Người thuê xe theo tuần gặp sự cố khiến cả ngày không có xe để đi, cần biết hỏi cửa hàng cách xử lý tiền thuê của ngày đó và nên ghi lại giờ báo hỏng, giờ có xe thay thế ra sao.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0020"
     },
     "TH-VI-0021": {
       "admitted_at": "2026-10-23T16:38:47.625527+00:00",
@@ -16245,6 +16320,54 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0068": {
+      "admitted_at": "2026-10-23T16:57:48.286854+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tạm trong lúc chờ xe mới",
+      "proposed_title": "Chờ xe mới về từ đại lý: thuê xe máy tạm vài tuần cần lưu ý gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-xe-moi-ve-tu-dai-ly-thue-xe-may-tam-vai-tuan-luu-y-gi/",
+      "search_intent": "Người đã đặt mua xe ở đại lý nhưng phải chờ vài tuần mới nhận, cần phương tiện đi làm trong thời gian chờ, muốn thuê tạm theo tuần và tránh bị ràng buộc kỳ hạn dài khi xe mới có thể về sớm.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0068"
+    },
+    "TH-VI-0069": {
+      "admitted_at": "2026-10-23T16:57:48.301839+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tạm khi xe nhà đang sửa",
+      "proposed_title": "Xe nhà đang sửa hoặc chờ bồi thường sau va chạm: thuê xe tạm trong thời gian chờ",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-nha-dang-sua-hoac-cho-boi-thuong-thue-xe-tam-trong-thoi-gian-cho/",
+      "search_intent": "Xe của người đi làm nằm gara lâu sau va chạm hoặc hỏng nặng, họ cần xe thay thế đi lại hằng ngày, muốn thuê tuần hay tháng và cần cách báo ngày trả dự kiến khi chưa rõ bao giờ lấy lại xe nhà.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0069"
+    },
     "TH-VI-0072": {
       "admitted_at": "2026-10-23T15:30:03.294593+00:00",
       "category_id": 154,
@@ -16271,6 +16394,54 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0075": {
+      "admitted_at": "2026-10-23T16:57:48.317299+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tháng đi làm ca đêm",
+      "proposed_title": "Làm ca sớm hoặc ca tối ở khu công nghiệp ven Hà Nội: thuê xe tháng và kiểm tra những gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/lam-ca-som-ca-toi-o-khu-cong-nghiep-ven-ha-noi-thue-xe-thang-kiem-tra-gi/",
+      "search_intent": "Công nhân hoặc kỹ thuật viên làm ca sớm, ca tối ở khu công nghiệp ngoại thành phải đi đường vắng lúc trời tối, muốn thuê tháng và cần biết kiểm tra đèn, phanh, hỏi giờ nhận trả xe hợp với ca làm.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0075"
+    },
+    "TH-VI-0076": {
+      "admitted_at": "2026-10-23T16:57:48.331733+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe tháng giữ một chiếc xe cố định",
+      "proposed_title": "Thuê tháng muốn giữ nguyên một chiếc xe suốt kỳ: hỏi gì về việc bị đổi xe ngoài ý muốn",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-thang-muon-giu-nguyen-mot-chiec-xe-hoi-gi-ve-viec-bi-doi-xe/",
+      "search_intent": "Người thuê tháng muốn quen một chiếc xe duy nhất, ghi lại biển số và các đặc điểm riêng của xe, cần hỏi cửa hàng khi nào xe có thể bị đổi, báo trước bằng cách nào và nên ghi điều đó vào hợp đồng ra sao.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0076"
     },
     "TH-VI-0086": {
       "admitted_at": "2026-10-23T15:15:19.785642+00:00",
@@ -16901,6 +17072,30 @@
         "FEATURED_MEDIA"
       ]
     },
+    "TH-VI-0211": {
+      "admitted_at": "2026-10-23T16:57:48.368072+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "hao mòn thông thường xe thuê hư hỏng",
+      "proposed_title": "Hao mòn thông thường hay hư hỏng do sử dụng: cách phân biệt khi cửa hàng nhận lại xe thuê",
+      "proposed_url": "https://rentbikehanoi.com/vi/hao-mon-thong-thuong-hay-hu-hong-do-su-dung-xe-thue/",
+      "search_intent": "Người sắp trả xe muốn biết nên hỏi cửa hàng dựa vào tiêu chí nào để coi vết xước, lốp mòn hay phanh mòn là hao mòn thông thường hay hư hỏng do sử dụng, và nên ghi rõ điều đó ở đâu từ lúc ký.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0211"
+    },
     "TH-VI-0217": {
       "admitted_at": "2026-10-23T07:53:32.021215+00:00",
       "category_id": 160,
@@ -16973,6 +17168,30 @@
       "waiting_for": [
         "FEATURED_MEDIA"
       ]
+    },
+    "TH-VI-0221": {
+      "admitted_at": "2026-10-23T16:57:48.347950+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe tháng việc nhỏ tự làm hay hỏi cửa hàng",
+      "proposed_title": "Thuê xe theo tháng: bơm lốp, lau xích hay thay bóng đèn, việc nhỏ nào tự làm được và việc nào hỏi cửa hàng trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-theo-thang-viec-nho-nao-tu-lam-viec-nao-hoi-cua-hang/",
+      "search_intent": "Người thuê xe theo tháng quen tự chăm xe, muốn bơm lốp, lau xích hay thay bóng xi nhan; cần hỏi cửa hàng việc nào được tự làm, việc nào phải để cửa hàng làm, và ghi rõ trong thỏa thuận để cuối kỳ không phát sinh tranh cãi.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0221"
     },
     "TH-VI-0224": {
       "admitted_at": "2026-10-23T12:36:45.399058+00:00",
@@ -17434,5 +17653,5 @@
       ]
     }
   },
-  "version": 954
+  "version": 955
 }
