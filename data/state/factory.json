@@ -2216,6 +2216,15 @@
       "reason": "Merged after the second independent editorial review: the month-end timeline now lives in TH-VI-0058.",
       "sha256": "ddb58c3a8af8e716b5be953ce975293a612611e8cb911848df9c04fa47554134",
       "topic_id": "TH-VI-0095"
+    },
+    {
+      "action": "TOPIC_HELD",
+      "at": "2026-10-23T08:19:47.510388+00:00",
+      "previous": "ddb58c3a8af8e716b5be953ce975293a612611e8cb911848df9c04fa47554134",
+      "previous_status": "WAITING_DATA",
+      "reason": "Held after the second independent editorial review: a question list that FAQ-style pages repeat, with no answer or calculation; revive when the owner has answered the surcharge questions (docs/bilingual/OWNER-QUESTIONS.md).",
+      "sha256": "6f0d702766d46be169103c4e6c0b6527d06ab4082f5351ac8e08350fd999646d",
+      "topic_id": "TH-VI-0014"
     }
   ],
   "intents": {},
@@ -4736,6 +4745,11 @@
         152
       ],
       "cluster": "huong-dan-thue-xe",
+      "held": {
+        "at": "2026-10-23T08:19:47.510363+00:00",
+        "from": "WAITING_DATA",
+        "reason": "Held after the second independent editorial review: a question list that FAQ-style pages repeat, with no answer or calculation; revive when the owner has answered the surcharge questions (docs/bilingual/OWNER-QUESTIONS.md)."
+      },
       "intent_review": {
         "inventory_sha256": "df53795e8b97242e81793721d40b82a10e17ed82482cc4102192e3e888dc4188",
         "language": "vi",
@@ -4760,7 +4774,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "HELD",
       "topic_id": "TH-VI-0014",
       "waiting_for": [
         "AUTHORITATIVE_INVENTORY",
@@ -5377,5 +5391,5 @@
       ]
     }
   },
-  "version": 292
+  "version": 293
 }
