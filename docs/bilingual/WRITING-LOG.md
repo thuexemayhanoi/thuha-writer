@@ -59,3 +59,25 @@ Tám bản nháp viết sau khi biết các phát hiện ở trên (cùng giọn
 TH-VI-0043, 0053, 0063, 0089, 0093, 0095, 0101, 0217. Lỗi của chính tôi cần ghi lại: lần nộp đầu của lô #2 vô tình dùng văn bản cũ (trước khi áp dụng các bài học trên) vì một script phụ bỏ qua thư mục
 bản đã sửa. Tôi phát hiện khi đối chiếu số liệu của bản đã lưu (meta quá dài, từ khóa vắng mặt), trước khi có reviewer nào đọc chúng; cả tám bản được nộp lại
 như hoàn thiện bản chờ (không tốn lần sửa) và bản đã lưu nay khớp văn bản đã sửa. Review biên tập độc lập lần hai chạy trên bản đã lưu của cả 17 bài.
+
+### Review biên tập lần hai và gộp bài (23/10/2026)
+
+Review độc lập lần hai chạy trên cả 17 bản đã lưu. Kết quả nói thẳng: số liệu đã đúng (mọi tổng, mốc, bảng được tính lại), meta đã ≤155 ký tự, nhưng **giọng văn, khung bài và chồng lấn ý chưa được sửa**:
+cả 17 bài cùng một khung (mở đầu bằng câu hỏi, lời rào "bài chỉ giúp bạn biết hỏi gì", bảng câu hỏi, mẫu tin nhắn, mục "Hỏi cửa hàng"), và chỉ năm bài dạy được điều gì ngoài danh sách câu hỏi.
+Reviewer đề nghị xuất bản **7 trang thay vì 17**, và tôi làm theo vì đúng với quy tắc "một ý định tìm kiếm riêng cho mỗi bài" và không nhồi chữ:
+
+| Trang giữ (WAITING_DATA) | Nhận thêm từ | Điều đã sửa |
+|---|---|---|
+| TH-VI-0019 ngày/tuần/tháng | 0006 trả sớm, 0063 tuần so với tháng | Sửa lỗi nhãn "cách 1/cách 2" (lỗi chặn); thêm bảng giá theo từng dòng xe có giá cố định (Vision, Air Blade, xe 50cc) |
+| TH-VI-0004 cách đếm một ngày | | Nêu rõ quy tắc làm tròn phần lẻ mà cả bảng dựa vào; bỏ câu khái quát về thị trường |
+| TH-VI-0033 hai khoản cọc | 0035 hoàn cọc, 0053 thuê hai xe | Một trang cọc duy nhất; bảng A/B/C sửa theo thời điểm trả tiền thuê; bỏ giọng đòi bằng chứng |
+| TH-VI-0011 hiện trạng và đền bù | 0089 mức xăng/pin | Gỡ câu chỉ để mang con số giá; thêm ghi pin cho xe điện; sửa giọng "cửa hàng bạn chọn" |
+| TH-VI-0093 trả muộn | 0101 trả sau giờ đóng cửa | Một trang cho "đến muộn hơn đã hẹn"; từ khóa vào thân bài |
+| TH-VI-0058 sinh viên thuê tháng | 0095 cuối kỳ thuê | Thêm bảng ba tháng từ giá tham khảo; "nếu có" cho hợp đồng/phiếu |
+| TH-VI-0016 giá trên Facebook | 0043 đối chiếu thông tin liên hệ | Thêm câu phạm vi (bài nhân danh Thuê xe máy Nguyễn Hà), bỏ đoạn tự bào chữa |
+
+`HELD` (giữ nguyên bản đã lưu, có lý do, hoàn tác bằng `unhold`): 0006, 0063, 0035, 0053, 0089, 0101, 0095 (đã gộp); 0014 (danh sách câu hỏi không có đáp án hay phép tính), 0043 (bài cảnh báo lừa đảo là quyết định về giọng điệu của chủ cửa hàng), 0217 (kiểm toán hồ sơ bảo dưỡng của chính cửa hàng khi chưa biết gì về nó), cùng 0024 từ trước.
+Không có bài nào trong số này bị xóa; chủ đề vẫn là dòng kế hoạch trong ma trận.
+
+Điều chưa được giải quyết bằng viết lại: **giọng trung lập kiểu "hướng dẫn người tiêu dùng" đặt trên trang của chính cửa hàng**, và việc mọi bài vẫn trả lời "hãy hỏi cửa hàng". Gốc rễ là cửa hàng chưa trả lời các câu hỏi; reviewer cũng đề nghị chủ cửa hàng
+xác nhận lại khoảng giá (xe số: giá tháng thấp hơn hai tuần; xe ga: giá tuần tối đa gấp hơn năm lần giá ngày thấp nhất). Cả hai nằm trong [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md).

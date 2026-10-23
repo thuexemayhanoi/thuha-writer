@@ -16,7 +16,8 @@ Không cần cài đặt hay chạy lệnh gì: chỉ cần trả lời bằng c
 | 6 | Phụ phí: trả muộn, nhận hoặc trả ngoài giờ mở cửa, giao nhận xe tận nơi, thuê thêm mũ hoặc phụ kiện, gia hạn, vệ sinh xe, hủy hoặc đổi lịch: khoản nào có, bao nhiêu? | TH-VI-0014, 0101, 0102, 0103 |
 | 7 | Giá thuê đã gồm những gì (mấy mũ bảo hiểm, áo mưa, khóa phụ, giá đỡ điện thoại)? Quy ước xăng khi nhận và trả xe là gì? | TH-VI-0010 (đang giữ), 0255, 0089 |
 | 8 | Cách thanh toán nào được nhận (tiền mặt, chuyển khoản, quét mã)? Tên chủ tài khoản nhận tiền là gì, kênh liên hệ chính thức nào ngoài số điện thoại (Zalo, Facebook, website)? | TH-VI-0009, 0043, 0016, 0097 |
-| 9 | Thuê tháng: trả một lần hay chia kỳ? Bảo dưỡng giữa kỳ do ai lo, có xe thay thế không? Người thuê và người lái có phải là một người không, cần mang giấy tờ gì? | TH-VI-0063, 0217, 0058, các bài thuê tháng |
+| 9 | Xác nhận khoảng giá tham khảo: với xe số, giá một tháng (1.000.000-1.200.000 đồng) thấp hơn hai tuần (1.400.000-1.600.000 đồng); với xe ga, giá tuần tối đa 1.000.000 đồng so với giá ngày 150.000-200.000 đồng. Đó là đúng ý hay có nhầm lẫn khi nhập? | TH-VI-0019, 0058, 0016 (các bài đang dùng đúng các con số này) |
+| 10 | Thuê tháng: trả một lần hay chia kỳ? Bảo dưỡng giữa kỳ do ai lo, có xe thay thế không? Người thuê và người lái có phải là một người không, cần mang giấy tờ gì? | TH-VI-0063, 0217, 0058, các bài thuê tháng |
 
 Khi có câu trả lời, nơi ghi đúng là `config/business-facts.json` (một thay đổi cần được xem xét như mọi thay đổi cấu hình). **Lưu ý:** bằng chứng first-party của các bản thảo hiện tại gắn
 với bản ghi hiện có của tệp đó; khi tệp đổi, bằng chứng cũ được coi là cũ và các bản thảo phải được viết lại dựa trên câu trả lời thật (đó chính là mục đích: chuyển từ

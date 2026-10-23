@@ -12,24 +12,34 @@
     "Other publisher coordination not verified",
     "No external AI session lease; Actions do not generate prose",
     "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "17 draft(s) wait for data (AUTHORITATIVE_INVENTORY x17, FEATURED_MEDIA x17, INTERNAL_LINKS x17): TH-VI-0004, TH-VI-0006, TH-VI-0011, TH-VI-0014, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0035, TH-VI-0043, TH-VI-0053, TH-VI-0058, TH-VI-0063",
+    "7 draft(s) wait for data (AUTHORITATIVE_INVENTORY x7, FEATURED_MEDIA x7, INTERNAL_LINKS x7): TH-VI-0004, TH-VI-0011, TH-VI-0016, TH-VI-0019, TH-VI-0033, TH-VI-0058, TH-VI-0093",
     "7 draft(s) wait for an independent review before QA: TH-000001, TH-000002, TH-000003, TH-000004, TH-000007, TH-000008, TH-000009"
   ],
   "closed_intents": {},
   "factory_published_receipts": 0,
-  "generated_at": "2026-10-23T07:59:58.582722+00:00",
+  "generated_at": "2026-10-23T08:20:26.341754+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 263,
+    "session_ledger_version": 295,
     "shared_ledger_version": 5,
     "status": "FAST_FORWARD"
   },
   "held": {
-    "TH-VI-0024": "Held after the independent editorial pre-review: it repeats the compensation questions of TH-VI-0011 and adds only a guess; its one distinct idea (ask whether the figures differ by vehicle) now lives in a section of TH-VI-0011."
+    "TH-VI-0006": "Merged after the second independent editorial review: its early-return table and questions now live in TH-VI-0019, which also owns the day/week comparison.",
+    "TH-VI-0014": "Held after the second independent editorial review: a question list that FAQ-style pages repeat, with no answer or calculation; revive when the owner has answered the surcharge questions (docs/bilingual/OWNER-QUESTIONS.md).",
+    "TH-VI-0024": "Held after the independent editorial pre-review: it repeats the compensation questions of TH-VI-0011 and adds only a guess; its one distinct idea (ask whether the figures differ by vehicle) now lives in a section of TH-VI-0011.",
+    "TH-VI-0035": "Merged after the second independent editorial review: refund timing, means and deductions now live in TH-VI-0033, the single deposit page.",
+    "TH-VI-0043": "Held after the second independent editorial review: a scam-warning page is a tone decision for the owner; its contact check is folded into TH-VI-0016.",
+    "TH-VI-0053": "Merged after the second independent editorial review: the two-bike points now live in TH-VI-0033.",
+    "TH-VI-0063": "Merged after the second independent editorial review: the week-versus-month comparison and the instalment point now live in TH-VI-0019.",
+    "TH-VI-0089": "Merged after the second independent editorial review: the fuel and battery record now lives in the hand-over checklist of TH-VI-0011.",
+    "TH-VI-0095": "Merged after the second independent editorial review: the month-end timeline now lives in TH-VI-0058.",
+    "TH-VI-0101": "Merged after the second independent editorial review: return after closing time now lives in TH-VI-0093 (same situation: arriving later than agreed).",
+    "TH-VI-0217": "Held after the second independent editorial review: it audits the shop's own maintenance records, about which nothing is known; revive when the owner has answered the maintenance question."
   },
   "inventory_age_seconds": 0,
   "inventory_complete": true,
@@ -83,7 +93,7 @@
         "BLOCKED": 0,
         "CLAIMED": 0,
         "DRAFT_READY": 0,
-        "HELD": 1,
+        "HELD": 11,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
         "PLANNED": 0,
@@ -91,7 +101,7 @@
         "PUBLISHING": 0,
         "READY": 0,
         "RESEARCH": 0,
-        "WAITING_DATA": 17
+        "WAITING_DATA": 7
       },
       "target": 500,
       "unresolved_intents": 0
@@ -142,7 +152,17 @@
       "awaiting_qa": [],
       "awaiting_review": [],
       "held_or_unknown": [
-        "TH-VI-0024"
+        "TH-VI-0006",
+        "TH-VI-0014",
+        "TH-VI-0024",
+        "TH-VI-0035",
+        "TH-VI-0043",
+        "TH-VI-0053",
+        "TH-VI-0063",
+        "TH-VI-0089",
+        "TH-VI-0095",
+        "TH-VI-0101",
+        "TH-VI-0217"
       ],
       "needs_repair": [],
       "published": [],
@@ -150,22 +170,12 @@
       "qa_pass": [],
       "waiting_data": [
         "TH-VI-0004",
-        "TH-VI-0006",
         "TH-VI-0011",
-        "TH-VI-0014",
         "TH-VI-0016",
         "TH-VI-0019",
         "TH-VI-0033",
-        "TH-VI-0035",
-        "TH-VI-0043",
-        "TH-VI-0053",
         "TH-VI-0058",
-        "TH-VI-0063",
-        "TH-VI-0089",
-        "TH-VI-0093",
-        "TH-VI-0095",
-        "TH-VI-0101",
-        "TH-VI-0217"
+        "TH-VI-0093"
       ]
     }
   },
@@ -329,7 +339,7 @@
     "BLOCKED": 0,
     "CLAIMED": 0,
     "DRAFT_READY": 7,
-    "HELD": 1,
+    "HELD": 11,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
     "PLANNED": 48,
@@ -337,7 +347,7 @@
     "PUBLISHING": 0,
     "READY": 2,
     "RESEARCH": 0,
-    "WAITING_DATA": 17
+    "WAITING_DATA": 7
   },
   "targets": {
     "en": 500,
@@ -349,17 +359,7 @@
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
     ],
-    "TH-VI-0006": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
     "TH-VI-0011": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0014": [
       "AUTHORITATIVE_INVENTORY",
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
@@ -379,52 +379,12 @@
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
     ],
-    "TH-VI-0035": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0043": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0053": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
     "TH-VI-0058": [
       "AUTHORITATIVE_INVENTORY",
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"
     ],
-    "TH-VI-0063": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0089": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
     "TH-VI-0093": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0095": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0101": [
-      "AUTHORITATIVE_INVENTORY",
-      "FEATURED_MEDIA",
-      "INTERNAL_LINKS"
-    ],
-    "TH-VI-0217": [
       "AUTHORITATIVE_INVENTORY",
       "FEATURED_MEDIA",
       "INTERNAL_LINKS"

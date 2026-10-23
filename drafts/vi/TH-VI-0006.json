@@ -61,7 +61,7 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
+  "status": "HELD",
   "submitted_at": "2026-10-23T07:49:18.402755+00:00",
   "topic_id": "TH-VI-0006",
   "waiting_for": [
