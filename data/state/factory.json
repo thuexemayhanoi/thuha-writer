@@ -4204,11 +4204,36 @@
       "sha256": "9aa13df70135663ae4b79d62ed0e1b0a2bc00e1c058e507f053e60310107e6cf",
       "status": "PASS",
       "topic_id": "TH-EN-0141"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-23T13:59:15.462807+00:00",
+      "expires_at": 1792765755.462797,
+      "fence": "828722cf243344b6b8f5d89248fd6162",
+      "heartbeat_at": "2026-10-23T13:59:15.462780+00:00",
+      "language": "en",
+      "previous": "9aa13df70135663ae4b79d62ed0e1b0a2bc00e1c058e507f053e60310107e6cf",
+      "session": "sess-e1c",
+      "sha256": "8ef802addd7cbf0be93f4a17221b99b952c1575c8c99087a26033d11cdff3a57",
+      "slot": "W1",
+      "topic_id": "TH-EN-0065"
     }
   ],
   "intents": {},
   "inventory_document": "b793c871ccaecb32b3817674ca7c3ed839f7acc3e4b151e042baabc2402d9d73",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792765755.462797,
+      "fence": "828722cf243344b6b8f5d89248fd6162",
+      "heartbeat_at": "2026-10-23T13:59:15.462780+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0065"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -7222,6 +7247,7 @@
         142
       ],
       "cluster": "motorbike-reviews-comparisons",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "xe so xe con tay xe ga meaning",
       "proposed_title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
@@ -7234,7 +7260,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0065",
       "waiting_for": [
         "FEATURED_MEDIA",
@@ -8915,5 +8941,5 @@
       ]
     }
   },
-  "version": 545
+  "version": 546
 }
