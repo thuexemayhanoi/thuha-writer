@@ -1551,22 +1551,25 @@
       "sha256": "ca11071b9d3a6ecb89b7175c07355ac32765b97b74a879bf6f339a8f2c48f7c3",
       "slot": "W1",
       "topic_id": "TH-VI-0217"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W1",
+      "article_sha": "bd933d5d824a012bca8a09b27df2869600540e3e0f577ca10a6989eff211d721",
+      "at": "2026-10-23T07:54:36.959990+00:00",
+      "previous": "ca11071b9d3a6ecb89b7175c07355ac32765b97b74a879bf6f339a8f2c48f7c3",
+      "sha256": "15e5b2bd4d44b8815d9b492943b2455f664f3890981b6e7058aedb4c143ea657",
+      "topic_id": "TH-VI-0217",
+      "waiting_for": [
+        "AUTHORITATIVE_INVENTORY",
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   ],
   "intents": {},
   "inventory_document": "da7c6de42b8554be3a7e0912c9598fb30c265ee8c9a8ce7f788be23412b5d42c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W1",
-      "expires_at": 1792743872.674782,
-      "fence": "c7836d23e9924a81b95a251c5f1b4b99",
-      "heartbeat_at": "2026-10-23T07:54:32.674766+00:00",
-      "language": "vi",
-      "session": "w2-20261023-v0217",
-      "slot": "W1",
-      "topic_id": "TH-VI-0217"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "4b92c14ce76c94efd2075074070d947d4582375e8c6f5ff1e3a0fa4c244e7e08",
@@ -1971,6 +1974,16 @@
       "session": "w2-20261023-v0101",
       "slot": "W1",
       "submitted_at": "2026-10-23T07:54:28.759828+00:00"
+    },
+    "TH-VI-0217": {
+      "agent_id": "claude-writer-W1",
+      "article_sha": "bd933d5d824a012bca8a09b27df2869600540e3e0f577ca10a6989eff211d721",
+      "commit": "1c0d72191d84f659f28b4dab5902d123a389f92a",
+      "fence": "c7836d23e9924a81b95a251c5f1b4b99",
+      "repair_count": 0,
+      "session": "w2-20261023-v0217",
+      "slot": "W1",
+      "submitted_at": "2026-10-23T07:54:36.959964+00:00"
     }
   },
   "topics": {
@@ -4669,9 +4682,14 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-VI-0217"
+      "status": "WAITING_DATA",
+      "topic_id": "TH-VI-0217",
+      "waiting_for": [
+        "AUTHORITATIVE_INVENTORY",
+        "FEATURED_MEDIA",
+        "INTERNAL_LINKS"
+      ]
     }
   },
-  "version": 220
+  "version": 221
 }
