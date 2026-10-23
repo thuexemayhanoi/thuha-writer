@@ -25,8 +25,8 @@ Vietnamese posts **including existing live posts**. Vietnamese is prioritized wh
 3. Research. The topic's `sources` already carry captured evidence documents
    (`resume --topic-id` or the kit shows them). Read each source URL with
    an actually available trusted web-fetch/research tool to learn the facts. You may add up to three more sources: fetch
-   the page, write a truthful record file. Select the **one actually observed** fetcher from the allowlist in `src/thuha/research.py` (never fake the label):
-   `{"url":"<actual URL>","fetcher":"parallel-web-fetch|claude-webfetch|github-actions-runner","status":"ok","fetched_at":"<actual ISO UTC +00:00>","title":"<actual title>","content":"<actual sourced excerpt>"}`
+   the page, write a truthful record file. Select the **one actually observed** fetcher from the exact allowlist in `src/thuha/research.py` (`parallel-web-fetch`, `claude-webfetch`, or `github-actions-runner`; never invent the label). Example for an actual Parallel fetch:
+   `{"url":"<actual URL>","fetcher":"parallel-web-fetch","status":"ok","fetched_at":"<actual ISO UTC +00:00>","title":"<actual title>","content":"<actual sourced excerpt with at least 40 words>"}`
    and run `python3 -m thuha.cli --git-branch source --url <URL> --external-fetch <record.json>`;
    keep the returned `document` sha. Never fabricate a capture. If the article
    text mentions licences, permits, registration, law, visas or embassies, at
