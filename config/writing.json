@@ -201,19 +201,19 @@
     },
     "FEATURED_MEDIA_OR_ALT_NOT_VERIFIED": {
       "where": "featured_media",
-      "fix": "Chọn id trong danh sách media của `pack` (alt đúng ngôn ngữ); nếu không có ảnh nào thì để null và lưu với --waiting-for FEATURED_MEDIA. Không tự đặt id."
+      "fix": "Legacy hint only: photos/alt optional, featured_media=null is valid; alt recommended for accessibility only."
     },
     "FEATURED_ALT_*": {
       "where": "alt của ảnh đại diện",
-      "fix": "Alt của ảnh phải viết đúng ngôn ngữ của bài; chọn ảnh khác, không sửa alt tiếng Anh dùng chung."
+      "fix": "Legacy hint only: photos/alt optional, featured_media=null is valid; alt recommended for accessibility only."
     },
     "BODY_IMAGE_ALT_MISSING": {
       "where": "<img> trong thân bài",
-      "fix": "Mỗi <img> cần alt không rỗng đúng ngôn ngữ của bài."
+      "fix": "Legacy hint only: photos/alt optional, featured_media=null is valid; alt recommended for accessibility only."
     },
     "BODY_IMAGE_ALT_*": {
       "where": "alt của <img> trong thân bài",
-      "fix": "Alt phải đúng ngôn ngữ của bài."
+      "fix": "Legacy hint only: photos/alt optional, featured_media=null is valid; alt recommended for accessibility only."
     },
     "RESEARCH_EVIDENCE_MISSING": {
       "where": "sources",

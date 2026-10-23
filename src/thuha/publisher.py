@@ -296,7 +296,7 @@ class Publisher:
         if p.get('language')!=lang:problems.append('language registered as '+str(p.get('language')))
         if marks.get('taxonomy_vi')!=(lang=='vi') or marks.get('is_vi')!=(lang=='vi'):problems.append('native language marker')
         if p.get('categories')!=[intent['category_id']] or p.get('category_languages')!=[lang]:problems.append('category or its language')
-        if p.get('featured_media')!=article['featured_media']:problems.append('featured image')
+        if (p.get('featured_media') or 0)!=(article.get('featured_media') or 0):problems.append('featured image')
         if intent['marker'] not in p.get('content_raw',''):problems.append('ownership marker in the body')
         if ' '.join(parse(p.get('content_raw','')).text).split()!=' '.join(parse(article['body_html']).text).split():problems.append('visible body text')
         if p.get('title')!=article['title']:problems.append('title')

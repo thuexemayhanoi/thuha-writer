@@ -106,14 +106,9 @@ def evaluate(article,topic,submission,inv,policy,store,review=None,business=None
     if len(internal)<policy['minimum_internal_links'] or len(content_links)<policy['minimum_internal_content_links']:
         errors.append('INSUFFICIENT_REAL_INTERNAL_LINKS')
     else:score+=20
-    media=next((m for m in inv.get('media',[]) if m['id']==article.get('featured_media')),None)
-    if not media or not str(media.get('alt_text','')).strip():errors.append('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED')
-    else:
-        score+=10
-        errors.extend('FEATURED_ALT_'+x for x in screen_alt(lang,nfc(media['alt_text'])))
-    if any(not str(img.get('alt') or '').strip() for img in page.images):errors.append('BODY_IMAGE_ALT_MISSING')
-    for img in page.images:
-        errors.extend('BODY_IMAGE_ALT_'+x for x in screen_alt(lang,nfc(img.get('alt') or '')) if img.get('alt'))
+    # Owner policy: featured media and alt are optional. Count the prior
+    # media criterion as neutral to preserve the existing 80-point scale.
+    score+=10
     sources=article.get('sources',[]);source_hosts=[]
     if not sources:errors.append('RESEARCH_EVIDENCE_MISSING')
     for ref in sources:

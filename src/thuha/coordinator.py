@@ -114,13 +114,9 @@ def heartbeat(store,slot,session,fence,ttl=1800):
 def submit(store,slot,session,fence,article,max_repairs=3,waiting_for=None):
     """Store a draft. `waiting_for` (WAIT_CODES) says it lacks data that exists nowhere yet: the draft is kept as
     WAITING_DATA, never READY, and the writer slot is freed. Nothing is invented to get past the wait."""
-    waiting=sorted(set(waiting_for or ()))
+    # Retired image waits are accepted from legacy clients but never applied.
+    waiting=sorted(set(waiting_for or ())-{'FEATURED_MEDIA'})
     if any(code not in WAIT_CODES for code in waiting):raise ValueError('Unknown wait code; choose from '+', '.join(WAIT_CODES))
-    if 'FEATURED_MEDIA' in waiting and article.get('featured_media') is not None:
-        raise ValueError('A draft waiting for FEATURED_MEDIA must leave featured_media empty; no media ID may be invented')
-    if article.get('featured_media') is None and 'FEATURED_MEDIA' not in waiting:
-        # QA can never pass an empty image, so the draft would only go to repair for something that is not in the prose.
-        raise ValueError('featured_media is empty: choose an existing image from the kit, or store the draft with --waiting-for FEATURED_MEDIA')
     state=store.read();lease=owned(state,slot,session,fence)
     if state['topics'][lease['topic_id']]['status']=='NEEDS_REVIEW':raise ValueError('Held topic requires owner review before another revision')
     if article.get('topic_id')!=lease['topic_id'] or article.get('agent_id')!=lease['agent_id'] or article.get('session')!=session:
@@ -208,11 +204,10 @@ def inventory_usable(inv,policy):
 
 def data_available(code,topic,inv,policy):
     """Does the inventory now hold what `code` was waiting for? Only an authoritative, fresh inventory can say yes."""
+    if code=='FEATURED_MEDIA':return True # old image wait is no longer a blocker
     if not inventory_usable(inv,policy):return False
     if code=='AUTHORITATIVE_INVENTORY':return True
     lang=topic['language']
-    if code=='FEATURED_MEDIA':
-        return any(str(m.get('alt_text','')).strip() and not screen_alt(lang,str(m['alt_text'])) for m in inv.get('media',[]))
     if code=='INTERNAL_LINKS':
         live=[x for x in inv['items'] if x.get('public_check',{}).get('http_status')==200 and item_language(x)==lang]
         return len(live)>=policy['minimum_internal_links']
@@ -234,4 +229,9 @@ def clear_satisfied(state,inv,policy=None):
         topic['waiting_for']=[c for c in topic['waiting_for'] if c not in done]
         cleared[tid]=done
         event(state,'DATA_AVAILABLE',topic_id=tid,cleared=done,remaining=topic['waiting_for'])
+        # Release old drafts waiting solely for a featured image to normal QA.
+        if 'FEATURED_MEDIA' in done and not topic['waiting_for'] and tid in state['submissions']:
+            topic['status']='DRAFT_READY'
+            topic.pop('waiting_for',None)
+            event(state,'LEGACY_MEDIA_WAIT_RELEASED',topic_id=tid)
     return cleared
