@@ -13328,6 +13328,26 @@
       "sha256": "cdcfcce5a465699af58d0cf9884eb325f6d8e15a491dc8b83db34029c1b5b533",
       "status": "PASS",
       "topic_id": "TH-VI-0369"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T15:18:11.092443+00:00",
+      "previous": "cdcfcce5a465699af58d0cf9884eb325f6d8e15a491dc8b83db34029c1b5b533",
+      "sha256": "bb92749211fb1ff142e720c2baf96e42ce32e866737acb3ddc10cf4c246cd757",
+      "topic_ids": [
+        "TH-VI-0270",
+        "TH-VI-0271",
+        "TH-VI-0278",
+        "TH-VI-0324",
+        "TH-VI-0331",
+        "TH-VI-0334",
+        "TH-VI-0335",
+        "TH-VI-0360",
+        "TH-VI-0486",
+        "TH-VI-0489",
+        "TH-VI-0492",
+        "TH-VI-0495"
+      ]
     }
   ],
   "intents": {
@@ -25311,6 +25331,21 @@
       "status": "FULFILLED"
     },
     "research-vi-e383c55042352d3c": {
+      "admitted_topic_ids": [
+        "TH-VI-0270",
+        "TH-VI-0271",
+        "TH-VI-0278",
+        "TH-VI-0324",
+        "TH-VI-0331",
+        "TH-VI-0334",
+        "TH-VI-0335",
+        "TH-VI-0360",
+        "TH-VI-0486",
+        "TH-VI-0489",
+        "TH-VI-0492",
+        "TH-VI-0495"
+      ],
+      "completed_at": "2026-10-24T15:18:11.092432+00:00",
       "created_at": "2026-10-24T15:02:25.610218+00:00",
       "inventory_sha256": "76f926034a1d46da3032c3293621d5b57db78804fc8ca652ed1fda7aa7564f0e",
       "language": "vi",
@@ -25318,7 +25353,7 @@
       "planned": 25,
       "request_id": "research-vi-e383c55042352d3c",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-ee563cb9bf171602": {
       "admitted_topic_ids": [
@@ -35406,6 +35441,68 @@
       "status": "READY",
       "topic_id": "TH-VI-0269"
     },
+    "TH-VI-0270": {
+      "admitted_at": "2026-10-24T15:18:10.846405+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "chở bánh kem hoa tươi bằng xe máy thuê",
+      "proposed_title": "Chở bánh sinh nhật hoặc hoa tươi bằng xe thuê: đặt hộp ở đâu và chọn giờ, tuyến đường thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-banh-sinh-nhat-hoac-hoa-tuoi-bang-xe-thue-dat-hop-o-dau/",
+      "search_intent": "Người thuê xe ghé tiệm lấy bánh kem hoặc bó hoa cho dịp sinh nhật, lo bánh nghiêng, hoa dập, cần biết nên đặt hộp ở đâu hay nhờ người ngồi sau cầm, chọn giờ và tuyến ít xóc, và nên đi chậm đến mức nào.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0270"
+    },
+    "TH-VI-0271": {
+      "admitted_at": "2026-10-24T15:18:10.867666+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đeo túi cầm điện thoại khi đi xe máy tránh bị giật",
+      "proposed_title": "Đeo túi, cầm điện thoại thế nào khi chạy xe máy buổi tối ở nội đô để đỡ bị giật lúc dừng đèn đỏ",
+      "proposed_url": "https://rentbikehanoi.com/vi/deo-tui-cam-dien-thoai-khi-chay-xe-may-buoi-toi-de-do-bi-giat/",
+      "search_intent": "Người thuê xe hay chạy buổi tối qua khu đông người, để túi đeo chéo và điện thoại trong tay khi dừng đèn đỏ hoặc nhắn tin; cần cách mang đồ cá nhân trên xe để khó bị giật mà vẫn lấy được khi cần.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0271"
+    },
     "TH-VI-0274": {
       "admitted_at": "2026-10-24T09:55:06.938025+00:00",
       "category_id": 162,
@@ -35429,6 +35526,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0274"
+    },
+    "TH-VI-0278": {
+      "admitted_at": "2026-10-24T15:18:10.897031+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "điện thoại quá nóng gắn giá đỡ xe máy dưới nắng",
+      "proposed_title": "Điện thoại nóng máy rồi tự tắt khi gắn trên giá đỡ giữa nắng hè: cách che nắng, bớt sạc và giữ sẵn chỉ đường dự phòng",
+      "proposed_url": "https://rentbikehanoi.com/vi/dien-thoai-nong-may-tu-tat-khi-gan-gia-do-giua-nang-he-che-nang-bot-sac-chi-duong-du-phong/",
+      "search_intent": "Người dùng điện thoại làm bản đồ trên giá đỡ xe máy giữa trưa hè thấy máy báo quá nhiệt, giảm sáng hoặc tự tắt; cần biết cách che nắng, có nên vừa sạc vừa dùng không, khi nào nên cất vào túi và cách ghi nhớ trước tuyến đường để không lạc lúc máy tắt.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0278"
     },
     "TH-VI-0280": {
       "admitted_at": "2026-10-24T11:13:57.492084+00:00",
@@ -35959,6 +36087,68 @@
       "status": "READY",
       "topic_id": "TH-VI-0307"
     },
+    "TH-VI-0324": {
+      "admitted_at": "2026-10-24T15:18:10.917622+00:00",
+      "category_id": 164,
+      "category_path": [
+        140,
+        149,
+        164
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "để xe máy trong ngõ nhà họ hàng",
+      "proposed_title": "Để xe thuê trong ngõ nhà họ hàng: xin phép hàng xóm, tránh chắn lối và khóa xe ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/de-xe-thue-trong-ngo-nha-ho-hang-xin-phep-hang-xom/",
+      "search_intent": "Người về Hà Nội thăm họ hàng, ở lại nhà trong ngõ nhỏ và thuê xe đi lại; cần xin phép chủ nhà và hàng xóm chỗ dựng xe, tránh chắn lối đi chung hoặc lối thoát hiểm, và biết cách khóa xe qua đêm.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0324"
+    },
+    "TH-VI-0331": {
+      "admitted_at": "2026-10-24T15:18:10.941371+00:00",
+      "category_id": 164,
+      "category_path": [
+        140,
+        149,
+        164
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đi xe máy qua đường chợ dân sinh",
+      "proposed_title": "Đường chợ dân sinh buổi sáng đông người: đi qua, dắt bộ hay chọn phố khác",
+      "proposed_url": "https://rentbikehanoi.com/vi/duong-cho-dan-sinh-buoi-sang-dong-nguoi-di-qua-dat-bo-hay-di-vong/",
+      "search_intent": "Người chạy xe buổi sáng gặp đoạn đường chợ họp lấn xuống lòng đường, người đi bộ, xe thồ và hàng rong dày đặc; cần quyết định dắt xe, đi vòng hay chờ, và cách nhận ra đoạn nào đang họp chợ.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0331"
+    },
     "TH-VI-0333": {
       "admitted_at": "2026-10-24T14:57:23.787273+00:00",
       "category_id": 164,
@@ -35989,6 +36179,68 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0333"
+    },
+    "TH-VI-0334": {
+      "admitted_at": "2026-10-24T15:18:10.965995+00:00",
+      "category_id": 164,
+      "category_path": [
+        140,
+        149,
+        164
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "ghim vị trí để xe trên bản đồ",
+      "proposed_title": "Quên mất mình gửi xe ở đâu sau buổi tối ở phố cổ: ghim vị trí và chụp bãi xe trước khi đi bộ",
+      "proposed_url": "https://rentbikehanoi.com/vi/ghim-vi-tri-de-xe-tren-ban-do-va-chup-bai-xe-truoc-khi-di-bo/",
+      "search_intent": "Người đi chơi nhiều điểm ở khu phố cổ đông đúc, ngõ giống nhau, dễ quên đã gửi xe ở bãi nào; cần thói quen ghim vị trí, chụp biển bãi xe và vé để quay lại lấy xe nhanh khi trời đã tối.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0334"
+    },
+    "TH-VI-0335": {
+      "admitted_at": "2026-10-24T15:18:10.986146+00:00",
+      "category_id": 164,
+      "category_path": [
+        140,
+        149,
+        164
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe bị chặn trong bãi gửi xe chật",
+      "proposed_title": "Xe thuê bị chặn trong bãi gửi chật cứng: nhờ nhân viên dắt xe thay vì tự kéo",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-bi-chan-trong-bai-gui-chat-cung-nho-nhan-vien-dat-xe/",
+      "search_intent": "Khi lấy xe ở bãi xếp san sát, xe của khách bị xe khác chắn phía trước; cần cách nhờ người trông xe dịch xe, quan sát trước khi dắt ra, và ghi nhận nếu xe thuê bị va quệt để khỏi tranh cãi khi trả xe.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0335"
     },
     "TH-VI-0342": {
       "admitted_at": "2026-10-24T15:00:45.137522+00:00",
@@ -36144,6 +36396,37 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0359"
+    },
+    "TH-VI-0360": {
+      "admitted_at": "2026-10-24T15:18:11.007037+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "người tỉnh lẻ đi xe máy ở Hà Nội lần đầu",
+      "proposed_title": "Từ tỉnh lẻ ra Hà Nội chạy xe lần đầu: mật độ xe, tiếng còi và cách nhập làn khác quê nhà thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/tu-tinh-le-ra-ha-noi-chay-xe-lan-dau-mat-do-xe-tieng-coi-nhap-lan/",
+      "search_intent": "Người quen chạy xe ở đường làng và thị trấn lần đầu vào thủ đô thấy dòng xe dày, nhập làn liên tục, còi xe và ánh nhìn khác hẳn; cần biết những thói quen nào cần đổi ngay và nên tập ở khung giờ nào.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0360"
     },
     "TH-VI-0364": {
       "admitted_at": "2026-10-24T14:57:23.844997+00:00",
@@ -36413,6 +36696,37 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0484"
     },
+    "TH-VI-0486": {
+      "admitted_at": "2026-10-24T15:18:11.027578+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "tính thời gian đệm cho lịch trình đi xe máy",
+      "proposed_title": "Lịch trình đi xe máy hay bị trễ: cách tính thời gian đệm cho kẹt đường, nghỉ chân và chụp ảnh",
+      "proposed_url": "https://rentbikehanoi.com/vi/lich-trinh-di-xe-may-hay-bi-tre-tinh-thoi-gian-dem/",
+      "search_intent": "Người lập lịch trình thường tính giờ chạy theo bản đồ rồi trễ cả buổi vì nghỉ chân, ăn uống, kẹt xe và dừng chụp ảnh, cần cách cộng thời gian đệm hợp lý cho từng loại điểm dừng.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0486"
+    },
     "TH-VI-0487": {
       "admitted_at": "2026-10-23T11:56:51.764960+00:00",
       "category_id": 171,
@@ -36437,6 +36751,37 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0487"
     },
+    "TH-VI-0489": {
+      "admitted_at": "2026-10-24T15:18:11.048719+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đi qua đêm gửi bớt hành lý ở khách sạn Hà Nội",
+      "proposed_title": "Đi qua đêm rồi quay lại: gửi bớt hành lý ở chỗ ở tại Hà Nội và chỉ mang theo thứ cần thiết",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-qua-dem-roi-quay-lai-gui-bot-hanh-ly-o-cho-o-tai-ha-noi/",
+      "search_intent": "Khách đang ở Hà Nội định đi một đêm ra tỉnh rồi quay lại, muốn gửi vali ở khách sạn, cần hỏi chỗ ở về gửi đồ và giữ phòng, chọn đồ tối thiểu và chia vào ba lô, cốp xe cho hai ngày.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0489"
+    },
     "TH-VI-0491": {
       "admitted_at": "2026-10-23T11:56:51.775074+00:00",
       "category_id": 171,
@@ -36460,7 +36805,69 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0491"
+    },
+    "TH-VI-0492": {
+      "admitted_at": "2026-10-24T15:18:11.072192+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "ra ngoại thành mang tiền mặt hay quét mã QR",
+      "proposed_title": "Ra ngoại thành mang tiền mặt hay quét mã QR: chuẩn bị tiền lẻ cho vé, gửi xe và đổ xăng",
+      "proposed_url": "https://rentbikehanoi.com/vi/ra-ngoai-thanh-mang-tien-mat-hay-quet-ma-qr-chuan-bi-tien-le/",
+      "search_intent": "Người quen thanh toán bằng điện thoại ở nội thành lo rằng ở vùng ven, chợ quê hoặc điểm tham quan nhỏ chỉ nhận tiền mặt, cần ước lượng khoản nào nên có tiền lẻ và cách phòng khi mạng yếu.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0492"
+    },
+    "TH-VI-0495": {
+      "admitted_at": "2026-10-24T15:18:11.092386+00:00",
+      "category_id": 171,
+      "category_path": [
+        140,
+        151,
+        171
+      ],
+      "cluster": "hanh-trinh-tu-ha-noi",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đánh dấu cây xăng quán nước trên bản đồ trước chuyến đi",
+      "proposed_title": "Ghim sẵn cây xăng, quán nước và nhà vệ sinh trên bản đồ trước khi đi xa bằng xe máy",
+      "proposed_url": "https://rentbikehanoi.com/vi/ghim-san-cay-xang-quan-nuoc-nha-ve-sinh-tren-ban-do-truoc-khi-di-xa/",
+      "search_intent": "Người đi tuyến vắng nghe lời khuyên đánh dấu sẵn điểm dừng nhưng không biết nên ghim loại điểm nào, đặt khoảng cách giữa các điểm ra sao và kiểm tra điểm đó còn hoạt động không qua đánh giá gần đây.",
+      "sources": [
+        {
+          "document": "b7791f164fc226dfdf59647ff9f108fdd058de7639a21df1702bc92ae13c376e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2286
+  "version": 2287
 }
