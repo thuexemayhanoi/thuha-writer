@@ -14866,6 +14866,15 @@
       "sha256": "d26e8395611ac4c7fd48da23c1529b1b0c83a48a82ab0a54e49bac897f13a938",
       "slot": "W1",
       "topic_id": "TH-000013"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "8b72eb4ae115f91a59f81cbc724b1725d52ba534035d4600707d9e0749641329",
+      "at": "2026-10-24T16:00:52.393606+00:00",
+      "previous": "d26e8395611ac4c7fd48da23c1529b1b0c83a48a82ab0a54e49bac897f13a938",
+      "sha256": "3565444d190dbe1a9648bb780afd61478017e32ff09498c59a2237eab89ffeda",
+      "topic_id": "TH-000013"
     }
   ],
   "intents": {
@@ -27298,6 +27307,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T16:00:38.262218+00:00"
     },
+    "TH-000013": {
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "8b72eb4ae115f91a59f81cbc724b1725d52ba534035d4600707d9e0749641329",
+      "commit": "218c190b94be433aedcc3a1fb20bb730a43d59c4",
+      "fence": "a0e28d06f98d45bf824deaa526dccff6",
+      "repair_count": 0,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:00:52.393577+00:00"
+    },
     "TH-000021": {
       "agent_id": "claude-writer-EN12",
       "article_sha": "0a975085ed6078bbce7797282ffe6141b38faa7d46d4e4c5eec922ca32b1696e",
@@ -30621,7 +30640,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000013"
     },
     "TH-000014": {
@@ -40227,5 +40246,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2464
+  "version": 2465
 }
