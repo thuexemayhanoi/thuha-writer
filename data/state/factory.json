@@ -15007,6 +15007,15 @@
       "previous": "fbf0c4694fd586719f064b53da677092e2ba15e0a9f0f52f38c7ef5f062d23e5",
       "sha256": "e7d8ab362540d5403bd185d52c3057492f7d2b29b0960ba5b66f2eb362c0062a",
       "topic_id": "TH-000031"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:01:54.118683+00:00",
+      "previous": "e7d8ab362540d5403bd185d52c3057492f7d2b29b0960ba5b66f2eb362c0062a",
+      "report_sha": "0c75e6e8b4c7893beedf76ec848616d40ce7f867b475ec9e4e134f43b55050db",
+      "sha256": "5ca2177644ba6b48f77423690484d463a761a092b105eacc186d015a193a8f05",
+      "status": "PASS",
+      "topic_id": "TH-000031"
     }
   ],
   "intents": {
@@ -25227,19 +25236,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859504.766788,
-      "fence": "04455d41c1f54c6f8750551f5bd018ac",
-      "heartbeat_at": "2026-10-24T16:01:44.766762+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000031"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25324,6 +25321,11 @@
     "TH-000028": {
       "article_sha": "ae14a4473deeb59b60e777170d770bfc0a825b73bf83a67c6c544e1bb5afe675",
       "report_sha": "509d4ebe5375495e170cdec6759f4447fbcf4aadab1b7fe013fc3b7d41e4adf8",
+      "status": "PASS"
+    },
+    "TH-000031": {
+      "article_sha": "fc65271fdb7f6bf21800bf61ee704e375e6a071e2c2638137e4c35714aed8b07",
+      "report_sha": "0c75e6e8b4c7893beedf76ec848616d40ce7f867b475ec9e4e134f43b55050db",
       "status": "PASS"
     },
     "TH-000032": {
@@ -31468,7 +31470,7 @@
           "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000031"
     },
     "TH-000032": {
@@ -40438,5 +40440,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2481
+  "version": 2482
 }
