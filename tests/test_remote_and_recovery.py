@@ -57,6 +57,26 @@ class RemoteTests(unittest.TestCase):
     def test_content_addressed_remote_checkpoint_roundtrip(self):
         sha=self.store.put_document({'body':'Actual independent document bytes'})
         self.assertEqual(self.store.get_document(sha)['body'],'Actual independent document bytes')
+    def test_immutable_document_create_retries_422_without_faking_collision(self):
+        class BranchMovedAPI(MemoryGitHub):
+            def __init__(self):
+                super().__init__()
+                self.reject_once = True
+
+            def request(self, method, path, body=None):
+                if method == 'PUT' and '/contents/data/documents/' in path and self.reject_once:
+                    self.reject_once = False
+                    raise GitError(422)  # branch moved, yet target document does not exist
+                return super().request(method, path, body)
+
+        api = BranchMovedAPI()
+        store = GitStore(api)
+        body = {'article': 'unique and immutable Vietnamese draft'}
+        sha = store.put_document(body)
+        self.assertEqual(store.get_document(sha), body)
+        self.assertEqual(api.writes, 1)
+        self.assertFalse(api.reject_once)
+
     def test_runtime_store_cannot_write_code(self):
         with self.assertRaises(ValueError):self.store._put('src/thuha/quality.py',{'fake':True})
     def test_remote_checkpoint_tampering_is_detected(self):
