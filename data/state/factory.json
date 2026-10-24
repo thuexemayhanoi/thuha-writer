@@ -12273,6 +12273,15 @@
       "previous": "cfce480626d35c0f38f9f6905b9ad69f93794e955a39ddf9d37496363c6ccc0c",
       "sha256": "7b668e4281aea341606a02d2c2990b47fd910e012d186dc85ca8a9b4f4824608",
       "topic_id": "TH-000050"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:05:15.298166+00:00",
+      "previous": "7b668e4281aea341606a02d2c2990b47fd910e012d186dc85ca8a9b4f4824608",
+      "report_sha": "155422971d1042e049ee4992452b1bddba148e26065f109c9e6714857b0827d3",
+      "sha256": "040ecf6fa4d94333cc6728f434c213f135738aaccd313418e7c222e5569c6bae",
+      "status": "PASS",
+      "topic_id": "TH-000050"
     }
   ],
   "intents": {
@@ -22493,19 +22502,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856105.878653,
-      "fence": "60e3363e255e4794a19f785d706daf02",
-      "heartbeat_at": "2026-10-24T15:05:05.878629+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000050"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22605,6 +22602,11 @@
     "TH-000049": {
       "article_sha": "1ddecde83ffe71879152cb966edab3e5a565de3ab3f0a32668feacc74384d27b",
       "report_sha": "5fae55aa55ed909a206f3008d08fdf941dd1b8a8e95e86caa4b8ad1a2e54dd7a",
+      "status": "PASS"
+    },
+    "TH-000050": {
+      "article_sha": "50a240e7e6a03d2bb2995a7c2735d193ea12018ba86342ac4cd081c8e6e0e7d4",
+      "report_sha": "155422971d1042e049ee4992452b1bddba148e26065f109c9e6714857b0827d3",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -28009,7 +28011,7 @@
           "url": "https://evisa.gov.vn/faq"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000050"
     },
     "TH-000051": {
@@ -34949,5 +34951,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2158
+  "version": 2159
 }
