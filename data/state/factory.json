@@ -8162,6 +8162,15 @@
       "previous": "6d199e204c92bc627bc4497c1f79a814fc1a80e481c5ad279845a0ff7dcf40f7",
       "sha256": "1d996d1f97f7b43103521a01006d44099a70ad5786f1caf9de024d5e3764b328",
       "topic_id": "TH-EN-0035"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T10:06:31.817863+00:00",
+      "previous": "1d996d1f97f7b43103521a01006d44099a70ad5786f1caf9de024d5e3764b328",
+      "report_sha": "73ade76aea1e929376a7c9c94348e5dbb56f0b4c73405bca4bed56bf1220afaf",
+      "sha256": "fad661b48177814aebf1d7cee4a3fc8d3a7a4133e73baa872f44cb7b3297efb1",
+      "status": "PASS",
+      "topic_id": "TH-EN-0035"
     }
   ],
   "intents": {
@@ -18382,19 +18391,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN5",
-      "expires_at": 1792838185.274614,
-      "fence": "310b4c86da3d482dbd45b0c0a7f534e3",
-      "heartbeat_at": "2026-10-24T10:06:25.274586+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b5-20261023",
-      "slot": "W1",
-      "topic_id": "TH-EN-0035"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -18529,6 +18526,11 @@
     "TH-EN-0032": {
       "article_sha": "edd9b2d98775131013a0fec7e86a061b794413c0f7006e82e3899e02afcba728",
       "report_sha": "ce166e4d3585d9a6512ec42723e7281013b8b6deff19027e16e156d23a9edd04",
+      "status": "PASS"
+    },
+    "TH-EN-0035": {
+      "article_sha": "4167fbf69102d3cc784a32c5b29271994f3ab5ee2f83ffb3445ed8fa3ced2f6d",
+      "report_sha": "73ade76aea1e929376a7c9c94348e5dbb56f0b4c73405bca4bed56bf1220afaf",
       "status": "PASS"
     },
     "TH-EN-0036": {
@@ -23063,7 +23065,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0035"
     },
     "TH-EN-0036": {
@@ -26241,5 +26243,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1674
+  "version": 1675
 }
