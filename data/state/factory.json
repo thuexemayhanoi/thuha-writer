@@ -12494,6 +12494,15 @@
       "previous": "c32c193e068fcc9bea015d7fa4a91d56ff0238d2d9db33be47cd97bf1ce279d4",
       "sha256": "cfb747eb398fbc39b7b4846f34727dd695abe3e4ca2bfc908f95f27682ed3b60",
       "topic_id": "TH-000055"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:08:04.353244+00:00",
+      "previous": "cfb747eb398fbc39b7b4846f34727dd695abe3e4ca2bfc908f95f27682ed3b60",
+      "report_sha": "612d24173be1af56fc824811814716daf9424cf9ca8abc29a71fb196d0aa117e",
+      "sha256": "5112f3445715cdd342fed0c951ae3d09e3b26dcd1ce96c85d28ccbdd10dd9a71",
+      "status": "PASS",
+      "topic_id": "TH-000055"
     }
   ],
   "intents": {
@@ -22714,19 +22723,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856274.802892,
-      "fence": "a3ccba7c78b14c978e62a1d0c2459a6f",
-      "heartbeat_at": "2026-10-24T15:07:54.802870+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000055"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22851,6 +22848,11 @@
     "TH-000054": {
       "article_sha": "315eecc07545040487acde647f2964d0750c924d6c9fae10b4f64eb4065bbf68",
       "report_sha": "bdf49117e260b0597678c85b8065fa6d3ff6b6d349bf4a5c39cdc6e56bcdfb71",
+      "status": "PASS"
+    },
+    "TH-000055": {
+      "article_sha": "e2d30c59f9278386922f6cece5b504c2e72c236800fdcc281b65e0e2ed735971",
+      "report_sha": "612d24173be1af56fc824811814716daf9424cf9ca8abc29a71fb196d0aa117e",
       "status": "PASS"
     },
     "TH-000057": {
@@ -28485,7 +28487,7 @@
           "url": "https://metrohanoi.vn/en/?noredirect=en_US"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000055"
     },
     "TH-000056": {
@@ -35260,5 +35262,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2185
+  "version": 2186
 }
