@@ -15139,6 +15139,15 @@
       "previous": "0a04834131de515ac4ea63e0062fdfa69b4e2cc0b7f829303ec70a3fafa68ee6",
       "sha256": "a98ef8712c013a38606a9e8883eb229ef2fa49d32f33957619be027964686675",
       "topic_id": "TH-000017"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:03:41.470720+00:00",
+      "previous": "a98ef8712c013a38606a9e8883eb229ef2fa49d32f33957619be027964686675",
+      "report_sha": "6cd214772b1fa96242571b3e589815174d916dbdf8e273d34c866ceb5e9ab446",
+      "sha256": "b15c9259977fa990038339a7c753e9ae1cd4cd76b672b11116557dde6f401485",
+      "status": "PASS",
+      "topic_id": "TH-000017"
     }
   ],
   "intents": {
@@ -25359,19 +25368,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN15",
-      "expires_at": 1792859611.704487,
-      "fence": "e67c51b9fb2a45e899e8e947ceab399a",
-      "heartbeat_at": "2026-10-24T16:03:31.704466+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b15-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000017"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25431,6 +25428,11 @@
     "TH-000014": {
       "article_sha": "eff12d76cdd56e7786080c59f824463e0425cc70f61867d1e2cbf7012ab29092",
       "report_sha": "55a576907a5b3b069e0c175eb76b71d7f098c5fe650438b40bd7b8b80a52cf8f",
+      "status": "PASS"
+    },
+    "TH-000017": {
+      "article_sha": "9d16c8cac9dfb4cef52bbf8b1e66effe9840ec7e16fb5a3e61896b4e9ead7d36",
+      "report_sha": "6cd214772b1fa96242571b3e589815174d916dbdf8e273d34c866ceb5e9ab446",
       "status": "PASS"
     },
     "TH-000019": {
@@ -31167,7 +31169,7 @@
           "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000017"
     },
     "TH-000018": {
@@ -40630,5 +40632,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2497
+  "version": 2498
 }
