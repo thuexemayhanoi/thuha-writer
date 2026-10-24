@@ -14875,6 +14875,15 @@
       "previous": "d26e8395611ac4c7fd48da23c1529b1b0c83a48a82ab0a54e49bac897f13a938",
       "sha256": "3565444d190dbe1a9648bb780afd61478017e32ff09498c59a2237eab89ffeda",
       "topic_id": "TH-000013"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:00:56.353815+00:00",
+      "previous": "3565444d190dbe1a9648bb780afd61478017e32ff09498c59a2237eab89ffeda",
+      "report_sha": "2bccff2806e0f586e682ecfb19bb830e5cc969cd4979ed24787273e88dca4319",
+      "sha256": "628b66b2b80381a667876853f3fd880a7a84a93091afa861dcee9cb07277e2b0",
+      "status": "PASS",
+      "topic_id": "TH-000013"
     }
   ],
   "intents": {
@@ -25095,19 +25104,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859447.17941,
-      "fence": "a0e28d06f98d45bf824deaa526dccff6",
-      "heartbeat_at": "2026-10-24T16:00:47.179374+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000013"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25157,6 +25154,11 @@
     "TH-000012": {
       "article_sha": "92f7f2b9a97e218fe00bb2410da853bf3efb6df6bf48578f25192ead8bec40da",
       "report_sha": "b2409f17e6f834ed53bcc3bf74a635d5e4f374aa5809aa2ee5d0b37effbbe01a",
+      "status": "PASS"
+    },
+    "TH-000013": {
+      "article_sha": "8b72eb4ae115f91a59f81cbc724b1725d52ba534035d4600707d9e0749641329",
+      "report_sha": "2bccff2806e0f586e682ecfb19bb830e5cc969cd4979ed24787273e88dca4319",
       "status": "PASS"
     },
     "TH-000021": {
@@ -30640,7 +30642,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/health"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000013"
     },
     "TH-000014": {
@@ -40246,5 +40248,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2465
+  "version": 2466
 }
