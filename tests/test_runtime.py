@@ -31,6 +31,13 @@ class ExternalSourceTests(Fixture):
         self.assertEqual(snapshot['http_status'], 200)
         self.assertEqual(snapshot['url'], url)
 
+    def test_every_listed_fetcher_is_accepted_and_labelled(self):
+        url = 'https://example.org/official-notice/'
+        with patch('thuha.research.safe_public_url', lambda u: u):
+            for fetcher in ('parallel-web-fetch', 'tavily-extract'):
+                out = capture_external_source(self.store, url, record(url, fetcher=fetcher))
+                self.assertEqual(self.store.get_document(out['document'])['fetcher'], fetcher)
+
     def test_failed_thin_mismatched_or_stale_records_are_rejected(self):
         url = 'https://example.org/official-notice/'
         bad = [record(url, status='error', error='HTTP 404'), record(url, content='too short'),

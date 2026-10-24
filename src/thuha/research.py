@@ -18,7 +18,7 @@ def capture_source(store,url):
     return {'document':store.put_document(snapshot),'url':url}
 
 
-EXTERNAL_FETCHERS=('parallel-web-fetch','claude-webfetch','github-actions-runner')
+EXTERNAL_FETCHERS=('parallel-web-fetch','claude-webfetch','github-actions-runner','tavily-extract') # each one performs the real HTTP request itself
 
 
 def capture_external_source(store,url,record,max_record_age=86400):
