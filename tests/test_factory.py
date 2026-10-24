@@ -1,6 +1,7 @@
 import copy
 import concurrent.futures
 import datetime as dt
+import html
 import json
 import os
 import random
@@ -311,7 +312,7 @@ class FakeAdapter:
     """Stand-in for the companion plugin: same contract, same idempotency, no WordPress."""
     def __init__(self):
         self.posts=[];self.timeout_after_create=False;self.wrong_canonical=False;self.wrong_html_lang=False
-        self.drop_vi_marker=False;self.extra_hreflang=False;self.preflight_calls=0;self.reconcile_failures=0;self.create_calls=0
+        self.drop_vi_marker=False;self.extra_hreflang=False;self.wrong_h1=False;self.preflight_calls=0;self.reconcile_failures=0;self.create_calls=0
     def preflight(self):self.preflight_calls+=1;return {'contract':'thuha-writer/1'}
     def create(self,payload):
         from thuha.adapter import validate_payload
@@ -338,8 +339,9 @@ class FakeAdapter:
         canonical=SITE+'/wrong/' if self.wrong_canonical else p['link']
         lang='en' if self.wrong_html_lang and p['language']=='vi' else ('vi' if p['language']=='vi' else 'en')
         alt='<link rel="alternate" hreflang="en" href="'+SITE+'/some-english-pair/">' if self.extra_hreflang else ''
+        rendered_h1='Hanoi motorbike rental prices for visitors' if self.wrong_h1 else p['title']
         return ('<html lang="'+lang+'"><head><title>'+meta['_yoast_wpseo_title']+'</title><meta name="description" content="'+meta['_yoast_wpseo_metadesc']+'"><link rel="canonical" href="'+canonical+'">'+alt+
-                '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article"}</script></head></html>'),{},200
+                '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article"}</script></head><body><h1>'+html.escape(rendered_h1)+'</h1></body></html>'),{},200
 
 
 class PublisherBase(Fixture):
@@ -444,7 +446,7 @@ class PublisherTests(PublisherBase):
         self.assertEqual(self.client.posts,[]);self.assertEqual(self.store.read()['receipts'],{})
         self.assertEqual(self.store.read()['intents'][tid]['phase'],'NEEDS_RECONCILIATION')
     def test_public_page_drift_is_a_warning_and_never_undoes_a_publication(self):
-        for knob,attr in (('canonical','wrong_canonical'),('html lang','wrong_html_lang'),('foreign hreflang pair','extra_hreflang')):
+        for knob,attr in (('canonical','wrong_canonical'),('html lang','wrong_html_lang'),('foreign hreflang pair','extra_hreflang'),('wrong article H1','wrong_h1')):
             with self.subTest(knob):
                 self.setUp();p,tid=self.publisher('vi');setattr(self.client,attr,True)
                 receipt=self.publish(p,tid)
