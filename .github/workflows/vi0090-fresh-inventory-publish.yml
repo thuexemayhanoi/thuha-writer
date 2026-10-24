@@ -1,0 +1,53 @@
+name: ThuHa refresh live VI links and finish article 0090 (one time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/vi0090-fresh-inventory-publish.yml'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: thuha-wordpress-publisher
+  cancel-in-progress: false
+jobs:
+  finish-one:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_GITHUB_SECURITY_TOKEN: ${{ secrets.THUHA_GITHUB_SECURITY_TOKEN }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate unchanged QA75 and security contracts
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m thuha.cli validate
+          python3 -m thuha.cli credentials
+      - name: Verify native VI WordPress adapter
+        run: python3 -m thuha.cli --remote adapter-preflight
+      - name: Force new authenticated inventory (an existing VI link was edited after cached inventory)
+        run: |
+          mkdir -p artifacts/vi0090-refresh
+          python3 -m thuha.cli --remote --output artifacts/vi0090-refresh audit --max-age 0
+      - name: Re-run QA on original submitted article, no bypass or editorial rewrites
+        run: python3 -m thuha.cli --remote qa --topic-id TH-VI-0090
+      - name: Publish only TH-VI-0090 via guarded native adapter
+        run: python3 -m thuha.cli --remote publisher --mode production --topic-id TH-VI-0090
+      - name: Report actual WordPress receipt and post-check
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts/vi0090-refresh report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vi0090-fresh-inventory-${{ github.run_id }}
+          path: artifacts/vi0090-refresh/
+          if-no-files-found: ignore
+          retention-days: 14
