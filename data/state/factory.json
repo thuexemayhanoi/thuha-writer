@@ -12437,6 +12437,21 @@
       "sha256": "b3a595c4f9ffaab7066aafb73ba9eafb15adc796780848eded5e86ba461282ed",
       "slot": "W1",
       "topic_id": "TH-000055"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:06:24.978650+00:00",
+      "expires_at": 1792856184.97864,
+      "fence": "599d2e5ec5ab4da3b2f69ad9412920aa",
+      "heartbeat_at": "2026-10-24T15:06:24.978617+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "b3a595c4f9ffaab7066aafb73ba9eafb15adc796780848eded5e86ba461282ed",
+      "session": "en-b12-20261024",
+      "sha256": "0cb6af2cc40d281ba5277b12b10b3707f80194af0cbd6247d04944ac87221f9d",
+      "slot": "W1",
+      "topic_id": "TH-000057"
     }
   ],
   "intents": {
@@ -22657,7 +22672,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856184.97864,
+      "fence": "599d2e5ec5ab4da3b2f69ad9412920aa",
+      "heartbeat_at": "2026-10-24T15:06:24.978617+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000057"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -28458,7 +28485,7 @@
           "url": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000057"
     },
     "TH-000059": {
@@ -35166,5 +35193,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2179
+  "version": 2180
 }
