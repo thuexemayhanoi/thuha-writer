@@ -12150,6 +12150,21 @@
       "sha256": "5c39fe94a6619d858b6957bb40e1d5b643160ca745ed5d466544bf92585aecf8",
       "status": "PASS",
       "topic_id": "TH-000044"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:04:22.937908+00:00",
+      "expires_at": 1792856062.937892,
+      "fence": "a934b6fed5284efeb6e4d87f87c45731",
+      "heartbeat_at": "2026-10-24T15:04:22.937866+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "5c39fe94a6619d858b6957bb40e1d5b643160ca745ed5d466544bf92585aecf8",
+      "session": "en-b12-20261024",
+      "sha256": "7131ddca32eb170c83ede71097c2a9a7d793f56b8a2baf8d13d459142d386086",
+      "slot": "W1",
+      "topic_id": "TH-000045"
     }
   ],
   "intents": {
@@ -22370,7 +22385,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856062.937892,
+      "fence": "a934b6fed5284efeb6e4d87f87c45731",
+      "heartbeat_at": "2026-10-24T15:04:22.937866+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000045"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -27719,7 +27746,7 @@
           "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000045"
     },
     "TH-000047": {
@@ -34759,5 +34786,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2144
+  "version": 2145
 }
