@@ -6452,6 +6452,15 @@
       "previous": "3c160a78977ff4aeb17b1cc08c76d26e06a5db4a13d114290963995a2c57a370",
       "sha256": "31df2a7005928b084624f2ee7fe6c9c800dbe91c406379af1fd6b86a4983bcb3",
       "topic_id": "TH-EN-0139"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T09:57:03.790952+00:00",
+      "previous": "31df2a7005928b084624f2ee7fe6c9c800dbe91c406379af1fd6b86a4983bcb3",
+      "report_sha": "7fb701f05f50b145126664b69e8955822e00d7dd173d695af36dc2ece7b33334",
+      "sha256": "39d47a0ef9ac3a8054de7cdbc1a88c72239ab4aaddc7d1786ec3f83a943205f2",
+      "status": "PASS",
+      "topic_id": "TH-EN-0139"
     }
   ],
   "intents": {
@@ -16672,18 +16681,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-W2",
-      "expires_at": 1792837617.578266,
-      "fence": "2108ab7e05c54319a98ed655e14ed4a5",
-      "heartbeat_at": "2026-10-24T09:56:57.578245+00:00",
-      "language": "en",
-      "session": "sess-e1c",
-      "slot": "W1",
-      "topic_id": "TH-EN-0139"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -16743,6 +16741,11 @@
     "TH-EN-0009": {
       "article_sha": "b5b2633dfeb203fbad5f7de51e7c3e4934a6c96f0f6d0d05a093a0c2a8882ffe",
       "report_sha": "77d11903391986e12528d39bab5029c623472280db4ad7ad53ffc3a95487a27b",
+      "status": "PASS"
+    },
+    "TH-EN-0139": {
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "report_sha": "7fb701f05f50b145126664b69e8955822e00d7dd173d695af36dc2ece7b33334",
       "status": "PASS"
     },
     "TH-VI-0004": {
@@ -21011,7 +21014,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-EN-0139"
     },
     "TH-EN-0140": {
@@ -23816,5 +23819,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1466
+  "version": 1467
 }
