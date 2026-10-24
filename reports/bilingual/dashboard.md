@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-24T04:34:30.382433+00:00
+Generated: 2026-10-24T08:52:41.474645+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -20,12 +20,12 @@ Generated: 2026-10-24T04:34:30.382433+00:00
 
 | Language | Waiting for data | Awaiting QA | QA waits for data | QA pass | Publishing | Published | Needs repair | Held / unknown |
 |---|---|---|---|---|---|---|---|---|
-| vi | 0 | 0 | 0 | 38 | 0 | 21 | 0 | 11 |
+| vi | 0 | 0 | 0 | 46 | 0 | 21 | 0 | 11 |
 | en | 0 | 0 | 0 | 46 | 0 | 9 | 0 | 0 |
 
 Public-page checks after publication: PASSED 30. Public-page checks run after publication, back off and retry; they never stop the queue.
 
-Session ledger hand-over: FAST_FORWARD (session v1294, shared v615)
+Session ledger hand-over: FAST_FORWARD (session v1327, shared v615)
 
 Adapter: VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 

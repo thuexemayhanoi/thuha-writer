@@ -1,0 +1,83 @@
+{
+  "agent_id": "claude-writer-VI9",
+  "article": {
+    "agent_id": "claude-writer-VI9",
+    "body_html": "<p>Bạn làm ca sớm hoặc ca tối ở một khu công nghiệp ven Hà Nội. Đi làm lúc trời chưa sáng hoặc về lúc trời đã tối nghĩa là bạn thường xuyên chạy xe trong bóng tối, và có thể đi qua những đoạn đường vắng. Thuê xe theo tháng giải quyết chuyện đi lại, nhưng đèn, phanh và lốp lúc này quan trọng hơn bình thường, và giờ nhận trả xe có thể không trùng với giờ làm của bạn. Việc cửa hàng sắp xếp nhận trả xe ngoài giờ ra sao chưa được xác nhận, nên phần dưới giúp bạn kiểm xe cho một chặng đường tối và hỏi đúng về giờ giấc.</p>\n\n<h2>Giờ làm của bạn và giờ mở cửa của cửa hàng</h2>\n<p>Thuê xe máy Nguyễn Hà mở cửa từ 09:00 đến 21:00 mỗi ngày. Ca sớm của bạn bắt đầu trước giờ đó, và ca tối có thể kết thúc sau giờ đó, nên có những việc bạn cần xếp lịch trước.</p>\n<table>\n<thead><tr><th>Việc</th><th>Điều cần xếp</th><th>Câu hỏi cho cửa hàng</th></tr></thead>\n<tbody>\n<tr><td>Nhận xe</td><td>Chọn một lúc trong giờ mở cửa, nên là ngày nghỉ hoặc buổi bạn không đi làm</td><td>Có thể nhận xe vào lúc nào, và cần mang gì</td></tr>\n<tr><td>Kiểm xe</td><td>Kiểm khi còn sáng, rồi thử đèn khi trời tối</td><td>Có thể giữ xe qua đêm đầu để thử đèn rồi mới xác nhận không</td></tr>\n<tr><td>Gặp sự cố</td><td>Sự cố có thể xảy ra ngoài giờ cửa hàng mở cửa</td><td>Nhắn hay gọi vào lúc nào, và cửa hàng hướng dẫn gì khi ngoài giờ</td></tr>\n<tr><td>Trả xe</td><td>Chọn một ngày bạn có thể đến trong giờ mở cửa</td><td>Nếu ca của bạn kết thúc muộn, có cách nào trả xe khác không</td></tr>\n</tbody>\n</table>\n<p>Cả bốn câu hỏi đều chưa có xác nhận. Hãy hỏi trước khi chốt thuê tháng, và ghi lại câu trả lời bằng tin nhắn.</p>\n\n<h2>Kiểm xe cho một chặng đường tối</h2>\n<ul>\n<li><strong>Đèn pha:</strong> bật cả chế độ chiếu gần và chiếu xa; nhìn xem đèn có sáng đủ, có bị lệch lên trời hay xuống đất không. Nếu đèn quá yếu cho đường vắng, hãy báo cho cửa hàng trước khi nhận.</li>\n<li><strong>Đèn hậu và đèn phanh:</strong> bóp từng tay phanh (và đạp chân phanh nếu có) để xem đèn phanh sáng ở cả hai chỗ. Nhờ người đứng sau xe nhìn giúp.</li>\n<li><strong>Xi-nhan hai bên và còi:</strong> thử từng bên và thử còi ở chỗ vắng.</li>\n<li><strong>Gương:</strong> chỉnh để thấy làn sau lưng, và xem gương có bị lỏng hay rung không.</li>\n<li><strong>Lốp:</strong> nhìn gai lốp, vết nứt ở thành lốp và độ căng; hỏi cửa hàng mức bơm phù hợp với xe.</li>\n<li><strong>Phanh:</strong> thử ở tốc độ chậm trên chỗ vắng, xem phanh trước và sau có ăn đều không, tay phanh có quá lỏng hay quá cứng không.</li>\n<li><strong>Chìa khóa và khóa cổ:</strong> đảm bảo xe được khóa chắc khi bạn gửi ở nơi làm.</li>\n</ul>\n<p>Chụp ảnh xe lúc nhận, gồm toàn thân xe, đèn và lốp, rồi lưu cùng tin nhắn xác nhận của cửa hàng.</p>\n\n<h2>Đi đường vắng lúc trời tối</h2>\n<ol>\n<li><strong>Giảm tốc độ so với ban ngày.</strong> Bạn nhìn được ít hơn, nên cần thêm khoảng cách để phản ứng.</li>\n<li><strong>Dùng đèn chiếu xa khi đường vắng,</strong> và hạ xuống chiếu gần khi có xe ngược chiều hoặc xe phía trước.</li>\n<li><strong>Chú ý ổ gà, nắp cống, vật rơi và chỗ đường thay đổi mặt,</strong> vì bóng tối che những thứ này đến sát lúc bạn tới gần.</li>\n<li><strong>Mặc đồ sáng màu hoặc có dải phản quang</strong> để người khác nhìn thấy bạn.</li>\n<li><strong>Không dùng điện thoại khi đang chạy.</strong> Nếu cần xem bản đồ, dừng ở chỗ an toàn.</li>\n</ol>\n\n<h2>Sau ca làm: mệt và buồn ngủ</h2>\n<p>Về nhà sau một ca dài là lúc cơ thể mệt và mắt dễ nặng. Nếu bạn thấy ngáp liên tục, mắt cay hoặc đầu óc lơ đãng, đó là dấu hiệu nên dừng lại ở một chỗ an toàn chứ không cố chạy tiếp. Hãy tính trước một phương án: một đồng nghiệp đi cùng đường, một chỗ nghỉ, hoặc một cách di chuyển khác vào những hôm bạn quá mệt. Chiếc xe thuê không giúp bạn tỉnh táo hơn, nên quyết định có chạy hay không vẫn nằm ở bạn.</p>\n\n<h2>Chỗ gửi xe ở nơi làm và ở nhà</h2>\n<ul>\n<li>Hỏi nơi làm về bãi gửi xe: có thẻ không, mở giờ nào, ai trông.</li>\n<li>Hỏi cửa hàng có hạn chế nào về nơi để xe qua đêm không, và có nên dùng thêm khóa phụ không.</li>\n<li>Không để mũ, giấy tờ hay đồ có giá trị trong cốp xe.</li>\n<li>Chụp ảnh chỗ gửi, kèm ngày giờ, nếu bạn để xe ở một chỗ lạ.</li>\n</ul>\n\n<h2>Ngân sách cho một tháng</h2>\n<p>Với xe số, khoảng giá tham khảo một tháng là 1.000.000 đến 1.200.000 đồng; với xe ga là 1.200.000 đến 2.000.000 đồng. Khoảng giá này chỉ để dự trù, nên hãy hỏi lại giá khi đặt. Hãy cộng thêm xăng cho quãng đường đi làm và chỗ gửi xe, và hỏi cửa hàng về cách tính nếu bạn giữ xe thêm giờ; mức phí gia hạn đã xác nhận là 20.000 đồng mỗi giờ, quá 6 giờ tính một ngày thuê.</p>\n\n<h2>Khi xe có sự cố giữa đêm</h2>\n<ol>\n<li><strong>Đưa xe vào chỗ an toàn,</strong> bật đèn khẩn bằng xi-nhan hai bên nếu xe có, và đứng ngoài lòng đường, nơi có ánh sáng.</li>\n<li><strong>Báo cho một người bạn tin,</strong> kèm vị trí của bạn.</li>\n<li><strong>Chụp ảnh xe và nơi xảy ra sự cố.</strong></li>\n<li><strong>Nhắn cho cửa hàng</strong> và hỏi họ hướng dẫn gì; vì sau 21:00 cửa hàng đã đóng cửa, hãy hỏi từ trước khi nhận xe xem họ muốn bạn làm gì khi sự cố xảy ra ngoài giờ.</li>\n<li><strong>Nhờ người đưa xe vào chỗ an toàn thì được, nhưng đừng đồng ý sửa hay kéo xe với người lạ</strong> trước khi cửa hàng biết.</li>\n</ol>\n\n<h2>Tin nhắn hỏi cửa hàng</h2>\n<p>\"Chào cửa hàng, mình làm ca [sớm/tối] ở khu công nghiệp [tên] và muốn thuê một xe [số/ga] theo tháng. Mình nhận xe được vào [ngày, giờ]. Cửa hàng cho mình hỏi nếu xe có sự cố ngoài giờ mở cửa thì mình làm thế nào, và cuối tháng nếu ca làm không cho mình đến trước 21:00 thì có cách trả xe nào khác không ạ? Mình cần câu trả lời trước khi chốt tháng thuê. Cảm ơn cửa hàng.\"</p>\n<p>Giá tham khảo để đối chiếu nằm ở <a href=\"https://rentbikehanoi.com/vi/bang-gia-thue-xe-may-ha-noi/\">bảng giá thuê xe máy Hà Nội</a>, còn các bước thuê và điều cần hỏi có trong <a href=\"https://rentbikehanoi.com/vi/thu-tuc-thue-xe-may-ha-noi/\">thủ tục thuê xe máy ở Hà Nội</a>; cần hỏi riêng thì gọi <a href=\"tel:+84334699969\">0334 699 969</a>.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1000000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 1200000,
+        "vehicle": "automatic"
+      },
+      {
+        "kind": "reference_price",
+        "period": "month",
+        "value_vnd": 2000000,
+        "vehicle": "automatic"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/vi/lam-ca-som-ca-toi-o-khu-cong-nghiep-ven-ha-noi-thue-xe-thang-kiem-tra-gi/",
+    "category_id": 154,
+    "featured_media": null,
+    "focus_keyword": "thuê xe máy tháng đi làm ca đêm",
+    "language": "vi",
+    "meta_description": "Làm ca sớm hoặc ca tối? Cách xếp giờ nhận trả xe, kiểm đèn, phanh, lốp, đi đường tối an toàn và hỏi cửa hàng khi xe có sự cố ngoài giờ mở cửa.",
+    "seo_title": "Thuê xe tháng đi làm ca sớm, ca tối: kiểm xe và hỏi giờ giấc cửa hàng",
+    "session": "vi-b9-20261024",
+    "source_commit": "351c2744dd99361b0772e4d125cf9b96c4d91b3f",
+    "sources": [
+      {
+        "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Làm ca sớm hoặc ca tối ở khu công nghiệp ven Hà Nội: thuê xe tháng và kiểm tra những gì",
+    "topic_id": "TH-VI-0075"
+  },
+  "article_sha": "ec4da3e9b9e7f5f2f02c205d0b08fba43a3bc83870020d55af3830ccd3485672",
+  "category_id": 154,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/lam-ca-som-ca-toi-o-khu-cong-nghiep-ven-ha-noi-thue-xe-thang-kiem-tra-gi/",
+  "qa": {
+    "report_sha": "a1669951585ce4caf13fb222ca066c840616c24c205f11306f484b990a9e5b6a",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb"
+  ],
+  "source_evidence": {
+    "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T16:57:46.234597+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:40:18.273048+00:00",
+  "topic_id": "TH-VI-0075",
+  "waiting_for": []
+}
