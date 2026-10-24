@@ -15040,6 +15040,15 @@
       "previous": "f0a9a19090a31fd406bdf66dc06c1b6a15f5f139b2e17a93d82fc6b6d4777c4f",
       "sha256": "0548848ce24d4d143b04fba752d43b889730ff891b367c3bd4ae35bb71ed1917",
       "topic_id": "TH-000029"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:02:08.723352+00:00",
+      "previous": "0548848ce24d4d143b04fba752d43b889730ff891b367c3bd4ae35bb71ed1917",
+      "report_sha": "90cd751eba6e87fae36ce8cf749e60166aa77f445e52483c2532098c9dfee829",
+      "sha256": "6ffc3bbee66453dc9e44633d61eb6515bc309831a06e0218554fde17184fe27b",
+      "status": "PASS",
+      "topic_id": "TH-000029"
     }
   ],
   "intents": {
@@ -25260,19 +25269,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859518.949926,
-      "fence": "18425bdde99d4706b9a5e8d3355dc8a1",
-      "heartbeat_at": "2026-10-24T16:01:58.949899+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000029"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25357,6 +25354,11 @@
     "TH-000028": {
       "article_sha": "ae14a4473deeb59b60e777170d770bfc0a825b73bf83a67c6c544e1bb5afe675",
       "report_sha": "509d4ebe5375495e170cdec6759f4447fbcf4aadab1b7fe013fc3b7d41e4adf8",
+      "status": "PASS"
+    },
+    "TH-000029": {
+      "article_sha": "ede6a076aa67d8ef25932191eed2bf70bd1cbf8c0a9316d339e625987197e8e8",
+      "report_sha": "90cd751eba6e87fae36ce8cf749e60166aa77f445e52483c2532098c9dfee829",
       "status": "PASS"
     },
     "TH-000031": {
@@ -31442,7 +31444,7 @@
           "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000029"
     },
     "TH-000030": {
@@ -40486,5 +40488,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2485
+  "version": 2486
 }
