@@ -12207,6 +12207,15 @@
       "previous": "940fb7ac8d46e916351a1d81b70d3d326117cdedd5f21091a5f926c1a6e0c5de",
       "sha256": "40ae2d673724acfb2b18bfe8616cc56fc3a6cf9e784bfb513e5086b513fb9f20",
       "topic_id": "TH-000047"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:04:46.482002+00:00",
+      "previous": "40ae2d673724acfb2b18bfe8616cc56fc3a6cf9e784bfb513e5086b513fb9f20",
+      "report_sha": "d1a4e0b756b84bac4bc9e437904446a9c5c048e014dd903c28189ca8bbcfe6e7",
+      "sha256": "4d10232f6853427bdfe1e20a1f4348cd49fe50adca01c030b0fb9e42684e06c1",
+      "status": "PASS",
+      "topic_id": "TH-000047"
     }
   ],
   "intents": {
@@ -22427,19 +22436,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856077.032543,
-      "fence": "0d0ff55d36ba4a5591c480c23f2d4a96",
-      "heartbeat_at": "2026-10-24T15:04:37.032517+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000047"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22529,6 +22526,11 @@
     "TH-000045": {
       "article_sha": "1fbe02369bc1b31c407a1d0252ecc418e58eb9a929f48f10637220a2bbb5d37e",
       "report_sha": "65ce13229222ef43f9122bd9af7288269890c4702a7d633020d3152bd953c0dc",
+      "status": "PASS"
+    },
+    "TH-000047": {
+      "article_sha": "2483ea5b18104f71361a27db1b6c0330eca1398ef7b39ce878598e16cf63ad89",
+      "report_sha": "d1a4e0b756b84bac4bc9e437904446a9c5c048e014dd903c28189ca8bbcfe6e7",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27845,7 +27847,7 @@
           "url": "https://catbanationalpark.com/"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000047"
     },
     "TH-000049": {
@@ -34853,5 +34855,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2150
+  "version": 2151
 }
