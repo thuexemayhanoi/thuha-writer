@@ -13220,6 +13220,15 @@
       "previous": "c58abe78d3fc1e19a6678876697b97addc63c4c07d7f09aac8e329223290db53",
       "sha256": "a0f3c36c76508e09e85a5703c889e63d07fa53310053818c22abb9f0e09596cc",
       "topic_id": "TH-VI-0342"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:16:30.558811+00:00",
+      "previous": "a0f3c36c76508e09e85a5703c889e63d07fa53310053818c22abb9f0e09596cc",
+      "report_sha": "6b5b7de4d72b8847cadda20e27e169d562b2933fd972b4fff326975cfc346530",
+      "sha256": "81a80997c6d333f52c3c6f3eb2ad49f9ebd2efb926e7e9acc42161200229fe06",
+      "status": "PASS",
+      "topic_id": "TH-VI-0342"
     }
   ],
   "intents": {
@@ -23440,19 +23449,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-VI20",
-      "expires_at": 1792856781.273848,
-      "fence": "43fe4deb092b4e86afc0d9c00d248caa",
-      "heartbeat_at": "2026-10-24T15:16:21.273823+00:00",
-      "language": "vi",
-      "picked": true,
-      "session": "vi-b20-20261024",
-      "slot": "W1",
-      "topic_id": "TH-VI-0342"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24582,6 +24579,11 @@
     "TH-VI-0333": {
       "article_sha": "07e663636e259cc85e07140967283064b5a349c75582cc248ea27e10a2a36252",
       "report_sha": "5f9c04a39f3b636e2eb0d26179bb1860b93cf01449da76c23a297d3dd5d05a85",
+      "status": "PASS"
+    },
+    "TH-VI-0342": {
+      "article_sha": "0cceaeac8546e8d9262a3a780b9bb4d6810216469fbd04d0b11f97e03d122019",
+      "report_sha": "6b5b7de4d72b8847cadda20e27e169d562b2933fd972b4fff326975cfc346530",
       "status": "PASS"
     },
     "TH-VI-0350": {
@@ -35877,7 +35879,7 @@
           "url": "https://tcvn.gov.vn/mot-so-diem-moi-trong-qcvn-22021-bkhcn-ve-mu-bao-hiem-cho-nguoi-di-mo-to-xe-may/13/09/2021"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-VI-0342"
     },
     "TH-VI-0350": {
@@ -36316,5 +36318,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2273
+  "version": 2274
 }
