@@ -12009,6 +12009,15 @@
       "previous": "93bd84b9f02a131d7bfbb8b2f2ac437d6a9a3cab986c7451357a1548c83cf8ba",
       "sha256": "68feb29c470e6611f302e59fa486c7fb32baf10c99b2d771f0e58f1d0bb0816d",
       "topic_id": "TH-000038"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:03:20.764145+00:00",
+      "previous": "68feb29c470e6611f302e59fa486c7fb32baf10c99b2d771f0e58f1d0bb0816d",
+      "report_sha": "d40e6c9f68a4b7fecd92f64ad96ed4ca58ee8a8865d98ed13613c8f38123246f",
+      "sha256": "047d830d29ec78891882a7151ed915e3ee287b2b9d1fef819a3891a1b436e9e5",
+      "status": "PASS",
+      "topic_id": "TH-000038"
     }
   ],
   "intents": {
@@ -22229,19 +22238,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792855991.410291,
-      "fence": "7987a96e3172425698395a28cb4c5a7f",
-      "heartbeat_at": "2026-10-24T15:03:11.410268+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000038"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22301,6 +22298,11 @@
     "TH-000023": {
       "article_sha": "716969af00e1305b4260a65dbd3aa6ccb1185ff56694e4a178f6c7414a5cf7f6",
       "report_sha": "f2635444b9b199154884f900b298a4cdde80b26a96b94c3689d957bdaf90bdb7",
+      "status": "PASS"
+    },
+    "TH-000038": {
+      "article_sha": "88a326b8af1e0dad7f2fb98198afe2cd3c4e6c869dd37d20b584c27c8114cf1c",
+      "report_sha": "d40e6c9f68a4b7fecd92f64ad96ed4ca58ee8a8865d98ed13613c8f38123246f",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27318,7 +27320,7 @@
           "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000038"
     },
     "TH-000040": {
@@ -34565,5 +34567,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2126
+  "version": 2127
 }
