@@ -2,6 +2,8 @@
 
 > Filename retains `QA85` for backwards links; **current effective threshold is 75 inclusive**. Score below 75 or any hard failure fails, in both VI and EN.
 
+> **VI–EN rendered QA (24/10/2026):** Writer preflight/source QA blocks wrong-language title, SEO title, meta description, focus keyword and article body regardless of score. Once published with verified WordPress receipt, the read-only public-page verifier checks canonical/HTML lang/SEO data/schema plus **exactly one rendered H1**, equal to the reviewed article title and plausible in its topic language. A public H1 mismatch becomes a retryable `post_check` warning, **never** a reason to repost, change slug/canonical or stop unrelated publishing. Shared site titles, menu and TOC translations remain theme/plugin work. [Operational reference](bilingual/RENDERED-LANGUAGE-QA.md).
+
 This is the **simple, event-driven** editorial path for `thuexemayhanoi/thuha-writer`.
 
 ```text
