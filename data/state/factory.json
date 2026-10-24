@@ -12183,6 +12183,21 @@
       "sha256": "4643dab8b472b7409f744938ba2d025efe257790fb6c9cc37c186f5569d77516",
       "status": "PASS",
       "topic_id": "TH-000045"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:04:37.032554+00:00",
+      "expires_at": 1792856077.032543,
+      "fence": "0d0ff55d36ba4a5591c480c23f2d4a96",
+      "heartbeat_at": "2026-10-24T15:04:37.032517+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "4643dab8b472b7409f744938ba2d025efe257790fb6c9cc37c186f5569d77516",
+      "session": "en-b12-20261024",
+      "sha256": "940fb7ac8d46e916351a1d81b70d3d326117cdedd5f21091a5f926c1a6e0c5de",
+      "slot": "W1",
+      "topic_id": "TH-000047"
     }
   ],
   "intents": {
@@ -22403,7 +22418,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856077.032543,
+      "fence": "0d0ff55d36ba4a5591c480c23f2d4a96",
+      "heartbeat_at": "2026-10-24T15:04:37.032517+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000047"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -27799,7 +27826,7 @@
           "url": "https://catbanationalpark.com/"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000047"
     },
     "TH-000049": {
@@ -34807,5 +34834,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2148
+  "version": 2149
 }
