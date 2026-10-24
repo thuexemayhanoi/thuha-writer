@@ -11869,6 +11869,15 @@
         "TH-VI-0364",
         "TH-VI-0369"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T15:00:45.137569+00:00",
+      "previous": "18ef1463b85a8ecf8ae757d0f2b5152f51a0fd61399a91d392d5c337ea561cc9",
+      "sha256": "ecdddaf4be315157b9d374aa1920acd52c62baae741efba41a4a7334ed327394",
+      "topic_ids": [
+        "TH-VI-0342"
+      ]
     }
   ],
   "intents": {
@@ -33876,6 +33885,42 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0333"
     },
+    "TH-VI-0342": {
+      "admitted_at": "2026-10-24T15:00:45.137522+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "kính mũ bảo hiểm bị mờ hơi nước",
+      "proposed_title": "Kính mũ bảo hiểm mờ hơi nước khi trời lạnh ẩm: giữ tầm nhìn mà không mở hẳn kính",
+      "proposed_url": "https://rentbikehanoi.com/vi/kinh-mu-bao-hiem-mo-hoi-nuoc-khi-troi-lanh-am-giu-tam-nhin/",
+      "search_intent": "Người đi xe lúc sáng sớm lạnh ẩm thấy kính mũ đọng hơi, nhìn đèn đỏ và vạch kẻ nhòe; cần cách giữ tầm nhìn hợp lý, khi nào nên dừng lau và có nên hỏi cửa hàng về mũ có kính phù hợp hơn.",
+      "sources": [
+        {
+          "document": "34943099d092556688c0e42f4f075e9d6339c69c815a53c41a29c3ddffc5fe16",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        },
+        {
+          "document": "51c37c00865095ddda0d12a112de5d511b318ba5c732631291e2ba19e1f45a9f",
+          "supports": "Ủy ban Tiêu chuẩn Đo lường Chất lượng Quốc gia (13/09/2021): QCVN 2:2021/BKHCN về mũ bảo hiểm, mục kính bảo vệ và hệ số truyền sáng, dùng cho đoạn về quy định kính của mũ.",
+          "url": "https://tcvn.gov.vn/mot-so-diem-moi-trong-qcvn-22021-bkhcn-ve-mu-bao-hiem-cho-nguoi-di-mo-to-xe-may/13/09/2021"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0342"
+    },
     "TH-VI-0350": {
       "admitted_at": "2026-10-24T14:31:51.541561+00:00",
       "category_id": 165,
@@ -34312,5 +34357,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2110
+  "version": 2111
 }
