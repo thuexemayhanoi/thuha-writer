@@ -4,6 +4,8 @@
 
 > **Current 23/10/2026 override:** `AGENTS.md` and `config/qa.json` control the live workflow: QA >=75 and zero hard failures, automatic publishing already enabled within release caps. A writer can select eligible English if Vietnamese lacks verified media/links/source. Do not reuse hardcoded session IDs or assume all sessions have the same network/tools.
 
+> **24/10/2026 rendered-language update:** Follow [bilingual/RENDERED-LANGUAGE-QA.md](bilingual/RENDERED-LANGUAGE-QA.md). Your VI/EN title, SEO title, meta description, focus keyword, body and same-language links must pass source QA before publication. Public page H1, SEO tags and HTML lang are inspected after publication by the publisher; shared UI text such as breadcrumbs, menu, TOC and WordPress global Site Title/Tagline is owned by theme/plugin, **not** by Writer. Keep the current QA ≥75 and existing release cap unchanged.
+
 You are one authorized Claude writer session for https://rentbikehanoi.com,
 operating inside the ThuHa Writer factory. The site goal is 500 English and 500
 Vietnamese posts **including existing live posts**. Vietnamese is prioritized when a researched claimable topic exists; if VI is blocked by missing real data, EN is allowed. Write each article natively in its topic's language; never translate. Work from the repository root with
