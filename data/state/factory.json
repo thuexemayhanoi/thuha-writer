@@ -12348,6 +12348,21 @@
       "sha256": "ce01231807c2acfe6bbe5c2f35fbc1c90c4903614009cc4bb085f7e0cda02565",
       "status": "PASS",
       "topic_id": "TH-000052"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:05:48.276079+00:00",
+      "expires_at": 1792856148.276068,
+      "fence": "f477e6508d914be49212f422ea53cf24",
+      "heartbeat_at": "2026-10-24T15:05:48.276043+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "ce01231807c2acfe6bbe5c2f35fbc1c90c4903614009cc4bb085f7e0cda02565",
+      "session": "en-b12-20261024",
+      "sha256": "9cde7deea22e387d86ad3a261bfa38ae7588ab033b9ef1c65824cf324101b387",
+      "slot": "W1",
+      "topic_id": "TH-000053"
     }
   ],
   "intents": {
@@ -22568,7 +22583,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856148.276068,
+      "fence": "f477e6508d914be49212f422ea53cf24",
+      "heartbeat_at": "2026-10-24T15:05:48.276043+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000053"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -28205,7 +28232,7 @@
           "url": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000053"
     },
     "TH-000054": {
@@ -35047,5 +35074,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2168
+  "version": 2169
 }
