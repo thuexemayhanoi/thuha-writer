@@ -6557,6 +6557,20 @@
       "sha256": "b25c93178ac6db811ccca838ce68eccc36843100d8af25732a8423363e7a686b",
       "status": "PASS",
       "topic_id": "TH-EN-0005"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-24T03:53:21.720809+00:00",
+      "expires_at": 1792815801.720801,
+      "fence": "53f8880fbf964164b62510ce9afbeedc",
+      "heartbeat_at": "2026-10-24T03:53:21.720783+00:00",
+      "language": "en",
+      "previous": "b25c93178ac6db811ccca838ce68eccc36843100d8af25732a8423363e7a686b",
+      "session": "sess-e1c",
+      "sha256": "f0f0e1053eaa589dfafbe094010ac9e478a763aabdd009a92644fee9d5b21769",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
     }
   ],
   "intents": {
@@ -16777,7 +16791,18 @@
     }
   },
   "inventory_document": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792815801.720801,
+      "fence": "53f8880fbf964164b62510ce9afbeedc",
+      "heartbeat_at": "2026-10-24T03:53:21.720783+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -21040,6 +21065,7 @@
         134
       ],
       "cluster": "parking-weather-breakdowns",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
       "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
@@ -21052,7 +21078,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0125",
       "waiting_for": []
     },
@@ -23379,5 +23405,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1018
+  "version": 1019
 }
