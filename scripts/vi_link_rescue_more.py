@@ -80,8 +80,24 @@ def rewrite(article, tid):
 
 
 def main():
+    # Recover only our own orphaned claim after an interrupted GitHub document write.
+    # A claim held by another session is never touched.
+    import sys
+    if "--apply" in sys.argv:
+        from thuha import coordinator
+        store = rescue.GitStore()
+        state = store.read()
+        for tid in PARAGRAPHS:
+            if state["topics"][tid]["status"] != "CLAIMED":
+                continue
+            lease = next((v for v in state["leases"].values() if v["topic_id"] == tid), None)
+            session = "vi-link-rescue-20261024-" + tid[-4:]
+            if lease and lease["session"] == session and lease["agent_id"] == "chatgpt-editorial-link-rescue":
+                if state["submissions"][tid]["article_sha"] == state["qa"][tid]["article_sha"]:
+                    coordinator.release(store, lease["slot"], lease["session"], lease["fence"])
+                else:
+                    raise ValueError("Claim recovery refused: article changed while interrupted " + tid)
     # Reuse claim, immutable document, unchanged QA and dispatch implementations.
-    # Restrict this pass to exactly the curated posts below.
     rescue.PATCHES = {tid: [] for tid in PARAGRAPHS}
     rescue.preview_rewrite = rewrite
     return rescue.main()
