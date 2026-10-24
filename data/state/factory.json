@@ -6603,6 +6603,15 @@
       "sha256": "73efef7a5a4a4163407da391381c1fa8c97e6311b8a90b98e4529e7b6a4018c5",
       "slot": "W1",
       "topic_id": "TH-EN-0012"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "0ef54e5c920f95084d14578c5b146f8907b5ea53f2335e8c2d09307a4d358f72",
+      "at": "2026-10-24T03:53:34.854714+00:00",
+      "previous": "73efef7a5a4a4163407da391381c1fa8c97e6311b8a90b98e4529e7b6a4018c5",
+      "sha256": "857f52daa3c492f63a773cf111154bdc45706acfb0fb3efdcb4fd8d4b8ea3684",
+      "topic_id": "TH-EN-0012"
     }
   ],
   "intents": {
@@ -17680,13 +17689,13 @@
     },
     "TH-EN-0012": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "45079901de45406fb5dff8f393480c8c65ea6c1471ede5de42afbce004c076af",
-      "commit": "8b958b741623ff9f15c5c7657ee7cde2ca623d34",
-      "fence": "dd4f7c8e09244e8483661d20cd6df325",
+      "article_sha": "0ef54e5c920f95084d14578c5b146f8907b5ea53f2335e8c2d09307a4d358f72",
+      "commit": "dda0461c6a3a925e6083fdeabc1f5842bbf21c76",
+      "fence": "f1ade1385eab4eca951b3c1ebf900e1d",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:45:18.710371+00:00"
+      "submitted_at": "2026-10-24T03:53:34.854697+00:00"
     },
     "TH-EN-0065": {
       "agent_id": "claude-writer-W2",
@@ -20351,7 +20360,6 @@
         123
       ],
       "cluster": "motorbike-rental-guides",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "start motorbike rental on arrival day or next day hanoi",
       "proposed_title": "Start Your Rental on Arrival Day or Day Two? Weigh Jet Lag Against a Day's Rent",
@@ -20364,9 +20372,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0012",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0012"
     },
     "TH-EN-0013": {
       "admitted_at": "2026-10-24T03:50:36.947281+00:00",
@@ -23441,5 +23448,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1023
+  "version": 1024
 }
