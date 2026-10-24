@@ -2,6 +2,8 @@
 
 > **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
 
+> **24/10/2026 VI–EN QA update:** The pre-publication language/SEO gate already exists. PR #11 added read-only H1 verification to post-publication public-page checks: exactly one H1, equal to the reviewed article title and plausible in the article language. Failures are retried warnings, not changes to PUBLISHED receipts or a global queue block. This does **not** localize global WordPress Site Title/Tagline, menu, breadcrumb or TOC strings. See [rendered-language QA runbook](docs/bilingual/RENDERED-LANGUAGE-QA.md).
+
 # ThuHa Writer
 
 ## Current operational snapshot — 23 October 2026
