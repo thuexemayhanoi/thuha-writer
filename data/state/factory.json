@@ -13932,6 +13932,15 @@
       "sha256": "a9a072b0a1cdde7cdf22ce4839159fe837bc4463fe61ee384f547250fbf3fe6f",
       "slot": "W1",
       "topic_id": "TH-000061"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "5579c853684fdb6e4665c7caf030167dc4c3bc469b0664365dde01fbb95f3e25",
+      "at": "2026-10-24T15:34:54.130521+00:00",
+      "previous": "a9a072b0a1cdde7cdf22ce4839159fe837bc4463fe61ee384f547250fbf3fe6f",
+      "sha256": "e7971f90fd44ca4b5fd70888866ad532678b565fbabddbfe5727b0ccfd77b6bc",
+      "topic_id": "TH-000061"
     }
   ],
   "intents": {
@@ -26398,6 +26407,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:34:40.507634+00:00"
     },
+    "TH-000061": {
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "5579c853684fdb6e4665c7caf030167dc4c3bc469b0664365dde01fbb95f3e25",
+      "commit": "e392dd30de5d9fc8ff47d7f60a756b97ffe587a4",
+      "fence": "4ad64a25d7594c4bae7d2bfea40d2b15",
+      "repair_count": 0,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:34:54.130495+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -30748,7 +30767,7 @@
           "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000061"
     },
     "TH-EN-0001": {
@@ -37730,5 +37749,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2357
+  "version": 2358
 }
