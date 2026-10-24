@@ -12,7 +12,7 @@
 ## Verified current checkpoint — 23/10/2026 (use over historic notes below)
 
 - Exact scope: `thuexemayhanoi/thuha-writer` / `https://rentbikehanoi.com`.
-- `main` commit `1355dcfc8ad1`: QA **75/100 inclusive**, auto mode, all hard failures intact; owner release **enabled / auto-scale / 50 posts per day**. GitHub quality and guarded publisher CI both succeeded.
+- `main` commit `1355dcfc8ad1` (historical 23/10 snapshot): QA **75/100 inclusive**, auto mode, all hard failures intact; owner release **enabled / auto-scale / 50 posts per day**. **Owner raised the live cap to 500/day on 24/10/2026; `config/release.json` is authoritative.** GitHub quality and guarded publisher CI both succeeded.
 - Shared `factory-state` version **448**: **9 verified EN PUBLISHED receipts**, **0 READY**, **51 EN + 14 VI PLANNED**, **7 EN + 21 VI WAITING_DATA**, **11 VI HELD**, **0 writer leases**.
 - The numbers are a point-in-time GitHub ledger reading, not a live WordPress site count. Follow `AGENTS.md` and read the current state before any claim. Waiting topics need real data and are never implicitly approved; HELD topics stay held. VI is prioritized, but research-backed EN may proceed when VI is blocked.
 - Historical sections below may say QA85, mandatory reviewer, GitHub Environment setup, release OFF, plugin not deployed or nine drafts still awaiting transfer. **Those statements are superseded and must not be used as current setup instructions.** No ledger, post, secret or code has been changed by this documentation revision.
