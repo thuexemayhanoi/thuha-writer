@@ -6443,6 +6443,15 @@
       "sha256": "2e518f74b47dd9061dd25aa3dacb7ace74d47046ce5ff76b45e293de14e6542d",
       "slot": "W1",
       "topic_id": "TH-EN-0140"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
+      "at": "2026-10-24T03:52:41.804148+00:00",
+      "previous": "2e518f74b47dd9061dd25aa3dacb7ace74d47046ce5ff76b45e293de14e6542d",
+      "sha256": "714f6b7f585cf8496e5214174bb81a41022a26524867c1f66e131d8d583df90c",
+      "topic_id": "TH-EN-0140"
     }
   ],
   "intents": {
@@ -17535,13 +17544,13 @@
     },
     "TH-EN-0140": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "3fc48ada3078b6b39a6aaae1bf2cd5920f01474fd4410cc896184597cb7b46da",
-      "commit": "20bf018de51116275dbb40ef29714263b8a60d80",
-      "fence": "8cbff82c70584df6a68974eae842f9ac",
+      "article_sha": "48fbf80199207862ad0c9f323f272365ff7c07df4c90f01a96712c43416d09a0",
+      "commit": "94f0b7fa141e8fe8bfdf4f830ee7a42862f8de16",
+      "fence": "250dae0263174a47b3e7faab1056b334",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:33.683523+00:00"
+      "submitted_at": "2026-10-24T03:52:41.804129+00:00"
     },
     "TH-EN-0141": {
       "agent_id": "claude-writer-W2",
@@ -21020,7 +21029,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "group motorbike ride hanoi stay together",
       "proposed_title": "Riding in a Group Through Hanoi: Meeting Points, Spacing and a Plan for a Lost Rider",
@@ -21033,9 +21041,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0140",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0140"
     },
     "TH-EN-0141": {
       "admitted_at": "2026-10-23T12:08:22.413193+00:00",
@@ -23261,5 +23268,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1003
+  "version": 1004
 }
