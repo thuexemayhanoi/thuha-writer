@@ -6525,6 +6525,20 @@
       "sha256": "f07c0020bfaa8177ca5d0a38f99616d2f39a48306b1526f311879ea7f67c0a91",
       "status": "PASS",
       "topic_id": "TH-EN-0065"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-24T03:53:11.260559+00:00",
+      "expires_at": 1792815791.26055,
+      "fence": "034ab52ae7a346aea0d959dbf2d51383",
+      "heartbeat_at": "2026-10-24T03:53:11.260532+00:00",
+      "language": "en",
+      "previous": "f07c0020bfaa8177ca5d0a38f99616d2f39a48306b1526f311879ea7f67c0a91",
+      "session": "sess-e1c",
+      "sha256": "0b6d1d6f4615ca297bcf6f463b6b3f80d837cd0397481c6749a1349121a0bfa3",
+      "slot": "W1",
+      "topic_id": "TH-EN-0005"
     }
   ],
   "intents": {
@@ -16745,7 +16759,18 @@
     }
   },
   "inventory_document": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792815791.26055,
+      "fence": "034ab52ae7a346aea0d959dbf2d51383",
+      "heartbeat_at": "2026-10-24T03:53:11.260532+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0005"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -20102,6 +20127,7 @@
         123
       ],
       "cluster": "motorbike-rental-guides",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "ride hailing versus rental bike for a week hanoi",
       "proposed_title": "Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi?",
@@ -20114,7 +20140,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0005",
       "waiting_for": []
     },
@@ -23343,5 +23369,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1014
+  "version": 1015
 }
