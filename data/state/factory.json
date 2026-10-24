@@ -12099,6 +12099,15 @@
       "sha256": "eec7f912cd4937150991cce8606ce1921c66e8b42b5a0b4b7f03abb72c7e1d0f",
       "slot": "W1",
       "topic_id": "TH-000043"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "f9c280d2aaf92a27ff2527e103a4233cc685669db6d09df081f608d494406fbe",
+      "at": "2026-10-24T15:03:59.647923+00:00",
+      "previous": "eec7f912cd4937150991cce8606ce1921c66e8b42b5a0b4b7f03abb72c7e1d0f",
+      "sha256": "708bb2058f4a76eac6b84bb9a131d12defda56dad093e7b5dcfcc6fb23de9643",
+      "topic_id": "TH-000043"
     }
   ],
   "intents": {
@@ -24100,6 +24109,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:03:45.759420+00:00"
     },
+    "TH-000043": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "f9c280d2aaf92a27ff2527e103a4233cc685669db6d09df081f608d494406fbe",
+      "commit": "f9244ea7b49fcfefccd5c74bb1e168f881a0fbd3",
+      "fence": "f6d662231ede4d36b5b3e1756536f60f",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:03:59.647894+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -27586,7 +27605,7 @@
           "url": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000043"
     },
     "TH-000044": {
@@ -34690,5 +34709,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2137
+  "version": 2138
 }
