@@ -1,0 +1,47 @@
+name: ThuHa Vietnamese link rescue (one time)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/vi-link-rescue.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: thuha-vi-link-rescue
+  cancel-in-progress: false
+jobs:
+  rescue:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate QA policy and repo before changing durable data
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m thuha.cli validate
+      - name: Refresh authenticated inventory if older than five hours
+        run: python3 -m thuha.cli --remote --output artifacts/vi-rescue audit --max-age 18000
+      - name: Preview real QA for the two Vietnamese editorial link repairs
+        run: python3 scripts/vi_link_rescue.py
+      - name: Store revisions and run the unchanged QA-75 gate
+        run: python3 scripts/vi_link_rescue.py --apply
+      - name: Preserve durable status and receipts (does not itself publish)
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts/vi-rescue report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vi-link-rescue-${{ github.run_id }}
+          path: artifacts/vi-rescue/
+          if-no-files-found: ignore
+          retention-days: 14
