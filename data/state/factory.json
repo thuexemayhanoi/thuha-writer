@@ -12306,6 +12306,15 @@
       "previous": "74e0bdb91a13cdd28f6574d3ca7530970ce780c699d305cd2c6f5f45d835b020",
       "sha256": "a39119a9900b73d47c11ef3658696c43dc886c690b84e524e85ce64cd67b77a0",
       "topic_id": "TH-000051"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:05:29.410092+00:00",
+      "previous": "a39119a9900b73d47c11ef3658696c43dc886c690b84e524e85ce64cd67b77a0",
+      "report_sha": "1852a762a5175217f4a122d6fbd6a0a96e9473956db086deea7e0bc8982e4e2a",
+      "sha256": "2bd296fc27144b81b7aa84dfbea0c0298eb0894925c578d18ca2b4a9ac1c8ffe",
+      "status": "PASS",
+      "topic_id": "TH-000051"
     }
   ],
   "intents": {
@@ -22526,19 +22535,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856120.188091,
-      "fence": "75cea95aba8947d69dc043e62480746d",
-      "heartbeat_at": "2026-10-24T15:05:20.188066+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000051"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22643,6 +22640,11 @@
     "TH-000050": {
       "article_sha": "50a240e7e6a03d2bb2995a7c2735d193ea12018ba86342ac4cd081c8e6e0e7d4",
       "report_sha": "155422971d1042e049ee4992452b1bddba148e26065f109c9e6714857b0827d3",
+      "status": "PASS"
+    },
+    "TH-000051": {
+      "article_sha": "733fe132c5bd530dc7dbad6229941a9e769ee790d93e1abfab1445c4eb12a888",
+      "report_sha": "1852a762a5175217f4a122d6fbd6a0a96e9473956db086deea7e0bc8982e4e2a",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -28093,7 +28095,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000051"
     },
     "TH-000052": {
@@ -34997,5 +34999,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2162
+  "version": 2163
 }
