@@ -429,17 +429,24 @@ class GitStore:
 
     def put_document(self,value):
         sha=digest(value);path='data/documents/'+sha+'.json'
-        try:
-            old,_=self._get(path)
-            if old!=value:raise ValueError('Immutable remote document collision')
-        except GitError as e:
-            if e.status!=404:raise
-            try:self._put(path,value)
-            except GitError as race:
-                if race.status not in (409,422):raise
+        # A concurrent state writer may move the branch between a missing-file
+        # GET and an immutable-file PUT. 409/422 does not prove the document
+        # exists: another writer might only have moved the branch. Re-read and
+        # retry with bounded CAS; never replace or overwrite an existing file.
+        for attempt in range(6):
+            try:
                 old,_=self._get(path)
-                if old!=value:raise ValueError('Document CAS conflict')
-        return sha
+                if old!=value:raise ValueError('Immutable remote document collision')
+                return sha
+            except GitError as exc:
+                if exc.status!=404:raise
+            try:
+                self._put(path,value)
+                return sha
+            except GitError as exc:
+                if exc.status not in (409,422):raise
+                if attempt==5:raise
+        raise RuntimeError('Immutable document CAS retry limit reached')
 
     def get_document(self,sha):
         if not re.fullmatch('[a-f0-9]{64}',sha):raise ValueError('Invalid document address')
