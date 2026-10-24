@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/explain-motorbike-breakdown-without-vietnamese/",
   "qa": {
-    "report_sha": "40c4c20b186ce0aa65b2d7213ffdc81107481fa089c90093ab62d52ac653f556",
+    "report_sha": "9044e0753c218a313e204ffe8bab031003be8d2f158736e6ce05687bbea75d83",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T14:56:21.098096+00:00",
+  "submitted_at": "2026-10-24T03:53:24.095917+00:00",
   "topic_id": "TH-EN-0125",
   "waiting_for": []
 }

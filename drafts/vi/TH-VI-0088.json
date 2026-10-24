@@ -33,7 +33,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-thue-luc-troi-toi-hoac-dang-mua-kiem-tra-bang-den-dien-thoai/",
-  "qa": null,
+  "qa": {
+    "report_sha": "a3e54b8b809702cce10dac81cea7cfd2fe069abfbb8f77bbced5add50aad7759",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,10 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T15:52:31.970238+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:57:44.251190+00:00",
   "topic_id": "TH-VI-0088",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

@@ -1,10 +1,10 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-23T16:19:08.120563+00:00
+Generated: 2026-10-24T04:07:13.890970+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
-- factory_published_receipts: 9
+- factory_published_receipts: 30
 - inventory_language_source: authenticated-snapshot
 - production_enabled: True
 - state_backend: local-offline-snapshot
@@ -13,19 +13,19 @@ Generated: 2026-10-23T16:19:08.120563+00:00
 
 | Language | Target | Live published | Unresolved intents | Remaining | Receipts |
 |---|---|---|---|---|---|
-| vi | 500 | 0 | 0 | 500 | 0 |
+| vi | 500 | 21 | 0 | 479 | 21 |
 | en | 500 | 284 | 0 | 216 | 9 |
 
 ## Shared queue (not published posts)
 
 | Language | Waiting for data | Awaiting QA | QA waits for data | QA pass | Publishing | Published | Needs repair | Held / unknown |
 |---|---|---|---|---|---|---|---|---|
-| vi | 51 | 0 | 0 | 0 | 0 | 0 | 0 | 11 |
-| en | 0 | 0 | 0 | 34 | 0 | 9 | 0 | 0 |
+| vi | 0 | 0 | 0 | 30 | 0 | 21 | 0 | 11 |
+| en | 0 | 0 | 0 | 42 | 0 | 9 | 0 | 0 |
 
-Public-page checks after publication: PASSED 9. Public-page checks run after publication, back off and retry; they never stop the queue.
+Public-page checks after publication: PASSED 30. Public-page checks run after publication, back off and retry; they never stop the queue.
 
-Session ledger hand-over: FAST_FORWARD (session v919, shared v448)
+Session ledger hand-over: FAST_FORWARD (session v1245, shared v615)
 
 Adapter: VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 
@@ -47,7 +47,6 @@ Adapter: VERIFIED (live status is PENDING until a credentialed preflight succeed
 
 - No external AI session lease; Actions do not generate prose
 - The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over
-- 51 draft(s) wait for data (FEATURED_MEDIA x51): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0010, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0017, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026
 
 Existing articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.
 

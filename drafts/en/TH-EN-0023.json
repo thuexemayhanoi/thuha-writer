@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/which-phone-number-to-give-a-hanoi-rental-shop-roaming-sim-or-app/",
   "qa": {
-    "report_sha": "9555089093220f90c155a56d8514da1b81df620fa9defdf44d51971dcfa8f167",
+    "report_sha": "da236b9e5359aed389b16a1e8294e3d82b66272905edf2027800ee2ca09a3440",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:41:20.225209+00:00",
+  "submitted_at": "2026-10-24T03:55:55.148149+00:00",
   "topic_id": "TH-EN-0023",
   "waiting_for": []
 }

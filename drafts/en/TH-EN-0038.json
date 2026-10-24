@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/return-fuel-level-agree-the-rule-at-pickup-not-at-the-counter/",
   "qa": {
-    "report_sha": "7202330ab3ab86ad8bcc1a0a26a7d36896f28f85afa4172e7953e68aff3e5a96",
+    "report_sha": "57d185686ab2e931cb331a1259b958c24c40bb1cd3ef6ba60655b8955a17747c",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:41:33.176902+00:00",
+  "submitted_at": "2026-10-24T03:56:06.009751+00:00",
   "topic_id": "TH-EN-0038",
   "waiting_for": []
 }

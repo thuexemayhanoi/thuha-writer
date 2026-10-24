@@ -70,7 +70,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/sinh-vien-thue-xe-theo-thang-xe-so-hay-xe-ga/",
-  "qa": null,
+  "qa": {
+    "report_sha": "a627e4831578d3750bad01362e7876af6473da57272505b6855734051043c868",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -91,10 +94,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T16:06:43.310713+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:58:50.646617+00:00",
   "topic_id": "TH-VI-0140",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

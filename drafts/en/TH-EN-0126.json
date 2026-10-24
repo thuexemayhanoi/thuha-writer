@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/roadside-mechanic-fix-rental-bike-ask-before-saying-yes/",
   "qa": {
-    "report_sha": "121810a4db3325aa545dc794f21b4c154064a04dbbc899fea85c44d5407ca0e6",
+    "report_sha": "6b36cda630a641aea01a9214de4d06f612c7fee0310fac9e7c356a59a005d62e",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:02:41.872981+00:00",
+  "submitted_at": "2026-10-24T03:54:49.773117+00:00",
   "topic_id": "TH-EN-0126",
   "waiting_for": []
 }

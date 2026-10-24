@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/travelling-abroad-mid-rental-hold-pause-or-return-the-bike/",
   "qa": {
-    "report_sha": "be7e86566d0fcb72616f0677f4cba4aa54a0e61737900b5b2c65b1257f1f32fe",
+    "report_sha": "48627a50243342d0c201be289d63aacccc8a38af47bfa46ab1e4af77dca231f6",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T16:17:23.165213+00:00",
+  "submitted_at": "2026-10-24T04:01:24.869394+00:00",
   "topic_id": "TH-EN-0030",
   "waiting_for": []
 }

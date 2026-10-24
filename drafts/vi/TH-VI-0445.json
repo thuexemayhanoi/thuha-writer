@@ -33,7 +33,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/an-trua-no-roi-lai-xe-may-buon-ngu-xep-gio-nghi/",
-  "qa": null,
+  "qa": {
+    "report_sha": "2c8a212f908f256b16749c30767a079919e460e18e1f90be48d7808c8234d35b",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,10 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T14:54:33.157724+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:51:48.255185+00:00",
   "topic_id": "TH-VI-0445",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/shift-work-and-a-monthly-bike-midnight-finishes-lighting-late-night-parking/",
   "qa": {
-    "report_sha": "9b2ca21bc07f1ee563c4f273a17522955213594e5feade8a8eb4d64253f586d3",
+    "report_sha": "ea1ded56ca47478e2ad31af67a77b8f12ae79b788411e0ca6e9d89e0c273f561",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:02:27.958402+00:00",
+  "submitted_at": "2026-10-24T03:54:39.259984+00:00",
   "topic_id": "TH-EN-0032",
   "waiting_for": []
 }

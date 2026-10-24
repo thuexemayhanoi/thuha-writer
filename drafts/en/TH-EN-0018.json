@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/lost-rental-receipt-or-agreement-photos-rebuild-the-record-before-return/",
   "qa": {
-    "report_sha": "0f281ed33154dc7cf25fe0b5be677e0ebfaa6f8ccdda66d83d0382d94314fe6a",
+    "report_sha": "1e97ce2cea63bf6a9bfe5f574961e6a7a282b893d303316627899906d7801260",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:41:06.401044+00:00",
+  "submitted_at": "2026-10-24T03:55:44.226216+00:00",
   "topic_id": "TH-EN-0018",
   "waiting_for": []
 }

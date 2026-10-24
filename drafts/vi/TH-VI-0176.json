@@ -58,7 +58,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-dien-theo-thang-pin-yeu-dan-giua-ky-thue/",
-  "qa": null,
+  "qa": {
+    "report_sha": "dafd887595918e96ed51331be75cd3041c04fe423b36931722e8ff0e4823e0f6",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -79,10 +82,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T15:52:02.343345+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:57:11.359029+00:00",
   "topic_id": "TH-VI-0176",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/following-distance-stop-and-go-hanoi-traffic-space/",
   "qa": {
-    "report_sha": "f9334a2a75ec9c229f4522a747dab4d798c4ec0347a2563314810392353fed15",
+    "report_sha": "3a82d6f2b98b57a4446ca952cdaa68eff0a654f2d42dd4866f4cd4ea372cd75a",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T14:55:46.460713+00:00",
+  "submitted_at": "2026-10-24T03:52:52.284297+00:00",
   "topic_id": "TH-EN-0141",
   "waiting_for": []
 }

@@ -58,7 +58,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nhom-ban-di-nhieu-xe-thue-cung-loai-xe-ga/",
-  "qa": null,
+  "qa": {
+    "report_sha": "03238b05b1ee5f960333a5bd17e5420cda477b286df5ebfb3531c9a9b7effc6e",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -79,10 +82,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T14:54:15.533625+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:51:37.574129+00:00",
   "topic_id": "TH-VI-0121",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/ending-a-monthly-rental-notice-and-the-last-day-in-hanoi/",
   "qa": {
-    "report_sha": "0b9d7b4416a68ad054cd42eece17d9bf3781b8771286f187fc72bd3b92414985",
+    "report_sha": "57235f2bc0f253d1c5c63aed91860cbb37448464a49bcae63971ffcc7788f0ee",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:42:02.506273+00:00",
+  "submitted_at": "2026-10-24T03:56:27.651666+00:00",
   "topic_id": "TH-EN-0031",
   "waiting_for": []
 }

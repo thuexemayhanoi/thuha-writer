@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-EN6",
+  "article": {
+    "agent_id": "claude-writer-EN6",
+    "body_html": "<p>Your job in Hanoi is ending, a colleague is arriving and the bike you have ridden for months would suit them perfectly. Passing over the keys on your last evening feels like the neat solution. It leaves a gap, though: the bike belongs to the shop, the rental is an arrangement between you and the shop, and handing over the keys does not by itself change who the rental is with. A handover that goes through the shop protects both of you.</p>\n\n<h2>Why the handover should go through the shop</h2>\n<ul>\n<li><strong>Your name is on the rental.</strong> If the bike is damaged, lost or disputed after you have left, ask the shop who it will look to; until that is settled it may still be you.</li>\n<li><strong>The shop has not met your colleague.</strong> Only the shop can say what it needs before renting to someone new, so ask before anything changes hands.</li>\n<li><strong>The deposit and the rate belong to your agreement.</strong> Ask the shop whether either carries over to your colleague.</li>\n<li><strong>The bike's condition needs a fresh record.</strong> Without one, nobody can say whose damage a mark on the bike is.</li>\n</ul>\n<p>None of this means the shop will agree to the idea. It may prefer to take the bike back and rent it to your colleague as a new rental, or it may decline; either is the shop's call. What it does mean is that the shop should be asked before anything is handed over.</p>\n\n<h2>What to ask the shop</h2>\n<ol>\n<li>Can my colleague take over this bike, or does the rental end with me and a new one begin in their name?</li>\n<li>What does the shop need from my colleague, and what does it need from me to close my rental?</li>\n<li>When and where should we come in together?</li>\n<li>How will my deposit be settled, and will my colleague be asked for a new one?</li>\n<li>Will the rate stay as it is, or will the new rental be priced from the start?</li>\n<li>Who is the contact for problems, and does that change when the rental changes hands?</li>\n</ol>\n<p>The shop's answers decide the paperwork. Do not assume that your colleague can start riding on the day of the handover; what is needed depends on what the shop tells you. Tell the shop beforehand when you plan to come; it is open 09:00–21:00 daily.</p>\n\n<h2>The handover visit</h2>\n<p>Go to the shop together. Walk around the bike with your colleague, and with the shop's staff if they offer to join, and photograph each side, the dashboard and the odometer with the date visible. <a href=\"https://rentbikehanoi.com/returning-a-rental-motorbike-in-hanoi-a-receipt-and-handover-checklist/\">The checklist for returning a rental motorbike</a> lists what to record when a bike goes back to a shop, and the same walk-around works when the next renter takes it on. Count the keys as well. <a href=\"https://rentbikehanoi.com/rental-motorbike-keys-in-hanoi-spare-keys-loss-and-safe-storage/\">The guide to rental motorbike keys</a> covers spare keys, loss and safe storage, and the number of keys that change hands is worth writing down.</p>\n<p>If you cannot be at the shop yourself, that is a different situation. <a href=\"https://rentbikehanoi.com/can-a-friend-return-your-hanoi-rental-motorbike-arrange-an-authorised-handover/\">The guide to a friend returning your bike</a> covers what to arrange with the shop beforehand.</p>\n\n<h2>What you should still hold in writing</h2>\n<p>You are the one leaving, so the proof that your rental has ended is yours to collect. Before you leave the shop, ask for a message or a note that confirms:</p>\n<ul>\n<li>the date and time your rental ended and the bike came off your name;</li>\n<li>that the bike was checked at handover, with any marks listed;</li>\n<li>whether any deposit is returned and, if so, when, or that it has already been settled;</li>\n<li>that nothing further is owed by you;</li>\n<li>the name of your colleague as the new renter, if the shop agrees to that.</li>\n</ul>\n<p>Photograph the note and keep the photos with your booking record and receipts. <a href=\"https://rentbikehanoi.com/hanoi-motorbike-rental-deposits-how-to-record-payment-and-return/\">How to record a deposit payment and its return</a> shows what to write down.</p>\n\n<h2>What your colleague should do</h2>\n<p>Your colleague starts from the same place any new renter does: they ask the shop what it needs and what the terms are, and they check the bike as if they had never seen it. A bike that has been ridden for months can have marks and wear that the previous renter no longer notices, so every side deserves a look before they accept it. They should also ask who to contact if something goes wrong. Before the visit, <a href=\"https://rentbikehanoi.com/monthly-motorbike-rental-hanoi/\">the shop's page for rentals of a month or more</a> is worth reading, because it sets out the shop's own rates and booking details.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/handing-your-monthly-bike-to-the-next-expat-transfer-the-contract/",
+    "category_id": 125,
+    "featured_media": 76,
+    "focus_keyword": "transfer motorbike rental contract to another person hanoi",
+    "language": "en-US",
+    "meta_description": "Leaving Hanoi and passing your rental bike to a colleague? Why the handover should go through the shop and what you should still hold in writing.",
+    "seo_title": "Passing Your Monthly Rental Bike to a Colleague: Ask the Shop First",
+    "session": "en-b6-20261023",
+    "source_commit": "e4242c5976c42e05b4113c381de2460a6a438bcf",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Handing Your Monthly Bike to the Next Expat: Transfer the Contract, Not Just the Keys",
+    "topic_id": "TH-EN-0033"
+  },
+  "article_sha": "b8b5a496fdc9420237b1777260b2fc010819e8376790968fa0159e77e9beffdb",
+  "category_id": 125,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/handing-your-monthly-bike-to-the-next-expat-transfer-the-contract/",
+  "qa": {
+    "report_sha": "f7b03759abe6b3a32219f8473fc1d4558fc00e6abffb6ebae352b107b9bd4524",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:03:03.692485+00:00",
+  "topic_id": "TH-EN-0033",
+  "waiting_for": []
+}

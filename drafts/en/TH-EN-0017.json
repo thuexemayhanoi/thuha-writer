@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/no-reply-from-a-hanoi-rental-shop-what-to-do-before-you-arrive/",
   "qa": {
-    "report_sha": "336429e1ec83550e5f2d68db25214fb2d683d288dc40c2dcb819189b535c7eeb",
+    "report_sha": "50020f5afc57ad3b96f48fd22a632129b86049dffd879f57e114774d782eb666",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:40:50.867228+00:00",
+  "submitted_at": "2026-10-24T03:55:33.347194+00:00",
   "topic_id": "TH-EN-0017",
   "waiting_for": []
 }

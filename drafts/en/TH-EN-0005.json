@@ -71,7 +71,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/ride-hailing-or-rental-bike-hanoi-trip-count-worksheet/",
   "qa": {
-    "report_sha": "2bd79ff4c2c13809792f6707c9f5febae34bd3030d36e47e5902e5e797a5b05a",
+    "report_sha": "a12e822bc4ec9b24ff26b7f57007ffaa622d1959937434119a97e8a5fadb23fd",
     "status": "PASS"
   },
   "receipt": null,
@@ -95,7 +95,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T14:56:09.361104+00:00",
+  "submitted_at": "2026-10-24T03:53:13.568459+00:00",
   "topic_id": "TH-EN-0005",
   "waiting_for": []
 }

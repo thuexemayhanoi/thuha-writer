@@ -33,7 +33,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-gap-su-co-goi-dien-hay-nhan-tin-cho-cua-hang-truoc/",
-  "qa": null,
+  "qa": {
+    "report_sha": "afe809d751f8611a97dc6de120c1c7d4486b67d50afc4ee2b3cc2a32207eb5aa",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,10 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T15:51:42.049344+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:56:49.479151+00:00",
   "topic_id": "TH-VI-0248",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

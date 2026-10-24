@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-EN6",
+  "article": {
+    "agent_id": "claude-writer-EN6",
+    "body_html": "<p>A ride out of the city looks simple on a map: a road, a destination and a day to do it in. It looks different when the bike stops somewhere with no shop for kilometres. The time to decide who does what is before you leave Hanoi, when the shop can answer questions without a roadside clock running. This guide lists the questions to settle first, what to tell the shop about your route and what you should not arrange on your own.</p>\n\n<h2>What to tell the shop before you go</h2>\n<ul>\n<li>Where you are going, by which road, and roughly how far it is from the shop.</li>\n<li>The day and time you plan to leave and to be back.</li>\n<li>Whether you will carry a passenger or luggage.</li>\n<li>The phone number you will have with you, and whether it works outside the city.</li>\n</ul>\n<p>Pass these on through the shop's <a href=\"https://rentbikehanoi.com/contact-us/\">contact page</a> or by phone on <a href=\"tel:+84334699969\">0334 699 969</a>; the shop is open 09:00–21:00 daily.</p>\n<p>Ask the shop whether the bike you hold is suitable for the distance, and let the answer decide your route, not the other way round. Ask too whether the shop sets a distance limit for that bike. If you are still choosing where to go, <a href=\"https://rentbikehanoi.com/motorbike-rental-hanoi-best-day-trips-around-the-city/\">best day trips around the city</a> and <a href=\"https://rentbikehanoi.com/ninh-binh-from-hanoi-self-ride-or-bus-and-local-rental/\">self-riding or taking the bus to Ninh Binh</a> are worth reading with the shop's answer beside them.</p>\n\n<h2>Questions to settle before you leave the city</h2>\n<table>\n<thead><tr><th>Question</th><th>Why it matters on the road</th></tr></thead>\n<tbody>\n<tr><td>Who do I call first, and at what hours?</td><td>The shop is open 09:00–21:00 daily, so a breakdown at 22:00 needs a different plan</td></tr>\n<tr><td>If the bike cannot be ridden, who arranges recovery?</td><td>Only the shop can say what help it gives with recovery, if any; you need to know before you are standing beside the bike</td></tr>\n<tr><td>Who pays for recovery, and how is that decided?</td><td>Agreeing a cost at the roadside is harder than agreeing it at the counter</td></tr>\n<tr><td>Can a replacement bike be sent, and how long might it take?</td><td>It decides whether you wait or make other plans</td></tr>\n<tr><td>May I have the bike repaired locally, and who approves it?</td><td>A repair you arrange alone may not be accepted, so ask before you spend money</td></tr>\n<tr><td>What should I send you when I call?</td><td>Your location, photos of the bike and the fault, and the plate number make the call shorter</td></tr>\n</tbody>\n</table>\n<p>Write the answers down, or ask the shop to send them as a message. A promise made across a counter is hard to recall from the side of a road.</p>\n\n<h2>What not to arrange alone</h2>\n<p>First get yourself and the bike away from moving traffic. If anyone is hurt or you are in danger, call 115 (ambulance), 113 (police) or 114 (fire service) before the shop. Then do not hand the bike to a stranger to take away, do not agree to a repair or a tow price before the shop knows, and do not leave the bike unattended without telling the shop where it is. Each of these can create a cost or a dispute that is hard to untangle later. Once you are safe, photograph the bike, the fault and the place, and share your location with the shop.</p>\n<p>Two small faults are worth preparing for. If the problem is a puncture, <a href=\"https://rentbikehanoi.com/rental-motorbike-puncture-in-hanoi-where-to-stop-and-what-to-record/\">where to stop and what to record</a> is written for Hanoi, but it is a place to start thinking about where to stop outside the city too. If the bike will not start, <a href=\"https://rentbikehanoi.com/rental-scooter-will-not-start-information-to-send-the-shop/\">the information to send the shop</a> shortens the call.</p>\n\n<h2>If it happens late in the day</h2>\n<p>A breakdown at dusk, far from a town, is a different problem from one at noon. <a href=\"https://rentbikehanoi.com/hanoi-motorbike-breakdown-after-2100-prepare-a-safe-waiting-plan/\">A safe waiting plan for a breakdown after 21:00</a> covers where to wait and what to do first. Set your return time with enough margin that a delay does not push you into the hours when the shop is closed, and ask the shop what it wants you to do if that happens anyway.</p>\n\n<h2>The day before</h2>\n<p>Send the shop your route, the distance and the time you expect to leave and return, together with the six questions above, and say which phone number and messaging app you will use to share your location. Save its replies on your phone so that they are still there when you need them.</p>\n<p>If the trip may end somewhere other than Hanoi, <a href=\"https://rentbikehanoi.com/one-way-motorbike-rental-from-hanoi-questions-to-ask-before-booking/\">the questions to ask before a one-way rental</a> are worth reading too.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/breakdown-far-from-hanoi-recovery-questions-before-you-leave/",
+    "category_id": 134,
+    "featured_media": 76,
+    "focus_keyword": "motorbike breakdown outside hanoi recovery rental shop",
+    "language": "en-US",
+    "meta_description": "Riding out of the city? Ask who you call, whether recovery or a replacement is possible and what not to arrange alone, before the bike fails.",
+    "seo_title": "Breakdown Far From Hanoi: Ask the Shop What Happens First",
+    "session": "en-b6-20261023",
+    "source_commit": "22f9f37740f4a3231c86b4d6ce13685eb2348bba",
+    "sources": [
+      {
+        "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Breakdown Far From Hanoi: Settle Recovery Questions With the Shop Before You Leave the City",
+    "topic_id": "TH-EN-0128"
+  },
+  "article_sha": "e624523995538aba6fa9b30e2173ef926b2181c7100b8a246daf17e868d47eff",
+  "category_id": 134,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/breakdown-far-from-hanoi-recovery-questions-before-you-leave/",
+  "qa": {
+    "report_sha": "3745751a24179d76686040b270d9c58da7446aeb6f300a2c2093c044112e50dc",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950"
+  ],
+  "source_evidence": {
+    "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T12:08:11.046924+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:03:25.558672+00:00",
+  "topic_id": "TH-EN-0128",
+  "waiting_for": []
+}

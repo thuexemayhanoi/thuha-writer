@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/flight-before-the-shop-opens-plan-the-bike-return-the-night-before/",
   "qa": {
-    "report_sha": "9e3b8d7cf6665e7a8d872b675dfc5a49e1770eba562caf95a98bc5881085245b",
+    "report_sha": "0ab083cd24fdb90359eddef82874ed1a5c5d6dcfdd9974245a2bacd9ed01bd57",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:01:54.989007+00:00",
+  "submitted_at": "2026-10-24T03:54:18.133156+00:00",
   "topic_id": "TH-EN-0039",
   "waiting_for": []
 }

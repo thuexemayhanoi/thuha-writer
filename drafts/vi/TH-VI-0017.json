@@ -70,7 +70,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/doc-bang-gia-thue-xe-ghi-tu-tro-len-hoac-lien-he/",
-  "qa": null,
+  "qa": {
+    "report_sha": "43f32ce3e665ff98d3b740415e8ac157acb9b99729adda4ef8831ed35575dcff",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -91,10 +94,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T15:52:41.364932+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:57:55.297084+00:00",
   "topic_id": "TH-VI-0017",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

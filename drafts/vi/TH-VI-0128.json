@@ -58,7 +58,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-ga-mot-tuan-de-thu-truoc-khi-mua/",
-  "qa": null,
+  "qa": {
+    "report_sha": "b27bc1efc33bc7360413bc23c90328fa30540c315de003f6ff49027ad6c4d3c8",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -79,10 +82,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T14:54:06.255588+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:51:27.063300+00:00",
   "topic_id": "TH-VI-0128",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

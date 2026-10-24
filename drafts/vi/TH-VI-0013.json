@@ -58,7 +58,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/du-tru-khoan-du-phong-khi-thue-xe-may-chi-phi-nho-phat-sinh/",
-  "qa": null,
+  "qa": {
+    "report_sha": "ee150cfc9a502b23444a6587b3067fa16012bf0b0869c5eed6cac9df7452fa3c",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -79,10 +82,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T16:05:56.735544+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:58:06.983939+00:00",
   "topic_id": "TH-VI-0013",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

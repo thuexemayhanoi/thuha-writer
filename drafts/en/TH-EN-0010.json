@@ -185,7 +185,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/price-ranges-on-a-rental-listing-pin-down-bike-and-rate/",
   "qa": {
-    "report_sha": "fbf864a5621054b46a96ec60c54a12be7db80674699647fa64ef83fcbc49c846",
+    "report_sha": "b62ab40903daa3573ea7b758238396b08c051358396638ce8536307596149a09",
     "status": "PASS"
   },
   "receipt": null,
@@ -209,7 +209,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:00:48.334584+00:00",
+  "submitted_at": "2026-10-24T03:54:07.573623+00:00",
   "topic_id": "TH-EN-0010",
   "waiting_for": []
 }

@@ -70,7 +70,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-theo-ngay-hay-theo-tuan-khi-o-mot-tuan/",
-  "qa": null,
+  "qa": {
+    "report_sha": "00411bef1af5ef2d80af5eeeba78acceee05621e264ddb7a8e7326e13a23a325",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -91,10 +94,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T16:06:09.505155+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:58:18.033118+00:00",
   "topic_id": "TH-VI-0003",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

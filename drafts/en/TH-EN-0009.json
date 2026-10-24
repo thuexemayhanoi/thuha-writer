@@ -71,7 +71,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/weekend-only-rides-short-rentals-each-weekend-or-one-bike-held-all-week/",
   "qa": {
-    "report_sha": "bb121fceb40b1d54964508c3c36ddd903e242d542f868b32d7330839b9fc89a6",
+    "report_sha": "4c00e4a2f28aec6f9f5b3c0a3e0822b60d72da204ff52613b74dac042a84db19",
     "status": "PASS"
   },
   "receipt": null,
@@ -95,7 +95,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T14:55:11.568688+00:00",
+  "submitted_at": "2026-10-24T03:52:20.346494+00:00",
   "topic_id": "TH-EN-0009",
   "waiting_for": []
 }

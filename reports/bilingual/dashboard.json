@@ -4,9 +4,11 @@
     "contract": "thuha-writer/1",
     "native_vi_version": "1.1.1",
     "status": "VERIFIED",
-    "verified_at": "2026-10-23T14:26:30.329911+00:00"
+    "verified_at": "2026-10-24T02:41:29.530762+00:00"
   },
   "agent_attribution": {
+    "chatgpt-editorial-link-rescue": 14,
+    "chatgpt-seo-editor": 7,
     "claude-writer-W11": 1,
     "claude-writer-W2": 1,
     "claude-writer-W3": 1,
@@ -20,20 +22,19 @@
   "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
   "blockers": [
     "No external AI session lease; Actions do not generate prose",
-    "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over",
-    "51 draft(s) wait for data (FEATURED_MEDIA x51): TH-VI-0003, TH-VI-0004, TH-VI-0008, TH-VI-0010, TH-VI-0011, TH-VI-0013, TH-VI-0016, TH-VI-0017, TH-VI-0018, TH-VI-0019, TH-VI-0022, TH-VI-0026"
+    "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over"
   ],
   "closed_intents": {},
-  "factory_published_receipts": 9,
-  "generated_at": "2026-10-23T16:19:08.120563+00:00",
+  "factory_published_receipts": 30,
+  "generated_at": "2026-10-24T04:07:13.890970+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
     "reasons": [],
-    "session_ledger_version": 919,
-    "shared_ledger_version": 448,
+    "session_ledger_version": 1245,
+    "shared_ledger_version": 615,
     "status": "FAST_FORWARD"
   },
   "held": {
@@ -57,7 +58,7 @@
       "complete": false,
       "factory_published_receipts": 9,
       "needs_source_or_research": [],
-      "open_topics": 82,
+      "open_topics": 94,
       "over_target": false,
       "published_live": 284,
       "remaining": 216,
@@ -68,10 +69,10 @@
         "HELD": 0,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
-        "PLANNED": 48,
+        "PLANNED": 52,
         "PUBLISHED": 9,
         "PUBLISHING": 0,
-        "READY": 34,
+        "READY": 42,
         "RESEARCH": 0,
         "WAITING_DATA": 0
       },
@@ -80,23 +81,23 @@
     },
     "vi": {
       "complete": false,
-      "factory_published_receipts": 0,
+      "factory_published_receipts": 21,
       "needs_source_or_research": [
         {
-          "created_at": "2026-10-23T15:40:17.261364+00:00",
-          "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
+          "created_at": "2026-10-24T03:58:24.413474+00:00",
+          "inventory_sha256": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
           "language": "vi",
           "maximum_topics": 100,
-          "planned": 16,
-          "request_id": "research-vi-b9db1237c27c80a7",
+          "planned": 29,
+          "request_id": "research-vi-fe4f31668a59efbd",
           "runtime": "External authorized AI session required",
           "status": "AWAITING_EXTERNAL_RESEARCH"
         }
       ],
-      "open_topics": 62,
+      "open_topics": 57,
       "over_target": false,
-      "published_live": 0,
-      "remaining": 500,
+      "published_live": 21,
+      "remaining": 479,
       "states": {
         "BLOCKED": 0,
         "CLAIMED": 0,
@@ -104,12 +105,12 @@
         "HELD": 11,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
-        "PLANNED": 0,
-        "PUBLISHED": 0,
+        "PLANNED": 16,
+        "PUBLISHED": 21,
         "PUBLISHING": 0,
-        "READY": 0,
+        "READY": 30,
         "RESEARCH": 0,
-        "WAITING_DATA": 51
+        "WAITING_DATA": 0
       },
       "target": 500,
       "unresolved_intents": 0
@@ -119,11 +120,11 @@
     "vi",
     "en"
   ],
-  "offline_note": "Built from the committed session ledger, the factory-state ledger as last fetched (version 448, 323 events) and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
+  "offline_note": "Built from the committed session ledger, the factory-state ledger as last fetched (version 615, 522 events) and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
   "open_alerts": [],
   "post_checks": {
     "counts": {
-      "PASSED": 9
+      "PASSED": 30
     },
     "note": "Public-page checks run after publication, back off and retry; they never stop the queue.",
     "warnings": {}
@@ -223,11 +224,221 @@
       "published_at": "2026-10-23T14:23:44.671252+00:00",
       "url": "https://rentbikehanoi.com/buying-second-hand-motorbike-hanoi-foreigner-registration/",
       "wp_id": 3502
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "b8759dafec11b0c884d1a0bc33ca99dcda09e0db271ebda805aa7a7878076c4e",
+      "document": "f95e818d9d3aef3b746a48704f9c5527bcb49817be1eb96955c40d8eba605749",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:31:05.455237+00:00",
+      "url": "https://rentbikehanoi.com/vi/ngay-thue-xe-may-tinh-theo-24-gio-hay-ngay-lich/",
+      "wp_id": 3775
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "5dcc70ebc08788998f955f4ea7978f12acb7808e07a7b3b75b8feebe79a3b89a",
+      "document": "1f788b1be1711e6b82ae924e1a77694f512519a0120f3fb8f0a572427511fcb4",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:31:43.572938+00:00",
+      "url": "https://rentbikehanoi.com/vi/xuoc-nhe-gay-guong-mat-chia-xin-bang-muc-den-bu-truoc-khi-nhan/",
+      "wp_id": 3777
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "ecb1009fad4aa27a599f16b875be45bfdc422b0e3431ab6de131cd1359de836d",
+      "document": "c47522c8d81e51bc752e399706002ec6373109b756363f48b6ba792562e7eed8",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:32:20.878246+00:00",
+      "url": "https://rentbikehanoi.com/vi/gia-tham-khao-va-bai-dang-uu-dai-xac-nhan-con-hieu-luc/",
+      "wp_id": 3779
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "f13f9e280b0fc9a8a4f871c2682d62d0bc8a32580f60b9607a6856a94e8a8573",
+      "document": "3d9d52c6723c61f8c8fead16c7daaedc4c4928e2c516b3f72e2d08a6168a0a0b",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:23:27.465465+00:00",
+      "url": "https://rentbikehanoi.com/vi/di-hai-nguoi-thue-mot-xe-hay-hai-xe-can-nhac-gi/",
+      "wp_id": 3761
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "0ce3d0e39b3113ffbd5a265f64d0df465baa707ada89b990df3ccaf8d7ebad79",
+      "document": "f146c3e2b17f4bc3c776ebad4a2999f17226c3e67b7f9e1bddc11630b1f7c2c0",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:32:58.778268+00:00",
+      "url": "https://rentbikehanoi.com/vi/doi-tu-thue-ngay-sang-thue-tuan-giua-chung/",
+      "wp_id": 3781
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "aaf408566dab474a6bf888d4b12aa21011e1ed8f3f5d8b171d1385dafe1f05f1",
+      "document": "b4657c3269d637a677768d92347988cd37b99a0d4152e604aeb76c6f82093bce",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:24:04.402389+00:00",
+      "url": "https://rentbikehanoi.com/vi/di-it-chang-trong-ngay-khi-nao-goi-xe-cong-nghe-hop-hon-thue-xe-may/",
+      "wp_id": 3763
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "f88b328bfcfebdf0a3b9579ba10d6822e5ca60caeb77c0e4caff59463fef09d0",
+      "document": "1e37a8be7d7ffae50999a3122af34059683881b4ae0f9b1778b128fbdc5b72e5",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:33:36.302949+00:00",
+      "url": "https://rentbikehanoi.com/vi/coc-giu-cho-va-coc-nhan-xe-hai-khoan-khac-nhau/",
+      "wp_id": 3783
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "c0cc710878fa7d4c41acb76598d0297fbcf929084a64d373880594afc29809f5",
+      "document": "781dd09ad830c8bf2e142a35504a2f4a68d1a2a70be3ff7ce4c6cad79d19b6a0",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:34:15.270691+00:00",
+      "url": "https://rentbikehanoi.com/vi/tan-sinh-vien-thue-xe-may-theo-thang-truoc-khi-quyet-dinh-mua/",
+      "wp_id": 3785
+    },
+    {
+      "agent_id": "chatgpt-seo-editor",
+      "article_sha": "ebb721c96e79503d1ea48770141ff05aa4f9cbe84193f4f518c8de513c0bbda0",
+      "document": "6d35146544542a32f7972bd86bfcde6c1af1eaef785a75f33cd709ec1bf93782",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:34:52.645219+00:00",
+      "url": "https://rentbikehanoi.com/vi/tra-xe-thue-muon-vi-ket-xe-hoac-mua-lon-nhan-cua-hang-the-nao/",
+      "wp_id": 3787
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "4b1178dfeb1f0b35e4be8b5300678321c8a520ae2c5c07638e161b8dd3964aef",
+      "document": "b7f241ede242c83f6c96ff794fc95d1ae716a429532e36d00585187ba06bcc89",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:24:42.211358+00:00",
+      "url": "https://rentbikehanoi.com/vi/chua-tung-lai-con-tay-co-nen-thue-khong/",
+      "wp_id": 3765
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "286a2293bf67fe48c8b6c6cbefe01c6b80d925fb929f84b04814642347b8f2a8",
+      "document": "673e11cb89cf6690f9a3fd628c9a516fdc3056bc00c3e48e33b69736028d55af",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:25:18.853032+00:00",
+      "url": "https://rentbikehanoi.com/vi/di-dep-le-hay-giay-khi-lai-xe-so-va-xe-con/",
+      "wp_id": 3767
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "74510626f8c8ca33dd0839e1857dfc10c72723a55fd0f591ebb5d0a77288ddd4",
+      "document": "08762bce31e6e3aeee533cc10420477a604271b9b5c4f6606a9a77d285d08034",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:25:55.615683+00:00",
+      "url": "https://rentbikehanoi.com/vi/bo-me-quen-xe-so-ca-doi-thue-xe-so-hay-thu-xe-ga/",
+      "wp_id": 3769
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "842a15da899ebcaf5751b1c075a8b8bee52b9ea4ccfb28ff066a667a365f6de9",
+      "document": "0bdd84257a72235b25b99b90e42892c349f6ddb86d5bf3300fee5719ebd78286",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:26:32.061093+00:00",
+      "url": "https://rentbikehanoi.com/vi/cho-nguoi-ngoi-sau-bang-xe-so-sang-so-em-khong-giat/",
+      "wp_id": 3771
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "2226e134cb44a18f6e09d3e282bfd41502554f4871a6203ed8c1dd53e48f91e0",
+      "document": "52853ecc2dd712d26c3deaf6a75108c2a087f13bf57e3e563faf5949e2c8421a",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:30:34.681217+00:00",
+      "url": "https://rentbikehanoi.com/vi/di-lam-bang-xe-thue-thang-mac-do-cong-so-cat-ao-khoac-giay/",
+      "wp_id": 3773
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "1217284f9920a4c3a918de104b5e92b78fb03beaea1c672ed5ad9dd2c1fa0645",
+      "document": "985185afd62efecd93a19cceaf558a9354573d682a1e0140eea3e8fa62e0b82a",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:35:29.567413+00:00",
+      "url": "https://rentbikehanoi.com/vi/mac-vay-ao-dai-quan-ong-rong-di-xe-may-tranh-vuong-banh-xich/",
+      "wp_id": 3789
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "869cf2de2a1d1b54984bc008793655a5288d895f7f5f9ae8a6459b81553d170a",
+      "document": "9e18dcb25a982b9c73c3389a011ff583e5d6a269bd2a8b25e99ab3fcf6b4d940",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:36:07.613897+00:00",
+      "url": "https://rentbikehanoi.com/vi/lau-roi-khong-cam-lai-tap-lai-thang-bang-phanh-va-quay-dau/",
+      "wp_id": 3791
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "28f5c660dbe8f0187455290393280090bfcb7fb6d1f790c3fa799a9adc80052b",
+      "document": "f6804496ffa54cf83f53f258d99591f2436cd0747440fdf9986e0cda7308d522",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:36:46.427998+00:00",
+      "url": "https://rentbikehanoi.com/vi/vao-cua-gat-tren-duong-de-hoac-ngoai-thanh-giam-toc-truoc-cua/",
+      "wp_id": 3793
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "dbe677123b7f6b267abf0367afb8f75d4fae8ac0c58bc822c852a2f3ee629108",
+      "document": "9c744941cbb9276e6fbccc75c03a132225392c4c6b35024b3639df1e8b4cacf9",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:37:24.461529+00:00",
+      "url": "https://rentbikehanoi.com/vi/di-choi-trong-ngay-bang-nhieu-xe-thu-tu-chay-diem-dung-chung/",
+      "wp_id": 3795
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "45ddcdb368c47b3ac67437915832e09c279c9d3dac1dc4cf69ffb2cdea666a8c",
+      "document": "65cd664133779ab5d8a0d3922dfb0e3c821dc865aeee9756cf37566cb0e8d7b1",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:38:03.937551+00:00",
+      "url": "https://rentbikehanoi.com/vi/nhom-zalo-chua-chot-diem-di-choi-chot-gio-xuat-phat-va-ai-di-xe-nao/",
+      "wp_id": 3797
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "26681b2df0ad0493b79c5ef0917bf8b3a5fb32278a407ccfb57ed82d6f1cda5f",
+      "document": "6606b552a586b559673a2368c2f42a930966cbccc874471061274b1d9df98ca9",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:38:43.218229+00:00",
+      "url": "https://rentbikehanoi.com/vi/chi-co-mot-ngay-nghi-muon-di-ba-noi-bo-bot-diem-nao/",
+      "wp_id": 3799
+    },
+    {
+      "agent_id": "chatgpt-editorial-link-rescue",
+      "article_sha": "a987de622c0a540691d2c089df30267313cbc7b865306478150f57f6ea517cb6",
+      "document": "58b3b7fd3a11c491692db090b67fa5913415cd72e9f36b4bf09377215a16fdc0",
+      "integrity": "MATCH",
+      "language": "vi",
+      "published_at": "2026-10-24T02:39:22.006791+00:00",
+      "url": "https://rentbikehanoi.com/vi/dien-thoai-het-pin-giua-chuyen-di-xa-ghi-san-so-lien-lac-ra-giay/",
+      "wp_id": 3801
     }
   ],
   "publisher_uncertain": [],
   "qa": {
-    "PASS": 43
+    "PASS": 102
   },
   "qa_blocked_data": {},
   "queue": {
@@ -257,6 +468,7 @@
         "TH-EN-0007",
         "TH-EN-0009",
         "TH-EN-0010",
+        "TH-EN-0011",
         "TH-EN-0012",
         "TH-EN-0013",
         "TH-EN-0015",
@@ -264,10 +476,15 @@
         "TH-EN-0018",
         "TH-EN-0020",
         "TH-EN-0021",
+        "TH-EN-0022",
         "TH-EN-0023",
+        "TH-EN-0025",
+        "TH-EN-0028",
+        "TH-EN-0029",
         "TH-EN-0030",
         "TH-EN-0031",
         "TH-EN-0032",
+        "TH-EN-0033",
         "TH-EN-0035",
         "TH-EN-0036",
         "TH-EN-0037",
@@ -278,8 +495,10 @@
         "TH-EN-0045",
         "TH-EN-0065",
         "TH-EN-0075",
+        "TH-EN-0101",
         "TH-EN-0125",
         "TH-EN-0126",
+        "TH-EN-0128",
         "TH-EN-0139",
         "TH-EN-0140",
         "TH-EN-0141"
@@ -302,25 +521,38 @@
         "TH-VI-0217"
       ],
       "needs_repair": [],
-      "published": [],
-      "publishing": [],
-      "qa_blocked_data": [],
-      "qa_pass": [],
-      "waiting_data": [
-        "TH-VI-0003",
+      "published": [
         "TH-VI-0004",
-        "TH-VI-0008",
-        "TH-VI-0010",
         "TH-VI-0011",
-        "TH-VI-0013",
         "TH-VI-0016",
-        "TH-VI-0017",
         "TH-VI-0018",
         "TH-VI-0019",
         "TH-VI-0022",
-        "TH-VI-0026",
         "TH-VI-0033",
         "TH-VI-0058",
+        "TH-VI-0093",
+        "TH-VI-0134",
+        "TH-VI-0146",
+        "TH-VI-0151",
+        "TH-VI-0158",
+        "TH-VI-0267",
+        "TH-VI-0268",
+        "TH-VI-0359",
+        "TH-VI-0371",
+        "TH-VI-0459",
+        "TH-VI-0484",
+        "TH-VI-0487",
+        "TH-VI-0491"
+      ],
+      "publishing": [],
+      "qa_blocked_data": [],
+      "qa_pass": [
+        "TH-VI-0003",
+        "TH-VI-0008",
+        "TH-VI-0010",
+        "TH-VI-0013",
+        "TH-VI-0017",
+        "TH-VI-0026",
         "TH-VI-0064",
         "TH-VI-0065",
         "TH-VI-0072",
@@ -328,16 +560,11 @@
         "TH-VI-0087",
         "TH-VI-0088",
         "TH-VI-0090",
-        "TH-VI-0093",
         "TH-VI-0100",
         "TH-VI-0105",
         "TH-VI-0121",
         "TH-VI-0128",
-        "TH-VI-0134",
         "TH-VI-0140",
-        "TH-VI-0146",
-        "TH-VI-0151",
-        "TH-VI-0158",
         "TH-VI-0176",
         "TH-VI-0197",
         "TH-VI-0218",
@@ -348,17 +575,10 @@
         "TH-VI-0250",
         "TH-VI-0251",
         "TH-VI-0263",
-        "TH-VI-0267",
-        "TH-VI-0268",
-        "TH-VI-0359",
-        "TH-VI-0371",
         "TH-VI-0373",
-        "TH-VI-0445",
-        "TH-VI-0459",
-        "TH-VI-0484",
-        "TH-VI-0487",
-        "TH-VI-0491"
-      ]
+        "TH-VI-0445"
+      ],
+      "waiting_data": []
     }
   },
   "research_requests": [
@@ -464,27 +684,6 @@
     },
     {
       "admitted_topic_ids": [
-        "TH-VI-0064",
-        "TH-VI-0248",
-        "TH-VI-0246",
-        "TH-VI-0176",
-        "TH-VI-0010",
-        "TH-VI-0086",
-        "TH-VI-0088",
-        "TH-VI-0017"
-      ],
-      "completed_at": "2026-10-23T15:15:19.811784+00:00",
-      "created_at": "2026-10-23T14:51:22.845273+00:00",
-      "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
-      "language": "vi",
-      "maximum_topics": 100,
-      "planned": 14,
-      "request_id": "research-vi-5ea4b275ae51aaf1",
-      "runtime": "External authorized AI session required",
-      "status": "FULFILLED"
-    },
-    {
-      "admitted_topic_ids": [
         "TH-VI-0013",
         "TH-VI-0218",
         "TH-VI-0003",
@@ -534,16 +733,6 @@
       "status": "FULFILLED"
     },
     {
-      "created_at": "2026-10-23T15:40:17.261364+00:00",
-      "inventory_sha256": "0331f4e9dbe0a7a530e4c5398d9d16f1ab8bd5da4c9c2ae98ff6695b3f247c5f",
-      "language": "vi",
-      "maximum_topics": 100,
-      "planned": 16,
-      "request_id": "research-vi-b9db1237c27c80a7",
-      "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
-    },
-    {
       "admitted_topic_ids": [
         "TH-VI-0043",
         "TH-VI-0053",
@@ -563,6 +752,16 @@
       "request_id": "research-vi-d08b8dd5e031330b",
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
+    },
+    {
+      "created_at": "2026-10-24T03:58:24.413474+00:00",
+      "inventory_sha256": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 29,
+      "request_id": "research-vi-fe4f31668a59efbd",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
     }
   ],
   "site_live_verified_posts": 0,
@@ -612,172 +811,18 @@
     "HELD": 11,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
-    "PLANNED": 48,
-    "PUBLISHED": 9,
+    "PLANNED": 68,
+    "PUBLISHED": 30,
     "PUBLISHING": 0,
-    "READY": 34,
+    "READY": 72,
     "RESEARCH": 0,
-    "WAITING_DATA": 51
+    "WAITING_DATA": 0
   },
   "targets": {
     "en": 500,
     "vi": 500
   },
-  "waiting_data": {
-    "TH-VI-0003": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0004": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0008": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0010": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0011": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0013": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0016": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0017": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0018": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0019": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0022": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0026": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0033": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0058": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0064": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0065": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0072": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0086": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0087": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0088": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0090": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0093": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0100": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0105": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0121": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0128": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0134": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0140": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0146": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0151": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0158": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0176": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0197": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0218": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0224": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0246": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0247": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0248": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0250": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0251": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0263": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0267": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0268": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0359": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0371": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0373": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0445": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0459": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0484": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0487": [
-      "FEATURED_MEDIA"
-    ],
-    "TH-VI-0491": [
-      "FEATURED_MEDIA"
-    ]
-  },
+  "waiting_data": {},
   "wordpress_pages": 0,
   "wordpress_published": 275
 }

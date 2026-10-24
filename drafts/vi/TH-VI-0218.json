@@ -33,7 +33,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/truoc-khi-gia-han-thue-xe-nhin-lai-tinh-trang-xe/",
-  "qa": null,
+  "qa": {
+    "report_sha": "788770279de84664fc77c29688c7b9ae3484981209ecb2f29a69d04709b8e1bc",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,10 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T14:52:43.817987+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:50:44.515250+00:00",
   "topic_id": "TH-VI-0218",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

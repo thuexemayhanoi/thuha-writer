@@ -33,7 +33,10 @@
   "language": "vi",
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/dan-nguoi-ngoi-sau-chua-quen-xe-may-khi-phanh-vao-cua-len-xuong/",
-  "qa": null,
+  "qa": {
+    "report_sha": "6777445363907b83e91ea1c6d415fde290241a2f02af15ba72aa6986af4bd0fe",
+    "status": "PASS"
+  },
   "receipt": null,
   "repair_count": 0,
   "source_documents": [
@@ -54,10 +57,8 @@
       "url": "repo://config/business-facts.json"
     }
   },
-  "status": "WAITING_DATA",
-  "submitted_at": "2026-10-23T16:13:54.669987+00:00",
+  "status": "READY",
+  "submitted_at": "2026-10-24T03:59:57.466634+00:00",
   "topic_id": "TH-VI-0373",
-  "waiting_for": [
-    "FEATURED_MEDIA"
-  ]
+  "waiting_for": []
 }

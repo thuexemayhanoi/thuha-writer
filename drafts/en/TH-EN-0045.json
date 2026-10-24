@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/running-late-on-return-day-what-to-tell-the-shop-and-what-to-ask/",
   "qa": {
-    "report_sha": "43ecf672c784f7d171b6ed7dc1969334cdbc886e2f714d044cd6af15074275d6",
+    "report_sha": "2703f276fb10edbb0bb16398e7578c7ad6740ae4b9c13daa5ad312667510b00d",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-23T15:00:19.183740+00:00",
+  "submitted_at": "2026-10-24T03:53:46.101264+00:00",
   "topic_id": "TH-EN-0045",
   "waiting_for": []
 }
