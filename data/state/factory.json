@@ -6507,6 +6507,15 @@
       "sha256": "64e215ef105d541b96c6f3f97606fe7879992b63d159da78483fc8d8c4ce76b5",
       "slot": "W1",
       "topic_id": "TH-EN-0065"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "at": "2026-10-24T03:53:02.884558+00:00",
+      "previous": "64e215ef105d541b96c6f3f97606fe7879992b63d159da78483fc8d8c4ce76b5",
+      "sha256": "b9b9b840e0e6ed06870f6a01528be18b034c11976268293fe7e568047ea422f2",
+      "topic_id": "TH-EN-0065"
     }
   ],
   "intents": {
@@ -17579,13 +17588,13 @@
     },
     "TH-EN-0065": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "5d9bab52cf98a121f46850580bfbdf293cce4327d974fcd0aff0d37dfcfdd6b9",
-      "commit": "033a2df6ab722af5ed191fcaabaa1febb5c02369",
-      "fence": "322c76062a354a86ac5843048aacf949",
+      "article_sha": "732cb05cb9ed3680fade222445bc75bb77852fedbc089236caeb1e5ccf35ebca",
+      "commit": "2ec77eb2828548224cad7af251c4a6e896493d0d",
+      "fence": "dc918483206c44cc849e538f809af151",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:52.241942+00:00"
+      "submitted_at": "2026-10-24T03:53:02.884541+00:00"
     },
     "TH-EN-0125": {
       "agent_id": "claude-writer-W2",
@@ -20917,7 +20926,6 @@
         142
       ],
       "cluster": "motorbike-reviews-comparisons",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "xe so xe con tay xe ga meaning",
       "proposed_title": "Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings",
@@ -20930,9 +20938,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0065",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0065"
     },
     "TH-EN-0075": {
       "admitted_at": "2026-10-24T03:50:37.256593+00:00",
@@ -23333,5 +23340,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1011
+  "version": 1012
 }
