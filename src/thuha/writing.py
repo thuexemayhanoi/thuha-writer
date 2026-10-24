@@ -11,11 +11,11 @@ import subprocess
 from html.parser import HTMLParser
 from .common import ROOT, age, fold, load, norm, urlkey, validate_inventory
 from .coordinator import claimable, claim_order
-from .language import LANGUAGES, locale, topic_language
-from .matrix import matrix_path
+from .language import LANGUAGES, TOPIC_ID, locale, topic_language
+from .matrix import candidate_shell, matrix_path
 from .policy import HTML_POLICY
 from .quality import DISCLAIMER
-from .research import evidence_current, item_language
+from .research import FIRST_PARTY_FILES, capture_repository_file, evidence_current, item_language
 from . import datawait
 
 HEADING = re.compile(r'h[1-6]')
@@ -636,6 +636,57 @@ def stale_sources(data):
     return [{'url': s['url'], 'document': s['document'], 'problem': s.get('problem') or 'not current'} for s in data['sources']['saved'] if not s.get('current')]
 
 
+def price_claims(price_table, specs):
+    """`reference_price` claims from 'vehicle:period' shorthands (`"claims": ["manual:month"]` in a meta file): one per end of the
+    shop's range, exactly as the pack's price table lists them. A price the facts file lacks is refused, never made up."""
+    known = {(p['vehicle'], p['period']): p for p in price_table}
+    claims = []
+    for spec in specs:
+        vehicle, _, period = str(spec).rpartition(':')
+        row = known.get((vehicle, period))
+        if not row or not row.get('interval'):
+            raise ValueError('The shop facts file has no reference price for %r (known: %s); nothing is invented'
+                             % (spec, ', '.join(sorted('%s:%s' % key for key, p in known.items() if p.get('interval')))))
+        for value in sorted(set(row['interval'])):
+            claim = {'kind': 'reference_price', 'vehicle': vehicle, 'period': period, 'value_vnd': value}
+            if claim not in claims:
+                claims.append(claim)
+    return claims
+
+
+def matrix_candidates(store, ids, cfg=None):
+    """Intake candidates for matrix rows that ask for nothing the repository cannot give: the shop's own facts, or no source at all
+    (`readiness.first_party_kinds`). The owner facts file is captured as first-party evidence and attached with what it does and does
+    not support. A row that needs a manufacturer page, an official page or a field check is refused by name; nothing is guessed."""
+    cfg = cfg or settings()
+    allowed = set(cfg['readiness']['first_party_kinds'])
+    problems, rows = [], []
+    for topic_id in ids:
+        match = TOPIC_ID.fullmatch(topic_id)
+        row = matrix_row(topic_id, match.group(1).lower()) if match else None
+        if not match:
+            problems.append('%s is not a topic ID (TH-VI-#### or TH-EN-####)' % topic_id)
+        elif not row:
+            problems.append('%s is not a row of the matrix' % topic_id)
+        elif row.get('kind') != 'NEW' or row.get('writer_state') != 'NEEDS_SOURCE':
+            problems.append('%s is not a new row waiting for admission (it is %s)' % (topic_id, row.get('kind') or 'unknown'))
+        elif [k for k in row.get('source_requirements') or [] if k not in allowed]:
+            problems.append('%s needs %s: capture that source first and admit it with --file' % (topic_id, ', '.join(k for k in row['source_requirements'] if k not in allowed)))
+        else:
+            rows.append(row)
+    if problems:
+        raise ValueError('; '.join(problems))
+    evidence = capture_repository_file(store, FIRST_PARTY_FILES[0])  # after every row passed: a refused batch captures nothing
+    candidates = []
+    for row in rows:
+        candidate = candidate_shell(row)
+        candidate.pop('intent_review')  # collisions are checked by intake itself; no reviewer verdict exists
+        candidate['cluster'] = row['hub_url'].rstrip('/').split('/')[-1] if row.get('hub_url') else candidate['cluster']
+        candidate['sources'] = [{'url': evidence['url'], 'document': evidence['document'], 'supports': cfg['first_party_supports'][row['language']]}]
+        candidates.append(candidate)
+    return candidates
+
+
 def compose(data, body_html, meta, session=None, agent_id=None, source_commit=None):
     """An article from the pack's skeleton, a body and a small meta file: nothing the repository already knows is typed again."""
     if not data.get('skeleton'):
@@ -658,9 +709,15 @@ def compose(data, body_html, meta, session=None, agent_id=None, source_commit=No
     if media is not None and media not in {m['id'] for m in data['media']['options']}:
         raise ValueError('featured_media %r is not one of the verified options for this language; nothing is invented' % (media,))
     article['featured_media'] = media
-    article['business_claims'] = list(meta.get('business_claims', []))
+    claims = list(meta.get('business_claims', []))
+    claims += [c for c in price_claims(data['business']['price_table'], meta.get('claims', [])) if c not in claims]
+    article['business_claims'] = claims
     current = {s['document'] for s in data['sources']['saved'] if s.get('current')}
-    article['sources'] = [s for s in article['sources'] if s['document'] in current] + list(meta.get('extra_sources', []))  # a stale capture is a certain QA fault
+    sources = [s for s in article['sources'] if s['document'] in current]  # a stale capture is a certain QA fault
+    for extra in meta.get('extra_sources', []):  # the skeleton already holds the saved first-party source: it is not listed twice
+        if not any((s['url'], s['document']) == (extra.get('url'), extra.get('document')) for s in sources):
+            sources.append(extra)
+    article['sources'] = sources
     article['body_html'] = str(body_html).strip()
     return article
 

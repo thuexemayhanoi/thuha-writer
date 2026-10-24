@@ -66,6 +66,8 @@ python3 -m thuha.cli --git-branch next --language vi      # what can be written 
 python3 -m thuha.cli --git-branch claim --session SESSION --agent-id claude-writer-W1 [--topic-id TH-VI-0134]   # next in order, or this claimable topic (recorded as picked)
 python3 -m thuha.cli --git-branch pack --topic-id TH-VI-0001 --out pack.json     # everything the repository already holds for the topic (read-only)
 python3 -m thuha.cli --git-branch build --topic-id TH-VI-0001 --body body.html --meta meta.json   # article.json from the pack + the precheck, in one step
+python3 -m thuha.cli --git-branch intake --matrix-ids TH-EN-0011 TH-EN-0025     # admit matrix rows that ask only for the shop facts or no source (no candidate file to write)
+python3 scripts/draft_batch.py --folder DIR --ids TH-EN-0011 TH-EN-0025 --session SESSION --agent-id claude-writer-W1 -- --git-branch   # claim + build + submit a folder of finished bodies (add --dry-run first)
 python3 -m thuha.cli --git-branch kit --topic-id TH-VI-0001 > kit.json     # the older read-only handoff: same-language links, images with that language's alt text
 python3 -m thuha.cli --git-branch precheck --topic-id TH-VI-0001 --file article.json     # exit 0 pass, 1 fix the article, 3 only data is missing
 python3 -m thuha.cli --git-branch submit --slot W1 --session SESSION --fence FENCE --file article.json [--waiting-for auto]
@@ -90,7 +92,23 @@ python3 -m thuha.cli --remote qa --pending            # every completed draft, a
   images whose alt text is in the article's language, the metadata and HTML bands, what the topic is expected to wait for, and a skeleton
   carrying the lease's session and agent. It writes nothing and invents nothing: what the repository does not hold is said to be missing.
 * `build` composes the article from the pack's skeleton, a body file and a small meta file (`seo_title`, `meta_description`, optional
-  `featured_media` that must be one of the pack's options, `business_claims`, `extra_sources`), saves it and runs `precheck`.
+  `featured_media` that must be one of the pack's options, `claims`, `business_claims`, `extra_sources`), saves it and runs `precheck`.
+  `claims` is a shorthand for the reference prices an article quotes: `"claims": ["manual:month", "automatic:week"]` becomes the declared
+  `reference_price` claims for both ends of the shop's range, exactly as the pack's price table lists them; a vehicle or period the facts file
+  has no price for (for example `electric:day`) is refused, never made up. A source in `extra_sources` that the skeleton already holds is not
+  listed twice.
+* `intake --matrix-ids ID...` admits matrix rows without a hand-written candidate file, for rows whose `source_requirements` are only
+  `first_party_facts` and/or `editorial_only` (`config/writing.json`, `readiness.first_party_kinds`). The owner facts file is captured once as
+  first-party evidence and attached with the text in `first_party_supports` (what the file supports, and that the rest of the article is general
+  advice, not shop data). A row that needs a manufacturer page, an official page or a field check is refused by name, and a refused batch
+  captures nothing: those sources are captured first and the topic is admitted with `--file`. The ordinary intake guards (taxonomy, URL,
+  duplicate and cannibalisation checks, per-language capacity) still apply.
+* `scripts/draft_batch.py` (`src/thuha/batch.py`) stores a folder of finished bodies: `FOLDER/<ID>.html` and `<ID>.json` (the meta file; or
+  `--meta-folder`). For each topic it runs `claim` (`--topic-id` for a planned topic, `--revise` for a draft that waits), `build`, and, only when the
+  precheck says `ready_to_submit`, `submit --waiting-for auto`; a draft that is not ready is reported with its problems and fixes, its lease is
+  released and the batch goes on. It checks every file and every topic before claiming anything, and the first refusal of a ledger command stops
+  the run after releasing the lease. `--dry-run` only builds (no claim, no ledger write). It decides nothing about content: the precheck, the
+  `submit` guard and automatic QA are the same as for a single article. Exit code 0 all stored (or would be), 2 some draft is not ready, 1 stopped.
 * `precheck` (and `build`) now also return `lint` (advisory findings; `fix` ones would be refused by `submit`, `consider` ones are judgement calls),
   `fixes` (where and how to fix every QA failure code, from `config/writing.json`), and `ready_to_submit` / `submit_problems` / `submit_waiting_for`.
   The lint never changes the score, a threshold or a hard failure. It reads Markdown left in the body, broken heading levels, padding by repetition,

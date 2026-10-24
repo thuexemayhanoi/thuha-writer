@@ -11,7 +11,7 @@ from thuha import cli, quality, writing
 from thuha.common import SITE, digest, load, now
 from thuha.coordinator import claim, hold
 from thuha.language import post_url
-from thuha.research import intake
+from thuha.research import evidence_current, intake
 
 COMMIT = 'c' * 40
 
@@ -266,6 +266,29 @@ class BuildTests(Cli):
 def runtimefields():
     from thuha.runtime import ARTICLE_FIELDS
     return ARTICLE_FIELDS
+
+
+    def test_a_price_shorthand_becomes_the_declared_reference_price_claims_and_nothing_is_doubled(self):
+        topic, _ = self.leased()
+        explicit = {'kind': 'reference_price', 'vehicle': 'manual', 'period': 'day', 'value_vnd': 150000}
+        code, out = self.build(topic, meta=dict(self.META, claims=['manual:day', 'automatic:month'], business_claims=[explicit]))
+        claims = load(Path(out['article_file']))['business_claims']
+        self.assertEqual([(c['vehicle'], c['period'], c['value_vnd']) for c in claims],
+                         [('manual', 'day', 150000), ('manual', 'day', 200000), ('automatic', 'month', 1200000), ('automatic', 'month', 2000000)])
+        self.assertTrue(all(c['kind'] == 'reference_price' for c in claims))
+
+    def test_a_shorthand_for_a_price_the_facts_file_lacks_is_refused_and_no_price_is_made_up(self):
+        topic, _ = self.leased()
+        for bad in ('electric:day', 'hoverboard:week', 'manual'):
+            with self.assertRaisesRegex(ValueError, 'no reference price'):
+                self.build(topic, meta=dict(self.META, claims=[bad]))
+
+    def test_the_saved_first_party_source_in_the_meta_file_is_not_listed_twice(self):
+        topic, _ = self.leased()
+        same = dict(topic['sources'][0])
+        other = {'url': SITE + '/another-page/', 'document': 'd' * 64, 'supports': 'Another page this fixture pretends to have read.'}
+        code, out = self.build(topic, meta=dict(self.META, extra_sources=[same, other]))
+        self.assertEqual(load(Path(out['article_file']))['sources'], [same, other])
 
 
 class PrecheckAdditionsTests(Cli):
@@ -616,6 +639,76 @@ class LinkCycleTests(Cli):
         out = self.run_cli('precheck', '--topic-id', 'TH-VI-0002', '--file', self.write('b.json', article))[1]
         self.assertEqual((out['planned_links'], out['link_cycle']), (['TH-VI-0001'], []))
         self.assertEqual(next(f for f in out['lint'] if f['code'] == 'LINT_PLANNED_LINK')['severity'], 'consider')
+
+
+class MatrixIntakeTests(Cli):
+    """`intake --matrix-ids`: rows that ask only for the shop facts (or no source) are admitted without a hand-written candidate file."""
+
+    def rows(self, language='en'):
+        return load(Path(__import__('thuha.matrix', fromlist=['matrix_path']).matrix_path(language)))['rows']
+
+    def row(self, language, wanted):
+        return next(r for r in self.rows(language) if r['kind'] == 'NEW' and wanted(set(r['source_requirements'])))
+
+    def documents(self):
+        return len(list((Path(self.temp.name) / 'documents').glob('*.json')))
+
+    def test_a_row_that_needs_only_the_shop_facts_becomes_a_candidate_with_the_facts_file_attached(self):
+        en = self.row('en', lambda k: k == {'first_party_facts'})
+        vi = self.row('vi', lambda k: k <= {'first_party_facts', 'editorial_only'})
+        candidates = writing.matrix_candidates(self.store, [en['id'], vi['id']])
+        cfg = writing.settings()
+        self.assertEqual([c['topic_id'] for c in candidates], [en['id'], vi['id']])
+        for candidate, row in zip(candidates, (en, vi)):
+            fields = ('language', 'primary_keyword', 'search_intent', 'category_id', 'category_path', 'proposed_url')
+            self.assertEqual({k: candidate[k] for k in fields + ('proposed_title',)}, dict({k: row[k] for k in fields}, proposed_title=row['title']))
+            self.assertEqual(candidate['cluster'], row['hub_url'].rstrip('/').split('/')[-1])
+            self.assertNotIn('intent_review', candidate)  # no reviewer verdict exists; intake checks collisions itself
+            (source,) = candidate['sources']
+            self.assertEqual((source['url'], source['supports']), ('repo://config/business-facts.json', cfg['first_party_supports'][row['language']]))
+            self.assertTrue(evidence_current(self.store.get_document(source['document'])))
+        self.assertEqual(candidates[0]['sources'][0]['document'], candidates[1]['sources'][0]['document'])  # captured once for the batch
+
+    def test_a_row_that_needs_another_kind_of_source_is_refused_by_name_and_nothing_is_captured(self):
+        outside = self.row('vi', lambda k: 'manufacturer_manual' in k)
+        fine = self.row('vi', lambda k: k <= {'first_party_facts', 'editorial_only'})
+        before = self.documents()
+        with self.assertRaises(ValueError) as raised:
+            writing.matrix_candidates(self.store, [fine['id'], outside['id']])
+        self.assertIn('%s needs manufacturer_manual' % outside['id'], str(raised.exception))
+        self.assertNotIn(fine['id'], str(raised.exception))  # only the problem rows are named
+        self.assertEqual(self.documents(), before)  # a refused batch captures nothing
+
+    def test_ids_that_are_no_new_matrix_row_are_refused(self):
+        protected = next(r for r in self.rows('en') if r['kind'] == 'EXISTING_PROTECTED')  # a live post: its ID is not a topic ID
+        with self.assertRaises(ValueError) as raised:
+            writing.matrix_candidates(self.store, ['TH-EN-9999', 'nonsense', protected['id']])
+        message = str(raised.exception)
+        self.assertIn('TH-EN-9999 is not a row of the matrix', message)
+        self.assertIn('nonsense is not a topic ID', message)
+        self.assertIn('%s is not a topic ID' % protected['id'], message)
+        row = dict(self.row('en', lambda k: k == {'first_party_facts'}), kind='QUEUED_IN_LEDGER')  # a row that is already past admission
+        with patch('thuha.writing.matrix_row', return_value=row):
+            with self.assertRaisesRegex(ValueError, 'is not a new row waiting for admission \\(it is QUEUED_IN_LEDGER\\)'):
+                writing.matrix_candidates(self.store, [row['id']])
+
+    def test_intake_takes_matrix_ids_or_a_file_but_never_both_or_neither(self):
+        with self.assertRaisesRegex(ValueError, 'one of the two'):
+            self.run_cli('intake')
+        with self.assertRaisesRegex(ValueError, 'one of the two'):
+            self.run_cli('intake', '--file', self.write('c.json', []), '--matrix-ids', 'TH-EN-0011')
+
+    def test_matrix_rows_are_admitted_through_the_normal_intake_gates(self):
+        from thuha.audit import snapshot_inventory
+        inv = snapshot_inventory()
+        inv['captured_at'] = now()
+        en = self.row('en', lambda k: k == {'first_party_facts'})
+        code, out = self.run_cli('intake', '--matrix-ids', en['id'], inv=inv)
+        self.assertEqual((code, out['admitted']), (0, [en['id']]))
+        topic = self.store.read()['topics'][en['id']]
+        self.assertEqual((topic['status'], topic['proposed_url'], topic['sources'][0]['url']), ('PLANNED', en['proposed_url'], 'repo://config/business-facts.json'))
+        with self.assertRaisesRegex(ValueError, 'already exists'):
+            self.run_cli('intake', '--matrix-ids', en['id'], inv=inv)  # the ordinary guards still apply
 
 
 if __name__ == '__main__':

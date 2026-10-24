@@ -114,6 +114,11 @@
       ]
     }
   },
+  "first_party_supports": {
+    "en": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+    "vi": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+    "note": "What the owner facts file supports when it is attached to a topic that asks for first-party facts or no source at all (intake --matrix-ids). It says what the file does not hold, so the article asks the shop instead of stating a policy."
+  },
   "disclaimer": {
     "vi": "Đây là giá tham khảo; hãy xác nhận lại xe và mức giá khi đặt xe.",
     "en": "These are reference prices; confirm the bike and the rate before booking."

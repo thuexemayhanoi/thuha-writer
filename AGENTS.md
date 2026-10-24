@@ -97,6 +97,10 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
   declare, or declares a wait for data that exists; `--waiting-for auto` declares exactly what is missing, `--allow-faults` stores a faulty draft on purpose.
   `claim` keeps its order (Vietnamese first); `claim --topic-id ID` takes one claimable, unleased topic in a language below its ceiling instead, and the
   claim event records `picked`, so a topic nobody can finish here does not stand in front of the ones that can be written.
+  For a batch: `intake --matrix-ids ID...` admits matrix rows that ask only for the shop facts or no source (the owner facts file is captured
+  and attached; any other row is refused by name), a meta file's `claims` (`"manual:month"`) declares the reference prices an article quotes, and
+  `scripts/draft_batch.py --folder DIR --ids ... [--dry-run] -- --git-branch` claims, builds and submits finished bodies through the same precheck and
+  `submit` guard, releasing a draft that is not ready and stopping at the first refusal of a ledger command (`src/thuha/batch.py`).
 
 ## Language contract (enforced in code; do not weaken)
 

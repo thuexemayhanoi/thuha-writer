@@ -136,7 +136,7 @@ def main(argv=None):
     q=sub.add_parser('precheck');q.add_argument('--topic-id',required=True);q.add_argument('--file',required=True);q.add_argument('--review')
     q=sub.add_parser('pack',help='Read-only writing pack for one topic, assembled from the repository');q.add_argument('--topic-id',required=True);q.add_argument('--out')
     q=sub.add_parser('build',help='Compose an article from the pack, a body and a small meta file, save it and run the precheck');q.add_argument('--topic-id',required=True)
-    q.add_argument('--body',required=True,help='HTML file with the article body');q.add_argument('--meta',required=True,help='JSON file: seo_title, meta_description, featured_media, business_claims, extra_sources')
+    q.add_argument('--body',required=True,help='HTML file with the article body');q.add_argument('--meta',required=True,help='JSON file: seo_title, meta_description, featured_media, claims (shorthand such as "manual:month"), business_claims, extra_sources')
     q.add_argument('--out');q.add_argument('--session');q.add_argument('--agent-id')
     q=sub.add_parser('next',help='Read-only ranking of what can be written now');q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
     q=sub.add_parser('admit');q.add_argument('--file',required=True);q.add_argument('--fetch-records',required=True);q.add_argument('--reviewer-id',help='Optional attribution; no reviewer is needed');q.add_argument('--extra-queue')
@@ -145,7 +145,8 @@ def main(argv=None):
     q=sub.add_parser('unhold');q.add_argument('--topic-id',required=True)
     q=sub.add_parser('brief');q.add_argument('--limit',type=int,default=10);q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('matrix');q.add_argument('action',choices=['validate','next']);q.add_argument('--language',choices=LANGUAGES);q.add_argument('--limit',type=int,default=10)
-    q=sub.add_parser('intake');q.add_argument('--file',required=True)
+    q=sub.add_parser('intake',help='Admit topics: candidates from --file, or matrix rows that need only the shop facts or no source (--matrix-ids)');q.add_argument('--file')
+    q.add_argument('--matrix-ids',nargs='+',metavar='TOPIC_ID',help='Matrix rows asking only for first-party facts or no source: the owner facts file is captured and attached; any other row is refused by name')
     q=sub.add_parser('review');q.add_argument('--file',required=True);q.add_argument('--topic-id',required=True)
     q=sub.add_parser('qa');q.add_argument('--topic-id');q.add_argument('--pending',action='store_true',help='All completed drafts without a reviewer gate, and READY drafts whose QA report predates the current policy');q.add_argument('--language',choices=LANGUAGES)
     q=sub.add_parser('promote');q.add_argument('--source-state',default='data/state/factory.json');q.add_argument('--source-docs',default='data/documents');q.add_argument('--apply',action='store_true')
@@ -312,7 +313,9 @@ def main(argv=None):
             result={'mode':'read-only','wordpress_writes':0,'next_research':[{k:r[k] for k in ('id','language','title','primary_keyword','category_id','proposed_url','source_requirements','writer_state')} for r in rows]}
     elif args.command=='intake':
         inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
-        result={'admitted':research.intake(store,load(args.file),inv,factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))}
+        if bool(args.file)==bool(args.matrix_ids):raise ValueError('Give --file or --matrix-ids (one of the two)')
+        candidates=load(args.file) if args.file else writing.matrix_candidates(store,args.matrix_ids)
+        result={'admitted':research.intake(store,candidates,inv,factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))}
     elif args.command=='refill':
         inv=inventory_for(store,args.inventory,lambda i:inventory_max_age(i,policy,factory))
         result=research.refill(store,inv,factory['refill_below'],factory['refill_batch_max'],language_targets(),inventory_max_age=inventory_max_age(inv,policy,factory))
