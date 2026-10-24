@@ -13196,6 +13196,21 @@
       "sha256": "a1fbe6fc3d580a05a93dd42a626bf0e8f88ad634e6a981d241d19efdbb580b1e",
       "status": "PASS",
       "topic_id": "TH-VI-0333"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-VI20",
+      "at": "2026-10-24T15:16:21.273862+00:00",
+      "expires_at": 1792856781.273848,
+      "fence": "43fe4deb092b4e86afc0d9c00d248caa",
+      "heartbeat_at": "2026-10-24T15:16:21.273823+00:00",
+      "language": "vi",
+      "picked": true,
+      "previous": "a1fbe6fc3d580a05a93dd42a626bf0e8f88ad634e6a981d241d19efdbb580b1e",
+      "session": "vi-b20-20261024",
+      "sha256": "c58abe78d3fc1e19a6678876697b97addc63c4c07d7f09aac8e329223290db53",
+      "slot": "W1",
+      "topic_id": "TH-VI-0342"
     }
   ],
   "intents": {
@@ -23416,7 +23431,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-VI20",
+      "expires_at": 1792856781.273848,
+      "fence": "43fe4deb092b4e86afc0d9c00d248caa",
+      "heartbeat_at": "2026-10-24T15:16:21.273823+00:00",
+      "language": "vi",
+      "picked": true,
+      "session": "vi-b20-20261024",
+      "slot": "W1",
+      "topic_id": "TH-VI-0342"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -35831,7 +35858,7 @@
           "url": "https://tcvn.gov.vn/mot-so-diem-moi-trong-qcvn-22021-bkhcn-ve-mu-bao-hiem-cho-nguoi-di-mo-to-xe-may/13/09/2021"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0342"
     },
     "TH-VI-0350": {
@@ -36270,5 +36297,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2271
+  "version": 2272
 }
