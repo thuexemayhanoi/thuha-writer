@@ -12396,6 +12396,15 @@
       "sha256": "4aaf6f3ebbf043f3058db98015ff4e2abb4b2202d7c28f02068a44b0eddacbe4",
       "slot": "W1",
       "topic_id": "TH-000054"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "315eecc07545040487acde647f2964d0750c924d6c9fae10b4f64eb4065bbf68",
+      "at": "2026-10-24T15:06:07.975804+00:00",
+      "previous": "4aaf6f3ebbf043f3058db98015ff4e2abb4b2202d7c28f02068a44b0eddacbe4",
+      "sha256": "8961b61bf6384147d89509897399c13a7bf09a2b58a9f419183c83b4ab1c205c",
+      "topic_id": "TH-000054"
     }
   ],
   "intents": {
@@ -24532,6 +24541,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:05:53.527444+00:00"
     },
+    "TH-000054": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "315eecc07545040487acde647f2964d0750c924d6c9fae10b4f64eb4065bbf68",
+      "commit": "9cbddedfbf67b5ad480efe2d7f0b8d96b8a961a8",
+      "fence": "5076f08467dd456da85f4b31bd1098e9",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:06:07.975776+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -28311,7 +28330,7 @@
           "url": "https://noibaiairport.vn/en/public-transportations-nid1.html"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000054"
     },
     "TH-000055": {
@@ -35122,5 +35141,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2173
+  "version": 2174
 }
