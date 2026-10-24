@@ -13866,6 +13866,15 @@
       "sha256": "c5354dfc92a6fa5ed7cb66652cc44690a71bf6bebb0e9ed420665933ac7eba42",
       "slot": "W1",
       "topic_id": "TH-000059"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "7ee36f5e74605e7593090a9235f4ba2322f9f38cb50d0ec705f17bb4fe96f9ea",
+      "at": "2026-10-24T15:34:26.437842+00:00",
+      "previous": "c5354dfc92a6fa5ed7cb66652cc44690a71bf6bebb0e9ed420665933ac7eba42",
+      "sha256": "cf7fe05e681e799e6e33de6b14420c3b56c0603968c5c43cd0c8c057f17e3a15",
+      "topic_id": "TH-000059"
     }
   ],
   "intents": {
@@ -26302,6 +26311,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:06:30.239495+00:00"
     },
+    "TH-000059": {
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "7ee36f5e74605e7593090a9235f4ba2322f9f38cb50d0ec705f17bb4fe96f9ea",
+      "commit": "af828892c2433f93325b014e5ac46aa062585ba4",
+      "fence": "30af4e247f8c424e93a3ca6eef0ed3c4",
+      "repair_count": 0,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:34:26.437817+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -30585,7 +30604,7 @@
           "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000059"
     },
     "TH-000060": {
@@ -37634,5 +37653,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2349
+  "version": 2350
 }
