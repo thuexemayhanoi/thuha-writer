@@ -2,7 +2,7 @@ name: ThuHa Vietnamese link rescue (one time)
 on:
   push:
     branches: [main]
-    paths: ['scripts/vi_link_rescue.py']
+    paths: ['scripts/vi_link_rescue.py', 'scripts/vi_link_rescue_more.py']
   workflow_dispatch:
 permissions:
   contents: write
@@ -35,6 +35,10 @@ jobs:
         run: python3 scripts/vi_link_rescue.py
       - name: Store revisions and run the unchanged QA-75 gate
         run: python3 scripts/vi_link_rescue.py --apply
+      - name: Preview additional Vietnamese article rewrites against unchanged QA
+        run: python3 scripts/vi_link_rescue_more.py
+      - name: Apply only QA-passing Vietnamese editorial rewrites
+        run: python3 scripts/vi_link_rescue_more.py --apply
       - name: Preserve durable status and receipts (does not itself publish)
         if: always()
         run: python3 -m thuha.cli --remote --output artifacts/vi-rescue report
