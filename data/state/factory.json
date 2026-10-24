@@ -6589,6 +6589,20 @@
       "sha256": "6ac70f4168fa02c02e346b7077c8c2c915a243e0f9dc665084c2d175d5557210",
       "status": "PASS",
       "topic_id": "TH-EN-0005"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-W2",
+      "at": "2026-10-24T09:57:53.519929+00:00",
+      "expires_at": 1792837673.51992,
+      "fence": "57228f37ee9348b68a0e4c1025c311d3",
+      "heartbeat_at": "2026-10-24T09:57:53.519901+00:00",
+      "language": "en",
+      "previous": "6ac70f4168fa02c02e346b7077c8c2c915a243e0f9dc665084c2d175d5557210",
+      "session": "sess-e1c",
+      "sha256": "66fd85e2922f52fb336b6a2019cae34b4a90070cbd738a88f9d56f99fbc9fd71",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
     }
   ],
   "intents": {
@@ -16809,7 +16823,18 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-W2",
+      "expires_at": 1792837673.51992,
+      "fence": "57228f37ee9348b68a0e4c1025c311d3",
+      "heartbeat_at": "2026-10-24T09:57:53.519901+00:00",
+      "language": "en",
+      "session": "sess-e1c",
+      "slot": "W1",
+      "topic_id": "TH-EN-0125"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -21072,6 +21097,7 @@
         134
       ],
       "cluster": "parking-weather-breakdowns",
+      "completion_pending": true,
       "language": "en",
       "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
       "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
@@ -21084,7 +21110,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "WAITING_DATA",
+      "status": "CLAIMED",
       "topic_id": "TH-EN-0125",
       "waiting_for": []
     },
@@ -23963,5 +23989,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1484
+  "version": 1485
 }
