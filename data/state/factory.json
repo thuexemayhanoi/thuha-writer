@@ -13875,6 +13875,15 @@
       "previous": "c5354dfc92a6fa5ed7cb66652cc44690a71bf6bebb0e9ed420665933ac7eba42",
       "sha256": "cf7fe05e681e799e6e33de6b14420c3b56c0603968c5c43cd0c8c057f17e3a15",
       "topic_id": "TH-000059"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:34:30.553233+00:00",
+      "previous": "cf7fe05e681e799e6e33de6b14420c3b56c0603968c5c43cd0c8c057f17e3a15",
+      "report_sha": "bfd555463958a36757953fa97e8b41530cc704c0ac5adda0ed5578dde4d92d68",
+      "sha256": "73f3c1891bdf9497f535c6281d919968e2a782da161f0e2462da50a226e44c28",
+      "status": "PASS",
+      "topic_id": "TH-000059"
     }
   ],
   "intents": {
@@ -24095,19 +24104,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN13",
-      "expires_at": 1792857861.249411,
-      "fence": "30af4e247f8c424e93a3ca6eef0ed3c4",
-      "heartbeat_at": "2026-10-24T15:34:21.249385+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b13-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000059"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24257,6 +24254,11 @@
     "TH-000057": {
       "article_sha": "fa46c2f5c8734ec4b09871a476c8184f1663ba46c0bd9482a40b224216eee31c",
       "report_sha": "4e99050ab2e6e3963efa138f2351fceb6f296e9a71db3f9feebc192ab38cc30f",
+      "status": "PASS"
+    },
+    "TH-000059": {
+      "article_sha": "7ee36f5e74605e7593090a9235f4ba2322f9f38cb50d0ec705f17bb4fe96f9ea",
+      "report_sha": "bfd555463958a36757953fa97e8b41530cc704c0ac5adda0ed5578dde4d92d68",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -30604,7 +30606,7 @@
           "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000059"
     },
     "TH-000060": {
@@ -37653,5 +37655,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2350
+  "version": 2351
 }
