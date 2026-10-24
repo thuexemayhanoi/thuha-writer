@@ -1,8 +1,10 @@
 > **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
 
-# ThuHa Writer — hướng dẫn HIỆN HÀNH cho Claude/ChatGPT Work (23/10/2026)
+# ThuHa Writer — hướng dẫn HIỆN HÀNH cho Claude/ChatGPT Work (cập nhật 24/10/2026)
 
 > **Đọc `AGENTS.md` trước.** Đây là hướng dẫn vận hành cho **phiên writer mới**, thay thế brief xây dựng workflow 500 VI/500 EN cũ. Không yêu cầu sửa lại toàn bộ code hay tự tạo ma trận từ đầu.
+
+> **Bổ sung ngôn ngữ VI–EN (24/10/2026):** Đọc [RENDERED-LANGUAGE-QA.md](RENDERED-LANGUAGE-QA.md). Writer bắt buộc viết title, SEO title, meta, focus keyword, body và liên kết nội bộ theo đúng ngôn ngữ topic; QA trước xuất bản chặn hard failure dù điểm ≥75. Publisher sau khi xuất bản sẽ đọc HTML thật và cảnh báo nếu thiếu/nhiều H1, H1 khác tiêu đề bài hoặc H1 sai ngôn ngữ. Đây là kiểm tra **hậu xuất bản không chặn queue**. Nếu trang Việt lẫn chữ Anh ở menu/mục lục/header/footer, báo lỗi theme/plugin; không sửa hàng loạt bài, không đổi Site Title/Tagline toàn cục để lách lỗi.
 
 ## Phạm vi và chính sách
 
