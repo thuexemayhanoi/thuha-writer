@@ -15181,6 +15181,21 @@
       "sha256": "a1cffe5ddd36b43f4eaccd556b5be951b2cb0170c564eb30aee95fa3ee24f0e4",
       "status": "PASS",
       "topic_id": "TH-000018"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN15",
+      "at": "2026-10-24T16:04:00.491786+00:00",
+      "expires_at": 1792859640.491773,
+      "fence": "e0e9b4eb64e444be922d5d0aadb48eb4",
+      "heartbeat_at": "2026-10-24T16:04:00.491743+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "a1cffe5ddd36b43f4eaccd556b5be951b2cb0170c564eb30aee95fa3ee24f0e4",
+      "session": "en-b15-20261024",
+      "sha256": "b80c862dad10ab35584c20b947e702093c397f605398a15e696ef6c3a397d6bf",
+      "slot": "W1",
+      "topic_id": "TH-000024"
     }
   ],
   "intents": {
@@ -25401,7 +25416,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN15",
+      "expires_at": 1792859640.491773,
+      "fence": "e0e9b4eb64e444be922d5d0aadb48eb4",
+      "heartbeat_at": "2026-10-24T16:04:00.491743+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b15-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000024"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -31471,7 +31498,7 @@
           "url": "https://www.honda.com.vn/xe-may/san-pham/vision?category=2"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000024"
     },
     "TH-000025": {
@@ -40680,5 +40707,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2503
+  "version": 2504
 }
