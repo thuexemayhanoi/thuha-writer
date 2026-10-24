@@ -7,7 +7,7 @@
   "pilot_max_posts": 2,
   "stage": "auto-scale",
   "approved_capacity": 1000,
-  "maximum_daily_posts": 50,
+  "maximum_daily_posts": 500,
   "expansion_approval_ref": "owner-authorized-2026-10-23-auto-publish",
   "minimum_post_interval_seconds": 5,
   "cross_publisher_coordination_verified": true,
