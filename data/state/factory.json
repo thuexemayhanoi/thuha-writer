@@ -15630,6 +15630,20 @@
         "TH-VI-0391",
         "TH-VI-0439"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T16:18:42.773632+00:00",
+      "previous": "827cbbfaf6ea388fc3b479e14ae32785c0c5e782d32122010562b5949242e393",
+      "sha256": "0610030eb0e178aff9e4bbba13d41b0f248abaf7d1eee705fb3f51d398aa9ccd",
+      "topic_ids": [
+        "TH-VI-0127",
+        "TH-VI-0199",
+        "TH-VI-0223",
+        "TH-VI-0225",
+        "TH-VI-0229",
+        "TH-VI-0236"
+      ]
     }
   ],
   "intents": {
@@ -36863,6 +36877,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0126"
     },
+    "TH-VI-0127": {
+      "admitted_at": "2026-10-24T16:18:42.649758+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "năm sản xuất hay số km xe ga thuê",
+      "proposed_title": "Năm sản xuất hay số km trên công tơ mét: điều nào cho biết tình trạng xe ga thuê rõ hơn?",
+      "proposed_url": "https://rentbikehanoi.com/vi/nam-san-xuat-hay-so-km-cong-to-met-xe-ga-thue/",
+      "search_intent": "Người cẩn thận muốn chọn xe ga ít rủi ro hỏng vặt, băn khoăn nên hỏi cửa hàng về năm đăng ký hay số km đã chạy, và hai thông tin đó nói lên điều gì (và không nói lên điều gì) về độ bền, việc bảo dưỡng của xe thuê.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0127"
+    },
     "TH-VI-0128": {
       "admitted_at": "2026-10-23T13:00:04.408668+00:00",
       "category_id": 156,
@@ -38448,6 +38493,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0198"
     },
+    "TH-VI-0199": {
+      "admitted_at": "2026-10-24T16:18:42.674663+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đổ xăng trước khi trả xe thuê ở đâu",
+      "proposed_title": "Trước giờ trả xe, tìm cây xăng nằm ngay trên đường về điểm trả: cách tra bản đồ và chừa thời gian",
+      "proposed_url": "https://rentbikehanoi.com/vi/truoc-gio-tra-xe-tim-cay-xang-tren-duong-ve-diem-tra/",
+      "search_intent": "Người sắp trả xe sau ngày đi dài muốn đổ xăng theo thỏa thuận nhưng sợ trễ giờ trả; cần cách chọn cây xăng nằm trên đường về, chừa thời gian xếp hàng, và chụp lại đồng hồ xăng cùng biên lai trước khi giao xe.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0199"
+    },
     "TH-VI-0200": {
       "admitted_at": "2026-10-24T14:57:23.725305+00:00",
       "category_id": 159,
@@ -39065,6 +39141,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0222"
     },
+    "TH-VI-0223": {
+      "admitted_at": "2026-10-24T16:18:42.700296+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "còi báo động chống trộm xe thuê tự kêu",
+      "proposed_title": "Xe thuê có còi báo động chống trộm gắn thêm: cách bật tắt, xử lý khi còi tự kêu và hỏi gì về điều khiển từ xa",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-co-coi-bao-dong-chong-trom-cach-bat-tat-khi-coi-tu-keu/",
+      "search_intent": "Người nhận chiếc xe có gắn còi chống trộm điều khiển từ xa, lo còi hú giữa đêm ở hầm xe hoặc không biết cách tắt; cần được hướng dẫn bật tắt, hỏi về pin và số điều khiển được giao, và cách xử lý khi còi tự kêu.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0223"
+    },
     "TH-VI-0224": {
       "admitted_at": "2026-10-23T12:36:45.399058+00:00",
       "category_id": 160,
@@ -39088,6 +39195,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0224"
+    },
+    "TH-VI-0225": {
+      "admitted_at": "2026-10-24T16:18:42.725890+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "nhận lại xe thuê sau khi cửa hàng sửa",
+      "proposed_title": "Cửa hàng vừa sửa xe rồi giao lại giữa kỳ thuê: hỏi đã thay gì, thử gì trước khi chạy tiếp và ghi lại gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/cua-hang-vua-sua-xe-giao-lai-giua-ky-thue-hoi-gi-va-thu-gi/",
+      "search_intent": "Người thuê vừa được cửa hàng sửa hoặc thay phụ tùng rồi nhận lại xe giữa kỳ; muốn biết nên hỏi đã thay hay chỉnh gì, có xem được phụ tùng cũ không, thử phanh, ga, đèn ở chỗ an toàn ra sao và ghi lại gì để lỗi cũ không bị tính cho mình.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0225"
     },
     "TH-VI-0226": {
       "admitted_at": "2026-10-24T14:57:23.766565+00:00",
@@ -39185,6 +39323,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0228"
     },
+    "TH-VI-0229": {
+      "admitted_at": "2026-10-24T16:18:42.749689+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe máy hết xăng giữa đường phải làm sao",
+      "proposed_title": "Xe thuê hết xăng giữa đường: dắt bộ đến cây xăng gần nhất hay gọi cửa hàng trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-het-xang-giua-duong-dat-bo-hay-goi-cua-hang/",
+      "search_intent": "Người thuê thấy xe ngắc ngứ rồi tắt máy vì hết xăng ở đoạn vắng, phân vân giữa dắt xe đến cây xăng, nhờ người mua giúp can xăng hoặc gọi cửa hàng, và cần biết điều gì nên báo trước khi đổ.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0229"
+    },
     "TH-VI-0230": {
       "admitted_at": "2026-10-24T15:38:16.453769+00:00",
       "category_id": 161,
@@ -39215,6 +39384,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0230"
+    },
+    "TH-VI-0236": {
+      "admitted_at": "2026-10-24T16:18:42.773588+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe thuê hỏng ở ngoại thành nhờ xe cứu hộ",
+      "proposed_title": "Xe hỏng ở ngoại thành cách trung tâm khá xa: chờ cửa hàng đến hay nhờ xe cứu hộ tại chỗ",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-hong-o-ngoai-thanh-cho-cua-hang-hay-nho-cuu-ho/",
+      "search_intent": "Người thuê đi xa trung tâm Hà Nội thì xe không chạy được, cần biết cách báo vị trí, hỏi cửa hàng về hình thức hỗ trợ có sẵn hoặc có cho nhờ cứu hộ địa phương hay không, và ai trả chi phí kéo xe.",
+      "sources": [
+        {
+          "document": "4ce562fbd8063d9db5e8f81374c307ebffa2c12fb4114d4d18a2802439ea14b6",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0236"
     },
     "TH-VI-0237": {
       "admitted_at": "2026-10-24T10:24:39.288531+00:00",
@@ -41711,5 +41911,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2555
+  "version": 2556
 }
