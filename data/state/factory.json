@@ -15073,6 +15073,15 @@
       "previous": "be4eda6937d055738f073562b68b2764381c9398cc739305574d1db5b7436c71",
       "sha256": "069ed0561ce5e01d20bb6f6542e9eeb8825282491d07d44069835b881b52f859",
       "topic_id": "TH-000030"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:02:23.408126+00:00",
+      "previous": "069ed0561ce5e01d20bb6f6542e9eeb8825282491d07d44069835b881b52f859",
+      "report_sha": "4342368ad9591c1ec8d8fe6fdd7f9fb92866f04c1d04a4a1d85e4988ff9f91c4",
+      "sha256": "110d0e9fe98a69acad128291d14ef8be84f8f36838295e06f182636b55881b83",
+      "status": "PASS",
+      "topic_id": "TH-000030"
     }
   ],
   "intents": {
@@ -25293,19 +25302,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859533.931157,
-      "fence": "83337c9a84aa495cb802ec6c02c2f729",
-      "heartbeat_at": "2026-10-24T16:02:13.931132+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000030"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25395,6 +25392,11 @@
     "TH-000029": {
       "article_sha": "ede6a076aa67d8ef25932191eed2bf70bd1cbf8c0a9316d339e625987197e8e8",
       "report_sha": "90cd751eba6e87fae36ce8cf749e60166aa77f445e52483c2532098c9dfee829",
+      "status": "PASS"
+    },
+    "TH-000030": {
+      "article_sha": "95e1f5bcc8406dfd9fa19ba66a685dee1cbefc2fbd0d63584fb8f3c003b8f2d1",
+      "report_sha": "4342368ad9591c1ec8d8fe6fdd7f9fb92866f04c1d04a4a1d85e4988ff9f91c4",
       "status": "PASS"
     },
     "TH-000031": {
@@ -31527,7 +31529,7 @@
           "url": "https://vinfastauto.com/vn_vi/xe-may-dien-evo"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000030"
     },
     "TH-000031": {
@@ -40534,5 +40536,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2489
+  "version": 2490
 }
