@@ -13851,6 +13851,21 @@
       "sha256": "95b8c5c6e3d84c94d78068eff58d89c39759cb23d05c471e895b0a2a266b966a",
       "status": "PASS",
       "topic_id": "TH-000056"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN13",
+      "at": "2026-10-24T15:34:21.249422+00:00",
+      "expires_at": 1792857861.249411,
+      "fence": "30af4e247f8c424e93a3ca6eef0ed3c4",
+      "heartbeat_at": "2026-10-24T15:34:21.249385+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "95b8c5c6e3d84c94d78068eff58d89c39759cb23d05c471e895b0a2a266b966a",
+      "session": "en-b13-20261024",
+      "sha256": "c5354dfc92a6fa5ed7cb66652cc44690a71bf6bebb0e9ed420665933ac7eba42",
+      "slot": "W1",
+      "topic_id": "TH-000059"
     }
   ],
   "intents": {
@@ -24071,7 +24086,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN13",
+      "expires_at": 1792857861.249411,
+      "fence": "30af4e247f8c424e93a3ca6eef0ed3c4",
+      "heartbeat_at": "2026-10-24T15:34:21.249385+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000059"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -30558,7 +30585,7 @@
           "url": "https://xaydungchinhsach.chinhphu.vn/cong-bo-de-an-vung-phat-thai-thap-trong-vanh-dai-1-thanh-pho-ha-noi-119260703145217105.htm"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000059"
     },
     "TH-000060": {
@@ -37607,5 +37634,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2348
+  "version": 2349
 }
