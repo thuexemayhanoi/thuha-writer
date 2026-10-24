@@ -9858,6 +9858,15 @@
       "sha256": "4ef4ff6e23d05509a96059f22d912e04c246157ee1a5358b535cbe30c8d41941",
       "slot": "W1",
       "topic_id": "TH-VI-0066"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-VI13",
+      "article_sha": "fcaa688723b82bcd11fb44c36a403859b1b469cd8234b318d95e368bd5439f94",
+      "at": "2026-10-24T09:52:13.404996+00:00",
+      "previous": "4ef4ff6e23d05509a96059f22d912e04c246157ee1a5358b535cbe30c8d41941",
+      "sha256": "b89a9aad1be9cd325086e371044fed742a08f39540f63488fb800f364390c907",
+      "topic_id": "TH-VI-0066"
     }
   ],
   "intents": {
@@ -22243,6 +22252,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T03:58:39.847815+00:00"
     },
+    "TH-VI-0066": {
+      "agent_id": "claude-writer-VI13",
+      "article_sha": "fcaa688723b82bcd11fb44c36a403859b1b469cd8234b318d95e368bd5439f94",
+      "commit": "6e69e10a49d6c3a5500581bef2874e4d5da506ee",
+      "fence": "adba71f28f164408acfe8a2ff1358ae7",
+      "repair_count": 0,
+      "session": "vi-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T09:52:13.404966+00:00"
+    },
     "TH-VI-0068": {
       "agent_id": "claude-writer-VI9",
       "article_sha": "a0d989afd99fc64aa676b077ef3e0fbedfcdb2a06275f708150685c8407be741",
@@ -27059,7 +27078,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-VI-0066"
     },
     "TH-VI-0068": {
@@ -28746,5 +28765,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1411
+  "version": 1412
 }
