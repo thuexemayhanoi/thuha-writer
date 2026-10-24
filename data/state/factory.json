@@ -15163,6 +15163,15 @@
       "sha256": "0c4357797ae286b5675891d8ff3a9d06a73cc5dffea9e90aa17fd3168aa3aac3",
       "slot": "W1",
       "topic_id": "TH-000018"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN15",
+      "article_sha": "9c338485dd4471b3944bb58b9f71f571a888f01297beff735c8fe5a400ed0233",
+      "at": "2026-10-24T16:03:51.618307+00:00",
+      "previous": "0c4357797ae286b5675891d8ff3a9d06a73cc5dffea9e90aa17fd3168aa3aac3",
+      "sha256": "c280fd1678823f8060518a92570d5190199141f4788d327e6aa210088f122397",
+      "topic_id": "TH-000018"
     }
   ],
   "intents": {
@@ -27670,6 +27679,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T16:03:37.210069+00:00"
     },
+    "TH-000018": {
+      "agent_id": "claude-writer-EN15",
+      "article_sha": "9c338485dd4471b3944bb58b9f71f571a888f01297beff735c8fe5a400ed0233",
+      "commit": "57bdbcfa737d8d210e2321469dfbfff29b299161",
+      "fence": "fe9ad2434d6a459da3ffa796880ee5e1",
+      "repair_count": 0,
+      "session": "en-b15-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:03:51.618272+00:00"
+    },
     "TH-000019": {
       "agent_id": "claude-writer-EN14",
       "article_sha": "59154dec0a942714b85aba423eab4500e3baec45668a716cd8f62a77c75bf9cd",
@@ -31233,7 +31252,7 @@
           "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000018"
     },
     "TH-000019": {
@@ -40659,5 +40678,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2500
+  "version": 2501
 }
