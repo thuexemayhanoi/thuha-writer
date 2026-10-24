@@ -12033,6 +12033,15 @@
       "sha256": "318753c4af1aeb9c62c0e3416f3bf571d6f829675d08e2c3d6ed37f9e9f9c782",
       "slot": "W1",
       "topic_id": "TH-000040"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "171b6a893fc9e1d9ee2c80d28ad95625acaed5e263a2e8d5ed6d7ae3bba7a14d",
+      "at": "2026-10-24T15:03:31.218654+00:00",
+      "previous": "318753c4af1aeb9c62c0e3416f3bf571d6f829675d08e2c3d6ed37f9e9f9c782",
+      "sha256": "89081d98646d7e89fec23c9f40003580fd7ac24c30881cfd2ba046fffc748349",
+      "topic_id": "TH-000040"
     }
   ],
   "intents": {
@@ -24004,6 +24013,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:03:16.735178+00:00"
     },
+    "TH-000040": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "171b6a893fc9e1d9ee2c80d28ad95625acaed5e263a2e8d5ed6d7ae3bba7a14d",
+      "commit": "e46213e1eee70b0373cb225639829d43a93d46b4",
+      "fence": "92d38da577ad42ffae5070f2340b69fc",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:03:31.218627+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -27384,7 +27403,7 @@
           "url": "https://metrohanoi.vn/en/?noredirect=en_US"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000040"
     },
     "TH-000041": {
@@ -34594,5 +34613,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2129
+  "version": 2130
 }
