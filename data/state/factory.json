@@ -12429,6 +12429,14 @@
       "sha256": "51707a3c8be84b4ff695ffaa30dd821073c15cae63826b1f279929a37f27de98",
       "slot": "W1",
       "topic_id": "TH-000055"
+    },
+    {
+      "action": "RELEASE",
+      "at": "2026-10-24T15:06:20.160201+00:00",
+      "previous": "51707a3c8be84b4ff695ffaa30dd821073c15cae63826b1f279929a37f27de98",
+      "sha256": "b3a595c4f9ffaab7066aafb73ba9eafb15adc796780848eded5e86ba461282ed",
+      "slot": "W1",
+      "topic_id": "TH-000055"
     }
   ],
   "intents": {
@@ -22649,19 +22657,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856177.069571,
-      "fence": "cc0966f267a44565ae36dac4b97af823",
-      "heartbeat_at": "2026-10-24T15:06:17.069547+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000055"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -28395,7 +28391,7 @@
           "url": "https://metrohanoi.vn/en/?noredirect=en_US"
         }
       ],
-      "status": "CLAIMED",
+      "status": "PLANNED",
       "topic_id": "TH-000055"
     },
     "TH-000056": {
@@ -35170,5 +35166,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2177
+  "version": 2178
 }
