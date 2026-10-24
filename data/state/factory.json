@@ -15031,6 +15031,15 @@
       "sha256": "f0a9a19090a31fd406bdf66dc06c1b6a15f5f139b2e17a93d82fc6b6d4777c4f",
       "slot": "W1",
       "topic_id": "TH-000029"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "ede6a076aa67d8ef25932191eed2bf70bd1cbf8c0a9316d339e625987197e8e8",
+      "at": "2026-10-24T16:02:04.497299+00:00",
+      "previous": "f0a9a19090a31fd406bdf66dc06c1b6a15f5f139b2e17a93d82fc6b6d4777c4f",
+      "sha256": "0548848ce24d4d143b04fba752d43b889730ff891b367c3bd4ae35bb71ed1917",
+      "topic_id": "TH-000029"
     }
   ],
   "intents": {
@@ -27558,6 +27567,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T16:01:35.829251+00:00"
     },
+    "TH-000029": {
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "ede6a076aa67d8ef25932191eed2bf70bd1cbf8c0a9316d339e625987197e8e8",
+      "commit": "dc5eed226e5dac793001fe343ff5d78575bc319f",
+      "fence": "18425bdde99d4706b9a5e8d3355dc8a1",
+      "repair_count": 0,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:02:04.497272+00:00"
+    },
     "TH-000031": {
       "agent_id": "claude-writer-EN14",
       "article_sha": "fc65271fdb7f6bf21800bf61ee704e375e6a071e2c2638137e4c35714aed8b07",
@@ -31423,7 +31442,7 @@
           "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000029"
     },
     "TH-000030": {
@@ -40467,5 +40486,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2484
+  "version": 2485
 }
