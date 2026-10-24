@@ -6571,6 +6571,15 @@
       "sha256": "f0f0e1053eaa589dfafbe094010ac9e478a763aabdd009a92644fee9d5b21769",
       "slot": "W1",
       "topic_id": "TH-EN-0125"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "05e8f888b1d719ec83002d05febb9cb6c7b00857a02046150a5ba58fae1f478e",
+      "at": "2026-10-24T03:53:24.095936+00:00",
+      "previous": "f0f0e1053eaa589dfafbe094010ac9e478a763aabdd009a92644fee9d5b21769",
+      "sha256": "7dc317bdc357af78564c23d962c81a56e9d28adec4c7601db1adf06e93f0fbaf",
+      "topic_id": "TH-EN-0125"
     }
   ],
   "intents": {
@@ -17663,13 +17672,13 @@
     },
     "TH-EN-0125": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "8404313e276621f3e17255b426db944af0257a069a69634ddf523c3781ebf916",
-      "commit": "904b4b17bc76536bae859e305eda92bf9082221d",
-      "fence": "1d758e50211341afbed9612e4c2b672e",
+      "article_sha": "05e8f888b1d719ec83002d05febb9cb6c7b00857a02046150a5ba58fae1f478e",
+      "commit": "42eab86d1174fd217289dac63b8fa44c7092c984",
+      "fence": "53f8880fbf964164b62510ce9afbeedc",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:45:09.777918+00:00"
+      "submitted_at": "2026-10-24T03:53:24.095917+00:00"
     },
     "TH-EN-0139": {
       "agent_id": "claude-writer-W2",
@@ -21065,7 +21074,6 @@
         134
       ],
       "cluster": "parking-weather-breakdowns",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "explain motorbike breakdown to mechanic no vietnamese",
       "proposed_title": "Explaining a Breakdown Without Vietnamese: Photos, Translation Apps and Simple Phone Scripts",
@@ -21078,9 +21086,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0125",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0125"
     },
     "TH-EN-0126": {
       "admitted_at": "2026-10-24T03:50:37.280402+00:00",
@@ -23405,5 +23412,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1019
+  "version": 1020
 }
