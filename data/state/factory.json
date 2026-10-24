@@ -9427,6 +9427,18 @@
       "sha256": "5392eb62eed1cc691205530fb6eee4f7b098169c86961590d99ff861ee4034ae",
       "status": "PASS",
       "topic_id": "TH-VI-0431"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T09:15:02.530237+00:00",
+      "previous": "5392eb62eed1cc691205530fb6eee4f7b098169c86961590d99ff861ee4034ae",
+      "sha256": "ba4ef6faf1d415e84abca023e19810e087a4c7ecab1b7e03077ae194a607d20a",
+      "topic_ids": [
+        "TH-VI-0062",
+        "TH-VI-0066",
+        "TH-VI-0103",
+        "TH-VI-0152"
+      ]
     }
   ],
   "intents": {
@@ -20727,6 +20739,13 @@
       "status": "FULFILLED"
     },
     "research-vi-918a439ce6928124": {
+      "admitted_topic_ids": [
+        "TH-VI-0062",
+        "TH-VI-0066",
+        "TH-VI-0103",
+        "TH-VI-0152"
+      ],
+      "completed_at": "2026-10-24T09:15:02.530225+00:00",
       "created_at": "2026-10-24T09:12:58.305557+00:00",
       "inventory_sha256": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
       "language": "vi",
@@ -20734,7 +20753,7 @@
       "planned": 19,
       "request_id": "research-vi-918a439ce6928124",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-aeea53dcd21ddbc7": {
       "admitted_topic_ids": [
@@ -26280,6 +26299,30 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0058"
     },
+    "TH-VI-0062": {
+      "admitted_at": "2026-10-24T09:15:02.480777+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê thử xe máy một tuần trước khi thuê tháng",
+      "proposed_title": "Thuê thử một tuần trước khi chốt cả tháng: những điều cần quan sát",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-thu-mot-tuan-truoc-khi-chot-ca-thang-quan-sat-gi/",
+      "search_intent": "Người chưa chắc xe, đường đi và nơi để xe có hợp không muốn thuê một tuần để thử trước khi chốt tháng, cần biết nên quan sát gì trong tuần đầu và hỏi cửa hàng cách chuyển sang gói tháng.",
+      "sources": [
+        {
+          "document": "d94e53d07c938be987be77e462087d4dce27630f3cde4da909aa254bc287ff78",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0062"
+    },
     "TH-VI-0063": {
       "admitted_at": "2026-10-23T07:53:31.969783+00:00",
       "category_id": 154,
@@ -26373,6 +26416,30 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0065"
+    },
+    "TH-VI-0066": {
+      "admitted_at": "2026-10-24T09:15:02.498850+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "đổi xe thuê giữa chừng từ xe số sang xe ga",
+      "proposed_title": "Đổi xe giữa kỳ thuê vì không hợp: từ xe số sang xe ga cần hỏi và ghi lại gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/doi-xe-thue-giua-ky-tu-xe-so-sang-xe-ga-hoi-va-ghi-gi/",
+      "search_intent": "Sau hai tuần thuê xe số thấy mỏi tay mỏi chân vì đường kẹt, người thuê muốn đổi sang xe ga, cần biết báo cửa hàng thế nào, giá và cọc có tính lại không, và xe cũ phải trả trong tình trạng nào.",
+      "sources": [
+        {
+          "document": "d94e53d07c938be987be77e462087d4dce27630f3cde4da909aa254bc287ff78",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0066"
     },
     "TH-VI-0068": {
       "admitted_at": "2026-10-24T03:50:37.452004+00:00",
@@ -26907,6 +26974,30 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0102"
     },
+    "TH-VI-0103": {
+      "admitted_at": "2026-10-24T09:15:02.515059+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "trả tiền cọc cho nhân viên giao xe thuê",
+      "proposed_title": "Nhân viên giao xe đến tận nơi: trả tiền và cọc lúc nhận, nên kiểm xe trước hay đưa tiền trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-vien-giao-xe-den-tan-noi-tra-tien-va-coc-luc-nhan-kiem-xe-truoc/",
+      "search_intent": "Người thuê đặt giao xe tận nơi băn khoăn thứ tự khi nhân viên tới: kiểm tra hiện trạng xe, ký giấy tờ hay thanh toán trước, cần xin biên nhận gì và nên từ chối nhận thế nào nếu xe không đúng điều đã hẹn.",
+      "sources": [
+        {
+          "document": "d94e53d07c938be987be77e462087d4dce27630f3cde4da909aa254bc287ff78",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0103"
+    },
     "TH-VI-0105": {
       "admitted_at": "2026-10-24T03:50:37.595180+00:00",
       "category_id": 155,
@@ -27122,6 +27213,30 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0151"
+    },
+    "TH-VI-0152": {
+      "admitted_at": "2026-10-24T09:15:02.530193+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "thuê xe côn tay cháy côn đổ xe ai chịu trách nhiệm",
+      "proposed_title": "Thuê xe côn tay khi còn tập: ai chịu trách nhiệm nếu cháy côn hoặc đổ xe, hỏi cửa hàng trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-con-tay-khi-con-tap-chay-con-do-xe-ai-chiu/",
+      "search_intent": "Người chưa thạo côn tay lo làm cháy côn hay đổ xe lúc tập; cần biết các câu hỏi về hư hỏng do thao tác, hao mòn thông thường và ảnh hiện trạng cần xin cửa hàng trả lời rõ trước khi đặt cọc.",
+      "sources": [
+        {
+          "document": "d94e53d07c938be987be77e462087d4dce27630f3cde4da909aa254bc287ff78",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0152"
     },
     "TH-VI-0158": {
       "admitted_at": "2026-10-23T11:56:51.693585+00:00",
@@ -28010,5 +28125,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1360
+  "version": 1361
 }
