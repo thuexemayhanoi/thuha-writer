@@ -15106,6 +15106,15 @@
       "previous": "54c6925e7e392d07f54ecfa5288a602fa2668d94d9f6352c0043fc56dd92299b",
       "sha256": "ddffdbbfafcb2bbe8bc417393ce68682900ffd18fda0dc582840b050ce42aae4",
       "topic_id": "TH-000035"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:02:37.866167+00:00",
+      "previous": "ddffdbbfafcb2bbe8bc417393ce68682900ffd18fda0dc582840b050ce42aae4",
+      "report_sha": "a6721870061edc740ec560558c615695e3c72b0e48f2d101b8ddb540a94a6b6a",
+      "sha256": "cb20246949e6d9ef6392bd81627233a829c2f24adf80add0d3590516810d5bc5",
+      "status": "PASS",
+      "topic_id": "TH-000035"
     }
   ],
   "intents": {
@@ -25326,19 +25335,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859548.315648,
-      "fence": "3698e936ff064c15b4cac1d6d41d7ac8",
-      "heartbeat_at": "2026-10-24T16:02:28.315577+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000035"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25443,6 +25440,11 @@
     "TH-000032": {
       "article_sha": "2b8c249c7391621410bf9fe7494d1444b75d1107abbb726b427a5c834333154d",
       "report_sha": "3c4342f99136a74b3996bb3121c1f3d62307aa475f8b10d97c401c3d62126c5e",
+      "status": "PASS"
+    },
+    "TH-000035": {
+      "article_sha": "75f02f429188efa4a26c536170340ff08a4b11010564e3d163f555ff0628f8e7",
+      "report_sha": "a6721870061edc740ec560558c615695e3c72b0e48f2d101b8ddb540a94a6b6a",
       "status": "PASS"
     },
     "TH-000038": {
@@ -31750,7 +31752,7 @@
           "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000035"
     },
     "TH-000036": {
@@ -40582,5 +40584,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2493
+  "version": 2494
 }
