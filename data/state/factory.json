@@ -12240,6 +12240,15 @@
       "previous": "80a1f200eccf58ec1dcb43fc5a34e959b18c7f66f6f95a5071a1eb4152a65971",
       "sha256": "38206bd12d59274ffbcb84f60ec24f3eafb7c477179ecc6d3c13bd020e1fe1ce",
       "topic_id": "TH-000049"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:05:00.991494+00:00",
+      "previous": "38206bd12d59274ffbcb84f60ec24f3eafb7c477179ecc6d3c13bd020e1fe1ce",
+      "report_sha": "5fae55aa55ed909a206f3008d08fdf941dd1b8a8e95e86caa4b8ad1a2e54dd7a",
+      "sha256": "383bb9e8b2c2dc7456c6f53c0b756382b8395a650a3f58944d76e719ef1ad1e8",
+      "status": "PASS",
+      "topic_id": "TH-000049"
     }
   ],
   "intents": {
@@ -22460,19 +22469,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856091.266562,
-      "fence": "e3b9b31ec5174c33a4684350755c9221",
-      "heartbeat_at": "2026-10-24T15:04:51.266537+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000049"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22567,6 +22564,11 @@
     "TH-000047": {
       "article_sha": "2483ea5b18104f71361a27db1b6c0330eca1398ef7b39ce878598e16cf63ad89",
       "report_sha": "d1a4e0b756b84bac4bc9e437904446a9c5c048e014dd903c28189ca8bbcfe6e7",
+      "status": "PASS"
+    },
+    "TH-000049": {
+      "article_sha": "1ddecde83ffe71879152cb966edab3e5a565de3ab3f0a32668feacc74384d27b",
+      "report_sha": "5fae55aa55ed909a206f3008d08fdf941dd1b8a8e95e86caa4b8ad1a2e54dd7a",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27925,7 +27927,7 @@
           "url": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000049"
     },
     "TH-000050": {
@@ -34901,5 +34903,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2154
+  "version": 2155
 }
