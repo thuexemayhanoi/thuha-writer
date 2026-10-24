@@ -12216,6 +12216,21 @@
       "sha256": "4d10232f6853427bdfe1e20a1f4348cd49fe50adca01c030b0fb9e42684e06c1",
       "status": "PASS",
       "topic_id": "TH-000047"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:04:51.266574+00:00",
+      "expires_at": 1792856091.266562,
+      "fence": "e3b9b31ec5174c33a4684350755c9221",
+      "heartbeat_at": "2026-10-24T15:04:51.266537+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "4d10232f6853427bdfe1e20a1f4348cd49fe50adca01c030b0fb9e42684e06c1",
+      "session": "en-b12-20261024",
+      "sha256": "80a1f200eccf58ec1dcb43fc5a34e959b18c7f66f6f95a5071a1eb4152a65971",
+      "slot": "W1",
+      "topic_id": "TH-000049"
     }
   ],
   "intents": {
@@ -22436,7 +22451,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856091.266562,
+      "fence": "e3b9b31ec5174c33a4684350755c9221",
+      "heartbeat_at": "2026-10-24T15:04:51.266537+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000049"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -27879,7 +27906,7 @@
           "url": "https://vietnam.travel/things-to-do/moc-chau-your-one-stop-nature-escape"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000049"
     },
     "TH-000050": {
@@ -34855,5 +34882,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2152
+  "version": 2153
 }
