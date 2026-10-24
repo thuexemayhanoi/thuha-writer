@@ -7479,6 +7479,14 @@
       "sha256": "3e73d02be83b3be0070714d756b488e81e47ce153c9fcd16100f76d7b5d5b1f3",
       "status": "PASS",
       "topic_id": "TH-VI-0003"
+    },
+    {
+      "action": "REFILL_REQUEST",
+      "at": "2026-10-24T03:58:24.428794+00:00",
+      "language": "vi",
+      "previous": "3e73d02be83b3be0070714d756b488e81e47ce153c9fcd16100f76d7b5d5b1f3",
+      "request_id": "research-vi-fe4f31668a59efbd",
+      "sha256": "aa11bc34be0e1c410bbf96560e20de478923521e0fd5c149522710acfb046f49"
     }
   ],
   "intents": {
@@ -18540,6 +18548,16 @@
       "request_id": "research-vi-d08b8dd5e031330b",
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
+    },
+    "research-vi-fe4f31668a59efbd": {
+      "created_at": "2026-10-24T03:58:24.413474+00:00",
+      "inventory_sha256": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 29,
+      "request_id": "research-vi-fe4f31668a59efbd",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
     }
   },
   "reviews": {
@@ -24699,5 +24717,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1129
+  "version": 1130
 }
