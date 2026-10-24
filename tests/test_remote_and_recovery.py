@@ -57,6 +57,24 @@ class RemoteTests(unittest.TestCase):
     def test_content_addressed_remote_checkpoint_roundtrip(self):
         sha=self.store.put_document({'body':'Actual independent document bytes'})
         self.assertEqual(self.store.get_document(sha)['body'],'Actual independent document bytes')
+    def test_sustained_writer_conflicts_retry_and_preserve_authoritative_state(self):
+        class BusyBranch(MemoryGitHub):
+            def __init__(self):
+                super().__init__()
+                self.conflicts_left = 7
+
+            def request(self, method, path, body=None):
+                if method == 'PUT' and '/contents/data/state/factory.json' in path and self.conflicts_left:
+                    self.conflicts_left -= 1
+                    raise GitError(409)
+                return super().request(method, path, body)
+
+        api = BusyBranch()
+        store = GitStore(api)
+        store.mutate(lambda s: s.update(research_requests={'safe': {'status': 'PLANNED'}}))
+        self.assertEqual(api.conflicts_left, 0)
+        self.assertEqual(store.read()['research_requests']['safe']['status'], 'PLANNED')
+
     def test_immutable_document_create_retries_422_without_faking_collision(self):
         class BranchMovedAPI(MemoryGitHub):
             def __init__(self):
