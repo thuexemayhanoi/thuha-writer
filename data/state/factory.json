@@ -14917,6 +14917,21 @@
       "sha256": "0d349da5df9d93812a4b08ddbbaf5612a7aaf7caf3c4928228a38346a6b3ca9f",
       "status": "PASS",
       "topic_id": "TH-000014"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN14",
+      "at": "2026-10-24T16:01:15.790021+00:00",
+      "expires_at": 1792859475.79001,
+      "fence": "21143957e219462cbe2500430c318973",
+      "heartbeat_at": "2026-10-24T16:01:15.789981+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "0d349da5df9d93812a4b08ddbbaf5612a7aaf7caf3c4928228a38346a6b3ca9f",
+      "session": "en-b14-20261024",
+      "sha256": "d8f809c23d9ed7a3cc1ae83340830f72cd71e2f761081d4ec01beee0c9f71fa7",
+      "slot": "W1",
+      "topic_id": "TH-000019"
     }
   ],
   "intents": {
@@ -25137,7 +25152,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN14",
+      "expires_at": 1792859475.79001,
+      "fence": "21143957e219462cbe2500430c318973",
+      "heartbeat_at": "2026-10-24T16:01:15.789981+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000019"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -30907,7 +30934,7 @@
           "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000019"
     },
     "TH-000020": {
@@ -40296,5 +40323,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2471
+  "version": 2472
 }
