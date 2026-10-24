@@ -14941,6 +14941,15 @@
       "previous": "d8f809c23d9ed7a3cc1ae83340830f72cd71e2f761081d4ec01beee0c9f71fa7",
       "sha256": "315b5c9cc79319a3c632a06fe182477c8c980efeb503840d0e5390dc27f655b0",
       "topic_id": "TH-000019"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:01:25.674043+00:00",
+      "previous": "315b5c9cc79319a3c632a06fe182477c8c980efeb503840d0e5390dc27f655b0",
+      "report_sha": "e503fa5042760ad6b25667a209ac65fbc1bf0379e4945cce7ee432d0793b66f6",
+      "sha256": "b7a1d513b0e528a0e9e4ec47d5ae6692513383861e6415d2f1a95bc0317b6988",
+      "status": "PASS",
+      "topic_id": "TH-000019"
     }
   ],
   "intents": {
@@ -25161,19 +25170,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859475.79001,
-      "fence": "21143957e219462cbe2500430c318973",
-      "heartbeat_at": "2026-10-24T16:01:15.789981+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000019"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25233,6 +25230,11 @@
     "TH-000014": {
       "article_sha": "eff12d76cdd56e7786080c59f824463e0425cc70f61867d1e2cbf7012ab29092",
       "report_sha": "55a576907a5b3b069e0c175eb76b71d7f098c5fe650438b40bd7b8b80a52cf8f",
+      "status": "PASS"
+    },
+    "TH-000019": {
+      "article_sha": "59154dec0a942714b85aba423eab4500e3baec45668a716cd8f62a77c75bf9cd",
+      "report_sha": "e503fa5042760ad6b25667a209ac65fbc1bf0379e4945cce7ee432d0793b66f6",
       "status": "PASS"
     },
     "TH-000021": {
@@ -30953,7 +30955,7 @@
           "url": "https://vinfastauto.com/vn_vi/thong-so-ky-thuat-evo200"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000019"
     },
     "TH-000020": {
@@ -40342,5 +40344,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2473
+  "version": 2474
 }
