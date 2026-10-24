@@ -13899,6 +13899,15 @@
       "sha256": "e7641f8d09dea8b662fe9917d43af62f6e4335211f6c33b37b3eae3dc81727b8",
       "slot": "W1",
       "topic_id": "TH-000060"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "7d0a5e1d0f3645a1b9d2d16cfdc590c152d377be74c9ac415e2de2150801344f",
+      "at": "2026-10-24T15:34:40.507685+00:00",
+      "previous": "e7641f8d09dea8b662fe9917d43af62f6e4335211f6c33b37b3eae3dc81727b8",
+      "sha256": "cfe873ff0837f5488bce28eb12b83b1325ac971238d54ccb9b091882628b02d0",
+      "topic_id": "TH-000060"
     }
   ],
   "intents": {
@@ -26350,6 +26359,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:34:26.437817+00:00"
     },
+    "TH-000060": {
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "7d0a5e1d0f3645a1b9d2d16cfdc590c152d377be74c9ac415e2de2150801344f",
+      "commit": "a5cdaa55fe9ad13cfbfe7b54c785a2547a664b70",
+      "fence": "19ed3218685b43259c2b038b140446f5",
+      "repair_count": 0,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:34:40.507634+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -30669,7 +30688,7 @@
           "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000060"
     },
     "TH-000061": {
@@ -37682,5 +37701,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2353
+  "version": 2354
 }
