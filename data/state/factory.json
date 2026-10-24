@@ -11886,6 +11886,21 @@
       "previous": "ecdddaf4be315157b9d374aa1920acd52c62baae741efba41a4a7334ed327394",
       "request_id": "research-vi-e383c55042352d3c",
       "sha256": "f7311959cf0a974951b4f0061b8ccd98a642916f0b5711d45a51ff810a7ed0f7"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:02:27.976223+00:00",
+      "expires_at": 1792855947.976211,
+      "fence": "ea7477a0a46545acad2e6a0bc5356b9b",
+      "heartbeat_at": "2026-10-24T15:02:27.976190+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "f7311959cf0a974951b4f0061b8ccd98a642916f0b5711d45a51ff810a7ed0f7",
+      "session": "en-b12-20261024",
+      "sha256": "4631d29c466229411465c9a46fd647a8f27d4be58f19b7a500d886f17e1b4493",
+      "slot": "W1",
+      "topic_id": "TH-000021"
     }
   ],
   "intents": {
@@ -22106,7 +22121,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792855947.976211,
+      "fence": "ea7477a0a46545acad2e6a0bc5356b9b",
+      "heartbeat_at": "2026-10-24T15:02:27.976190+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000021"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -26549,7 +26576,7 @@
           "url": "https://evisa.gov.vn/faq"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000021"
     },
     "TH-000022": {
@@ -34375,5 +34402,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2112
+  "version": 2113
 }
