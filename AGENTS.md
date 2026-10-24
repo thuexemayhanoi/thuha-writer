@@ -102,6 +102,7 @@ Vietnamese plugin (1.1.1) are outside this repository: do not change, version or
 - A topic, its category path, URL, article `language` (`vi` / `en-US`), title, meta, body
   links and receipt all carry one language. Cross-language body links are a hard fail;
   hreflang only for a genuinely equivalent pair that already exists.
+- **Rendered-language QA (24 October 2026):** Automatic pre-publication QA already hard-fails wrong-language article titles, SEO fields and body. After WordPress publication, the public-page checker additionally verifies exactly one H1, equal to the reviewed article title and plausible for its locale. Public theme/heading failures are recorded as retried `post_check` warnings; they never rewrite an existing post, rename slugs or block unrelated queue items. WordPress Settings > General Site Title/Tagline and global theme strings are outside this writer and must be localized at the theme/plugin layer. Do not interpret the global bilingual brand tagline as the article's SEO title.
 - Quota is per language: `config/project.json goal.targets` (500/500). Count = live published
   posts from an **adapter** inventory + unresolved intents. Pages, drafts, trash are excluded; the
   public REST collection is not trusted for Vietnamese. 499 -> 500 is allowed, 500 -> 501 never.
