@@ -6411,6 +6411,15 @@
       "sha256": "6d4a51e9ef054919470bfad4b7b2e9c090bfb51fa146259f438eae36472dd157",
       "slot": "W1",
       "topic_id": "TH-EN-0139"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "at": "2026-10-24T03:52:31.298874+00:00",
+      "previous": "6d4a51e9ef054919470bfad4b7b2e9c090bfb51fa146259f438eae36472dd157",
+      "sha256": "961e5dcd156a1f8769631dc5808576937f884f381093362b120f8b05b5b0289e",
+      "topic_id": "TH-EN-0139"
     }
   ],
   "intents": {
@@ -17488,13 +17497,13 @@
     },
     "TH-EN-0139": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "9a230d84fa6a79cc37d389cbfb493697cfe8566597244baab048a2c2e6e0ee99",
-      "commit": "b0aeb1b03fad97ade6f2cf68581a6e231d9b8329",
-      "fence": "549836a9a15e427aaed60f9cab2b499f",
+      "article_sha": "1aa507276b01be2876c3f6a7a697e2ebad9fff57130ec719b78a516d9a0e3006",
+      "commit": "d77e66a9e2bf0bc0897551dc60067a8d80aeaa27",
+      "fence": "94372b952e3c4a23a8cb916d795e51e6",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:24.243127+00:00"
+      "submitted_at": "2026-10-24T03:52:31.298854+00:00"
     },
     "TH-EN-0140": {
       "agent_id": "claude-writer-W2",
@@ -20958,7 +20967,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "not ridden motorbike in years hanoi rent",
       "proposed_title": "Rusty on a Motorbike? Decide Honestly Whether to Rent in Hanoi After Years Away From Riding",
@@ -20971,9 +20979,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0139",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0139"
     },
     "TH-EN-0140": {
       "admitted_at": "2026-10-23T12:08:22.403104+00:00",
@@ -23225,5 +23232,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 999
+  "version": 1000
 }
