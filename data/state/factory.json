@@ -12372,6 +12372,15 @@
       "previous": "9cde7deea22e387d86ad3a261bfa38ae7588ab033b9ef1c65824cf324101b387",
       "sha256": "566884d214c2b6f15ffd3fb8ec8da2edfb318ad8a9447658664ddc77023f7623",
       "topic_id": "TH-000053"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:05:57.682647+00:00",
+      "previous": "566884d214c2b6f15ffd3fb8ec8da2edfb318ad8a9447658664ddc77023f7623",
+      "report_sha": "d9e48c35c79453896fe671105a55e9f3c3cf8aabc03d0b433002dd5c91c419f7",
+      "sha256": "225066a3e76d5347b95828439e9dd1fa239fe39b57a85cca322994fc15043f71",
+      "status": "PASS",
+      "topic_id": "TH-000053"
     }
   ],
   "intents": {
@@ -22592,19 +22601,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856148.276068,
-      "fence": "f477e6508d914be49212f422ea53cf24",
-      "heartbeat_at": "2026-10-24T15:05:48.276043+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000053"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22719,6 +22716,11 @@
     "TH-000052": {
       "article_sha": "29055385910f44499c58f99eedb49360c622be0290ac95617aedbcb6130c6610",
       "report_sha": "710e0c0e3114288a26286d31e90c4c297ca59e77430226e705ddde7ce6ce99f1",
+      "status": "PASS"
+    },
+    "TH-000053": {
+      "article_sha": "68c5bdda670ec6e1f903a492c810a1d572f92c273b14139ad8da0a168004e7a9",
+      "report_sha": "d9e48c35c79453896fe671105a55e9f3c3cf8aabc03d0b433002dd5c91c419f7",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -28251,7 +28253,7 @@
           "url": "https://stateprotocol.mofa.gov.vn/Lists/CoQuanNuocNgoai/AllItems.aspx"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000053"
     },
     "TH-000054": {
@@ -35093,5 +35095,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2170
+  "version": 2171
 }
