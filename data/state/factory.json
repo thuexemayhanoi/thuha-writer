@@ -12452,6 +12452,15 @@
       "sha256": "0cb6af2cc40d281ba5277b12b10b3707f80194af0cbd6247d04944ac87221f9d",
       "slot": "W1",
       "topic_id": "TH-000057"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "fa46c2f5c8734ec4b09871a476c8184f1663ba46c0bd9482a40b224216eee31c",
+      "at": "2026-10-24T15:06:30.239522+00:00",
+      "previous": "0cb6af2cc40d281ba5277b12b10b3707f80194af0cbd6247d04944ac87221f9d",
+      "sha256": "3865e45d6011cbbecebc5047f9dc467d39f41dc98059d7bea4a296bad528fe04",
+      "topic_id": "TH-000057"
     }
   ],
   "intents": {
@@ -24603,6 +24612,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:06:07.975776+00:00"
     },
+    "TH-000057": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "fa46c2f5c8734ec4b09871a476c8184f1663ba46c0bd9482a40b224216eee31c",
+      "commit": "14da3a776f5f0a4d4b9126978548817d41f6688f",
+      "fence": "599d2e5ec5ab4da3b2f69ad9412920aa",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:06:30.239495+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -28485,7 +28504,7 @@
           "url": "https://customs.gov.vn/index.jsp?aid=206184&pageId=2281"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000057"
     },
     "TH-000059": {
@@ -35193,5 +35212,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2180
+  "version": 2181
 }
