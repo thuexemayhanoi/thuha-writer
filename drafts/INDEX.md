@@ -71,12 +71,20 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0248](vi/TH-VI-0248.json) | vi | READY | — | PASS | 1115 | Xe gặp sự cố: gọi điện hay nhắn tin cho cửa hàng trước, và tin nhắn đầu tiên cần có gì |
 | [TH-VI-0250](vi/TH-VI-0250.json) | vi | READY | — | PASS | 1016 | Xe thuê bị trầy xước nhẹ khi dắt vào ngõ hẹp: báo cửa hàng ngay hay đợi đến lúc trả xe |
 | [TH-VI-0251](vi/TH-VI-0251.json) | vi | READY | — | PASS | 1073 | Tự trượt ngã khi đang chạy xe thuê, không va vào ai: lo cho người trước, rồi mới ghi nhận xe và báo cửa hàng |
+| [TH-VI-0260](vi/TH-VI-0260.json) | vi | READY | — | PASS | 1240 | Gắn thêm baga, giỏ hoặc giá đỡ lên xe thuê tháng: món nào được giữ lại, món nào phải tháo trước khi trả |
+| [TH-VI-0261](vi/TH-VI-0261.json) | vi | READY | — | PASS | 1211 | Khóa đĩa, khóa chữ U hay dây xích cho xe thuê: chọn loại khóa phụ nào khi gửi xe qua đêm |
+| [TH-VI-0262](vi/TH-VI-0262.json) | vi | READY | — | PASS | 1120 | Camera hành trình cho xe máy thuê: gắn lên mũ hay lên xe, và cần xin phép cửa hàng điều gì |
 | [TH-VI-0263](vi/TH-VI-0263.json) | vi | READY | — | PASS | 1035 | Đi buổi tối ra ngoại thành: áo sáng màu hoặc áo phản quang có giúp người khác nhìn thấy mình không |
+| [TH-VI-0265](vi/TH-VI-0265.json) | vi | READY | — | PASS | 1149 | Có nên mang bơm tay hoặc bộ vá lốp mini khi chạy xe thuê đi xa, hay chỉ cần lưu số cửa hàng |
+| [TH-VI-0266](vi/TH-VI-0266.json) | vi | READY | — | PASS | 1196 | Chuyển phòng trọ bằng xe máy thuê: đồ nào mang được trong vài chuyến, đồ nào nên tìm cách khác |
 | [TH-VI-0267](vi/TH-VI-0267.json) | vi | PUBLISHED | — | PASS | 1106 | Đi làm bằng xe thuê tháng khi mặc đồ công sở: cất áo khoác, giày thay và áo mưa thế nào cho gọn |
 | [TH-VI-0268](vi/TH-VI-0268.json) | vi | PUBLISHED | — | PASS | 1102 | Mặc váy, áo dài hoặc quần ống rộng đi xe máy: tránh vướng bánh sau, xích và chân người ngồi sau |
+| [TH-VI-0269](vi/TH-VI-0269.json) | vi | READY | — | PASS | 1084 | Chia sẻ vị trí trực tiếp với người nhà khi đi xa bằng xe thuê: cài thế nào để họ biết mình đang ở đâu |
+| [TH-VI-0274](vi/TH-VI-0274.json) | vi | READY | — | PASS | 1010 | Phủ áo trùm hoặc bạt lên xe thuê gửi ngoài trời qua đêm: có nên không và cần hỏi cửa hàng điều gì |
 | [TH-VI-0359](vi/TH-VI-0359.json) | vi | PUBLISHED | — | PASS | 1250 | Lâu rồi không cầm lái: tập lại thăng bằng, phanh và quay đầu ở nơi vắng trước khi vào phố đông |
 | [TH-VI-0371](vi/TH-VI-0371.json) | vi | PUBLISHED | — | PASS | 1294 | Vào cua gắt trên đường đê hoặc đường ngoại thành: giảm tốc trước cua, nhìn xa và không phanh gấp giữa cua |
 | [TH-VI-0373](vi/TH-VI-0373.json) | vi | READY | — | PASS | 1046 | Chở người ngồi sau chưa quen xe máy: dặn trước điều gì khi phanh, vào cua và lên xuống để xe không mất thăng bằng |
+| [TH-VI-0431](vi/TH-VI-0431.json) | vi | READY | — | PASS | 1078 | Dễ say xe khi ngồi sau xe máy: nên ăn gì, ăn lúc nào trước và trong ngày đi chơi xa |
 | [TH-VI-0445](vi/TH-VI-0445.json) | vi | READY | — | PASS | 1116 | Ăn trưa no rồi lại lái xe: buồn ngủ sau bữa ăn và cách xếp giờ nghỉ cho chuyến đi buổi chiều |
 | [TH-VI-0459](vi/TH-VI-0459.json) | vi | PUBLISHED | — | PASS | 1236 | Đi chơi trong ngày bằng nhiều xe: thứ tự chạy, điểm dừng chung và cách không bị lạc nhau |
 | [TH-VI-0484](vi/TH-VI-0484.json) | vi | PUBLISHED | — | PASS | 1292 | Nhóm Zalo bàn mãi chưa chốt điểm đi chơi: cách chốt điểm đến, giờ xuất phát và ai đi xe nào |

@@ -22,20 +22,22 @@
   "attribution_note": "Existing WordPress articles have UNKNOWN creator attribution unless a matching factory receipt exists.",
   "blockers": [
     "No external AI session lease; Actions do not generate prose",
-    "The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over"
+    "Session ledger cannot be handed over (DIVERGED): sync the session branch from the shared ledger"
   ],
   "closed_intents": {},
   "factory_published_receipts": 30,
-  "generated_at": "2026-10-24T08:52:41.474645+00:00",
+  "generated_at": "2026-10-24T09:16:01.981772+00:00",
   "github_actions": {
     "runs": [],
     "status": "UNKNOWN"
   },
   "handoff": {
-    "reasons": [],
-    "session_ledger_version": 1327,
-    "shared_ledger_version": 615,
-    "status": "FAST_FORWARD"
+    "reasons": [
+      "The two ledgers have different histories: the shared ledger holds 1 event(s) the other lacks (ADAPTER_PREFLIGHT). Work done on a stale copy cannot be merged automatically; nothing was written. Sync a session ledger from the shared one BEFORE working."
+    ],
+    "session_ledger_version": 1361,
+    "shared_ledger_version": 618,
+    "status": "DIVERGED"
   },
   "held": {
     "TH-VI-0006": "Merged after the second independent editorial review: its early-return table and questions now live in TH-VI-0019, which also owns the day/week comparison.",
@@ -83,7 +85,7 @@
       "complete": false,
       "factory_published_receipts": 21,
       "needs_source_or_research": [],
-      "open_topics": 73,
+      "open_topics": 80,
       "over_target": false,
       "published_live": 21,
       "remaining": 479,
@@ -94,10 +96,10 @@
         "HELD": 11,
         "NEEDS_REPAIR": 0,
         "NEEDS_REVIEW": 0,
-        "PLANNED": 16,
+        "PLANNED": 15,
         "PUBLISHED": 21,
         "PUBLISHING": 0,
-        "READY": 46,
+        "READY": 54,
         "RESEARCH": 0,
         "WAITING_DATA": 0
       },
@@ -109,7 +111,7 @@
     "vi",
     "en"
   ],
-  "offline_note": "Built from the committed session ledger, the factory-state ledger as last fetched (version 615, 522 events) and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
+  "offline_note": "Built from the committed session ledger, the factory-state ledger as last fetched (version 618, 523 events) and the 2026-10-22 authenticated inventory snapshot. Not a live reading.",
   "open_alerts": [],
   "post_checks": {
     "counts": {
@@ -427,7 +429,7 @@
   ],
   "publisher_uncertain": [],
   "qa": {
-    "PASS": 122
+    "PASS": 130
   },
   "qa_blocked_data": {},
   "queue": {
@@ -583,8 +585,16 @@
         "TH-VI-0248",
         "TH-VI-0250",
         "TH-VI-0251",
+        "TH-VI-0260",
+        "TH-VI-0261",
+        "TH-VI-0262",
         "TH-VI-0263",
+        "TH-VI-0265",
+        "TH-VI-0266",
+        "TH-VI-0269",
+        "TH-VI-0274",
         "TH-VI-0373",
+        "TH-VI-0431",
         "TH-VI-0445"
       ],
       "waiting_data": []
@@ -711,6 +721,23 @@
       "maximum_topics": 100,
       "planned": 14,
       "request_id": "research-vi-8ce4098a69750969",
+      "runtime": "External authorized AI session required",
+      "status": "FULFILLED"
+    },
+    {
+      "admitted_topic_ids": [
+        "TH-VI-0062",
+        "TH-VI-0066",
+        "TH-VI-0103",
+        "TH-VI-0152"
+      ],
+      "completed_at": "2026-10-24T09:15:02.530225+00:00",
+      "created_at": "2026-10-24T09:12:58.305557+00:00",
+      "inventory_sha256": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 19,
+      "request_id": "research-vi-918a439ce6928124",
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
     },
@@ -852,10 +879,10 @@
     "HELD": 11,
     "NEEDS_REPAIR": 0,
     "NEEDS_REVIEW": 0,
-    "PLANNED": 64,
+    "PLANNED": 63,
     "PUBLISHED": 30,
     "PUBLISHING": 0,
-    "READY": 92,
+    "READY": 100,
     "RESEARCH": 0,
     "WAITING_DATA": 0
   },
