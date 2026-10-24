@@ -12165,6 +12165,15 @@
       "sha256": "7131ddca32eb170c83ede71097c2a9a7d793f56b8a2baf8d13d459142d386086",
       "slot": "W1",
       "topic_id": "TH-000045"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "1fbe02369bc1b31c407a1d0252ecc418e58eb9a929f48f10637220a2bbb5d37e",
+      "at": "2026-10-24T15:04:28.000542+00:00",
+      "previous": "7131ddca32eb170c83ede71097c2a9a7d793f56b8a2baf8d13d459142d386086",
+      "sha256": "af0d4fabd5c8b558e78531acc5c5e4814435ad92384d51e1525547e57a3eb658",
+      "topic_id": "TH-000045"
     }
   ],
   "intents": {
@@ -24196,6 +24205,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:04:13.708575+00:00"
     },
+    "TH-000045": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "1fbe02369bc1b31c407a1d0252ecc418e58eb9a929f48f10637220a2bbb5d37e",
+      "commit": "2dba48167344049b0df91567225c47f77def4816",
+      "fence": "a934b6fed5284efeb6e4d87f87c45731",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:04:28.000511+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -27746,7 +27765,7 @@
           "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000045"
     },
     "TH-000047": {
@@ -34786,5 +34805,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2145
+  "version": 2146
 }
