@@ -6,6 +6,7 @@ create-only POST, idempotent replay by key, one post per topic, slugs unique acr
 It is a simulation: nothing here proves how the real site, Yoast or the native Vietnamese plugin behave.
 """
 import copy
+import html
 import io
 import json
 import math
@@ -219,8 +220,11 @@ class FakeWordPress:
         robots = '<meta name="robots" content="noindex">' if 'noindex' in self.page_faults else ''
         schema = '' if 'schema' in self.page_faults else '<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article"}</script>'
         html_lang = 'en' if 'lang' in self.page_faults and lang == 'vi' else ('vi' if lang == 'vi' else 'en-US')
+        rendered_h1 = (post or row)['title']
+        if 'h1' in self.page_faults:
+            rendered_h1 = 'Hanoi motorbike rental prices for visitors' if lang == 'vi' else 'Giá thuê xe máy tại Hà Nội'
         page = ('<html lang="' + html_lang + '"><head><title>' + title + '</title><meta name="description" content="' + description + '">'
-                '<link rel="canonical" href="' + canonical + '">' + robots + schema + '</head><body></body></html>')
+                '<link rel="canonical" href="' + canonical + '">' + robots + schema + '</head><body><h1>' + html.escape(rendered_h1) + '</h1></body></html>')
         return Response(page.encode(), headers={'Content-Type': 'text/html'})
 
     # ----------------------------------------------------------------- helpers
