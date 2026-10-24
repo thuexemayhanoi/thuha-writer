@@ -233,7 +233,7 @@ for one intent; nothing clears an intent by hand. All writes go through the comp
 
 ## Go-live (a separate owner decision)
 
-The release lists `languages_enabled` (historically empty by default, but the separate owner-approved `config/release.json` on 23/10/2026 **enables both `vi` and `en` with auto-scale capped at 50/day**). WordPress user and application password must be in repository Actions Secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD`. No GitHub Environment or `THUHA_GO_LIVE_APPROVAL` variable is required; never copy secrets between projects. Keep `main` review + the `quality`
+The release lists `languages_enabled` (historically empty by default, but the separate owner-approved `config/release.json` on 23/10/2026 **enabled both `vi` and `en` (original 50/day cap raised by the owner to 500/day on 24/10/2026)**). WordPress user and application password must be in repository Actions Secrets `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD`. No GitHub Environment or `THUHA_GO_LIVE_APPROVAL` variable is required; never copy secrets between projects. Keep `main` review + the `quality`
 check required; restrict the `factory-state` writer to the Actions app and forbid force pushes. Verify the
 WordPress user and the registered Yoast REST fields. Coordinate any other tool publishing to the same site
 (`cross_publisher_coordination_verified`). The owner has already enabled the release following the original bounded pilot; new writer sessions must **not reopen manual reviewer/Environment approval**. Any future owner-directed change to release limits requires a separate decision. Unit tests do not prove external controls exist, and actual WordPress publish success is established by immutable receipts.
