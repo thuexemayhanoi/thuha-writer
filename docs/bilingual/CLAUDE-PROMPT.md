@@ -12,7 +12,7 @@
 - Mục tiêu: tổng cộng **500 bài EN + 500 bài VI đã publish**, bao gồm bài đang có trên site, **không phải 500 bài mới bằng mọi giá**. EN ở gốc; VI ở `/vi/{ascii-slug}/`; không dịch máy, không tự tạo cặp ngôn ngữ giả.
 - **VI được ưu tiên**, nhưng nếu chưa có VI đủ điều kiện, hãy viết EN có chứng cứ thật, thay vì kẹt vô hạn chờ hoàn thành toàn bộ 500 VI.
 - QA kỹ thuật chung `config/qa.json`: **từ 75/100 trở lên PASS**, dưới 75 FAIL, mọi `hard_fails` vẫn chặn. Không chờ AI reviewer/owner duyệt từng bài và không cộng điểm reviewer giả.
-- Publisher **đã được chủ site bật**: `auto-scale`, tối đa **50 bài/ngày** ở thời điểm ghi hướng dẫn. Chỉ GitHub Actions + WordPress adapter đã được xác thực mới đăng và xác minh; writer không tự tuyên bố đã publish. GitHub Environment và biến `THUHA_GO_LIVE_APPROVAL` không còn dùng; WordPress Secrets thuộc riêng repo này.
+- Publisher **đã được chủ site bật**: `auto-scale`, tối đa **500 bài/ngày** theo cập nhật của chủ site ngày 24/10/2026. Chỉ GitHub Actions + WordPress adapter đã được xác thực mới đăng và xác minh; writer không tự tuyên bố đã publish. GitHub Environment và biến `THUHA_GO_LIVE_APPROVAL` không còn dùng; WordPress Secrets thuộc riêng repo này.
 - Checkpoint đã kiểm tra 23/10/2026: shared ledger `factory-state` v448 có **9 biên nhận PUBLISHED EN, 0 READY; 51 EN + 14 VI PLANNED; 7 EN + 21 VI WAITING_DATA; 11 VI HELD; 0 lease**. **Đây không phải số liệu realtime.** Đọc ledger mới nhất khi bắt đầu; không dùng snapshot 275 EN/0 VI hoặc tài liệu V4/V5 làm số hiện hành.
 
 ## Công việc của writer trong phiên này
