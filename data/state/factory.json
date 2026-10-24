@@ -10203,6 +10203,26 @@
         "TH-VI-0285",
         "TH-VI-0281"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T11:27:19.283793+00:00",
+      "previous": "a5b7e495c45b804c047632f5ecd4cbbe2fbcbd54b814415bc13fabfa340331de",
+      "sha256": "2243ffcbb57aa23b1a1827ae071f239412ab30fda5fcbed281f8f3fe24209de2",
+      "topic_ids": [
+        "TH-VI-0106",
+        "TH-VI-0107",
+        "TH-VI-0108",
+        "TH-VI-0116",
+        "TH-VI-0117",
+        "TH-VI-0119",
+        "TH-VI-0122",
+        "TH-VI-0138",
+        "TH-VI-0147",
+        "TH-VI-0184",
+        "TH-VI-0198",
+        "TH-VI-0207"
+      ]
     }
   ],
   "intents": {
@@ -28172,6 +28192,99 @@
       "status": "READY",
       "topic_id": "TH-VI-0105"
     },
+    "TH-VI-0106": {
+      "admitted_at": "2026-10-24T11:27:19.094404+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "lần đầu lái xe ga sau khi quen xe số",
+      "proposed_title": "Quen xe số lâu năm, lần đầu lái xe ga: những thói quen tay chân cần bỏ ngay từ phút đầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/quen-xe-so-lan-dau-lai-xe-ga-thoi-quen-can-bo/",
+      "search_intent": "Người đã lái xe số nhiều năm, giờ thuê xe ga và chưa rõ tay trái chỉ còn phanh, chân không còn cần số, nổ máy phải bóp phanh; cần quyết định có tập thử ở chỗ vắng trước khi ra phố hay không.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0106"
+    },
+    "TH-VI-0107": {
+      "admitted_at": "2026-10-24T11:27:19.111942+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "chở người lớn tuổi ngồi sau xe ga",
+      "proposed_title": "Chở bố mẹ lớn tuổi ngồi sau xe ga: yên, tay vịn, chỗ gác chân và cách lên xuống xe an toàn",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-bo-me-lon-tuoi-ngoi-sau-xe-ga-yen-tay-vin/",
+      "search_intent": "Con cái đón bố mẹ lên Hà Nội chơi và định chở bằng xe ga thuê; cần biết yên sau có đủ rộng, có tay vịn, chỗ gác chân có dễ bước lên không, để quyết định chở xe ga hay dùng phương tiện khác cho đoạn dài.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0107"
+    },
+    "TH-VI-0108": {
+      "admitted_at": "2026-10-24T11:27:19.130790+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe ga dáng thể thao ngồi lâu có mỏi không",
+      "proposed_title": "Dáng ngồi xe ga thể thao và xe ga phổ thông: cổ tay, lưng và đầu gối chịu khác nhau ra sao sau vài giờ",
+      "proposed_url": "https://rentbikehanoi.com/vi/dang-ngoi-xe-ga-the-thao-va-pho-thong-moi-tay-lung/",
+      "search_intent": "Người định đi liên tục vài giờ trong ngày muốn biết dáng ngồi chồm về trước của xe ga thể thao so với dáng ngồi thẳng của xe ga phổ thông ảnh hưởng thế nào đến cổ tay, lưng, đầu gối, để chọn dòng xe ngay khi đặt.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0108"
+    },
     "TH-VI-0110": {
       "admitted_at": "2026-10-24T10:24:39.182467+00:00",
       "category_id": 156,
@@ -28234,6 +28347,99 @@
       "status": "READY",
       "topic_id": "TH-VI-0115"
     },
+    "TH-VI-0116": {
+      "admitted_at": "2026-10-24T11:27:19.147783+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe ga đi đường xấu nhiều ổ gà",
+      "proposed_title": "Xe ga bánh nhỏ trên đường nhiều ổ gà và đường đê: khi nào nên đổi sang xe số cho đỡ xóc",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-ga-banh-nho-duong-xau-o-ga-duong-de/",
+      "search_intent": "Người dự định chạy dọc đê, qua đường làng hoặc đoạn đường đang đào xới muốn biết bánh nhỏ và giảm xóc xe ga có đủ êm không, lúc nào nên đổi sang xe số, để chọn loại xe trước khi đặt.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0116"
+    },
+    "TH-VI-0117": {
+      "admitted_at": "2026-10-24T11:27:19.164668+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "chọn dung tích xe ga đi trong thành phố",
+      "proposed_title": "Xe ga nhỏ, vừa và lớn: dung tích động cơ có đáng cân nhắc khi chỉ chạy trong thành phố",
+      "proposed_url": "https://rentbikehanoi.com/vi/dung-tich-dong-co-xe-ga-di-trong-thanh-pho/",
+      "search_intent": "Người đang phân vân giữa các cỡ xe ga muốn biết dung tích động cơ lớn hơn thực sự thay đổi gì khi đi nội thành tắc đường: lực bứt, độ nặng, chỗ gửi, và có đáng chọn hay chỉ cần dòng xe nhỏ.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0117"
+    },
+    "TH-VI-0119": {
+      "admitted_at": "2026-10-24T11:27:19.181473+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "có cần hâm nóng máy xe ga buổi sáng không",
+      "proposed_title": "Mùa đông Hà Nội có cần hâm nóng máy xe ga mỗi sáng không: tách mẹo truyền miệng khỏi sách hướng dẫn",
+      "proposed_url": "https://rentbikehanoi.com/vi/co-can-ham-nong-may-xe-ga-buoi-sang-mua-dong/",
+      "search_intent": "Người thuê xe qua mùa lạnh được mách phải nổ máy vài phút trước khi chạy, người khác bảo không cần; muốn biết sách hướng dẫn của xe ga nói gì, và cách khởi động nhẹ nhàng mà không phí xăng.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0119"
+    },
     "TH-VI-0121": {
       "admitted_at": "2026-10-23T13:00:04.418980+00:00",
       "category_id": 156,
@@ -28257,6 +28463,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0121"
+    },
+    "TH-VI-0122": {
+      "admitted_at": "2026-10-24T11:27:19.198480+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "người nặng cân đi xe ga nào",
+      "proposed_title": "Người vóc dáng to hoặc nặng cân thuê xe ga: tải trọng thiết kế, độ lún giảm xóc và cỡ yên",
+      "proposed_url": "https://rentbikehanoi.com/vi/nguoi-nang-can-vom-dang-to-thue-xe-ga-tai-trong/",
+      "search_intent": "Người to cao hoặc nặng cân, lại hay chở hành lý, muốn biết tải trọng cho phép trong sách hướng dẫn, giảm xóc có bị lún hết hành trình không và yên có đủ rộng, để quyết định chọn cỡ xe ga nào.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0122"
     },
     "TH-VI-0128": {
       "admitted_at": "2026-10-23T13:00:04.408668+00:00",
@@ -28368,6 +28605,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0137"
     },
+    "TH-VI-0138": {
+      "admitted_at": "2026-10-24T11:27:19.216351+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe số không có cốp để đồ ở đâu",
+      "proposed_title": "Xe số không có cốp lớn: mũ, áo mưa và giấy tờ để đâu cho gọn mà vẫn lấy kịp khi cần",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-so-khong-co-cop-de-mu-ao-mua-giay-to-o-dau/",
+      "search_intent": "Người quen cốp rộng của xe ga phải đổi sang xe số không có hộc đựng, cần biết các chỗ treo, móc, túi hợp lý để mang áo mưa, giấy tờ, điện thoại mà không vướng chân và không che tầm nhìn.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0138"
+    },
     "TH-VI-0139": {
       "admitted_at": "2026-10-24T09:55:06.598008+00:00",
       "category_id": 157,
@@ -28463,6 +28731,38 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0146"
+    },
+    "TH-VI-0147": {
+      "admitted_at": "2026-10-24T11:27:19.233873+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "kiểm tra cần số cần côn khi nhận xe thuê",
+      "proposed_title": "Nhận xe số hoặc côn tay: thử cần số, cần côn và chân đạp nổ ngay trong bãi trước khi ký nhận",
+      "proposed_url": "https://rentbikehanoi.com/vi/kiem-tra-can-so-can-con-chan-dap-no-khi-nhan-xe/",
+      "search_intent": "Người nhận xe số hay côn tay muốn kiểm tra độ rơ cần côn, vào số có cứng hay kêu không, chân đạp nổ có hồi về không ngay tại cửa hàng, để báo hiện trạng và đề nghị đổi xe nếu thấy bất thường trước khi rời đi.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0147"
     },
     "TH-VI-0151": {
       "admitted_at": "2026-10-23T11:56:51.682427+00:00",
@@ -28584,6 +28884,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0176"
     },
+    "TH-VI-0184": {
+      "admitted_at": "2026-10-24T11:27:19.250653+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "trả tiền xăng bằng QR khi thuê xe",
+      "proposed_title": "Trả tiền xăng bằng QR, thẻ hay tiền mặt khi thuê xe: chuẩn bị gì để không bị vướng ở cột bơm",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-tien-xang-bang-qr-the-hay-tien-mat-khi-thue-xe/",
+      "search_intent": "Người từ nơi khác đến chưa quen thanh toán QR muốn biết cây xăng nhận hình thức nào, nên mang tiền mặt lẻ ra sao, và cách kiểm tra số tiền trên màn hình trước khi quét mã.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0184"
+    },
     "TH-VI-0188": {
       "admitted_at": "2026-10-24T09:55:06.673165+00:00",
       "category_id": 159,
@@ -28662,6 +28993,69 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0197"
+    },
+    "TH-VI-0198": {
+      "admitted_at": "2026-10-24T11:27:19.266859+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đánh dấu cây xăng trên bản đồ trước chuyến đi xa",
+      "proposed_title": "Chuyến đi có đoạn thưa cây xăng: đánh dấu điểm đổ xăng trên bản đồ và ngưỡng quay đầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/chuyen-di-co-doan-thua-cay-xang-danh-dau-diem-do-xang/",
+      "search_intent": "Người đi tuyến núi hoặc ven sông, nơi cây xăng cách xa nhau, muốn ghim sẵn các cây xăng trên bản đồ, đặt ngưỡng còn bao nhiêu thì phải đổ và quyết định quay đầu hay đi tiếp, thay vì đoán khi đèn báo xăng sáng.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0198"
+    },
+    "TH-VI-0207": {
+      "admitted_at": "2026-10-24T11:27:19.283747+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xích xe số kêu lạch cạch chùng xích",
+      "proposed_title": "Xích xe số kêu lạch cạch hoặc chùng: người thuê quan sát gì rồi để cửa hàng xử lý",
+      "proposed_url": "https://rentbikehanoi.com/vi/xich-xe-so-keu-lach-cach-chung-xich-xe-thue/",
+      "search_intent": "Người thuê xe số nghe tiếng xích lạch cạch khi nhả ga hoặc thấy xích có vẻ chùng, khô, không muốn tự tra dầu hay chỉnh vì sợ làm sai, cần biết điều gì đủ để báo và giữ xe an toàn.",
+      "sources": [
+        {
+          "document": "0cf3c40108e58cd5e7cfd862f2e3d82408e3a632f4fbe8db4ed58f5964706746",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0207"
     },
     "TH-VI-0211": {
       "admitted_at": "2026-10-24T09:55:06.688991+00:00",
@@ -30052,5 +30446,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1917
+  "version": 1918
 }
