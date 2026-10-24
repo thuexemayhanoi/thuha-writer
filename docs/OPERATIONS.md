@@ -2,6 +2,8 @@
 
 # Operating ThuHa Writer (bilingual: 500 Vietnamese + 500 English)
 
+> **Operational update 24 October 2026:** Distinguish *pre-publication* hard-fail language QA from the *post-publication* read-only H1 check. The latter checks one H1 matching the article title and plausible VI/EN language and only adds `post_check` warnings/retries. It does not fix site-wide Theme/TOC language strings or change WordPress General Settings. See [bilingual rendered-language QA runbook](bilingual/RENDERED-LANGUAGE-QA.md).
+
 All commands run from this repository with `PYTHONPATH=src`. There is no pip
 install step. Use Python 3.11+ on Linux. No model API credentials are needed.
 

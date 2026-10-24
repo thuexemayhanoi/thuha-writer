@@ -2,6 +2,8 @@
 
 > **CẬP NHẬT HIỆN HÀNH 23/10/2026:** Đây là **hồ sơ bàn giao giai đoạn cũ**, không phải lệnh triển khai lại toàn bộ plugin, cấu trúc category hay bật Publisher. Hãy đọc [AGENTS.md](../../AGENTS.md) và [prompt Claude hiện hành](CLAUDE-PROMPT.md). Repo chỉ có một chính sách QA >=75 và không bắt reviewer; release đã được owner bật `auto-scale` (50/ngày) và shared ledger v448 đã có 9 EN PUBLISHED receipts. Không suy từ biên nhận EN rằng bài VI đã sẵn sàng. Số 275 EN/0 VI và câu “chưa bật publisher” dưới đây chỉ là snapshot lịch sử ngày 22/10.
 
+> **Bàn giao bổ sung 24/10/2026:** Bộ hậu kiểm trang public hiện xác minh **một H1**, khớp tiêu đề gốc được Writer QA và đúng ngôn ngữ VI/EN; chi tiết, giới hạn và hướng xử lý: [RENDERED-LANGUAGE-QA.md](RENDERED-LANGUAGE-QA.md). Những đoạn giao diện global tiếng Anh trên bài VI vẫn thuộc theme/plugin, không thuộc nội dung xuất bản của Writer.
+
 # Bàn giao workflow hai ngôn ngữ — rentbikehanoi.com
 
 > **Cập nhật triển khai (nhánh `feature/bilingual-500-workflow`):** runtime, matrix, plugin kết nối và test offline

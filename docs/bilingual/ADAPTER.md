@@ -2,6 +2,8 @@
 
 > **Current instructions (23 Oct 2026):** `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` belong in repository GitHub Actions Secrets, NOT GitHub Environment; current QA is **>=75 and no hard failures**. Older Environment instructions below are superseded.
 
+> **Hậu kiểm VI–EN 24/10/2026:** Python publisher (không phải PHP adapter) giờ xác minh public HTML có đúng **một H1**, bằng title được duyệt và phù hợp ngôn ngữ bài, ngoài canonical/SEO title/meta/lang/schema. Sai H1 tạo `post_check` cảnh báo không chặn queue; PHP adapter vẫn giữ nguyên contract và pre-publish checks. Đọc [RENDERED-LANGUAGE-QA.md](RENDERED-LANGUAGE-QA.md) để phân biệt stored readback với rendered HTML và lỗi theme/UI.
+
 # Plugin kết nối xuất bản `thuha-native-vi-publisher`
 
 Plugin đồng hành này là **đường ghi duy nhất** của workflow vào rentbikehanoi.com.
