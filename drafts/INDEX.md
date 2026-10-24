@@ -6,23 +6,29 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 |---|---|---|---|---|---|---|
 | [TH-VI-0003](vi/TH-VI-0003.json) | vi | READY | — | PASS | 1140 | Ở Hà Nội khoảng một tuần: thuê xe theo ngày hay theo tuần thì tính thế nào |
 | [TH-VI-0004](vi/TH-VI-0004.json) | vi | PUBLISHED | — | PASS | 1082 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
+| [TH-VI-0005](vi/TH-VI-0005.json) | vi | READY | — | PASS | 988 | Chỉ cần xe vài tiếng hay một buổi: hỏi cửa hàng có gói ngắn hơn một ngày không |
 | [TH-VI-0006](vi/TH-VI-0006.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1006 | Trả xe sớm hơn dự kiến: có được tính lại số ngày không và nên hỏi trước điều gì |
+| [TH-VI-0007](vi/TH-VI-0007.json) | vi | READY | — | PASS | 1062 | Thuê xe dịp nghỉ lễ dài ngày: hỏi gì về báo giá và nên chốt xe sớm đến mức nào |
 | [TH-VI-0008](vi/TH-VI-0008.json) | vi | READY | — | PASS | 1058 | Nhóm bạn đi chung nhiều xe: cách chia tiền thuê xe, xăng và gửi xe cho công bằng |
 | [TH-VI-0010](vi/TH-VI-0010.json) | vi | READY | — | PASS | 1005 | Báo giá thuê xe đã gồm những gì: mũ bảo hiểm, áo mưa, khóa và giá đỡ điện thoại |
 | [TH-VI-0011](vi/TH-VI-0011.json) | vi | PUBLISHED | — | PASS | 1072 | Xước nhẹ, gãy gương, mất chìa: hỏi rõ cách tính đền bù trước khi nhận xe |
+| [TH-VI-0012](vi/TH-VI-0012.json) | vi | READY | — | PASS | 1103 | Thuê nhiều ngày hoặc nhiều xe: hỏi ưu đãi sao cho lịch sự và rõ ràng |
 | [TH-VI-0013](vi/TH-VI-0013.json) | vi | READY | — | PASS | 1184 | Dự trù khoản dự phòng khi thuê xe: những chi phí nhỏ dễ phát sinh giữa chuyến đi |
 | [TH-VI-0014](vi/TH-VI-0014.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 986 | Phụ phí khi thuê xe máy: danh sách câu hỏi để hỏi từng mục trước khi đặt |
 | [TH-VI-0016](vi/TH-VI-0016.json) | vi | PUBLISHED | — | PASS | 1097 | Giá tham khảo và bài đăng ưu đãi trên mạng xã hội: cách xác nhận còn hiệu lực |
 | [TH-VI-0017](vi/TH-VI-0017.json) | vi | READY | — | PASS | 1071 | Bảng giá ghi “từ… trở lên” hoặc “liên hệ”: hiểu thế nào để không tính sai ngân sách |
 | [TH-VI-0018](vi/TH-VI-0018.json) | vi | PUBLISHED | — | PASS | 1117 | Đi cặp đôi: thuê một xe hay hai xe, cân nhắc chi phí, gửi xe và sức lái |
 | [TH-VI-0019](vi/TH-VI-0019.json) | vi | PUBLISHED | — | PASS | 1658 | Đang thuê theo ngày nhưng ở lại lâu hơn: chuyển sang gói tuần có tính lại không |
+| [TH-VI-0021](vi/TH-VI-0021.json) | vi | READY | — | PASS | 1073 | Chốt xe trước vài tuần hay đến nơi mới hỏi: mỗi kiểu chuyến đi hợp cách nào |
 | [TH-VI-0022](vi/TH-VI-0022.json) | vi | PUBLISHED | — | PASS | 1049 | Đi ít chặng trong ngày: khi nào gọi xe công nghệ lại hợp hơn thuê xe máy |
 | [TH-VI-0024](vi/TH-VI-0024.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1014 | Chọn xe ga cao cấp hay xe phổ thông: khoản cọc và mức đền bù khi hỏng có đổi theo loại xe không |
+| [TH-VI-0025](vi/TH-VI-0025.json) | vi | READY | — | PASS | 983 | Bạn đi cùng đến Hà Nội sau vài ngày: thuê thêm xe thứ hai giữa chuyến thì tính ngày thuê và ngân sách ra sao |
 | [TH-VI-0026](vi/TH-VI-0026.json) | vi | READY | — | PASS | 1157 | Xe số hay xe ga cho một tuần ở Hà Nội: cộng tiền thuê, xăng và gửi xe thay vì chỉ so giá mỗi ngày |
 | [TH-VI-0033](vi/TH-VI-0033.json) | vi | PUBLISHED | — | PASS | 1155 | Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản |
 | [TH-VI-0035](vi/TH-VI-0035.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 1015 | Khi nào nhận lại tiền cọc: hỏi rõ thời điểm và cách hoàn trước khi chuyển tiền |
 | [TH-VI-0043](vi/TH-VI-0043.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 986 | Đặt cọc trước qua nhóm Facebook hay Zalo: dấu hiệu cần dừng lại và cách kiểm tra cửa hàng thật |
 | [TH-VI-0053](vi/TH-VI-0053.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 942 | Thuê hai xe cùng lúc: cọc tính theo từng xe hay gộp chung, trả một xe trước thì phần cọc xử lý ra sao |
+| [TH-VI-0054](vi/TH-VI-0054.json) | vi | READY | — | PASS | 1061 | Cửa hàng xin số người thân làm liên hệ khẩn cấp: nên cho số của ai và dặn họ điều gì trước |
 | [TH-VI-0058](vi/TH-VI-0058.json) | vi | PUBLISHED | — | PASS | 1213 | Tân sinh viên lên Hà Nội: thuê xe máy theo tháng khi chưa quyết định mua xe |
 | [TH-VI-0063](vi/TH-VI-0063.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 859 | Trả tiền thuê xe theo tuần hay theo tháng: lịch thanh toán và khoản cần chuẩn bị ngày đầu |
 | [TH-VI-0064](vi/TH-VI-0064.json) | vi | READY | — | PASS | 1090 | Một tháng thuê xe tính từ ngày nào đến ngày nào: đủ ba mươi ngày hay theo tháng lịch |
@@ -34,6 +40,7 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0089](vi/TH-VI-0089.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 782 | Nhận xe còn bao nhiêu xăng, trả xe cần bao nhiêu: thống nhất mức xăng từ đầu |
 | [TH-VI-0090](vi/TH-VI-0090.json) | vi | READY | — | PASS | 1195 | Rủ người quen thạo xe đi cùng khi nhận xe: họ có thể giúp kiểm tra những gì |
 | [TH-VI-0093](vi/TH-VI-0093.json) | vi | PUBLISHED | — | PASS | 1327 | Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao |
+| [TH-VI-0094](vi/TH-VI-0094.json) | vi | READY | — | PASS | 1023 | Trả xe bám đầy bùn sau chuyến đi mưa: nên rửa trước khi trả hay để cửa hàng xử lý |
 | [TH-VI-0095](vi/TH-VI-0095.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 892 | Kết thúc kỳ thuê tháng: lịch trả xe, kiểm tra cuối kỳ và nhận lại cọc |
 | [TH-VI-0100](vi/TH-VI-0100.json) | vi | READY | — | PASS | 1046 | Kéo vali đến nhận xe thuê: hỏi chỗ gửi đồ và cách xếp hành lý lên xe ngay tại cửa hàng |
 | [TH-VI-0101](vi/TH-VI-0101.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 914 | Trả xe sau giờ cửa hàng đóng cửa vì tăng ca hoặc chuyến về muộn: hỏi trước chìa khóa để đâu và ai xác nhận hiện trạng xe |
@@ -41,6 +48,7 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0121](vi/TH-VI-0121.json) | vi | READY | — | PASS | 1123 | Nhóm bạn đi chung nhiều xe: nên thuê cùng loại xe ga để không ai phải chờ ai? |
 | [TH-VI-0128](vi/TH-VI-0128.json) | vi | READY | — | PASS | 1155 | Thuê xe ga một tuần để thử trước khi quyết định mua: cần quan sát những gì trong những ngày đầu |
 | [TH-VI-0134](vi/TH-VI-0134.json) | vi | PUBLISHED | — | PASS | 1236 | Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe |
+| [TH-VI-0139](vi/TH-VI-0139.json) | vi | READY | — | PASS | 1104 | Đi làm hằng ngày qua nhiều đèn đỏ: xe số hay xe ga ít mệt tay và mệt chân hơn |
 | [TH-VI-0140](vi/TH-VI-0140.json) | vi | READY | — | PASS | 1067 | Sinh viên thuê xe theo tháng: xe số hay xe ga hợp với nhà trọ chật, bãi gửi ký túc xá và đường đi học |
 | [TH-VI-0146](vi/TH-VI-0146.json) | vi | PUBLISHED | — | PASS | 1249 | Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân |
 | [TH-VI-0151](vi/TH-VI-0151.json) | vi | PUBLISHED | — | PASS | 1143 | Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi? |
@@ -78,6 +86,7 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-EN-0001](en/TH-EN-0001.json) | en | READY | — | PASS | 1027 | A Six-Day Hanoi Stay: Should You Take a Weekly Rental or Pay Day by Day? |
 | [TH-EN-0002](en/TH-EN-0002.json) | en | READY | — | PASS | 1025 | Between a Week and a Month: Booking a Hanoi Rental for an Awkward Stay Length |
 | [TH-EN-0003](en/TH-EN-0003.json) | en | READY | — | PASS | 906 | Dollars or Vietnamese Dong? Fix the Currency on a Hanoi Rental Quote Before You Pay |
+| [TH-EN-0004](en/TH-EN-0004.json) | en | READY | — | PASS | 802 | Cash for a Rental Deposit on Arrival: ATM Limits and Card Fees for Foreign Cards in Hanoi |
 | [TH-EN-0005](en/TH-EN-0005.json) | en | READY | — | PASS | 1037 | Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi? |
 | [TH-EN-0006](en/TH-EN-0006.json) | en | READY | — | PASS | 885 | Add-Ons on a Rental Bike: Which Extras to Ask About Before You Agree the Rate |
 | [TH-EN-0007](en/TH-EN-0007.json) | en | READY | — | PASS | 884 | What Counts as One Rental Day in Hanoi? A Full 24 Hours, a Calendar Day or Opening Hours |
@@ -93,7 +102,9 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-EN-0021](en/TH-EN-0021.json) | en | READY | — | PASS | 753 | Reserve Ahead or Walk In? Choosing How to Secure a Hanoi Rental Bike |
 | [TH-EN-0022](en/TH-EN-0022.json) | en | READY | — | PASS | 743 | How to Read Online Reviews of a Hanoi Rental Business Before You Book |
 | [TH-EN-0023](en/TH-EN-0023.json) | en | READY | — | PASS | 818 | Which Phone Number to Give a Rental Shop: Roaming, Local SIM or Messaging App |
+| [TH-EN-0024](en/TH-EN-0024.json) | en | READY | — | PASS | 857 | Can You Try a Rental Bike Before Paying? What to Settle at the Counter |
 | [TH-EN-0025](en/TH-EN-0025.json) | en | READY | — | PASS | 914 | Try a Week First, Then Switch to a Monthly Rental: How to Structure the Trial |
+| [TH-EN-0027](en/TH-EN-0027.json) | en | READY | — | PASS | 747 | Apartment Building Parking for a Monthly Rental: Questions for Your Landlord |
 | [TH-EN-0028](en/TH-EN-0028.json) | en | READY | — | PASS | 728 | Paying a Long Rental Upfront or by Instalment: Which Schedule Suits You? |
 | [TH-EN-0029](en/TH-EN-0029.json) | en | READY | — | PASS | 813 | Can You Negotiate a Monthly Rental? What a Shop Might Reasonably Ask in Return |
 | [TH-EN-0030](en/TH-EN-0030.json) | en | READY | — | PASS | 897 | Travelling Abroad Mid-Rental: Hold the Bike, Pause the Rental or Return It? |
@@ -107,6 +118,7 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-EN-0039](en/TH-EN-0039.json) | en | READY | — | PASS | 915 | A Flight Before the Shop Opens: Plan the Bike Return the Night Before |
 | [TH-EN-0040](en/TH-EN-0040.json) | en | READY | — | PASS | 810 | Pick Up Before the Rush: Choose a Collection Time That Leaves Room to Inspect |
 | [TH-EN-0042](en/TH-EN-0042.json) | en | READY | — | PASS | 752 | Handover at a Station, Cafe or Apartment Gate: Judge the Spot Before You Agree |
+| [TH-EN-0044](en/TH-EN-0044.json) | en | READY | — | PASS | 787 | When a Promised Delivery Time Slips: Waiting, Rescheduling and Staying in Touch |
 | [TH-EN-0045](en/TH-EN-0045.json) | en | READY | — | PASS | 1035 | Running Late on Return Day: What to Tell the Shop and What to Ask |
 | [TH-EN-0065](en/TH-EN-0065.json) | en | READY | — | PASS | 1021 | Xe So, Xe Con and Xe Ga: Decoding Vietnamese Motorbike Terms on Rental Listings |
 | [TH-EN-0075](en/TH-EN-0075.json) | en | READY | — | PASS | 810 | Returning an Electric Scooter: Agree and Record the Battery Level Before You Set Off |

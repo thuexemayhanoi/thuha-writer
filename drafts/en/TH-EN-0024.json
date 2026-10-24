@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-EN7",
+  "article": {
+    "agent_id": "claude-writer-EN7",
+    "body_html": "<p>You have never ridden a scooter in Hanoi traffic, and committing to a bike you have not even sat on feels like a leap. A short test ride on a quiet street would settle the nerves. Whether Thuê xe máy Nguyễn Hà offers one has not been confirmed, so ask before you arrive (call +84 334 699 969, 09:00–21:00 daily, or use the <a href=\"https://rentbikehanoi.com/contact-us/\">contact page</a>) and know what to settle if the answer is yes. If the answer is no, the section on what to do instead shows what you can still check at the counter.</p>\n\n<h2>Six questions before you get on</h2>\n<table>\n<thead><tr><th>Question</th><th>Why it matters</th></tr></thead>\n<tbody>\n<tr><td>Can I take the bike for a short ride, or only sit on it?</td><td>A seat-and-handlebar check shows less than a ride, but it still shows something, and only the shop can say which one is on offer</td></tr>\n<tr><td>How far, for how long and on which street?</td><td>A route agreed in advance keeps the ride short and away from heavy traffic</td></tr>\n<tr><td>Do you need paperwork or a deposit from me before I ride?</td><td>If they come first, you are committing before you know whether you like the bike</td></tr>\n<tr><td>Who is responsible if the bike is dropped or scratched during the ride?</td><td>Settle it before you sit down, not after a bike is on its side</td></tr>\n<tr><td>Is a helmet available for the ride?</td><td>Wear one for any ride, however short; if none is available, do not ride until you have one</td></tr>\n<tr><td>If I decide not to rent after the ride, is anything charged?</td><td>The answer should be known before you start, not discovered afterwards</td></tr>\n</tbody>\n</table>\n\n<h2>What a short ride can and cannot show</h2>\n<p>A few minutes on a quiet street can answer practical questions: whether your feet reach the ground comfortably, how heavy the bike feels to push and to hold upright, how the throttle responds at low speed, how the brakes feel and whether the mirrors give a useful view behind you. It cannot show how the bike behaves in heavy traffic, in rain, with luggage or a passenger, or after a week of daily use. Treat it as a check of fit and feel, not as proof that the bike suits every day you will ride it.</p>\n<p>If the shop agrees to a ride, take it in stages. Start at walking pace in a straight line and practise stopping. Add a gentle turn once stopping feels natural. Ride without a passenger, stay on the street the shop agreed and stop as soon as you feel unsure. Saying \"I would rather not go further\" is a perfectly good result of a test ride.</p>\n\n<h2>A test ride does not replace the inspection</h2>\n<p>Whether you ride the bike or only sit on it, look it over as you would at handover. Photograph each side, the dashboard and any marks before you move it, and again when you are back, so that anything that happens during the ride has a clear before and after. <a href=\"https://rentbikehanoi.com/scooter-rental-hanoi-how-to-check-the-bike/\">The pre-rental inspection guide</a> lists what to look at.</p>\n\n<h2>Who is responsible during the ride</h2>\n<p>This can feel awkward to ask, but it is worth getting an answer. Ask it in plain words: \"If the bike is dropped or damaged while I am trying it, what happens?\" Then ask the shop to reply by message, so that the reply and its time stay on your phone. If the answer depends on paperwork or a deposit having been completed first, you now know the order of things. <a href=\"https://rentbikehanoi.com/how-to-read-a-motorbike-rental-contract-before-paying-a-deposit/\">Reading a rental contract before paying a deposit</a> is worth doing before you agree to anything.</p>\n\n<h2>If the shop does not offer test rides</h2>\n<ul>\n<li><strong>Sit on the bike and check the fit:</strong> both feet should reach the ground, and you should be able to hold the bike upright without strain.</li>\n<li><strong>Ask to see the bike started and moved,</strong> so that you know how it sounds and how it pulls away.</li>\n<li><strong>Ask which bike suits a first-time rider,</strong> and why. Only the shop knows its own bikes, and <a href=\"https://rentbikehanoi.com/motorbike-rental-hanoi-how-to-choose-the-right-bike/\">how to choose the right bike</a> is a general guide to the decision.</li>\n<li><strong>Ask whether a short first rental is possible,</strong> so that your first day tests the bike before you commit to more.</li>\n<li><strong>Practise somewhere quiet before you head into traffic,</strong> once you have the bike, using the staged approach above.</li>\n</ul>\n\n<h2>What to say at the counter</h2>\n<p>Keep it short and friendly. For example: \"I have not ridden a scooter in Hanoi before. Is it possible to try the bike on a quiet street first? If so, how far may I go, do you need anything from me before I ride, and what happens if I drop it?\" Then listen, repeat the answer back in one sentence and, if you are happy, ask for it in a message.</p>\n<p>The shop's <a href=\"https://rentbikehanoi.com/hanoi-scooter-rental/\">scooter rental guide for travellers</a> is a good place to read before you arrive. If a test ride is not possible and you still feel unsure, it is reasonable to take a little more time before you pay; the day you ride away is the wrong day to feel rushed.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/can-you-try-a-rental-bike-before-paying-what-to-settle-at-the-counter/",
+    "category_id": 124,
+    "featured_media": 76,
+    "focus_keyword": "test ride rental motorbike before paying hanoi",
+    "language": "en-US",
+    "meta_description": "Nervous about your first scooter ride? Ask whether a short test ride is possible, what comes first, who is responsible and what a ride can show.",
+    "seo_title": "Test Ride Before Renting a Hanoi Bike: What to Settle at the Counter",
+    "session": "en-b7-20261024",
+    "source_commit": "eae80bffbc571581388d8f42cfc819c46c5336a8",
+    "sources": [
+      {
+        "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Can You Try a Rental Bike Before Paying? What to Settle at the Counter",
+    "topic_id": "TH-EN-0024"
+  },
+  "article_sha": "6f186eefa3438b2c74b6e53bf068af155b592a96f0839a86ee1cb2269af739c8",
+  "category_id": 124,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/can-you-try-a-rental-bike-before-paying-what-to-settle-at-the-counter/",
+  "qa": {
+    "report_sha": "710175f5f36657c064ac3db44d871a3693c7feb4493f3dba2f63ccaffe463e02",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35"
+  ],
+  "source_evidence": {
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T16:54:10.661778+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:25:25.033576+00:00",
+  "topic_id": "TH-EN-0024",
+  "waiting_for": []
+}

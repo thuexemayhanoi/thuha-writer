@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-EN7",
+  "article": {
+    "agent_id": "claude-writer-EN7",
+    "body_html": "<p>You agreed a handover time at your accommodation, and the time has come and gone. Nobody has arrived, you cannot tell whether your pin was seen, and the rest of your day is built around having the bike. This guide assumes that a shop has agreed to bring a bike to you. Whether Thuê xe máy Nguyễn Hà does that is something to confirm with the shop, because delivery is not among the facts it has confirmed. What follows works for any delivery arrangement: how to set it up so that a delay is easy to handle, what to do once it happens and when to stop waiting.</p>\n\n<h2>Before the time slips: make the arrangement easy to check</h2>\n<p>A delay is easier to handle when the plan was written down. Put these points in one message and keep it where you can find it:</p>\n<ul>\n<li>the agreed time and the exact place, with a map pin the shop can open;</li>\n<li>the name and phone number of the person who is coming;</li>\n<li>how you will recognise that person and the bike;</li>\n<li>what each side does if it is running late, and how it will say so.</li>\n</ul>\n\n<h2>Choose your own cut-off in advance</h2>\n<p>Decide before the time arrives how long you can afford to wait, and let the rest of your day set the answer: a train to catch, a meeting or a booking you cannot move. Then tell the shop. A line such as \"If the bike has not arrived by the time I have set, I will collect it myself or cancel\" turns a vague wait into a plan, and it stops you drifting from a few minutes to an hour without ever deciding.</p>\n\n<h2>When the time has passed</h2>\n<ol>\n<li><strong>Check your own side first.</strong> Look at your messages and at the pin you sent, in case the problem is the address.</li>\n<li><strong>Message the shop,</strong> briefly: the place, the agreed time and that you are waiting. Send the pin again.</li>\n<li><strong>Call if there is no reply soon after your message</strong> (+84 334 699 969; the shop is open 09:00–21:00 daily). A voice can settle quickly what a stream of messages cannot.</li>\n<li><strong>Ask for a new time and for the name of the person coming.</strong> \"Soon\" is not an answer.</li>\n<li><strong>Save screenshots</strong> of the messages, with the times visible.</li>\n<li><strong>Stay at the agreed place,</strong> or tell the shop at once if you move.</li>\n</ol>\n\n<h2>Wait, reschedule, collect it yourself or cancel</h2>\n<table>\n<thead><tr><th>Option</th><th>It fits when</th><th>What to ask</th></tr></thead>\n<tbody>\n<tr><td>Wait a little longer</td><td>The shop gives a specific new time and your plans can absorb it</td><td>\"What time exactly, and who is coming?\"</td></tr>\n<tr><td>Reschedule</td><td>Your plans no longer fit the delay</td><td>\"Can the handover move to another time or day, and does anything change in the price or the rental days?\"</td></tr>\n<tr><td>Collect it yourself</td><td>You can reach the shop at Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên (near Gia Lâm bus station) while it is open, from 09:00 to 21:00 daily</td><td>\"Can I collect the bike from the shop instead, and when does my rental start?\"</td></tr>\n<tr><td>Cancel</td><td>The delay breaks the plan the bike was for</td><td>\"What happens to anything I have already paid?\"</td></tr>\n</tbody>\n</table>\n<p>Until the shop answers, treat each option as a question, not an arrangement.</p>\n\n<h2>What to be careful about while you wait</h2>\n<ul>\n<li><strong>Do not hand money or documents to someone you cannot connect to the shop.</strong> If a stranger arrives with a bike, confirm the person's name with the shop on the number you already have; if the shop cannot confirm it, hand over nothing and do not take the bike. <a href=\"https://rentbikehanoi.com/passport-security-during-a-hanoi-motorbike-rental-questions-and-safer-records/\">Passport security during a Hanoi rental</a> covers the questions to ask and the safer records to keep.</li>\n<li><strong>Do not agree a different price at the door</strong> without a message from the shop that says so.</li>\n<li><strong>Ask when your rental starts:</strong> at the time first agreed, or when the bike actually reaches you, so that a late handover does not quietly use up rental days.</li>\n<li><strong>Check the bike when it arrives</strong> exactly as you would at a counter, even if you are in a hurry. <a href=\"https://rentbikehanoi.com/scooter-rental-hanoi-how-to-check-the-bike/\">How to check the bike first</a> shows what to look at.</li>\n</ul>\n\n<h2>After the delay</h2>\n<p>When the bike is in your hands, ask for the rental start time in writing, and keep the messages that show what was agreed and when it slipped. If anything was charged for the handover, ask what it was for. If a late flight is part of the story, <a href=\"https://rentbikehanoi.com/hanoi-motorbike-rental-for-a-late-flight-plan-pickup-and-return/\">planning pickup and return around a late flight</a> covers that case, and the site also has a <a href=\"https://rentbikehanoi.com/motorbike-rental-hanoi-delivery-and-pickup-guide-complete-service-overview-2025/\">delivery and pickup guide</a>; ask the shop which parts of it are available for your booking.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/when-a-promised-delivery-time-slips-waiting-rescheduling-staying-in-touch/",
+    "category_id": 126,
+    "featured_media": 662,
+    "focus_keyword": "rental motorbike delivery late what to do hanoi",
+    "language": "en-US",
+    "meta_description": "Handover time passed and no bike? Check your pin, message the shop, set a cut-off, then decide whether to wait, reschedule, collect it yourself or cancel.",
+    "seo_title": "Late Bike Delivery in Hanoi: Waiting, Rescheduling and Staying in Touch",
+    "session": "en-b7-20261024",
+    "source_commit": "4b37b2c6594b807b189142def4c75827b12bcd23",
+    "sources": [
+      {
+        "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "When a Promised Delivery Time Slips: Waiting, Rescheduling and Staying in Touch",
+    "topic_id": "TH-EN-0044"
+  },
+  "article_sha": "51a4ec50d40cd38ed3fd5e4b7decd3a6001cd395f4c6c61bfc57a7a40204512e",
+  "category_id": 126,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/when-a-promised-delivery-time-slips-waiting-rescheduling-staying-in-touch/",
+  "qa": {
+    "report_sha": "e91da0845c59baf925b19c466f908afed30cf50e35057568b34ce58e0d353e36",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35"
+  ],
+  "source_evidence": {
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T16:54:10.661778+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:25:38.265121+00:00",
+  "topic_id": "TH-EN-0044",
+  "waiting_for": []
+}

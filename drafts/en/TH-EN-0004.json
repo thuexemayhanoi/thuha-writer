@@ -1,0 +1,71 @@
+{
+  "agent_id": "claude-writer-EN7",
+  "article": {
+    "agent_id": "claude-writer-EN7",
+    "body_html": "<p>You land in Hanoi with a foreign bank card and no Vietnamese dong, and the bike is waiting. What you can withdraw on the first evening depends on three things this article cannot know for you: your own bank's rules, the machine in front of you and what the shop asks you to pay. For that reason it quotes no limits and no fees. It shows what to ask or check with each of the three, and in what order, so that the cash you need is in your hands before you reach the counter.</p>\n\n<h2>Start with the shop: how much, and in what form</h2>\n<p>Before you fly, ask Thuê xe máy Nguyễn Hà (call +84 334 699 969, 09:00–21:00 daily, or use the <a href=\"https://rentbikehanoi.com/contact-us/\">contact page</a>) how the first payment and any deposit are taken: cash, bank transfer or something else, in what amount and in which currency. Treat each of these as a question, not a fact. For illustration, suppose the shop quotes its reference price for a manual bike, 700,000 to 800,000 VND for a week, and names a deposit on top. If the shop takes cash, the cash you need on day one is the first payment plus any deposit it names, plus whatever you expect to spend on fuel and parking. The reference prices are a guide for budgeting; the figure that applies to you is the one the shop gives for your booking.</p>\n<p>Ask for the answer in a message you can show later. For a starting point for the message, see <a href=\"https://rentbikehanoi.com/a-motorbike-rental-booking-message-for-hanoi-copy-and-send-template/\">a booking message template</a>.</p>\n\n<h2>Questions to send the shop before you fly</h2>\n<ul>\n<li>Which payment methods do you accept for the first payment and for any deposit?</li>\n<li>What amount do you expect on the day I collect the bike, and in what currency?</li>\n<li>If my card limit means I cannot withdraw it all at once, can the payment be split or settled the next day?</li>\n<li>Can you confirm the answers in a message?</li>\n</ul>\n\n<h2>Then your bank: five things to check before you leave</h2>\n<ul>\n<li><strong>The daily withdrawal limit abroad,</strong> which may be lower than the limit at home.</li>\n<li><strong>Any limit per withdrawal,</strong> since a machine may also cap each transaction.</li>\n<li><strong>Your bank's own fees</strong> for a foreign withdrawal and for currency conversion.</li>\n<li><strong>Whether the card works at machines abroad:</strong> look for the network logos on the card, and ask whether you must tell the bank you are travelling.</li>\n<li><strong>The bank's emergency number,</strong> saved in your phone and written on paper, in case the card is blocked or swallowed.</li>\n</ul>\n<p>Write the limit down next to the amount the shop quoted, so that you can see at a glance whether one withdrawal is enough.</p>\n\n<h2>At the machine: read before you confirm</h2>\n<ol>\n<li><strong>Read the screen.</strong> A machine may show its own fee, and you may be able to cancel after seeing it.</li>\n<li><strong>If it offers to convert the amount into your home currency,</strong> consider declining and being charged in dong, then compare with your bank's rate afterwards.</li>\n<li><strong>Choose the amount knowing the limit.</strong> If one withdrawal cannot cover what you need, you may have to withdraw twice or over two days.</li>\n<li><strong>Use a machine in a bank branch or a well-lit place,</strong> cover the keypad when you type your PIN and take the card and the receipt before you walk away.</li>\n<li><strong>Put the card and cash away before you move off,</strong> count the notes inside the bank or somewhere private, and keep the receipt.</li>\n</ol>\n\n<h2>If the limits do not cover the first day</h2>\n<p>Arriving late with a low daily limit is the situation to plan for. The third question above is the one to send if your limits may not cover the first day. A second card from a different bank can give you another daily limit. If the shop accepts a bank transfer, <a href=\"https://rentbikehanoi.com/motorbike-rental-payment-in-hanoi-confirm-the-payee-before-a-bank-transfer/\">confirm the payee before you send</a> anything.</p>\n<p>If you land late, <a href=\"https://rentbikehanoi.com/hanoi-motorbike-rental-for-a-late-flight-plan-pickup-and-return/\">plan pickup and return around a late flight</a> and sort out the cash at the same time, so that you can reach the shop with the money in hand before it closes at 21:00.</p>\n\n<h2>Keeping the cash safe</h2>\n<ul>\n<li>Do not count or display a large amount of cash in the street.</li>\n<li>Split the notes between pockets or bags, so that one loss is not the whole sum.</li>\n<li>Keep the card separate from the cash.</li>\n<li>Pay the shop only at the shop, or by a transfer to an account you have confirmed.</li>\n</ul>\n\n<h2>After you pay</h2>\n<p>Ask for a receipt that shows the amount, the date, what it covers and who received it, and photograph it. <a href=\"https://rentbikehanoi.com/hanoi-motorbike-rental-deposits-how-to-record-payment-and-return/\">How to record a deposit payment and its return</a> shows what to write down, and the <a href=\"https://rentbikehanoi.com/motorbike-rental-prices-in-hanoi/\">page of daily, weekly and monthly rates</a> helps you check the figures you were quoted.</p>",
+    "business_claims": [
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 700000,
+        "vehicle": "manual"
+      },
+      {
+        "kind": "reference_price",
+        "period": "week",
+        "value_vnd": 800000,
+        "vehicle": "manual"
+      }
+    ],
+    "canonical": "https://rentbikehanoi.com/atm-limits-cash-for-hanoi-rental-deposit-foreign-cards/",
+    "category_id": 123,
+    "featured_media": 662,
+    "focus_keyword": "atm withdrawal limit cash for rental deposit hanoi",
+    "language": "en-US",
+    "meta_description": "Landing with a foreign card? Ask the shop and your bank, check the ATM, and have cash for the first payment and any deposit before you collect the bike.",
+    "seo_title": "Cash for a Rental Bike on Arrival: ATM Limits and Card Fees to Check",
+    "session": "en-b7-20261024",
+    "source_commit": "574124c817e8dd455e56a38208d304d1bef4f582",
+    "sources": [
+      {
+        "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+        "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Cash for a Rental Deposit on Arrival: ATM Limits and Card Fees for Foreign Cards in Hanoi",
+    "topic_id": "TH-EN-0004"
+  },
+  "article_sha": "a7effa224b75f18787ed02de57df730b267b5f7befe521371b4391e9f6d9cef7",
+  "category_id": 123,
+  "language": "en",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/atm-limits-cash-for-hanoi-rental-deposit-foreign-cards/",
+  "qa": {
+    "report_sha": "95a14d1674baa53bb475334f95ba527029b4aead1bc16c0af9dd7e46080c2c18",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35"
+  ],
+  "source_evidence": {
+    "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-23T16:54:10.661778+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T04:26:04.551555+00:00",
+  "topic_id": "TH-EN-0004",
+  "waiting_for": []
+}
