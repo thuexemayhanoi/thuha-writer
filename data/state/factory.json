@@ -14842,6 +14842,15 @@
       "previous": "f52206bbc297dc6a8a4e09f5675f99ffbb156dd441fe7224bab725d2daccb384",
       "sha256": "03d704474dc3366509a267168e9ef410cbc87e5e408ad12c3cdf5933b60aee5d",
       "topic_id": "TH-000012"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:00:42.405914+00:00",
+      "previous": "03d704474dc3366509a267168e9ef410cbc87e5e408ad12c3cdf5933b60aee5d",
+      "report_sha": "b2409f17e6f834ed53bcc3bf74a635d5e4f374aa5809aa2ee5d0b37effbbe01a",
+      "sha256": "5b951b40f0d4e323d623c36d8098c30dd9835f043f91d824be2c0098d1b120c2",
+      "status": "PASS",
+      "topic_id": "TH-000012"
     }
   ],
   "intents": {
@@ -25062,19 +25071,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN14",
-      "expires_at": 1792859433.060734,
-      "fence": "064c6b86a9a44bdbae78c1cb5a047c2f",
-      "heartbeat_at": "2026-10-24T16:00:33.060713+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b14-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000012"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25119,6 +25116,11 @@
     "TH-000009": {
       "article_sha": "095e553862927772bebab439268918959b31c476eb8cd3672e56d0cfb4acd7c4",
       "report_sha": "62c3f33e8d0ee8267d7ac9973d3bd198f8bd36cee242c88285ed8aec4d20e164",
+      "status": "PASS"
+    },
+    "TH-000012": {
+      "article_sha": "92f7f2b9a97e218fe00bb2410da853bf3efb6df6bf48578f25192ead8bec40da",
+      "report_sha": "b2409f17e6f834ed53bcc3bf74a635d5e4f374aa5809aa2ee5d0b37effbbe01a",
       "status": "PASS"
     },
     "TH-000021": {
@@ -30555,7 +30557,7 @@
           "url": "https://nchmf.gov.vn/KttvSiteE/"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000012"
     },
     "TH-000013": {
@@ -40198,5 +40200,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2461
+  "version": 2462
 }
