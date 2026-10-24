@@ -24,6 +24,7 @@ from .adapter import NOT_DEPLOYED, build_payload, validate_payload
 from .policy import DEFINITIVE_REJECTIONS
 from .http import NetworkError
 from .audit import inventory_bilingual, parse
+from .sitecheck import check_rendered_post_language
 from .common import ROOT, REPO, SITE, age, digest, load, now, urlkey
 from .coordinator import timestamp
 from .language import SPEC, html_lang_matches, split_url, targets as language_targets, url_language
@@ -405,6 +406,8 @@ class Publisher:
         if status!=200 or page.canonicals!=[link] or page.title!=article['seo_title'] or page.descriptions!=[article['meta_description']]:
             raise ValueError('Public canonical/title/meta mismatch (HTTP '+str(status)+')')
         if not html_lang_matches(lang,page.html_lang):raise ValueError('Rendered page language attribute is not '+SPEC[lang]['html_lang'])
+        h1_problems=check_rendered_post_language(page,article['title'],lang)
+        if h1_problems:raise ValueError('Rendered H1/language mismatch: '+', '.join(h1_problems))
         if any(href!=link for _,href in page.hreflangs):raise ValueError('Page declares an hreflang pair that this factory never created')
         if 'noindex' in str(page.robots).lower() or 'noindex' in str(headers.get('X-Robots-Tag',headers.get('x-robots-tag'))).lower():
             raise ValueError('Published page is noindex')

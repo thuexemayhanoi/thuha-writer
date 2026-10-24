@@ -1,6 +1,7 @@
 """Archive, pagination, sitemap, robots and language isolation, judged on local fixtures only."""
 import unittest
 from thuha import sitecheck
+from thuha.audit import parse
 from thuha.common import SITE
 
 LEAF = SITE + '/vi/chuyen-muc/gia-thue-va-chi-phi/'
@@ -34,6 +35,26 @@ class ArchiveTests(unittest.TestCase):
     def test_a_vietnamese_archive_must_not_list_an_english_post(self):
         problems = sitecheck.check_archive(LEAF, archive(LEAF, [POST, EN_POST]), 200, {}, 'vi', [POST], foreign_urls=[EN_POST])
         self.assertEqual(problems, ['ARCHIVE_LISTS_OTHER_LANGUAGE_POST ' + EN_POST])
+
+
+class RenderedPostLanguageTests(unittest.TestCase):
+    def test_vietnamese_heading_matches_the_reviewed_title(self):
+        title = 'Giá thuê xe máy ở Hà Nội và cách lựa chọn phù hợp'
+        page = parse('<html lang="vi"><body><h1>' + title + '</h1></body></html>')
+        self.assertEqual(sitecheck.check_rendered_post_language(page, title, 'vi'), [])
+
+    def test_shared_theme_rendering_english_h1_on_vietnamese_post_is_reported(self):
+        title = 'Giá thuê xe máy ở Hà Nội và cách lựa chọn phù hợp'
+        page = parse('<html lang="vi"><body><h1>Hanoi motorbike rental prices for visitors</h1></body></html>')
+        problems = sitecheck.check_rendered_post_language(page, title, 'vi')
+        self.assertIn('PUBLIC_H1_TITLE_MISMATCH', problems)
+        self.assertIn('PUBLIC_H1_LANGUAGE_MISMATCH', problems)
+
+    def test_missing_or_duplicate_h1_is_reported_without_modifying_the_article(self):
+        title = 'Hanoi motorbike rental prices for visitors'
+        self.assertEqual(sitecheck.check_rendered_post_language(parse('<html><body></body></html>'), title, 'en'), ['PUBLIC_H1_COUNT_0'])
+        page = parse('<html><body><h1>' + title + '</h1><h1>Other heading</h1></body></html>')
+        self.assertIn('PUBLIC_H1_COUNT_2', sitecheck.check_rendered_post_language(page, title, 'en'))
 
 
 class PaginationTests(unittest.TestCase):
