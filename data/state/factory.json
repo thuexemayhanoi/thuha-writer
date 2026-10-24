@@ -13917,6 +13917,21 @@
       "sha256": "843e62a7bed6dec8d619d73e2a05c816b426e5e82ff4cc42e5a606cc3bb4c668",
       "status": "PASS",
       "topic_id": "TH-000060"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN13",
+      "at": "2026-10-24T15:34:49.103574+00:00",
+      "expires_at": 1792857889.103564,
+      "fence": "4ad64a25d7594c4bae7d2bfea40d2b15",
+      "heartbeat_at": "2026-10-24T15:34:49.103540+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "843e62a7bed6dec8d619d73e2a05c816b426e5e82ff4cc42e5a606cc3bb4c668",
+      "session": "en-b13-20261024",
+      "sha256": "a9a072b0a1cdde7cdf22ce4839159fe837bc4463fe61ee384f547250fbf3fe6f",
+      "slot": "W1",
+      "topic_id": "TH-000061"
     }
   ],
   "intents": {
@@ -24137,7 +24152,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN13",
+      "expires_at": 1792857889.103564,
+      "fence": "4ad64a25d7594c4bae7d2bfea40d2b15",
+      "heartbeat_at": "2026-10-24T15:34:49.103540+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000061"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -30721,7 +30748,7 @@
           "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000061"
     },
     "TH-EN-0001": {
@@ -37703,5 +37730,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2356
+  "version": 2357
 }
