@@ -13211,6 +13211,15 @@
       "sha256": "c58abe78d3fc1e19a6678876697b97addc63c4c07d7f09aac8e329223290db53",
       "slot": "W1",
       "topic_id": "TH-VI-0342"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-VI20",
+      "article_sha": "0cceaeac8546e8d9262a3a780b9bb4d6810216469fbd04d0b11f97e03d122019",
+      "at": "2026-10-24T15:16:26.324860+00:00",
+      "previous": "c58abe78d3fc1e19a6678876697b97addc63c4c07d7f09aac8e329223290db53",
+      "sha256": "a0f3c36c76508e09e85a5703c889e63d07fa53310053818c22abb9f0e09596cc",
+      "topic_id": "TH-VI-0342"
     }
   ],
   "intents": {
@@ -27597,6 +27606,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:16:12.436086+00:00"
     },
+    "TH-VI-0342": {
+      "agent_id": "claude-writer-VI20",
+      "article_sha": "0cceaeac8546e8d9262a3a780b9bb4d6810216469fbd04d0b11f97e03d122019",
+      "commit": "931a11aa0c930d01b544a032be81aab7f2cfdf32",
+      "fence": "43fe4deb092b4e86afc0d9c00d248caa",
+      "repair_count": 0,
+      "session": "vi-b20-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:16:26.324828+00:00"
+    },
     "TH-VI-0350": {
       "agent_id": "claude-writer-VI18",
       "article_sha": "fbfe932b2c68531a4584dd6cde5060b8f230451ecc500b07e7ff86b3873859e2",
@@ -35858,7 +35877,7 @@
           "url": "https://tcvn.gov.vn/mot-so-diem-moi-trong-qcvn-22021-bkhcn-ve-mu-bao-hiem-cho-nguoi-di-mo-to-xe-may/13/09/2021"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-VI-0342"
     },
     "TH-VI-0350": {
@@ -36297,5 +36316,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2272
+  "version": 2273
 }
