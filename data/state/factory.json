@@ -12132,6 +12132,15 @@
       "sha256": "4019e98a81766f79e643e9e7304defed68f3f962844c0367b53f9ef28380416d",
       "slot": "W1",
       "topic_id": "TH-000044"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "4f7cf66e5b4c4c09fd21619327c62a661a71fe28a4cf1e92af0ed47a93647e4e",
+      "at": "2026-10-24T15:04:13.708602+00:00",
+      "previous": "4019e98a81766f79e643e9e7304defed68f3f962844c0367b53f9ef28380416d",
+      "sha256": "1cd7abe7be751dfda7edbf6c086c3e9942cdafba7497a06672b851e9777f7c61",
+      "topic_id": "TH-000044"
     }
   ],
   "intents": {
@@ -24148,6 +24157,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:03:59.647894+00:00"
     },
+    "TH-000044": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "4f7cf66e5b4c4c09fd21619327c62a661a71fe28a4cf1e92af0ed47a93647e4e",
+      "commit": "529fd3e19de22b039206e6d8def875e3066e3cc4",
+      "fence": "c57820d6fe6c4de48b0af03cf04cb9db",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:04:13.708575+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -27666,7 +27685,7 @@
           "url": "https://vietnamtourism.gov.vn/en/post/10405"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000044"
     },
     "TH-000045": {
@@ -34738,5 +34757,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2141
+  "version": 2142
 }
