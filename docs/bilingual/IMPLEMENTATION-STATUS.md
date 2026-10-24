@@ -1,5 +1,14 @@
 > **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
 
+## Current documentation sync — 24/10/2026
+
+- Language QA and rendered-language checks added in [PR #11](https://github.com/thuexemayhanoi/thuha-writer/pull/11), code merged to `main` as `638f51e20a0beea0df255bd24aa77edfa708caa5`. Full PR CI passed in the GitHub Action; this is an **offline check**, not proof that production theme strings are localized.
+- Existing authoring QA remains **>=75 with zero hard failures** for both languages. It already checks article title, SEO title, meta description, focus keyword and article body, along with taxonomy, URL and same-language internal links.
+- Public-page checks now also require **exactly one H1** that matches the Writer-reviewed article title and has plausible VI/EN text. This is a read-only post-publication check; mismatch becomes a warning retried up to five times, not a global publishing hold and not a rewrite of any article.
+- This code does not fix WordPress Settings → General Site Title/Tagline or theme-provided language strings (menu, breadcrumb, TOC, buttons, footer). They belong to the site/theme/plugin owner.
+- Contract, responsibilities and verification: [RENDERED-LANGUAGE-QA.md](RENDERED-LANGUAGE-QA.md). `AGENTS.md`, `CLAUDE-PROMPT.md`, `ADAPTER.md`, `HANDOFF.md`, `OPERATIONS.md` and the QA publisher runbook are aligned with this update.
+- Production article counts and site status MUST be read afresh from live WordPress + `factory-state`; prior 23/10/2026 checkpoint below remains historical, not a realtime count.
+
 ## Verified current checkpoint — 23/10/2026 (use over historic notes below)
 
 - Exact scope: `thuexemayhanoi/thuha-writer` / `https://rentbikehanoi.com`.
