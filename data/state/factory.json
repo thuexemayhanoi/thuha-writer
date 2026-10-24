@@ -15115,6 +15115,21 @@
       "sha256": "cb20246949e6d9ef6392bd81627233a829c2f24adf80add0d3590516810d5bc5",
       "status": "PASS",
       "topic_id": "TH-000035"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN15",
+      "at": "2026-10-24T16:03:31.704558+00:00",
+      "expires_at": 1792859611.704487,
+      "fence": "e67c51b9fb2a45e899e8e947ceab399a",
+      "heartbeat_at": "2026-10-24T16:03:31.704466+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "cb20246949e6d9ef6392bd81627233a829c2f24adf80add0d3590516810d5bc5",
+      "session": "en-b15-20261024",
+      "sha256": "0a04834131de515ac4ea63e0062fdfa69b4e2cc0b7f829303ec70a3fafa68ee6",
+      "slot": "W1",
+      "topic_id": "TH-000017"
     }
   ],
   "intents": {
@@ -25335,7 +25350,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN15",
+      "expires_at": 1792859611.704487,
+      "fence": "e67c51b9fb2a45e899e8e947ceab399a",
+      "heartbeat_at": "2026-10-24T16:03:31.704466+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b15-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000017"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -31121,7 +31148,7 @@
           "url": "https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi/petrolimex-dieu-chinh-gia-xang-dau-tu-15-gio-00-phut-ngay-22-10-2026.html"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000017"
     },
     "TH-000018": {
@@ -40584,5 +40611,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2495
+  "version": 2496
 }
