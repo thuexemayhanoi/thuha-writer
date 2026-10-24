@@ -1,0 +1,47 @@
+name: ThuHa repair seven Vietnamese QA-link failures
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/vi-qa-link-repair.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: thuha-vi-qa-link-repair
+  cancel-in-progress: false
+jobs:
+  repair:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate code and unchanged QA policy
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m thuha.cli validate
+      - name: Authenticated VI inventory when needed
+        run: python3 -m thuha.cli --remote --output artifacts/vi-qa-repair audit --max-age 14400
+      - name: Preview exact editorial links and real QA results
+        run: python3 scripts/vi_qa_link_repair.py
+      - name: Submit repaired drafts to guarded publisher
+        run: python3 scripts/vi_qa_link_repair.py --apply
+      - name: Report durable state and verified receipts
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts/vi-qa-repair report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vi-qa-repair-${{ github.run_id }}
+          path: artifacts/vi-qa-repair/
+          if-no-files-found: ignore
+          retention-days: 14
