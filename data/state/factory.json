@@ -15148,6 +15148,21 @@
       "sha256": "b15c9259977fa990038339a7c753e9ae1cd4cd76b672b11116557dde6f401485",
       "status": "PASS",
       "topic_id": "TH-000017"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN15",
+      "at": "2026-10-24T16:03:46.237921+00:00",
+      "expires_at": 1792859626.23791,
+      "fence": "fe9ad2434d6a459da3ffa796880ee5e1",
+      "heartbeat_at": "2026-10-24T16:03:46.237882+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "b15c9259977fa990038339a7c753e9ae1cd4cd76b672b11116557dde6f401485",
+      "session": "en-b15-20261024",
+      "sha256": "0c4357797ae286b5675891d8ff3a9d06a73cc5dffea9e90aa17fd3168aa3aac3",
+      "slot": "W1",
+      "topic_id": "TH-000018"
     }
   ],
   "intents": {
@@ -25368,7 +25383,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN15",
+      "expires_at": 1792859626.23791,
+      "fence": "fe9ad2434d6a459da3ffa796880ee5e1",
+      "heartbeat_at": "2026-10-24T16:03:46.237882+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b15-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000018"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -31206,7 +31233,7 @@
           "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000018"
     },
     "TH-000019": {
@@ -40632,5 +40659,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2499
+  "version": 2500
 }
