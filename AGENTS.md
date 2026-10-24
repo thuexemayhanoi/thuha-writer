@@ -1,8 +1,10 @@
-# CURRENT WRITER CONTRACT — 23 October 2026 (supersedes older instructions)
+# CURRENT WRITER CONTRACT — updated 24 October 2026 (supersedes older instructions)
 
 **OWNER POLICY: IMAGES OPTIONAL (23/10/2026).** Do NOT require Claude to access or inspect WordPress media or alt. Set `featured_media: null`, proceed through submit/QA/publish. `FEATURED_MEDIA` is retired. Existing legacy image-only waits will be released to normal QA by `recheck-data`; QA remains >=75 and all non-image checks stay. This takes precedence over historical paragraphs below. See [current media policy](docs/MEDIA-OPTIONAL-POLICY.md).
 
 **Scope:** only `thuexemayhanoi/thuha-writer` → `https://rentbikehanoi.com`. This section is the entry point for any fresh Claude/ChatGPT Work session. Never carry a GitHub owner, model, session ID, site address, WordPress secret or ledger from another workflow.
+
+**Mandatory VI–EN runbook (24/10/2026):** [docs/bilingual/RENDERED-LANGUAGE-QA.md](docs/bilingual/RENDERED-LANGUAGE-QA.md). Language integrity has two different phases: pre-publication hard fails for source/SEO language and post-publication non-blocking checks for rendered H1. Do not call a theme-wide menu/TOC translation issue a Writer source failure; route shared UI corrections to its theme/plugin owner.
 
 - **Current mechanics:** External AI sessions write researched articles; Actions only run QA, queue and the WordPress publisher. Both Vietnamese (native `vi`, posts under `/vi/`) and English (`en-US`, site root) use automated **QA >=75/100 inclusive**, with **zero hard failures**. No independent AI review or per-post manual approval. `config/qa.json` is the source of truth.
 - **Production:** A separate owner-approved release currently has `enabled=true`, `approved=true`, `paused=false`, `stage=auto-scale`, maximum **50 posts/day**. Publication still requires fresh authenticated WordPress inventory, source evidence, internal links, native adapter, language/taxonomy/duplicate checks, idempotent receipts. No GitHub Environment/reviewer or `THUHA_GO_LIVE_APPROVAL`; WordPress credentials live exclusively in **repository GitHub Actions Secrets**.
