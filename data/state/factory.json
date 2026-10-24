@@ -15172,6 +15172,15 @@
       "previous": "0c4357797ae286b5675891d8ff3a9d06a73cc5dffea9e90aa17fd3168aa3aac3",
       "sha256": "c280fd1678823f8060518a92570d5190199141f4788d327e6aa210088f122397",
       "topic_id": "TH-000018"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T16:03:55.834777+00:00",
+      "previous": "c280fd1678823f8060518a92570d5190199141f4788d327e6aa210088f122397",
+      "report_sha": "a4e0909c00e5e05e3b715822cd4062f92839dd6c6ebade01c1dbe5fc16d5d925",
+      "sha256": "a1cffe5ddd36b43f4eaccd556b5be951b2cb0170c564eb30aee95fa3ee24f0e4",
+      "status": "PASS",
+      "topic_id": "TH-000018"
     }
   ],
   "intents": {
@@ -25392,19 +25401,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN15",
-      "expires_at": 1792859626.23791,
-      "fence": "fe9ad2434d6a459da3ffa796880ee5e1",
-      "heartbeat_at": "2026-10-24T16:03:46.237882+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b15-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000018"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25469,6 +25466,11 @@
     "TH-000017": {
       "article_sha": "9d16c8cac9dfb4cef52bbf8b1e66effe9840ec7e16fb5a3e61896b4e9ead7d36",
       "report_sha": "6cd214772b1fa96242571b3e589815174d916dbdf8e273d34c866ceb5e9ab446",
+      "status": "PASS"
+    },
+    "TH-000018": {
+      "article_sha": "9c338485dd4471b3944bb58b9f71f571a888f01297beff735c8fe5a400ed0233",
+      "report_sha": "a4e0909c00e5e05e3b715822cd4062f92839dd6c6ebade01c1dbe5fc16d5d925",
       "status": "PASS"
     },
     "TH-000019": {
@@ -31252,7 +31254,7 @@
           "url": "https://yamaha-motor.com.vn/xe/janus-phien-ban-gioi-han-hoan-toan-moi-bj7s"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000018"
     },
     "TH-000019": {
@@ -40678,5 +40680,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2501
+  "version": 2502
 }
