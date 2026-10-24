@@ -14899,6 +14899,15 @@
       "sha256": "9e2f0165625e9c321fa2cb064aff50d85d878c340b8db2383061bb46954a2b3b",
       "slot": "W1",
       "topic_id": "TH-000014"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "eff12d76cdd56e7786080c59f824463e0425cc70f61867d1e2cbf7012ab29092",
+      "at": "2026-10-24T16:01:06.730589+00:00",
+      "previous": "9e2f0165625e9c321fa2cb064aff50d85d878c340b8db2383061bb46954a2b3b",
+      "sha256": "70c2303b9088b3d36d8ed124129ceee7dc9950d75a78b5b533b871ddf87867f0",
+      "topic_id": "TH-000014"
     }
   ],
   "intents": {
@@ -27346,6 +27355,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T16:00:52.393577+00:00"
     },
+    "TH-000014": {
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "eff12d76cdd56e7786080c59f824463e0425cc70f61867d1e2cbf7012ab29092",
+      "commit": "3edb3232cc4b7eacb454854acfad51676b561e1a",
+      "fence": "8b787725906d401ea278af8a105964ac",
+      "repair_count": 0,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:01:06.730554+00:00"
+    },
     "TH-000021": {
       "agent_id": "claude-writer-EN12",
       "article_sha": "0a975085ed6078bbce7797282ffe6141b38faa7d46d4e4c5eec922ca32b1696e",
@@ -30701,7 +30720,7 @@
           "url": "https://nchmf.gov.vn/KttvSiteE/"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000014"
     },
     "TH-000015": {
@@ -40275,5 +40294,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2468
+  "version": 2469
 }
