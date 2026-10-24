@@ -8444,6 +8444,22 @@
       "sha256": "25b45bd112102f92fc2fca0a73d4c83e2ff81c0841a11f3a97bc9b784d538ce2",
       "status": "PASS",
       "topic_id": "TH-EN-0022"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T04:12:44.011867+00:00",
+      "previous": "25b45bd112102f92fc2fca0a73d4c83e2ff81c0841a11f3a97bc9b784d538ce2",
+      "sha256": "2ac4bd9277f7cd2c294babbfbd48f69ef9886f9f86ce5a8baf932baa2787d081",
+      "topic_ids": [
+        "TH-VI-0260",
+        "TH-VI-0261",
+        "TH-VI-0262",
+        "TH-VI-0265",
+        "TH-VI-0266",
+        "TH-VI-0269",
+        "TH-VI-0274",
+        "TH-VI-0431"
+      ]
     }
   ],
   "intents": {
@@ -19652,6 +19668,17 @@
       "status": "FULFILLED"
     },
     "research-vi-fe4f31668a59efbd": {
+      "admitted_topic_ids": [
+        "TH-VI-0260",
+        "TH-VI-0261",
+        "TH-VI-0262",
+        "TH-VI-0265",
+        "TH-VI-0266",
+        "TH-VI-0269",
+        "TH-VI-0274",
+        "TH-VI-0431"
+      ],
+      "completed_at": "2026-10-24T04:12:44.011858+00:00",
       "created_at": "2026-10-24T03:58:24.413474+00:00",
       "inventory_sha256": "ba39d14b16dc099c61262da73f3084f1e83fcf802ef7e9bbe17f370c80ab22c3",
       "language": "vi",
@@ -19659,7 +19686,7 @@
       "planned": 29,
       "request_id": "research-vi-fe4f31668a59efbd",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     }
   },
   "reviews": {
@@ -25844,6 +25871,78 @@
       "status": "READY",
       "topic_id": "TH-VI-0251"
     },
+    "TH-VI-0260": {
+      "admitted_at": "2026-10-24T04:12:43.903378+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "gắn thêm baga giỏ giá đỡ lên xe thuê tháng",
+      "proposed_title": "Gắn thêm baga, giỏ hoặc giá đỡ lên xe thuê tháng: món nào được giữ lại, món nào phải tháo trước khi trả",
+      "proposed_url": "https://rentbikehanoi.com/vi/gan-them-baga-gio-gia-do-len-xe-thue-thang-thao-hay-giu/",
+      "search_intent": "Người thuê xe theo tháng thấy tiện nếu gắn thêm baga, giỏ trước hoặc giá đỡ điện thoại, cần hỏi cửa hàng có cho gắn không, gắn kiểu không khoan không cắt dây điện, và đồ gắn thêm xử lý ra sao khi trả xe.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0260"
+    },
+    "TH-VI-0261": {
+      "admitted_at": "2026-10-24T04:12:43.920420+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "khóa đĩa khóa chữ U cho xe máy thuê gửi qua đêm",
+      "proposed_title": "Khóa đĩa, khóa chữ U hay dây xích cho xe thuê: chọn loại khóa phụ nào khi gửi xe qua đêm",
+      "proposed_url": "https://rentbikehanoi.com/vi/khoa-dia-khoa-chu-u-hay-day-xich-cho-xe-thue-khoa-phu/",
+      "search_intent": "Người thuê xe vài tuần phải gửi xe ở nơi tạm như đầu ngõ hay sân chung cư, muốn mua thêm khóa phụ, cần so sánh khóa đĩa, khóa chữ U và dây xích về độ tiện, sức nặng khi cất cốp, và hỏi cửa hàng điều kiện khi khóa vào xe thuê.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0261"
+    },
+    "TH-VI-0262": {
+      "admitted_at": "2026-10-24T04:12:43.935594+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "camera hành trình xe máy gắn lên mũ hay lên xe thuê",
+      "proposed_title": "Camera hành trình cho xe máy thuê: gắn lên mũ hay lên xe, và cần xin phép cửa hàng điều gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/camera-hanh-trinh-cho-xe-may-thue-gan-len-mu-hay-len-xe/",
+      "search_intent": "Người thuê muốn ghi hình hành trình để có bằng chứng khi xảy ra va chạm, cần hỏi cửa hàng có cho khoan hay gắn cố định lên xe không, so sánh cam gắn mũ với cam gắn tay lái và lưu ý khi quay người khác.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0262"
+    },
     "TH-VI-0263": {
       "admitted_at": "2026-10-23T13:00:04.430804+00:00",
       "category_id": 162,
@@ -25867,6 +25966,54 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0263"
+    },
+    "TH-VI-0265": {
+      "admitted_at": "2026-10-24T04:12:43.950811+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "mang bơm tay bộ vá lốp mini khi chạy xe thuê đi xa",
+      "proposed_title": "Có nên mang bơm tay hoặc bộ vá lốp mini khi chạy xe thuê đi xa, hay chỉ cần lưu số cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/co-nen-mang-bom-tay-bo-va-lop-mini-khi-chay-xe-thue-di-xa/",
+      "search_intent": "Người thuê xe định đi tỉnh gần trong ngày, phân vân có nên mua bơm tay và bộ vá lốp để dự phòng, cần biết việc tự vá lốp xe thuê có phù hợp không, nên hỏi cửa hàng gì và thứ gì đáng mang thay thế.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0265"
+    },
+    "TH-VI-0266": {
+      "admitted_at": "2026-10-24T04:12:43.965910+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "chuyển phòng trọ bằng xe máy thuê",
+      "proposed_title": "Chuyển phòng trọ bằng xe máy thuê: đồ nào mang được trong vài chuyến, đồ nào nên tìm cách khác",
+      "proposed_url": "https://rentbikehanoi.com/vi/chuyen-phong-tro-bang-xe-may-thue-do-nao-mang-duoc/",
+      "search_intent": "Sinh viên hoặc người mới đi làm thuê xe vài ngày để chuyển phòng trọ, cần lên danh sách đồ nhẹ chở được an toàn, đồ cồng kềnh nên nhờ xe tải nhỏ và cách chia chuyến mà không buộc đồ che đèn, gương hay biển số.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0266"
     },
     "TH-VI-0267": {
       "admitted_at": "2026-10-23T11:56:51.703497+00:00",
@@ -25915,6 +26062,54 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0268"
+    },
+    "TH-VI-0269": {
+      "admitted_at": "2026-10-24T04:12:43.981554+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "chia sẻ vị trí trực tiếp khi đi xa bằng xe máy thuê",
+      "proposed_title": "Chia sẻ vị trí trực tiếp với người nhà khi đi xa bằng xe thuê: cài thế nào để họ biết mình đang ở đâu",
+      "proposed_url": "https://rentbikehanoi.com/vi/chia-se-vi-tri-truc-tiep-voi-nguoi-nha-khi-di-xa-bang-xe-thue/",
+      "search_intent": "Người đi xa một mình bằng xe thuê muốn người nhà theo dõi lộ trình, cần biết cách bật chia sẻ vị trí trực tiếp trong ứng dụng bản đồ hoặc nhắn tin, tắt khi đến nơi và giữ pin điện thoại đủ dùng cả chuyến.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0269"
+    },
+    "TH-VI-0274": {
+      "admitted_at": "2026-10-24T04:12:43.996921+00:00",
+      "category_id": 162,
+      "category_path": [
+        140,
+        148,
+        162
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "phủ bạt áo trùm xe máy thuê gửi ngoài trời qua đêm",
+      "proposed_title": "Phủ áo trùm hoặc bạt lên xe thuê gửi ngoài trời qua đêm: có nên không và cần hỏi cửa hàng điều gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/phu-ao-trum-hoac-bat-len-xe-thue-gui-ngoai-troi-qua-dem/",
+      "search_intent": "Người thuê xe theo tuần hoặc tháng phải để xe ngoài sân nhà trọ những đêm mưa nồm hoặc nắng gắt; muốn biết áo trùm hay bạt có lợi gì, có che mất khóa, biển số không và có cần xin phép cửa hàng trước.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0274"
     },
     "TH-VI-0359": {
       "admitted_at": "2026-10-23T11:56:51.723452+00:00",
@@ -25987,6 +26182,30 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0373"
+    },
+    "TH-VI-0431": {
+      "admitted_at": "2026-10-24T04:12:44.011828+00:00",
+      "category_id": 168,
+      "category_path": [
+        140,
+        150,
+        168
+      ],
+      "cluster": "kham-pha-ha-noi",
+      "language": "vi",
+      "primary_keyword": "say xe máy nên ăn gì trước khi đi chơi xa",
+      "proposed_title": "Dễ say xe khi ngồi sau xe máy: nên ăn gì, ăn lúc nào trước và trong ngày đi chơi xa",
+      "proposed_url": "https://rentbikehanoi.com/vi/say-xe-may-nen-an-gi-truoc-khi-di-choi-xa/",
+      "search_intent": "Người hay say xe, buồn nôn khi ngồi sau xe máy muốn biết nên ăn nhẹ gì, ăn trước giờ xuất phát bao lâu và nên tránh dạng bữa nào để chuyến đi không phải dừng liên tục.",
+      "sources": [
+        {
+          "document": "d508befc4fd47d6166a6d35d3ef01ab1b773396bee96434e2d5b2298c73b68f0",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0431"
     },
     "TH-VI-0445": {
       "admitted_at": "2026-10-23T13:00:04.441257+00:00",
@@ -26109,5 +26328,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1245
+  "version": 1246
 }
