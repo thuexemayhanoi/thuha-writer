@@ -13842,6 +13842,15 @@
       "previous": "bcb9f4ba6fb7a341d45139a05b994b0ce5f7626dd8fa3a9c00009a1badac1298",
       "sha256": "b85afc8f6b3fe972c56b70701d54588f0d464c83f10fe02646eef89477abdfee",
       "topic_id": "TH-000056"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:34:15.875819+00:00",
+      "previous": "b85afc8f6b3fe972c56b70701d54588f0d464c83f10fe02646eef89477abdfee",
+      "report_sha": "235c31794b28434891b2659f29bfc7eb196d63d9d9ae8998c2a9f0b0adb83d29",
+      "sha256": "95b8c5c6e3d84c94d78068eff58d89c39759cb23d05c471e895b0a2a266b966a",
+      "status": "PASS",
+      "topic_id": "TH-000056"
     }
   ],
   "intents": {
@@ -24062,19 +24071,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN13",
-      "expires_at": 1792857846.751269,
-      "fence": "10142e7604d447f096741e6dfc04e77c",
-      "heartbeat_at": "2026-10-24T15:34:06.751248+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b13-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000056"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24214,6 +24211,11 @@
     "TH-000055": {
       "article_sha": "e2d30c59f9278386922f6cece5b504c2e72c236800fdcc281b65e0e2ed735971",
       "report_sha": "612d24173be1af56fc824811814716daf9424cf9ca8abc29a71fb196d0aa117e",
+      "status": "PASS"
+    },
+    "TH-000056": {
+      "article_sha": "9d44fa25e9821f04e40a31a7115889aa2909919fcf3145a68abe99e8f97f62b8",
+      "report_sha": "235c31794b28434891b2659f29bfc7eb196d63d9d9ae8998c2a9f0b0adb83d29",
       "status": "PASS"
     },
     "TH-000057": {
@@ -30494,7 +30496,7 @@
           "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000056"
     },
     "TH-000057": {
@@ -37605,5 +37607,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2346
+  "version": 2347
 }
