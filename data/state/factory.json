@@ -6571,6 +6571,15 @@
       "sha256": "65c6a8ce7a6211883d5b4d16c1ba79f188e13715873f4820a3c7f68efa9f5de6",
       "slot": "W1",
       "topic_id": "TH-EN-0005"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "f086703d4576b020cb0ea7685e775439b26b27e8aa208ee94eb9dd29647962a3",
+      "at": "2026-10-24T09:57:45.080302+00:00",
+      "previous": "65c6a8ce7a6211883d5b4d16c1ba79f188e13715873f4820a3c7f68efa9f5de6",
+      "sha256": "860445351c9e6c092b5469069a9539c1b435d2908d6831d41e17fe5290624dbf",
+      "topic_id": "TH-EN-0005"
     }
   ],
   "intents": {
@@ -17618,13 +17627,13 @@
     },
     "TH-EN-0005": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "8a29533871e835587378f782e1a203bb8282c30b1d970a398a20f2ca78fb62a2",
-      "commit": "91002997aa6f461493f9101e38d1b9230782150f",
-      "fence": "0b9f82ac304347059241fdd07cb6f001",
+      "article_sha": "f086703d4576b020cb0ea7685e775439b26b27e8aa208ee94eb9dd29647962a3",
+      "commit": "fdc3cb87ce926a8a7560e8f2b3d85483f7292aac",
+      "fence": "7ffc1b17650e4e578c537fbf96de99e3",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:45:00.933347+00:00"
+      "submitted_at": "2026-10-24T09:57:45.080279+00:00"
     },
     "TH-EN-0009": {
       "agent_id": "claude-writer-W2",
@@ -20159,7 +20168,6 @@
         123
       ],
       "cluster": "motorbike-rental-guides",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "ride hailing versus rental bike for a week hanoi",
       "proposed_title": "Count Your Trips First: Ride-Hailing or a Rental Bike for a Week in Hanoi?",
@@ -20172,9 +20180,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0005",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0005"
     },
     "TH-EN-0006": {
       "admitted_at": "2026-10-24T09:55:05.737202+00:00",
@@ -23953,5 +23960,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1481
+  "version": 1482
 }
