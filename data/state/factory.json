@@ -12315,6 +12315,21 @@
       "sha256": "2bd296fc27144b81b7aa84dfbea0c0298eb0894925c578d18ca2b4a9ac1c8ffe",
       "status": "PASS",
       "topic_id": "TH-000051"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:05:34.088256+00:00",
+      "expires_at": 1792856134.088246,
+      "fence": "64efc11c01cb4c29ad253a39172aefc0",
+      "heartbeat_at": "2026-10-24T15:05:34.088222+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "2bd296fc27144b81b7aa84dfbea0c0298eb0894925c578d18ca2b4a9ac1c8ffe",
+      "session": "en-b12-20261024",
+      "sha256": "7e55722dc2a3c0cf3aed6608ffaaec554c8d51b1e70d854c5efa74b8ff562006",
+      "slot": "W1",
+      "topic_id": "TH-000052"
     }
   ],
   "intents": {
@@ -22535,7 +22550,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856134.088246,
+      "fence": "64efc11c01cb4c29ad253a39172aefc0",
+      "heartbeat_at": "2026-10-24T15:05:34.088222+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000052"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -28126,7 +28153,7 @@
           "url": "https://evisa.gov.vn/"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000052"
     },
     "TH-000053": {
@@ -34999,5 +35026,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2164
+  "version": 2165
 }
