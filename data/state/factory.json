@@ -12117,6 +12117,21 @@
       "sha256": "ea9b59a5120a023e05ca183d01ebb7c83dcb047d4ac6032d62bf4a76b9fb9134",
       "status": "PASS",
       "topic_id": "TH-000043"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN12",
+      "at": "2026-10-24T15:04:08.527103+00:00",
+      "expires_at": 1792856048.527092,
+      "fence": "c57820d6fe6c4de48b0af03cf04cb9db",
+      "heartbeat_at": "2026-10-24T15:04:08.527070+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "ea9b59a5120a023e05ca183d01ebb7c83dcb047d4ac6032d62bf4a76b9fb9134",
+      "session": "en-b12-20261024",
+      "sha256": "4019e98a81766f79e643e9e7304defed68f3f962844c0367b53f9ef28380416d",
+      "slot": "W1",
+      "topic_id": "TH-000044"
     }
   ],
   "intents": {
@@ -22337,7 +22352,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN12",
+      "expires_at": 1792856048.527092,
+      "fence": "c57820d6fe6c4de48b0af03cf04cb9db",
+      "heartbeat_at": "2026-10-24T15:04:08.527070+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000044"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -27639,7 +27666,7 @@
           "url": "https://vietnamtourism.gov.vn/en/post/10405"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000044"
     },
     "TH-000045": {
@@ -34711,5 +34738,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2140
+  "version": 2141
 }
