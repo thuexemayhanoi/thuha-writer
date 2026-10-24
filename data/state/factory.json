@@ -6507,6 +6507,15 @@
       "sha256": "ce93568cfda0d83d8a416e7347bc7ac1696ad5bbd925ece6a564de3017428679",
       "slot": "W1",
       "topic_id": "TH-EN-0141"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-W2",
+      "article_sha": "60e266430382cab8e1ec184b2496cfb6f219f51aeabe913ec671b93566878b39",
+      "at": "2026-10-24T09:57:23.165283+00:00",
+      "previous": "ce93568cfda0d83d8a416e7347bc7ac1696ad5bbd925ece6a564de3017428679",
+      "sha256": "427bbbb9a824d4c0c1a8f04e8b33f08e2e5eb435ce6724cdfcdb66581fd77a55",
+      "topic_id": "TH-EN-0141"
     }
   ],
   "intents": {
@@ -17614,13 +17623,13 @@
     },
     "TH-EN-0141": {
       "agent_id": "claude-writer-W2",
-      "article_sha": "2a7ad8786dc49aabdc77b0c4c121301b942fc27fbe5e2d5fa7191505efbd2319",
-      "commit": "4ffa0a18abb0424c03b50663459b47bef39bcad5",
-      "fence": "4bd1e97884ac44ed843c0af3f5be4539",
+      "article_sha": "60e266430382cab8e1ec184b2496cfb6f219f51aeabe913ec671b93566878b39",
+      "commit": "cd67ccda9c7697a01bc5b2ec1d3f69e8d5c4e2bf",
+      "fence": "f3ed20fc736c4bb2b304f047d2134584",
       "repair_count": 0,
-      "session": "sess-e1",
+      "session": "sess-e1c",
       "slot": "W1",
-      "submitted_at": "2026-10-23T12:44:42.716940+00:00"
+      "submitted_at": "2026-10-24T09:57:23.165260+00:00"
     },
     "TH-VI-0004": {
       "agent_id": "chatgpt-seo-editor",
@@ -21114,7 +21123,6 @@
         145
       ],
       "cluster": "road-rules-riding-safety",
-      "completion_pending": true,
       "language": "en",
       "primary_keyword": "following distance motorbike hanoi stop go traffic",
       "proposed_title": "Following Distance in Stop-and-Go Hanoi Traffic: Leaving Space Without Being Boxed In",
@@ -21127,9 +21135,8 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "CLAIMED",
-      "topic_id": "TH-EN-0141",
-      "waiting_for": []
+      "status": "DRAFT_READY",
+      "topic_id": "TH-EN-0141"
     },
     "TH-VI-0001": {
       "admitted_at": "2026-10-24T09:55:06.149219+00:00",
@@ -23881,5 +23888,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1473
+  "version": 1474
 }
