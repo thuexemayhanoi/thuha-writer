@@ -2,7 +2,7 @@ name: ThuHa Vietnamese link rescue (one time)
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/vi-link-rescue.yml']
+    paths: ['scripts/vi_link_rescue.py']
   workflow_dispatch:
 permissions:
   contents: write
