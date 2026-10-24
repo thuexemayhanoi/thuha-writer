@@ -5991,6 +5991,82 @@
       "native_vi_version": "1.1.1",
       "previous": "67decd0a7f46a1aef6a966ca47b92c4fe2fdba94a4201c33b0b72d1ab5dc37db",
       "sha256": "6856732f4907e7967b49049f147b55838b9d12198f0355a576b33f629febdd72"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T03:50:37.756126+00:00",
+      "previous": "6856732f4907e7967b49049f147b55838b9d12198f0355a576b33f629febdd72",
+      "sha256": "a09c0b4ab66a58eaf14a7902d0d6f2872dc42f2c59ebf816008881794cc4fd70",
+      "topic_ids": [
+        "TH-EN-0003",
+        "TH-EN-0004",
+        "TH-EN-0006",
+        "TH-EN-0007",
+        "TH-EN-0010",
+        "TH-EN-0011",
+        "TH-EN-0013",
+        "TH-EN-0015",
+        "TH-EN-0017",
+        "TH-EN-0018",
+        "TH-EN-0020",
+        "TH-EN-0021",
+        "TH-EN-0022",
+        "TH-EN-0023",
+        "TH-EN-0024",
+        "TH-EN-0025",
+        "TH-EN-0027",
+        "TH-EN-0028",
+        "TH-EN-0029",
+        "TH-EN-0030",
+        "TH-EN-0031",
+        "TH-EN-0032",
+        "TH-EN-0033",
+        "TH-EN-0035",
+        "TH-EN-0036",
+        "TH-EN-0037",
+        "TH-EN-0038",
+        "TH-EN-0039",
+        "TH-EN-0040",
+        "TH-EN-0042",
+        "TH-EN-0044",
+        "TH-EN-0045",
+        "TH-EN-0075",
+        "TH-EN-0101",
+        "TH-EN-0126",
+        "TH-EN-0128",
+        "TH-VI-0005",
+        "TH-VI-0007",
+        "TH-VI-0009",
+        "TH-VI-0010",
+        "TH-VI-0012",
+        "TH-VI-0017",
+        "TH-VI-0020",
+        "TH-VI-0021",
+        "TH-VI-0025",
+        "TH-VI-0054",
+        "TH-VI-0064",
+        "TH-VI-0068",
+        "TH-VI-0069",
+        "TH-VI-0072",
+        "TH-VI-0075",
+        "TH-VI-0076",
+        "TH-VI-0086",
+        "TH-VI-0087",
+        "TH-VI-0088",
+        "TH-VI-0094",
+        "TH-VI-0100",
+        "TH-VI-0105",
+        "TH-VI-0139",
+        "TH-VI-0176",
+        "TH-VI-0211",
+        "TH-VI-0221",
+        "TH-VI-0246",
+        "TH-VI-0247",
+        "TH-VI-0248",
+        "TH-VI-0250",
+        "TH-VI-0251",
+        "TH-VI-0373"
+      ]
     }
   ],
   "intents": {
@@ -19338,6 +19414,56 @@
       "status": "PLANNED",
       "topic_id": "TH-EN-0002"
     },
+    "TH-EN-0003": {
+      "admitted_at": "2026-10-24T03:50:36.877709+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental quote currency dollars or dong hanoi",
+      "proposed_title": "Dollars or Vietnamese Dong? Fix the Currency on a Hanoi Rental Quote Before You Pay",
+      "proposed_url": "https://rentbikehanoi.com/hanoi-rental-quote-currency-dollars-or-dong/",
+      "search_intent": "A visitor who received a quote in a foreign currency, or a deposit request in another, wants to confirm which currency is binding, how any conversion is set, and what the receipt should say to avoid disputes at return.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0003"
+    },
+    "TH-EN-0004": {
+      "admitted_at": "2026-10-24T03:50:36.889399+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "atm withdrawal limit cash for rental deposit hanoi",
+      "proposed_title": "Cash for a Rental Deposit on Arrival: ATM Limits and Card Fees for Foreign Cards in Hanoi",
+      "proposed_url": "https://rentbikehanoi.com/atm-limits-cash-for-hanoi-rental-deposit-foreign-cards/",
+      "search_intent": "A traveller landing with only a foreign bank card needs to plan how to withdraw enough cash for a deposit and the first payment, checking daily ATM limits, card fees and which payment methods the shop accepts.",
+      "sources": [
+        {
+          "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0004"
+    },
     "TH-EN-0005": {
       "admitted_at": "2026-10-23T12:08:22.355566+00:00",
       "category_id": 123,
@@ -19364,6 +19490,56 @@
       "topic_id": "TH-EN-0005",
       "waiting_for": []
     },
+    "TH-EN-0006": {
+      "admitted_at": "2026-10-24T03:50:36.900961+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental bike extras second helmet phone holder poncho",
+      "proposed_title": "Add-Ons on a Rental Bike: Which Extras to Ask About Before You Agree the Rate",
+      "proposed_url": "https://rentbikehanoi.com/rental-bike-add-ons-helmet-phone-holder-poncho-ask-before-agreeing-rate/",
+      "search_intent": "A couple booking a bike for a week wants to know whether a second helmet, phone holder, rain poncho, top box or lock is included or charged separately, and how to get that listed in the written quote.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0006"
+    },
+    "TH-EN-0007": {
+      "admitted_at": "2026-10-24T03:50:36.912410+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "how is a rental day counted motorbike hanoi",
+      "proposed_title": "What Counts as One Rental Day in Hanoi? A Full 24 Hours, a Calendar Day or Opening Hours",
+      "proposed_url": "https://rentbikehanoi.com/what-counts-as-one-rental-day-hanoi-24-hours-or-calendar-day/",
+      "search_intent": "A traveller collecting a bike at midday wants to know whether the day ends 24 hours later, at the shop's closing time or at midnight, because it changes the return time and the number of days charged.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0007"
+    },
     "TH-EN-0009": {
       "admitted_at": "2026-10-23T13:00:07.133314+00:00",
       "category_id": 123,
@@ -19388,6 +19564,56 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-EN-0009"
+    },
+    "TH-EN-0010": {
+      "admitted_at": "2026-10-24T03:50:36.923902+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental listing price range which bike hanoi",
+      "proposed_title": "Price Ranges on a Rental Listing: Pin Down Which Bike and Rate You Are Getting",
+      "proposed_url": "https://rentbikehanoi.com/price-ranges-on-a-rental-listing-pin-down-bike-and-rate/",
+      "search_intent": "A traveller sees a listing that shows a range for one type of bike and wants to confirm which model, age and condition sit at which rate before agreeing, and how to get the answer into the booking message.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0010"
+    },
+    "TH-EN-0011": {
+      "admitted_at": "2026-10-24T03:50:36.934771+00:00",
+      "category_id": 123,
+      "category_path": [
+        39,
+        60,
+        113,
+        123
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "return motorbike early hanoi unused days",
+      "proposed_title": "Leaving Hanoi Earlier Than Planned: Ask What Happens to Unused Rental Days",
+      "proposed_url": "https://rentbikehanoi.com/leaving-hanoi-early-ask-what-happens-to-unused-rental-days/",
+      "search_intent": "A visitor whose plans change after two days of a week-long booking wants to know how to ask whether unused days can be adjusted, and what to confirm in writing before paying for the full period.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0011"
     },
     "TH-EN-0012": {
       "admitted_at": "2026-10-23T12:08:22.364867+00:00",
@@ -19415,6 +19641,656 @@
       "topic_id": "TH-EN-0012",
       "waiting_for": []
     },
+    "TH-EN-0013": {
+      "admitted_at": "2026-10-24T03:50:36.947281+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "book motorbike rental through platform or direct hanoi",
+      "proposed_title": "Booking a Hanoi Motorbike Through a Platform or Directly With the Shop: What Changes",
+      "proposed_url": "https://rentbikehanoi.com/booking-through-a-platform-or-directly-with-a-hanoi-rental-shop/",
+      "search_intent": "A traveller finds the same shop on a booking platform and on its own page, and wants to know who holds the contract, who to contact about a problem, and what to ask before paying through either route.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0013"
+    },
+    "TH-EN-0015": {
+      "admitted_at": "2026-10-24T03:50:36.959711+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "normal wear versus damage rental motorbike hanoi",
+      "proposed_title": "Normal Wear or Chargeable Damage? How a Hanoi Rental Shop Draws the Line",
+      "proposed_url": "https://rentbikehanoi.com/normal-wear-or-chargeable-damage-ask-how-hanoi-shop-draws-the-line/",
+      "search_intent": "A renter who notices small scuffs and worn grips at handover wants to know what to ask about how the shop separates normal wear from damage it may charge for, and where to record the answer.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0015"
+    },
+    "TH-EN-0017": {
+      "admitted_at": "2026-10-24T03:50:36.971512+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "motorbike rental shop not replying hanoi",
+      "proposed_title": "No Reply From a Rental Shop in Hanoi: What to Do Before You Arrive",
+      "proposed_url": "https://rentbikehanoi.com/no-reply-from-a-hanoi-rental-shop-what-to-do-before-you-arrive/",
+      "search_intent": "A traveller who messaged a shop about a booking two days before landing has heard nothing, and needs to decide how long to wait, which other channel to try, and what not to pay until someone confirms.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0017"
+    },
+    "TH-EN-0018": {
+      "admitted_at": "2026-10-24T03:50:36.982662+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "lost rental receipt or contract photos motorbike hanoi",
+      "proposed_title": "Lost Your Rental Receipt or Agreement Photos? Rebuild the Record Before You Return the Bike",
+      "proposed_url": "https://rentbikehanoi.com/lost-rental-receipt-or-agreement-photos-rebuild-the-record-before-return/",
+      "search_intent": "A renter whose phone was stolen or reset mid-rental, taking the contract photos and payment receipt with it, needs to contact the shop calmly, reconstruct the pickup record and gather what proof remains before returning.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0018"
+    },
+    "TH-EN-0020": {
+      "admitted_at": "2026-10-24T03:50:36.994254+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "found damage after leaving rental shop motorbike hanoi",
+      "proposed_title": "You Spot Damage After Leaving the Shop: Report It the Same Day With Dated Photos",
+      "proposed_url": "https://rentbikehanoi.com/damage-spotted-after-leaving-the-shop-report-same-day-with-dated-photos/",
+      "search_intent": "A renter who notices a crack or dent an hour after riding away, with nothing on the pickup record, wants to message the shop quickly and send enough dated evidence for it to compare with its own records.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0020"
+    },
+    "TH-EN-0021": {
+      "admitted_at": "2026-10-24T03:50:37.005241+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "reserve motorbike in advance or walk in hanoi",
+      "proposed_title": "Reserve Ahead or Walk In? Choosing How to Secure a Hanoi Rental Bike",
+      "proposed_url": "https://rentbikehanoi.com/reserve-ahead-or-walk-in-securing-a-hanoi-rental-bike/",
+      "search_intent": "A traveller heading for the Old Quarter wonders whether to message a shop days ahead or simply arrive and choose in person, weighing choice of model, time to inspect and the risk that no suitable bike is free.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0021"
+    },
+    "TH-EN-0022": {
+      "admitted_at": "2026-10-24T03:50:37.017453+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "how to read reviews of a motorbike rental shop hanoi",
+      "proposed_title": "How to Read Online Reviews of a Hanoi Rental Business Before You Book",
+      "proposed_url": "https://rentbikehanoi.com/how-to-read-online-reviews-of-a-hanoi-rental-shop-before-you-book/",
+      "search_intent": "A traveller comparing shops wants to separate useful signals from noise in online reviews, such as dates, how owners respond to complaints and repeated mentions of deposits or damage disputes, before sending any money.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0022"
+    },
+    "TH-EN-0023": {
+      "admitted_at": "2026-10-24T03:50:37.029740+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "phone number to give motorbike rental shop hanoi",
+      "proposed_title": "Which Phone Number to Give a Rental Shop: Roaming, Local SIM or Messaging App",
+      "proposed_url": "https://rentbikehanoi.com/which-phone-number-to-give-a-hanoi-rental-shop-roaming-sim-or-app/",
+      "search_intent": "A visitor arriving without a local SIM must choose which contact number or messaging account to put on the booking, so the shop can reach them during a breakdown, a late return or a delivery.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0023"
+    },
+    "TH-EN-0024": {
+      "admitted_at": "2026-10-24T03:50:37.042779+00:00",
+      "category_id": 124,
+      "category_path": [
+        39,
+        60,
+        113,
+        124
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "test ride rental motorbike before paying hanoi",
+      "proposed_title": "Can You Try a Rental Bike Before Paying? What to Settle at the Counter",
+      "proposed_url": "https://rentbikehanoi.com/can-you-try-a-rental-bike-before-paying-what-to-settle-at-the-counter/",
+      "search_intent": "A nervous first-time rider wants a short test ride on a quiet street before agreeing to rent, and needs to ask how far they may go, whether paperwork and deposit come first, and who is responsible during that ride.",
+      "sources": [
+        {
+          "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0024"
+    },
+    "TH-EN-0025": {
+      "admitted_at": "2026-10-24T03:50:37.054637+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "trial week before monthly motorbike rental hanoi",
+      "proposed_title": "Try a Week First, Then Switch to a Monthly Rental: How to Structure the Trial",
+      "proposed_url": "https://rentbikehanoi.com/trial-week-before-a-monthly-rental-in-hanoi-how-to-structure-it/",
+      "search_intent": "A new teacher unsure whether a bike suits their commute wants to start with one week and move to a monthly period if it works, and needs to ask whether and how that first week can convert.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0025"
+    },
+    "TH-EN-0027": {
+      "admitted_at": "2026-10-24T03:50:37.066918+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "apartment parking monthly motorbike rental hanoi landlord",
+      "proposed_title": "Apartment Building Parking for a Monthly Rental: Questions for Your Landlord",
+      "proposed_url": "https://rentbikehanoi.com/apartment-building-parking-for-a-monthly-rental-questions-for-your-landlord/",
+      "search_intent": "A renter moving into a Hanoi apartment block needs to learn from the landlord or building management whether a rental bike may be parked, where, under what card or fee, and who controls the gate, before committing to a month.",
+      "sources": [
+        {
+          "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0027"
+    },
+    "TH-EN-0028": {
+      "admitted_at": "2026-10-24T03:50:37.078388+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "pay monthly motorbike rental upfront or weekly hanoi",
+      "proposed_title": "Paying a Long Rental Upfront or by Instalment: Which Schedule Suits You?",
+      "proposed_url": "https://rentbikehanoi.com/paying-a-long-rental-upfront-or-by-instalment-which-schedule-suits-you/",
+      "search_intent": "A freelancer without a steady income wants to know whether to pay a month at once, week by week or on a fixed date, and what receipts and cut-off dates to request for whichever schedule the shop accepts.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0028"
+    },
+    "TH-EN-0029": {
+      "admitted_at": "2026-10-24T03:50:37.090578+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "negotiate monthly motorbike rental terms hanoi",
+      "proposed_title": "Can You Negotiate a Monthly Rental? What a Shop Might Reasonably Ask in Return",
+      "proposed_url": "https://rentbikehanoi.com/can-you-negotiate-a-monthly-rental-what-a-shop-might-ask-in-return/",
+      "search_intent": "A long-stay renter planning to keep the bike for several months wants to raise terms politely, and needs to know which commitments, such as a fixed period or a regular bike type, could be offered in return.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0029"
+    },
+    "TH-EN-0030": {
+      "admitted_at": "2026-10-24T03:50:37.102185+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "leave vietnam for weeks during monthly motorbike rental",
+      "proposed_title": "Travelling Abroad Mid-Rental: Hold the Bike, Pause the Rental or Return It?",
+      "proposed_url": "https://rentbikehanoi.com/travelling-abroad-mid-rental-hold-pause-or-return-the-bike/",
+      "search_intent": "An expat flying home for three weeks in the middle of a monthly rental wants to compare keeping the bike parked, asking the shop to pause the period, or returning it and booking again, and what to confirm for each.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0030"
+    },
+    "TH-EN-0031": {
+      "admitted_at": "2026-10-24T03:50:37.114634+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "end monthly motorbike rental notice hanoi",
+      "proposed_title": "Ending a Monthly Rental: How Much Notice to Give and What the Last Day Looks Like",
+      "proposed_url": "https://rentbikehanoi.com/ending-a-monthly-rental-notice-and-the-last-day-in-hanoi/",
+      "search_intent": "A renter leaving Hanoi at the end of the month wants to know when to tell the shop, whether the last day follows a calendar or the pickup date, and what to arrange for the final inspection and deposit conversation.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0031"
+    },
+    "TH-EN-0032": {
+      "admitted_at": "2026-10-24T03:50:37.125943+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "monthly motorbike rental night shift worker hanoi",
+      "proposed_title": "Shift Work and a Monthly Bike: Midnight Finishes, Lighting and Late-Night Parking",
+      "proposed_url": "https://rentbikehanoi.com/shift-work-and-a-monthly-bike-midnight-finishes-lighting-late-night-parking/",
+      "search_intent": "A nurse or bar manager working odd hours wants to decide whether a monthly bike suits finishing near midnight, and what to arrange about lighting checks, secure late-night parking and who to call after the shop closes.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0032"
+    },
+    "TH-EN-0033": {
+      "admitted_at": "2026-10-24T03:50:37.137797+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "transfer motorbike rental contract to another person hanoi",
+      "proposed_title": "Handing Your Monthly Bike to the Next Expat: Transfer the Contract, Not Just the Keys",
+      "proposed_url": "https://rentbikehanoi.com/handing-your-monthly-bike-to-the-next-expat-transfer-the-contract/",
+      "search_intent": "An expat leaving Hanoi has a colleague who wants to keep riding the same bike, and needs to know why the handover should go through the shop, what new paperwork may be needed and what the leaver should still hold in writing.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0033"
+    },
+    "TH-EN-0035": {
+      "admitted_at": "2026-10-24T03:50:37.149520+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "monthly rental commute and weekend trip one bike hanoi",
+      "proposed_title": "Daily Commute Plus a Weekend Escape: One Bike for the Month or Two Rentals?",
+      "proposed_url": "https://rentbikehanoi.com/commute-plus-weekend-escape-one-bike-for-the-month-or-two-rentals/",
+      "search_intent": "A remote worker commuting to a coworking space on weekdays, who wants one overnight trip a month, must decide whether the daily bike suits that trip or whether to add a different rental just for the weekend.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0035"
+    },
+    "TH-EN-0036": {
+      "admitted_at": "2026-10-24T03:50:37.161716+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "book monthly motorbike rental before moving to hanoi",
+      "proposed_title": "Arranging a Monthly Rental Before You Move to Hanoi: What You Can Settle From Abroad",
+      "proposed_url": "https://rentbikehanoi.com/arranging-a-monthly-rental-before-moving-to-hanoi-settle-from-abroad/",
+      "search_intent": "A relocating expat wants a bike lined up for the first month before flying in, and needs to know what can be agreed remotely, such as bike type, start date and a video of the actual bike, and what must wait for arrival.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0036"
+    },
+    "TH-EN-0037": {
+      "admitted_at": "2026-10-24T03:50:37.173405+00:00",
+      "category_id": 125,
+      "category_path": [
+        39,
+        60,
+        113,
+        125
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "weekly motorbike rental apartment hunting hanoi",
+      "proposed_title": "House-Hunting in Hanoi: Plan a Week of Apartment Viewings Around a Weekly Rental",
+      "proposed_url": "https://rentbikehanoi.com/house-hunting-in-hanoi-week-of-apartment-viewings-weekly-rental/",
+      "search_intent": "A newcomer with about a week to find a flat wants to cluster viewings by area, keep appointments despite rush hour and hard-to-find alley addresses, and decide how many days to hold the bike before the lease and a longer rental are settled.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0037"
+    },
+    "TH-EN-0038": {
+      "admitted_at": "2026-10-24T03:50:37.185289+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "fuel level when returning rental motorbike hanoi",
+      "proposed_title": "Return Fuel Level: Agree the Rule at Pickup, Not at the Counter",
+      "proposed_url": "https://rentbikehanoi.com/return-fuel-level-agree-the-rule-at-pickup-not-at-the-counter/",
+      "search_intent": "A renter wants to know whether the bike should come back full, at the same level or paid for by distance, and how to record the starting level and the agreed rule at pickup so return day holds no surprises.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0038"
+    },
+    "TH-EN-0039": {
+      "admitted_at": "2026-10-24T03:50:37.196912+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "return rental motorbike before shop opens early flight",
+      "proposed_title": "A Flight Before the Shop Opens: Plan the Bike Return the Night Before",
+      "proposed_url": "https://rentbikehanoi.com/flight-before-the-shop-opens-plan-the-bike-return-the-night-before/",
+      "search_intent": "A traveller whose flight leaves at dawn must hand the bike back before the shop's opening time, and wants to compare returning the evening before, an agreed key drop and onward transport, without assuming the shop offers any of these.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0039"
+    },
+    "TH-EN-0040": {
+      "admitted_at": "2026-10-24T03:50:37.209633+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "what time to collect a rental motorbike hanoi",
+      "proposed_title": "Pick Up Before the Rush: Choose a Collection Time That Leaves Room to Inspect",
+      "proposed_url": "https://rentbikehanoi.com/pick-up-before-the-rush-choose-a-collection-time-with-room-to-inspect/",
+      "search_intent": "A traveller who can collect the bike at any hour is choosing between early morning, midday and evening, and wants to weigh daylight for inspection, traffic on the first ride and the staff's time against their own schedule.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0040"
+    },
+    "TH-EN-0042": {
+      "admitted_at": "2026-10-24T03:50:37.221313+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "motorbike handover at train station or cafe hanoi",
+      "proposed_title": "Handover at a Station, Cafe or Apartment Gate: Judge the Spot Before You Agree",
+      "proposed_url": "https://rentbikehanoi.com/handover-at-a-station-cafe-or-apartment-gate-judge-the-spot-before-you-agree/",
+      "search_intent": "A traveller offered a handover at a station, cafe or apartment gate wants to judge whether the spot has enough light, space and safe standing room to inspect the bike properly, and when to propose another place.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0042"
+    },
+    "TH-EN-0044": {
+      "admitted_at": "2026-10-24T03:50:37.233227+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "rental motorbike delivery late what to do hanoi",
+      "proposed_title": "When a Promised Delivery Time Slips: Waiting, Rescheduling and Staying in Touch",
+      "proposed_url": "https://rentbikehanoi.com/when-a-promised-delivery-time-slips-waiting-rescheduling-staying-in-touch/",
+      "search_intent": "A guest who agreed a handover time at their accommodation has waited past it, and needs to know how to reach the shop, resend a pin, set a cut-off and decide when to reschedule or collect the bike in person.",
+      "sources": [
+        {
+          "document": "e6efebaac34bdb3dd4005e4d588af6c9bbb627d9dfb0809df417903005a1fd35",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0044"
+    },
+    "TH-EN-0045": {
+      "admitted_at": "2026-10-24T03:50:37.244926+00:00",
+      "category_id": 126,
+      "category_path": [
+        39,
+        60,
+        113,
+        126
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "running late returning rental motorbike hanoi",
+      "proposed_title": "Running Late on Return Day: What to Tell the Shop and What to Ask",
+      "proposed_url": "https://rentbikehanoi.com/running-late-on-return-day-what-to-tell-the-shop-and-what-to-ask/",
+      "search_intent": "A renter stuck in traffic or delayed on a day trip realises the bike will reach the shop after the agreed time, and wants to know what to message, what to ask about extra time and how to show the delay was reported.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0045"
+    },
     "TH-EN-0065": {
       "admitted_at": "2026-10-23T12:08:22.373485+00:00",
       "category_id": 142,
@@ -19441,6 +20317,56 @@
       "topic_id": "TH-EN-0065",
       "waiting_for": []
     },
+    "TH-EN-0075": {
+      "admitted_at": "2026-10-24T03:50:37.256593+00:00",
+      "category_id": 143,
+      "category_path": [
+        39,
+        60,
+        127,
+        143
+      ],
+      "cluster": "motorbike-reviews-comparisons",
+      "language": "en",
+      "primary_keyword": "return electric scooter battery level handover",
+      "proposed_title": "Returning an Electric Scooter: Agree and Record the Battery Level Before You Set Off",
+      "proposed_url": "https://rentbikehanoi.com/returning-electric-scooter-agree-record-battery-level/",
+      "search_intent": "A weekly electric renter wants to settle, before leaving the shop, what battery level is expected at return, who charges it and how to record the display so there is no dispute later.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0075"
+    },
+    "TH-EN-0101": {
+      "admitted_at": "2026-10-24T03:50:37.268555+00:00",
+      "category_id": 131,
+      "category_path": [
+        39,
+        60,
+        114,
+        131
+      ],
+      "cluster": "bike-setup-everyday-use",
+      "language": "en",
+      "primary_keyword": "emergency card to carry riding hanoi",
+      "proposed_title": "Emergency Information to Carry on a Rental Bike: Contacts, Allergies and Insurance Details",
+      "proposed_url": "https://rentbikehanoi.com/emergency-information-to-carry-on-a-rental-bike/",
+      "search_intent": "A solo rider wants a compact card or phone note with the shop's number, accommodation address, blood type or allergies and insurer contact, so helpers can act if the rider cannot speak.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0101"
+    },
     "TH-EN-0125": {
       "admitted_at": "2026-10-23T12:08:22.382465+00:00",
       "category_id": 134,
@@ -19466,6 +20392,56 @@
       "status": "WAITING_DATA",
       "topic_id": "TH-EN-0125",
       "waiting_for": []
+    },
+    "TH-EN-0126": {
+      "admitted_at": "2026-10-24T03:50:37.280402+00:00",
+      "category_id": 134,
+      "category_path": [
+        39,
+        60,
+        115,
+        134
+      ],
+      "cluster": "motorbike-rental-guides",
+      "language": "en",
+      "primary_keyword": "roadside mechanic rental motorbike hanoi repair permission",
+      "proposed_title": "A Roadside Mechanic Offers to Fix Your Rental Bike: What to Ask Before Saying Yes",
+      "proposed_url": "https://rentbikehanoi.com/roadside-mechanic-fix-rental-bike-ask-before-saying-yes/",
+      "search_intent": "A stranded renter is offered an immediate repair at a street stall and must weigh speed against the rental contract, asking the shop for approval and recording who did what.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0126"
+    },
+    "TH-EN-0128": {
+      "admitted_at": "2026-10-24T03:50:37.294614+00:00",
+      "category_id": 134,
+      "category_path": [
+        39,
+        60,
+        115,
+        134
+      ],
+      "cluster": "parking-weather-breakdowns",
+      "language": "en",
+      "primary_keyword": "motorbike breakdown outside hanoi recovery rental shop",
+      "proposed_title": "Breakdown Far From Hanoi: Settle Recovery Questions With the Shop Before You Leave the City",
+      "proposed_url": "https://rentbikehanoi.com/breakdown-far-from-hanoi-recovery-questions-before-you-leave/",
+      "search_intent": "A renter planning a ride into the countryside wants to agree beforehand what happens if the bike fails far from the shop: who is called, how recovery or replacement is handled, and what the renter must not arrange alone.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Shop owner facts (name, address, opening hours, phone, reference price ranges and the owner-confirmed extension fee) used where the article quotes them; the rest is general riding and trip-planning advice, not shop data and not an outside source.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-EN-0128"
     },
     "TH-EN-0139": {
       "admitted_at": "2026-10-23T12:08:22.392065+00:00",
@@ -19605,6 +20581,30 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0004"
     },
+    "TH-VI-0005": {
+      "admitted_at": "2026-10-24T03:50:37.306769+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy theo buổi hay theo giờ",
+      "proposed_title": "Chỉ cần xe vài tiếng hay một buổi: hỏi cửa hàng có gói ngắn hơn một ngày không",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-theo-buoi-hay-theo-gio-nen-hoi-gi/",
+      "search_intent": "Người cần xe một buổi sáng để giải quyết giấy tờ hoặc gặp khách rồi trả luôn, muốn biết nên hỏi gì về thuê nửa ngày, theo buổi hoặc theo giờ thay vì mặc định thuê trọn ngày.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0005"
+    },
     "TH-VI-0006": {
       "admitted_at": "2026-10-23T07:26:56.982134+00:00",
       "category_id": 152,
@@ -19651,6 +20651,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0007": {
+      "admitted_at": "2026-10-24T03:50:37.319558+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy dịp nghỉ lễ dài ngày",
+      "proposed_title": "Thuê xe dịp nghỉ lễ dài ngày: hỏi gì về báo giá và nên chốt xe sớm đến mức nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-dip-nghi-le-dai-ngay-hoi-gi-ve-bao-gia/",
+      "search_intent": "Nhóm bạn định đi chơi Hà Nội dịp nghỉ lễ 30/4 hoặc 2/9, lo đông khách nên muốn biết cần xác nhận gì về báo giá, số xe còn lại và hạn chốt trước khi chuyển tiền cho cửa hàng.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0007"
+    },
     "TH-VI-0008": {
       "admitted_at": "2026-10-23T12:36:45.388359+00:00",
       "category_id": 152,
@@ -19674,6 +20698,54 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0008"
+    },
+    "TH-VI-0009": {
+      "admitted_at": "2026-10-24T03:50:37.332918+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thanh toán thuê xe máy chuyển khoản hay tiền mặt",
+      "proposed_title": "Trả tiền thuê xe bằng tiền mặt, chuyển khoản hay quét mã QR: chọn cách nào cho gọn",
+      "proposed_url": "https://rentbikehanoi.com/vi/thanh-toan-thue-xe-may-tien-mat-chuyen-khoan-hay-qr/",
+      "search_intent": "Người đi công tác không muốn mang nhiều tiền mặt, cân nhắc giữa tiền mặt, chuyển khoản và quét QR khi trả tiền thuê xe, cần chốt cách trả và ghi nội dung gì để sau này dễ đối chiếu.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0009"
+    },
+    "TH-VI-0010": {
+      "admitted_at": "2026-10-24T03:50:37.345940+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "giá thuê xe máy đã gồm mũ bảo hiểm áo mưa chưa",
+      "proposed_title": "Báo giá thuê xe đã gồm những gì: mũ bảo hiểm, áo mưa, khóa và giá đỡ điện thoại",
+      "proposed_url": "https://rentbikehanoi.com/vi/bao-gia-thue-xe-da-gom-mu-ao-mua-khoa-gia-do-dien-thoai/",
+      "search_intent": "Người thuê muốn biết phụ kiện nào nằm trong báo giá (mũ, áo mưa, khóa chống trộm, giá đỡ điện thoại) và món nào tính riêng, để dự trù đúng ngân sách và không bất ngờ lúc nhận xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0010"
     },
     "TH-VI-0011": {
       "admitted_at": "2026-10-23T07:26:56.990143+00:00",
@@ -19710,6 +20782,30 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0011"
+    },
+    "TH-VI-0012": {
+      "admitted_at": "2026-10-24T03:50:37.358555+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "hỏi ưu đãi khi thuê xe nhiều ngày",
+      "proposed_title": "Thuê nhiều ngày hoặc nhiều xe: hỏi ưu đãi sao cho lịch sự và rõ ràng",
+      "proposed_url": "https://rentbikehanoi.com/vi/hoi-uu-dai-khi-thue-nhieu-ngay-hoac-nhieu-xe/",
+      "search_intent": "Khách định thuê hai xe cả tuần muốn hỏi cửa hàng về ưu đãi theo thời gian hay số lượng nhưng ngại mặc cả, cần cách nhắn rõ nhu cầu và ghi lại những gì hai bên đã thống nhất.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0012"
     },
     "TH-VI-0013": {
       "admitted_at": "2026-10-23T12:36:45.318885+00:00",
@@ -19817,6 +20913,30 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0016"
     },
+    "TH-VI-0017": {
+      "admitted_at": "2026-10-24T03:50:37.371705+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "bảng giá thuê xe ghi liên hệ nghĩa là gì",
+      "proposed_title": "Bảng giá ghi “từ… trở lên” hoặc “liên hệ”: hiểu thế nào để không tính sai ngân sách",
+      "proposed_url": "https://rentbikehanoi.com/vi/doc-bang-gia-thue-xe-ghi-tu-tro-len-hoac-lien-he/",
+      "search_intent": "Người đọc bảng giá chỉ ghi mức khởi điểm hoặc chỉ ghi “liên hệ” cần biết cách hiểu các kiểu ghi này và những thông tin phải cung cấp cho cửa hàng để ra con số cụ thể theo xe và số ngày.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0017"
+    },
     "TH-VI-0018": {
       "admitted_at": "2026-10-23T11:56:51.622094+00:00",
       "category_id": 152,
@@ -19876,6 +20996,54 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0019"
+    },
+    "TH-VI-0020": {
+      "admitted_at": "2026-10-24T03:50:37.384720+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê hỏng có được trừ tiền ngày không dùng",
+      "proposed_title": "Xe hỏng giữa chừng mất cả ngày chờ sửa: cách tính tiền những ngày không dùng được",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-hong-giua-chung-tinh-tien-ngay-khong-dung-duoc/",
+      "search_intent": "Người thuê xe theo tuần gặp sự cố khiến cả ngày không có xe để đi, cần biết hỏi cửa hàng cách xử lý tiền thuê của ngày đó và nên ghi lại giờ báo hỏng, giờ có xe thay thế ra sao.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0020"
+    },
+    "TH-VI-0021": {
+      "admitted_at": "2026-10-24T03:50:37.397595+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nên đặt xe máy trước bao lâu",
+      "proposed_title": "Chốt xe trước vài tuần hay đến nơi mới hỏi: mỗi kiểu chuyến đi hợp cách nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/nen-dat-xe-may-truoc-bao-lau-hay-hoi-sat-ngay/",
+      "search_intent": "Người lên kế hoạch đi Hà Nội trong tháng tới băn khoăn nên chốt xe sớm hay đợi sát ngày, nhất là khi chưa chắc lịch tàu hoặc xe khách, và cần biết tình huống nào nên đặt trước.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0021"
     },
     "TH-VI-0022": {
       "admitted_at": "2026-10-23T11:56:51.636611+00:00",
@@ -19946,6 +21114,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0025": {
+      "admitted_at": "2026-10-24T03:50:37.411893+00:00",
+      "category_id": 152,
+      "category_path": [
+        140,
+        146,
+        152
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê thêm xe thứ hai giữa chuyến đi",
+      "proposed_title": "Bạn đi cùng đến Hà Nội sau vài ngày: thuê thêm xe thứ hai giữa chuyến thì tính ngày thuê và ngân sách ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/ban-di-cung-den-ha-noi-sau-vai-ngay-thue-them-xe-thu-hai-giua-chuyen/",
+      "search_intent": "Nhóm hoặc gia đình đã thuê một xe, mấy ngày sau có người ra Hà Nội muộn hơn và cần xe riêng; cần biết hỏi cửa hàng về ngày bắt đầu và ngày kết thúc của xe thứ hai, có xếp chung kỳ thuê với xe đầu không và cách ghi lại thỏa thuận mới.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0025"
     },
     "TH-VI-0026": {
       "admitted_at": "2026-10-23T12:36:45.349250+00:00",
@@ -20145,6 +21337,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0054": {
+      "admitted_at": "2026-10-24T03:50:37.425599+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "số người thân liên hệ khẩn cấp khi thuê xe máy",
+      "proposed_title": "Cửa hàng xin số người thân làm liên hệ khẩn cấp: nên cho số của ai và dặn họ điều gì trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/cua-hang-xin-so-nguoi-than-lam-lien-he-khan-cap-khi-thue-xe/",
+      "search_intent": "Người thuê được cửa hàng hỏi thêm số điện thoại của người thân và băn khoăn nên chọn ai, cần nói trước gì với họ, cửa hàng dùng số đó vào lúc nào và có thể hỏi về việc lưu trữ số điện thoại ra sao.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0054"
+    },
     "TH-VI-0058": {
       "admitted_at": "2026-10-23T07:26:57.054356+00:00",
       "category_id": 154,
@@ -20227,6 +21443,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0064": {
+      "admitted_at": "2026-10-24T03:50:37.438635+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy một tháng tính từ ngày nào",
+      "proposed_title": "Một tháng thuê xe tính từ ngày nào đến ngày nào: đủ ba mươi ngày hay theo tháng lịch",
+      "proposed_url": "https://rentbikehanoi.com/vi/mot-thang-thue-xe-tinh-tu-ngay-nao-den-ngay-nao/",
+      "search_intent": "Người nhận xe giữa tháng muốn biết kỳ thuê một tháng tính đủ ba mươi ngày từ ngày nhận hay theo tháng dương lịch, ngày trả cuối kỳ rơi vào đâu và cần ghi mốc nào vào hợp đồng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0064"
+    },
     "TH-VI-0065": {
       "admitted_at": "2026-10-23T12:36:45.358331+00:00",
       "category_id": 154,
@@ -20250,6 +21490,198 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0065"
+    },
+    "TH-VI-0068": {
+      "admitted_at": "2026-10-24T03:50:37.452004+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tạm trong lúc chờ xe mới",
+      "proposed_title": "Chờ xe mới về từ đại lý: thuê xe máy tạm vài tuần cần lưu ý gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-xe-moi-ve-tu-dai-ly-thue-xe-may-tam-vai-tuan-luu-y-gi/",
+      "search_intent": "Người đã đặt mua xe ở đại lý nhưng phải chờ vài tuần mới nhận, cần phương tiện đi làm trong thời gian chờ, muốn thuê tạm theo tuần và tránh bị ràng buộc kỳ hạn dài khi xe mới có thể về sớm.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0068"
+    },
+    "TH-VI-0069": {
+      "admitted_at": "2026-10-24T03:50:37.466119+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tạm khi xe nhà đang sửa",
+      "proposed_title": "Xe nhà đang sửa hoặc chờ bồi thường sau va chạm: thuê xe tạm trong thời gian chờ",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-nha-dang-sua-hoac-cho-boi-thuong-thue-xe-tam-trong-thoi-gian-cho/",
+      "search_intent": "Xe của người đi làm nằm gara lâu sau va chạm hoặc hỏng nặng, họ cần xe thay thế đi lại hằng ngày, muốn thuê tuần hay tháng và cần cách báo ngày trả dự kiến khi chưa rõ bao giờ lấy lại xe nhà.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0069"
+    },
+    "TH-VI-0072": {
+      "admitted_at": "2026-10-24T03:50:37.480056+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "về quê giữa kỳ thuê xe máy tháng",
+      "proposed_title": "Về quê một tuần giữa kỳ thuê tháng: để xe lại, trả tạm hay giữ nguyên hợp đồng",
+      "proposed_url": "https://rentbikehanoi.com/vi/ve-que-mot-tuan-giua-ky-thue-thang-de-xe-lai-tra-tam-hay-giu-nguyen/",
+      "search_intent": "Người thuê tháng sắp về quê nghỉ lễ hoặc ăn Tết một tuần, băn khoăn nên để xe ở đâu, có thể tạm trả rồi thuê lại hay giữ nguyên hợp đồng, và cần hỏi cửa hàng gì về tính tiền và gửi xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0072"
+    },
+    "TH-VI-0075": {
+      "admitted_at": "2026-10-24T03:50:37.493585+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe máy tháng đi làm ca đêm",
+      "proposed_title": "Làm ca sớm hoặc ca tối ở khu công nghiệp ven Hà Nội: thuê xe tháng và kiểm tra những gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/lam-ca-som-ca-toi-o-khu-cong-nghiep-ven-ha-noi-thue-xe-thang-kiem-tra-gi/",
+      "search_intent": "Công nhân hoặc kỹ thuật viên làm ca sớm, ca tối ở khu công nghiệp ngoại thành phải đi đường vắng lúc trời tối, muốn thuê tháng và cần biết kiểm tra đèn, phanh, hỏi giờ nhận trả xe hợp với ca làm.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0075"
+    },
+    "TH-VI-0076": {
+      "admitted_at": "2026-10-24T03:50:37.508337+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe tháng giữ một chiếc xe cố định",
+      "proposed_title": "Thuê tháng muốn giữ nguyên một chiếc xe suốt kỳ: hỏi gì về việc bị đổi xe ngoài ý muốn",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-thang-muon-giu-nguyen-mot-chiec-xe-hoi-gi-ve-viec-bi-doi-xe/",
+      "search_intent": "Người thuê tháng muốn quen một chiếc xe duy nhất, ghi lại biển số và các đặc điểm riêng của xe, cần hỏi cửa hàng khi nào xe có thể bị đổi, báo trước bằng cách nào và nên ghi điều đó vào hợp đồng ra sao.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0076"
+    },
+    "TH-VI-0086": {
+      "admitted_at": "2026-10-24T03:50:37.524118+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê sau giờ hành chính",
+      "proposed_title": "Nhận và trả xe quanh giờ làm việc: nên hẹn trước hay sau giờ hành chính",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-va-tra-xe-quanh-gio-lam-viec-hen-truoc-hay-sau-gio-hanh-chinh/",
+      "search_intent": "Người đi làm văn phòng chỉ rảnh sớm buổi sáng hoặc chiều tối muốn xếp lịch nhận và trả xe mà không phải xin nghỉ, cần hỏi cửa hàng về khung giờ phục vụ và cách báo trước nếu tan ca muộn.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0086"
+    },
+    "TH-VI-0087": {
+      "admitted_at": "2026-10-24T03:50:37.538089+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê chiều hôm trước để đi sớm",
+      "proposed_title": "Nhận xe chiều hôm trước để đi từ tinh mơ: để xe qua đêm ở đâu và nhận thế nào cho kịp",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-chieu-hom-truoc-de-di-tu-tinh-mo-de-xe-qua-dem-o-dau/",
+      "search_intent": "Người định xuất phát lúc năm sáu giờ sáng để đi xa muốn nhận xe từ chiều hôm trước vì cửa hàng chưa mở, cần cân nhắc chỗ để xe qua đêm, kiểm tra xe ban ngày và hỏi cửa hàng cách sắp xếp.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0087"
+    },
+    "TH-VI-0088": {
+      "admitted_at": "2026-10-24T03:50:37.551748+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận xe thuê buổi tối kiểm tra bằng đèn điện thoại",
+      "proposed_title": "Nhận xe lúc trời tối hoặc đang mưa: kiểm tra xe bằng đèn điện thoại cho đúng cách",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-thue-luc-troi-toi-hoac-dang-mua-kiem-tra-bang-den-dien-thoai/",
+      "search_intent": "Khách đến nhận xe sau khi trời tối hoặc đúng lúc mưa, thiếu sáng để nhìn vết xước và lốp, muốn biết nên dùng đèn điện thoại, hẹn lại hay thống nhất ghi nhận gì để không bỏ sót tình trạng xe.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0088"
     },
     "TH-VI-0089": {
       "admitted_at": "2026-10-23T07:53:31.978741+00:00",
@@ -20356,6 +21788,30 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0093"
     },
+    "TH-VI-0094": {
+      "admitted_at": "2026-10-24T03:50:37.565654+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "trả xe thuê bị bám bùn có phải rửa không",
+      "proposed_title": "Trả xe bám đầy bùn sau chuyến đi mưa: nên rửa trước khi trả hay để cửa hàng xử lý",
+      "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-bam-day-bun-sau-chuyen-di-mua-rua-truoc-hay-de-cua-hang/",
+      "search_intent": "Sau chuyến đi ngoại thành gặp mưa, xe dính nhiều bùn đất, người thuê phân vân tự rửa trước khi trả hay để nguyên, cần hỏi cửa hàng quy ước vệ sinh và cách chụp ảnh tình trạng xe trước khi rửa.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0094"
+    },
     "TH-VI-0095": {
       "admitted_at": "2026-10-23T07:53:31.997747+00:00",
       "category_id": 155,
@@ -20402,6 +21858,30 @@
         "INTERNAL_LINKS"
       ]
     },
+    "TH-VI-0100": {
+      "admitted_at": "2026-10-24T03:50:37.580343+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "kéo vali đến nhận xe thuê gửi hành lý ở đâu",
+      "proposed_title": "Kéo vali đến nhận xe thuê: hỏi chỗ gửi đồ và cách xếp hành lý lên xe ngay tại cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/keo-vali-den-nhan-xe-thue-hoi-cho-gui-do-va-cach-xep-hanh-ly/",
+      "search_intent": "Người vừa xuống tàu hoặc xe khách, còn vali và túi lớn, đến nhận xe và cần biết hỏi cửa hàng về chỗ gửi đồ tạm, cách xếp hành lý lên xe cho an toàn trước khi đi tiếp, thay vì loay hoay ngoài ngõ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0100"
+    },
     "TH-VI-0101": {
       "admitted_at": "2026-10-23T07:53:32.008938+00:00",
       "category_id": 155,
@@ -20447,6 +21927,30 @@
         "FEATURED_MEDIA",
         "INTERNAL_LINKS"
       ]
+    },
+    "TH-VI-0105": {
+      "admitted_at": "2026-10-24T03:50:37.595180+00:00",
+      "category_id": 155,
+      "category_path": [
+        140,
+        146,
+        155
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "đến nhận xe thuê nhưng xe chưa sẵn sàng",
+      "proposed_title": "Đến đúng giờ hẹn nhưng xe chưa về hoặc chưa kiểm xong: chờ bao lâu là hợp lý và giờ thuê tính từ lúc nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/den-dung-gio-hen-nhung-xe-chua-ve-hoac-chua-kiem-xong-cho-bao-lau/",
+      "search_intent": "Người đã hẹn giờ nhận xe, tới nơi thấy xe chưa được trả về hoặc còn đang kiểm tra; cần hỏi nhân viên về thời gian chờ, giờ bắt đầu tính thuê, phương án xe thay thế hoặc dời giờ, và nhắn lại điều gì để hai bên cùng nhớ đúng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0105"
     },
     "TH-VI-0121": {
       "admitted_at": "2026-10-23T13:00:04.418980+00:00",
@@ -20519,6 +22023,30 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0134"
+    },
+    "TH-VI-0139": {
+      "admitted_at": "2026-10-24T03:50:37.608938+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "đi làm hằng ngày nên chọn xe số hay xe ga",
+      "proposed_title": "Đi làm hằng ngày qua nhiều đèn đỏ: xe số hay xe ga ít mệt tay và mệt chân hơn",
+      "proposed_url": "https://rentbikehanoi.com/vi/di-lam-hang-ngay-qua-nhieu-den-do-xe-so-hay-xe-ga/",
+      "search_intent": "Người đi làm mỗi sáng qua nhiều giao lộ đông, cân nhắc thuê xe số hay xe ga, cần so độ mệt của chân trái, độ dễ luồn ngõ với tiện lợi của xe ga để quyết định trước khi thuê theo tuần.",
+      "sources": [
+        {
+          "document": "1a9e8b6564317b58b37d90f36e5d85868d713ad1e42b05cae6a736191480c058",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0139"
     },
     "TH-VI-0140": {
       "admitted_at": "2026-10-23T12:36:45.368297+00:00",
@@ -20616,6 +22144,30 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0158"
     },
+    "TH-VI-0176": {
+      "admitted_at": "2026-10-24T03:50:37.623901+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "language": "vi",
+      "primary_keyword": "thuê xe điện theo tháng pin yếu đổi pin",
+      "proposed_title": "Thuê xe điện theo tháng mà pin yếu dần giữa kỳ: các câu hỏi về đổi pin và quãng đường cần có trong thỏa thuận",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-dien-theo-thang-pin-yeu-dan-giua-ky-thue/",
+      "search_intent": "Người thuê xe điện dài ngày thấy quãng đường mỗi lần sạc ngắn dần, muốn biết cách ghi nhận, báo cửa hàng, và điều khoản nào (đổi pin, đổi xe) cần thỏa thuận từ đầu thay vì tranh cãi khi pin đã yếu.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0176"
+    },
     "TH-VI-0197": {
       "admitted_at": "2026-10-23T12:36:45.378678+00:00",
       "category_id": 159,
@@ -20639,6 +22191,30 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0197"
+    },
+    "TH-VI-0211": {
+      "admitted_at": "2026-10-24T03:50:37.637866+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "hao mòn thông thường xe thuê hư hỏng",
+      "proposed_title": "Hao mòn thông thường hay hư hỏng do sử dụng: cách phân biệt khi cửa hàng nhận lại xe thuê",
+      "proposed_url": "https://rentbikehanoi.com/vi/hao-mon-thong-thuong-hay-hu-hong-do-su-dung-xe-thue/",
+      "search_intent": "Người sắp trả xe muốn biết nên hỏi cửa hàng dựa vào tiêu chí nào để coi vết xước, lốp mòn hay phanh mòn là hao mòn thông thường hay hư hỏng do sử dụng, và nên ghi rõ điều đó ở đâu từ lúc ký.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0211"
     },
     "TH-VI-0217": {
       "admitted_at": "2026-10-23T07:53:32.021215+00:00",
@@ -20710,6 +22286,30 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0218"
     },
+    "TH-VI-0221": {
+      "admitted_at": "2026-10-24T03:50:37.653377+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "thuê xe tháng việc nhỏ tự làm hay hỏi cửa hàng",
+      "proposed_title": "Thuê xe theo tháng: bơm lốp, lau xích hay thay bóng đèn, việc nhỏ nào tự làm được và việc nào hỏi cửa hàng trước",
+      "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-theo-thang-viec-nho-nao-tu-lam-viec-nao-hoi-cua-hang/",
+      "search_intent": "Người thuê xe theo tháng quen tự chăm xe, muốn bơm lốp, lau xích hay thay bóng xi nhan; cần hỏi cửa hàng việc nào được tự làm, việc nào phải để cửa hàng làm, và ghi rõ trong thỏa thuận để cuối kỳ không phát sinh tranh cãi.",
+      "sources": [
+        {
+          "document": "9d2cce02c106ebf5cf8e6054d3255a77a82225144ebe6b240c2e3196323464bb",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0221"
+    },
     "TH-VI-0224": {
       "admitted_at": "2026-10-23T12:36:45.399058+00:00",
       "category_id": 160,
@@ -20733,6 +22333,126 @@
       ],
       "status": "PLANNED",
       "topic_id": "TH-VI-0224"
+    },
+    "TH-VI-0246": {
+      "admitted_at": "2026-10-24T03:50:37.672493+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "tiệm sửa xe ven đường mời thay phụ tùng xe thuê",
+      "proposed_title": "Tiệm sửa xe ven đường báo xe có lỗi và mời thay phụ tùng: hỏi cửa hàng trước khi đồng ý",
+      "proposed_url": "https://rentbikehanoi.com/vi/tiem-sua-xe-ven-duong-moi-thay-phu-tung-xe-thue-hoi-cua-hang/",
+      "search_intent": "Người thuê dừng xe nhờ tiệm ven đường xem hộ, bị báo nhiều hạng mục cần thay ngay, không biết nên tin hay không, cần biết nên chụp ảnh, xin báo giá bằng chữ và gọi cửa hàng xác nhận trước khi đồng ý sửa gì.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0246"
+    },
+    "TH-VI-0247": {
+      "admitted_at": "2026-10-24T03:50:37.690385+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê thủng lốp ai chịu chi phí vá lốp",
+      "proposed_title": "Xe thuê thủng lốp giữa đường: vá tạm ở tiệm gần nhất hay chờ cửa hàng, và chi phí ai chịu",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-thung-lop-giua-duong-va-tam-hay-cho-cua-hang/",
+      "search_intent": "Người thuê bị đinh đâm thủng lốp ở nơi có tiệm vá gần, cân nhắc nhờ vá ngay hay chờ cửa hàng hướng dẫn, cần biết hỏi gì về chi phí, biên lai và việc thay lốp mới nếu thợ nói không vá được.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0247"
+    },
+    "TH-VI-0248": {
+      "admitted_at": "2026-10-24T03:50:37.707794+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê gặp sự cố gọi điện hay nhắn tin cho cửa hàng",
+      "proposed_title": "Xe gặp sự cố: gọi điện hay nhắn tin cho cửa hàng trước, và tin nhắn đầu tiên cần có gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-gap-su-co-goi-dien-hay-nhan-tin-cho-cua-hang-truoc/",
+      "search_intent": "Người thuê gặp trục trặc ở nơi ồn hoặc sóng yếu, phân vân nên gọi điện hay nhắn tin trước, cần biết nên lưu sẵn số cửa hàng, gửi vị trí, biển số và ảnh nào để cửa hàng phản hồi nhanh hơn.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0248"
+    },
+    "TH-VI-0250": {
+      "admitted_at": "2026-10-24T03:50:37.723318+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "xe thuê bị trầy xước nhẹ báo cửa hàng lúc nào",
+      "proposed_title": "Xe thuê bị trầy xước nhẹ khi dắt vào ngõ hẹp: báo cửa hàng ngay hay đợi đến lúc trả xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-tray-xuoc-nhe-trong-ngo-hep-bao-ngay-hay-doi-luc-tra/",
+      "search_intent": "Người thuê dắt xe vào ngõ nhỏ chợt quệt vào tường, để lại vết xước ở yếm hoặc tay lái, phân vân giữa báo ngay và đợi lúc trả xe, cần biết cách báo sớm kèm ảnh và hỏi cửa hàng cách xác nhận mức độ.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0250"
+    },
+    "TH-VI-0251": {
+      "admitted_at": "2026-10-24T03:50:37.739358+00:00",
+      "category_id": 161,
+      "category_path": [
+        140,
+        148,
+        161
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "tự ngã xe máy thuê trên đường trơn báo cửa hàng",
+      "proposed_title": "Tự trượt ngã khi đang chạy xe thuê, không va vào ai: lo cho người trước, rồi mới ghi nhận xe và báo cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/tu-truot-nga-khi-chay-xe-thue-lo-cho-nguoi-truoc-roi-bao-cua-hang/",
+      "search_intent": "Người thuê một mình trượt bánh và ngã trên mặt đường ướt, không có xe hay người nào khác dính vào; cần biết thứ tự việc phải làm khi còn đau, xe nằm giữa đường và chưa rõ nên chạy tiếp hay gọi cửa hàng.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0251"
     },
     "TH-VI-0263": {
       "admitted_at": "2026-10-23T13:00:04.430804+00:00",
@@ -20853,6 +22573,30 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0371"
+    },
+    "TH-VI-0373": {
+      "admitted_at": "2026-10-24T03:50:37.756035+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "dặn người ngồi sau khi chở xe máy phanh vào cua",
+      "proposed_title": "Chở người ngồi sau chưa quen xe máy: dặn trước điều gì khi phanh, vào cua và lên xuống để xe không mất thăng bằng",
+      "proposed_url": "https://rentbikehanoi.com/vi/dan-nguoi-ngoi-sau-chua-quen-xe-may-khi-phanh-vao-cua-len-xuong/",
+      "search_intent": "Người thuê xe chở bạn hoặc người nhà chưa quen ngồi sau, hay nghiêng ngược lúc vào cua hoặc ôm chặt khi phanh; cần biết nên dặn những gì trước khi chạy và thống nhất tín hiệu đơn giản để hai người phối hợp.",
+      "sources": [
+        {
+          "document": "1a872424ce9c251984735d2ac62e47502079a74a56ba677b47f51ea7ff5f8950",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0373"
     },
     "TH-VI-0445": {
       "admitted_at": "2026-10-23T13:00:04.441257+00:00",
@@ -20975,5 +22719,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 956
+  "version": 957
 }
