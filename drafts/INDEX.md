@@ -4,6 +4,7 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 
 | Topic | Language | Status | Waiting for | QA | Units | Title |
 |---|---|---|---|---|---|---|
+| [TH-VI-0001](vi/TH-VI-0001.json) | vi | READY | — | PASS | 1167 | Gia đình từ tỉnh lên Hà Nội vài ngày: thuê hai xe máy hay gọi xe công nghệ cho cả nhà |
 | [TH-VI-0003](vi/TH-VI-0003.json) | vi | READY | — | PASS | 1140 | Ở Hà Nội khoảng một tuần: thuê xe theo ngày hay theo tuần thì tính thế nào |
 | [TH-VI-0004](vi/TH-VI-0004.json) | vi | PUBLISHED | — | PASS | 1082 | Một ngày thuê xe tính theo 24 giờ hay theo ngày lịch: đọc kỹ giờ nhận và giờ trả |
 | [TH-VI-0005](vi/TH-VI-0005.json) | vi | READY | — | PASS | 988 | Chỉ cần xe vài tiếng hay một buổi: hỏi cửa hàng có gói ngắn hơn một ngày không |
@@ -48,17 +49,22 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0093](vi/TH-VI-0093.json) | vi | PUBLISHED | — | PASS | 1327 | Trả xe muộn vì kẹt xe hoặc mưa lớn: nhắn cửa hàng thế nào và hỏi cách tính ra sao |
 | [TH-VI-0094](vi/TH-VI-0094.json) | vi | READY | — | PASS | 1023 | Trả xe bám đầy bùn sau chuyến đi mưa: nên rửa trước khi trả hay để cửa hàng xử lý |
 | [TH-VI-0095](vi/TH-VI-0095.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 892 | Kết thúc kỳ thuê tháng: lịch trả xe, kiểm tra cuối kỳ và nhận lại cọc |
+| [TH-VI-0097](vi/TH-VI-0097.json) | vi | READY | — | PASS | 1063 | Trước khi rời cửa hàng: lưu số liên hệ nào và kênh nào nhanh nhất khi cần việc gấp |
+| [TH-VI-0099](vi/TH-VI-0099.json) | vi | READY | — | PASS | 1055 | Một buổi nhận xe kéo dài bao lâu: lên lịch cho kịp chuyến tàu, lịch họp hay giờ nhận phòng |
 | [TH-VI-0100](vi/TH-VI-0100.json) | vi | READY | — | PASS | 1046 | Kéo vali đến nhận xe thuê: hỏi chỗ gửi đồ và cách xếp hành lý lên xe ngay tại cửa hàng |
 | [TH-VI-0101](vi/TH-VI-0101.json) | vi | HELD | AUTHORITATIVE_INVENTORY, FEATURED_MEDIA, INTERNAL_LINKS | not run | 914 | Trả xe sau giờ cửa hàng đóng cửa vì tăng ca hoặc chuyến về muộn: hỏi trước chìa khóa để đâu và ai xác nhận hiện trạng xe |
+| [TH-VI-0102](vi/TH-VI-0102.json) | vi | READY | — | PASS | 1097 | Nhờ cửa hàng đến lấy xe thay vì tự mang trả: thời điểm tính hết hạn thuê và ai chịu trách nhiệm khi xe chờ ở nhà |
 | [TH-VI-0105](vi/TH-VI-0105.json) | vi | READY | — | PASS | 1004 | Đến đúng giờ hẹn nhưng xe chưa về hoặc chưa kiểm xong: chờ bao lâu là hợp lý và giờ thuê tính từ lúc nào |
 | [TH-VI-0121](vi/TH-VI-0121.json) | vi | READY | — | PASS | 1123 | Nhóm bạn đi chung nhiều xe: nên thuê cùng loại xe ga để không ai phải chờ ai? |
 | [TH-VI-0128](vi/TH-VI-0128.json) | vi | READY | — | PASS | 1155 | Thuê xe ga một tuần để thử trước khi quyết định mua: cần quan sát những gì trong những ngày đầu |
 | [TH-VI-0134](vi/TH-VI-0134.json) | vi | PUBLISHED | — | PASS | 1236 | Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe |
 | [TH-VI-0139](vi/TH-VI-0139.json) | vi | READY | — | PASS | 1104 | Đi làm hằng ngày qua nhiều đèn đỏ: xe số hay xe ga ít mệt tay và mệt chân hơn |
 | [TH-VI-0140](vi/TH-VI-0140.json) | vi | READY | — | PASS | 1067 | Sinh viên thuê xe theo tháng: xe số hay xe ga hợp với nhà trọ chật, bãi gửi ký túc xá và đường đi học |
+| [TH-VI-0142](vi/TH-VI-0142.json) | vi | READY | — | PASS | 987 | Hỏi thuê xe côn tay: mẫu tin nhắn nêu kinh nghiệm lái, hạng bằng và quãng đường dự kiến |
 | [TH-VI-0146](vi/TH-VI-0146.json) | vi | PUBLISHED | — | PASS | 1249 | Đi dép lê hay giày khi lái xe số và xe côn: cần số có thể làm gì với mũi chân |
 | [TH-VI-0151](vi/TH-VI-0151.json) | vi | PUBLISHED | — | PASS | 1143 | Bố mẹ đã quen xe số cả đời: thuê xe số quen tay hay thử xe ga cho đỡ mỏi? |
 | [TH-VI-0158](vi/TH-VI-0158.json) | vi | PUBLISHED | — | PASS | 1202 | Chở người ngồi sau bằng xe số: sang số thế nào để người ngồi sau không bị gật đầu hay dồn vào lưng bạn |
+| [TH-VI-0174](vi/TH-VI-0174.json) | vi | READY | — | PASS | 987 | Xe điện có định vị của chủ xe: người thuê nên biết dữ liệu hành trình được dùng vào việc gì |
 | [TH-VI-0176](vi/TH-VI-0176.json) | vi | READY | — | PASS | 996 | Thuê xe điện theo tháng mà pin yếu dần giữa kỳ: các câu hỏi về đổi pin và quãng đường cần có trong thỏa thuận |
 | [TH-VI-0197](vi/TH-VI-0197.json) | vi | READY | — | PASS | 1163 | Mấy bạn cùng phòng dùng chung một xe thuê tháng: cách ghi sổ và chia tiền xăng cho công bằng |
 | [TH-VI-0211](vi/TH-VI-0211.json) | vi | READY | — | PASS | 1019 | Hao mòn thông thường hay hư hỏng do sử dụng: cách phân biệt khi cửa hàng nhận lại xe thuê |
@@ -71,6 +77,8 @@ Derived from the ledger by `python3 scripts/export_drafts.py`; the ledger is the
 | [TH-VI-0248](vi/TH-VI-0248.json) | vi | READY | — | PASS | 1115 | Xe gặp sự cố: gọi điện hay nhắn tin cho cửa hàng trước, và tin nhắn đầu tiên cần có gì |
 | [TH-VI-0250](vi/TH-VI-0250.json) | vi | READY | — | PASS | 1016 | Xe thuê bị trầy xước nhẹ khi dắt vào ngõ hẹp: báo cửa hàng ngay hay đợi đến lúc trả xe |
 | [TH-VI-0251](vi/TH-VI-0251.json) | vi | READY | — | PASS | 1073 | Tự trượt ngã khi đang chạy xe thuê, không va vào ai: lo cho người trước, rồi mới ghi nhận xe và báo cửa hàng |
+| [TH-VI-0255](vi/TH-VI-0255.json) | vi | READY | — | PASS | 1041 | Phụ kiện khi thuê xe máy: món nào hỏi thuê kèm xe, món nào nên tự mua trước chuyến đi |
+| [TH-VI-0256](vi/TH-VI-0256.json) | vi | READY | — | PASS | 983 | Khẩu trang cho giờ cao điểm Hà Nội: loại nào vừa lọc bụi vừa không che tầm nhìn khi đi xe máy |
 | [TH-VI-0260](vi/TH-VI-0260.json) | vi | READY | — | PASS | 1240 | Gắn thêm baga, giỏ hoặc giá đỡ lên xe thuê tháng: món nào được giữ lại, món nào phải tháo trước khi trả |
 | [TH-VI-0261](vi/TH-VI-0261.json) | vi | READY | — | PASS | 1211 | Khóa đĩa, khóa chữ U hay dây xích cho xe thuê: chọn loại khóa phụ nào khi gửi xe qua đêm |
 | [TH-VI-0262](vi/TH-VI-0262.json) | vi | READY | — | PASS | 1120 | Camera hành trình cho xe máy thuê: gắn lên mũ hay lên xe, và cần xin phép cửa hàng điều gì |

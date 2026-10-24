@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-VI11",
+  "article": {
+    "agent_id": "claude-writer-VI11",
+    "body_html": "<p>Bạn đã quen lái xe côn tay ở quê hoặc ở nhà, và khi ra Hà Nội bạn muốn thuê đúng loại xe đó. Vấn đề là bạn chưa biết cửa hàng có loại này không, cần nói gì để cửa hàng tư vấn sát, và làm sao để một tin nhắn ngắn vẫn đủ ý. Chưa có xác nhận nào rằng Thuê xe máy Nguyễn Hà có xe côn tay, nên đừng mặc định, và đừng lấy giá xe số thường làm giá của loại này. Dưới đây là những thông tin nên đưa vào tin nhắn, ba mẫu để chọn theo mức độ kinh nghiệm của bạn và vài điều cần kiểm tra khi nhận xe.</p>\n\n<h2>Xe côn tay khác xe số thường ở đâu</h2>\n<p>Xe côn tay có thêm tay côn ở bên trái tay lái. Người lái bóp tay côn mỗi khi sang số hoặc dừng xe, và nhả côn từ từ khi lấy đà. Với xe số thường không có tay côn, thao tác này không cần đến. Vì vậy cùng gọi là \"xe số\", hai loại xe lại đòi hỏi kỹ năng khác nhau, và cửa hàng cần biết bạn đã quen loại nào trước khi tư vấn.</p>\n\n<h2>Những thông tin nên có trong tin nhắn</h2>\n<table>\n<thead><tr><th>Thông tin</th><th>Vì sao cửa hàng cần</th></tr></thead>\n<tbody>\n<tr><td>Loại xe bạn muốn, và bạn có chấp nhận xe số thường nếu không có xe côn tay không</td><td>Để họ biết có thể đưa phương án nào</td></tr>\n<tr><td>Kinh nghiệm lái xe côn tay của bạn: đã lái loại nào, trong bao lâu, ở đường nào</td><td>Để tư vấn đúng xe và nhắc những điều cần chú ý</td></tr>\n<tr><td>Quãng đường và địa hình dự kiến: trong phố, ra ngoại thành hay đi đường đèo</td><td>Xe và cách lái hợp với từng loại đường khác nhau</td></tr>\n<tr><td>Có chở người ngồi sau hoặc nhiều hành lý không</td><td>Ảnh hưởng đến cách điều khiển xe</td></tr>\n<tr><td>Ngày nhận và số ngày thuê</td><td>Để họ báo còn xe và giá</td></tr>\n<tr><td>Giấy tờ bạn cần mang và cách thanh toán</td><td>Chưa có xác nhận, nên hỏi thay vì đoán</td></tr>\n</tbody>\n</table>\n<p>Hãy nói đúng sự thật về kinh nghiệm của bạn. Một câu trả lời thẳng thắn như \"mình mới lái được vài tuần\" giúp cửa hàng tư vấn đúng, và giúp chính bạn tránh một chiếc xe quá sức.</p>\n\n<h2>Ba mẫu tin nhắn</h2>\n<p><strong>Mẫu ngắn,</strong> cho người đã quen xe côn tay:</p>\n<p>\"Chào cửa hàng, mình muốn thuê một xe côn tay từ [ngày] trong [số] ngày. Cửa hàng có loại này không ạ? Nếu có, cho mình hỏi giá và những gì đã gồm trong giá. Cảm ơn cửa hàng.\"</p>\n<p><strong>Mẫu đầy đủ,</strong> khi bạn muốn cửa hàng tư vấn:</p>\n<p>\"Chào cửa hàng, mình đã lái xe côn tay [số năm hoặc số tháng] ở [thành phố hoặc loại đường]. Mình định đi [trong phố / ra ngoại thành / đường đèo], [một mình / có người ngồi sau], từ [ngày] đến [ngày]. Cửa hàng có xe côn tay không, và nếu có thì loại nào hợp với chuyến đi này ạ? Mình cần mang những giấy tờ gì, và giá cùng cách thanh toán thế nào? Nếu không có xe côn tay thì cửa hàng gợi ý giúp mình xe số thường được không?\"</p>\n<p><strong>Mẫu cho người còn tập,</strong> khi bạn chưa thạo (bài <a href=\"https://rentbikehanoi.com/vi/chua-tung-lai-con-tay-co-nen-thue-khong/\">Chưa từng lái côn tay có nên thuê không: ba câu hỏi tự đánh giá trước khi đặt xe</a> giúp bạn tự đánh giá trước khi đặt xe):</p>\n<p>\"Chào cửa hàng, mình mới tập xe côn tay nên chưa thạo lắm, và muốn hỏi xem cửa hàng có loại xe nào hợp với người mới không. Mình dự định chỉ chạy trong phố [số ngày] ngày. Cửa hàng có thể tư vấn giúp mình, hoặc nói rõ có cho mình thử ở chỗ vắng trước khi chốt không ạ? Mình cũng muốn hỏi nếu mình thấy xe không hợp thì có đổi sang xe số thường được không. Cảm ơn cửa hàng.\"</p>\n\n<h2>Điều nên tránh khi nhắn</h2>\n<ul>\n<li><strong>Nói quá kinh nghiệm để được thuê xe.</strong> Cháy côn hay đổ xe không chỉ làm hỏng xe mà còn nguy hiểm cho bạn và người ngồi sau.</li>\n<li><strong>Mặc định có xe và hẹn luôn giờ nhận,</strong> khi cửa hàng chưa xác nhận có loại này.</li>\n<li><strong>Chốt chuyến đi và mua vé trước</strong> khi chưa có câu trả lời về xe.</li>\n<li><strong>Nhắn nhiều tin ngắn liên tiếp.</strong> Một tin đầy đủ ý dễ được trả lời hơn năm tin rời rạc.</li>\n</ul>\n\n<h2>Khi cửa hàng trả lời</h2>\n<ul>\n<li><strong>Có xe côn tay:</strong> hỏi giá, xin ảnh chiếc xe, và ngày giờ có thể nhận.</li>\n<li><strong>Không có xe côn tay:</strong> hỏi cửa hàng có xe số thường hay xe ga phù hợp với chuyến đi, và cân nhắc xem có chấp nhận đổi loại không.</li>\n<li><strong>Chưa chắc:</strong> nhờ cửa hàng gọi lại hoặc hẹn giờ trả lời cụ thể, thay vì chờ không có hạn.</li>\n</ul>\n<p>Hãy ghi lại câu trả lời, nhất là tên loại xe, giá và những gì đã gồm.</p>\n\n<h2>Khi nhận xe côn tay</h2>\n<ol>\n<li><strong>Bóp thử tay côn:</strong> tay có quá rơ hoặc quá cứng không, và có trả về nhẹ nhàng không.</li>\n<li><strong>Thử sang số ở chỗ vắng,</strong> lên và xuống từng số, để nghe và cảm nhận xe có mượt không.</li>\n<li><strong>Thử phanh trước và sau</strong> ở tốc độ chậm.</li>\n<li><strong>Chạy vài vòng ở nơi vắng</strong> trước khi ra đường đông, nhất là khi bạn chưa quen xe này.</li>\n<li><strong>Chụp ảnh xe,</strong> đồng hồ và các vết sẵn có, như với mọi xe thuê.</li>\n</ol>\n<p>Nếu bạn thấy xe không hợp sau những lần thử đầu, hãy dừng và nói với cửa hàng, thay vì cố chạy tiếp.</p>\n\n<p>Trước khi gửi tin, bạn có thể xem thêm <a href=\"https://rentbikehanoi.com/vi/cau-hoi-thuong-gap/\">câu hỏi thường gặp khi thuê xe máy</a> và trang <a href=\"https://rentbikehanoi.com/vi/lien-he/\">liên hệ Thuê xe máy Nguyễn Hà</a>; số điện thoại của cửa hàng là <a href=\"tel:+84334699969\">0334 699 969</a>.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/mau-tin-nhan-hoi-thue-xe-con-tay/",
+    "category_id": 157,
+    "featured_media": null,
+    "focus_keyword": "mẫu tin nhắn hỏi thuê xe côn tay",
+    "language": "vi",
+    "meta_description": "Chưa biết cửa hàng có xe côn tay không? Thông tin nên đưa vào tin nhắn, ba mẫu cho người đã quen và người còn tập, và điều cần kiểm tra khi nhận xe.",
+    "seo_title": "Hỏi thuê xe côn tay: mẫu tin nhắn nêu kinh nghiệm lái, quãng đường dự kiến",
+    "session": "vi-b11-20261024",
+    "source_commit": "36489e078f2867b306481ac0eba92b1686d9117a",
+    "sources": [
+      {
+        "document": "24fa2ef6737b2490e8b7b5b8560fa8e85ee64e7a7ee26f8b641605e04e80d521",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Hỏi thuê xe côn tay: mẫu tin nhắn nêu kinh nghiệm lái, hạng bằng và quãng đường dự kiến",
+    "topic_id": "TH-VI-0142"
+  },
+  "article_sha": "2f2af5cf2bfea62abddd1422e62722ad076b2ce2adc361b3c43aee9bb9811cca",
+  "category_id": 157,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/mau-tin-nhan-hoi-thue-xe-con-tay/",
+  "qa": {
+    "report_sha": "1d8f7196bf8a7a3bef42bfa6c9caeac71874e35bae20816415fb2fbb8b9ba328",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "24fa2ef6737b2490e8b7b5b8560fa8e85ee64e7a7ee26f8b641605e04e80d521"
+  ],
+  "source_evidence": {
+    "24fa2ef6737b2490e8b7b5b8560fa8e85ee64e7a7ee26f8b641605e04e80d521": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-24T04:41:22.945103+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T09:26:13.529981+00:00",
+  "topic_id": "TH-VI-0142",
+  "waiting_for": []
+}
