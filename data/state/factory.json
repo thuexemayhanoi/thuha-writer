@@ -13941,6 +13941,15 @@
       "previous": "a9a072b0a1cdde7cdf22ce4839159fe837bc4463fe61ee384f547250fbf3fe6f",
       "sha256": "e7971f90fd44ca4b5fd70888866ad532678b565fbabddbfe5727b0ccfd77b6bc",
       "topic_id": "TH-000061"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:34:58.109890+00:00",
+      "previous": "e7971f90fd44ca4b5fd70888866ad532678b565fbabddbfe5727b0ccfd77b6bc",
+      "report_sha": "14e9e1b1c3bd142c90f0e78682ed3014af7e09a95c7ffc5476b7b061a3e44859",
+      "sha256": "0256c3d9a245995f523a1dd74c6942032bae0eb472e808ef9d60579e69838f9a",
+      "status": "PASS",
+      "topic_id": "TH-000061"
     }
   ],
   "intents": {
@@ -24161,19 +24170,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN13",
-      "expires_at": 1792857889.103564,
-      "fence": "4ad64a25d7594c4bae7d2bfea40d2b15",
-      "heartbeat_at": "2026-10-24T15:34:49.103540+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b13-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000061"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24333,6 +24330,11 @@
     "TH-000060": {
       "article_sha": "7d0a5e1d0f3645a1b9d2d16cfdc590c152d377be74c9ac415e2de2150801344f",
       "report_sha": "74d63183b8574382d5431b36ea238b179feb49e671a9f244ae727f27b0eb3d07",
+      "status": "PASS"
+    },
+    "TH-000061": {
+      "article_sha": "5579c853684fdb6e4665c7caf030167dc4c3bc469b0664365dde01fbb95f3e25",
+      "report_sha": "14e9e1b1c3bd142c90f0e78682ed3014af7e09a95c7ffc5476b7b061a3e44859",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -30767,7 +30769,7 @@
           "url": "https://hungyen.gov.vn/quyet-dinh-quy-dinh-lo-trinh-ap-dung-quy-chuan-ky-thuat-quoc-gia-ve-khi-thai-xe-mo-to-xe-gan-may-c285813.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000061"
     },
     "TH-EN-0001": {
@@ -37749,5 +37751,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2358
+  "version": 2359
 }
