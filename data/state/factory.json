@@ -12297,6 +12297,15 @@
       "sha256": "74e0bdb91a13cdd28f6574d3ca7530970ce780c699d305cd2c6f5f45d835b020",
       "slot": "W1",
       "topic_id": "TH-000051"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "733fe132c5bd530dc7dbad6229941a9e769ee790d93e1abfab1445c4eb12a888",
+      "at": "2026-10-24T15:05:25.282053+00:00",
+      "previous": "74e0bdb91a13cdd28f6574d3ca7530970ce780c699d305cd2c6f5f45d835b020",
+      "sha256": "a39119a9900b73d47c11ef3658696c43dc886c690b84e524e85ce64cd67b77a0",
+      "topic_id": "TH-000051"
     }
   ],
   "intents": {
@@ -24388,6 +24397,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:05:11.260454+00:00"
     },
+    "TH-000051": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "733fe132c5bd530dc7dbad6229941a9e769ee790d93e1abfab1445c4eb12a888",
+      "commit": "d060207fa105c89e5f124aa96427b83447d60fff",
+      "fence": "75cea95aba8947d69dc043e62480746d",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:05:25.282026+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -28074,7 +28093,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/entry-requirements"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000051"
     },
     "TH-000052": {
@@ -34978,5 +34997,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2161
+  "version": 2162
 }
