@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from urllib.parse import urljoin
 from .audit import parse
 from .common import SITE, urlkey
-from .language import LANGUAGES, html_lang_matches, url_language
+from .language import LANGUAGES, html_lang_matches, screen, url_language
 
 MAX_XML = 5_000_000
 
@@ -17,6 +17,24 @@ MAX_XML = 5_000_000
 def _noindex(page, headers):
     header = (headers or {}).get('X-Robots-Tag', (headers or {}).get('x-robots-tag'))
     return 'noindex' in str(page.robots).lower() or 'noindex' in str(header).lower()
+
+
+def check_rendered_post_language(page, expected_title, lang):
+    """Post-publication H1 checks; report a theme/content mismatch without modifying WordPress.
+
+    Writer QA already verifies source title and SEO metadata. The shared theme can
+    render a different H1 after publication, so test the final DOM separately.
+    """
+    headings = [' '.join(value.split()) for tag, value in page.headings if tag == 'h1']
+    expected = ' '.join(str(expected_title).split())
+    problems = []
+    if len(headings) != 1:
+        problems.append('PUBLIC_H1_COUNT_' + str(len(headings)))
+    elif headings[0] != expected:
+        problems.append('PUBLIC_H1_TITLE_MISMATCH')
+    if any(screen(lang, heading, short=True) for heading in headings):
+        problems.append('PUBLIC_H1_LANGUAGE_MISMATCH')
+    return problems
 
 
 def check_archive(url, html, status, headers, lang, expect_urls=(), foreign_urls=()):
