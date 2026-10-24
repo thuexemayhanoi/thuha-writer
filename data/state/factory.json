@@ -12066,6 +12066,15 @@
       "sha256": "4fece7baf570fe79b935004fad6a1ec20eb2038a0fb93f8534b64e896a017cba",
       "slot": "W1",
       "topic_id": "TH-000042"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "e87995e838e4ffb01fac264a6870000d8815bfbf4665f240f2f351f9b8a6e9d7",
+      "at": "2026-10-24T15:03:45.759447+00:00",
+      "previous": "4fece7baf570fe79b935004fad6a1ec20eb2038a0fb93f8534b64e896a017cba",
+      "sha256": "0b3791da021844d07379b9c36b5836a63610c51f1127194689e35fbf95c43fed",
+      "topic_id": "TH-000042"
     }
   ],
   "intents": {
@@ -24052,6 +24061,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:03:31.218627+00:00"
     },
+    "TH-000042": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "e87995e838e4ffb01fac264a6870000d8815bfbf4665f240f2f351f9b8a6e9d7",
+      "commit": "0cde4e64ef50cd05dfbd8368c977ca360dca787d",
+      "fence": "3dffa84fab5f4b85b9a7a259f6ed4ef6",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:03:45.759420+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -27506,7 +27525,7 @@
           "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000042"
     },
     "TH-000043": {
@@ -34642,5 +34661,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2133
+  "version": 2134
 }
