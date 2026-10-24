@@ -15082,6 +15082,21 @@
       "sha256": "110d0e9fe98a69acad128291d14ef8be84f8f36838295e06f182636b55881b83",
       "status": "PASS",
       "topic_id": "TH-000030"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN14",
+      "at": "2026-10-24T16:02:28.315660+00:00",
+      "expires_at": 1792859548.315648,
+      "fence": "3698e936ff064c15b4cac1d6d41d7ac8",
+      "heartbeat_at": "2026-10-24T16:02:28.315577+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "110d0e9fe98a69acad128291d14ef8be84f8f36838295e06f182636b55881b83",
+      "session": "en-b14-20261024",
+      "sha256": "54c6925e7e392d07f54ecfa5288a602fa2668d94d9f6352c0043fc56dd92299b",
+      "slot": "W1",
+      "topic_id": "TH-000035"
     }
   ],
   "intents": {
@@ -25302,7 +25317,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN14",
+      "expires_at": 1792859548.315648,
+      "fence": "3698e936ff064c15b4cac1d6d41d7ac8",
+      "heartbeat_at": "2026-10-24T16:02:28.315577+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000035"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -31704,7 +31731,7 @@
           "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000035"
     },
     "TH-000036": {
@@ -40536,5 +40563,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2491
+  "version": 2492
 }
