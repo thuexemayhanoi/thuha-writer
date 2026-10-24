@@ -526,12 +526,12 @@ class NextTests(Cli):
         topic, lease = self.leased()
         ref = dict(topic['sources'][0], url=stale['url'], document=self.store.put_document(stale))
         article = dict(self.article_for(topic, lease['session'], lease['agent_id']), sources=[ref], featured_media=None)
-        submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['FEATURED_MEDIA'])
+        submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['INTERNAL_LINKS'])  # an image no longer waits; a draft can still wait for live pages
         other = self.distinct(2)
         intake(self.store, [other], self.inv)
         lease2 = claim(self.store, 'session-w2', 'writer-w2')
         held_article = dict(self.article_for(other, lease2['session'], lease2['agent_id']), sources=[ref], featured_media=None)
-        submit(self.store, lease2['slot'], lease2['session'], lease2['fence'], held_article, waiting_for=['FEATURED_MEDIA'])
+        submit(self.store, lease2['slot'], lease2['session'], lease2['fence'], held_article, waiting_for=['INTERNAL_LINKS'])
         hold(self.store, 'TH-VI-0002', 'Overlaps another row.')
         with self.matrix(self.rows()):
             out = self.run_cli('next', '--language', 'vi')[1]
