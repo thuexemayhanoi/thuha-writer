@@ -14088,6 +14088,15 @@
       "previous": "334874bc50c77abfa70f1dd0c5c16e184fe269740c9bd33bae9e851abda09e31",
       "sha256": "b331acbc018e4860b99df90f1af91854706852420c39ac29a37e06f6c6105d79",
       "topic_id": "TH-VI-0206"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:52:52.590270+00:00",
+      "previous": "b331acbc018e4860b99df90f1af91854706852420c39ac29a37e06f6c6105d79",
+      "report_sha": "6fde4f8990292ff341a9a9d83647948991f8c072884d41290206cc5d31240afb",
+      "sha256": "40dec5b94d5e759f70d2ef19dbb6f00cd0d27aa1343c2d03567dadb4a824fe3f",
+      "status": "PASS",
+      "topic_id": "TH-VI-0206"
     }
   ],
   "intents": {
@@ -24308,19 +24317,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-VI22",
-      "expires_at": 1792858963.104747,
-      "fence": "da285bbb100d40eba3680f968b36efa8",
-      "heartbeat_at": "2026-10-24T15:52:43.104727+00:00",
-      "language": "vi",
-      "picked": true,
-      "session": "vi-b22-20261024",
-      "slot": "W1",
-      "topic_id": "TH-VI-0206"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -25285,6 +25282,11 @@
     "TH-VI-0205": {
       "article_sha": "52d78b144dbf3c7d9f5f4e8bb8748f74c3d6df6f828a476f263286ce312c5193",
       "report_sha": "b62688d5242ba4c0d6e3ff4837a73b741518d60de7a3ca8f23766fedac755bd6",
+      "status": "PASS"
+    },
+    "TH-VI-0206": {
+      "article_sha": "df8561122df54d5316075534c8f8721aca8039a5f25b4234bc7c793b9cd0246c",
+      "report_sha": "6fde4f8990292ff341a9a9d83647948991f8c072884d41290206cc5d31240afb",
       "status": "PASS"
     },
     "TH-VI-0207": {
@@ -35854,7 +35856,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-VI-0206"
     },
     "TH-VI-0207": {
@@ -38717,5 +38719,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2372
+  "version": 2373
 }
