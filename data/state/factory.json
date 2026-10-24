@@ -11849,6 +11849,26 @@
         "TH-VI-0177",
         "TH-VI-0179"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T14:57:23.864997+00:00",
+      "previous": "989455d08460330d51b459d1ef69441b2d46071fe046f46fee1a26cc40b74098",
+      "sha256": "18ef1463b85a8ecf8ae757d0f2b5152f51a0fd61399a91d392d5c337ea561cc9",
+      "topic_ids": [
+        "TH-VI-0109",
+        "TH-VI-0170",
+        "TH-VI-0189",
+        "TH-VI-0191",
+        "TH-VI-0196",
+        "TH-VI-0200",
+        "TH-VI-0208",
+        "TH-VI-0226",
+        "TH-VI-0333",
+        "TH-VI-0357",
+        "TH-VI-0364",
+        "TH-VI-0369"
+      ]
     }
   ],
   "intents": {
@@ -30665,6 +30685,38 @@
       "status": "READY",
       "topic_id": "TH-VI-0108"
     },
+    "TH-VI-0109": {
+      "admitted_at": "2026-10-24T14:57:23.616052+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe ga đi ngõ nhỏ hầm gửi xe chật chọn kích thước nào",
+      "proposed_title": "Xe ga trong ngõ nhỏ và hầm gửi xe chật: khối lượng, chiều dài và bán kính quay ảnh hưởng thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-ga-trong-ngo-nho-va-ham-gui-xe-chat-kich-thuoc/",
+      "search_intent": "Người ở nhà trọ hay khách sạn trong ngõ hẹp, hầm xe dốc phải dắt, lùi và quay đầu nhiều lần muốn hiểu khối lượng, chiều dài cơ sở và bán kính quay trong thông số có ý nghĩa gì, để chọn xe ga xoay trở được trong chỗ chật.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0109"
+    },
     "TH-VI-0110": {
       "admitted_at": "2026-10-24T10:24:39.182467+00:00",
       "category_id": 156,
@@ -31837,6 +31889,37 @@
       "status": "PLANNED",
       "topic_id": "TH-VI-0159"
     },
+    "TH-VI-0170": {
+      "admitted_at": "2026-10-24T14:57:23.639622+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "quãng đường một lần sạc xe điện thực tế",
+      "proposed_title": "Quãng đường một lần sạc ghi trong thông số và quãng đường thực tế: chừa dự phòng khi chở hai người và leo cầu",
+      "proposed_url": "https://rentbikehanoi.com/vi/quang-duong-mot-lan-sac-cong-bo-va-thuc-te-xe-dien/",
+      "search_intent": "Người định đi nhiều nơi trong ngày bằng xe điện thuê không nên tin tuyệt đối vào quãng đường công bố; cần biết chừa dự phòng khi chở hai người, đi dốc, trời lạnh và đọc phần trăm pin để quyết định điểm quay đầu.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0170"
+    },
     "TH-VI-0172": {
       "admitted_at": "2026-10-24T14:50:32.324802+00:00",
       "category_id": 158,
@@ -32126,6 +32209,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0188"
     },
+    "TH-VI-0189": {
+      "admitted_at": "2026-10-24T14:57:23.659458+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đổ xăng đầy đến miệng bình để xe ngoài nắng",
+      "proposed_title": "Đổ xăng sát miệng bình rồi để xe ngoài nắng: sách hướng dẫn nói gì về mức xăng tối đa",
+      "proposed_url": "https://rentbikehanoi.com/vi/do-xang-sat-mieng-binh-roi-de-xe-ngoai-nang/",
+      "search_intent": "Người có thói quen bảo nhân viên đổ tràn để đi được lâu muốn biết đổ sát cổ bình có hại không khi xe để ngoài nắng nóng, mức xăng tối đa nhà sản xuất khuyến cáo, và cách để lại khoảng trống an toàn.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0189"
+    },
     "TH-VI-0190": {
       "admitted_at": "2026-10-24T14:31:51.405585+00:00",
       "category_id": 159,
@@ -32156,6 +32270,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0190"
+    },
+    "TH-VI-0191": {
+      "admitted_at": "2026-10-24T14:57:23.679793+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "mức tiêu thụ nhiên liệu công bố và thực tế xe máy",
+      "proposed_title": "Mức tiêu thụ nhiên liệu hãng công bố và mức bạn đo được ở Hà Nội: vì sao hai con số không trùng nhau",
+      "proposed_url": "https://rentbikehanoi.com/vi/muc-tieu-thu-nhien-lieu-hang-cong-bo-va-thuc-te/",
+      "search_intent": "Người đọc thông số lít trên một trăm cây số của hãng muốn hiểu điều kiện thử nghiệm, vì sao tắc đường, chở hai người, chạy nắng làm con số thực tế lệch, để dùng số của hãng như mốc so sánh chứ không phải mức xăng thật.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0191"
     },
     "TH-VI-0192": {
       "admitted_at": "2026-10-24T10:24:39.212695+00:00",
@@ -32219,6 +32364,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0195"
     },
+    "TH-VI-0196": {
+      "admitted_at": "2026-10-24T14:57:23.702095+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "ước tính tiền xăng hằng tháng khi thuê xe đi làm",
+      "proposed_title": "Ước tính tiền xăng cho cả tháng khi thuê xe đi làm: lấy quãng đường nhà – cơ quan và các chuyến cuối tuần",
+      "proposed_url": "https://rentbikehanoi.com/vi/uoc-tinh-tien-xang-ca-thang-khi-thue-xe-di-lam/",
+      "search_intent": "Người đi làm thuê xe theo tháng muốn dự toán xăng trước khi ký: quãng đường nhà – cơ quan nhân số ngày làm, cộng chuyến cuối tuần và đi chợ, rồi dùng mức tiêu hao đã tự đo; cần bảng tính đơn giản để biết có hợp ngân sách không.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0196"
+    },
     "TH-VI-0197": {
       "admitted_at": "2026-10-23T12:36:45.378678+00:00",
       "category_id": 159,
@@ -32273,6 +32449,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0198"
+    },
+    "TH-VI-0200": {
+      "admitted_at": "2026-10-24T14:57:23.725305+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "tính chi phí mỗi km xe xăng và xe điện",
+      "proposed_title": "Chi phí mỗi cây số của xe xăng và xe điện thuê: cách tự tính bằng hóa đơn thật thay vì số liệu quảng cáo",
+      "proposed_url": "https://rentbikehanoi.com/vi/chi-phi-moi-cay-so-xe-xang-va-xe-dien-thue-tu-tinh/",
+      "search_intent": "Người đang chọn giữa xe xăng và xe điện thuê tháng muốn tự so chi phí năng lượng cho mỗi km: lấy lượng xăng từ hóa đơn đổ xăng, lượng điện từ thông số pin và công tơ, rồi chia cho quãng đường ghi được, không dựa vào quảng cáo.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0200"
     },
     "TH-VI-0202": {
       "admitted_at": "2026-10-24T14:31:51.447717+00:00",
@@ -32336,6 +32543,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0207"
+    },
+    "TH-VI-0208": {
+      "admitted_at": "2026-10-24T14:57:23.745511+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "nhớt máy và nhớt láp xe ga",
+      "proposed_title": "Nhớt máy và nhớt láp của xe ga khác nhau thế nào: người thuê cần biết gì để hỏi cửa hàng",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhot-may-va-nhot-lap-xe-ga-nguoi-thue-can-biet/",
+      "search_intent": "Người thuê xe ga theo tháng nghe thợ nhắc thay nhớt máy lẫn nhớt láp nhưng không hiểu hai hạng mục khác nhau ra sao, cần biết đủ để hỏi cửa hàng hạng mục nào đến hạn và ghi vào đâu.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0208"
     },
     "TH-VI-0211": {
       "admitted_at": "2026-10-24T09:55:06.688991+00:00",
@@ -32542,6 +32780,38 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0224"
+    },
+    "TH-VI-0226": {
+      "admitted_at": "2026-10-24T14:57:23.766565+00:00",
+      "category_id": 160,
+      "category_path": [
+        140,
+        148,
+        160
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe máy làm mát bằng dung dịch kiểm tra nước làm mát",
+      "proposed_title": "Xe làm mát bằng dung dịch hay bằng gió: người thuê nhận biết thế nào và nhìn bình nước phụ ra sao trước khi chạy",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-lam-mat-bang-dung-dich-hay-bang-gio-nhan-biet-the-nao-nhin-binh-nuoc-phu-truoc-khi-chay/",
+      "search_intent": "Người nhận xe có động cơ làm mát bằng dung dịch lần đầu muốn biết xe mình thuê thuộc loại nào, bình nước phụ và vạch mức nằm ở đâu, đèn cảnh báo nhiệt độ báo gì, vì sao không được tự mở nắp két khi máy còn nóng và nên báo cửa hàng thế nào khi thấy mức nước hụt.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0226"
     },
     "TH-VI-0227": {
       "admitted_at": "2026-10-24T14:31:51.504684+00:00",
@@ -33575,6 +33845,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0307"
     },
+    "TH-VI-0333": {
+      "admitted_at": "2026-10-24T14:57:23.787273+00:00",
+      "category_id": 164,
+      "category_path": [
+        140,
+        149,
+        164
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "lùi xe máy ra khỏi chỗ đỗ chật phố một chiều",
+      "proposed_title": "Lùi xe ra khỏi chỗ đỗ chật trên phố một chiều: quan sát, ra hiệu và nhờ người đứng ngoài thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/lui-xe-may-ra-khoi-cho-do-chat-tren-pho-mot-chieu/",
+      "search_intent": "Người đi xe máy thuê vừa ăn xong, xe bị kẹp giữa hai xe khác sát lề trên phố một chiều đông người, muốn biết cách dắt xe lùi, quan sát phía sau, ra hiệu cho người qua đường và khi nào nên nhờ người hỗ trợ thay vì cố lùi.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0333"
+    },
     "TH-VI-0350": {
       "admitted_at": "2026-10-24T14:31:51.541561+00:00",
       "category_id": 165,
@@ -33638,6 +33939,38 @@
       "status": "READY",
       "topic_id": "TH-VI-0355"
     },
+    "TH-VI-0357": {
+      "admitted_at": "2026-10-24T14:57:23.825316+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xuống dốc hầm chung cư bằng xe máy",
+      "proposed_title": "Dốc hầm chung cư và bậc dốc nhà để xe: xuống dốc phanh thế nào, lên dốc ga ra sao",
+      "proposed_url": "https://rentbikehanoi.com/vi/doc-ham-chung-cu-va-bac-doc-nha-de-xe-xuong-doc-phanh-the-nao/",
+      "search_intent": "Người gửi xe ở hầm chung cư hoặc tòa nhà có dốc gắt, mặt dốc bóng và hẹp, sợ trượt hoặc đổ xe ga nặng; cần kỹ thuật phanh, giữ ga đều và nhờ bảo vệ hướng dẫn khi chưa quen.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0357"
+    },
     "TH-VI-0359": {
       "admitted_at": "2026-10-23T11:56:51.723452+00:00",
       "category_id": 165,
@@ -33661,6 +33994,68 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0359"
+    },
+    "TH-VI-0364": {
+      "admitted_at": "2026-10-24T14:57:23.844997+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đi xe máy qua ổ gà gờ giảm tốc",
+      "proposed_title": "Gờ giảm tốc, ổ gà và mặt đường sửa dở: giảm tốc thế nào khi chở hành lý hoặc người sau",
+      "proposed_url": "https://rentbikehanoi.com/vi/go-giam-toc-o-ga-va-mat-duong-sua-do-giam-toc-khi-cho-hanh-ly/",
+      "search_intent": "Người chở hành lý nặng hoặc chở bạn ngồi sau qua đoạn đường có ổ gà, gờ giảm tốc không biển báo; cần cách giảm tốc đúng lúc, cầm lái và phân bổ tải để xe không bị giật lệch hay thủng lốp.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0364"
+    },
+    "TH-VI-0369": {
+      "admitted_at": "2026-10-24T14:57:23.864952+00:00",
+      "category_id": 165,
+      "category_path": [
+        140,
+        149,
+        165
+      ],
+      "cluster": "lai-xe-an-toan",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe máy tránh điểm mù xe buýt container",
+      "proposed_title": "Chạy gần xe buýt và xe container: điểm mù của tài xế và khoảng cách nên giữ khi dừng đèn đỏ",
+      "proposed_url": "https://rentbikehanoi.com/vi/chay-gan-xe-buyt-va-xe-container-diem-mu-cua-tai-xe-khoang-cach-an-toan/",
+      "search_intent": "Người đi xe nhỏ hay bị kẹp giữa xe buýt, xe tải và dải phân cách ở nút giao, không biết đứng ở đâu để tài xế nhìn thấy mình; cần hiểu điểm mù, khoảng cách khi dừng đèn đỏ và khi nào nên vượt hay lùi lại.",
+      "sources": [
+        {
+          "document": "f25f3277971bb934a4a662dc5f5b852a065aa3917febd3c3c734860c0857d6b3",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0369"
     },
     "TH-VI-0370": {
       "admitted_at": "2026-10-24T10:24:39.231642+00:00",
@@ -33917,5 +34312,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2109
+  "version": 2110
 }
