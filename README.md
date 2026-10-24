@@ -1,6 +1,6 @@
 > **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](docs/MEDIA-OPTIONAL-POLICY.md).
 
-> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
+> **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The owner-approved release is enabled (`auto-scale`, updated to 500/day on 24/10/2026); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
 
 > **24/10/2026 VI–EN QA update:** The pre-publication language/SEO gate already exists. PR #11 added read-only H1 verification to post-publication public-page checks: exactly one H1, equal to the reviewed article title and plausible in the article language. Failures are retried warnings, not changes to PUBLISHED receipts or a global queue block. This does **not** localize global WordPress Site Title/Tagline, menu, breadcrumb or TOC strings. See [rendered-language QA runbook](docs/bilingual/RENDERED-LANGUAGE-QA.md).
 
@@ -14,7 +14,7 @@
 |---|---|
 | Target website/repository | `rentbikehanoi.com` / `thuexemayhanoi/thuha-writer` only |
 | Auto QA | `config/qa.json`: both VI and EN **75–100 PASS** only when there are **no hard failures**; reviewer not required |
-| Publisher | Owner enabled `auto-scale`, cap **50/day**; GitHub queue/publisher run **successful** (not merely simulated) |
+| Publisher | At the 23/10 checkpoint, owner-enabled `auto-scale` had a **50/day** cap (since raised to **500/day** on 24/10); GitHub queue/publisher run **successful** (not merely simulated) |
 | Shared `factory-state` | **9 EN PUBLISHED receipts**, 0 READY, 51 EN + 14 VI PLANNED |
 | Incomplete/held | 7 EN + 21 VI `WAITING_DATA`; 11 VI `HELD`; no active writer leases |
 | WordPress deployment | Publisher has recorded real WordPress receipts. Do **not** infer that the VI adapter/media/links are suitable for VI posts from EN receipts alone |
