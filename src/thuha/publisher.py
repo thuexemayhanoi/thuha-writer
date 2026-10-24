@@ -93,7 +93,7 @@ def release_guard(release,store):
         if (release.get('pilot_max_posts')!=2 or
             release.get('expansion_approval_ref')!=release['approval_ref'] or
             not 2<=release.get('approved_capacity',0)<=ceiling or
-            not 1<=release.get('maximum_daily_posts',0)<=50):
+            not 1<=release.get('maximum_daily_posts',0)<=500):
             raise ValueError('Owner auto-scale requires a two-post pilot, valid capacity and a daily cap')
     else:raise ValueError('Unknown release stage')
 
