@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](MEDIA-OPTIONAL-POLICY.md).
+
 > **Current owner policy, 23/10/2026:** QA >=75/100 PASS, below 75 FAIL, zero hard failures. Repository Actions Secrets replace the obsolete GitHub Environment. Older V5 QA85 statements below are superseded; `AGENTS.md` and `config/qa.json` govern current execution.
 
 # ThuHa Writer V5 — writer-session runtime
@@ -65,8 +67,7 @@ python3 -m thuha.cli $STATE submit --slot WN --session SESSION --fence FENCE --f
 Rules the kit repeats and QA enforces (the kit prints the Vietnamese version for a Vietnamese topic: native
 Vietnamese prose, same-language links and images, `giá tham khảo` for prices): original prose in the topic's language, two or more
 `<h2>`, no body `<h1>`, no script/style/meta/iframe/form, internal links only
-to live-verified URLs in the kit, featured media only from the kit's media with
-alt text, reference prices only as declared `business_claims` with a disclaimer
+to live-verified URLs in the kit, featured media optional (null allowed; never look up WordPress images or alt), reference prices only as declared `business_claims` with a disclaimer
 sentence, an official `.gov.vn`/`.gov`/`.gov.uk` source whenever the text
 mentions licences, permits, registration, law, visas or embassies, and never a
 "no deposit", refund, delivery-policy or firsthand-testing claim.
@@ -128,11 +129,7 @@ live minus unresolved intents. FACTORY PUBLISHED and PUBLISHED count only receip
 
 ## Known gaps
 
-- The media library is now listed in full by `audit`, but only 15 of the site's featured images carry alt text, all of it
-  English, and no image has Vietnamese alt text. A Vietnamese article may only use an image whose alt text is Vietnamese, so
-  none can pass QA until the owner adds such images. The kit reports `NEEDS_MEDIA` and the dashboard shows it. Media upload is
-  deliberately not implemented. A writer does not stop for this: the draft is written and stored with
-  `submit --waiting-for FEATURED_MEDIA ...` (see OPERATIONS.md, "Drafts that wait for data").
+- Images and alt are optional. No WordPress media lookup; submit with `featured_media: null` and proceed to QA. Legacy media waits clear via `recheck-data`.
 - An inventory older than six hours blocks QA and publishing. Claim, kit and admission accept the committed authenticated snapshot as a
   planning inventory for seven days; QA never does. Re-dispatch the audit workflow; do not relax the six-hour limit.
 - The conflict with the open PR #2 brief (500 EN + 500 VI) is resolved: that is the goal.

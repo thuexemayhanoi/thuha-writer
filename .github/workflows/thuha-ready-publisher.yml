@@ -152,7 +152,7 @@ jobs:
         run: python3 -m thuha.cli --remote adapter-preflight
       - name: Authenticated inventory of both languages (the public collection can hide Vietnamese posts)
         continue-on-error: true # the drain re-reads the inventory itself; a page that does not answer must not stop publication
-        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit
+        run: python3 -m thuha.cli --remote --output artifacts/live-audit audit --max-age 14400
       - name: Clear the waits that the authenticated inventory now satisfies (drafts stay unfinished; nothing becomes READY)
         continue-on-error: true
         run: python3 -m thuha.cli --remote recheck-data

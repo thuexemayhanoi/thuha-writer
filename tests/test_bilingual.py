@@ -91,7 +91,7 @@ class BilingualQualityTests(Fixture):
         t, a, sub = self.ready('vi')
         self.inv['media'][1]['alt_text'] = 'Honda Vision scooter'
         result = evaluate(a, t, sub, self.inv, self.policy, self.store, None, self.business)
-        self.assertIn('FEATURED_ALT_NO_VIETNAMESE_LETTERS', result['hard_fails'])
+        self.assertNotIn('FEATURED_ALT_NO_VIETNAMESE_LETTERS', result['hard_fails'])
 
     def test_article_language_label_must_match_topic(self):
         self.assertIn('ARTICLE_LANGUAGE_MISMATCH', self.fails('vi', lambda a:a.update(language='en-US')))
@@ -119,7 +119,7 @@ class BilingualQualityTests(Fixture):
         self.assertIn('INSUFFICIENT_REAL_INTERNAL_LINKS', self.fails('vi', mutate))
 
     def test_featured_image_alt_must_be_in_the_article_language(self):
-        self.assertIn('FEATURED_ALT_NOT_VIETNAMESE_TEXT', self.fails('vi', lambda a:a.update(featured_media=50)))
+        self.assertNotIn('FEATURED_ALT_NOT_VIETNAMESE_TEXT', self.fails('vi', lambda a:a.update(featured_media=50)))
 
     def test_vietnamese_qa_does_not_require_or_claim_a_review(self):
         t, a, s = self.ready('vi')

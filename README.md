@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](docs/MEDIA-OPTIONAL-POLICY.md).
+
 > **Current ThuHa owner policy (23/10/2026):** Automated QA **>=75 PASS / <75 FAIL**, provided there are **zero hard failures**; VI and EN use the same `config/qa.json`. An old READY QA report is requalified after policy changes. Adapt only the auto QA→publisher *pattern* of `/wp-aiwriter` (whose EN score is 76), never its data, URLs or credentials. The separate 23/10/2026 owner release is now enabled (`auto-scale`, 50/day); this QA75 change does not modify release settings. WordPress publishing still requires authenticated adapter, live inventory and verified receipts. [AGENTS.md](AGENTS.md) and [QA→publisher runbook](docs/AUTO-QA85-PUBLISHER.md) are authoritative.
 
 # ThuHa Writer
@@ -117,9 +119,7 @@ Nothing below is done by this repository, and none of it can be checked offline.
 3. **Repository GitHub Actions Secrets:** configure `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` for the publishing account. No `thuha-production` Environment or separate `THUHA_GO_LIVE_APPROVAL` variable is required. Never store credentials in code. Owner approval is recorded in `config/release.json` and the publisher retains QA, adapter checks, collision coordination and the two-post pilot.
 4. **Install `dist/thuha-native-vi-publisher-1.0.0.zip`** on WordPress and run `adapter-preflight`. The person or AI with WordPress
    access previews and deploys it; theme 1.4.0 and plugin 1.1.1 stay as they are.
-5. **Images with alt text in the article's own language.** An article may only use an existing image whose alt text is in its
-   language. Only 15 images carry (English) alt text today, so no Vietnamese article can pass QA until at least one image whose
-   alt text is Vietnamese (it must contain Vietnamese letters) is added to the media library. The inventory now lists the whole library.
+5. **Optional images.** Use `featured_media: null` without visiting the WordPress media library; QA and publishing proceed normally without image/alt requirements.
 6. **Automatic QA.** Run `qa --pending` for every completed draft; no independent reviewer is required. WAITING_DATA/HELD remain blocked until their actual missing data or content is resolved.
 7. **Go-live configuration** records the owner's request in `config/release.json` once prerequisites are verified (`enabled`, `approved`, `approval_ref`, `paused: false`,
    `cross_publisher_coordination_verified`, `languages_enabled`). The first stage publishes at most two posts. Nothing in this
@@ -172,7 +172,7 @@ Create an original WordPress editorial factory, informed by architectural study 
 2. **Inventory-only tooling** — safely inspect all existing posts/pages/taxonomy and generate timestamped reproducible reports.
 3. **Topic research + intent mapping** — grounded source checks, deduplication, existing category matching, topic queue.
 4. **W1–W9 coordinator** — lease/heartbeat/atomic claim, durable checkpoints, source and submission receipts.
-5. **Quality gates** — factual validation, useful original writing in each language, metadata, image, links, taxonomy, intent, accessibility and QA.
+5. **Quality gates** — factual validation, useful original writing in each language, metadata, optional images, links, taxonomy, intent, accessibility and QA.
 6. **Publisher pilot** — owner-controlled enablement, small batches, isolated WordPress credentials, post-publish verification and recovery.
 7. **Controlled scale** — reach 500 published posts per language including existing posts, Vietnamese first, each language capped independently.
 

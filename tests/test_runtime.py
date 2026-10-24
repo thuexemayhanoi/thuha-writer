@@ -70,7 +70,7 @@ class RuntimeTests(Fixture):
         english_only['media'] = [m for m in english_only['media'] if m['id'] == 50]
         blocked = kit(self.store.read(), english_only, 'TH-VI-0001', self.policy, self.business)
         self.assertEqual(blocked['featured_media_options'], [])
-        self.assertTrue(blocked['blockers'][0].startswith('NEEDS_MEDIA'))
+        self.assertEqual(blocked['blockers'], [])
 
     def test_precheck_matches_qa_without_consuming_repairs(self):
         topic, article, sub = self.ready()

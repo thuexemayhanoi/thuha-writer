@@ -55,6 +55,20 @@ class PlanTests(unittest.TestCase):
         ahead = advanced(live)
         self.assertEqual(ledger.plan(ahead, live)['status'], 'ALREADY_INCLUDED')
 
+    def test_newer_shared_submission_event_safely_supersedes_old_session_draft(self):
+        handoff = advanced(legacy_live())
+        live = copy.deepcopy(handoff)
+        live['submissions']['TH-000003']['article_sha'] = 'b' * 64
+        event(live, 'CLAIM', topic_id='TH-000003', session='vi-link-rescue')
+        event(live, 'SUBMISSION', topic_id='TH-000003', article_sha='b' * 64)
+        self.assertEqual(ledger.plan(live, handoff)['status'], 'ALREADY_INCLUDED')
+
+    def test_shared_sha_change_without_later_submission_event_stays_inconsistent(self):
+        handoff = advanced(legacy_live())
+        live = copy.deepcopy(handoff)
+        live['submissions']['TH-000003']['article_sha'] = 'b' * 64
+        self.assertEqual(ledger.plan(live, handoff)['status'], 'INCONSISTENT')
+
     def test_a_live_ledger_with_other_history_is_refused(self):
         live = legacy_live()
         other = copy.deepcopy(live)

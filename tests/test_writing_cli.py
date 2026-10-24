@@ -169,8 +169,8 @@ class PackTests(Cli):
         bare = without_vi_media(self.inv)
         out = self.run_cli('pack', '--topic-id', 'TH-VI-0001', inv=bare)[1]
         self.assertEqual(out['media']['options'], [])
-        self.assertEqual(out['expectations']['waits'], ['FEATURED_MEDIA'])
-        self.assertTrue(any('FEATURED_MEDIA' in n for n in out['notes']))
+        self.assertEqual(out['expectations']['waits'], [])
+        self.assertTrue(any('Optional' in n for n in out['notes']))
         ok = self.run_cli('pack', '--topic-id', 'TH-VI-0001')[1]
         self.assertEqual((ok['expectations']['waits'], ok['expectations']['can_complete_without_waiting']), ([], True))
 
@@ -242,7 +242,7 @@ class BuildTests(Cli):
     def test_build_leaves_the_image_empty_when_none_exists_and_the_precheck_says_wait(self):
         topic, _ = self.leased()
         code, out = self.build(topic, meta={k: v for k, v in self.META.items() if k != 'featured_media'}, inv=without_vi_media(self.inv))
-        self.assertEqual((code, out['data_waits'], out['submit_waiting_for'], out['ready_to_submit']), (3, ['FEATURED_MEDIA'], ['FEATURED_MEDIA'], True))
+        self.assertEqual((code, out['data_waits'], out['submit_waiting_for'], out['ready_to_submit']), (0, [], [], True))
         self.assertIsNone(load(Path(out['article_file']))['featured_media'])
 
     def test_a_faulty_body_comes_back_with_where_and_how_to_fix_each_fault(self):
@@ -364,14 +364,8 @@ class SubmitGuardTests(Cli):
         bare = without_vi_media(self.inv)
         path = self.write('a.json', self.article(topic, lease, featured_media=None))
         code, out = self.run_cli(*self.submit_args(lease, path), inv=bare)
-        self.assertEqual((code, out['status']), (1, 'NOT_SUBMITTED'))
-        self.assertTrue(any('--waiting-for FEATURED_MEDIA' in p for p in out['problems']), out['problems'])
-        self.assertEqual(self.store.read()['topics']['TH-VI-0001']['status'], 'CLAIMED')
-        code, out = self.run_cli(*self.submit_args(lease, path, '--waiting-for', 'auto'), inv=bare)
-        self.assertEqual(code, 0)
-        self.assertNotIn('qa', out)
-        topic_now = self.store.read()['topics']['TH-VI-0001']
-        self.assertEqual((topic_now['status'], topic_now['waiting_for']), ('WAITING_DATA', ['FEATURED_MEDIA']))
+        self.assertEqual((code, out['qa']['status']), (0, 'PASS'))
+        self.assertEqual(self.store.read()['topics']['TH-VI-0001']['status'], 'READY')
 
     def test_auto_stores_a_complete_draft_as_complete(self):
         topic, lease = self.leased()
@@ -383,10 +377,9 @@ class SubmitGuardTests(Cli):
     def test_a_wait_for_data_that_exists_is_refused_because_someone_must_choose_it(self):
         topic, lease = self.leased()
         path = self.write('a.json', self.article(topic, lease, featured_media=None))
-        code, out = self.run_cli(*self.submit_args(lease, path, '--waiting-for', 'FEATURED_MEDIA'))  # an image with Vietnamese alt text exists
-        self.assertEqual((code, out['status']), (1, 'NOT_SUBMITTED'))
-        self.assertTrue(any('not needed' in p for p in out['problems']))
-        self.assertIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', out['content_fails'])
+        code, out = self.run_cli(*self.submit_args(lease, path, '--waiting-for', 'FEATURED_MEDIA'))
+        self.assertEqual((code, out['qa']['status']), (0, 'PASS'))
+        self.assertEqual(self.store.read()['topics']['TH-VI-0001']['status'], 'READY')
 
     def test_an_offline_inventory_never_has_to_be_declared(self):
         topic, lease = self.leased()
@@ -505,7 +498,7 @@ class NextTests(Cli):
         with self.matrix(self.rows()):
             out = self.run_cli('next', '--language', 'vi', inv=without_vi_media(self.inv))[1]
         self.assertTrue(out['admit_first'])
-        self.assertTrue(all(i['waits_expected'] == ['FEATURED_MEDIA'] for i in out['admit_first']))
+        self.assertTrue(all('FEATURED_MEDIA' not in i['waits_expected'] for i in out['admit_first']))
         row = next(i for i in out['admit_first'] if i['readiness'] == 'ADMIT_FIRST')
         self.assertTrue(any('not in the ledger' in r for r in row['reasons']))
         with self.matrix(self.rows()):

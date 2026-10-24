@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
+
 > **Current instructions (23 Oct 2026):** `THUHA_WP_USER` and `THUHA_WP_APPLICATION_PASSWORD` belong in repository GitHub Actions Secrets, NOT GitHub Environment; current QA is **>=75 and no hard failures**. Older Environment instructions below are superseded.
 
 # Plugin kết nối xuất bản `thuha-native-vi-publisher`
@@ -52,7 +54,7 @@ không có trường ngôn ngữ đã kiểm chứng.
    Vector dùng chung `tests/fixtures/html-policy-vectors.json` chạy ở cả Python và PHP.
 4. Khóa đồng thời (`add_option` nguyên tử) theo khóa idempotency, rồi idempotency: cùng khóa + cùng payload → `200 idempotent_replay`
    và **không đổi gì**; cùng khóa khác payload → `409`; cùng topic khác khóa → `409`; đang có yêu cầu chạy → `409 thuha_in_progress`.
-5. Category và toàn bộ tổ tiên phải cùng ngôn ngữ; ảnh đại diện phải là attachment đọc được có alt; slug phải còn trống (slug bài
+5. Category và toàn bộ tổ tiên phải cùng ngôn ngữ; ảnh đại diện tùy chọn (0 nghĩa là không ảnh); nếu chọn ảnh thì plugin phiên bản đang đóng gói vẫn kiểm tra attachment đọc được và có alt; để null/0 để bỏ ảnh mà không cần tìm hoặc kiểm tra alt; slug phải còn trống (slug bài
    dùng chung một không gian giữa EN và VI, và không trùng trang).
 6. Tạo **bản nháp** mang marker sở hữu/idempotency. Mọi chuỗi đi qua `wp_slash` (lõi tự `unslash`, nếu không dấu `\` bị mất), rồi
    đọc lại tiêu đề và thân bài: khác bản đã review (ví dụ do kses) → `thuha_content_altered`, bài ở lại nháp.

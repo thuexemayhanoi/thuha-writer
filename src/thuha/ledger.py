@@ -96,12 +96,24 @@ def os_common(a, b):
 def covered(live, handoff):
     """For a ledger the shared one already contains: is every topic, draft and review of it really there?"""
     gaps = []
+    # A QA-blocked draft may be completed directly on the authoritative shared
+    # ledger without consuming a repair. An older session ledger is safely
+    # superseded only when a NEW, hash-chain-validated SUBMISSION event on the
+    # shared side records the exact replacement article; silent SHA changes
+    # remain INCONSISTENT.
+    handoff_count = len(logical(handoff['events']))
+    live_events = [e for e in live['events'] if e.get('action') != 'SCHEMA_MIGRATION']
+    superseding_submissions = {
+        e['topic_id']: e['article_sha']
+        for e in live_events[handoff_count:]
+        if e.get('action') == 'SUBMISSION' and e.get('topic_id') and e.get('article_sha')
+    }
     for key in handoff['topics']:
         if key not in live['topics']:
             gaps.append('topic ' + key)
     for key, sub in handoff['submissions'].items():
         have = live['submissions'].get(key)
-        if not have or (have['article_sha'] != sub['article_sha'] and have.get('repair_count', 0) <= sub.get('repair_count', 0)):
+        if not have or (have['article_sha'] != sub['article_sha'] and have.get('repair_count', 0) <= sub.get('repair_count', 0) and superseding_submissions.get(key) != have['article_sha']):
             gaps.append('draft ' + key)
     for key, sha in handoff.get('reviews', {}).items():
         if live.get('reviews', {}).get(key) != sha and live['submissions'].get(key, {}).get('article_sha') == handoff['submissions'].get(key, {}).get('article_sha'):

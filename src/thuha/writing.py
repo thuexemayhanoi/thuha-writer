@@ -416,11 +416,11 @@ def submission_check(result, waiting_for, allow_faults=False):
     always older than QA accepts, so that one is never required). `auto` takes the needed codes from the check.
     """
     problems = []
-    needed = [c for c in result.get('data_waits', []) if c != 'AUTHORITATIVE_INVENTORY']
+    needed = [c for c in result.get('data_waits', []) if c not in ('AUTHORITATIVE_INVENTORY', 'FEATURED_MEDIA')]
     faults = list(result.get('content_fails', [])) + [f['code'] for f in result.get('lint', []) if f['severity'] == 'fix']
     if faults and not allow_faults:
         problems.append('Known faults (nothing was submitted, no repair was spent): ' + ', '.join(sorted(set(faults))))
-    declared = sorted(set(waiting_for or []))
+    declared = sorted(set(waiting_for or [])-{'FEATURED_MEDIA'}) # ignore retired wait
     if declared == ['auto']:
         declared = needed
     unknown = [c for c in declared if c not in ('FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY')]
@@ -488,8 +488,6 @@ def expectations(topic, inv, policy):
     live = [x for x in inv['items'] if item_language(x) == lang and x.get('public_check', {}).get('http_status') == 200]
     archives = [c for c in inv['categories'] if c.get('language') == lang and c.get('link')]
     waits = []
-    if not datawait.media_catalogue(inv, lang):
-        waits.append('FEATURED_MEDIA')
     if len(live) < policy['minimum_internal_content_links'] or len(live) + len(archives) < policy['minimum_internal_links']:
         waits.append('INTERNAL_LINKS')
     usable = True
@@ -593,7 +591,7 @@ def pack(store, state, inv, topic_id, policy, business, cfg=None):
                     'sources': [{'url': s['url'], 'document': s['document'], 'supports': s['supports']} for s in saved], 'business_claims': []}
     notes = []
     if not options:
-        notes.append('No verified image has alt text in %s: leave featured_media null and store the draft waiting for FEATURED_MEDIA; never invent an id.' % lang)
+        notes.append('Optional media unavailable for %s: leave featured_media null and submit normally; no WordPress image or alt access needed.' % lang)
     if not live:
         notes.append('No live verified page of this language is known: links to category archives and to planned pages are possible, but QA needs at least one live content link.')
     if any(s['kind'] == 'external' and s.get('excerpt_words', 0) <= 20 for s in saved if s.get('kind')):

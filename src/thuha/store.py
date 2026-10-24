@@ -11,6 +11,7 @@ import json
 import os
 import re
 import tempfile
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -394,7 +395,7 @@ class GitStore:
                 self.api.request('GET',prefix+'ref/heads/'+self.branch)
 
     def mutate(self,callback):
-        for attempt in range(5):
+        for attempt in range(12):
             state,sha=self._state();migrate(state);old=copy.deepcopy(state)
             validate(state)
             result=callback(state)
@@ -405,7 +406,8 @@ class GitStore:
                 self._put(self.state_path,state,sha)
                 return result
             except GitError as e:
-                if e.status not in (409,422) or attempt==4:raise
+                if e.status not in (409,422) or attempt==11:raise
+                time.sleep(min(0.15 * (attempt + 1), 0.9))
         raise ValueError('CAS retry limit reached')
 
     def raw(self):
@@ -413,7 +415,7 @@ class GitStore:
 
     def adopt(self,builder):
         """Replace the whole ledger with `builder(raw)` in one compare-and-swap; the builder is re-run on a conflict."""
-        for attempt in range(5):
+        for attempt in range(12):
             current,sha=self._state()
             new=builder(copy.deepcopy(current))
             if new is None:return None
@@ -424,22 +426,31 @@ class GitStore:
                 self._put(self.state_path,new,sha)
                 return new
             except GitError as e:
-                if e.status not in (409,422) or attempt==4:raise
+                if e.status not in (409,422) or attempt==11:raise
+                time.sleep(min(0.15 * (attempt + 1), 0.9))
         raise ValueError('CAS retry limit reached')
 
     def put_document(self,value):
         sha=digest(value);path='data/documents/'+sha+'.json'
-        try:
-            old,_=self._get(path)
-            if old!=value:raise ValueError('Immutable remote document collision')
-        except GitError as e:
-            if e.status!=404:raise
-            try:self._put(path,value)
-            except GitError as race:
-                if race.status not in (409,422):raise
+        # A concurrent state writer may move the branch between a missing-file
+        # GET and an immutable-file PUT. 409/422 does not prove the document
+        # exists: another writer might only have moved the branch. Re-read and
+        # retry with bounded CAS; never replace or overwrite an existing file.
+        for attempt in range(10):
+            try:
                 old,_=self._get(path)
-                if old!=value:raise ValueError('Document CAS conflict')
-        return sha
+                if old!=value:raise ValueError('Immutable remote document collision')
+                return sha
+            except GitError as exc:
+                if exc.status!=404:raise
+            try:
+                self._put(path,value)
+                return sha
+            except GitError as exc:
+                if exc.status not in (409,422):raise
+                if attempt==9:raise
+                time.sleep(min(0.15 * (attempt + 1), 0.9))
+        raise RuntimeError('Immutable document CAS retry limit reached')
 
     def get_document(self,sha):
         if not re.fullmatch('[a-f0-9]{64}',sha):raise ValueError('Invalid document address')

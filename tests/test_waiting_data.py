@@ -126,7 +126,7 @@ class PlanningInventoryTests(Fixture):
 
 
 class WaitingHelpers(Fixture):
-    def waiting(self, codes=('FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'), i=1, lang='vi'):
+    def waiting(self, codes=('INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'), i=1, lang='vi'):
         topic = self.candidate(i, lang)
         intake(self.store, [topic], self.inv)
         lease = claim(self.store, 'session-w%d' % i, 'writer-w%d' % i)
@@ -142,23 +142,23 @@ class WaitingDataTests(WaitingHelpers):
         topic, article, lease, out = self.waiting()
         state = self.store.read()
         t = state['topics'][topic['topic_id']]
-        self.assertEqual((t['status'], t['waiting_for']), ('WAITING_DATA', ['AUTHORITATIVE_INVENTORY', 'FEATURED_MEDIA', 'INTERNAL_LINKS']))
+        self.assertEqual((t['status'], t['waiting_for']), ('WAITING_DATA', ['AUTHORITATIVE_INVENTORY', 'INTERNAL_LINKS']))
         self.assertEqual(state['submissions'][topic['topic_id']]['article_sha'], out['article_sha'])
         self.assertEqual(state['leases'], {})
         self.assertEqual(self.store.get_document(out['article_sha'])['featured_media'], None)
-        self.assertEqual(state['events'][-1]['waiting_for'], ['AUTHORITATIVE_INVENTORY', 'FEATURED_MEDIA', 'INTERNAL_LINKS'])
+        self.assertEqual(state['events'][-1]['waiting_for'], ['AUTHORITATIVE_INVENTORY', 'INTERNAL_LINKS'])
         self.assertEqual(state['submissions'][topic['topic_id']]['repair_count'], 0)
 
     def test_nothing_can_be_invented_to_get_past_the_wait(self):
         topic = self.candidate(1, 'vi')
         intake(self.store, [topic], self.inv)
         lease = claim(self.store, 'session-w', 'writer-w')
-        article = self.article_for(topic, 'session-w', 'writer-w')  # carries a real-looking media id 51
-        with self.assertRaisesRegex(ValueError, 'featured_media'):
-            submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['FEATURED_MEDIA'])
+        article = dict(self.article_for(topic, 'session-w', 'writer-w'), featured_media=None)
         with self.assertRaisesRegex(ValueError, 'Unknown'):
-            submit(self.store, lease['slot'], lease['session'], lease['fence'], dict(article, featured_media=None), waiting_for=['SOMETHING_ELSE'])
+            submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['SOMETHING_ELSE'])
         self.assertEqual(self.store.read()['topics'][topic['topic_id']]['status'], 'CLAIMED')
+        submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['FEATURED_MEDIA'])
+        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['status'], 'DRAFT_READY')
 
     def test_a_waiting_draft_is_never_ready_never_qa_pass_and_never_published(self):
         topic, article, lease, out = self.waiting()
@@ -196,10 +196,10 @@ class WaitingDataTests(WaitingHelpers):
         self.assertEqual(revise['topic_id'], tid)
         self.assertEqual(self.store.read()['topics'][tid]['status'], 'CLAIMED')
         fixed = dict(article, session='session-r', agent_id='writer-r', body_html=article['body_html'] + '<p>Một câu được sửa lại.</p>')
-        result = submit(self.store, revise['slot'], 'session-r', revise['fence'], fixed, waiting_for=['FEATURED_MEDIA'])
+        result = submit(self.store, revise['slot'], 'session-r', revise['fence'], fixed, waiting_for=['INTERNAL_LINKS'])
         self.assertEqual(result['repair_count'], 0)  # a revision of a stored draft is not a repair
         state = self.store.read()
-        self.assertEqual((state['topics'][tid]['status'], state['topics'][tid]['waiting_for']), ('WAITING_DATA', ['FEATURED_MEDIA']))
+        self.assertEqual((state['topics'][tid]['status'], state['topics'][tid]['waiting_for']), ('WAITING_DATA', ['INTERNAL_LINKS']))
         self.assertEqual(state['leases'], {})
         self.assertNotEqual(result['article_sha'], out['article_sha'])
 
@@ -248,15 +248,15 @@ class WaitingDataTests(WaitingHelpers):
         tid = topic['topic_id']
         none = readiness_cleared(self.store, self.inv_without_vi())
         self.assertEqual(none, {})
-        self.assertEqual(len(self.store.read()['topics'][tid]['waiting_for']), 3)
+        self.assertEqual(len(self.store.read()['topics'][tid]['waiting_for']), 2)
         authoritative_only = copy.deepcopy(self.inv)
-        authoritative_only['media'] = [m for m in authoritative_only['media'] if m['id'] == 50]  # English alt only
+        authoritative_only['media'] = []
         authoritative_only['items'] = [i for i in authoritative_only['items'] if i['language'] == 'en']
         cleared = readiness_cleared(self.store, authoritative_only)
         self.assertEqual(cleared, {tid: ['AUTHORITATIVE_INVENTORY']})
-        self.assertEqual(self.store.read()['topics'][tid]['waiting_for'], ['FEATURED_MEDIA', 'INTERNAL_LINKS'])
+        self.assertEqual(self.store.read()['topics'][tid]['waiting_for'], ['INTERNAL_LINKS'])
         cleared = readiness_cleared(self.store, self.inv)
-        self.assertEqual(cleared, {tid: ['FEATURED_MEDIA', 'INTERNAL_LINKS']})
+        self.assertEqual(cleared, {tid: ['INTERNAL_LINKS']})
         state = self.store.read()
         self.assertEqual((state['topics'][tid]['status'], state['topics'][tid]['waiting_for']), ('WAITING_DATA', []))
         self.assertEqual([e['action'] for e in state['events']][-2:], ['DATA_AVAILABLE', 'DATA_AVAILABLE'])
@@ -272,8 +272,9 @@ class WaitingDataTests(WaitingHelpers):
         topic, article, lease, out = self.waiting()
         report = dashboard.report(self.store, self.inv, load(ROOT / 'config/release.json'))
         self.assertEqual(report['queue']['vi']['waiting_data'], [topic['topic_id']])
-        self.assertEqual(report['waiting_data'], {topic['topic_id']: ['AUTHORITATIVE_INVENTORY', 'FEATURED_MEDIA', 'INTERNAL_LINKS']})
-        self.assertTrue(any('wait for data' in b and 'FEATURED_MEDIA' in b for b in report['blockers']))
+        self.assertEqual(report['waiting_data'], {topic['topic_id']: ['AUTHORITATIVE_INVENTORY', 'INTERNAL_LINKS']})
+        self.assertTrue(any('wait for data' in b and 'INTERNAL_LINKS' in b for b in report['blockers']))
+        self.assertFalse(any('NEEDS_MEDIA' in b for b in report['blockers']))
         cycle = runtime.cycle(self.store.read(), self.inv, load(ROOT / 'config/release.json'))
         self.assertEqual(cycle['row']['WAITING DATA'], 1)
         self.assertEqual(cycle['row']['QA PASS'], 0)
@@ -281,22 +282,20 @@ class WaitingDataTests(WaitingHelpers):
     def test_precheck_separates_content_faults_from_data_waits(self):
         topic, article, lease, out = self.waiting()
         state = self.store.read()
-        bare = without_vi_media(self.inv)  # nothing with Vietnamese alt text exists, so nothing could have been chosen
+        bare = without_vi_media(self.inv)
         result = runtime.precheck(self.store, state, bare, topic['topic_id'], dict(article, featured_media=None), self.policy, self.business)
-        self.assertIn('FEATURED_MEDIA', result['data_waits'])
+        self.assertNotIn('FEATURED_MEDIA', result['data_waits'])
         self.assertNotIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
         broken = dict(article, featured_media=None, body_html=article['body_html'] + '<p>không cần đặt cọc</p>')
         result = runtime.precheck(self.store, state, bare, topic['topic_id'], broken, self.policy, self.business)
-        self.assertIn('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM', result['content_fails'])  # a real fault stays a fault
-        # With an image that could have been chosen, leaving the choice empty is the writer's to fix, not a wait.
+        self.assertIn('UNVERIFIED_BUSINESS_OR_FIRSTHAND_CLAIM', result['content_fails'])
         result = runtime.precheck(self.store, state, self.inv, topic['topic_id'], dict(article, featured_media=None), self.policy, self.business)
-        self.assertEqual(result['data_waits'], [])
-        self.assertIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
-
+        self.assertNotIn('FEATURED_MEDIA', result['data_waits'])
+        self.assertNotIn('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED', result['content_fails'])
 
 def readiness_cleared(store, inv):
     from thuha import coordinator
-    return store.mutate(lambda s: coordinator.clear_satisfied(s, inv))
+    return store.mutate(lambda state: coordinator.clear_satisfied(state, inv))
 
 
 class EditorialHoldTests(WaitingHelpers):
@@ -362,9 +361,10 @@ class EditorialHoldTests(WaitingHelpers):
 class WaitCodeTests(unittest.TestCase):
     def test_every_wait_code_has_the_hard_fails_that_mean_it(self):
         self.assertEqual(set(runtime.DATA_WAIT_FAILS), set(WAIT_CODES))
-        for fails in runtime.DATA_WAIT_FAILS.values():
-            self.assertTrue(fails)
-
+        self.assertEqual(runtime.DATA_WAIT_FAILS['FEATURED_MEDIA'], ())
+        for code, fails in runtime.DATA_WAIT_FAILS.items():
+            if code != 'FEATURED_MEDIA':
+                self.assertTrue(fails)
 
 class SubmitCommandTests(Fixture):
     def test_the_command_line_stores_a_waiting_draft(self):
@@ -375,14 +375,14 @@ class SubmitCommandTests(Fixture):
         path = Path(self.temp.name) / 'article.json'
         path.write_text(json.dumps(article))
         inventory = Path(self.temp.name) / 'inv.json'
-        inventory.write_text(json.dumps(without_vi_media(self.inv)))  # the live situation: no Vietnamese image exists yet
+        inventory.write_text(json.dumps(without_vi_media(self.inv)))
         with contextlib.redirect_stdout(io.StringIO()):
             code = cli.main(['--state-dir', self.temp.name, '--inventory', str(inventory), 'submit', '--slot', lease['slot'], '--session', lease['session'],
                              '--fence', lease['fence'], '--file', str(path), '--waiting-for', 'FEATURED_MEDIA'])
         self.assertEqual(code, 0)
-        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['waiting_for'], ['FEATURED_MEDIA'])
+        self.assertEqual(self.store.read()['topics'][topic['topic_id']]['status'], 'READY')
+        self.assertNotIn('waiting_for', self.store.read()['topics'][topic['topic_id']])
         self.assertEqual(set(WAIT_CODES), {'FEATURED_MEDIA', 'INTERNAL_LINKS', 'AUTHORITATIVE_INVENTORY'})
-
 
 class LinkTypoTests(Fixture):
     def test_a_link_to_nowhere_is_a_content_fault_not_a_data_wait(self):
@@ -420,17 +420,20 @@ class CommandLineTests(Fixture):
         topic = self.candidate(1, 'vi')
         intake(self.store, [topic], self.inv)
         lease = claim(self.store, 'session-r', 'writer-r')
-        submit(self.store, lease['slot'], lease['session'], lease['fence'], dict(self.article_for(topic, 'session-r', 'writer-r'), featured_media=None),
-               waiting_for=['FEATURED_MEDIA', 'AUTHORITATIVE_INVENTORY'])
+        submit(self.store, lease['slot'], lease['session'], lease['fence'],
+               dict(self.article_for(topic, 'session-r', 'writer-r'), featured_media=None),
+               waiting_for=['AUTHORITATIVE_INVENTORY'])
+        # Simulate a persisted draft from before the policy change.
+        self.store.mutate(lambda s: s['topics']['TH-VI-0001'].update(status='WAITING_DATA', waiting_for=['FEATURED_MEDIA']))
         code, out = self.run_cli('recheck-data')
-        self.assertEqual((code, out['cleared']), (0, {'TH-VI-0001': ['AUTHORITATIVE_INVENTORY', 'FEATURED_MEDIA']}))
+        self.assertEqual((code, out['cleared']), (0, {'TH-VI-0001': ['FEATURED_MEDIA']}))
         self.assertEqual(out['still_waiting'], {})
         topic_now = self.store.read()['topics']['TH-VI-0001']
-        self.assertEqual((topic_now['status'], topic_now['waiting_for']), ('WAITING_DATA', []))
+        self.assertEqual(topic_now['status'], 'DRAFT_READY')
         self.assertEqual(self.store.read()['qa'], {})
         code, again = self.run_cli('recheck-data')
-        self.assertEqual(again['cleared'], {})  # nothing more to clear, nothing written
-        self.assertEqual(sum(e['action'] == 'DATA_AVAILABLE' for e in self.store.read()['events']), 1)
+        self.assertEqual(again['cleared'], {})
+        self.assertEqual(sum(e['action'] == 'LEGACY_MEDIA_WAIT_RELEASED' for e in self.store.read()['events']), 1)
 
     def test_source_command_captures_first_party_facts_and_needs_exactly_one_source(self):
         code, out = self.run_cli('source', '--repository-file', FACTS)
@@ -449,8 +452,8 @@ class CommandLineTests(Fixture):
         path.write_text(json.dumps(article))
         bare = without_vi_media(self.inv)
         code, out = self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path), inv=bare)
-        self.assertEqual((code, out['data_waits'], out['content_fails']), (3, ['FEATURED_MEDIA'], []))
-        self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))[0], 1)  # an image exists and was not chosen
+        self.assertEqual((code, out['data_waits'], out['content_fails']), (0, [], []))
+        self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path))[0], 0)
         path.write_text(json.dumps(dict(article, body_html=article['body_html'] + '<p>không cần đặt cọc</p>')))
         self.assertEqual(self.run_cli('precheck', '--topic-id', 'TH-VI-0001', '--file', str(path), inv=bare)[0], 1)
         path.write_text(json.dumps(dict(article, featured_media=51)))
@@ -527,12 +530,12 @@ class DraftExportTests(Fixture):
         intake(self.store, [topic], self.inv)
         lease = claim(self.store, 'session-x', 'writer-x')
         article = dict(self.article_for(topic, 'session-x', 'writer-x'), featured_media=None)
-        out = submit(self.store, lease['slot'], lease['session'], lease['fence'], article, waiting_for=['FEATURED_MEDIA'])
+        out = submit(self.store, lease['slot'], lease['session'], lease['fence'], article)
         target = Path(self.temp.name) / 'drafts'
         written = drafts.export(self.store.read(), self.store.get_document, target)
         record = json.loads((target / 'vi' / 'TH-VI-0001.json').read_text(encoding='utf-8'))
         self.assertEqual(record['article'], self.store.get_document(out['article_sha']))
-        self.assertEqual((record['status'], record['waiting_for'], record['article_sha']), ('WAITING_DATA', ['FEATURED_MEDIA'], out['article_sha']))
+        self.assertEqual((record['status'], record['waiting_for'], record['article_sha']), ('DRAFT_READY', [], out['article_sha']))
         self.assertEqual(record['source_documents'], [x['document'] for x in article['sources']])
         self.assertIn('TH-VI-0001', (target / 'INDEX.md').read_text(encoding='utf-8'))
         self.assertEqual(written, ['vi/TH-VI-0001.json'])

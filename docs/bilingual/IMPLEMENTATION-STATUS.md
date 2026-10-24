@@ -1,3 +1,5 @@
+> **Cập nhật 23/10/2026 (ưu tiên áp dụng):** Ảnh/alt hoàn toàn tùy chọn. Claude không cần xem hoặc tìm ảnh WordPress; `featured_media: null` nộp, QA và xuất bản bình thường, không đợi `FEATURED_MEDIA`. Các mô tả lịch sử dưới đây về bắt buộc ảnh/alt không còn hiệu lực. Xem [quy định mới](../MEDIA-OPTIONAL-POLICY.md).
+
 ## Verified current checkpoint — 23/10/2026 (use over historic notes below)
 
 - Exact scope: `thuexemayhanoi/thuha-writer` / `https://rentbikehanoi.com`.
@@ -17,7 +19,7 @@
 Theo yêu cầu mới của chủ website, bài hoàn chỉnh đi thẳng từ writer -> QA >=75/100,
 kiểm tra trùng + danh mục/ngôn ngữ -> publisher. Không chờ AI reviewer và không cần
 `review.json`/`THUHA_REVIEWER_ID`. Điểm tự động gốc tối đa 80 được quy đổi về 100;
-review không cộng điểm. Mọi hard fail, nguồn, ảnh/alt, link thật, quota và chống đăng trùng vẫn giữ.
+review không cộng điểm. Mọi hard fail ngoài ảnh/alt (đã bỏ), nguồn, link thật, quota và chống đăng trùng vẫn giữ.
 `precheck` trả `would_pass_qa`, `hard_fails` và điểm thật; điểm thấp trả lỗi kể cả khi không có hard fail.
 
 `qa --pending` nhận tất cả DRAFT_READY, chạy lại READY khi policy/hash cũ, loại WAITING_DATA/HELD.
@@ -167,7 +169,7 @@ Mục tiêu: tìm chỗ bài hoàn chỉnh vẫn bị chặn hoặc bị đẩy 
 | `precheck` và QA phân loại "thiếu dữ liệu" khác nhau và quá lỏng | Bài thiếu liên kết bị dán nhãn chờ dữ liệu, chờ vô hạn | Một bộ phân loại chung `src/thuha/datawait.py`; liên kết sai/quá ít, ảnh chưa chọn dù có ảnh, điểm vẫn dưới 85 dù đủ dữ liệu đều là lỗi bài |
 | **7 bản VI chỉ liên kết tới trang chuyên mục** | QA cần ≥1 liên kết tới bài/trang nội dung đang sống; trang chuyên mục không tính, nên chưa bản nào qua được ngay cả khi có dữ liệu | Ghi rõ: khi hoàn tất, writer phải thêm một liên kết tới nội dung VI đang sống (xem câu hỏi mới cho chủ website bên dưới) |
 | `promote` từ chối bản thảo `WAITING_DATA` được hoàn tất ở phiên sau ("Submission replaced without a repair") | Sau lần chuyển đầu, mọi bản VI hoàn tất ở phiên sau sẽ kẹt trên nhánh (không nhận bản thảo sau push) | `continuity` chấp nhận thay bản đang `WAITING_DATA` không tăng lượt sửa; mọi trường hợp khác vẫn bị từ chối (test cả hai chiều) |
-| `submit` nhận bản không có ảnh mà không khai báo chờ | Bản đó chỉ có thể rơi vào sửa ở QA | `submit` từ chối `featured_media` rỗng trừ khi `--waiting-for FEATURED_MEDIA` |
+| `submit` nhận bản không có ảnh mà không khai báo chờ | Bản đó chỉ có thể rơi vào sửa ở QA | **Đã thay đổi:** `submit` cho phép `featured_media` null và không yêu cầu chờ ảnh |
 | PR không cho thấy sổ cái có còn chuyển được không | Chỉ biết sau khi merge | Bước `quality` của PR (cùng repo) in kế hoạch hand-over chỉ-đọc vào Step Summary |
 | Tài liệu vận hành còn mô tả bước review (`OPERATIONS.md`, README, INDEX bản thảo) | Gây hiểu nhầm bài phải chờ review | Viết lại theo đường QA tự động; bỏ cột Review khỏi `drafts/INDEX.md` |
 
@@ -186,7 +188,7 @@ Số liệu sổ cái: EN 57 chủ đề (9 bản thảo: 7 `DRAFT_READY`, 2 `RE
 **Không viết thêm bài trong phiên này, và đây là lý do chính xác:** các chủ đề còn lại cần nguồn ngoài mà môi trường chặn (chính sách mạng chỉ cho `api.github.com`; mọi miền khác trả 403 ở CONNECT; Firecrawl hết tín dụng; bằng chứng V5 chỉ lưu 20 từ trích mỗi nguồn nên không đủ để viết bài thực chất mà không bịa),
 hoặc cần câu trả lời của chủ cửa hàng ([OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)); các bản nháp còn lại của tôi cùng một khung "hỏi cửa hàng" nên không lưu.
 **Điều đang chặn xuất bản thật (theo thứ tự):** (1) plugin adapter chưa cài và `adapter-preflight` chưa chạy; (2) cấu hình chạy thật: `config/release.json` vẫn OFF, secrets/biến trong environment `thuha-production`, người duyệt của environment (nếu còn) làm bài phải chờ người;
-(3) chưa có inventory từ adapter còn mới; (4) chưa có ảnh alt tiếng Việt và chưa có trang/bài tiếng Việt đang sống để liên kết (Q11) nên chưa bài VI nào qua QA; (5) merge PR #3 để job `queue` chuyển sổ cái và chạy QA EN.
+(3) chưa có inventory từ adapter còn mới; (4) (checkpoint cũ) ảnh alt tiếng Việt còn thiếu nhưng điều kiện này đã bỏ; chưa có trang/bài tiếng Việt đang sống để liên kết (Q11) nên chưa bài VI nào qua QA; (5) merge PR #3 để job `queue` chuyển sổ cái và chạy QA EN.
 **Để mở khóa việc viết:** chủ website đổi *Network access* của môi trường (menu môi trường trong thanh tiêu đề phiên → Edit) sang mức rộng hơn hoặc thêm các miền nguồn vào *Allowed domains* (ví dụ `baotanghochiminh.vn`, `vietnam.travel`, `chinhphu.vn`, `nchmf.gov.vn`, `metrohanoi.vn`, `noibaiairport.vn`, các trang xe Honda/Yamaha/VinFast, `rentbikehanoi.com` để kiểm trang đã sống) hoặc nạp thêm tín dụng Firecrawl; rồi `matrix next` → chụp nguồn → `admit` → viết.
 
 **Câu hỏi mới cho chủ website (thêm vào [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md)):** trang tiếng Việt nào (ví dụ trang chủ `/vi/` hay trang dịch vụ thuê xe) đã đăng và có `public_check` 200? Bài VI đầu tiên cần ít nhất một liên kết tới trang/bài nội dung tiếng Việt đang sống.
@@ -225,7 +227,7 @@ vòng hai khuyên 7 trang thay vì 17 (cùng một khung, chồng lấn ý). Tô
   chủ đề cần luật, nhà sản xuất, địa điểm, giao thông, thời tiết vẫn là `NEEDS_SOURCE`. Bảy bản EN không có review lịch sử, nhưng điều đó không còn chặn QA; nguồn của chúng là bằng chứng đã chụp bởi phiên V5.
 - *Không viết tiếp hàng loạt bài "hỏi cửa hàng".* Đọc soát biên tập chỉ ra các bài cùng một khung và chỉ là danh sách câu hỏi vì chủ cửa hàng chưa trả lời chúng; thêm vài chục bài cùng khung sẽ giống nội dung sản xuất hàng loạt.
   Việc mở khóa là [những câu chỉ chủ cửa hàng trả lời được](OWNER-QUESTIONS.md).
-- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần: ảnh có alt tiếng Việt trong thư viện media, trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi QA tự động.
+- *Không bản nào đủ điều kiện vào hàng đợi xuất bản.* Cần hiện tại: trang/bài tiếng Việt đã sống để liên kết, inventory từ adapter (kiểm tra thực), rồi QA tự động.
 
 **Việc phải xin quyết định của chủ cửa hàng:** (a) giọng văn thống nhất cho cả loạt bài (nay là trung tính, "giá tham khảo của Thuê xe máy Nguyễn Hà", "mỗi cửa hàng có cách làm riêng"); (b) câu trả lời cho
 [10 câu hỏi](OWNER-QUESTIONS.md); (c) ảnh có alt tiếng Việt.
@@ -262,7 +264,7 @@ từ chức năng tiếng Việt nên chặn nhầm TH-000003 (bài Anh trích t
 `native_language` và `no_machine_translation`.
 
 **Một lỗ hổng lộ ra từ việc kiểm tra media:** inventory trước đây chỉ liệt kê ảnh đại diện của bài đã có, nên một ảnh có alt tiếng Việt
-chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **chưa bài VI nào qua được QA**
+chưa bài nào dùng sẽ không bao giờ xuất hiện; nay `audit` liệt kê cả thư viện. Nhưng hiện chưa có ảnh nào có alt tiếng Việt: **tại checkpoint lịch sử chưa bài VI nào qua QA; ảnh/alt nay đã bỏ điều kiện**
 cho đến khi thư viện có ít nhất một ảnh như vậy (việc của người có quyền WordPress).
 
 ### Review độc lập lần hai (23/10) và cách xử lý
@@ -293,7 +295,7 @@ mà WordPress không bao giờ thấy chỉ được đóng sau một giờ; kho
 2. Bảo vệ nhánh: `main` cần 1 review + check `quality`; `factory-state` chỉ app GitHub Actions được ghi, cấm force push.
 3. Environment `thuha-production` có người duyệt, secrets `THUHA_WP_USER`, `THUHA_WP_APPLICATION_PASSWORD`, `THUHA_GITHUB_SECURITY_TOKEN`, biến `THUHA_GO_LIVE_APPROVAL`.
 4. Cài `dist/thuha-native-vi-publisher-1.0.0.zip`, chạy `adapter-preflight` (người/AI có quyền WordPress xem trước và triển khai).
-5. Thêm ảnh có alt tiếng Việt vào thư viện media.
+5. [LỊCH SỬ — ĐÃ BỎ] Ảnh/alt tiếng Việt không còn bắt buộc.
 6. Review độc lập bảy bản thảo EN (và các bản VI khi có). Danh tính reviewer chỉ là chuỗi tự khai (`claude-editorial-reviewer` trong `config/qa.json`), không phải xác thực: chủ sở hữu xác nhận hoặc thay roster và bảo vệ quyền ghi sổ cái trước khi tin cho production.
 7. Quyết định go-live: một thay đổi `config/release.json` đã được review (`enabled`, `approved`, `approval_ref`, `paused:false`, `cross_publisher_coordination_verified`, `languages_enabled`). Giai đoạn đầu tối đa 2 bài.
 

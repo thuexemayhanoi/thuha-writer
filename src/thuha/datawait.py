@@ -12,11 +12,11 @@ from .matrix import matrix_path
 from .research import item_language
 
 # Hard-fail codes that can mean "the data does not exist yet". Whether they do depends on the article too (see `split`).
-DATA_WAIT_FAILS={'FEATURED_MEDIA':('FEATURED_MEDIA_OR_ALT_NOT_VERIFIED',),
+DATA_WAIT_FAILS={'FEATURED_MEDIA':(), # retained only for old ledger compatibility
                  'INTERNAL_LINKS':('INTERNAL_LINK_NOT_LIVE_VERIFIED','INSUFFICIENT_REAL_INTERNAL_LINKS'),
                  'AUTHORITATIVE_INVENTORY':('Inventory is stale or future-dated','Complete inventory for the exact production site is required')}
 # Raw automatic points (of 80) that arrive with the data: the link rule and the verified featured image.
-DATA_POINTS={'INTERNAL_LINKS':20,'FEATURED_MEDIA':10}
+DATA_POINTS={'INTERNAL_LINKS':20}
 
 
 def link_catalogue(inv,language=None,limit=None):
@@ -108,7 +108,6 @@ def split(failures,article,topic,inv,state,policy,declared=False):
     """
     failures=list(failures);waits=set()
     hit=lambda code:any(x in DATA_WAIT_FAILS[code] for x in failures)
-    if declared and hit('FEATURED_MEDIA') and article.get('featured_media') is None and not media_catalogue(inv,topic['language']):waits.add('FEATURED_MEDIA')
     if hit('INTERNAL_LINKS') and links_can_wait(article,topic,inv,state,policy,declared):waits.add('INTERNAL_LINKS')
     if hit('AUTHORITATIVE_INVENTORY'):waits.add('AUTHORITATIVE_INVENTORY')
     faults=[x for x in failures if not any(x in DATA_WAIT_FAILS[c] for c in waits)]
