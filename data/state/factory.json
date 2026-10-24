@@ -11208,6 +11208,21 @@
       "sha256": "9060cbbf559fc599b2a15e7aa19f415543ef43d8ba15ff1c2ad2d294bca76260",
       "status": "PASS",
       "topic_id": "TH-VI-0150"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-VI17",
+      "at": "2026-10-24T11:49:13.997121+00:00",
+      "expires_at": 1792844353.997111,
+      "fence": "b8f377e0b8564295b3e8d1179fe0d3df",
+      "heartbeat_at": "2026-10-24T11:49:13.997091+00:00",
+      "language": "vi",
+      "picked": true,
+      "previous": "9060cbbf559fc599b2a15e7aa19f415543ef43d8ba15ff1c2ad2d294bca76260",
+      "session": "vi-b17-20261024",
+      "sha256": "ee84047895a2affaaa716cb430c91151b18668c69ef8bff01e94d8746cabc7ad",
+      "slot": "W1",
+      "topic_id": "TH-VI-0155"
     }
   ],
   "intents": {
@@ -21428,7 +21443,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-VI17",
+      "expires_at": 1792844353.997111,
+      "fence": "b8f377e0b8564295b3e8d1179fe0d3df",
+      "heartbeat_at": "2026-10-24T11:49:13.997091+00:00",
+      "language": "vi",
+      "picked": true,
+      "session": "vi-b17-20261024",
+      "slot": "W1",
+      "topic_id": "TH-VI-0155"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -30549,7 +30576,7 @@
           "url": "repo://config/business-facts.json"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-VI-0155"
     },
     "TH-VI-0156": {
@@ -32248,5 +32275,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2036
+  "version": 2037
 }
