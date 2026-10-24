@@ -11901,6 +11901,15 @@
       "sha256": "4631d29c466229411465c9a46fd647a8f27d4be58f19b7a500d886f17e1b4493",
       "slot": "W1",
       "topic_id": "TH-000021"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "0a975085ed6078bbce7797282ffe6141b38faa7d46d4e4c5eec922ca32b1696e",
+      "at": "2026-10-24T15:02:33.242247+00:00",
+      "previous": "4631d29c466229411465c9a46fd647a8f27d4be58f19b7a500d886f17e1b4493",
+      "sha256": "fe2968ed0fd40e9cc1895e8bcf3f4c88c0c08d1f2c8fd69a84bd96e4c0b1b190",
+      "topic_id": "TH-000021"
     }
   ],
   "intents": {
@@ -23812,6 +23821,16 @@
       "slot": "W9",
       "submitted_at": "2026-10-23T02:17:40.727031+00:00"
     },
+    "TH-000021": {
+      "agent_id": "claude-writer-EN12",
+      "article_sha": "0a975085ed6078bbce7797282ffe6141b38faa7d46d4e4c5eec922ca32b1696e",
+      "commit": "232abaa6af15c4ad505c13658fec01ac112a2d73",
+      "fence": "ea7477a0a46545acad2e6a0bc5356b9b",
+      "repair_count": 0,
+      "session": "en-b12-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:02:33.242218+00:00"
+    },
     "TH-EN-0001": {
       "agent_id": "claude-writer-W2",
       "article_sha": "46ea6f30418f26592b33759f61d73d6f086b61076ff8808e44265c62f4fe803c",
@@ -26576,7 +26595,7 @@
           "url": "https://evisa.gov.vn/faq"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000021"
     },
     "TH-000022": {
@@ -34402,5 +34421,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2113
+  "version": 2114
 }
