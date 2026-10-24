@@ -15097,6 +15097,15 @@
       "sha256": "54c6925e7e392d07f54ecfa5288a602fa2668d94d9f6352c0043fc56dd92299b",
       "slot": "W1",
       "topic_id": "TH-000035"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "75f02f429188efa4a26c536170340ff08a4b11010564e3d163f555ff0628f8e7",
+      "at": "2026-10-24T16:02:33.462099+00:00",
+      "previous": "54c6925e7e392d07f54ecfa5288a602fa2668d94d9f6352c0043fc56dd92299b",
+      "sha256": "ddffdbbfafcb2bbe8bc417393ce68682900ffd18fda0dc582840b050ce42aae4",
+      "topic_id": "TH-000035"
     }
   ],
   "intents": {
@@ -27674,6 +27683,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:33:44.074991+00:00"
     },
+    "TH-000035": {
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "75f02f429188efa4a26c536170340ff08a4b11010564e3d163f555ff0628f8e7",
+      "commit": "2a56033507b985b1a81544c1783a08f3d13ce2cd",
+      "fence": "3698e936ff064c15b4cac1d6d41d7ac8",
+      "repair_count": 0,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:02:33.462071+00:00"
+    },
     "TH-000038": {
       "agent_id": "claude-writer-EN12",
       "article_sha": "88a326b8af1e0dad7f2fb98198afe2cd3c4e6c869dd37d20b584c27c8114cf1c",
@@ -31731,7 +31750,7 @@
           "url": "https://bachngoc.nghean.gov.vn/an-toan-giao-thong/14-quy-dinh-moi-ve-giao-thong-ap-dung-tu-01-01-2025-1018307"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000035"
     },
     "TH-000036": {
@@ -40563,5 +40582,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2492
+  "version": 2493
 }
