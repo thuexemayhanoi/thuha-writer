@@ -9144,6 +9144,17 @@
         "TH-VI-0255",
         "TH-VI-0256"
       ]
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T09:04:09.145535+00:00",
+      "previous": "f80e91fa1c431e50dc8887f5a21a74bd7f43e61b6bc64c79c2c0fe6301a0fdc6",
+      "sha256": "b17007e793d9abcc40f7992110e342c6e1b8c9d399f979b39512ce1f4e50eb77",
+      "topic_ids": [
+        "TH-VI-0188",
+        "TH-VI-0079",
+        "TH-VI-0032"
+      ]
     }
   ],
   "intents": {
@@ -25609,6 +25620,30 @@
       "status": "READY",
       "topic_id": "TH-VI-0026"
     },
+    "TH-VI-0032": {
+      "admitted_at": "2026-10-24T09:04:09.145498+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "đặt thuê xe máy hộ người khác",
+      "proposed_title": "Nhờ bạn đặt hộ hoặc chuyển cọc hộ: tên trên hợp đồng và người lái cần khớp thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/nho-ban-dat-ho-hoac-chuyen-coc-ho-ten-hop-dong-va-nguoi-lai/",
+      "search_intent": "Người ở xa nhờ bạn hay người thân ở Hà Nội đặt xe và chuyển tiền hộ, cần biết tên trên hợp đồng, tên người nhận xe và người lái nên thể hiện ra sao để không phát sinh rắc rối khi hoàn cọc.",
+      "sources": [
+        {
+          "document": "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0032"
+    },
     "TH-VI-0033": {
       "admitted_at": "2026-10-23T07:26:57.036760+00:00",
       "category_id": 153,
@@ -26056,6 +26091,30 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0076"
+    },
+    "TH-VI-0079": {
+      "admitted_at": "2026-10-24T09:04:09.130807+00:00",
+      "category_id": 154,
+      "category_path": [
+        140,
+        146,
+        154
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "nhận lại xe thuê tháng từ bạn cùng phòng",
+      "proposed_title": "Bạn cùng phòng sắp dọn đi muốn nhượng lại xe thuê tháng cho mình: đổi người đứng tên, cọc và hiện trạng xe tính thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/ban-cung-phong-don-di-nhuong-lai-xe-thue-thang-doi-nguoi-dung-ten/",
+      "search_intent": "Hai bạn ở trọ chung, một người sắp rời Hà Nội và muốn người còn lại tiếp tục dùng chiếc xe đang thuê tháng; cần hỏi cửa hàng có cho đổi người đứng tên không, cọc cũ xử lý ra sao và bàn giao hiện trạng xe thế nào.",
+      "sources": [
+        {
+          "document": "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0079"
     },
     "TH-VI-0086": {
       "admitted_at": "2026-10-24T03:50:37.524118+00:00",
@@ -26733,6 +26792,30 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0176"
+    },
+    "TH-VI-0188": {
+      "admitted_at": "2026-10-24T09:04:09.112952+00:00",
+      "category_id": 159,
+      "category_path": [
+        140,
+        148,
+        159
+      ],
+      "cluster": "su-dung-va-cham-soc-xe",
+      "language": "vi",
+      "primary_keyword": "đổ xăng buổi sáng hay buổi tối có lợi hơn không",
+      "proposed_title": "Đổ xăng buổi sáng hay buổi tối có lợi hơn: lời đồn quen thuộc và điều thật sự ảnh hưởng đến lượng xăng",
+      "proposed_url": "https://rentbikehanoi.com/vi/do-xang-buoi-sang-hay-buoi-toi-co-loi-hon-khong/",
+      "search_intent": "Người từng nghe mẹo đổ xăng lúc trời mát sẽ được nhiều xăng hơn muốn kiểm chứng; cần biết lập luận của mẹo này, điều gì thực sự ảnh hưởng đến lượng nhận được, và vì sao với người thuê ngắn ngày chọn cây xăng quan trọng hơn chọn giờ.",
+      "sources": [
+        {
+          "document": "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0188"
     },
     "TH-VI-0197": {
       "admitted_at": "2026-10-23T12:36:45.378678+00:00",
@@ -27525,5 +27608,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1327
+  "version": 1328
 }
