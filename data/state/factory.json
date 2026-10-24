@@ -10183,6 +10183,26 @@
       "sha256": "f185f73754a3ff5f3ffdf2751629e3a9c1edb8cb4a7560fd05b0328dbe921fc3",
       "status": "PASS",
       "topic_id": "TH-VI-0237"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T11:13:57.573149+00:00",
+      "previous": "f185f73754a3ff5f3ffdf2751629e3a9c1edb8cb4a7560fd05b0328dbe921fc3",
+      "sha256": "a5b7e495c45b804c047632f5ecd4cbbe2fbcbd54b814415bc13fabfa340331de",
+      "topic_ids": [
+        "TH-VI-0291",
+        "TH-VI-0293",
+        "TH-VI-0297",
+        "TH-VI-0307",
+        "TH-VI-0296",
+        "TH-VI-0294",
+        "TH-VI-0287",
+        "TH-VI-0280",
+        "TH-VI-0031",
+        "TH-VI-0284",
+        "TH-VI-0285",
+        "TH-VI-0281"
+      ]
     }
   ],
   "intents": {
@@ -21667,6 +21687,21 @@
       "status": "FULFILLED"
     },
     "research-vi-ee563cb9bf171602": {
+      "admitted_topic_ids": [
+        "TH-VI-0291",
+        "TH-VI-0293",
+        "TH-VI-0297",
+        "TH-VI-0307",
+        "TH-VI-0296",
+        "TH-VI-0294",
+        "TH-VI-0287",
+        "TH-VI-0280",
+        "TH-VI-0031",
+        "TH-VI-0284",
+        "TH-VI-0285",
+        "TH-VI-0281"
+      ],
+      "completed_at": "2026-10-24T11:13:57.573141+00:00",
       "created_at": "2026-10-24T11:00:05.834427+00:00",
       "inventory_sha256": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
       "language": "vi",
@@ -21674,7 +21709,7 @@
       "planned": 8,
       "request_id": "research-vi-ee563cb9bf171602",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     }
   },
   "reviews": {
@@ -27102,6 +27137,60 @@
       "status": "READY",
       "topic_id": "TH-VI-0026"
     },
+    "TH-VI-0031": {
+      "admitted_at": "2026-10-24T11:13:57.509217+00:00",
+      "category_id": 153,
+      "category_path": [
+        140,
+        146,
+        153
+      ],
+      "cluster": "huong-dan-thue-xe",
+      "language": "vi",
+      "primary_keyword": "chưa đủ 18 tuổi có thuê được xe máy không",
+      "proposed_title": "Chưa đủ 18 tuổi: có thuê được xe máy không và quy định hiện hành nói gì",
+      "proposed_url": "https://rentbikehanoi.com/vi/chua-du-18-tuoi-co-thue-duoc-xe-may-khong-quy-dinh-noi-gi/",
+      "search_intent": "Bạn trẻ vừa sang tuổi 17 hoặc 18 muốn tự thuê xe đi chơi, cần đọc quy định hiện hành về độ tuổi và loại xe được điều khiển, đồng thời biết cửa hàng có thể đặt thêm điều kiện nào.",
+      "sources": [
+        {
+          "document": "4d67b5aa527215aa5f3a1913b2b239e638e0b59257ac87fa80c8a99899d39564",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "c65ac6d0b0258de779e9d24c910c83514f789c226a5525709613c6d300d1bd7f",
+          "supports": "Cục Cảnh sát giao thông (05/07/2026) phản hồi thông tin cho rằng người 16–18 tuổi đi mọi loại xe máy đều bị phạt là không chính xác.",
+          "url": "https://csgt.bocongan.gov.vn/index.php/tintuc/thong-tin-nguoi-tu-16-tuoi-den-duoi-18-tuoi-di-moi-loai-xe-may-deu-bi-phat-la-khong-chinh-xac"
+        },
+        {
+          "document": "0bc532966fe8ccbd6ad56f0db1ec44da49068906d716e2a6aa107463e3a7075a",
+          "supports": "Cổng thông tin Nam Hồng Lĩnh, Hà Tĩnh (08/09/2026) nêu mức phạt chủ xe giao xe cho người không đủ điều kiện; nguồn tham khảo cấp địa phương.",
+          "url": "https://namhonglinh.hatinh.gov.vn/vi/bai-viet/an-toan-giao-thong-cho-hoc-sinh--hieu-luat-de-den-truong-an-toan"
+        },
+        {
+          "document": "c72baa4e19706ace8be631eeb81f740116a508f9fdcda5e3d8a3e070e4167c9f",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "51a32161985644e21ea0ae8ec5a72102b6074fd837046fd60d285d53ca49331c",
+          "supports": "Bộ Công an giới thiệu điểm mới của Luật Trật tự, an toàn giao thông đường bộ 2024 về độ tuổi và hạng giấy phép.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/mot-so-diem-moi-cua-luat-trat-tu-an-toan-giao-thong-duong-bo-2024-d1-t1495"
+        },
+        {
+          "document": "ffd20d355433675e41e6aa496c2f7a08d5bd14c998c322ce267df9148e2ee296",
+          "supports": "Cổng phổ biến, giáo dục pháp luật Hà Nội (07/09/2020) trích Điều 21 khoản 4 Bộ luật Dân sự về giao dịch của người từ 15 đến dưới 18 tuổi; phần quy định giao thông của trang đã hết hiệu lực nên không dùng.",
+          "url": "https://pbgdpl.hanoi.gov.vn/giai-dap-phap-luat/-/asset_publisher/M248tqbaPaRY/content/chua-u-18-tuoi-co-uoc-ung-ten-mua-xe-may"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0031"
+    },
     "TH-VI-0032": {
       "admitted_at": "2026-10-24T09:55:06.279454+00:00",
       "category_id": 153,
@@ -29155,6 +29244,535 @@
       "status": "READY",
       "topic_id": "TH-VI-0274"
     },
+    "TH-VI-0280": {
+      "admitted_at": "2026-10-24T11:13:57.492084+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "bằng lái xe máy hạng nào cho xe ga xe số",
+      "proposed_title": "Bằng lái hạng nào cho xe ga hoặc xe số bạn định thuê: tra theo dung tích xi-lanh hay công suất",
+      "proposed_url": "https://rentbikehanoi.com/vi/bang-lai-hang-nao-cho-xe-ga-hoac-xe-so-tra-theo-dung-tich/",
+      "search_intent": "Người sắp thuê xe không rõ giấy phép lái xe hiện có đủ để lái xe ga hay xe số cửa hàng đưa ra không, cần biết nên đối chiếu thông số nào của xe với hạng giấy phép và tra văn bản hiện hành ở đâu.",
+      "sources": [
+        {
+          "document": "1d19647d1ef440ec5676c386fde0a4fd58941baaf2afc560eb82c377b1040f83",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "7429fc9eb1901ce5b1a74661507a68d05c54087c91bff292ac7061892cd2168b",
+          "supports": "Thông tư 108/2026/TT-BCA về sát hạch, cấp, sử dụng giấy phép lái xe (trạng thái hiệu lực tại Cơ sở dữ liệu văn bản pháp luật quốc gia), dùng cho các điều của thông tư được nêu.",
+          "url": "https://vbpl.vn/en/van-ban/chi-tiet/thong-tu-so-108-2026-tt-bca-quy-dinh-ve-sat-hach-cap-giay-phep-lai-xe-cap-su-dung-giay-phep-lai-xe-quoc-te--6423e210-7ffe-11f1-a6e4-33cf5e12fa5a"
+        },
+        {
+          "document": "e7a349b53a92683989f8c0fcef62c8728ea6e6c898239ae54ca8d131f09e8747",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "8aa8cb150901726559a3cfb814db0fd762054a4996c1ae7cf33d065ca1f56f83",
+          "supports": "Bộ Công an giới thiệu điểm mới của Luật Trật tự, an toàn giao thông đường bộ 2024: giấy phép lái xe chia thành 15 hạng.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/mot-so-diem-moi-cua-luat-trat-tu-an-toan-giao-thong-duong-bo-2024-d1-t1495"
+        },
+        {
+          "document": "5798b80506116cdfaba65f7c830ec60527f2b871d57d4933fdb524faae4fa0d4",
+          "supports": "Cục Cảnh sát giao thông (05/07/2026): người từ đủ 16 tuổi được điều khiển xe gắn máy; trang nêu mức phạt cho người từ 16 đến dưới 18 tuổi lái xe mô tô.",
+          "url": "https://csgt.bocongan.gov.vn/index.php/tintuc/thong-tin-nguoi-tu-16-tuoi-den-duoi-18-tuoi-di-moi-loai-xe-may-deu-bi-phat-la-khong-chinh-xac"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0280"
+    },
+    "TH-VI-0281": {
+      "admitted_at": "2026-10-24T11:13:57.573096+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "có bằng lái ô tô có lái được xe máy không",
+      "proposed_title": "Có bằng lái ô tô thì thuê xe máy được không: đối chiếu hạng giấy phép với loại xe ở đâu",
+      "proposed_url": "https://rentbikehanoi.com/vi/co-bang-lai-o-to-thi-thue-xe-may-duoc-khong-doi-chieu-hang/",
+      "search_intent": "Người chỉ cầm giấy phép lái ô tô, chưa từng thi xe máy, muốn thuê xe đi vài ngày ở Hà Nội, cần biết cách đối chiếu hạng giấy phép của mình với loại xe và hỏi cửa hàng điều gì trước khi đặt, thay vì nghe truyền miệng.",
+      "sources": [
+        {
+          "document": "033e85241e10592269d4cbcab282c3140a30dc9365ed381a469500a79d2429af",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "b41de18419d536cac27062cedf9348ea71de65353665b65a609f195907026adc",
+          "supports": "Thông tư 108/2026/TT-BCA về sát hạch, cấp, sử dụng giấy phép lái xe (trạng thái hiệu lực tại Cơ sở dữ liệu văn bản pháp luật quốc gia), dùng cho các điều của thông tư được nêu.",
+          "url": "https://vbpl.vn/en/van-ban/chi-tiet/thong-tu-so-108-2026-tt-bca-quy-dinh-ve-sat-hach-cap-giay-phep-lai-xe-cap-su-dung-giay-phep-lai-xe-quoc-te--6423e210-7ffe-11f1-a6e4-33cf5e12fa5a"
+        },
+        {
+          "document": "a0c072c2f7eddc48a003223f5f57ab9db4ac7c59f032535b7c7d5322298fdbc8",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "dc9a473b7dcc9c1b7fae36214f6b81c62193b52d077375aea0bceea5df40b615",
+          "supports": "Bộ Công an giới thiệu điểm mới của Luật Trật tự, an toàn giao thông đường bộ 2024: các hạng giấy phép lái xe.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/mot-so-diem-moi-cua-luat-trat-tu-an-toan-giao-thong-duong-bo-2024-d1-t1495"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0281"
+    },
+    "TH-VI-0284": {
+      "admitted_at": "2026-10-24T11:13:57.526266+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "bằng lái xe máy bìa giấy cũ còn dùng được không",
+      "proposed_title": "Bằng lái xe máy bản bìa giấy cũ còn dùng được không và nên đổi sang thẻ ở đâu",
+      "proposed_url": "https://rentbikehanoi.com/vi/bang-lai-xe-may-ban-bia-giay-cu-con-dung-duoc-khong/",
+      "search_intent": "Người còn giữ bằng lái dạng bìa giấy từ nhiều năm trước muốn thuê xe, không chắc bản này còn được chấp nhận không, cần tra quy định về giá trị của các bản giấy phép cũ và thủ tục đổi ở cơ quan có thẩm quyền.",
+      "sources": [
+        {
+          "document": "6314bd91eeafc0562f6bae043e2226c23c65f4e7790f2703629e085acd15f90b",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "096ea1bba3a3fcab3a261f06f4a1d3b2a8c84250527891b50b1fbf9a7a9115fa",
+          "supports": "Thông tư 108/2026/TT-BCA về sát hạch, cấp, sử dụng giấy phép lái xe (trạng thái hiệu lực tại Cơ sở dữ liệu văn bản pháp luật quốc gia), dùng cho các điều của thông tư được nêu.",
+          "url": "https://vbpl.vn/en/van-ban/chi-tiet/thong-tu-so-108-2026-tt-bca-quy-dinh-ve-sat-hach-cap-giay-phep-lai-xe-cap-su-dung-giay-phep-lai-xe-quoc-te--6423e210-7ffe-11f1-a6e4-33cf5e12fa5a"
+        },
+        {
+          "document": "d74580b3964e2e64e44e75d4a133b7a50aee768b95033d1ea1eb9b42fb7de6f8",
+          "supports": "Phòng Cảnh sát giao thông Công an Hà Nội (20/10/2025) khuyến khích đổi giấy phép lái xe bìa giấy sang thẻ nhựa PET.",
+          "url": "https://csgt.bocongan.gov.vn/tintuc/ha-noi-khuyen-khich-nguoi-dan-doi-giay-phep-lai-xe-giay-bia-sang-the-nhua-pet.html"
+        },
+        {
+          "document": "b1f3a39c76f9b15aae13a7ad361d51eb487285203384b4a27e7a32af8052f667",
+          "supports": "Báo điện tử Chính phủ (03/07/2026) nêu thời gian đổi giấy phép giảm từ 05 ngày xuống 2,5 ngày và tích hợp dữ liệu điện tử còn 01 ngày.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/nhung-diem-moi-trong-sat-hach-lai-xe-119260703113320777.htm"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0284"
+    },
+    "TH-VI-0285": {
+      "admitted_at": "2026-10-24T11:13:57.553677+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "bằng lái chờ cấp lại chỉ có giấy hẹn thuê xe",
+      "proposed_title": "Giấy phép lái xe đang chờ cấp lại hoặc vừa hết hạn: chỉ có giấy hẹn thì thuê xe được không",
+      "proposed_url": "https://rentbikehanoi.com/vi/bang-lai-cho-cap-lai-hoac-het-han-chi-co-giay-hen-thue-xe/",
+      "search_intent": "Người vừa làm mất hoặc hết hạn giấy phép lái xe, đang cầm giấy hẹn, cần thuê xe gấp để đi làm, muốn biết giấy hẹn có thay giấy phép khi lái xe được không, tra quy định ở đâu và cửa hàng có nhận hay không.",
+      "sources": [
+        {
+          "document": "28e7dbcf10b72901476d17e65f62921255382995237c335678bd236d9a971ebe",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "6a61f1207a432a2fe380243be3b1dad94e2af4f324c2b5c3481e7d787c49c6c0",
+          "supports": "Thông tư 108/2026/TT-BCA về sát hạch, cấp, sử dụng giấy phép lái xe (trạng thái hiệu lực tại Cơ sở dữ liệu văn bản pháp luật quốc gia), dùng cho các điều của thông tư được nêu.",
+          "url": "https://vbpl.vn/en/van-ban/chi-tiet/thong-tu-so-108-2026-tt-bca-quy-dinh-ve-sat-hach-cap-giay-phep-lai-xe-cap-su-dung-giay-phep-lai-xe-quoc-te--6423e210-7ffe-11f1-a6e4-33cf5e12fa5a"
+        },
+        {
+          "document": "8f11aeed1d0c849c48109a0be250737c5da15658713d9b12214bb9cdc237e217",
+          "supports": "Báo điện tử Chính phủ (05/03/2025) nêu cách cảnh sát giao thông đối chiếu khi người lái đang chờ cấp, đổi giấy phép; viết theo thông tư trước nay đã thay thế.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/tham-gia-giao-thong-nhu-the-nao-khi-dang-cho-cap-doi-giay-phep-lai-xe-119250305173036338.htm"
+        },
+        {
+          "document": "8e3fbdd459e8596c6e5f730dd3c8b807a7a3eb435feab05140cb9b3373c5883e",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "dfe43f5be03540ba1666caade16395c33a113853890209ddc66936250930894c",
+          "supports": "Bộ Công an trả lời ngày 13/10/2025 hướng dẫn thêm giấy phép lái xe vào VNeID và cách lực lượng kiểm soát tra dữ liệu.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/chi-tiet-cau-hoi/ebbde46e-bac0-48de-972e-db9d74eb8e3d"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0285"
+    },
+    "TH-VI-0287": {
+      "admitted_at": "2026-10-24T11:13:57.475480+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "giấy tờ phải mang theo khi lái xe máy",
+      "proposed_title": "Lái xe máy phải mang theo những giấy tờ nào: danh sách cần đối chiếu với văn bản hiện hành",
+      "proposed_url": "https://rentbikehanoi.com/vi/lai-xe-may-phai-mang-theo-nhung-giay-to-nao-doi-chieu-van-ban/",
+      "search_intent": "Người sắp nhận xe thuê muốn lập danh sách giấy tờ cần có trên người và trên xe khi ra đường, cần biết đối chiếu với văn bản nào, dùng bản gốc hay bản điện tử, và giấy tờ nào do cửa hàng giao kèm xe.",
+      "sources": [
+        {
+          "document": "d2276b9a78a854042986373f852144122beaf35a5c7d8e0f73bccead53036213",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "3fe93273558aef9ea2e6f46fb96b4f662c97b28d7899541c110bb663e83bd8ee",
+          "supports": "Thông tư 108/2026/TT-BCA về sát hạch, cấp, sử dụng giấy phép lái xe (trạng thái hiệu lực tại Cơ sở dữ liệu văn bản pháp luật quốc gia), dùng cho các điều của thông tư được nêu.",
+          "url": "https://vbpl.vn/en/van-ban/chi-tiet/thong-tu-so-108-2026-tt-bca-quy-dinh-ve-sat-hach-cap-giay-phep-lai-xe-cap-su-dung-giay-phep-lai-xe-quoc-te--6423e210-7ffe-11f1-a6e4-33cf5e12fa5a"
+        },
+        {
+          "document": "3ccdb49c2a0e8ba44a4a1cbc029d7d186360d8ac17c8ae6beb08a06c7608717f",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "70909779c8534c6217a4f9063cc2d4ff54b7f45b29cc0e63162bc03e6bfff0b6",
+          "supports": "Báo điện tử Chính phủ (07/04/2026) về kiểm định khí thải xe mô tô, xe gắn máy từ 01/07/2027 tại Hà Nội và TP. Hồ Chí Minh theo Quyết định 13/2026/QĐ-TTg.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/tu-1-7-2027-kiem-dinh-khi-thai-xe-mo-to-xe-gan-may-tai-tp-ha-noi-tphcm-1192604071607429.htm"
+        },
+        {
+          "document": "88b10a6c508fca3eb911a824bc375b25026870974ab55dbfd33b3cb16096d970",
+          "supports": "Bộ Công an trả lời ngày 13/10/2025: thông tin trên ứng dụng định danh điện tử có giá trị như kiểm tra giấy tờ trực tiếp.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/chi-tiet-cau-hoi/ebbde46e-bac0-48de-972e-db9d74eb8e3d"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0287"
+    },
+    "TH-VI-0291": {
+      "admitted_at": "2026-10-24T11:13:57.355591+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "quy định đội mũ bảo hiểm khi đi xe máy",
+      "proposed_title": "Quy định đội mũ bảo hiểm khi đi xe máy: người lái và người ngồi sau cần tra ở văn bản nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/quy-dinh-doi-mu-bao-hiem-nguoi-lai-nguoi-ngoi-sau-tra-o-dau/",
+      "search_intent": "Người thuê xe chở thêm bạn muốn biết ai phải đội mũ, quai cài thế nào thì đúng quy định, và cần đọc điều khoản ở văn bản hiện hành nào thay vì dựa vào bài đăng trên mạng xã hội.",
+      "sources": [
+        {
+          "document": "302aaee87475ac8a647612d0ef66f87e2717d78e6c08af10cb4960c080f48783",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "1b0a4808f6bd1b790e9a9ad566cc34c2656d2d3f7090bc7d0c629f2d4e027237",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "9486ac1c2325e20982835003a2252f3aac4eef786d1a3cc53596b4cabc434d8d",
+          "supports": "Bộ Công an (26/01/2025) nêu mức phạt 400.000–600.000 đồng cho không đội mũ bảo hiểm hoặc không cài quai đúng quy cách.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-mot-so-loi-vi-pham-giao-thong-thuong-gap-doi-voi-nguoi-dieu-khien-xe-may-d1-t1650"
+        },
+        {
+          "document": "51c37c00865095ddda0d12a112de5d511b318ba5c732631291e2ba19e1f45a9f",
+          "supports": "Ủy ban Tiêu chuẩn Đo lường Chất lượng Quốc gia (13/09/2021): từ 01/01/2024 mũ bảo hiểm phải đáp ứng QCVN 2:2021/BKHCN.",
+          "url": "https://tcvn.gov.vn/mot-so-diem-moi-trong-qcvn-22021-bkhcn-ve-mu-bao-hiem-cho-nguoi-di-mo-to-xe-may/13/09/2021"
+        },
+        {
+          "document": "ddce100b2beb38542760cca55c15b492debaf895f543d89421251755fefcf16a",
+          "supports": "Văn bản QCVN 2:2021/BKHCN về mũ bảo hiểm cho người đi mô tô, xe máy, dùng cho yêu cầu dấu hợp quy CR.",
+          "url": "https://opendata.quangngai.gov.vn/dataset/738a744f-6870-4c8b-8f64-db853a4ec46f/resource/8f432008-1ee8-4531-89b7-85ea8dad2524/download/qcvn-2-2021-bkhcn.pdf"
+        },
+        {
+          "document": "2070e9b5d5266eef967bb4e757fd6abe0506d11b41f56ca8f1cc95f88af9a4f6",
+          "supports": "Cục Cảnh sát giao thông (16/06/2026) khuyến cáo đội mũ bảo hiểm đạt chuẩn, đúng quy cách trong một trường hợp xử lý cụ thể.",
+          "url": "https://csgt.bocongan.gov.vn/tintuc/cho-3-nguoi-tren-xe-mo-to-nguoi-ngoi-sau-khong-doi-mu-bao-hiem-lai-xe-bi-xu-phat-qua-phan-anh-tren-vnetraffic"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0291"
+    },
+    "TH-VI-0293": {
+      "admitted_at": "2026-10-24T11:13:57.372354+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "uống rượu bia rồi đi xe máy quy định nồng độ cồn",
+      "proposed_title": "Uống bia rượu xong có nên lấy xe thuê chạy về: tra quy định nồng độ cồn và phương án về thay thế",
+      "proposed_url": "https://rentbikehanoi.com/vi/uong-bia-ruou-xong-co-nen-lay-xe-thue-chay-ve-nong-do-con/",
+      "search_intent": "Người đi ăn nhậu cùng bạn bè muốn quyết định để xe lại hay chạy về, cần tra quy định về nồng độ cồn khi lái xe ở nguồn chính thức, và lên sẵn phương án gọi xe công nghệ hoặc nhờ người tỉnh táo rồi báo cửa hàng chỗ để xe.",
+      "sources": [
+        {
+          "document": "1e957de9e4b2e348240c91d6e00dde410a8a6cb3f697c61287e0cd07d6460167",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "c1f4e88d53f318986be74317a2bf3812f8654a2f727a76624bba027fbae7d619",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "83b3b252b3c03f39d491638c3f9b486d0cd65347d3dd1c2b09de494c319729f6",
+          "supports": "Bộ Công an (28/01/2025) nêu các mức xử phạt vi phạm nồng độ cồn, trong đó có tước giấy phép lái xe 22–24 tháng.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-vi-pham-nong-do-con-doi-voi-nguoi-dieu-khien-phuong-tien-giao-thong-d1-t1648"
+        },
+        {
+          "document": "2cdea39d7947a526a0e5c8bb17a453520e10e2ad585611a9f0f6922bb0a6ab5e",
+          "supports": "Bộ Công an trả lời ngày 21/02/2026 về ba mức xử phạt người điều khiển xe máy có nồng độ cồn, kèm điểm giấy phép lái xe.",
+          "url": "https://mps.gov.vn/hoi-dap/chi-tiet-cau-hoi/8dfd8842-bdce-40b4-98ce-cd7530dbfc6b?page=%2F"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0293"
+    },
+    "TH-VI-0294": {
+      "admitted_at": "2026-10-24T11:13:57.458708+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "giới hạn tốc độ xe máy trong nội thành Hà Nội",
+      "proposed_title": "Giới hạn tốc độ xe máy trong nội thành Hà Nội: đọc biển báo hay tra văn bản trước khi chạy",
+      "proposed_url": "https://rentbikehanoi.com/vi/gioi-han-toc-do-xe-may-trong-noi-thanh-ha-noi-doc-bien-bao/",
+      "search_intent": "Người mới đến Hà Nội muốn biết tốc độ tối đa áp dụng cho xe máy ở khu đông dân cư và đoạn có biển riêng, cần biết cách đọc biển giới hạn, tra văn bản hiện hành ở đâu và vì sao nên chạy chậm hơn mức cho phép ở đường đông.",
+      "sources": [
+        {
+          "document": "fdf0a8c5d55807e65d21c723bd32bd16f954be51036c8cfad4c2ef952b735dcb",
+          "supports": "Bản hợp nhất Thông tư 38/2024/TT-BGTVT (tệp ngày 15/09/2026) của Bộ Xây dựng về tốc độ và khoảng cách an toàn của xe cơ giới.",
+          "url": "https://mt.gov.vn/Images/FileVanBan/BXD_74-2026-VBHN-TT-BXD_15092026.pdf"
+        },
+        {
+          "document": "215024ed8ae2b0871e241ca64b84cf008627210a54eb222f80e6b19b99c908fd",
+          "supports": "Thông tư 38/2024/TT-BGTVT ngày 15/11/2024, hiệu lực từ 01/01/2025, thay thế Thông tư 31/2019/TT-BGTVT, dùng cho bảng tốc độ tối đa.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/11/38-bgtvt.pdf"
+        },
+        {
+          "document": "bdffcd3a60d5ac66c2a6b0eea17e6c17aabd72419b1db005937b90020258e7d5",
+          "supports": "Cổng phổ biến, giáo dục pháp luật Hà Nội (28/11/2024) nêu mức tốc độ 60 và 50 km/h cho xe cơ giới trong khu đông dân cư.",
+          "url": "https://pbgdpl.hanoi.gov.vn/chi-tiet-tim-kiem/-/asset_publisher/kyB8zPQFRdzV/content/quy-inh-ve-toc-o-xe-co-gioi-xe-chuyen-dung-co-hieu-luc-tu-01-01-2025"
+        },
+        {
+          "document": "2d031ec47a4ea5ce2388d128e05711db30c926071faf6825b90c1bbafc403e91",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "1c0bba6e8a9af8a668a6d0b17364d7c1dc3fe7b26093b9075b08773043da3b28",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "0307cfa831acf1d29c577e995666b354385149af07214fd9ebb100da04014383",
+          "supports": "QCVN 41:2024/BGTVT về báo hiệu đường bộ, dùng cho ý nghĩa biển P.127 và biển R.420, R.421.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2024/11/51-bgtvt-kem.pdf"
+        },
+        {
+          "document": "77c4861736aaef35b108c57a571402a848e53fa12c5fb6ef3c654620464d12f6",
+          "supports": "Báo điện tử Chính phủ (15/09/2026) về Thông báo 482/TB-VPCP nghiên cứu sửa đổi Thông tư 38/2024/TT-BGTVT.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/khan-truong-dat-bien-bao-tren-cao-toc-co-xu-phat-vi-pham-khoang-cach-an-toan-nghien-cuu-sua-doi-bo-sung-quy-dinh-ve-khoang-cach-an-toan-119260914210409705.htm"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0294"
+    },
+    "TH-VI-0296": {
+      "admitted_at": "2026-10-24T11:13:57.433034+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "đeo tai nghe dùng điện thoại khi lái xe máy",
+      "proposed_title": "Nhìn bản đồ hoặc đeo tai nghe khi lái xe máy: quy định cần tra ở đâu và cách gắn điện thoại hợp lý",
+      "proposed_url": "https://rentbikehanoi.com/vi/nhin-ban-do-hoac-deo-tai-nghe-khi-lai-xe-may-quy-dinh-tra-o-dau/",
+      "search_intent": "Người thuê xe phải nghe chỉ đường qua điện thoại, phân vân giữa tai nghe một bên và loa ngoài, cần tra quy định về sử dụng điện thoại và thiết bị âm thanh khi lái xe và hỏi cửa hàng cách gắn giá đỡ không ảnh hưởng xe.",
+      "sources": [
+        {
+          "document": "df10ba9fd85cb4ce8c82591e5fa2a8a261d224ea0744f4ed1098fb545d4ae311",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "e603c99b246a004774c89b74f91dcc10756ca2f24a8419514b0ba91bb1ea7584",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "e7aa75379ce93a8c05a280613c62ca1a2931c2da8467fb6c7e007ec1244582b2",
+          "supports": "Bộ Công an (05/06/2026) trả lời về xử phạt sử dụng tai nghe khi lái xe: phạt 800.000–1.000.000 đồng và trừ 04 điểm.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/chi-tiet-cau-hoi/5310b3fd-9fd7-4f35-82d3-b4a84a90de56"
+        },
+        {
+          "document": "433acb3bb6dbad62556d73aed8dc3c74be48ea61ecbc4abaad526efa9b9361ad",
+          "supports": "Báo điện tử Chính phủ (30/03/2026) về mức phạt sử dụng thiết bị âm thanh khi lái xe mô tô, xe gắn máy và ý kiến rà soát quy định.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/muc-phat-nguoi-dang-dieu-khien-xe-mo-to-xe-gan-may-su-dung-thiet-bi-am-thanh-tru-thiet-bi-tro-thinh-11926033005294129.htm"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0296"
+    },
+    "TH-VI-0297": {
+      "admitted_at": "2026-10-24T11:13:57.389136+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "quy định chở trẻ em và số người trên xe máy",
+      "proposed_title": "Chở trẻ em hoặc nhiều người trên một xe máy: những điểm cần đọc trong quy định hiện hành",
+      "proposed_url": "https://rentbikehanoi.com/vi/cho-tre-em-hoac-nhieu-nguoi-tren-mot-xe-may-diem-can-doc/",
+      "search_intent": "Gia đình có con nhỏ thuê xe đi chơi muốn biết quy định hiện hành về độ tuổi, vị trí ngồi và số người được chở trên xe máy, cần tra ở văn bản nào và hỏi cửa hàng xe nào phù hợp thay vì chở quá tải cho tiện.",
+      "sources": [
+        {
+          "document": "307dd766c16c9f05102e0e4298312b810750db9437c344c45a484e8d7cf5147b",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "86091a67a7d90ce63a296d6bf3526e10a66171d26a63295456893d03a7b38e06",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "3a9df9f4d5a194e7862d7f2f46eb2c984922faabb994b7f1a7b7c3a4958d3f70",
+          "supports": "Bộ Công an (26/01/2025) nêu mức phạt 400.000–600.000 đồng cho hành vi chở theo 02 người ngoài các trường hợp được phép.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-mot-so-loi-vi-pham-giao-thong-thuong-gap-doi-voi-nguoi-dieu-khien-xe-may-d1-t1650"
+        },
+        {
+          "document": "64926b447530a7b5966eb86071edc284bf6c908b81acb3c224b6a21e80cf480d",
+          "supports": "Cục Cảnh sát giao thông (16/06/2026) về trường hợp chở ba người trên xe mô tô, lập biên bản theo điểm g và điểm i khoản 2 Điều 7.",
+          "url": "https://csgt.bocongan.gov.vn/tintuc/cho-3-nguoi-tren-xe-mo-to-nguoi-ngoi-sau-khong-doi-mu-bao-hiem-lai-xe-bi-xu-phat-qua-phan-anh-tren-vnetraffic"
+        },
+        {
+          "document": "2a60557939203435aa18067ef132235bd0861956a9964c7a024267baecfaf1c9",
+          "supports": "Cổng phổ biến, giáo dục pháp luật Hà Nội (08/08/2024) đọc quy định chở người theo Điều 33 khoản 1 của luật; phần mức phạt trong trang trích văn bản cũ nên không dùng.",
+          "url": "https://pbgdpl.hanoi.gov.vn/ban-can-biet/-/asset_publisher/sxBNLsQSLyY8/content/quy-inh-cho-tre-em-tren-xe-may-tu-ngay-01-01-2025"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0297"
+    },
+    "TH-VI-0307": {
+      "admitted_at": "2026-10-24T11:13:57.405623+00:00",
+      "category_id": 163,
+      "category_path": [
+        140,
+        149,
+        163
+      ],
+      "cluster": "lai-xe-an-toan",
+      "language": "vi",
+      "primary_keyword": "chạy xe máy dàn hàng ngang song song quy định",
+      "proposed_title": "Nhóm bạn chạy xe song song nói chuyện hoặc dàn hàng ngang: quy định về đi hàng đôi, hàng ba nằm ở đâu",
+      "proposed_url": "https://rentbikehanoi.com/vi/chay-xe-may-dan-hang-ngang-song-song-trong-nhom-ban-tra-quy-dinh/",
+      "search_intent": "Nhóm bạn thuê nhiều xe đi chung hay chạy cạnh nhau để nhắc đường; cần biết văn bản nào nói về đi song song, đi sát nhau và khoảng cách giữa các xe để xếp đội hình đúng quy định.",
+      "sources": [
+        {
+          "document": "ece28cbafbe1641dfe3924185da6862d467de3e11fc07869bbcb2bbfea0a2abc",
+          "supports": "Văn bản hợp nhất Luật Trật tự, an toàn giao thông đường bộ số 36/2024/QH15 của Văn phòng Quốc hội (kèm Luật 118/2025/QH15), dùng cho điều luật được nêu trong bài.",
+          "url": "https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/3/55-vbhn-vpqh.pdf"
+        },
+        {
+          "document": "058fcd0f80bc12bd9e510605f45345107ae50a32945d4f053d16c6b48f2d9913",
+          "supports": "Toàn văn Nghị định 168/2024/NĐ-CP (bản gốc ngày 26/12/2024) về xử phạt vi phạm hành chính trong lĩnh vực trật tự, an toàn giao thông đường bộ, dùng cho các điều và mức phạt được nêu.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm"
+        },
+        {
+          "document": "9f52a68de7711b86e756fd1db0ee61bbd0339d6687943590699168694413a69a",
+          "supports": "Bộ Công an (26/01/2025) nêu mức phạt 600.000–800.000 đồng cho điều khiển xe dàn hàng ngang từ 03 xe trở lên.",
+          "url": "https://bocongan.gov.vn/chinh-sach-phap-luat/bai-viet/cac-muc-xu-phat-mot-so-loi-vi-pham-giao-thong-thuong-gap-doi-voi-nguoi-dieu-khien-xe-may-d1-t1650"
+        },
+        {
+          "document": "2f65773f01956eafd823383de818e81900c2cbbd6e4645d7b2a62f459ca31601",
+          "supports": "Báo điện tử Chính phủ (12/01/2025) nêu mức phạt mới với người điều khiển xe máy vi phạm quy tắc giao thông từ 01/01/2025.",
+          "url": "https://xaydungchinhsach.chinhphu.vn/muc-phat-moi-voi-nguoi-dieu-khien-xe-may-vi-pham-quy-tac-giao-thong-duong-bo-tu-1-1-2025-119241231083221461.htm"
+        },
+        {
+          "document": "b639e071a30f52acf30921b8274aedf359f2a6a99725abb85e0988f78f039974",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0307"
+    },
     "TH-VI-0359": {
       "admitted_at": "2026-10-23T11:56:51.723452+00:00",
       "category_id": 165,
@@ -29434,5 +30052,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1916
+  "version": 1917
 }
