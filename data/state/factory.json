@@ -12174,6 +12174,15 @@
       "previous": "7131ddca32eb170c83ede71097c2a9a7d793f56b8a2baf8d13d459142d386086",
       "sha256": "af0d4fabd5c8b558e78531acc5c5e4814435ad92384d51e1525547e57a3eb658",
       "topic_id": "TH-000045"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:04:32.241622+00:00",
+      "previous": "af0d4fabd5c8b558e78531acc5c5e4814435ad92384d51e1525547e57a3eb658",
+      "report_sha": "65ce13229222ef43f9122bd9af7288269890c4702a7d633020d3152bd953c0dc",
+      "sha256": "4643dab8b472b7409f744938ba2d025efe257790fb6c9cc37c186f5569d77516",
+      "status": "PASS",
+      "topic_id": "TH-000045"
     }
   ],
   "intents": {
@@ -22394,19 +22403,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856062.937892,
-      "fence": "a934b6fed5284efeb6e4d87f87c45731",
-      "heartbeat_at": "2026-10-24T15:04:22.937866+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000045"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22491,6 +22488,11 @@
     "TH-000044": {
       "article_sha": "4f7cf66e5b4c4c09fd21619327c62a661a71fe28a4cf1e92af0ed47a93647e4e",
       "report_sha": "7cc94145dce4f920159e363029fc08f38fd3026bf54e9871f3bdcf4178346945",
+      "status": "PASS"
+    },
+    "TH-000045": {
+      "article_sha": "1fbe02369bc1b31c407a1d0252ecc418e58eb9a929f48f10637220a2bbb5d37e",
+      "report_sha": "65ce13229222ef43f9122bd9af7288269890c4702a7d633020d3152bd953c0dc",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27765,7 +27767,7 @@
           "url": "https://sovhttdl.hungyen.gov.vn/pho-hien-tinh-hung-yen-trong-lich-su-c2834.html"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000045"
     },
     "TH-000047": {
@@ -34805,5 +34807,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2146
+  "version": 2147
 }
