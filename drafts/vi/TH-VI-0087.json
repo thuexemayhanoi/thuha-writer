@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nhan-xe-chieu-hom-truoc-de-di-tu-tinh-mo-de-xe-qua-dem-o-dau/",
   "qa": {
-    "report_sha": "075ae102f8347f2e5694db7984412696dc7d72acbacb45413926aab0c6d9fe9e",
+    "report_sha": "6cec0c6361a15f5ccbc6af17c9147b8bd87e4d71eb27cf8095ff8ee1d19df543",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:00:19.580705+00:00",
+  "submitted_at": "2026-10-24T10:04:46.895596+00:00",
   "topic_id": "TH-VI-0087",
   "waiting_for": []
 }

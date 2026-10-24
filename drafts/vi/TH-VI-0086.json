@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nhan-va-tra-xe-quanh-gio-lam-viec-hen-truoc-hay-sau-gio-hanh-chinh/",
   "qa": {
-    "report_sha": "3a7f7de3cb475bb0c32af068d08b3ecf611bc03a7de9e511b74c2aae75aa2c64",
+    "report_sha": "77f846111055a6c62aaa93648dbca25de4d32cc84c79a3e0ddb508e3a7eeb681",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:57:33.420877+00:00",
+  "submitted_at": "2026-10-24T10:02:04.066514+00:00",
   "topic_id": "TH-VI-0086",
   "waiting_for": []
 }

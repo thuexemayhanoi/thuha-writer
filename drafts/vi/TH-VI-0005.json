@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-theo-buoi-hay-theo-gio-nen-hoi-gi/",
   "qa": {
-    "report_sha": "5f000159578b2072b958c21e6afe42dacd6f932234cbb046b0fd493a5826a642",
+    "report_sha": "cf3722581055c644bd8f3817b82684c6143e0a763c11f11ef64db6f3d88fe4fa",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:22:53.477447+00:00",
+  "submitted_at": "2026-10-24T10:08:22.218571+00:00",
   "topic_id": "TH-VI-0005",
   "waiting_for": []
 }

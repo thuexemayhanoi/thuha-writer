@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/camera-hanh-trinh-cho-xe-may-thue-gan-len-mu-hay-len-xe/",
   "qa": {
-    "report_sha": "6eb147af818cb447396749004078aa10a95f3f104453339e2faccc717270e1ff",
+    "report_sha": "b37035c648da89d3c2bb00fccdc39f7b22c2b9819b044e74d6e8b85da3852c7e",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:13:32.658765+00:00",
+  "submitted_at": "2026-10-24T10:12:31.519129+00:00",
   "topic_id": "TH-VI-0262",
   "waiting_for": []
 }

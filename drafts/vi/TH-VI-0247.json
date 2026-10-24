@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-thung-lop-giua-duong-va-tam-hay-cho-cua-hang/",
   "qa": {
-    "report_sha": "fef6b27f73d1a2629e06b56b28d7cb8ab1777726e28dcb14c1243cf143e7e01c",
+    "report_sha": "1af36ddca27a8ee3325af86a5b995d5a1380edc5dadcd6ce370d5e631f33596a",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:59:46.528317+00:00",
+  "submitted_at": "2026-10-24T10:04:13.933968+00:00",
   "topic_id": "TH-VI-0247",
   "waiting_for": []
 }

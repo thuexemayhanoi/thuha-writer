@@ -42,7 +42,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-hong-giua-chung-tinh-tien-ngay-khong-dung-duoc/",
   "qa": {
-    "report_sha": "9b5d0d4d8b69dd632d869ec71c9cbcd477a89131317f9fb600ae7b0de644a236",
+    "report_sha": "ebb0ab04eef08e097560cc05859af663c2f1e74def0a5bc5f17208fe3341db51",
     "status": "PASS"
   },
   "receipt": null,
@@ -65,7 +65,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:39:38.851595+00:00",
+  "submitted_at": "2026-10-24T10:10:50.041676+00:00",
   "topic_id": "TH-VI-0020",
   "waiting_for": []
 }

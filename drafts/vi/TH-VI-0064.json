@@ -83,7 +83,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/mot-thang-thue-xe-tinh-tu-ngay-nao-den-ngay-nao/",
   "qa": {
-    "report_sha": "0fc0053bc7d9c68660c7f0fda78f353fcb389e38845f137c3140d4fcd6cd0682",
+    "report_sha": "fe8c02a363bf33b65f3a834f90da18f669d88f35ee22e33afe3ecba53e72b435",
     "status": "PASS"
   },
   "receipt": null,
@@ -107,7 +107,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:56:38.592415+00:00",
+  "submitted_at": "2026-10-24T10:01:10.361854+00:00",
   "topic_id": "TH-VI-0064",
   "waiting_for": []
 }

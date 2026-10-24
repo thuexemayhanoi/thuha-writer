@@ -42,7 +42,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/atm-limits-cash-for-hanoi-rental-deposit-foreign-cards/",
   "qa": {
-    "report_sha": "95a14d1674baa53bb475334f95ba527029b4aead1bc16c0af9dd7e46080c2c18",
+    "report_sha": "64b5c60626c133fee74312a1c0c44df8fde4f0982f080686c7db303c305c8a2c",
     "status": "PASS"
   },
   "receipt": null,
@@ -65,7 +65,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:26:04.551555+00:00",
+  "submitted_at": "2026-10-24T10:10:27.936090+00:00",
   "topic_id": "TH-EN-0004",
   "waiting_for": []
 }

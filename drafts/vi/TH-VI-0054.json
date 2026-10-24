@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/cua-hang-xin-so-nguoi-than-lam-lien-he-khan-cap-khi-thue-xe/",
   "qa": {
-    "report_sha": "2b5103ac94d3a8e8431cfb826f12675f5df76c0b8802d717e6583437d648f3ca",
+    "report_sha": "d0cac8340a8659f48bf94ea1a352c24449ee078be81945f9e10a6e963faea8de",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:23:57.510772+00:00",
+  "submitted_at": "2026-10-24T10:09:19.349759+00:00",
   "topic_id": "TH-VI-0054",
   "waiting_for": []
 }

@@ -47,7 +47,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/ban-cung-phong-dung-chung-xe-thue-thang-chia-tien-xang/",
   "qa": {
-    "report_sha": "bd6a36aecfdec6c35d9aa626792bd4c3eddf645f4d7c8496f689dd8f882722ac",
+    "report_sha": "a2f645fbf85081101a20d6006b44a821fbe52f85dc9b503a3059d2bc6d653bdb",
     "status": "PASS"
   },
   "receipt": null,
@@ -71,7 +71,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:50:55.012935+00:00",
+  "submitted_at": "2026-10-24T09:55:24.730369+00:00",
   "topic_id": "TH-VI-0197",
   "waiting_for": []
 }

@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-may-dip-nghi-le-dai-ngay-hoi-gi-ve-bao-gia/",
   "qa": {
-    "report_sha": "daa166f7099ec25bcb00a8e0cc02b197b12f2dafc986ee6de5c85c4d0840dbec",
+    "report_sha": "ff27e760f1e407a320a3b1bcecd760cee34a6e5d06e98b508d758a1f7fd6d4c9",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:23:06.546768+00:00",
+  "submitted_at": "2026-10-24T10:08:33.615319+00:00",
   "topic_id": "TH-VI-0007",
   "waiting_for": []
 }

@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/booking-through-a-platform-or-directly-with-a-hanoi-rental-shop/",
   "qa": {
-    "report_sha": "14b6453586a9ff36396200717269cff5f509eef29844b220e56b191f6c676da8",
+    "report_sha": "ed12d0f4a71bdbad6ac340011603f5e8b208aa47499d74280bac56f1cf06134b",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:02:08.753979+00:00",
+  "submitted_at": "2026-10-24T10:06:39.508934+00:00",
   "topic_id": "TH-EN-0013",
   "waiting_for": []
 }

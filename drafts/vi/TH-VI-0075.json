@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/lam-ca-som-ca-toi-o-khu-cong-nghiep-ven-ha-noi-thue-xe-thang-kiem-tra-gi/",
   "qa": {
-    "report_sha": "a1669951585ce4caf13fb222ca066c840616c24c205f11306f484b990a9e5b6a",
+    "report_sha": "1b59d8bcb87a31200aa787e1b2ff5bf1b46369f1edff607ba7e812b353764081",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:40:18.273048+00:00",
+  "submitted_at": "2026-10-24T10:11:22.847785+00:00",
   "topic_id": "TH-VI-0075",
   "waiting_for": []
 }

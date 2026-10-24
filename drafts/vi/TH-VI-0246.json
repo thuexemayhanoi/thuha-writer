@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/tiem-sua-xe-ven-duong-moi-thay-phu-tung-xe-thue-hoi-cua-hang/",
   "qa": {
-    "report_sha": "0573a36d68df91be4465888b032b8aa1bee7914db1dfaf8ba278b003740539b2",
+    "report_sha": "f5a8805bc50e0743a4c32fdac479abfb98b90dcf903ca1d7c68de2520173dc0d",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:57:00.395859+00:00",
+  "submitted_at": "2026-10-24T10:01:31.814128+00:00",
   "topic_id": "TH-VI-0246",
   "waiting_for": []
 }

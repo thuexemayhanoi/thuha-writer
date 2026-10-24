@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/phu-kien-thue-xe-may-mon-nao-thue-kem-mon-nao-tu-mua/",
   "qa": {
-    "report_sha": "2e5f7ec142c4ae1fe719e5149ea0e0e9a5cbd651df71756a7a90020012112dd3",
+    "report_sha": "016327046823b72fc99a5e23e5d514939208f7aa4b3131992b96d5c4980dea31",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:26:41.477207+00:00",
+  "submitted_at": "2026-10-24T10:14:45.579150+00:00",
   "topic_id": "TH-VI-0255",
   "waiting_for": []
 }

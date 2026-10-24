@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/breakdown-far-from-hanoi-recovery-questions-before-you-leave/",
   "qa": {
-    "report_sha": "3745751a24179d76686040b270d9c58da7446aeb6f300a2c2093c044112e50dc",
+    "report_sha": "bee2a90ed2905d84d8f52e12efae3a975755cc5c1eb65eda8d86267be4f1c550",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:03:25.558672+00:00",
+  "submitted_at": "2026-10-24T10:07:59.329096+00:00",
   "topic_id": "TH-EN-0128",
   "waiting_for": []
 }

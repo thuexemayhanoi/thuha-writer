@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/tra-xe-thue-bam-day-bun-sau-chuyen-di-mua-rua-truoc-hay-de-cua-hang/",
   "qa": {
-    "report_sha": "1a9d343ac51466ac6c8d28a89d63ea34b8b195e7f31ce8789aec761574acc498",
+    "report_sha": "e61a029b57636fa84b5bfa0ccc9b45b9394e68506b26762076dfc46b42538d2f",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:24:10.542410+00:00",
+  "submitted_at": "2026-10-24T10:09:31.138575+00:00",
   "topic_id": "TH-VI-0094",
   "waiting_for": []
 }

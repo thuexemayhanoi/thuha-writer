@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/keo-vali-den-nhan-xe-thue-hoi-cho-gui-do-va-cach-xep-hanh-ly/",
   "qa": {
-    "report_sha": "cc8879772a77657a6562899c28df60cd11a12095b0075f5dcf29392617468704",
+    "report_sha": "923c3e6903fba2e12ecb6058ca8c58dc9253932bd21161ceba60ea81876aa9c4",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:00:30.247949+00:00",
+  "submitted_at": "2026-10-24T10:04:58.374920+00:00",
   "topic_id": "TH-VI-0100",
   "waiting_for": []
 }

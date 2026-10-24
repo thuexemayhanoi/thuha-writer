@@ -42,7 +42,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/hoi-uu-dai-khi-thue-nhieu-ngay-hoac-nhieu-xe/",
   "qa": {
-    "report_sha": "13a055dab925651c7f646066e75642412c5d0ddc90ba20f48e301ca9b510cd66",
+    "report_sha": "466f6b90d9381217881b4fcc4fa374783af64c0eba79329811d16f49709b421e",
     "status": "PASS"
   },
   "receipt": null,
@@ -65,7 +65,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:23:19.329976+00:00",
+  "submitted_at": "2026-10-24T10:08:45.048778+00:00",
   "topic_id": "TH-VI-0012",
   "waiting_for": []
 }

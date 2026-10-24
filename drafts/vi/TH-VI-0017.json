@@ -71,7 +71,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/doc-bang-gia-thue-xe-ghi-tu-tro-len-hoac-lien-he/",
   "qa": {
-    "report_sha": "43f32ce3e665ff98d3b740415e8ac157acb9b99729adda4ef8831ed35575dcff",
+    "report_sha": "1ff77a0ebd430c05318f1231dc8585172993828032c6aee3a36a2692077996a1",
     "status": "PASS"
   },
   "receipt": null,
@@ -95,7 +95,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:57:55.297084+00:00",
+  "submitted_at": "2026-10-24T10:02:26.018006+00:00",
   "topic_id": "TH-VI-0017",
   "waiting_for": []
 }

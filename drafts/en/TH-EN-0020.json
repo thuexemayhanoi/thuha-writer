@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/damage-spotted-after-leaving-the-shop-report-same-day-with-dated-photos/",
   "qa": {
-    "report_sha": "0ec275dbbf35363ca84b832fa5aa51d4692e0a4752b64493dab1227e7c0c6c6c",
+    "report_sha": "847c398e5cf7ad6a8a53057b581cd5a34950774ca8347e41f31af82e5ddc71b7",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:00:52.034518+00:00",
+  "submitted_at": "2026-10-24T10:05:20.774744+00:00",
   "topic_id": "TH-EN-0020",
   "waiting_for": []
 }

@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/emergency-information-to-carry-on-a-rental-bike/",
   "qa": {
-    "report_sha": "edc3d10a250ec6d13b36cf4d75b59ca590d91589e61671140e2a476c6c50bc87",
+    "report_sha": "8d39e0ae13007844737ff70e7fb3ed9901cd84a915551bab7b26b1c6e5d5d017",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:03:14.767521+00:00",
+  "submitted_at": "2026-10-24T10:07:48.204932+00:00",
   "topic_id": "TH-EN-0101",
   "waiting_for": []
 }

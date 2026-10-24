@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/hao-mon-thong-thuong-hay-hu-hong-do-su-dung-xe-thue/",
   "qa": {
-    "report_sha": "c1727f9147247c441966cbf2abbe08dfbd6fd272f01a2edf45b46adc96c57e3e",
+    "report_sha": "bae2100bf01613609328788b14ee0dd3aee7db0b392f7dcdc70903503d31d227",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:40:44.608081+00:00",
+  "submitted_at": "2026-10-24T10:11:45.688955+00:00",
   "topic_id": "TH-VI-0211",
   "waiting_for": []
 }

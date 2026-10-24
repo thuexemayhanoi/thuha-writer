@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/truoc-khi-roi-cua-hang-luu-so-lien-he-nao-va-kenh-nao-nhanh-nhat/",
   "qa": {
-    "report_sha": "c08ff99a332e83a0aefc80cc587ac4f1b2c878e8dfeade71cb4bcf7f863dea03",
+    "report_sha": "2df63e9d9f2dc46fbcda68b3886225f084880505dd205374e21758c272fd9634",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:25:33.733747+00:00",
+  "submitted_at": "2026-10-24T10:13:49.594336+00:00",
   "topic_id": "TH-VI-0097",
   "waiting_for": []
 }

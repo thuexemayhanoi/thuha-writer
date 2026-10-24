@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/handover-at-a-station-cafe-or-apartment-gate-judge-the-spot-before-you-agree/",
   "qa": {
-    "report_sha": "e201bb9a686071115f394ebd01e66a73233500c2eea5968b068252ac2723d851",
+    "report_sha": "11d635cbef3bd9c0dd2146a9da1532567671294db5ab182e2b92f1d6409bccff",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:01:35.917796+00:00",
+  "submitted_at": "2026-10-24T10:06:05.015210+00:00",
   "topic_id": "TH-EN-0042",
   "waiting_for": []
 }

@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-thang-muon-giu-nguyen-mot-chiec-xe-hoi-gi-ve-viec-bi-doi-xe/",
   "qa": {
-    "report_sha": "274eb46fcf44414b753fc782b9a380475e2bb375ea476a88f2281dd63f23e834",
+    "report_sha": "5162e90950364f95d92be754dc26b57a6b6fb52b52726f7614c34f7360074aff",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:40:31.324390+00:00",
+  "submitted_at": "2026-10-24T10:11:34.431251+00:00",
   "topic_id": "TH-VI-0076",
   "waiting_for": []
 }

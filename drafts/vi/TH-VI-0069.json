@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-nha-dang-sua-hoac-cho-boi-thuong-thue-xe-tam-trong-thoi-gian-cho/",
   "qa": {
-    "report_sha": "acf31dcd81e74ac6632b7f93ad8c14d52aa9a316bb6df3285145e9b9610eacd5",
+    "report_sha": "c50a07d89b7bb473582964e26b24aefeabd72682d545b4ecea773f225581c448",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:40:04.902047+00:00",
+  "submitted_at": "2026-10-24T10:11:11.683922+00:00",
   "topic_id": "TH-VI-0069",
   "waiting_for": []
 }

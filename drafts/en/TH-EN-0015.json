@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/normal-wear-or-chargeable-damage-ask-how-hanoi-shop-draws-the-line/",
   "qa": {
-    "report_sha": "7187a47ec73ec9ddb9c3f0a26dae990ab5e5336ae4235bd7c07c63c7e8f091c7",
+    "report_sha": "71037db41eafbbfb87a2f6e2af18e611bb6c8ef9b4bff15d8af378145457c3ad",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:01:02.850158+00:00",
+  "submitted_at": "2026-10-24T10:05:31.404542+00:00",
   "topic_id": "TH-EN-0015",
   "waiting_for": []
 }

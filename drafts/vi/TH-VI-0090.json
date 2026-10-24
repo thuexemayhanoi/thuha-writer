@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/ru-nguoi-quen-thao-xe-di-cung-khi-nhan-xe-thue-giup-kiem-tra-gi/",
   "qa": {
-    "report_sha": "8f889840aafd68505d3db9f41c74deb1fc358ac5ac131825fe8a97a9c220058a",
+    "report_sha": "3355cc48c9fa0ba6f4fe781aa8fe0e5089f181beadd54a801d6fc5d0a8878adc",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:51:16.275655+00:00",
+  "submitted_at": "2026-10-24T09:55:46.033130+00:00",
   "topic_id": "TH-VI-0090",
   "waiting_for": []
 }

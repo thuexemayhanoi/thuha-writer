@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/mau-tin-nhan-hoi-thue-xe-con-tay/",
   "qa": {
-    "report_sha": "1d8f7196bf8a7a3bef42bfa6c9caeac71874e35bae20816415fb2fbb8b9ba328",
+    "report_sha": "bb4a61f451f00256d8befb45442d3128e037cc97a54ffdc0a18e730c5e633174",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:26:13.529981+00:00",
+  "submitted_at": "2026-10-24T10:14:23.047983+00:00",
   "topic_id": "TH-VI-0142",
   "waiting_for": []
 }

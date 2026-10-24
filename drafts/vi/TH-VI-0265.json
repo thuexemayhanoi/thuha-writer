@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/co-nen-mang-bom-tay-bo-va-lop-mini-khi-chay-xe-thue-di-xa/",
   "qa": {
-    "report_sha": "453b2095624e982a6904dea95f09cbcc20b761220f29fe6dd3d5b5f09e7c7110",
+    "report_sha": "8ec4cf975569e806f1e6c5baa7bf1d5fe9b632c724380963c6abefdda471a70f",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:13:46.250371+00:00",
+  "submitted_at": "2026-10-24T10:12:42.954932+00:00",
   "topic_id": "TH-VI-0265",
   "waiting_for": []
 }

@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/reserve-ahead-or-walk-in-securing-a-hanoi-rental-bike/",
   "qa": {
-    "report_sha": "38e63dc0a455f59144832367b4a7542a3bd16b1b1ce00f86cdb1bbf7a9770ecc",
+    "report_sha": "30b4d81364ef7a48d05d9ea223b09c68a1443cd053cd5b3bb29f2823da286358",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:01:13.899281+00:00",
+  "submitted_at": "2026-10-24T10:05:42.665957+00:00",
   "topic_id": "TH-EN-0021",
   "waiting_for": []
 }

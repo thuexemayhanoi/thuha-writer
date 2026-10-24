@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/what-counts-as-one-rental-day-hanoi-24-hours-or-calendar-day/",
   "qa": {
-    "report_sha": "ff3d31190b070ffdfbc6053af52269b55bdf3a1377d06d211c1d919263e1ccc2",
+    "report_sha": "77791668be952540abfacc2b544415324d2c4c8111859a5e99c7b448b102874e",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:53:56.878546+00:00",
+  "submitted_at": "2026-10-24T09:58:28.970250+00:00",
   "topic_id": "TH-EN-0007",
   "waiting_for": []
 }

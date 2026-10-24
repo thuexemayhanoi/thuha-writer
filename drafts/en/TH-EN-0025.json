@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/trial-week-before-a-monthly-rental-in-hanoi-how-to-structure-it/",
   "qa": {
-    "report_sha": "05226296d80a5fd06e53b513160502aa4ce3484c2d70c22fdb08f23532357d20",
+    "report_sha": "91b299cd49a4c39eef4c29eda952acab86f169ca992f1202869fff18f86de6bc",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:02:30.535548+00:00",
+  "submitted_at": "2026-10-24T10:07:02.840174+00:00",
   "topic_id": "TH-EN-0025",
   "waiting_for": []
 }

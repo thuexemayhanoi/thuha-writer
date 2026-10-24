@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-thue-tray-xuoc-nhe-trong-ngo-hep-bao-ngay-hay-doi-luc-tra/",
   "qa": {
-    "report_sha": "2bc77324db88e635ebf811e8cdb52882e2f8cf67d0265c99beba4fbf84ff4971",
+    "report_sha": "b1659fa2473ded4d9d6b6491f7a670acf0686ca11146172aabb165df61464f7a",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:59:24.832593+00:00",
+  "submitted_at": "2026-10-24T10:03:52.342928+00:00",
   "topic_id": "TH-VI-0250",
   "waiting_for": []
 }

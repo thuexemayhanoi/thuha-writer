@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/khau-trang-chong-bui-di-xe-may-gio-cao-diem-chon-loai-nao/",
   "qa": {
-    "report_sha": "5a8c901319770fb5588bff106423f9aa0d85f32cf1f2af0f0c90167a9ac54b7a",
+    "report_sha": "c5bd6ece7a8d7cfa73ef2e6f8756133dffb40513fdaf0d9c757f2a02cc9308d6",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:26:54.899906+00:00",
+  "submitted_at": "2026-10-24T10:14:56.924573+00:00",
   "topic_id": "TH-VI-0256",
   "waiting_for": []
 }

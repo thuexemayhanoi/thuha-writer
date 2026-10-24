@@ -1,6 +1,6 @@
 # ThuHa Writer bilingual dashboard
 
-Generated: 2026-10-24T09:35:58.482066+00:00
+Generated: 2026-10-24T10:16:46.962696+00:00
 
 - wordpress_published: 275
 - site_live_verified_posts: 0
@@ -20,12 +20,12 @@ Generated: 2026-10-24T09:35:58.482066+00:00
 
 | Language | Waiting for data | Awaiting QA | QA waits for data | QA pass | Publishing | Published | Needs repair | Held / unknown |
 |---|---|---|---|---|---|---|---|---|
-| vi | 0 | 0 | 0 | 62 | 0 | 21 | 0 | 11 |
+| vi | 0 | 0 | 0 | 69 | 0 | 21 | 0 | 11 |
 | en | 0 | 0 | 0 | 46 | 0 | 9 | 0 | 0 |
 
 Public-page checks after publication: PASSED 30. Public-page checks run after publication, back off and retry; they never stop the queue.
 
-Session ledger hand-over: DIVERGED (session v1393, shared v618)
+Session ledger hand-over: FAST_FORWARD (session v1883, shared v618)
 
 Adapter: VERIFIED (live status is PENDING until a credentialed preflight succeeds)
 
@@ -46,7 +46,7 @@ Adapter: VERIFIED (live status is PENDING until a credentialed preflight succeed
 ## Blockers
 
 - No external AI session lease; Actions do not generate prose
-- Session ledger cannot be handed over (DIVERGED): sync the session branch from the shared ledger
+- The session ledger in this checkout is not in the shared ledger yet: the queue job (or `promote --apply`) hands it over
 
 Existing articles are not attributed to ChatGPT or Claude without provenance. Live URL verification is not Google index verification.
 

@@ -71,7 +71,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-so-hay-xe-ga-cho-mot-tuan-cong-tien-thue-xang-va-gui-xe/",
   "qa": {
-    "report_sha": "c91d1a5da70d4ef2d6c8a5079a081d5be6b0ccd3cdecf425d64a87c796e0f2fc",
+    "report_sha": "56d15cf642ae84a7309bbfcc4bce209d1fa00e72bfea7839bbd79c4592f596aa",
     "status": "PASS"
   },
   "receipt": null,
@@ -95,7 +95,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:58:28.950284+00:00",
+  "submitted_at": "2026-10-24T10:02:58.278983+00:00",
   "topic_id": "TH-VI-0026",
   "waiting_for": []
 }

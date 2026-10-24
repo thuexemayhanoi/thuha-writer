@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/ao-phan-quang-di-xe-may-buoi-toi-ngoai-thanh-co-can-khong/",
   "qa": {
-    "report_sha": "afc798169edb332c3e9263f9d6504292722bc907abd03b2e67b92ed23ab31314",
+    "report_sha": "6b544d69d8f56f0eda0711ab4b867f6bcb82d3e029f531415b6ce0c1b9259986",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:59:12.536388+00:00",
+  "submitted_at": "2026-10-24T10:03:41.536080+00:00",
   "topic_id": "TH-VI-0263",
   "waiting_for": []
 }

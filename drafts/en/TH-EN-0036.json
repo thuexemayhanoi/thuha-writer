@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/arranging-a-monthly-rental-before-moving-to-hanoi-settle-from-abroad/",
   "qa": {
-    "report_sha": "68004361d3eb94fc0bdaddc88ecfa77c5e2c51550707e94471517d407f5edf1c",
+    "report_sha": "84821d46193a458230c0cb452cab22d1c10edd28762ecc613a93ea6424d3936e",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:56:16.809555+00:00",
+  "submitted_at": "2026-10-24T10:00:48.915202+00:00",
   "topic_id": "TH-EN-0036",
   "waiting_for": []
 }

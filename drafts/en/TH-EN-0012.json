@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/start-rental-on-arrival-day-or-day-two-jet-lag-hanoi/",
   "qa": {
-    "report_sha": "c79e3dd9a3fb39315fa8e50e38ad11aa5560b10178b95032c1ade2e0d0a6b5cc",
+    "report_sha": "2e6565c923994ae42c13422b07deb7ad3677de48db78c208c1402e3d3d70b305",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:53:34.854697+00:00",
+  "submitted_at": "2026-10-24T09:58:06.953855+00:00",
   "topic_id": "TH-EN-0012",
   "waiting_for": []
 }

@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/rental-bike-add-ons-helmet-phone-holder-poncho-ask-before-agreeing-rate/",
   "qa": {
-    "report_sha": "1f96c01dd73aea65276089642e74b52c84f9b74355c7f79bec4b54232d7acc1c",
+    "report_sha": "dabc70365aa952d8b760b8b5db1a5b9faf7fa9b8c32f75e0e9fd3b24fac1d2ca",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:55:22.780931+00:00",
+  "submitted_at": "2026-10-24T09:59:55.462601+00:00",
   "topic_id": "TH-EN-0006",
   "waiting_for": []
 }

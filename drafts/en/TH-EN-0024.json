@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/can-you-try-a-rental-bike-before-paying-what-to-settle-at-the-counter/",
   "qa": {
-    "report_sha": "710175f5f36657c064ac3db44d871a3693c7feb4493f3dba2f63ccaffe463e02",
+    "report_sha": "76366e2af067ef9a9e2580dc8d3ec31f966e644fb5f738c69af43b32caa0f836",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:25:25.033576+00:00",
+  "submitted_at": "2026-10-24T10:09:54.144206+00:00",
   "topic_id": "TH-EN-0024",
   "waiting_for": []
 }

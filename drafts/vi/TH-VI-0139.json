@@ -78,7 +78,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/di-lam-hang-ngay-qua-nhieu-den-do-xe-so-hay-xe-ga/",
   "qa": {
-    "report_sha": "8b43516ea74bb063ce2de541126a803af336780ad6c2da7f0147a6b01ee663e7",
+    "report_sha": "079bd6a9f0032fe5838e34ded1aaa6874b43799b191b1e2e529a9c7e231a2c13",
     "status": "PASS"
   },
   "receipt": null,
@@ -101,7 +101,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:24:23.554124+00:00",
+  "submitted_at": "2026-10-24T10:09:42.803365+00:00",
   "topic_id": "TH-VI-0139",
   "waiting_for": []
 }

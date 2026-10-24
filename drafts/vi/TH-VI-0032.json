@@ -1,0 +1,58 @@
+{
+  "agent_id": "claude-writer-VI12",
+  "article": {
+    "agent_id": "claude-writer-VI12",
+    "body_html": "<p>Bạn đang ở xa Hà Nội, ở một tỉnh khác hoặc ở nước ngoài, và nhờ một người bạn hay người thân ở Hà Nội đặt xe giúp, thậm chí chuyển tiền hộ. Nghe có vẻ gọn, nhưng nó đặt ra một chuỗi câu hỏi: tên ai được cửa hàng ghi nhận, ai nhận xe, ai là người lái, và ai là người trả tiền. Nếu các tên không khớp với nhau, lúc nhận xe hoặc lúc trả xe có thể phát sinh rắc rối mà ai cũng khó giải thích. Cách cửa hàng xử lý việc đặt hộ chưa được xác nhận, nên dưới đây là cách tách các vai ra, những câu cần hỏi và cách ghi lại để những người liên quan cùng nắm một thông tin.</p>\n\n<h2>Ba vai có thể là ba người khác nhau</h2>\n<table>\n<thead><tr><th>Vai</th><th>Là ai</th><th>Điều cần hỏi cửa hàng</th></tr></thead>\n<tbody>\n<tr><td>Người đặt xe</td><td>Người nhắn cho cửa hàng để đặt</td><td>Cửa hàng ghi nhận tên người đặt hay tên người lái</td></tr>\n<tr><td>Người trả tiền</td><td>Chủ tài khoản chuyển tiền, hoặc người đưa tiền mặt</td><td>Tiền có thể do người khác trả hộ không, và nếu có biên nhận hay tin nhắn xác nhận thì ghi tên ai</td></tr>\n<tr><td>Người nhận xe và người lái</td><td>Người đến nhận xe và ngồi lên xe</td><td>Người nhận xe có phải là người đặt không, và cửa hàng cần biết gì về người lái</td></tr>\n</tbody>\n</table>\n<p>Có thể người ở Hà Nội đặt xe và trả tiền thay bạn, còn bạn là người lái xe khi bạn đến; người nhận xe có thể là bạn hoặc người ở Hà Nội. Khi các vai khác người, hãy nói rõ ngay từ tin nhắn đầu tiên ai là ai.</p>\n\n<h2>Những câu cần hỏi trước khi đặt hộ</h2>\n<ol>\n<li><strong>Cửa hàng có nhận đặt xe hộ người khác không,</strong> hay người sẽ lái phải tự đặt.</li>\n<li><strong>Tên ai được ghi nhận:</strong> người đặt hộ hay người lái thật sự.</li>\n<li><strong>Ai cần có mặt khi nhận xe:</strong> người lái có bắt buộc không, hay người đặt hộ nhận thay được.</li>\n<li><strong>Nếu người trả tiền khác người lái,</strong> nội dung chuyển khoản (và biên nhận, nếu có) nên ghi tên ai.</li>\n<li><strong>Nếu cửa hàng có thu cọc,</strong> khoản đó có được hoàn lại không, hoàn cho ai và bằng cách nào. Bài <a href=\"https://rentbikehanoi.com/vi/coc-giu-cho-va-coc-nhan-xe-hai-khoan-khac-nhau/\">Cọc giữ chỗ và cọc nhận xe: hai khoản khác nhau, hỏi cho rõ từng khoản</a> có cách hỏi từng khoản.</li>\n<li><strong>Nếu đổi người lái giữa kỳ,</strong> cần báo gì và có cần làm lại thủ tục không.</li>\n</ol>\n\n<h2>Cách làm gọn cho những người liên quan</h2>\n<ul>\n<li><strong>Chọn một đầu mối để nói chuyện với cửa hàng,</strong> có thể là người ở Hà Nội, nhưng cho người lái thật sự tham gia nhóm trao đổi để mọi người cùng đọc câu trả lời.</li>\n<li><strong>Gửi cho cửa hàng những thông tin họ cần,</strong> như tên người lái theo cách họ yêu cầu, ngày giờ đến và người sẽ nhận xe. Đừng đoán họ cần gì; hãy hỏi.</li>\n<li><strong>Lập một thư mục chung</strong> cho tin nhắn, ảnh chụp giao dịch và ảnh chụp xe, để mọi người cùng xem.</li>\n<li><strong>Hẹn rõ ngày giờ nhận xe</strong> trong khung 09:00 đến 21:00 mỗi ngày, vì đó là giờ cửa hàng mở cửa.</li>\n</ul>\n\n<h2>Nếu cửa hàng nhận chuyển khoản: chuyển tiền hộ cho an toàn và rõ ràng</h2>\n<ol>\n<li><strong>Chỉ chuyển vào tài khoản do chính cửa hàng đưa,</strong> qua kênh bạn đã biết, thay vì thông tin gửi từ một tin nhắn lạ hay từ một người tự nhận là đại diện.</li>\n<li><strong>Kiểm tra tên người nhận</strong> hiển thị khi chuyển. Nếu tên khác với điều cửa hàng đã nói, đừng chuyển ngay: hãy gọi <a href=\"tel:+84334699969\">0334 699 969</a> để hỏi lại.</li>\n<li><strong>Ghi nội dung chuyển khoản đủ ý:</strong> tên người lái, ngày nhận xe và khoản đó là gì, để mọi người cùng tìm lại được.</li>\n<li><strong>Chụp màn hình giao dịch</strong> khi giao dịch thành công, giữ lại số tiền, nội dung chuyển, tên người nhận và thời điểm chuyển.</li>\n<li><strong>Xin xác nhận đã nhận tiền</strong> bằng tin nhắn, kèm tên người mà khoản đó thuộc về.</li>\n</ol>\n\n<h2>Khi người nhận xe không phải người lái</h2>\n<p>Nếu người ở Hà Nội đến nhận xe còn người lái đến sau, người nhận xe nên chuyển thông tin cho người lái:</p>\n<ul>\n<li><strong>Chụp ảnh các phía của xe,</strong> số km và mức xăng lúc nhận, rồi gửi cho người lái ngay.</li>\n<li><strong>Ghi lại những vết sẵn có</strong> và cho người lái xem trước khi người đó chạy xe.</li>\n<li><strong>Hỏi cửa hàng người lái cần biết gì thêm</strong> về cách dùng xe, cách liên hệ và giờ trả xe.</li>\n<li><strong>Đưa số liên hệ của cửa hàng</strong> cho người lái, để họ liên lạc trực tiếp khi cần.</li>\n</ul>\n<p>Điều quan trọng là người ngồi lên xe phải biết chiếc xe đang ở tình trạng nào, kể cả khi người đó không có mặt lúc nhận xe.</p>\n\n<h2>Những điều nên tránh</h2>\n<ul>\n<li><strong>Đặt xe dưới tên một người rồi để người khác lái</strong> mà chưa hỏi cửa hàng, vì cách đó chưa được xác nhận.</li>\n<li><strong>Chuyển tiền vào tài khoản của một người lạ</strong> chỉ vì được nhắn là \"đại diện cửa hàng\".</li>\n<li><strong>Để hai người cùng nói chuyện với cửa hàng</strong> với hai thông tin khác nhau. Hãy dùng một đầu mối.</li>\n<li><strong>Chuyển tiền trước khi có xác nhận bằng tin nhắn</strong> về xe, ngày nhận và tổng tiền.</li>\n<li><strong>Quên báo cửa hàng khi có thay đổi,</strong> như đổi người nhận xe hay đổi ngày.</li>\n</ul>\n\n<h2>Tin nhắn mẫu cho người đặt hộ</h2>\n<p>\"Chào cửa hàng, mình muốn hỏi cửa hàng có nhận đặt xe giúp người khác không ạ? Bạn mình là [tên người lái], bạn ấy sẽ lái xe từ [ngày] trong [số] ngày. Mình ở Hà Nội và sẽ nhắn trao đổi, có thể trả tiền hộ. Cửa hàng cho mình hỏi cửa hàng ghi tên ai khi đặt xe, người nhận xe có cần là chính người lái không, và nếu mình trả tiền hộ thì biên nhận hay tin nhắn xác nhận (nếu có) ghi tên ai ạ? Nếu có cọc thì có hoàn lại không, và hoàn cho ai? Mong cửa hàng nhắn lại để cả mình và bạn ấy cùng xem. Cảm ơn cửa hàng.\"</p>\n<p>Các bước thuê xe nằm ở trang <a href=\"https://rentbikehanoi.com/vi/thu-tuc-thue-xe-may-ha-noi/\">thủ tục thuê xe máy ở Hà Nội</a>, còn thông tin liên hệ nằm ở trang <a href=\"https://rentbikehanoi.com/vi/lien-he/\">liên hệ Thuê xe máy Nguyễn Hà</a>.</p>",
+    "business_claims": [],
+    "canonical": "https://rentbikehanoi.com/vi/nho-ban-dat-ho-hoac-chuyen-coc-ho-ten-hop-dong-va-nguoi-lai/",
+    "category_id": 153,
+    "featured_media": null,
+    "focus_keyword": "đặt thuê xe máy hộ người khác",
+    "language": "vi",
+    "meta_description": "Nhờ bạn ở Hà Nội đặt xe và chuyển tiền hộ? Tách ba vai người đặt, người trả tiền, người lái, câu hỏi cho cửa hàng và cách chuyển tiền hộ rõ ràng, an toàn.",
+    "seo_title": "Nhờ người khác đặt xe và trả tiền hộ: hỏi cửa hàng ghi tên ai",
+    "session": "vi-b12-20261024",
+    "source_commit": "7d997f43c1b021d56dd9b2ec35daf4519f5be2b1",
+    "sources": [
+      {
+        "document": "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e",
+        "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+        "url": "repo://config/business-facts.json"
+      }
+    ],
+    "title": "Nhờ bạn đặt hộ hoặc chuyển cọc hộ: tên trên hợp đồng và người lái cần khớp thế nào",
+    "topic_id": "TH-VI-0032"
+  },
+  "article_sha": "3f10bc7c56d3f2500daa47c7f7c070d87cd9a0fb34fade24daf9f32221e91cb0",
+  "category_id": 153,
+  "language": "vi",
+  "legacy_review_on_record": false,
+  "proposed_url": "https://rentbikehanoi.com/vi/nho-ban-dat-ho-hoac-chuyen-coc-ho-ten-hop-dong-va-nguoi-lai/",
+  "qa": {
+    "report_sha": "2230ab14d55307b24d0bdfa6825d4f2693c640c739678d40166bd628b82c5d8d",
+    "status": "PASS"
+  },
+  "receipt": null,
+  "repair_count": 0,
+  "source_documents": [
+    "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e"
+  ],
+  "source_evidence": {
+    "92a2fabefbf9eaed41fb5464493a5faa184d028ef206a4a041a2862af871113e": {
+      "capture_method": "repository-file",
+      "checked_at": "2026-10-24T09:04:07.187063+00:00",
+      "content_type": "application/json; repository file",
+      "excerpt": "{ \"name\": \"Thuê xe máy Nguyễn Hà\", \"address\": \"Ngõ 5 Nguyễn Văn Cừ, Bồ Đề, Long Biên, Hà Nội (gần",
+      "file_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "http_status": 200,
+      "http_status_basis": "the repository file was read; there is no HTTP request",
+      "page_title": "config/business-facts.json",
+      "response_sha256": "35d16df9f0ecae2a48de88cfb4c22cc47d9587a3802996f8679cc7032e675435",
+      "url": "repo://config/business-facts.json"
+    }
+  },
+  "status": "READY",
+  "submitted_at": "2026-10-24T10:15:31.494645+00:00",
+  "topic_id": "TH-VI-0032",
+  "waiting_for": []
+}

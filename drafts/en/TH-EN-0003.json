@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/hanoi-rental-quote-currency-dollars-or-dong/",
   "qa": {
-    "report_sha": "5773378779b0b437b1fce2b60d495da53e24fb649837dc5bef4e66024c8f0f24",
+    "report_sha": "f0e7c1025f19dff78fe147e3256841ca614478569ae5fcec310aa0f62a4c690a",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:55:11.228736+00:00",
+  "submitted_at": "2026-10-24T09:59:44.767779+00:00",
   "topic_id": "TH-EN-0003",
   "waiting_for": []
 }

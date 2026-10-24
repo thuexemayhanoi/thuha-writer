@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/returning-electric-scooter-agree-record-battery-level/",
   "qa": {
-    "report_sha": "58b0d350d4a2bf9daaa0efcf26c63b66fe6905930748c0ebb91d129d7db1f62b",
+    "report_sha": "9b167206baee2f69da9e5dc5d70ba48d2516d34de1fcf7ce6a0ed62b4bf417ea",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:01:46.991523+00:00",
+  "submitted_at": "2026-10-24T10:06:16.326575+00:00",
   "topic_id": "TH-EN-0075",
   "waiting_for": []
 }

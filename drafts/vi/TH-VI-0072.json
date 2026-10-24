@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/ve-que-mot-tuan-giua-ky-thue-thang-de-xe-lai-tra-tam-hay-giu-nguyen/",
   "qa": {
-    "report_sha": "4318ed5836655726af8c85e20de6ff78fee41f6a6df2b48448486bfbcccf11c7",
+    "report_sha": "bdf197bd3cd350fe8426e48b3350427f33ab29046dafea1e604afe7e605d6c79",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:00:08.553204+00:00",
+  "submitted_at": "2026-10-24T10:04:36.042283+00:00",
   "topic_id": "TH-VI-0072",
   "waiting_for": []
 }

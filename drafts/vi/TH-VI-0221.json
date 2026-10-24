@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thue-xe-theo-thang-viec-nho-nao-tu-lam-viec-nao-hoi-cua-hang/",
   "qa": {
-    "report_sha": "bcc0c5e63d5b1ddfa06741016f7f7593f849b70bb795852598113a3914e2542b",
+    "report_sha": "1808a6fbfa3be9cb9ab9ceeb19c4022fe6917e048dde473f0fd866d0fd94581b",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:40:57.986812+00:00",
+  "submitted_at": "2026-10-24T10:11:56.715368+00:00",
   "topic_id": "TH-VI-0221",
   "waiting_for": []
 }

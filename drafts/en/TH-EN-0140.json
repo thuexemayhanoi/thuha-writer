@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/group-riding-through-hanoi-meeting-points-spacing-lost-rider/",
   "qa": {
-    "report_sha": "738246d89ecdd1128db8280fc956d16df6a3ea3dd0485c2e88ddf48d9e3d2742",
+    "report_sha": "13327d4acffa0037b45322c3c8b5ec9fd449e57c8415ba3b8654b8c59b7fac16",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:52:41.804129+00:00",
+  "submitted_at": "2026-10-24T09:57:10.208695+00:00",
   "topic_id": "TH-EN-0140",
   "waiting_for": []
 }

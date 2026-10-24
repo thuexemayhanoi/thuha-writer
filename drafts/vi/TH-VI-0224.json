@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-luc-co-luc-khong-bi-loi-ghi-nhat-ky-ngay-gio-thoi-tiet-quang-duong/",
   "qa": {
-    "report_sha": "61f903440aeadfb847d374b1098bc41be746fa1efff2ceaaaed62ad672c3d846",
+    "report_sha": "5d1de94667a71054964622b9e40360ea148dba55a65bd1e3f606c40685c1c0be",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:51:05.263523+00:00",
+  "submitted_at": "2026-10-24T09:55:35.483686+00:00",
   "topic_id": "TH-VI-0224",
   "waiting_for": []
 }

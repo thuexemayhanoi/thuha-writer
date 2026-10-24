@@ -59,7 +59,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/commute-plus-weekend-escape-one-bike-for-the-month-or-two-rentals/",
   "qa": {
-    "report_sha": "643f3ed39fb2a3b5c77620b88d0867fb3593af09c656b2b9df00458bec4807e5",
+    "report_sha": "73ade76aea1e929376a7c9c94348e5dbb56f0b4c73405bca4bed56bf1220afaf",
     "status": "PASS"
   },
   "receipt": null,
@@ -83,7 +83,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:01:57.983299+00:00",
+  "submitted_at": "2026-10-24T10:06:27.761906+00:00",
   "topic_id": "TH-EN-0035",
   "waiting_for": []
 }

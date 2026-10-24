@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/how-to-read-online-reviews-of-a-hanoi-rental-shop-before-you-book/",
   "qa": {
-    "report_sha": "78b23176bb6f7fb2a2c7ea71a0d129cabd237f2645c012f36b9630322803a274",
+    "report_sha": "59438d48c1a3b5b43ab506dbb344412238678bd9b14b14d9d8b5cad4ba036171",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:03:36.777930+00:00",
+  "submitted_at": "2026-10-24T10:08:10.753726+00:00",
   "topic_id": "TH-EN-0022",
   "waiting_for": []
 }

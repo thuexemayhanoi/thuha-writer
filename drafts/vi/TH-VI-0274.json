@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/phu-ao-trum-hoac-bat-len-xe-thue-gui-ngoai-troi-qua-dem/",
   "qa": {
-    "report_sha": "1b24371048918130f358118df6eecc6f1e2b9c9670b5cf94aea7a89fa1383787",
+    "report_sha": "097858e62c191baaf3e88a08e51ea6054fa15b032b937acd37e8076326f33064",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:14:26.401304+00:00",
+  "submitted_at": "2026-10-24T10:13:16.358186+00:00",
   "topic_id": "TH-VI-0274",
   "waiting_for": []
 }

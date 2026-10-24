@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/gan-them-baga-gio-gia-do-len-xe-thue-thang-thao-hay-giu/",
   "qa": {
-    "report_sha": "120c6afaf4837b082c7cc1f26000eaeef5fe93746f9e39ea8aae40a66b853c85",
+    "report_sha": "77c8bb9461346198eaaf0210a9cb62b0af7b8f775195930a4af2671431c1d47b",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:13:05.511328+00:00",
+  "submitted_at": "2026-10-24T10:12:08.195824+00:00",
   "topic_id": "TH-VI-0260",
   "waiting_for": []
 }

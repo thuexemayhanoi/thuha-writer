@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/pick-up-before-the-rush-choose-a-collection-time-with-room-to-inspect/",
   "qa": {
-    "report_sha": "389bdfa088f50491f62d855e27d030cb7041c9e5ae0524c607926f21f8d964fc",
+    "report_sha": "5cb4217b2ec06446bf0f8d29c40e9e2df2e8a63a66cf3f6eccc6b2bdad563d01",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:54:28.737861+00:00",
+  "submitted_at": "2026-10-24T09:59:01.720841+00:00",
   "topic_id": "TH-EN-0040",
   "waiting_for": []
 }

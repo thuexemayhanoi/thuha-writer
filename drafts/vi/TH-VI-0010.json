@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/bao-gia-thue-xe-da-gom-mu-ao-mua-khoa-gia-do-dien-thoai/",
   "qa": {
-    "report_sha": "ee4815b3da31558460bc24a15edff074a3dc90adee570dd2f682735d976059d1",
+    "report_sha": "e8b27ae1fbbc2d41789cbebd9fa656ba9513064223f85e4222ba671cdd460859",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:57:22.250279+00:00",
+  "submitted_at": "2026-10-24T10:01:53.364824+00:00",
   "topic_id": "TH-VI-0010",
   "waiting_for": []
 }

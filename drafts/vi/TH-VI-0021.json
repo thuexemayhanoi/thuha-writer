@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/nen-dat-xe-may-truoc-bao-lau-hay-hoi-sat-ngay/",
   "qa": {
-    "report_sha": "886171795e3d48140c5e4fef58068ffb1680ab49287608fbdc6af1583b0c6e4b",
+    "report_sha": "9b9558ed62a0e436c75e5946042895d9c35d6656321ba2ee7ee3b2f9b9f0e392",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:23:31.983739+00:00",
+  "submitted_at": "2026-10-24T10:08:56.171521+00:00",
   "topic_id": "TH-VI-0021",
   "waiting_for": []
 }

@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/say-xe-may-nen-an-gi-truoc-khi-di-choi-xa/",
   "qa": {
-    "report_sha": "d1c973e12155070563aa0a9acabcd8446a71d6320c98895e1ba4154cd90e7070",
+    "report_sha": "f9b43a27cd5337e5a47b5208d6ea8c83ea2f0ad2137bd64ca65afd675874109f",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:14:39.588008+00:00",
+  "submitted_at": "2026-10-24T10:13:27.504533+00:00",
   "topic_id": "TH-VI-0431",
   "waiting_for": []
 }

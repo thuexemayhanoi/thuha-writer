@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/paying-a-long-rental-upfront-or-by-instalment-which-schedule-suits-you/",
   "qa": {
-    "report_sha": "6a8a39401eac0f1fb916789df719ce9a5f1888f007575893824d63fa0d44af73",
+    "report_sha": "aa0269a6b379832931608cfb0241b99c4f94d62fa74fdba9e83cc1cb76b126be",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:02:41.502058+00:00",
+  "submitted_at": "2026-10-24T10:07:14.314680+00:00",
   "topic_id": "TH-EN-0028",
   "waiting_for": []
 }

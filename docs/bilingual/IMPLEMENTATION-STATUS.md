@@ -40,6 +40,54 @@ Xuất lại draft/matrix/gói không đổi nội dung (export có đường d�
 Đã đọc danh sách plugin WordPress qua kết nối ngày 23/10: chưa có companion publisher adapter;
 không có thao tác cài đặt, viết bài hay thay theme trong bản sửa. CI là nơi chạy PHP harness trước khi đưa code vào nhánh chạy.
 
+## Phiên 24/10/2026 (lần 8): ảnh tùy chọn nên bản hoàn chỉnh vào thẳng QA; bàn giao vòng 3 và 4; 51 bản mới; nhánh vẫn chờ chủ website merge
+
+**Điều đã đổi bên ngoài phiên này (đọc trước).** Chủ website đã merge PR #10 vào `main`: ảnh và alt hoàn toàn tùy chọn (`featured_media: null` đi tiếp tới QA, `FEATURED_MEDIA` đã gỡ, QA vẫn ≥75 và mọi hard fail khác giữ nguyên), rồi sáng 24/10 (giờ Việt Nam) thêm các sửa khác: cứu liên kết cho các bản VI, dùng lại inventory còn dưới 4 giờ, thử lại khi nhánh trạng thái bị ghi đồng thời. Nhánh này đã gộp `main` tới `6877a05` (commit gộp `eb164b9`). Hàng đợi đã đăng **9 bài EN và 21 bài VI** (biên nhận trong sổ cái chung `factory-state`, v618, lấy khoảng 05:53 UTC ngày 24/10; phiên này không có mạng tới `rentbikehanoi.com` nên chưa đối chiếu lại các trang đó).
+
+**Đã làm (có commit; mọi checkpoint sổ cái đã được đẩy lên nhánh, không force-push):**
+
+- **Công cụ lô** (`ca3fd96`, `2f26256`): `intake --matrix-ids` nhập hàng loạt các dòng ma trận chỉ cần dữ kiện cửa hàng; `claims` rút gọn trong tệp meta (`"manual:month"`); `scripts/draft_batch.py` (`src/thuha/batch.py`) nhận, dựng và nộp cả một thư mục bản thảo qua đúng cổng `precheck` và `submit`, dừng ở lần từ chối đầu tiên của một lệnh sổ cái. Test: bản đã lưu chờ trang sống chứ không chờ ảnh.
+- **Bàn giao vòng 3** (`80ba079`): `sync --apply --discard-unpromoted` với `factory-state` v615, rồi `scripts/replay_unpromoted.py` nộp lại 72 bản (42 EN, 30 VI); 21 bản VI bỏ qua vì đã `PUBLISHED`. Tất cả PASS ngay (không còn chờ ảnh).
+- **Tám lô mới, 51 bản** (chi tiết và các lỗi tìm ra trong [WRITING-LOG.md](WRITING-LOG.md)): EN #6 (8, viết trước vòng 3), EN #7 (4), VI #8 (8), VI #9 (8), VI #10 (8), VI #11 (8), VI #12 (3), VI #13 (4). Mỗi lô qua rà soát độc lập chỉ đọc; **mọi phát hiện được tôi kiểm chứng với tệp thật và `config/business-facts.json` trước khi áp dụng**: ở lô VI #11 có 39 phát hiện (áp dụng 37, bác 2 vì chúng nói chưa xác nhận cửa hàng có xe điện trong khi tệp dữ kiện có giá tham khảo xe điện), ở lô VI #12 và #13 có 51 phát hiện (áp dụng hết, có chỉnh câu chữ). Một lỗi do chính tôi gây ra được bắt: tiêu đề TH-VI-0188 bị script cắt dở chữ.
+- **Bàn giao vòng 4 (lần cuối trong phiên):** `sync --apply --discard-unpromoted` với `factory-state` v618 (head `052cac0`, 05:53:43 UTC, không đổi suốt phiên), rồi replay **115/115 bản** (69 VI, 46 EN) nộp lại qua `claim`, `build`, `submit` thường, dùng inventory của adapter 05:53:34 UTC (còn hạn tới 11:53 UTC): **115 SUBMITTED, 115 READY, 115 QA PASS 100/100, 0 hard fail, `repair_count` 0** (đọc lại từ các báo cáo QA đã lưu).
+- **Kiểm tra đã chạy:** **556 test chạy, 556 đạt** (43 giây), `thuha.cli validate` **PASS** (ma trận 500 VI và 500 EN, gói ZIP, chính sách QA một nguồn), `php tests/php/run.php` **25/25 đạt** (PHP 8.3), export (`export_queued`, `export_drafts`, `build_matrices`, `build_adapter_zip`) và `offline_dashboard.py` chạy lại sau vòng 4 rồi commit (không còn khác biệt).
+
+**Số liệu chính xác** (sổ cái phiên v1883, 870 sự kiện, kế hoạch `promote` ngoại tuyến **FAST_FORWARD** với `factory-state` v618, 523 sự kiện; `reports/bilingual/dashboard.md`; inventory của adapter 24/10 05:53 UTC ghi 305 bài đang sống, 284 EN và 21 VI, **không phải bộ đếm live**):
+
+| | VI | EN |
+|---|---|---|
+| Chủ đề trong sổ cái phiên | 101 | 103 |
+| `READY`, QA PASS 100/100 (chưa đăng; chờ nhánh vào `main` và `promote`) | **69** | **46** |
+| Đã đăng, biên nhận trong sổ cái chung (do hàng đợi ghi, từ các lần bàn giao trước) | **21** | **9** |
+| `HELD` (quyết định biên tập có ghi lý do) | 11 | 0 |
+| `PLANNED` (đã nhập, chưa viết) | 0 | 48 |
+
+Sổ cái chung `factory-state` v618 (lấy lại 24/10 10:16 UTC): 9 EN + 21 VI `PUBLISHED`, 51 EN + 14 VI `PLANNED`, 7 EN `WAITING_DATA`, 11 VI `HELD`, 0 writer lease; adapter `VERIFIED` (05:51 UTC). **Chưa có bài nào trong 115 bản của nhánh này được đăng**: chúng chưa vào sổ cái mà hàng đợi đọc.
+
+**Còn viết được chỉ từ dữ kiện cửa hàng: không còn.** `next` (chỉ đọc) báo 521 dòng `NEEDS_SOURCE`, 11 bản VI `HELD`, và các chủ đề EN `TH-000010` trở đi ở mức `READ_SOURCE_FIRST` (ví dụ `TH-000010` chỉ có đoạn trích khoảng 20 từ của một trang chính thống). Mạng của phiên chỉ tới `api.github.com` (WebFetch không phân giải được tên miền) và Firecrawl vẫn báo hết tín dụng, nên không đọc được nguồn ngoài; theo quy định, không bịa nguồn, giá, luật hay số liệu để viết tiếp.
+
+**Điều đang chặn xuất bản (theo thứ tự):**
+
+1. **Nhánh `feature/bilingual-500-workflow` chưa nằm trong `main`** và hiện không có PR mở. Chủ website cần mở và merge PR (hoặc yêu cầu tôi mở). Khi đó job `queue` chạy `promote --apply` (một lần so sánh-và-ghi, chỉ fast-forward), rồi 115 bản đã PASS đi vào hàng đợi đăng (trần 50 bài mỗi ngày, VI trước). Tôi không merge, không ghi `factory-state` từ phiên này.
+2. **Bàn giao chỉ đúng với phiên bản sổ cái chung đã lấy.** Hàng đợi và các workflow ghi thêm sự kiện vào `factory-state` vào những lúc không đều (ví dụ `ADAPTER_PREFLIGHT` lúc 02:41 và 05:51 UTC ngày 24/10; mỗi bài đăng thêm `PUBLICATION_INTENT`, `PUBLICATION_PUBLISHED`, `POST_CHECK`). Chỉ cần một sự kiện mới xuất hiện sau khi tôi lấy bản v618, `promote` thấy hai lịch sử khác nhau, trả `DIVERGED` và **không ghi gì** (bước `promote` của job `queue` đỏ, các bước sau vẫn chạy). Khôi phục: chạy lại vòng `sync --discard-unpromoted` + `replay` (khoảng 20 phút cho 115 bản) rồi push ngay. Đây là điểm mong manh lớn nhất của quy trình hiện tại; lần 6, lần 7 và lần 8 đều phải làm lại vòng này.
+3. **Chủ đề cần nguồn ngoài** (xem trên): cần khôi phục tín dụng Firecrawl hoặc cho phép mạng tới nguồn chính thống, hoặc chủ website cung cấp dữ kiện/nguồn.
+4. **Chính sách cửa hàng chưa xác nhận** (giao xe, quy trình cọc, hoàn cọc, đổi xe, chạy thử, thanh toán...) trong [OWNER-QUESTIONS.md](OWNER-QUESTIONS.md): các bài hiện chỉ viết cách hỏi, không khẳng định chính sách. Khi chủ website trả lời, các bài này có thể nêu câu trả lời thật và chắc chắn hữu ích hơn.
+
+**Đề xuất cho điểm mong manh (quyết định của chủ website, chưa làm vì sẽ nới một hợp đồng đang giữ):** cho `promote` chấp nhận những sự kiện mới của sổ cái chung mà **không thể xung đột** với phần việc của phiên (`ADAPTER_PREFLIGHT`, `POST_CHECK`, các sự kiện đăng bài của chủ đề phiên không có), và nối các sự kiện mới của phiên vào sau chúng, vẫn từ chối mọi thay đổi trên chủ đề hay bản thảo mà cả hai phía cùng đụng tới. Khi đó nhánh có thể nằm chờ merge nhiều giờ mà không phải làm lại bàn giao.
+
+**Nói thẳng những gì chưa xử lý:**
+
+- Các bản VI trong lô #8 đến #10 (24 bản) được nộp trước khi tôi quét khung lặp, nên còn vài câu đóng bài giống nhau ("Mức giá tham khảo để đối chiếu nằm ở trang…", "Các câu hỏi khác về việc thuê xe có trong trang…") và vài cụm dịch word-for-word ("đồng hồ số km"). Các bản `READY` chỉ sửa được trước `promote` bằng cách `sync --discard-unpromoted` rồi `replay --override`; tôi chưa làm vì lợi ích nhỏ hơn rủi ro sửa hàng loạt.
+- Từ khóa chính chưa xuất hiện nguyên văn trong thân bài hoặc tiêu đề ở phần lớn các bản (chỉ là gợi ý lint, QA không kiểm).
+- QA tự động kiểm tra bằng chứng và kỹ thuật, không phải phán đoán của người bản ngữ; giọng văn Việt của cả loạt chưa có người bản ngữ ngoài tôi và người rà soát (cũng là mô hình AI) đọc.
+- Trang đã đăng chưa được đối chiếu lại từ môi trường này; chưa có crawl sau đăng của 30 bài đã đăng ngoài những gì hàng đợi tự ghi (`POST_CHECK`).
+
+**Tiếp tục từ đây:**
+
+1. `git fetch && git checkout feature/bilingual-500-workflow`; `export PYTHONPATH=src`; `python3 -m thuha.cli --git-branch sync --apply`. Nếu báo `DIVERGED`: lấy tài liệu inventory mới nhất trong `factory-state` (`inventory_document`), rồi `python3 -m thuha.cli --git-branch sync --apply --discard-unpromoted > plan.json` và `python3 scripts/replay_unpromoted.py plan.json -- --git-branch --inventory <tệp inventory>`. Làm việc này muộn nhất có thể, kiểm tra lại kế hoạch là `FAST_FORWARD` (`python3 scripts/offline_dashboard.py`), chạy lại export, rồi push ngay.
+2. Không còn chủ đề viết được ngoại tuyến. Muốn viết tiếp cần một trong: nguồn ngoài đọc được (tín dụng Firecrawl hoặc mạng tới nguồn chính thống), câu trả lời của chủ website trong `OWNER-QUESTIONS.md`, hoặc quyết định mở lại các bản `HELD`.
+3. Mỗi lô mới: `next` → `intake --matrix-ids` → viết → `dry_build` → rà soát độc lập chỉ đọc (brief như trong WRITING-LOG) → kiểm chứng từng phát hiện → sửa bằng script có assert → `scripts/draft_batch.py` → export → commit và push.
+
 ## Phiên 23/10/2026 (lần 7): bốn lô nữa (EN #4 và #5, VI #6 và #7), quét thói quen viết trong 22 bản VI; nhánh vẫn chờ chủ website merge
 
 **Đã làm (mọi checkpoint sổ cái đã được đẩy lên nhánh, không force-push):**

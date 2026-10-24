@@ -83,7 +83,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/house-hunting-in-hanoi-week-of-apartment-viewings-weekly-rental/",
   "qa": {
-    "report_sha": "c195b43428839b2a87506a28b6e3d997d2ab71a1e61d007652c13f1721306b9c",
+    "report_sha": "c3bbb4490b7696d2ff6c3c5e6e4ed6d423c56eeaea01d2bd4ff976c102250413",
     "status": "PASS"
   },
   "receipt": null,
@@ -107,7 +107,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:55:00.252507+00:00",
+  "submitted_at": "2026-10-24T09:59:33.872096+00:00",
   "topic_id": "TH-EN-0037",
   "waiting_for": []
 }

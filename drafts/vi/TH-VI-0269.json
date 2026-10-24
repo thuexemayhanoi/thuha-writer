@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/chia-se-vi-tri-truc-tiep-voi-nguoi-nha-khi-di-xa-bang-xe-thue/",
   "qa": {
-    "report_sha": "84dbe3878b6f275a578a75bfbd4f0ffa9d7dd1dc88576eb8a464324bce10ffad",
+    "report_sha": "21fe5245df0df9f00c62541a7d21db0d3499461e0e1c619fd993fb18329fdfc7",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:14:13.202536+00:00",
+  "submitted_at": "2026-10-24T10:13:05.187117+00:00",
   "topic_id": "TH-VI-0269",
   "waiting_for": []
 }

@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/mot-buoi-nhan-xe-keo-dai-bao-lau-len-lich-cho-kip-chuyen-tau-lich-hop/",
   "qa": {
-    "report_sha": "db5294c5910113ad2dcddf5cc9073de0ec6bb57231b30639e59ee714f070a6ce",
+    "report_sha": "739e7359995ff7bba7f0fc7d428b887e54eb6d4130b311359b580d01ffe140e3",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:25:46.740963+00:00",
+  "submitted_at": "2026-10-24T10:14:00.791199+00:00",
   "topic_id": "TH-VI-0099",
   "waiting_for": []
 }

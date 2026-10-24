@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/xe-dien-thue-co-dinh-vi-gps-du-lieu-hanh-trinh/",
   "qa": {
-    "report_sha": "536cfd5f0fff75f9ad0f19e7f90c6b0925bb8a6a551b20d221300c3326962833",
+    "report_sha": "bfb94a7e7aa848ed78429ff4d4dd05710eac19c8ca33b4385e2f552875c76bce",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:26:26.953986+00:00",
+  "submitted_at": "2026-10-24T10:14:34.394422+00:00",
   "topic_id": "TH-VI-0174",
   "waiting_for": []
 }

@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/cho-xe-moi-ve-tu-dai-ly-thue-xe-may-tam-vai-tuan-luu-y-gi/",
   "qa": {
-    "report_sha": "25a611ed5e7afde262add6c8ed52d2faedfdb2106667037e8baa1dd9308e1465",
+    "report_sha": "4f516e719e6b27906cd72cf7282e6c74eefc8dec5f6a62f0364b7b6d4d611d26",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:39:52.087880+00:00",
+  "submitted_at": "2026-10-24T10:11:00.825375+00:00",
   "topic_id": "TH-VI-0068",
   "waiting_for": []
 }

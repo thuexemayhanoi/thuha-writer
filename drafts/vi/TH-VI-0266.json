@@ -42,7 +42,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/chuyen-phong-tro-bang-xe-may-thue-do-nao-mang-duoc/",
   "qa": {
-    "report_sha": "760969ce76ceee26929295d98d3aa3cf98381e0b0d9e740f303971f381d335a1",
+    "report_sha": "e2c7626b0133a98cbf97c6050bac18f7cd507d5ea611982c95f2cab95df7e2eb",
     "status": "PASS"
   },
   "receipt": null,
@@ -65,7 +65,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:13:59.780908+00:00",
+  "submitted_at": "2026-10-24T10:12:53.793836+00:00",
   "topic_id": "TH-VI-0266",
   "waiting_for": []
 }

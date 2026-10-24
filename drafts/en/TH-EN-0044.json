@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/when-a-promised-delivery-time-slips-waiting-rescheduling-staying-in-touch/",
   "qa": {
-    "report_sha": "e91da0845c59baf925b19c466f908afed30cf50e35057568b34ce58e0d353e36",
+    "report_sha": "1ca129c550fb71b79da69bcae6e7be89c7ed512b75c6c459f4522ebe82f51910",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:25:38.265121+00:00",
+  "submitted_at": "2026-10-24T10:10:05.440787+00:00",
   "topic_id": "TH-EN-0044",
   "waiting_for": []
 }

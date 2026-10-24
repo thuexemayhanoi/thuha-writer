@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/can-you-negotiate-a-monthly-rental-what-a-shop-might-ask-in-return/",
   "qa": {
-    "report_sha": "f569f0644641a3916e34ba56d3314c22386988de29e2dc57266eac0afe559af1",
+    "report_sha": "894e45cb31ff315f8819efea01a2ff32fc201e7281333461badc819133706423",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:02:52.888393+00:00",
+  "submitted_at": "2026-10-24T10:07:25.589219+00:00",
   "topic_id": "TH-EN-0029",
   "waiting_for": []
 }

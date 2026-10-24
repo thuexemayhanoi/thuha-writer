@@ -47,7 +47,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/chia-tien-thue-xe-may-xang-gui-xe-cho-nhom-ban/",
   "qa": {
-    "report_sha": "0b27ef2ff07dc9bbadef6e0f43a88c816a523218c78f33b5174b9795bc971be5",
+    "report_sha": "d4f5867bfe7ac7124ea8d159e44f359c740309bd9d3d49164bd493ed3045f634",
     "status": "PASS"
   },
   "receipt": null,
@@ -71,7 +71,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:59:01.359039+00:00",
+  "submitted_at": "2026-10-24T10:03:30.958278+00:00",
   "topic_id": "TH-VI-0008",
   "waiting_for": []
 }

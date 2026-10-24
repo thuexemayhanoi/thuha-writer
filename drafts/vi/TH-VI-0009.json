@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/thanh-toan-thue-xe-may-tien-mat-chuyen-khoan-hay-qr/",
   "qa": {
-    "report_sha": "7a806110b0fca0b9b2c1cd62bedd6d8dd0d08365c19ddf3294937af602245f65",
+    "report_sha": "2ac3048ee396366fff474330c700d052af4e9a7ce4907c84b79e49424462e8eb",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:39:25.958472+00:00",
+  "submitted_at": "2026-10-24T10:10:39.061927+00:00",
   "topic_id": "TH-VI-0009",
   "waiting_for": []
 }

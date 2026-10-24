@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/den-dung-gio-hen-nhung-xe-chua-ve-hoac-chua-kiem-xong-cho-bao-lau/",
   "qa": {
-    "report_sha": "eb140d7cd668a91e19cf625726bdda2823030408e17d93331501740837427076",
+    "report_sha": "9814558baf9226951e0c577046a4614b6b579eb66227985092b71986002c067f",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:00:41.069614+00:00",
+  "submitted_at": "2026-10-24T10:05:09.511739+00:00",
   "topic_id": "TH-VI-0105",
   "waiting_for": []
 }

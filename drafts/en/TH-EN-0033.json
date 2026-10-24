@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/handing-your-monthly-bike-to-the-next-expat-transfer-the-contract/",
   "qa": {
-    "report_sha": "f7b03759abe6b3a32219f8473fc1d4558fc00e6abffb6ebae352b107b9bd4524",
+    "report_sha": "69c8f5528e572870ef809725e9595bdb127992248cb9c6e8f16af363e8202c0e",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:03:03.692485+00:00",
+  "submitted_at": "2026-10-24T10:07:36.894006+00:00",
   "topic_id": "TH-EN-0033",
   "waiting_for": []
 }

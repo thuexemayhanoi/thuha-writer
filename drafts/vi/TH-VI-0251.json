@@ -34,7 +34,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/tu-truot-nga-khi-chay-xe-thue-lo-cho-nguoi-truoc-roi-bao-cua-hang/",
   "qa": {
-    "report_sha": "b841b569863b8cdc88f0728e6a5a9e42dca6af29439644795c2c544c898ac0b1",
+    "report_sha": "fb64ecdd56b7d7307ba53784209bb14b1a686dd787a11a84f299e841903c69ec",
     "status": "PASS"
   },
   "receipt": null,
@@ -58,7 +58,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:59:35.709688+00:00",
+  "submitted_at": "2026-10-24T10:04:03.107456+00:00",
   "topic_id": "TH-VI-0251",
   "waiting_for": []
 }

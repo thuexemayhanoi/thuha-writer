@@ -29,7 +29,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/apartment-building-parking-for-a-monthly-rental-questions-for-your-landlord/",
   "qa": {
-    "report_sha": "69518980e53deccafdc5847d8b0df3669bb21479469734774bc180d8c3b99b4d",
+    "report_sha": "38b0a3a393ceb4369045523c71917f4e50cf1281145ffaac1e4398563e79eeec",
     "status": "PASS"
   },
   "receipt": null,
@@ -52,7 +52,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T04:25:51.443603+00:00",
+  "submitted_at": "2026-10-24T10:10:16.681238+00:00",
   "topic_id": "TH-EN-0027",
   "waiting_for": []
 }

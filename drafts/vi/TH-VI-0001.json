@@ -54,7 +54,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/gia-dinh-tinh-len-ha-noi-thue-hai-xe-hay-xe-cong-nghe/",
   "qa": {
-    "report_sha": "1fc4dc21613df2b741b6202862474cf5839c310e43972d8682c353fd37f34339",
+    "report_sha": "8f8720f136b17448906c1536f51e72a8facd092c9b4eaab20f1e5bcd04ed552a",
     "status": "PASS"
   },
   "receipt": null,
@@ -77,7 +77,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T09:25:20.643202+00:00",
+  "submitted_at": "2026-10-24T10:13:38.439680+00:00",
   "topic_id": "TH-VI-0001",
   "waiting_for": []
 }

@@ -71,7 +71,7 @@
   "legacy_review_on_record": false,
   "proposed_url": "https://rentbikehanoi.com/vi/sinh-vien-thue-xe-theo-thang-xe-so-hay-xe-ga/",
   "qa": {
-    "report_sha": "a627e4831578d3750bad01362e7876af6473da57272505b6855734051043c868",
+    "report_sha": "3a77ea1e4d259d102db4555ac1ce64af942ebd24a4df9d3b5fd6297290f292b3",
     "status": "PASS"
   },
   "receipt": null,
@@ -95,7 +95,7 @@
     }
   },
   "status": "READY",
-  "submitted_at": "2026-10-24T03:58:50.646617+00:00",
+  "submitted_at": "2026-10-24T10:03:19.965899+00:00",
   "topic_id": "TH-VI-0140",
   "waiting_for": []
 }
