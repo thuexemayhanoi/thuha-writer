@@ -13785,6 +13785,21 @@
       "sha256": "41d112fb42fafc19cb0666df6b73acaff1cc3857d50e92104cd3aa5aa3dff7a7",
       "status": "PASS",
       "topic_id": "TH-000032"
+    },
+    {
+      "action": "CLAIM",
+      "agent_id": "claude-writer-EN13",
+      "at": "2026-10-24T15:33:52.875305+00:00",
+      "expires_at": 1792857832.875283,
+      "fence": "1e6fdce00aff40a0a09b9bd5a635330e",
+      "heartbeat_at": "2026-10-24T15:33:52.875262+00:00",
+      "language": "en",
+      "picked": true,
+      "previous": "41d112fb42fafc19cb0666df6b73acaff1cc3857d50e92104cd3aa5aa3dff7a7",
+      "session": "en-b13-20261024",
+      "sha256": "301c79ddd6630b6dfd485d7fb2139b75732bfd46e3d691b5bdfe7705d8ff89d0",
+      "slot": "W1",
+      "topic_id": "TH-000041"
     }
   ],
   "intents": {
@@ -24005,7 +24020,19 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {},
+  "leases": {
+    "W1": {
+      "agent_id": "claude-writer-EN13",
+      "expires_at": 1792857832.875283,
+      "fence": "1e6fdce00aff40a0a09b9bd5a635330e",
+      "heartbeat_at": "2026-10-24T15:33:52.875262+00:00",
+      "language": "en",
+      "picked": true,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "topic_id": "TH-000041"
+    }
+  },
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -29966,7 +29993,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
         }
       ],
-      "status": "PLANNED",
+      "status": "CLAIMED",
       "topic_id": "TH-000041"
     },
     "TH-000042": {
@@ -37511,5 +37538,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2340
+  "version": 2341
 }
