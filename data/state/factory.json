@@ -13908,6 +13908,15 @@
       "previous": "e7641f8d09dea8b662fe9917d43af62f6e4335211f6c33b37b3eae3dc81727b8",
       "sha256": "cfe873ff0837f5488bce28eb12b83b1325ac971238d54ccb9b091882628b02d0",
       "topic_id": "TH-000060"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:34:44.432569+00:00",
+      "previous": "cfe873ff0837f5488bce28eb12b83b1325ac971238d54ccb9b091882628b02d0",
+      "report_sha": "74d63183b8574382d5431b36ea238b179feb49e671a9f244ae727f27b0eb3d07",
+      "sha256": "843e62a7bed6dec8d619d73e2a05c816b426e5e82ff4cc42e5a606cc3bb4c668",
+      "status": "PASS",
+      "topic_id": "TH-000060"
     }
   ],
   "intents": {
@@ -24128,19 +24137,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN13",
-      "expires_at": 1792857875.475832,
-      "fence": "19ed3218685b43259c2b038b140446f5",
-      "heartbeat_at": "2026-10-24T15:34:35.475805+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b13-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000060"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24295,6 +24292,11 @@
     "TH-000059": {
       "article_sha": "7ee36f5e74605e7593090a9235f4ba2322f9f38cb50d0ec705f17bb4fe96f9ea",
       "report_sha": "bfd555463958a36757953fa97e8b41530cc704c0ac5adda0ed5578dde4d92d68",
+      "status": "PASS"
+    },
+    "TH-000060": {
+      "article_sha": "7d0a5e1d0f3645a1b9d2d16cfdc590c152d377be74c9ac415e2de2150801344f",
+      "report_sha": "74d63183b8574382d5431b36ea238b179feb49e671a9f244ae727f27b0eb3d07",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -30688,7 +30690,7 @@
           "url": "https://dichvucong.bocongan.gov.vn/bocongan/tintuc/chitiet?matin=301"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000060"
     },
     "TH-000061": {
@@ -37701,5 +37703,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2354
+  "version": 2355
 }
