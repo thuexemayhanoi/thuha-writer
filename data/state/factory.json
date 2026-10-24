@@ -12075,6 +12075,15 @@
       "previous": "4fece7baf570fe79b935004fad6a1ec20eb2038a0fb93f8534b64e896a017cba",
       "sha256": "0b3791da021844d07379b9c36b5836a63610c51f1127194689e35fbf95c43fed",
       "topic_id": "TH-000042"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:03:49.733690+00:00",
+      "previous": "0b3791da021844d07379b9c36b5836a63610c51f1127194689e35fbf95c43fed",
+      "report_sha": "3009cb36271e3676f2ae1de06e77d9b09ffb33bbf22ca511589fdb83510d1240",
+      "sha256": "b8c3ba8b0c2744c0cb2d898eaf248f6a1c25943693a48598ece13d57557512b9",
+      "status": "PASS",
+      "topic_id": "TH-000042"
     }
   ],
   "intents": {
@@ -22295,19 +22304,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856020.576909,
-      "fence": "3dffa84fab5f4b85b9a7a259f6ed4ef6",
-      "heartbeat_at": "2026-10-24T15:03:40.576883+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000042"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22377,6 +22374,11 @@
     "TH-000040": {
       "article_sha": "171b6a893fc9e1d9ee2c80d28ad95625acaed5e263a2e8d5ed6d7ae3bba7a14d",
       "report_sha": "7d7a8de0a34cc31bd27e4f5b48cb7ada93b0d7c5c100f8424c0befc923c299fa",
+      "status": "PASS"
+    },
+    "TH-000042": {
+      "article_sha": "e87995e838e4ffb01fac264a6870000d8815bfbf4665f240f2f351f9b8a6e9d7",
+      "report_sha": "3009cb36271e3676f2ae1de06e77d9b09ffb33bbf22ca511589fdb83510d1240",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27525,7 +27527,7 @@
           "url": "https://metrohanoi.vn/afc-tickets/metro-fares-1"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000042"
     },
     "TH-000043": {
@@ -34661,5 +34663,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2134
+  "version": 2135
 }
