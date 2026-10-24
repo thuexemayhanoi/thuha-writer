@@ -12108,6 +12108,15 @@
       "previous": "eec7f912cd4937150991cce8606ce1921c66e8b42b5a0b4b7f03abb72c7e1d0f",
       "sha256": "708bb2058f4a76eac6b84bb9a131d12defda56dad093e7b5dcfcc6fb23de9643",
       "topic_id": "TH-000043"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:04:03.757410+00:00",
+      "previous": "708bb2058f4a76eac6b84bb9a131d12defda56dad093e7b5dcfcc6fb23de9643",
+      "report_sha": "f975f2e31714ee1b3e713f452dd7b1c366f248a49466e989ad7f15b10c975feb",
+      "sha256": "ea9b59a5120a023e05ca183d01ebb7c83dcb047d4ac6032d62bf4a76b9fb9134",
+      "status": "PASS",
+      "topic_id": "TH-000043"
     }
   ],
   "intents": {
@@ -22328,19 +22337,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN12",
-      "expires_at": 1792856034.388403,
-      "fence": "f6d662231ede4d36b5b3e1756536f60f",
-      "heartbeat_at": "2026-10-24T15:03:54.388376+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b12-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000043"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -22415,6 +22412,11 @@
     "TH-000042": {
       "article_sha": "e87995e838e4ffb01fac264a6870000d8815bfbf4665f240f2f351f9b8a6e9d7",
       "report_sha": "3009cb36271e3676f2ae1de06e77d9b09ffb33bbf22ca511589fdb83510d1240",
+      "status": "PASS"
+    },
+    "TH-000043": {
+      "article_sha": "f9c280d2aaf92a27ff2527e103a4233cc685669db6d09df081f608d494406fbe",
+      "report_sha": "f975f2e31714ee1b3e713f452dd7b1c366f248a49466e989ad7f15b10c975feb",
       "status": "PASS"
     },
     "TH-EN-0001": {
@@ -27605,7 +27607,7 @@
           "url": "https://vietnam.travel/things-to-do/festival-event/perfume-pagoda-festival"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000043"
     },
     "TH-000044": {
@@ -34709,5 +34711,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2138
+  "version": 2139
 }
