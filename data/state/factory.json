@@ -14998,6 +14998,15 @@
       "sha256": "fbf0c4694fd586719f064b53da677092e2ba15e0a9f0f52f38c7ef5f062d23e5",
       "slot": "W1",
       "topic_id": "TH-000031"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "fc65271fdb7f6bf21800bf61ee704e375e6a071e2c2638137e4c35714aed8b07",
+      "at": "2026-10-24T16:01:50.082583+00:00",
+      "previous": "fbf0c4694fd586719f064b53da677092e2ba15e0a9f0f52f38c7ef5f062d23e5",
+      "sha256": "e7d8ab362540d5403bd185d52c3057492f7d2b29b0960ba5b66f2eb362c0062a",
+      "topic_id": "TH-000031"
     }
   ],
   "intents": {
@@ -27520,6 +27529,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T16:01:35.829251+00:00"
     },
+    "TH-000031": {
+      "agent_id": "claude-writer-EN14",
+      "article_sha": "fc65271fdb7f6bf21800bf61ee704e375e6a071e2c2638137e4c35714aed8b07",
+      "commit": "7c8c9dde10f7d42bb64f2a2707f35e6678fad33e",
+      "fence": "04455d41c1f54c6f8750551f5bd018ac",
+      "repair_count": 0,
+      "session": "en-b14-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T16:01:50.082556+00:00"
+    },
     "TH-000032": {
       "agent_id": "claude-writer-EN13",
       "article_sha": "2b8c249c7391621410bf9fe7494d1444b75d1107abbb726b427a5c834333154d",
@@ -31449,7 +31468,7 @@
           "url": "https://shop.vinfastauto.com/vn_vi/xe-may-dien-feliz.html"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000031"
     },
     "TH-000032": {
@@ -40419,5 +40438,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2480
+  "version": 2481
 }
