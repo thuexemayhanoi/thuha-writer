@@ -1,0 +1,51 @@
+name: ThuHa three Vietnamese writer trial submissions (one time)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/submit-vi-trial.yml'
+      - 'scripts/submit_vi_trial.py'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: thuha-vi-trial-writer-20261024
+  cancel-in-progress: false
+jobs:
+  writer-submission:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src
+      THUHA_GITHUB_TOKEN: ${{ github.token }}
+      THUHA_WP_USER: ${{ secrets.THUHA_WP_USER }}
+      THUHA_WP_APPLICATION_PASSWORD: ${{ secrets.THUHA_WP_APPLICATION_PASSWORD }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate existing contracts, test suite and QA75 configuration
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m thuha.cli validate
+          python3 -m compileall -q scripts/submit_vi_trial.py
+      - name: Update authenticated bilingual inventory only if stale
+        run: |
+          mkdir -p artifacts/vi-trial
+          python3 -m thuha.cli --remote --output artifacts/vi-trial audit --max-age 14400
+      - name: Preview each authored VI article against REAL precheck and live inventory
+        run: python3 scripts/submit_vi_trial.py > artifacts/vi-trial/preview.json
+      - name: Claim and submit only validated, unpublished topics with native VI source provenance
+        run: python3 scripts/submit_vi_trial.py --apply > artifacts/vi-trial/submissions.json
+      - name: Summarize actual factory-state without assuming a WordPress publication
+        if: always()
+        run: python3 -m thuha.cli --remote --output artifacts/vi-trial report
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: vi-writer-trial-${{ github.run_id }}
+          path: artifacts/vi-trial/
+          if-no-files-found: ignore
+          retention-days: 14
