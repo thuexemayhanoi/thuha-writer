@@ -13809,6 +13809,15 @@
       "previous": "301c79ddd6630b6dfd485d7fb2139b75732bfd46e3d691b5bdfe7705d8ff89d0",
       "sha256": "7746d6a67a4804c17464e1fcc0fee04b35dd1868f97881689da4cb8700204aa0",
       "topic_id": "TH-000041"
+    },
+    {
+      "action": "QA",
+      "at": "2026-10-24T15:34:02.133837+00:00",
+      "previous": "7746d6a67a4804c17464e1fcc0fee04b35dd1868f97881689da4cb8700204aa0",
+      "report_sha": "d52c78e2fcb7b43a7570992992eb8540390a968dfd11ce87e1edd13067d3a20f",
+      "sha256": "5c7abc394f55ce5843278d03925099afd0fafb27a842a9a0918aa83074024ee5",
+      "status": "PASS",
+      "topic_id": "TH-000041"
     }
   ],
   "intents": {
@@ -24029,19 +24038,7 @@
     }
   },
   "inventory_document": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
-  "leases": {
-    "W1": {
-      "agent_id": "claude-writer-EN13",
-      "expires_at": 1792857832.875283,
-      "fence": "1e6fdce00aff40a0a09b9bd5a635330e",
-      "heartbeat_at": "2026-10-24T15:33:52.875262+00:00",
-      "language": "en",
-      "picked": true,
-      "session": "en-b13-20261024",
-      "slot": "W1",
-      "topic_id": "TH-000041"
-    }
-  },
+  "leases": {},
   "qa": {
     "TH-000001": {
       "article_sha": "9239511fa076230a34d9eadb354fd1baccc9046d256f7e56fcbcd9cdf5527108",
@@ -24116,6 +24113,11 @@
     "TH-000040": {
       "article_sha": "171b6a893fc9e1d9ee2c80d28ad95625acaed5e263a2e8d5ed6d7ae3bba7a14d",
       "report_sha": "7d7a8de0a34cc31bd27e4f5b48cb7ada93b0d7c5c100f8424c0befc923c299fa",
+      "status": "PASS"
+    },
+    "TH-000041": {
+      "article_sha": "f4b4ddb80a6b40267d65951b4d26acfc83953c59b614fc4c0a47696afa77888b",
+      "report_sha": "d52c78e2fcb7b43a7570992992eb8540390a968dfd11ce87e1edd13067d3a20f",
       "status": "PASS"
     },
     "TH-000042": {
@@ -30012,7 +30014,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
         }
       ],
-      "status": "DRAFT_READY",
+      "status": "READY",
       "topic_id": "TH-000041"
     },
     "TH-000042": {
@@ -37557,5 +37559,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2342
+  "version": 2343
 }
