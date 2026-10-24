@@ -9439,6 +9439,14 @@
         "TH-VI-0103",
         "TH-VI-0152"
       ]
+    },
+    {
+      "action": "REFILL_REQUEST",
+      "at": "2026-10-24T09:25:13.473893+00:00",
+      "language": "vi",
+      "previous": "ba4ef6faf1d415e84abca023e19810e087a4c7ecab1b7e03077ae194a607d20a",
+      "request_id": "research-vi-de95c6b934c93433",
+      "sha256": "2fb19b4c25e72fdf744fcf9aa88ffab5be8d7cc0762f9bfac0e1e67ce4adfd4e"
     }
   ],
   "intents": {
@@ -20824,6 +20832,16 @@
       "runtime": "External authorized AI session required",
       "status": "FULFILLED"
     },
+    "research-vi-de95c6b934c93433": {
+      "created_at": "2026-10-24T09:25:13.457516+00:00",
+      "inventory_sha256": "3b56f6088ccc8c50409e967e9dbc88f09d0eed8d7b7f637d7e765d27e342907c",
+      "language": "vi",
+      "maximum_topics": 100,
+      "planned": 15,
+      "request_id": "research-vi-de95c6b934c93433",
+      "runtime": "External authorized AI session required",
+      "status": "AWAITING_EXTERNAL_RESEARCH"
+    },
     "research-vi-fe4f31668a59efbd": {
       "admitted_topic_ids": [
         "TH-VI-0260",
@@ -28125,5 +28143,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 1361
+  "version": 1362
 }
