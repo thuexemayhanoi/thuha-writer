@@ -13833,6 +13833,15 @@
       "sha256": "bcb9f4ba6fb7a341d45139a05b994b0ce5f7626dd8fa3a9c00009a1badac1298",
       "slot": "W1",
       "topic_id": "TH-000056"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "9d44fa25e9821f04e40a31a7115889aa2909919fcf3145a68abe99e8f97f62b8",
+      "at": "2026-10-24T15:34:11.815456+00:00",
+      "previous": "bcb9f4ba6fb7a341d45139a05b994b0ce5f7626dd8fa3a9c00009a1badac1298",
+      "sha256": "b85afc8f6b3fe972c56b70701d54588f0d464c83f10fe02646eef89477abdfee",
+      "topic_id": "TH-000056"
     }
   ],
   "intents": {
@@ -26244,6 +26253,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:08:00.226031+00:00"
     },
+    "TH-000056": {
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "9d44fa25e9821f04e40a31a7115889aa2909919fcf3145a68abe99e8f97f62b8",
+      "commit": "28d86dc761e73057300de36b875152d7886f9ee9",
+      "fence": "10142e7604d447f096741e6dfc04e77c",
+      "repair_count": 0,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:34:11.815431+00:00"
+    },
     "TH-000057": {
       "agent_id": "claude-writer-EN12",
       "article_sha": "fa46c2f5c8734ec4b09871a476c8184f1663ba46c0bd9482a40b224216eee31c",
@@ -30475,7 +30494,7 @@
           "url": "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/Vietnam.html"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000056"
     },
     "TH-000057": {
@@ -37586,5 +37605,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2345
+  "version": 2346
 }
