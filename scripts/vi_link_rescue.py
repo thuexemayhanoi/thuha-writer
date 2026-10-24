@@ -99,7 +99,10 @@ def main():
         if topic["status"] == "PUBLISHED":
             outcome[tid] = "ALREADY_PUBLISHED"
             continue
-        if not (topic["status"] == "DRAFT_READY" and state["qa"].get(tid, {}).get("status") == "BLOCKED_DATA"):
+        # A claimed link-blocked draft may be released back to WAITING_DATA
+        # after a transport interruption. Both states are safe to revise with
+        # a verified source and unchanged, immutable article lineage.
+        if not (topic["status"] in ("DRAFT_READY", "WAITING_DATA") and state["qa"].get(tid, {}).get("status") == "BLOCKED_DATA"):
             outcome[tid] = "NOT_IN_EXPECTED_BLOCKED_DATA_STATE"
             continue
         sub = state["submissions"][tid]
