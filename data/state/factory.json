@@ -13800,6 +13800,15 @@
       "sha256": "301c79ddd6630b6dfd485d7fb2139b75732bfd46e3d691b5bdfe7705d8ff89d0",
       "slot": "W1",
       "topic_id": "TH-000041"
+    },
+    {
+      "action": "SUBMISSION",
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "f4b4ddb80a6b40267d65951b4d26acfc83953c59b614fc4c0a47696afa77888b",
+      "at": "2026-10-24T15:33:57.990097+00:00",
+      "previous": "301c79ddd6630b6dfd485d7fb2139b75732bfd46e3d691b5bdfe7705d8ff89d0",
+      "sha256": "7746d6a67a4804c17464e1fcc0fee04b35dd1868f97881689da4cb8700204aa0",
+      "topic_id": "TH-000041"
     }
   ],
   "intents": {
@@ -26076,6 +26085,16 @@
       "slot": "W1",
       "submitted_at": "2026-10-24T15:03:31.218627+00:00"
     },
+    "TH-000041": {
+      "agent_id": "claude-writer-EN13",
+      "article_sha": "f4b4ddb80a6b40267d65951b4d26acfc83953c59b614fc4c0a47696afa77888b",
+      "commit": "9fa19d04d9450e0f8a5ea3dbcffdfc7a9edcf5b9",
+      "fence": "1e6fdce00aff40a0a09b9bd5a635330e",
+      "repair_count": 0,
+      "session": "en-b13-20261024",
+      "slot": "W1",
+      "submitted_at": "2026-10-24T15:33:57.990070+00:00"
+    },
     "TH-000042": {
       "agent_id": "claude-writer-EN12",
       "article_sha": "e87995e838e4ffb01fac264a6870000d8815bfbf4665f240f2f351f9b8a6e9d7",
@@ -29993,7 +30012,7 @@
           "url": "https://www.gov.uk/foreign-travel-advice/vietnam/safety-and-security"
         }
       ],
-      "status": "CLAIMED",
+      "status": "DRAFT_READY",
       "topic_id": "TH-000041"
     },
     "TH-000042": {
@@ -37538,5 +37557,5 @@
       "topic_id": "TH-VI-0495"
     }
   },
-  "version": 2341
+  "version": 2342
 }
