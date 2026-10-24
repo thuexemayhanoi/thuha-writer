@@ -11829,6 +11829,26 @@
       "sha256": "f4d73b9e71bff697b750da2176bacf7df380775cf820535f00ae3f787b98ebc2",
       "status": "PASS",
       "topic_id": "TH-VI-0355"
+    },
+    {
+      "action": "RESEARCH_INTAKE",
+      "at": "2026-10-24T14:50:32.389072+00:00",
+      "previous": "f4d73b9e71bff697b750da2176bacf7df380775cf820535f00ae3f787b98ebc2",
+      "sha256": "989455d08460330d51b459d1ef69441b2d46071fe046f46fee1a26cc40b74098",
+      "topic_ids": [
+        "TH-VI-0113",
+        "TH-VI-0118",
+        "TH-VI-0129",
+        "TH-VI-0135",
+        "TH-VI-0141",
+        "TH-VI-0143",
+        "TH-VI-0154",
+        "TH-VI-0159",
+        "TH-VI-0172",
+        "TH-VI-0173",
+        "TH-VI-0177",
+        "TH-VI-0179"
+      ]
     }
   ],
   "intents": {
@@ -23503,6 +23523,21 @@
       "status": "FULFILLED"
     },
     "research-vi-abd510baba476d08": {
+      "admitted_topic_ids": [
+        "TH-VI-0113",
+        "TH-VI-0118",
+        "TH-VI-0129",
+        "TH-VI-0135",
+        "TH-VI-0141",
+        "TH-VI-0143",
+        "TH-VI-0154",
+        "TH-VI-0159",
+        "TH-VI-0172",
+        "TH-VI-0173",
+        "TH-VI-0177",
+        "TH-VI-0179"
+      ],
+      "completed_at": "2026-10-24T14:50:32.389057+00:00",
       "created_at": "2026-10-24T14:44:19.947095+00:00",
       "inventory_sha256": "76f926034a1d46da3032c3293621d5b57db78804fc8ca652ed1fda7aa7564f0e",
       "language": "vi",
@@ -23510,7 +23545,7 @@
       "planned": 11,
       "request_id": "research-vi-abd510baba476d08",
       "runtime": "External authorized AI session required",
-      "status": "AWAITING_EXTERNAL_RESEARCH"
+      "status": "FULFILLED"
     },
     "research-vi-b6c6d839c56d89d5": {
       "admitted_topic_ids": [
@@ -30661,6 +30696,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0110"
     },
+    "TH-VI-0113": {
+      "admitted_at": "2026-10-24T14:50:32.156700+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "Idling Stop xe ga tự tắt máy đèn đỏ",
+      "proposed_title": "Hệ thống ngắt máy tạm thời Idling Stop trên xe ga: xe tự tắt ở đèn đỏ là bình thường hay hỏng?",
+      "proposed_url": "https://rentbikehanoi.com/vi/idling-stop-xe-ga-tu-tat-may-o-den-do-binh-thuong-hay-hong/",
+      "search_intent": "Người nhận xe ga bất ngờ thấy máy tự tắt khi dừng đèn đỏ, tưởng xe hỏng; cần hiểu hệ thống ngắt máy tạm thời hoạt động thế nào, cách tắt nếu sách hướng dẫn cho phép, và có nên dùng khi kẹt xe giờ cao điểm.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0113"
+    },
     "TH-VI-0115": {
       "admitted_at": "2026-10-24T10:24:39.159857+00:00",
       "category_id": 156,
@@ -30753,6 +30819,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0117"
+    },
+    "TH-VI-0118": {
+      "admitted_at": "2026-10-24T14:50:32.177129+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe ga leo đèo có bị nóng máy không",
+      "proposed_title": "Xe ga leo dốc đèo dài: dấu hiệu máy nóng và cách xuống dốc không để cháy phanh",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-ga-leo-deo-dai-nong-may-chay-phanh/",
+      "search_intent": "Người định đưa xe ga lên đoạn đèo hoặc đường núi gần Hà Nội lo xe yếu, nóng và mất phanh khi xuống; cần biết dấu hiệu quá tải, khi nào nên nghỉ cho nguội, cách dùng phanh và lúc nào nên bỏ ý định.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0118"
     },
     "TH-VI-0119": {
       "admitted_at": "2026-10-24T11:27:19.181473+00:00",
@@ -30926,6 +31023,38 @@
       "status": "READY",
       "topic_id": "TH-VI-0128"
     },
+    "TH-VI-0129": {
+      "admitted_at": "2026-10-24T14:50:32.197455+00:00",
+      "category_id": 156,
+      "category_path": [
+        140,
+        147,
+        156
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual",
+          "field_check"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe ga phải bóp phanh mới đề được",
+      "proposed_title": "Vì sao xe ga phải bóp phanh hoặc gạt chân chống mới đề được: những công tắc an toàn dễ bị tưởng là hỏng xe",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-ga-phai-bop-phanh-hoac-gat-chan-chong-moi-de-duoc/",
+      "search_intent": "Người mới thuê xe ga bấm đề mà máy không nổ dù còn xăng, chưa biết nhiều xe có công tắc ở tay phanh hoặc chân chống chặn đề; cần biết thử những gì trước, rồi mới gọi cửa hàng.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0129"
+    },
     "TH-VI-0130": {
       "admitted_at": "2026-10-24T11:34:52.940919+00:00",
       "category_id": 156,
@@ -31011,6 +31140,37 @@
       ],
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0134"
+    },
+    "TH-VI-0135": {
+      "admitted_at": "2026-10-24T14:50:32.217649+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe côn tay chết máy khi nhả côn",
+      "proposed_title": "Xe côn tay chết máy khi nhả côn xuất phát: những nguyên nhân thường gặp ở người mới và cách sửa thói quen",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-con-tay-chet-may-khi-nha-con-xuat-phat/",
+      "search_intent": "Người mới lái côn tay liên tục chết máy ở đèn đỏ hoặc khi lên dốc, lo cản trở giao thông; cần hiểu vì sao xảy ra (nhả quá nhanh, ga ít, vào sai số) và luyện thế nào để đỡ chết máy trước khi ra đường lớn.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0135"
     },
     "TH-VI-0136": {
       "admitted_at": "2026-10-24T10:24:39.125244+00:00",
@@ -31153,6 +31313,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0140"
     },
+    "TH-VI-0141": {
+      "admitted_at": "2026-10-24T14:50:32.238426+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe côn tay đi phố đông có mỏi tay không",
+      "proposed_title": "Xe côn tay đi trong phố đông giờ cao điểm: mỏi tay trái, nóng chân và cách giảm bớt",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-con-tay-di-pho-dong-gio-cao-diem-moi-tay/",
+      "search_intent": "Người thích dáng xe côn tay nhưng chủ yếu chạy nội thành tắc đường lo mỏi tay trái và nóng chân do máy; cần biết cảm giác ở tốc độ chậm trước khi quyết định thuê côn tay thay vì xe số thường.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0141"
+    },
     "TH-VI-0142": {
       "admitted_at": "2026-10-24T09:55:06.612087+00:00",
       "category_id": 157,
@@ -31176,6 +31367,37 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0142"
+    },
+    "TH-VI-0143": {
+      "admitted_at": "2026-10-24T14:50:32.258751+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "đạp nổ xe số khi ắc quy yếu",
+      "proposed_title": "Đạp nổ xe số khi đề điện yếu: cách đạp đúng để không bị giật ngược vào chân",
+      "proposed_url": "https://rentbikehanoi.com/vi/dap-no-xe-so-khi-de-dien-yeu-dap-dung-cach/",
+      "search_intent": "Người thuê xe số gặp lúc đề điện yếu hoặc không đề được, muốn tự đạp nổ nhưng sợ bị giật ngược vào chân; cần biết khi nào cần đạp, tư thế, tay ga và chân chống, và khi nào nên thôi để gọi cửa hàng.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0143"
     },
     "TH-VI-0144": {
       "admitted_at": "2026-10-24T11:34:52.786158+00:00",
@@ -31436,6 +31658,37 @@
       "status": "READY",
       "topic_id": "TH-VI-0152"
     },
+    "TH-VI-0154": {
+      "admitted_at": "2026-10-24T14:50:32.280166+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe côn tay có mùi khét sau khi lết côn",
+      "proposed_title": "Xe côn tay có mùi khét sau khi dừng dốc lâu: côn quá nóng và những việc nên làm ngay",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-con-tay-co-mui-khet-sau-khi-dung-doc-lau/",
+      "search_intent": "Người đi xe côn tay lên cầu dốc đông xe ngửi mùi khét từ máy, lo cháy côn; cần biết dấu hiệu côn quá nhiệt, cách nghỉ cho nguội, cách tránh lết côn kéo dài và lúc nào phải báo cửa hàng.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0154"
+    },
     "TH-VI-0155": {
       "admitted_at": "2026-10-24T11:34:52.869925+00:00",
       "category_id": 157,
@@ -31553,6 +31806,99 @@
       "status": "PUBLISHED",
       "topic_id": "TH-VI-0158"
     },
+    "TH-VI-0159": {
+      "admitted_at": "2026-10-24T14:50:32.303999+00:00",
+      "category_id": 157,
+      "category_path": [
+        140,
+        147,
+        157
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "về số thấp trên đường ướt bánh sau trượt",
+      "proposed_title": "Đường ướt sau mưa: về số thấp quá gấp làm bánh sau dễ trượt, cách giảm số cho êm bằng xe số và xe côn tay",
+      "proposed_url": "https://rentbikehanoi.com/vi/ve-so-thap-tren-duong-uot-banh-sau-de-truot-giam-so-em/",
+      "search_intent": "Người lái xe số hoặc côn tay trong ngày mưa phùn thường thả côn nhanh khi về số hay giảm tốc bằng phanh động cơ, lo bánh sau bị khóa trên mặt đường trơn; cần biết nhả ga, thả côn và chọn số thế nào để giảm số êm.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0159"
+    },
+    "TH-VI-0172": {
+      "admitted_at": "2026-10-24T14:50:32.324802+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "xe điện không tiếng động người đi bộ không nghe thấy",
+      "proposed_title": "Xe điện chạy gần như không tiếng động: người đi bộ không nghe thấy bạn, nên chạy và bấm còi thế nào",
+      "proposed_url": "https://rentbikehanoi.com/vi/xe-dien-chay-khong-tieng-dong-nguoi-di-bo-khong-nghe-thay/",
+      "search_intent": "Người lần đầu đi xe điện giữa phố đông và hẻm nhỏ nhận ra người đi bộ không nghe thấy xe tới gần; cần cách giảm tốc, bấm còi nhẹ, quan sát và chọn đoạn đường phù hợp để giảm nguy cơ va chạm.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0172"
+    },
+    "TH-VI-0173": {
+      "admitted_at": "2026-10-24T14:50:32.345792+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "chế độ eco sport phanh tái sinh xe điện",
+      "proposed_title": "Chế độ Eco, Sport và phanh tái sinh trên xe điện thuê: chọn thế nào để pin còn đủ về tới nơi",
+      "proposed_url": "https://rentbikehanoi.com/vi/che-do-eco-sport-va-phanh-tai-sinh-xe-dien-thue/",
+      "search_intent": "Người dùng xe điện thuê thấy nút chọn chế độ lái và cảm giác xe tự hãm khi nhả ga; muốn biết mỗi chế độ ảnh hưởng thế nào đến quãng đường và độ êm, và nên đặt chế độ nào khi chưa quen hoặc khi pin còn ít.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0173"
+    },
     "TH-VI-0174": {
       "admitted_at": "2026-10-24T09:55:06.641623+00:00",
       "category_id": 158,
@@ -31600,6 +31946,68 @@
       ],
       "status": "READY",
       "topic_id": "TH-VI-0176"
+    },
+    "TH-VI-0177": {
+      "admitted_at": "2026-10-24T14:50:32.368833+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "pin axit chì hay lithium xe điện đọc nhãn",
+      "proposed_title": "Pin axit chì hay pin lithium trên xe điện: đọc nhãn pin để biết thời gian sạc, trọng lượng và nơi để pin",
+      "proposed_url": "https://rentbikehanoi.com/vi/pin-axit-chi-hay-pin-lithium-xe-dien-doc-nhan-pin/",
+      "search_intent": "Người cần xe điện ít bất ngờ muốn biết xe thuê dùng loại pin nào qua nhãn trên pin và sách hướng dẫn, vì loại pin quyết định thời gian sạc, trọng lượng xe, cách bảo quản và cách xử lý khi ngập nước hoặc nóng.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0177"
+    },
+    "TH-VI-0179": {
+      "admitted_at": "2026-10-24T14:50:32.389014+00:00",
+      "category_id": 158,
+      "category_path": [
+        140,
+        147,
+        158
+      ],
+      "cluster": "chon-xe-va-so-sanh",
+      "editorial_waiver": {
+        "decided": "2026-10-24",
+        "reason": "The article states the technique or explanation generically and names no model-specific value, place, hour or rule; the manufacturer manual or an on-site check is only pointed to (read the label or manual, ask the shop). Reviewed read-only before it is stored.",
+        "set_aside": [
+          "manufacturer_manual"
+        ]
+      },
+      "language": "vi",
+      "primary_keyword": "tay ga xe điện nhạy làm quen",
+      "proposed_title": "Tay ga xe điện phản hồi tức thì: tập làm quen ở bãi vắng để không bị giật bắn khi xuất phát",
+      "proposed_url": "https://rentbikehanoi.com/vi/tay-ga-xe-dien-nhay-tap-lam-quen-o-bai-vang/",
+      "search_intent": "Người quen xe xăng thấy xe điện vọt ngay khi vặn ga, dễ giật mình và mất lái ở chỗ chật; cần biết cách vặn ga từ từ, tập ở bãi vắng và kiểm tra chế độ lái trước khi ra phố.",
+      "sources": [
+        {
+          "document": "e09117dc250bcb8ec502f2dcabe1f883862dcddf0ea00633f5d8cf3831b85675",
+          "supports": "Chủ cửa hàng cung cấp tên, địa chỉ, giờ mở cửa, số điện thoại, các khoảng giá tham khảo và phí gia hạn đã được xác nhận, dùng ở những chỗ bài nêu; phần lời khuyên còn lại là kiến thức chung, không phải dữ kiện của cửa hàng; tệp không có chính sách giao xe, cọc hay hoàn cọc.",
+          "url": "repo://config/business-facts.json"
+        }
+      ],
+      "status": "PLANNED",
+      "topic_id": "TH-VI-0179"
     },
     "TH-VI-0184": {
       "admitted_at": "2026-10-24T11:27:19.250653+00:00",
@@ -33509,5 +33917,5 @@
       "topic_id": "TH-VI-0491"
     }
   },
-  "version": 2108
+  "version": 2109
 }
